@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Requerimientos</title>
+		<meta charset="utf-8"> 
+	</head>
+	<body>
+		<h2>Roles</h2>
+		<p>
+			Los roles determinarán los privilegios y posibles acciones que pueda realizar un usuario. Existen acciones que serán comunes para todos los roles:
+		</p>
+		<ul>
+			<li>Solicitar, aceptar y cancelar citas.</li>
+			<li>Enviar mensajes privados dentro de la aplicación (ver sección de Mensajería Directa más adelante).</li>
+		</ul>
+		<p>
+			Los usuarios del sistema deberán tener asociado uno o varios de los siguientes roles:
+		</p>
+		<ul>
+			<li>Estudiante:
+				<ul>
+					<li>Registrarse en el sistema usando su cuenta de correo de Cenfotec y contraseña.</li>
+					<li>No tiene la capacidad de proponer una fecha a: profesores, asistentes de cursos, directores académicos y el rector.</li>
+				</ul>			
+			</li>
+			<li>Asistente de curso:
+				<ul>
+					<li>Debe ser registrado por el administrador.</li>
+					<li>Puede proponer fechas u horas de reunión.</li>
+				</ul>			
+			</li>
+			<li>Encargado de registro:
+				<ul>
+					<li>Dispone de la capacidad de realizar las mismas acciones del asistente del curso, con la excepción de registrarse por sí mismo.</li>
+				</ul>			
+			</li>
+			<li>Profesor:
+				<ul>
+					<li>Puede asignar una hora a alguna cita solicitada.</li>
+					<li>Puede agregar en su perfil personal las horas que tiene disponibles para atención.</li>
+					<li>Puede cambiar el estado de una cita a “finalizada”.</li>
+				</ul>			
+			</li>
+			<li>Director académico:
+				<ul>
+					<li>Puede crear las carreras.</li>
+					<li>Puede crear los cursos y asignarlos a la carrera.</li>
+					<li>Puede asignar profesores a cursos.</li>
+					<li>Puede asignar una hora a alguna cita solicitada.</li>
+					<li>Puede agregar en su perfil personal las horas que tiene disponibles para atención.</li>
+					<li>Puede cambiar el estado de una cita a “finalizada”.</li>
+				</ul>			
+			</li>
+			<li>Rector:
+				<ul>
+					<li>Puede asignar una hora a alguna cita solicitada.</li>
+					<li>Puede agregar en su perfil personal las horas que tiene disponibles para atención.</li>
+					<li>Puede cambiar el estado de una cita a “finalizada”.</li>
+				</ul>			
+			</li>
+			<li>Administrador:
+				<ul>
+					<li>Dispone de todos los permisos para crear, modificar y eliminar cualquier tipo de información del sistema.</li>
+					<li>Puede crear usuarios.</li>
+					<li>Puede asignar roles a otros usuarios.</li>
+				</ul>			
+			</li>
+		</ul>
+		
+		<p>
+			Estos roles están organizados de forma jerárquica de manera que un rol tiene los accesos o permisos de todos los roles inmediatamente inferiores.
+		</p>
+		<p>
+			El rol de administrador del sistema tendrá todos los permisos y accesos al sistema que le permitirán realizar cualquier tipo de acción con la información almacenada en el sistema.
+		</p>
+		
+		<h2>Usuarios</h2>
+		<p>
+			Los usuarios del sistema contarán con la siguiente información:
+		</p>
+		<ul>
+			<li>Nombre y apellidos.</li>
+			<li>Correo electrónico.</li>
+			<li>Contraseña.</li>
+			<li>Teléfono (opcional).</li>
+			<li>Fotografía (opcional).</li>
+			<li>Cargos (en caso de ser funcionario).</li>
+			<li>Carreras.</li>
+			<li>Ranking: establecido por el sistema (ver detalles acerca del ranking más adelante).</li>
+		</ul>
+		<p>
+			Para cada usuario, según la información anterior, el sistema generará un perfil que estará disponible para otros usuarios. 
+		</p>
+		
+		<h3>Mensajería Directa</h3>
+		<p>
+			El sistema permitirá que los usuarios se envíen mensajes cortos de texto (máximo 160 caracteres) entre ellos como un medio de comunicación rápido para asuntos específicos. Esta opción se mostrará en el perfil de cada usuario. Dichos mensajes podrán ser respondidos.
+El sistema notificará al usuario cada vez que inicie sesión si ha recibido algún mensaje nuevo. 
+		</p>
+		
+		<h3>Ranking de Usuarios</h3>
+		<p>
+			Otra funcionalidad de la aplicación será un sistema de ranking en el que los usuarios puedan calificarse basándose en la experiencia de la cita.
+		</p>
+		
+		<ul>
+			<li>Inicialmente todos los usuarios tendrán un ranking por defecto de 0 (cero) y que aumentará basado en la puntuación que otro usuario le asigne después de una cita se haya finalizado, cancelado o que una de las personas no se presente. </li>
+			<li>En cada caso, el sistema hará una encuesta a la partes involucradas en la que se les permitirá brindar información acerca de la cita como: puntuación (la escala de puntuación se definirá más adelante) y un campo de observaciones en el que el usuario pueda explicar la razón de la puntuación.</li>
+			<li>Con cada evaluación el ranking de los usuarios aumentará o disminuirá. Este ranking se mostrará en el perfil de cada usuario.</li>
+		</ul>	
+		
+		
+		<h2>Reportes del Sistema</h2>
+		<h3>Reporte para todos los usuarios</h3>
+		<ul>
+			<li>Reporte de Citas: Reporte con detalles y estados de todas las citas que haya solicitado en el sistema, con la posibilidad de realizar filtros específicos por (fecha, estado u otros)</li>	
+		</ul>	
+		<h3>Reportes del director académico y rector</h3>
+		<ul>
+			<li>Reporte de carreras creadas.</li>	
+			<li>Reporte de cursos asignados.</li>	
+			<li>Reporte de profesores asignados.</li>	
+			<li>Reporte de carreras creadas.</li>	
+		</ul>
+		<h3>Reportes administrativos</h3>
+		<ul>
+			<li>Acceso a todos los reportes anteriores.</li>	
+			<li>Reporte de usuarios del sistema y sus privilegios.</li>	
+		</ul>
+	</body>
+</html>

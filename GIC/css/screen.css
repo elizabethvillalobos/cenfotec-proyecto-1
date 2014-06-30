@@ -1,0 +1,96 @@
+html {}
+
+body {}
+
+
+
+/* ----------
+   Headings
+   ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {}
+
+
+
+/* ----------
+   Paragraphs
+   ---------- */
+p {}
+
+
+
+/* ----------
+   Lists
+   ---------- */
+ol, 
+ul {}
+
+li {}
+
+
+
+/* ----------
+   Forms
+   ---------- */
+form {}
+
+button {}
+
+fieldset {}
+
+input[type="input"],
+input[type="password"] {}
+
+input[type="radio"] {}
+
+input[type="checkbox"] {}
+
+label {}
+
+textarea {}
+
+.btn-primary {}
+
+.btn-secondary {}
+
+.form-row {
+
+}
+
+
+
+/* ----------
+   Alerts
+   ---------- */
+.alert-error {}
+
+.alert-info {}
+
+.alert-success {}
+
+.alert-warning {}
+
+
+
+/* ----------
+   Header
+   ---------- */
+header {}
+
+
+
+/* ----------
+   Main menu
+   ---------- */
+.main-nav {}
+
+
+/* ----------
+   Footer
+   ---------- */
+footer {}
+

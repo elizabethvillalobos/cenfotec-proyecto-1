@@ -14,10 +14,12 @@
 */
 
 html { 
+
    background: #bdc3c7;
 }
 
 body {
+
    font-family: Arial, sans-serif;
    font-size: 14px;
    margin: 20px auto;
@@ -32,21 +34,30 @@ h1,
 h2,
 h3,
 h4 {
+
    color: #7f8c8d;
    font-family: 'Oswald', sans-serif;
    margin: 15px 0;
    text-transform: uppercase;
 }
+
 h1 {
+
    font-size: 24px;
 }
+
 h2 {
+
    font-size: 22px;
 }
+
 h3 {
+
    font-size: 20px;
 }
+
 h4 {
+
    font-size: 18px;
 }
 
@@ -55,6 +66,7 @@ h4 {
    Parrafos
    ---------- */
 p {
+
    color: #7f8c8d;
    line-height: 20px;
    margin: 10px 0;
@@ -66,17 +78,24 @@ p {
    ---------- */
 ol, 
 ul {
+
    color: #7f8c8d;
    margin: 15px 0 0 15px;
 }
+
 ul {
+
    list-style: disc;
 }
+
 ol {
+
    list-style: decimal;
    margin-left: 20px;
 }
+
 li {
+
    line-height: 20px;
 }
 
@@ -118,6 +137,7 @@ input[type="radio"] {}
 input[type="checkbox"] {}
 
 label {
+
    float: left;
    line-height: 1.8;
    width: 180px;
@@ -153,10 +173,12 @@ textarea {
 }
 
 .btn-primary {
+
    background: #e74c3c;
 }
 
 .btn-secondary {
+<<<<<<< HEAD
    background: #bdc3c7;
 }
 
@@ -202,14 +224,17 @@ textarea {
 
 .form-row {
    clear: both;
+   background: #333;
    margin: 15px auto;
    overflow: hidden;
 }
 
 .form-row.error input {
+
    border: 1px solid red;
 }
 
+<<<<<<< HEAD
 .form-row-button {
    margin-left: 180px;
 }
@@ -229,11 +254,22 @@ textarea {
    float: none;
 }
 
+#frmRegistroCurso{
+   display: block;
+   height: 200px;
+   width: 500px;
+}
+
+.txtRegistroCurso{
+   margin: 15px auto;
+}
+
 
 /* ----------
    Enlaces
    ---------- */
 a:hover {
+
    text-decoration: none;
 }
 
@@ -241,6 +277,7 @@ a:hover {
    Notificaciones
    ---------- */
 .notificacion {
+
    background: #c0392b;
    -webkit-border-radius: 15px;
    -moz-border-radius: 15px;
@@ -266,33 +303,40 @@ a:hover {
 .alert-info,
 .alert-success,
 .alert-warning {
+
    border: 1px solid;
    font-size: 12px;
    padding: 3px;
 }
+
 .alert-error:before,
 .alert-info:before,
 .alert-success:before,
 .alert-warning:before {
+
    margin: 0 8px 0 0;
    position: relative;
    top: 3px;
 }
 
 .alert-error {
+
    border-color: red;
    color: red;  
 }
 .alert-error:before {
+
    margin: 0 0 0 -5px;
 }
 
 .alert-success {
+
    border-color: #2ecc71;
    color: #2ecc71;
 }
 
 .alert-warning {
+
    border-color: #f1c40f;
    color: #f1c40f;
 }
@@ -301,26 +345,34 @@ a:hover {
    Tablas
    ---------- */
 table {
+
    width: 100%;
 }
 td {
+
    padding: 5px;
    
 }
+
 th {
+
    background: #e74c3c;
    color: #ecf0f1;
    padding: 5px;
 }
+
 tr:nth-child(even) td {
+
    background: #ecf0f1;
 }
+
 
 
 /* ----------
    Mods
    ---------- */
 .mod-hd {
+
    border-bottom: 2px solid #ecf0f1;
 }
 .mod-bd {}
@@ -344,6 +396,7 @@ tr:nth-child(even) td {
    Header
    ---------- */
 header {
+
    -webkit-border-radius: 8px 8px 0 0;
    -moz-border-radius: 8px 8px 0 0;
    border-radius: 8px 8px 0 0;
@@ -352,12 +405,17 @@ header {
    min-height: 90px;
    position: relative;
 }
+
 header a {
+
    color: #bdc3c7;
 }
+
 header a:hover {
+
    color: #c0392b;
 }
+
 .logo {
    background: url('../images/system/cenfotec-logo.png') no-repeat;
    background-size: 80%;
@@ -374,19 +432,25 @@ header a:hover {
    Main menu
    ---------- */
 .main-nav {
+
    position: absolute;
    left: 18%;
    top: 35px;
 }
+
 .main-nav ul {
+
    list-style: none;
    margin: 0;
 }
+
 .main-nav li {
+
    float: left;
    line-height: 1;
    margin-right: 5px;
 }
+
 .main-nav a {
    -webkit-transition: color 0.2s;
    transition: color 0.2s;
@@ -396,16 +460,22 @@ header a:hover {
    text-decoration: none;
    width: 52px;   
 }
+
 .main-nav a:hover,
 .main-nav .active {
+
    color: #e74c3c;
 }
+
 .main-nav a:hover span,
 .main-nav .active span {
+
    color: #e74c3c;
    opacity: 1;
 }
+
 .main-nav a:before {
+
    font-size: 28px;
    left: 0;
    margin: 0;
@@ -414,7 +484,9 @@ header a:hover {
    text-align: center;
    top: 0;
 }
+
 .main-nav span {
+
    -webkit-transition: opacity 0.2s;
    transition: opacity 0.2s;
    bottom: 0; 
@@ -424,10 +496,14 @@ header a:hover {
    text-align: center;
    width: 100%;
 }
+
 .main-nav .configuracion span {
+
    margin-left: -6px;
 }
+
 .main-nav .mensajeria span {
+
    margin-left: -2px;
 }
 
@@ -436,11 +512,14 @@ header a:hover {
    Busqueda
    ---------- */
 .busqueda {
+
    left: 470px;
    position: absolute;
    top: 36px;
 }
+
 #q {
+
    border: 1px solid #bdc3c7;
    -webkit-border-radius: 8px;
    -moz-border-radius: 8px;
@@ -451,14 +530,20 @@ header a:hover {
    -webkit-transition: width 0.3s;
    transition: width 0.3s;
 }
+
 #q:focus {
+
    width: 200px;
 }
+
 #q:focus,
 #btnBuscar:focus {
+
    outline: 0;
 }
+
 #btnBuscar {
+
    background: transparent;
    border: 0;
    color: #7f8c8d;
@@ -467,12 +552,16 @@ header a:hover {
    top: 0;
    width: 32px;
 }
+
 #btnBuscar:before {
+
    font-size: 16px;
    margin: 0;
 }
+
 #q:focus,
 #btnBuscar:focus {
+
    outline: 0;
 }
 
@@ -481,6 +570,7 @@ header a:hover {
    User info
    ---------- */
 .usr-info {
+
    font-size: 12px;
    min-width: 250px;
    position: absolute;
@@ -488,25 +578,37 @@ header a:hover {
    text-align: right;
    top: 25px;
 }
+
 .usr-info a {
+
    color: #bdc3c7;
 }
+
 .usr-info ul {
+
    clear: left;
    margin: 0;
 }
+
 .usr-info li {
+
    display: inline-block;
 }
+
 .usr-greeting {
+
    line-height: 22px;
 }
+
 .usr-editar-perfil {
+
    border-right: 1px solid #bdc3c7;
    margin-right: 3px;
    padding-right: 6px;
 }
+
 .usr-photo {
+
    border: 1px solid #bdc3c7;
    float: right;
    margin-left: 10px;
@@ -517,6 +619,7 @@ header a:hover {
    Aside
    ---------- */
 aside {
+
    background: #3c3c3c;
    bottom: 50px;
    font-size: 14px;
@@ -526,39 +629,55 @@ aside {
    top: 90px;
    width: 18%;
 }
+
 .secondary-nav,
 .thrd-nav-category {
+
    margin: 0;
 }
+
 .sec-nav-category,
 .thrd-nav-category {
+
    list-style: none;
    margin: 0;
 }
+
 .secondary-nav a {
+
    border-bottom: 1px solid #666;
    color: #bdc3c7;
    display: block;
    padding: 8px 5px;
    text-decoration: none;
 }
+
 .secondary-nav .active {
+
    background: #e74c3c;
    border-left: 3px solid #c0392b;
    border-bottom: 1px solid #c0392b;
    color: #ecf0f1;
 }
+
 .secondary-nav li {
+
    margin: 0 10px;
    position: relative;
 }
+
 .thrd-nav-category li {
+
    margin: 0;
 }
+
 .thrd-nav-category a {
+
    padding-left: 15px;
 }
+
 .thrd-nav-category .active {
+
    background: #666;
    border-bottom-color: #666;
    border-left: 0;
@@ -569,6 +688,7 @@ aside {
    Main content
    ---------- */
 main {
+
    background: #fff;
    color: #7f8c8d;
    margin-left: 18%;
@@ -581,6 +701,7 @@ main {
    Footer
    ---------- */
 footer {
+
    background: #c0392b; 
    -webkit-border-radius: 0 0 8px 8px;
    -moz-border-radius: 0 0 8px 8px;
@@ -590,7 +711,9 @@ footer {
    margin: 0 auto 10px;
    padding: 5px 15px;
 }
+
 footer p {
+
    color: #ecf0f1;
 }
 

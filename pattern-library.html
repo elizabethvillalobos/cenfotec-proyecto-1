@@ -3,8 +3,7 @@
 	<head>
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
 		<meta charset="utf-8">
-		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/reset.css">
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/flaticon.css">
 		<link rel="stylesheet" href="css/gic.css">
 	</head>
@@ -102,34 +101,34 @@
 							<tr>
 								<th>Columna 1</th>
 								<th>Columna 2</th>
-								<th>Columna 3</th>
-								<th>Columna 4</th>
+								<th class="center">Columna centrada</th>
+								<th class="right">Columna a la derecha 4</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>Dato 1</td>
 								<td>Dato 2</td>
-								<td>Dato 3</td>
-								<td>Dato 4</td>
+								<td class="center">Dato 3</td>
+								<td class="right">Dato 4</td>
 							</tr>
 							<tr>
 								<td>Dato 1</td>
 								<td>Dato 2</td>
-								<td>Dato 3</td>
-								<td>Dato 4</td>
+								<td class="center">Dato 3</td>
+								<td class="right">Dato 4</td>
 							</tr>
 							<tr>
 								<td>Dato 1</td>
 								<td>Dato 2</td>
-								<td>Dato 3</td>
-								<td>Dato 4</td>
+								<td class="center">Dato 3</td>
+								<td class="right">Dato 4</td>
 							</tr>
 							<tr>
 								<td>Dato 1</td>
 								<td>Dato 2</td>
-								<td>Dato 3</td>
-								<td>Dato 4</td>
+								<td class="center">Dato 3</td>
+								<td class="right">Dato 4</td>
 							</tr>
 						</tbody>
 					</table>
@@ -140,60 +139,75 @@
 							<legend>Ejemplo basico</legend>
 							<div class="form-row">
 								<label for="">Text input:</label>
-								<input id="" type="text" value="" placeholder="Ingrese el dato...">
+								<input id="" type="text" placeholder="Enter something" class="form-control" />
 							</div>
 							<div class="form-row ">
 								<label for="">Password input:</label>
-								<input id="" type="password" value="">
+								<input id="" type="password" placeholder="Password here" class="form-control" />
 							</div>
 							<div class="form-row">
-								<label for="">Select input:</label>
-								<select id="">
-									<option value="">Seleccione una opcion</option>
-									<option value="valor1">Valor 1</option>
-									<option value="valor2">Valor 2</option>
-									<option value="valor3">Valor 3</option>
-									<option value="valor4">Valor 4</option>
-								</select>
+                                <label for="">Select input:</label>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                        Dropdown<span class="caret"></span>
+                                    </button>
+                                    <span class="dropdown-arrow"></span>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#fakelink">Sub Menu Element</a></li>
+                                        <li><a href="#fakelink">Sub Menu Element</a></li>
+                                        <li><a href="#fakelink">Sub Menu Element</a></li>
+                                    </u>
+                                </div>
+
+                                <select>
+                                    <option value="0">My Profile</option>
+                                    <option value="1">My Friends</option>
+                                </select>
+
+                                <select multiple="multiple">
+                                    <option value="0">My Profile</option>
+                                    <option value="1" selected>My Friends</option>
+                                    <option value="2" selected>My Books</option>
+                                    <option value="3">My CDs</option>
+                                </select>
 							</div>
 							
 							<div class="form-row form-row-checkbox">
-								<div>
-									<input id="checkbox1" name="option1" type="checkbox" value="checkbox1" checked>
-									<label for="checkbox1">Checkbox</label>
-								</div>
-								<div>
-									<input id="checkbox2" name="option1" type="checkbox" value="checkbox2" checked>
-									<label for="checkbox2">Checkbox</label>
-								</div>
-								<div>
-									<input id="checkbox3" name="option1" type="checkbox" value="checkbox3" checked>
-									<label for="checkbox3">Checkbox</label>
-								</div>
+								<label class="checkbox" for="checkbox1">
+  									<input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
+ 									Checkbox
+								</label>
+								<label class="checkbox" for="checkbox1">
+  									<input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
+ 									Checkbox
+								</label>
+								<label class="checkbox" for="checkbox1">
+  									<input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
+ 									Checkbox
+								</label>
 							</div>
 
 							<div class="form-row form-row-radio">
-								<div>
-									<input id="radio1" name="radioOption" type="checkbox" checked>
-									<label for="radio1">Radio</label>
-								</div>
-								<div>
-									<input id="radio2" name="radioOption" type="checkbox" checked>
-									<label for="radio2">Radio</label>
-								</div>
-								<div>
-									<input id="radio3" name="radioOption" type="checkbox" checked>
-									<label for="radio3">Radio</label>
-								</div>
+								<label class="radio">
+                                    <input type="radio" name="group1" value="1" data-toggle="radio">Radio off
+                                </label>
+
+                                <label class="radio">
+                                    <input type="radio" name="group1" value="2" data-toggle="radio" checked>Radio on
+                                </label>
+
+                                <label class="radio">
+                                    <input type="radio" name="group1" value="1" data-toggle="radio">Radio off
+                                </label>
 							</div>
 							
 							<div class="form-row">
-								<label for="">Textarea:</label>
-								<textarea id=""></textarea>
+								<label for="textarea1">Textarea:</label>
+                                <textarea id="textarea1" placeholder="Enter text here..." class="form-control"></textarea>
 							</div>
 							<div class="form-row form-row-button">
-								<button class="btn-primary">Boton primario</button>
-								<button class="btn-secondary">Cancel</button>
+								<button class="btn btn-primary">Boton primario</button>
+								<button class="btn btn-default">Boton secundario</button>
 							</div>
 						</fieldset>
 					</form>
@@ -211,6 +225,16 @@
 			<footer>
 				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
 			</footer>
+
+			<!-- Load JS -->
+			<script src="js/jquery-1.8.3.min.js"></script>
+    		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/bootstrap-select.js"></script>
+    		<script src="js/flatui-checkbox.js"></script>
+    		<script src="js/flatui-radio.js"></script>
+            <script src="js/gic.js"></script>
+
 		</div>
 	</body>
 </html>

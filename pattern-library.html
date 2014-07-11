@@ -4,7 +4,6 @@
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
 		<meta charset="utf-8">
 		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/flaticon.css">
 		<link rel="stylesheet" href="css/gic.css">
 	</head>
 	<body>
@@ -136,40 +135,21 @@
 					<h2>Formulario</h2>
 					<form id="solicitar-cita" action="#" method="post">
 						<fieldset>
-							<legend>Ejemplo basico</legend>
+							<legend>Ejemplo básico</legend>
 							<div class="form-row">
-								<label for="">Text input:</label>
-								<input id="" type="text" placeholder="Enter something" class="form-control" />
+								<label for="text1">Text input:</label>
+								<input id="text1" type="text" placeholder="Enter something" class="form-control" />
 							</div>
+
+                            <div class="form-row form-control-icon">
+                                <label for="text1">Text input with icon:</label>
+                                <span class="flaticon-male12"></span>
+                                <input id="text1" type="text" placeholder="Enter something" class="form-control" />
+                            </div>
+
 							<div class="form-row ">
-								<label for="">Password input:</label>
-								<input id="" type="password" placeholder="Password here" class="form-control" />
-							</div>
-							<div class="form-row">
-                                <label for="">Select input:</label>
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                        Dropdown<span class="caret"></span>
-                                    </button>
-                                    <span class="dropdown-arrow"></span>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#fakelink">Sub Menu Element</a></li>
-                                        <li><a href="#fakelink">Sub Menu Element</a></li>
-                                        <li><a href="#fakelink">Sub Menu Element</a></li>
-                                    </u>
-                                </div>
-
-                                <select>
-                                    <option value="0">My Profile</option>
-                                    <option value="1">My Friends</option>
-                                </select>
-
-                                <select multiple="multiple">
-                                    <option value="0">My Profile</option>
-                                    <option value="1" selected>My Friends</option>
-                                    <option value="2" selected>My Books</option>
-                                    <option value="3">My CDs</option>
-                                </select>
+								<label for="password1">Password input:</label>
+								<input id="password1" type="password" placeholder="Password here" class="form-control" />
 							</div>
 							
 							<div class="form-row form-row-checkbox">
@@ -200,6 +180,17 @@
                                     <input type="radio" name="group1" value="1" data-toggle="radio">Radio off
                                 </label>
 							</div>
+
+                            <div class="form-row">
+                                <label for="select1">Select:</label>
+                                <select id="select1">
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="0">Opción 1</option>
+                                    <option value="1">Opción 2</option>
+                                    <option value="3">Opción 3</option>
+                                    <option value="4">Opción 4</option>
+                                </select>
+                            </div>
 							
 							<div class="form-row">
 								<label for="textarea1">Textarea:</label>

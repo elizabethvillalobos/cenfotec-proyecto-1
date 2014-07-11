@@ -72,11 +72,75 @@
    font-family: Flaticon;
    font-size: 20px;
    font-style: normal;
-   margin-left: 20px;
 }
 
+.flaticon-add73:before {
+   content: "\e000";
+}
+.flaticon-black218:before {
+   content: "\e001";
+}
+.flaticon-calendar68:before {
+   content: "\e002";
+}
+.flaticon-check34:before {
+   content: "\e003";
+}
+.flaticon-close3:before {
+   content: "\e004";
+}
+.flaticon-filled9:before {
+   content: "\e005";
+}
+.flaticon-information38:before {
+   content: "\e006";
+}
+.flaticon-list40:before {
+   content: "\e007";
+}
+.flaticon-lock26:before {
+   content: "\e008";
+}
+.flaticon-machine2:before {
+   content: "\e009";
+}
+.flaticon-magnifier12:before {
+   content: "\e00a";
+}
+.flaticon-male12:before {
+   content: "\e00b";
+}
+.flaticon-multiple25:before {
+   content: "\e00c";
+}
+.flaticon-remove11:before {
+   content: "\e00d";
+}
+.flaticon-remove9:before {
+   content: "\e00e";
+}
+.flaticon-seo2:before {
+   content: "\e00f";
+}
+.flaticon-small24:before {
+   content: "\e010";
+}
+.flaticon-star83:before {
+   content: "\e011";
+}
+.flaticon-verification5:before {
+   content: "\e012";
+}
+.flaticon-warning12:before {
+   content: "\e013";
+}
+.flaticon-warning2:before {
+   content: "\e014";
+}
+
+
 html { 
-   background: #95a5a6;
+   background: #ecf0f1;
 }
 
 body {
@@ -163,6 +227,9 @@ li {
 /* ----------
    Enlaces
    ---------- */
+a {
+   color: #c0392b;
+}
 a:hover {
    text-decoration: none;
 }
@@ -187,25 +254,30 @@ form {
 }
 
 fieldset {
-   margin-bottom: 30px;
-   padding: 20px;
+   margin-bottom: 20px;
+   padding: 5px 20px;
 }
 
 label {
    font-size: 14px;
    font-weight: normal;
-   line-height: 2;
+   line-height: 1.3;
+   width: 100%;
 }
 
 legend {
    border-bottom: none;
    color: inherit;
    float: left;
-   font-size: 24px;
+   font-size: 18px;
    line-height: inherit;
    margin-bottom: 15px;
    padding: 0;
    width: 100%;
+}
+
+select {
+   clear: both;
 }
 
 textarea.form-control {
@@ -213,6 +285,8 @@ textarea.form-control {
    line-height: 1.5;
 }
 
+
+/*flat checkboxes y radios*/
 .checkbox,
 .radio {
    font-size: 14px;
@@ -247,32 +321,39 @@ textarea.form-control {
    transition: color 0.25s linear;
 }
 
-.checkbox .icons {
-   background: #ecf0f1;
-}
-
-.radio .icons {
-   border: 4px solid #ecf0f1;
-   border-radius: 20px;
-}
-
+/*first-icon es un span que va tener el checkbox
+o el radio button como tal */
 .checkbox .icons .first-icon,
 .radio .icons .first-icon,
 .checkbox .icons .second-icon,
 .radio .icons .second-icon {
-  display: inline-table;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: transparent;
-  margin: 0;
-  opacity: 1;
-  filter: alpha(opacity=100);
+   display: inline-table;
+   left: 0;
+   position: absolute;
+   margin: 0;
+   opacity: 1;
+   top: 0;   
 }
+
+.checkbox .icons .first-icon {
+   background: #ecf0f1;
+   border-radius: 5px;
+   height: 20px;
+   width: 20px;
+}
+
+.radio .icons .first-icon {
+   border: 4px solid #ecf0f1;
+   border-radius: 20px;
+   height: 18px;
+   width: 18px;
+}
+
+/*second-icon es un span que va a tener el estado
+del checkbox o el radio*/
 .checkbox .icons .second-icon,
 .radio .icons .second-icon {
   opacity: 0;
-  filter: alpha(opacity=0);
 }
 
 .checkbox .icons .second-icon:before {
@@ -283,25 +364,31 @@ textarea.form-control {
    font-style: normal;
 }
 
-.checkbox:hover,
-.radio:hover {
-  -webkit-transition: color 0.25s linear;
-  transition: color 0.25s linear;
+.radio .icons .second-icon {
+   background: #ecf0f1;
+   border-radius: 5px;
+   height: 6px;
+   left: 6px;
+   top: 6px;
+   width: 6px;
 }
 
-.checkbox:hover .first-icon,
-.radio:hover .first-icon {
-  opacity: 0;
+/*hover*/
+.checkbox:hover,
+.radio:hover {
+   -webkit-transition: color 0.25s linear;
+   transition: color 0.25s linear;
 }
 
 .checkbox:hover .second-icon,
 .radio:hover .second-icon {
-  opacity: 1;
+   opacity: 1;
 }
 
+/*checked*/
 .checkbox.checked,
 .radio.checked {
-  color: #e74c3c;
+   color: #e74c3c;
 }
 
 .checkbox.checked .icons .second-icon {
@@ -316,20 +403,40 @@ textarea.form-control {
    font-style: normal;
 }
 
+.radio.checked .icons .first-icon {
+   border-color: #e74c3c;
+}
+
+.radio.checked .icons .second-icon {
+   background: #e74c3c;
+   border-radius: 5px;
+   height: 6px;
+   left: 6px;
+   opacity: 1;
+   top: 6px;
+   width: 6px;
+}
+
+/*selects*/
+
+
+
+/*form-control se usa para inputs tipo text, password
+y textareas*/
 .form-control {
-  border: 2px solid #bdc3c7;
-  color: #3c3c3c;
-  font-family: "Lato", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1;
-  padding: 6px 12px;
-  height: 32px;
-  -webkit-appearance: none;
-  border-radius: 6px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
-  transition: border .25s linear, color .25s linear, background-color .25s linear;
+   border: 2px solid #bdc3c7;
+   color: #3c3c3c;
+   font-family: "Lato", Helvetica, Arial, sans-serif;
+   font-size: 14px;
+   height: 32px;
+   line-height: 1;
+   padding: 6px 12px;
+   -webkit-appearance: none;
+   border-radius: 6px;
+   -webkit-box-shadow: none;
+   box-shadow: none;
+   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+   transition: border .25s linear, color .25s linear, background-color .25s linear;
 }
 
 .form-control:focus {
@@ -338,9 +445,25 @@ textarea.form-control {
    outline: 0;
 }
 
+.form-control-icon {
+   position: relative;
+}
+
+.form-control-icon span {
+   color: #bdc3c7;
+   left: 5px;
+   position: absolute;
+   top: 28px;
+   z-index: 1;
+}
+
+.form-control-icon input {
+   text-indent: 15px;
+}
+
 .form-row {
    clear: both;
-   margin: 15px auto;
+   margin: 10px auto;
 }
 
 
@@ -407,7 +530,8 @@ fieldset[disabled] .btn {
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
-.btn-primary.active {
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
    color: #ffffff;
    background-color: #c0392b;
    border-color: #c0392b;
@@ -418,6 +542,76 @@ fieldset[disabled] .btn {
   min-width: 140px;
   padding-left: 30px;
   padding-right: 30px;
+}
+
+/*Selects*/
+.dropdown-arrow {
+   border-style: solid;
+   border-width: 0 8px 7px;
+   border-color: transparent transparent #bdc3c7 transparent;
+   height: 0;
+   margin-top: 0;
+   opacity: 0;
+   position: absolute;
+   left: 10px;
+   top: 100%;
+   -webkit-transform: rotate(360deg);
+   -webkit-transition: 0.25s;
+   transition: 0.25s;
+   width: 0;
+   z-index: 10;
+}
+
+.open > .dropdown-arrow {
+   margin-top: 11px;
+   opacity: 1;
+}
+
+.dropdown-menu {
+   background-color: #bdc3c7;
+   border: none;
+   -webkit-box-shadow: none;
+   box-shadow: none;
+   display: block;
+   margin-top: 8px;
+   opacity: 0;
+   overflow: visible;
+   padding: 0;
+   visibility: hidden;
+   -webkit-transition: 0.25s;
+   transition: 0.25s;
+}
+
+.open > .dropdown-menu {
+   margin-top: 18px !important;
+   opacity: 1;
+   visibility: visible;
+}
+
+.dropdown-menu a {
+   overflow: hidden;
+}
+
+.dropdown-toggle span {
+   margin-right: 10px;
+}
+
+.dropdown-menu > li > a {
+   color: #ffffff;
+}
+
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:hover,
+.dropdown-menu li.active > a,
+.dropdown-menu li.selected > a {
+   background: #e74c3c;
+   color: #ffffff;
+}
+
+.dropdown-menu li.active > a:hover,
+.dropdown-menu li.selected > a:hover {
+   background: #c0392b;
+   color: #ffffff;
 }
 
 
@@ -461,6 +655,7 @@ fieldset[disabled] .btn {
 }
 
 .alert-error {
+   background: #fcd7d7; 
    border-color: red;
    color: red;  
 }
@@ -749,7 +944,7 @@ header a:hover {
    ---------- */
 aside {
    background: #3c3c3c;
-   bottom: 44px;
+   bottom: 38px;
    font-size: 14px;
    left: 0;
    padding-top: 10px;
@@ -774,8 +969,8 @@ aside {
    display: block;
    padding: 8px;
    text-decoration: none;
-   -webkit-transition: background 0.3s, color 0.3s;
-   transition: background 0.3s, color 0.3s;
+   -webkit-transition: background 0.3s, border 0.3s, color 0.3s;
+   transition: background 0.3s, border 0.3s, color 0.3s;
 }
 
 .secondary-nav a:hover {
@@ -818,8 +1013,10 @@ aside {
    ---------- */
 main {
    background: #fefefe;
+   /*height: 480px;*/
    margin-left: 20%;
    min-height: 300px;
+   /*overflow: scroll;*/
    padding: 10px 20px;
 }
 
@@ -832,12 +1029,12 @@ footer {
    -webkit-border-radius: 0 0 8px 8px;
    -moz-border-radius: 0 0 8px 8px;
    border-radius: 0 0 8px 8px;
-   font-size: 12px;
    margin: 0 auto 10px;
    padding: 10px;
 }
 footer p {
    color: #ecf0f1;
+   font-size: 11px;
    margin: 0;
 }
 

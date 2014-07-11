@@ -248,12 +248,12 @@ textarea.form-control {
 }
 
 .checkbox .icons {
-   background: #ecf0f1;
+   /*background: #ecf0f1;*/
 }
 
 .radio .icons {
-   border: 4px solid #ecf0f1;
-   border-radius: 20px;
+   /*border: 4px solid #ecf0f1;
+   border-radius: 20px;*/
 }
 
 .checkbox .icons .first-icon,

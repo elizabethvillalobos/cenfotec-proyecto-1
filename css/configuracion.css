@@ -82,7 +82,34 @@ hr{
 	color: white;
 }
 
+.form-control1 {
+   border: 2px solid #bdc3c7;
+   color: #3c3c3c;
+   font-family: "Lato", Helvetica, Arial, sans-serif;
+   font-size: 14px;
+   height: 32px;
+   line-height: 1;
+   padding: 6px 12px;
+   -webkit-appearance: none;
+   border-radius: 6px;
+   -webkit-box-shadow: none;
+   box-shadow: none;
+   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+   transition: border .25s linear, color .25s linear, background-color .25s linear;
+   width: 300px;
+}
 
+.form-row-button{
+	float: right;
+	margin-top: -170px;
+	margin-right: 50px;
+}
+
+.btn-secondary{
+	display: block;
+	margin-top: 10px;
+	width: 150px;
+}
 
 
 /*-----------------------------------------------------------------------------*/

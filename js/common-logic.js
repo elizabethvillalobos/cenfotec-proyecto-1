@@ -1,24 +1,28 @@
 
 function validarCamposLlenos(pArreglo, pElementoError, pMsjError){
    var regis=false;
-    for(var i=0; i<pArreglo.length && regis==false; i++){
+    for(var i=0; i<pArreglo.length; i++){
         
-        if(/^\s+$/.test(pArreglo[i])){
+        if(pArreglo[i].value==''){
+           
            regis=true;
         }
         
     }
     
-    if(!regis){
-        pElementoError.className -= ' error'
+    if(regis){
         pElementoError.innerHTML=pMsjError;
+        pElementoError.className += ' error';
     }
+    
+    return regis;
 
 }
 
-function validarCorreo(pCorreo) { 
+function validarCorreo(pCorreo, pElementoError, pMsjError) { 
   var expreg = new RegExp("^[@ucenfotec.ac.cr]$");
   
   if(!expreg.test(pCorreo))
-    alert("El correo es incorrecto");
+    pElementoError.innerHTML=pMsjError;
+    pElementoError.className += ' error';;
 }

@@ -22,11 +22,30 @@ function validarCamposLlenos(pArreglo, pElementoError, pMsjError){
 function validarCorreo(pCorreo, pElementoError, pMsjError) { 
   var expreg = new RegExp("^[@ucenfotec.ac.cr]$");
   
-  if(!expreg.test(pCorreo))
+  if(!expreg.test(pCorreo)){
     pElementoError.innerHTML=pMsjError;
-    pElementoError.className += ' error';;
+    pElementoError.className += ' error';
+  }
 }
 
+function validar(){
+    
+}
+
+function validarCamposIguales(pArreglo, pElemetoError, pMsjError){
+    var diferentes=false;
+    for(var i=0; i<pArreglo.length; i++){
+        if(pArreglo[i].value == pArreglo[i+1].value){
+            diferentes=true;
+        }
+    }    
+    
+    if(diferentes){
+        pElementoError.innerHTML=pMsjError;
+        pElementoError.className += ' error';
+    }
+        
+}
 //validar que solo puedan introducirse letras//
 function soloLetras(e){
        key = e.keyCode || e.which;

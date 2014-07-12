@@ -170,6 +170,7 @@ textarea {
    color: #FFFFFF;
    font-size: 14px;
    padding: 10px 20px;
+   background-color: #666;
 }
 
 .btn-primary {
@@ -224,7 +225,7 @@ textarea {
 
 .form-row {
    clear: both;
-   background: #333;
+   
    margin: 15px auto;
    overflow: hidden;
 }
@@ -254,15 +255,6 @@ textarea {
    float: none;
 }
 
-#frmRegistroCurso{
-   display: block;
-   height: 200px;
-   width: 500px;
-}
-
-.txtRegistroCurso{
-   margin: 15px auto;
-}
 
 
 /* ----------
@@ -717,3 +709,8 @@ footer p {
    color: #ecf0f1;
 }
 
+.textboxError{
+
+border: 2px solid red;
+
+}

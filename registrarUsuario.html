@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/flaticon.css">
 		<link rel="stylesheet" href="css/gic.css">
+		<link rel="stylesheet" href="css/configuracion.css">
 
 		<!-- Aqui deben agregar la hoja de estilo del modulo que corresponda
 		Ejemplo:
@@ -51,10 +52,10 @@
 					<img class="usr-photo" src="images/users/default-user.png" width="40" height="40">
 					<ul>
 						<li>
-							<a href="#" class="usr-editar-perfil">Editar perfil</a>
+							<a class="usr-editar-perfil">Editar perfil</a>
 						</li>
 						<li>
-							<a href="#" class="usr-cerrar-sesion">Cerrar sesión</a>
+							<a class="usr-cerrar-sesion">Cerrar sesión</a>
 						</li>
 					</ul>
 				</section>
@@ -77,19 +78,65 @@
 
 			<main>
 				
-				<form id="frmRegistroCurso">
-					<h2>Registar nuevo curso</h2>
-						<label class="txtRegistroCurso"> Código</label>
-						<input type="text" class="txtRegistroCurso" value placeholder="Ingrese el dato...">
-						<label class="txtRegistroCurso">Nombre</label>
-						<input type="text" class="txtRegistroCurso" value placeholder="Ingrese el dato...">
-						<label class="txtRegistroCurso">Profesor(es)</label>
-				</form>
+				
+					<h2>Ingeniería de Software</h2>
+						<form id="solicitar-cita"  method="post">
+						<fieldset>
+							<legend>Registrar nuevo curso</legend>
+							<div class="form-row">
+								<label for="">Código</label>
+								<input id="txtCodCurso"  class="textbox1" type="text" value="" placeholder="Ingrese el dato...">
+							</div>
+							<div class="form-row ">
+								<label for="">Nombre</label>
+								<input id="txtNomCurso" class="textbox2" type="text" value="" placeholder="Ingrese el dato...">
+							</div>
+							<div class="form-row">
+								<label for="">Profesor(es)</label>
+								<select id="">
+									<option value="">Seleccione una opcion</option>
+									<option value="valor1">Valor 1</option>
+									<option value="valor2">Valor 2</option>
+									<option value="valor3">Valor 3</option>
+									<option value="valor4">Valor 4</option>
+								</select>
+							</div>
+							<div class="form-row">
+								<select class="selecProfCurso">
+									<option value="">Seleccione una opcion</option>
+									<option value="valor1">Valor 1</option>
+									<option value="valor2">Valor 2</option>
+									<option value="valor3">Valor 3</option>
+									<option value="valor4">Valor 4</option>
+								</select>
+							</div>
+							<div class="form-row">
+								<select class="selecProfCurso">
+									<option value="">Seleccione una opcion</option>
+									<option value="valor1">Valor 1</option>
+									<option value="valor2">Valor 2</option>
+									<option value="valor3">Valor 3</option>
+									<option value="valor4">Valor 4</option>
+								</select>
+							</div>
+														
+							<div class="form-row form-row-button">
+								<button class="btn-primary" id="btnCrearCurso">Registrar</button>
+								<button class="btn-secondary">Cancelar</button>
+							</div>
+							<p id="MsjError"></p>
+
+
+						</fieldset>
+					</form>
 			</main>
 			
 			<footer>
 				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
 			</footer>
 		</div>
+
+		<script type="text/javascript" src="JavaScript/configuracion.js"></script>
+
 	</body>
 </html>

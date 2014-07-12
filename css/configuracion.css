@@ -1,0 +1,20 @@
+#frmRegistroCurso{
+
+   display: block;
+   height: 200px;
+   width: 500px;
+}
+
+.txtRegistroCurso{
+
+   margin: 15px auto;
+}
+
+.selecProfCurso{
+
+margin-left: 180px;
+
+}
+
+/*-----------------------------------------------------------------------------*/
+

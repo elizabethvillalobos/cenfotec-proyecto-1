@@ -952,16 +952,19 @@ aside {
    top: 90px;
    width: 20%;
 }
+
 .sec-nav-category,
 .thrd-nav-category {
    margin: 0;
    padding: 0;
 }
+
 .sec-nav-category,
 .thrd-nav-category {
    list-style: none;
    margin: 0;
 }
+
 .secondary-nav a {
    border-bottom: 1px solid #666;
    border-left: 3px solid #3c3c3c;
@@ -995,16 +998,30 @@ aside {
    margin: 0 10px;
    position: relative;
 }
+
+.thrd-nav-category {
+   background: #4a4a4a;
+   height: 175px;
+   overflow: scroll;
+}
+
 .thrd-nav-category li {
    margin: 0;
 }
+
 .thrd-nav-category a {
-   padding-left: 15px;
+   border-left: 0;
+   font-size: 12px;
 }
+
+.thrd-nav-category a:hover {
+   border-left: 0;
+}
+
 .thrd-nav-category .active {
    background: #666;
    border-bottom-color: #666;
-   border-left-color: #e74c3c;
+   border-left: 0;
 }
 
 
@@ -1015,7 +1032,7 @@ main {
    background: #fefefe;
    /*height: 480px;*/
    margin-left: 20%;
-   min-height: 300px;
+   min-height: 380px;
    /*overflow: scroll;*/
    padding: 10px 20px;
 }

@@ -69,15 +69,18 @@ footer{
 .icon{
     position: absolute;
     z-index: 1;
-
+    margin-left: 5px;
 }
 
 input{
-    text-indent: 28px;
+    text-indent: 13px;
     padding: 0;
-}    
+} 
 
+.alert-error{
+    display: none;
+}
 
 .error{
-    display: none;
+    display: block;
 }

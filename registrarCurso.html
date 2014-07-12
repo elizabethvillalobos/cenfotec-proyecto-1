@@ -3,10 +3,9 @@
 	<head>
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
 		<meta charset="utf-8">
-		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/flaticon.css">
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/gic.css">
+		<link rel="stylesheet" href="css/configuracion.css">
 
 		<!-- Aqui deben agregar la hoja de estilo del modulo que corresponda
 		Ejemplo:
@@ -53,10 +52,10 @@
 					<img class="usr-photo" src="images/users/default-user.png" width="40" height="40">
 					<ul>
 						<li>
-							<a href="#" class="usr-editar-perfil">Editar perfil</a>
+							<a class="usr-editar-perfil">Editar perfil</a>
 						</li>
 						<li>
-							<a href="#" class="usr-cerrar-sesion">Cerrar sesión</a>
+							<a class="usr-cerrar-sesion">Cerrar sesión</a>
 						</li>
 					</ul>
 				</section>
@@ -79,19 +78,53 @@
 
 			<main>
 				
-				<form id="frmRegistroCurso">
-					<h2>Registar nuevo curso</h2>
-						<label class="txtRegistroCurso"> Código</label>
-						<input type="text" class="txtRegistroCurso" value placeholder="Ingrese el dato...">
-						<label class="txtRegistroCurso">Nombre</label>
-						<input type="text" class="txtRegistroCurso" value placeholder="Ingrese el dato...">
-						<label class="txtRegistroCurso">Profesor(es)</label>
-				</form>
+				
+					<h2>Ingeniería de Software</h2>
+						<form id="solicitar-cita"  method="post">
+						<fieldset>
+							<legend>Registrar nuevo curso</legend>
+							
+							<div class="form-row">
+								<label for="">Código:</label>
+
+								<input id="txtCodCurso"  class="form-control" type="text" value="" placeholder="Ingrese el dato...">
+							</div>
+							<div class="form-row ">
+								<label for="">Nombre:</label>
+								<input type="text" id="txtNomCurso" class="form-control"  placeholder="Ingrese el dato..." onkeypress="return soloLetras(event)">
+							</div>
+
+							<div class="form-row ">
+								<label for="">Profesor(es):</label>
+								<input type="text" id="txtNomCurso" class="form-control"  placeholder="Ingrese el dato..." onkeypress="return soloLetras(event)">
+							</div>
+
+							
+							<p class="alert-error flaticon-remove11"></p>					
+							<div class="form-row form-row-button">
+								<button class="btn btn-primary" id="btnCrearCurso">Registrar</button>
+								<button class="btn btn-secondary">Cancelar</button>
+							</div>
+							
+
+
+						</fieldset>
+					</form>
 			</main>
 			
 			<footer>
 				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
 			</footer>
 		</div>
+
+		<script type="text/javascript" src="js/configuracion.js"></script>
+		<script type="text/javascript" src="js/common-logic.js"></script>
+	
+		
+		
+  
+	</form>
+
+
 	</body>
 </html>

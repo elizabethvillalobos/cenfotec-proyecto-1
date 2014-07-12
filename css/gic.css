@@ -258,9 +258,8 @@ form {
    border: 2px solid #bdc3c7;
    -moz-border-radius: 5px;
    border-radius: 5px;
-   margin: 0 auto;
-   width: 90%;
-}
+
+   }
 
 fieldset {
    margin-bottom: 20px;
@@ -594,7 +593,6 @@ fieldset[disabled] .btn {
    overflow: visible;
    padding: 0;
    visibility: hidden;
-   -webkit-transition: 0.25s;
    transition: 0.25s;
 }
 
@@ -962,7 +960,6 @@ header a:hover {
    top: 0;
 }
 .main-nav span {
-   -webkit-transition: opacity 0.2s;
    transition: opacity 0.2s;
    bottom: 0; 
    color: #e74c3c;
@@ -1001,7 +998,6 @@ header a:hover {
    font-size: 12px;
    padding: 5px 25px 5px 8px;
    width: 140px;
-   -webkit-transition: width 0.3s;
    transition: width 0.3s;
 }
 #q:focus {
@@ -1215,3 +1211,6 @@ footer p {
    margin: 0;
 }
 
+.textboxError {
+   border: 2px solid red;
+}

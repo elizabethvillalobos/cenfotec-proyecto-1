@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
+		<meta charset="utf-8">
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/flaticon.css">
+		<link rel="stylesheet" href="css/gic.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<h1 class="logo">Gestor Inteligente de Citas</h1>
+
+				<!-- Menu principal -->
+				<nav class="main-nav">
+					<ul>
+						<li>
+							<a href="citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
+						</li>
+						<li>
+							<a href="evaluacion.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
+						</li>
+						<li>
+							<a href="mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+						</li>
+						<li>
+							<a href="reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+						</li>
+						<li>
+							<a href="configuracion.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
+						</li>
+					</ul>
+				</nav>
+
+				<section class="busqueda">
+					<input id="q" type="text" value="" placeholder="Buscar personas" />
+					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
+				</section>
+
+				<section class="usr-info">
+					<span class="usr-greeting">Bienvenido, Elizabeth!</span>
+					<img class="usr-photo" src="images/users/default-user.png" width="40" height="40">
+					<ul>
+						<li>
+							<a href="#" class="usr-editar-perfil">Editar perfil</a>
+						</li>
+						<li>
+							<a href="#" class="usr-cerrar-sesion">Cerrar sesión</a>
+						</li>
+					</ul>
+				</section>
+			</header>
+
+			<aside>
+				<nav class="secondary-nav">
+					<ul class="sec-nav-category">
+						<li>
+							<a href="#" class="active">Categoría activa</a>
+							<ul class="thrd-nav-category">
+								<li><a href="#">Sub-categoría</a></li>
+								<li><a href="#" class="active">Sub-categoría activa</a></li>
+								<li><a href="#">Sub-categoría</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Categoría con notificación <span class="notificacion">5</span></a></li>
+						<li><a href="#">Categoría</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<main>
+				<div class="mod-hd">
+					<h1>Encabezado 1</h1>
+					<h2>Encabezado 2</h2>
+					<h3>Encabezado 3</h3>
+					<h4>Encabezado 4</h4>
+				</div>
+				<div class="mod-bd">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vulputate mattis dui pharetra dapibus. Duis convallis luctus fermentum. Mauris condimentum, libero non accumsan rhoncus, dui massa lobortis turpis, sed porta nisl nibh in augue. Sed bibendum nulla ut tortor dignissim elementum at et erat. Vestibulum congue ornare feugiat. Sed auctor interdum consequat. Morbi nisi dui, placerat nec molestie vel, tempus nec magna. Fusce quis sagittis neque. Aenean ac augue orci. Cras et quam varius leo tincidunt varius. Fusce viverra sit amet dolor ac sollicitudin. Pellentesque suscipit pulvinar mi, a accumsan sem pretium aliquam.</p>
+
+					<h2>Listas</h2>
+					<ul>
+						<li>Item 1</li>
+						<li>Item 2</li>
+						<li>Item 3</li>
+						<li>Item 4</li>
+						<li>Item 5</li>
+					</ul>
+					<ol>
+						<li>Item 1</li>
+						<li>Item 2</li>
+						<li>Item 3</li>
+						<li>Item 4</li>
+						<li>Item 5</li>
+					</ol>
+
+					<h2>Tablas</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Columna 1</th>
+								<th>Columna 2</th>
+								<th class="center">Columna centrada</th>
+								<th class="right">Columna a la derecha 4</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Dato 1</td>
+								<td>Dato 2</td>
+								<td class="center">Dato 3</td>
+								<td class="right">Dato 4</td>
+							</tr>
+							<tr>
+								<td>Dato 1</td>
+								<td>Dato 2</td>
+								<td class="center">Dato 3</td>
+								<td class="right">Dato 4</td>
+							</tr>
+							<tr>
+								<td>Dato 1</td>
+								<td>Dato 2</td>
+								<td class="center">Dato 3</td>
+								<td class="right">Dato 4</td>
+							</tr>
+							<tr>
+								<td>Dato 1</td>
+								<td>Dato 2</td>
+								<td class="center">Dato 3</td>
+								<td class="right">Dato 4</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h2>Formulario</h2>
+					<form id="solicitar-cita" action="#" method="post">
+						<fieldset>
+							<legend>Ejemplo basico</legend>
+							<div class="form-row">
+								<label for="">Text input:</label>
+								<input id="" type="text" placeholder="Enter something" class="form-control" />
+							</div>
+							<div class="form-row ">
+								<label for="">Password input:</label>
+								<input id="" type="password" placeholder="Password here" class="form-control" />
+							</div>
+							<div class="form-row">
+                                <label for="">Select input:</label>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                        Dropdown<span class="caret"></span>
+                                    </button>
+                                    <span class="dropdown-arrow"></span>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#fakelink">Sub Menu Element</a></li>
+                                        <li><a href="#fakelink">Sub Menu Element</a></li>
+                                        <li><a href="#fakelink">Sub Menu Element</a></li>
+                                    </u>
+                                </div>
+
+                                <select>
+                                    <option value="0">My Profile</option>
+                                    <option value="1">My Friends</option>
+                                </select>
+
+                                <select multiple="multiple">
+                                    <option value="0">My Profile</option>
+                                    <option value="1" selected>My Friends</option>
+                                    <option value="2" selected>My Books</option>
+                                    <option value="3">My CDs</option>
+                                </select>
+							</div>
+							
+							<div class="form-row form-row-checkbox">
+								<label class="checkbox" for="checkbox1">
+  									<input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
+ 									Checkbox
+								</label>
+								<label class="checkbox" for="checkbox1">
+  									<input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
+ 									Checkbox
+								</label>
+								<label class="checkbox" for="checkbox1">
+  									<input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
+ 									Checkbox
+								</label>
+							</div>
+
+							<div class="form-row form-row-radio">
+								<label class="radio">
+                                    <input type="radio" name="group1" value="1" data-toggle="radio">Radio off
+                                </label>
+
+                                <label class="radio">
+                                    <input type="radio" name="group1" value="2" data-toggle="radio" checked>Radio on
+                                </label>
+
+                                <label class="radio">
+                                    <input type="radio" name="group1" value="1" data-toggle="radio">Radio off
+                                </label>
+							</div>
+							
+							<div class="form-row">
+								<label for="textarea1">Textarea:</label>
+                                <textarea id="textarea1" placeholder="Enter text here..." class="form-control"></textarea>
+							</div>
+							<div class="form-row form-row-button">
+								<button class="btn btn-primary">Boton primario</button>
+								<button class="btn btn-default">Boton secundario</button>
+							</div>
+						</fieldset>
+					</form>
+
+					<h2>Alertas</h2>
+					<p class="alert-success flaticon-check34">Mauris condimentum, libero non accumsan rhoncus, dui massa lobortis turpis.</p>
+					<p class="alert-error flaticon-remove11">Mauris condimentum, libero non accumsan rhoncus, dui massa lobortis turpis.</p>
+					<p class="alert-warning flaticon-warning12">Mauris condimentum, libero non accumsan rhoncus, dui massa lobortis turpis.</p>
+
+					<h2>Acordiones</h2>
+					<p>Pendiente</p>
+				</div>
+			</main>
+			
+			<footer>
+				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
+			</footer>
+
+			<!-- Load JS -->
+			<script src="js/jquery-1.8.3.min.js"></script>
+    		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/bootstrap-select.js"></script>
+    		<script src="js/flatui-checkbox.js"></script>
+    		<script src="js/flatui-radio.js"></script>
+            <script src="js/gic.js"></script>
+
+		</div>
+	</body>
+</html>

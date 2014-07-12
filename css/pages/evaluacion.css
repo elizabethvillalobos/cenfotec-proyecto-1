@@ -1,45 +1,57 @@
+/* 
+En este archivo agreguen su nombre como comentario y debajo agregan sus estilos, 
+para que sea mas facil la integracion.
+// ----------
+//   Javier Barboza Solis
+//   ----------
+.selector {}*/
 
 #body{
-	margin:40px auto;
-	width:600px;
+	width:750px;
 	min-height:50px;
 	background-color: red;
 	overflow: hidden;
 	border-radius: 5px;
+	font-family: Arial,sans-serif;
+    font-size: 14px;
 }
 
 .subapartado{ 
-	width:600px;
+	width:750px;
 	min-height:50px;
-	background-color: green;
-	-webkit-transiton: height 0.2s;
+	-webkit-transiton: height 0.5s;
 }
 
 .titulo1{
-	width:600px;
+	width:750px;
 	height:50px;
-	background-color: #24c06f;
+	background-color: #e74c3c;
 	overflow: hidden;
-	border-bottom: 1px solid #39f58f;
+	border-bottom: 1px solid #3c3c3c;
 }
 
 .titulo2{
-	margin:13px;
+	margin:13px ;
 	color: white;
 }
 
+.stit2{
+	padding-right: 400px;
+
+}
+
 .info{
-	width:600px;
+	width:750px;
 	height:0px;
 	background-color: #f5f5f5;
 	overflow: hidden;
-	-webkit-transition: height 0.50s;
+	-webkit-transition: height 0.5s;
 }
 
 .subapartado:hover .info{
 
-	height:70px;
-	background-color: yellow;
+    height:150px;
+	background-color: #fff;
 
 }
 

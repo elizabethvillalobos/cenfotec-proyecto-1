@@ -89,53 +89,62 @@
 .flaticon-close3:before {
    content: "\e004";
 }
-.flaticon-filled9:before {
+.flaticon-collapse3:before {
    content: "\e005";
 }
-.flaticon-information38:before {
+.flaticon-expand22:before {
    content: "\e006";
 }
-.flaticon-list40:before {
+.flaticon-filled9:before {
    content: "\e007";
 }
-.flaticon-lock26:before {
+.flaticon-information38:before {
    content: "\e008";
 }
-.flaticon-machine2:before {
+.flaticon-left1:before {
    content: "\e009";
 }
-.flaticon-magnifier12:before {
+.flaticon-list40:before {
    content: "\e00a";
 }
-.flaticon-male12:before {
+.flaticon-lock26:before {
    content: "\e00b";
 }
-.flaticon-multiple25:before {
+.flaticon-machine2:before {
    content: "\e00c";
 }
-.flaticon-remove11:before {
+.flaticon-magnifier12:before {
    content: "\e00d";
 }
-.flaticon-remove9:before {
+.flaticon-male12:before {
    content: "\e00e";
 }
-.flaticon-seo2:before {
+.flaticon-multiple25:before {
    content: "\e00f";
 }
-.flaticon-small24:before {
+.flaticon-remove11:before {
    content: "\e010";
 }
-.flaticon-star83:before {
+.flaticon-remove9:before {
    content: "\e011";
 }
-.flaticon-verification5:before {
+.flaticon-seo2:before {
    content: "\e012";
 }
-.flaticon-warning12:before {
+.flaticon-small24:before {
    content: "\e013";
 }
-.flaticon-warning2:before {
+.flaticon-star83:before {
    content: "\e014";
+}
+.flaticon-verification5:before {
+   content: "\e015";
+}
+.flaticon-warning12:before {
+   content: "\e016";
+}
+.flaticon-warning2:before {
+   content: "\e017";
 }
 
 
@@ -417,10 +426,6 @@ del checkbox o el radio*/
    width: 6px;
 }
 
-/*selects*/
-
-
-
 /*form-control se usa para inputs tipo text, password
 y textareas*/
 .form-control {
@@ -461,9 +466,20 @@ y textareas*/
    text-indent: 15px;
 }
 
-.form-row {
+.form-row,
+.row {
    clear: both;
    margin: 10px auto;
+}
+
+.row {
+   padding-left: 170px;
+   position: relative;
+}
+.row .label {
+   left: 0;
+   margin-right: 10px;
+   position: absolute;
 }
 
 
@@ -510,7 +526,7 @@ fieldset[disabled] .btn {
 /*Boton por defecto*/
 .btn-default {
   color: #ffffff;
-  background-color: #bdc3c7;
+  background-color: #666;
 }
 
 .btn-default:hover,
@@ -518,7 +534,7 @@ fieldset[disabled] .btn {
 .btn-default:active,
 .btn-default.active {
   color: #ffffff;
-  background-color: #cacfd2;
+  background-color: #999999;
   border-color: #cacfd2;
 }
 
@@ -612,6 +628,27 @@ fieldset[disabled] .btn {
 .dropdown-menu li.selected > a:hover {
    background: #c0392b;
    color: #ffffff;
+}
+
+
+/*Informacion estatica*/
+.data {
+   color: #666;
+   display: block;
+   font-size: 14px;
+   padding: 0;
+   text-align: left;
+   width: auto;
+}
+
+.label {
+   color: #666;
+   display: block;
+   font-size: 14px;
+   line-height: 1.7;
+   padding: 0;
+   text-align: left;
+   width: 160px;
 }
 
 
@@ -727,6 +764,8 @@ tr:nth-child(even) td {
 .mod-hd {
    border-bottom: 2px solid #ecf0f1;
    margin-bottom: 20px;
+   /*padding-bottom: 5px;*/
+   position: relative;
 }
 
 .mod-hd h1,
@@ -739,6 +778,98 @@ tr:nth-child(even) td {
 }
 
 .mod-bd {}
+
+
+/* ----------
+   Accordion
+   ---------- */
+.accordion {
+   padding: 0;
+}
+
+.accordion-item {
+   background: #999;
+   border-bottom: 1px solid #888;
+   display: block;
+   padding: 5px 10px 0;
+   position: relative;
+   transition: background 0.3s;
+}
+
+.accordion-item:first-child {
+   border-radius: 5px 5px 0 0;
+}
+
+.accordion-item:last-child {
+   border-radius: 0 0 5px 5px;
+}
+
+.accordion-item a {
+   line-height: 1.5;
+   text-decoration: none;
+}
+
+.accordion-item a:hover {
+   text-decoration: underline;
+}
+
+.accordion-item a:focus {
+   outline: 0
+}
+
+.accordion-item > a {
+   color: #ecf0f1;
+   display: block; 
+   margin-bottom: 5px;
+}
+
+.accordion-item > a:hover {
+   text-decoration: none;
+}
+
+.accordion-item .accordion-detail {
+   background: #ecf0f1;
+   list-style: none;
+   margin: 0 -10px;
+   padding: 10px;
+   overflow-y: scroll;
+   transition: height 0.3s, padding 0.3s;
+}
+
+.accordion-item:last-child .accordion-detail {
+   border-radius: 0 0 5px 5px;
+}
+
+.accordion-item.expanded {
+   background: #e74c3c; 
+   border: 0;
+}
+
+.accordion-item.collapsed .accordion-detail {
+   height: 0;
+   padding: 0 10px;
+}
+
+.accordion-item.expanded .accordion-detail {
+   height: auto;
+}
+
+.accordion-item.expanded > a:after,
+.accordion-item.collapsed > a:after {
+   font: normal 14px Flaticon;
+   position: absolute;
+   right: 10px;
+   top: 10px;
+}
+
+.accordion-item.collapsed > a:after {
+   content: "\e006";
+}
+
+.accordion-item.expanded > a:after {
+   content: "\e005";
+}
+
 
 
 /* ----------
@@ -950,7 +1081,30 @@ aside {
    padding-top: 10px;
    position: absolute;
    top: 90px;
-   width: 20%;
+   width: 200px;
+}
+
+.sec-nav-category .accordion-item {
+   background: transparent;
+   border: 0;
+   border-radius: 0;
+   margin: 0 10px;
+   padding: 0;
+}
+
+.sec-nav-category .accordion-item.expanded .accordion-detail {
+   height: 175px;
+}
+
+.sec-nav-category .accordion-item.collapsed .accordion-detail {
+   padding: 0;
+}
+
+.sec-nav-category .accordion-detail {
+   background: #4a4a4a;
+   margin: 0;
+   padding: 0;
+   transition: height 0.3s;
 }
 
 .sec-nav-category,
@@ -970,9 +1124,9 @@ aside {
    border-left: 3px solid #3c3c3c;
    color: #bdc3c7;
    display: block;
+   margin: 0;
    padding: 8px;
    text-decoration: none;
-   -webkit-transition: background 0.3s, border 0.3s, color 0.3s;
    transition: background 0.3s, border 0.3s, color 0.3s;
 }
 
@@ -981,11 +1135,17 @@ aside {
    border-bottom: 1px solid #c0392b;
    border-left: 3px solid #e74c3c;
    color: #ffffff;
+   text-decoration: none;
 }
 
 .secondary-nav a:hover .notificacion,
 .secondary-nav a.active .notificacion {
    background: #c0392b;
+}
+
+.secondary-nav li {
+   margin: 0 10px;
+   position: relative;
 }
 
 .secondary-nav .active {
@@ -994,15 +1154,15 @@ aside {
    border-left: 3px solid #c0392b;
    color: #ffffff;
 }
-.secondary-nav li {
-   margin: 0 10px;
-   position: relative;
+
+.secondary-nav .expanded > a:after, 
+.secondary-nav .collapsed > a:after {
+   right: 6px;
+   top: 13px;
 }
 
 .thrd-nav-category {
    background: #4a4a4a;
-   height: 175px;
-   overflow: scroll;
 }
 
 .thrd-nav-category li {
@@ -1031,10 +1191,10 @@ aside {
 main {
    background: #fefefe;
    /*height: 480px;*/
-   margin-left: 20%;
+   margin-left: 200px;
    min-height: 380px;
    /*overflow: scroll;*/
-   padding: 10px 20px;
+   padding: 10px 20px 40px;
 }
 
 

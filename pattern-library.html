@@ -53,22 +53,31 @@
 				</section>
 			</header>
 
-			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li>
-							<a href="#" class="active">Categoría activa</a>
-							<ul class="thrd-nav-category">
-								<li><a href="#">Sub-categoría</a></li>
-								<li><a href="#" class="active">Sub-categoría activa</a></li>
-								<li><a href="#">Sub-categoría</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Categoría con notificación <span class="notificacion">5</span></a></li>
-						<li><a href="#">Categoría</a></li>
-					</ul>
-				</nav>
-			</aside>
+            <aside>
+                <nav class="secondary-nav">
+                    <ul class="sec-nav-category accordion">
+                        <li class="accordion-item expanded">
+                            <a href="citas.html" class="active">Categoría activa</a>
+                            <ul class="thrd-nav-category accordion-detail">
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#" class="active">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                            </ul>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Categoría con notificación <span class="notificacion">5</span></a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Categoría</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
 
 			<main>
 				<div class="mod-hd">
@@ -211,7 +220,28 @@
 					<p class="alert-warning flaticon-warning12">Mauris condimentum, libero non accumsan rhoncus, dui massa lobortis turpis.</p>
 
 					<h2>Acordiones</h2>
-					<p>Pendiente</p>
+					<ul class="accordion">
+                        <li class="accordion-item expanded">
+                            <a href="#">Titulo</a>
+                            <ul class="accordion-detail">
+                                <li><a href="#">Enlace 1</a></li>
+                                <li><a href="#">Enlace 2</a></li>
+                                <li><a href="#">Enlace 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Titulo</a>
+                            <div class="accordion-detail">
+                                <p>Mauris condimentum, libero non accumsan rhoncus, dui massa lobortis turpis.</p>
+                            </div>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Titulo</a>
+                            <div class="accordion-detail">
+                                <p>Mauris condimentum, libero non accumsan rhoncus, dui massa lobortis turpis.</p>
+                            </div>
+                        </li>
+                    </ul>
 				</div>
 			</main>
 			

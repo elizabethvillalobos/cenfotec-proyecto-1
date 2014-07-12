@@ -1,0 +1,83 @@
+.logo{
+    left: 420px;
+}
+
+main{
+    margin-left: 0;
+}    
+
+h2{
+    text-align: center;
+}
+
+form{
+    background: #ecf0f1;
+    width: 400px;
+    margin-bottom: 40px;
+}
+
+fieldset{
+    margin-bottom: 0;
+}
+
+legend{
+    text-align: center;
+    margin-bottom: 10px
+}
+
+.btn{
+    margin: 0 120px 20px;
+}
+
+.links{
+    font-size: 12px;
+}
+
+.links a{
+    color: #c0392b
+}
+
+#aRegistrar{
+    margin-left: 105px ;
+    border-right: 2px solid #bdc3c7;
+    padding: 0 15px 0 0;
+}
+
+#aOlvide{
+    margin-left: 15px 
+}
+
+label{
+    margin: 0;
+    display: block;
+    text-align: center
+}
+
+
+.form-row{
+    margin-bottom: 0px;
+}
+
+#btnRegistrar{
+   margin: 0 130px 
+}
+
+footer{
+    text-align: center
+}
+
+.icon{
+    position: absolute;
+    z-index: 1;
+
+}
+
+input{
+    text-indent: 28px;
+    padding: 0;
+}    
+
+
+.error{
+    display: none;
+}

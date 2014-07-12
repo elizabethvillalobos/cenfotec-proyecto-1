@@ -12,9 +12,19 @@
 
 .selecProfCurso{
 
-margin-left: 180px;
+	margin-left: 180px;
 
 }
 
+.displayNone{
+
+	display: none;
+
+}
+
+#MsjError{
+
+
+}
 /*-----------------------------------------------------------------------------*/
 

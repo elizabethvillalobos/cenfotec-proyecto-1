@@ -64,30 +64,40 @@ function hasClass(pEl, pClassName) {
 // Ver el pattern library como referencia para el HTML.
 function modalWindow() {
     var eModalItems = document.querySelectorAll('.js-modal'),
-        eModalCloseItems = document.querySelectorAll('.js-modal-close, .js-modal-aceptar'),
+        eModalCloseItems = document.querySelectorAll('.js-modal-close'),
         eBody = document.querySelector('body');
 
-    // Elementos que abren el modal window
-    for (var modal=0; modal < eModalItems.length; modal++) {
-        eModalItems[modal].addEventListener('click', function(event) {
-            event.preventDefault();
-            var sModalId = event.currentTarget.dataset.modalId,
-                eModalWindow = document.querySelector('#' + sModalId);
-            eModalWindow.className = eModalWindow.className.trim() + ' visible';
-            addElementToDOM('div', 'overlay', 'overlay', '', eBody);
-        });
+    if (eModalItems) {
+        // Elementos que abren el modal window
+        for (var modal=0; modal < eModalItems.length; modal++) {
+            eModalItems[modal].addEventListener('click', function(event) {
+                event.preventDefault();
+                var sModalId = event.currentTarget.dataset.modalId,
+                    eModalWindow = document.querySelector('#' + sModalId);
+                eModalWindow.className = eModalWindow.className.trim() + ' visible';
+                addElementToDOM('div', 'overlay', 'overlay', '', eBody);
+            });
+        }
     }
-    // Elementos que cierran el modal window
-    for (var modalClose=0; modalClose < eModalCloseItems.length; modalClose++) {
-        eModalCloseItems[modalClose].addEventListener('click', function(event) {
-            event.preventDefault();
-            var eModalWindow = closestParentNode(event.currentTarget, 'js-modal-window'),
-                eOverlay = document.querySelector('#overlay');
 
-            eModalWindow.className = eModalWindow.className.replace('visible', '').trim();
-            eBody.removeChild(eOverlay);
-        });
+    if (eModalCloseItems) {
+        // Elementos que cierran el modal window
+        for (var modalClose=0; modalClose < eModalCloseItems.length; modalClose++) {
+            eModalCloseItems[modalClose].addEventListener('click', function(event) {
+                event.preventDefault();
+                var eModalWindow = closestParentNode(event.currentTarget, 'js-modal-window'),
+                    eOverlay = document.querySelector('#overlay');
+
+                removeClass(eModalWindow, 'visible');
+                eBody.removeChild(eOverlay);
+            });
+        }
     }
+};
+
+// Eliminar una clase de un elemento HTML
+function removeClass(pEl, pClassName) {
+    pEl.className = pEl.className.replace(pClassName, '').trim();
 };
 
 // Validar que solo puedan introducirse letras
@@ -107,6 +117,8 @@ function soloLetras(e){
 
     if (letras.indexOf(tecla)==-1 && !tecla_especial) {
         return false;
+    } else {
+        return true;
     }
 }
 
@@ -122,12 +134,12 @@ function soloLetras(e){
 function toggleClass(pEl) {
     if (hasClass(pEl, 'collapsed')) {
         if (pEl.className.indexOf(' collapsed') != -1) {
-            pEl.className = pEl.className.replace('collapsed', '').trim();
+            removeClass(pEl, 'collapsed');
         }
         pEl.className += ' expanded';        
     } else {
         if (pEl.className.indexOf('expanded') != -1) {
-            pEl.className = pEl.className.replace('expanded', '').trim();
+            removeClass(pEl, 'expanded');
         }
         pEl.className += ' collapsed';
     }
@@ -168,12 +180,12 @@ function validarCamposLlenos(pArreglo, pElementoError, pMsjError){
 
 // Validar que correo sea valido y pertenezca el dominio de Cenfotec.
 function validarCorreo(pCorreo, pElementoError, pMsjError) { 
-  var expreg = new RegExp("^[@ucenfotec.ac.cr]$");
+    var expreg = new RegExp("^[@ucenfotec.ac.cr]$");
   
-  if(!expreg.test(pCorreo)){
-    pElementoError.innerHTML=pMsjError;
-    pElementoError.className += ' error';
-  }
+    if (!expreg.test(pCorreo)) {
+        pElementoError.innerHTML=pMsjError;
+        pElementoError.className += ' error';
+    }
 };
 
 
@@ -183,24 +195,24 @@ function validarCorreo(pCorreo, pElementoError, pMsjError) {
 
 // Inicializar acordeones
 var eAccordionItems = document.querySelectorAll('.accordion-item > a');
-for (var i=0; i < eAccordionItems.length; i++) {
-    var eItem = eAccordionItems[i].parentNode;
+if (eAccordionItems) {
+    for (var i=0; i < eAccordionItems.length; i++) {
+        var eItem = eAccordionItems[i].parentNode;
 
-    if (eItem.querySelectorAll('.accordion-detail').length) {
-        // Agregar la clase collapsed a los elementos del sidebar no activos.
-        if (!hasClass(eItem, 'expanded')) {
-            eItem.className += ' collapsed';
+        if (eItem.querySelectorAll('.accordion-detail').length) {
+            // Agregar la clase collapsed a los elementos del sidebar no activos.
+            if (!hasClass(eItem, 'expanded')) {
+                eItem.className += ' collapsed';
+            }
+
+            eAccordionItems[i].addEventListener('click', function(event) {
+                event.preventDefault();
+                toggleClass(event.currentTarget.parentNode);
+            });
         }
-
-        eAccordionItems[i].addEventListener('click', function(event) {
-            event.preventDefault();
-            toggleClass(event.currentTarget.parentNode);
-        });
     }
-};
+}
 
 // Inicializar modal windows
 // ------------------------------------------
 modalWindow();
-
-

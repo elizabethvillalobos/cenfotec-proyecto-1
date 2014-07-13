@@ -48,17 +48,18 @@
 }
 
 hr{
-	background-color: #ecf0f1; 
+	background-color: white; 
 	height: 2px;
 }
 
 #basic-accordion{
-	border:5px solid #EEE;
-	padding:5px;
+	
+
 	width:760px;
 	position:absolute;
 	overflow-y: scroll;
-	height: 250px;
+	height: 350px;
+   margin-top: 20px;
 }
 
 .accordion-heading{

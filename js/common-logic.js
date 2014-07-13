@@ -20,12 +20,16 @@ function validarCamposLlenos(pArreglo, pElementoError, pMsjError){
 }
 
 function validarCorreo(pCorreo, pElementoError, pMsjError) { 
-  var expreg = new RegExp("^[@ucenfotec.ac.cr]$");
+  var expreg = new RegExp("\w+([\.-]?\w+)@(ucenfotec.ac.cr)/"),
+      correcto=true;
   
   if(!expreg.test(pCorreo)){
+      correcto=false;
     pElementoError.innerHTML=pMsjError;
     pElementoError.className += ' error';
   }
+    
+   return  correcto;
 }
 
 function validar(){

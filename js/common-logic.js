@@ -120,15 +120,16 @@ function validarCorreo(pCorreo, pElementoError, pMsjError) {
 var eAccordionItems = document.querySelectorAll('.accordion-item > a');
 for (var i=0; i < eAccordionItems.length; i++) {
     var eItem = eAccordionItems[i].parentNode;
-    // Agregar la clase collapsed a los elementos del sidebar no activos.
-    if (!hasClass(eItem, 'expanded')) {
-        if (eItem.querySelectorAll('.accordion-detail').length) {
+
+    if (eItem.querySelectorAll('.accordion-detail').length) {
+        // Agregar la clase collapsed a los elementos del sidebar no activos.
+        if (!hasClass(eItem, 'expanded')) {
             eItem.className += ' collapsed';
         }
-    }
 
-    eAccordionItems[i].addEventListener('click', function(event) {
-        event.preventDefault();
-        toggleClass(event.currentTarget.parentNode);
-    });
+        eAccordionItems[i].addEventListener('click', function(event) {
+            event.preventDefault();
+            toggleClass(event.currentTarget.parentNode);
+        });
+    }
 }

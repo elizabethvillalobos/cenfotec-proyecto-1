@@ -83,68 +83,71 @@
 .flaticon-calendar68:before {
    content: "\e002";
 }
-.flaticon-check34:before {
+.flaticon-cancel17:before {
    content: "\e003";
 }
-.flaticon-close3:before {
+.flaticon-check34:before {
    content: "\e004";
 }
-.flaticon-collapse3:before {
+.flaticon-close3:before {
    content: "\e005";
 }
-.flaticon-expand22:before {
+.flaticon-collapse3:before {
    content: "\e006";
 }
-.flaticon-filled9:before {
+.flaticon-expand22:before {
    content: "\e007";
 }
-.flaticon-information38:before {
+.flaticon-filled9:before {
    content: "\e008";
 }
-.flaticon-left1:before {
+.flaticon-information38:before {
    content: "\e009";
 }
-.flaticon-list40:before {
+.flaticon-left1:before {
    content: "\e00a";
 }
-.flaticon-lock26:before {
+.flaticon-list40:before {
    content: "\e00b";
 }
-.flaticon-machine2:before {
+.flaticon-lock26:before {
    content: "\e00c";
 }
-.flaticon-magnifier12:before {
+.flaticon-machine2:before {
    content: "\e00d";
 }
-.flaticon-male12:before {
+.flaticon-magnifier12:before {
    content: "\e00e";
 }
-.flaticon-multiple25:before {
+.flaticon-male12:before {
    content: "\e00f";
 }
-.flaticon-remove11:before {
+.flaticon-multiple25:before {
    content: "\e010";
 }
-.flaticon-remove9:before {
+.flaticon-remove11:before {
    content: "\e011";
 }
-.flaticon-seo2:before {
+.flaticon-remove9:before {
    content: "\e012";
 }
-.flaticon-small24:before {
+.flaticon-seo2:before {
    content: "\e013";
 }
-.flaticon-star83:before {
+.flaticon-small24:before {
    content: "\e014";
 }
-.flaticon-verification5:before {
+.flaticon-star83:before {
    content: "\e015";
 }
-.flaticon-warning12:before {
+.flaticon-verification5:before {
    content: "\e016";
 }
-.flaticon-warning2:before {
+.flaticon-warning12:before {
    content: "\e017";
+}
+.flaticon-warning2:before {
+   content: "\e018";
 }
 
 
@@ -250,6 +253,29 @@ a:hover {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
+/* ----------
+   Tablas
+   ---------- */
+table {
+   width: 100%;
+}
+
+td {
+   padding: 5px;
+}
+
+th {
+   background: #e74c3c;
+   color: #ffffff;
+   font-weight: normal;
+   padding: 5px 8px;
+}
+
+tr:nth-child(even) td {
+   background: #ecf0f1;
+}
+
 
 /* ----------
    Formularios
@@ -366,7 +392,7 @@ del checkbox o el radio*/
 
 .checkbox .icons .second-icon:before {
    color: #fff;
-   content: "\e003";
+   content: "\e004";
    font-family: Flaticon;
    font-size: 20px;
    font-style: normal;
@@ -405,7 +431,7 @@ del checkbox o el radio*/
 
 .checkbox.checked .icons .second-icon:before {
    color: #e74c3c;
-   content: "\e003";
+   content: "\e004";
    font-family: Flaticon;
    font-size: 20px;
    font-style: normal;
@@ -439,7 +465,6 @@ y textareas*/
    border-radius: 6px;
    -webkit-box-shadow: none;
    box-shadow: none;
-   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
    transition: border .25s linear, color .25s linear, background-color .25s linear;
 }
 
@@ -709,30 +734,29 @@ fieldset[disabled] .btn {
 }
 
 
-
 /* ----------
-   Tablas
+   Mensaje de confirmacion
    ---------- */
-table {
-   width: 100%;
-}
-
-td {
-   padding: 5px;
-   
-}
-
-th {
-   background: #e74c3c;
-   color: #ffffff;
-   font-weight: normal;
-   padding: 5px 8px;
-}
-
-tr:nth-child(even) td {
+.msg-confirm {
    background: #ecf0f1;
+   border: 2px solid #ecf0f1;
+   border-radius: 10px;
+   margin: 40px 80px;
+   padding: 20px;
 }
 
+.msg-confirm h2:before {
+   font-size: 28px;
+   line-height: 0.5;
+   margin-right: 10px;
+   position: relative;
+   top: 3px;
+}
+
+.msg-confirm .mod-hd {
+   border-bottom-color: #ffffff;
+   padding-bottom: 10px;
+}
 
 
 /* ----------
@@ -861,11 +885,11 @@ tr:nth-child(even) td {
 }
 
 .accordion-item.collapsed > a:after {
-   content: "\e006";
+   content: "\e007";
 }
 
 .accordion-item.expanded > a:after {
-   content: "\e005";
+   content: "\e006";
 }
 
 

@@ -81,7 +81,7 @@
 
 			<main>
 				<h2>Crear una nueva carrera</h2>
-				<form id="crear-carrera" action="#" method="post">
+				<form id="crear-carrera" method="post">
 					<fieldset>
 						<div class="form-row">
 							<label for="">Código:</label>
@@ -103,10 +103,12 @@
                                 <option value="4">Director Académico4</option>
                             </select>
                         </div>
+                        <p class="alert-error flaticon-remove11"></p>
                         <div class="form-row form-row-buttonCrearCarrera">
-							<button class="btn btnGuardar-primary" id="btnCrearCarrera">Guardar</button>
+							<input type="button" class="btn btnGuardar-primary" id="btnCrearCarrera" value="Guardar">
 							<button class="btn btnCancelar-secondary">Cancelar</button>
 						</div>
+					
 					</fieldset>
 				</form>
 			</main>
@@ -122,5 +124,7 @@
 		<script src="js/flatui-checkbox.js"></script>
 		<script src="js/flatui-radio.js"></script>
         <script src="js/gic.js"></script>
+        <script src="js/pruebaConfiguracion.js"></script>
+        <script src="js/common-logic.js"></script>
 	</body>
 </html>

@@ -6,7 +6,7 @@ var ebtnCrear = document.querySelector('#btnCrearCurso'),
 
 /* validar crear curso */
 
-ebtnCrear.addEventListener('click',function (evento) {
+ebtnCrear.addEventListener('click', function (evento) {
 	
 	evento.preventDefault();
     var camposVacios=validarCamposLlenos(aInputs, eError, 'Todos los campos deben estar llenos');

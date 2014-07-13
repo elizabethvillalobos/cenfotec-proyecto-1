@@ -80,3 +80,8 @@ document.getElementById('btnDeshabilitar5').onclick = function deshabilitarBtnDe
 	document.getElementById('btnDeshabilitar5').disabled = true;
 	document.getElementById('btnHabilitar5').disabled = false;
 }
+
+
+
+
+

@@ -68,10 +68,11 @@
 							<a href="#" class="active">Configuración</a>
 							<ul class="thrd-nav-category">
 								<li><a href="#">Perfil</a></li>
-								<li><a href="#">Mi cuenta</a></li>
+								<li><a href="#">Mi Cuenta</a></li>
 								<li><a href="#" class="active">Carreras y cursos</a></li>
 								<li><a href="#">Usuarios</a></li>
 								<li><a href="#">General</a></li>
+						</li>		
 					</ul>
 				</nav>
 			</aside>
@@ -79,36 +80,31 @@
 			<main>
 				
 				
-					<h2>Ingeniería de Software</h2>
+					<h2>Crear Curso - Ingeniería de Software</h2>
 						<form id="solicitar-cita"  method="post">
 						<fieldset>
-							<legend>Registrar nuevo curso</legend>
-							
+						
 							<div class="form-row">
 								<label for="">Código:</label>
-
-								<input id="txtCodCurso"  class="form-control" type="text" value="" placeholder="Ingrese el dato...">
+								<input type="text" id="txtCodCurso" class="form-control"  placeholder="Ingrese el dato..." onkeypress="return soloGuion(event)">
 							</div>
 							<div class="form-row ">
 								<label for="">Nombre:</label>
-								<input type="text" id="txtNomCurso" class="form-control"  placeholder="Ingrese el dato..." onkeypress="return soloLetras(event)">
+								<input type="text" id="txtNomCurso" class="form-control"  placeholder="Ingrese el dato..."  onkeypress="return soloLetras(event)">
 							</div>
-
 							<div class="form-row ">
 								<label for="">Profesor(es):</label>
-								<input type="text" id="txtNomCurso" class="form-control"  placeholder="Ingrese el dato..." onkeypress="return soloLetras(event)">
+								<input type="text" id="txtNomCurso" class="form-control"  placeholder="Ingrese el dato...">
 							</div>
 
 							
 							<p class="alert-error flaticon-remove11"></p>					
 							<div class="form-row form-row-button">
-								<button class="btn btn-primary" id="btnCrearCurso">Registrar</button>
-								<button class="btn btn-secondary">Cancelar</button>
+								<button class="btn btnGuardar-primary" id="btnCrearCurso">Guardar</button>
+								<button class="btn btnCancelar-secondary">Cancelar</button>
 							</div>
 							
-
-
-						</fieldset>
+					</fieldset>
 					</form>
 			</main>
 			

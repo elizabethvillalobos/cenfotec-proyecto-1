@@ -99,17 +99,47 @@ hr{
    width: 300px;
 }
 
-.form-row-button{
+.form-row-buttonAcciones{
 	float: right;
 	margin-top: -170px;
 	margin-right: 50px;
 }
 
-.btn-secondary{
+.btn-secondaryAction{
 	display: block;
 	margin-top: 10px;
 	width: 150px;
 }
+
+.form-row-buttonCrearCarrera{
+	float: right;
+}
+
+.btnGuardar-primary{
+	color: #ffffff;
+   	background-color: #e74c3c;
+	width: 150px;
+}
+
+.btnGuardar-primary:hover,
+.btnGuardar-primary:focus,
+.btnGuardar-primary:active,
+.btnGuardar-primary.active,
+.open .dropdown-toggle.btnGuardar-primary {
+   color: #ffffff;
+   background-color: #c0392b;
+   border-color: #c0392b;
+}
+
+.btnCancelar-secondary{
+	width: 150px;
+}
+
+
+
+
+
+
 
 
 /*-----------------------------------------------------------------------------*/

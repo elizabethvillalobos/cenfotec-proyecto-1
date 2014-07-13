@@ -118,23 +118,23 @@ hr{
 	float: right;
 }
 
-.btnGuardar-primary{
+.btn-guardar{
 	color: #ffffff;
    background-color: #e74c3c;
 	width: 150px;
 }
 
-.btnGuardar-primary:hover,
-.btnGuardar-primary:focus,
-.btnGuardar-primary:active,
-.btnGuardar-primary.active,
-.open .dropdown-toggle.btnGuardar-primary {
+.btn-guardar:hover,
+.btn-guardar:focus,
+.btn-guardar:active,
+.btn-guardar.active,
+.open .dropdown-toggle.btn-guardar {
    color: #ffffff;
    background-color: #c0392b;
    border-color: #c0392b;
 }
 
-.btnCancelar-secondary{
+.btn-cancelar{
 	width: 150px;
 }
 

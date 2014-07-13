@@ -64,7 +64,7 @@ function hasClass(pEl, pClassName) {
 // Ver el pattern library como referencia para el HTML.
 function modalWindow() {
     var eModalItems = document.querySelectorAll('.js-modal'),
-        eModalCloseItems = document.querySelectorAll('.js-modal-close'),
+        eModalCloseItems = document.querySelectorAll('.js-modal-close, .js-modal-aceptar'),
         eBody = document.querySelector('body');
 
     // Elementos que abren el modal window

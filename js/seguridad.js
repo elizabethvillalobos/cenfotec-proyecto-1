@@ -1,8 +1,9 @@
 var eBtnIniciarSesion = document.querySelector('.btn-primary'),
     aInputs = document.querySelectorAll('form .form-control'),
     eError = document.querySelector('.alert-error'),
-    eCorreo = document.querySelector('#password').value,
-    regis=false;
+    eCorreo = document.querySelector('#mail').value,
+    regis=false,
+    document.querySelector('#login').submmit;
 
 eBtnIniciarSesion.addEventListener('click', function (evento) {
     

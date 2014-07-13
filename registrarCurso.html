@@ -86,15 +86,15 @@
 							
 							<div class="form-row">
 								<label for="">Código:</label>
-
-								<input id="txtCodCurso"  class="form-control" type="text" value="" placeholder="Ingrese el dato...">
+								<input type="text" id="txtCodCurso" class="form-control"  placeholder="Ingrese el dato..." onkeypress="return soloGuion(event)"onkeypress="return soloLetras(event)">
 							</div>
+
+							<div class="form-row ">
+							</div>
+				
 							<div class="form-row ">
 								<label for="">Nombre:</label>
-								<input type="text" id="txtNomCurso" class="form-control"  placeholder="Ingrese el dato..." onkeypress="return soloLetras(event)">
-							</div>
-
-							<div class="form-row ">
+								<input type="text" id="txtNomCurso" class="form-control"  placeholder="Ingrese el dato..." 
 								<label for="">Profesor(es):</label>
 								<input type="text" id="txtNomCurso" class="form-control"  placeholder="Ingrese el dato..." onkeypress="return soloLetras(event)">
 							</div>
@@ -102,8 +102,8 @@
 							
 							<p class="alert-error flaticon-remove11"></p>					
 							<div class="form-row form-row-button">
-								<button class="btn btn-primary" id="btnCrearCurso">Registrar</button>
-								<button class="btn btn-secondary">Cancelar</button>
+								<button class="btn btnGuardar-primary" id="btnCrearCurso">Guardar</button>
+								<button class="btn btnCancelar-secondary">Cancelar</button>
 							</div>
 							
 

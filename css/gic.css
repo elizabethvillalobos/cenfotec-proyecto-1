@@ -760,6 +760,62 @@ fieldset[disabled] .btn {
 
 
 /* ----------
+   Modals
+   ---------- */
+.modal {
+   background: #ffffff;
+   border: 2px solid #3c3c3c;
+   bottom: inherit;
+   box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+   display: block;
+   height: 0;
+   margin: 0 auto;
+   opacity: 0;
+   padding: 30px;
+   top: 40%;
+   transition: height 0.5s, opacity 0.5s;
+   width: 400px;
+   z-index: -1;
+}
+
+.modal.visible {
+   display: block;
+   height: auto;
+   opacity: 1;
+   z-index: 10;
+}
+
+.modal h3 {
+   font-size: 14px;
+   margin: 0 0 20px 0;
+}
+
+.modal .close {
+   overflow: hidden;
+   position: absolute;
+   right: 10px;
+   top: 10px;
+   width: 20px;
+}
+
+.modal .form-row {
+   margin-top: 20px;
+   text-align: center;
+}
+
+.overlay {
+   background: rgba(0,0,0,0.5);
+   bottom: 0;
+   left: 0;
+   position: fixed;
+   right: 0;
+   top: 0;
+   transition: opacity 0.3s;
+   z-index: 5;
+}
+
+
+/* ----------
    Notificaciones
    ---------- */
 .notificacion {
@@ -898,12 +954,8 @@ fieldset[disabled] .btn {
    Main wrapper
    ---------- */
 .wrapper {
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
    border-radius: 8px;
-   -webkit-box-shadow: 1px 0px 15px 0px rgba(50, 50, 50, 0.5);
-   -moz-box-shadow:    1px 0px 15px 0px rgba(50, 50, 50, 0.5);
-   box-shadow:         1px 0px 15px 0px rgba(50, 50, 50, 0.5);
+   box-shadow: 0 0 10px 0px rgba(50, 50, 50, 0.1);
    position: relative;
 }
 

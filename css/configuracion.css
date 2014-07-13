@@ -59,7 +59,8 @@ hr{
 	position:absolute;
 	overflow-y: scroll;
 	max-height: 370px;
-   margin-top: 25px;
+   margin-top: 10px;
+   
 }
 
 .accordion-heading{
@@ -137,12 +138,31 @@ hr{
 	width: 150px;
 }
 
+.color{
+
+   width: 708px;
+   height: 215px;
+   background-color: white;
+   border-radius: 2px;
+}
+
+h2{
+
+margin: 10px 0 10px;
 
 
+}
+
+.LinkcrearCursoCarrera{
+
+float: left; 
+}
 
 
+.h2CursosCarreras{
 
-
+  float: right; 
+}
 
 /*-----------------------------------------------------------------------------*/
 

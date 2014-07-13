@@ -2,31 +2,19 @@ var ebtnCrearCurso = document.querySelector('#btnCrearCurso'),
 	aInputs = document.querySelectorAll('form .form-control'),
 	eError = document.querySelector('.alert-error'),
 	regis=false,
-	ecodigo = document.querySelector('#txtCodCurso'),
-  ebtnCrearCarrera = document.querySelector('#btnCrearCarrera');
+	ecodigo = document.querySelector('#txtCodCurso');
 
 /* validar crear curso */
 
-<<<<<<< HEAD
-ebtnCrear.addEventListener('click', function (evento) {
-=======
+
 ebtnCrearCurso.addEventListener('click',function (evento) {
->>>>>>> origin/master
+
 	
 	evento.preventDefault();
     var camposVacios=validarCamposLlenos(aInputs, eError, 'Todos los campos deben estar llenos');
     
  
 	});
-
-ebtnCrearCarrera.addEventListener('click',function (evento) {
-  
-  alert('hola');
-  evento.preventDefault();
-  var camposVacios=validarCamposLlenos(aInputs, eError, 'Todos los campos deben estar llenos');
-    
- 
-  });
 
 
 

@@ -48,17 +48,19 @@
 }
 
 hr{
-	background-color: #ecf0f1; 
+	background-color: white; 
 	height: 2px;
 }
 
 #basic-accordion{
-	border:5px solid #EEE;
-	padding:5px;
+
+
 	width:760px;
 	position:absolute;
 	overflow-y: scroll;
-	height: 250px;
+	max-height: 370px;
+   margin-top: 10px;
+   
 }
 
 .accordion-heading{
@@ -66,11 +68,11 @@ hr{
 	background:#e74c3c;
 	border:1px solid #FFF;
 	cursor:pointer;
-	font-weight:bold;
+	
 }
 
 .accordion-heading:hover{
-	background-color: #333;
+	background-color: #666;
 }
 
 .accordion-inner{
@@ -80,6 +82,7 @@ hr{
 
 .accordion-toggle{
 	color: white;
+	display: block;
 }
 
 .form-control1 {
@@ -111,38 +114,46 @@ hr{
 	width: 150px;
 }
 
-.form-row-buttonCrearCarrera{
+.form-row-buttonCrearCarrera, .form-row-buttonModificarCarrera{
 	float: right;
 }
 
-.btnGuardar-primary{
+.btn-guardar{
 	color: #ffffff;
-   	background-color: #e74c3c;
+   background-color: #e74c3c;
 	width: 150px;
 }
 
-.btnGuardar-primary:hover,
-.btnGuardar-primary:focus,
-.btnGuardar-primary:active,
-.btnGuardar-primary.active,
-.open .dropdown-toggle.btnGuardar-primary {
+.btn-guardar:hover,
+.btn-guardar:focus,
+.btn-guardar:active,
+.btn-guardar.active,
+.open .dropdown-toggle.btn-guardar {
    color: #ffffff;
    background-color: #c0392b;
    border-color: #c0392b;
 }
 
-.btnCancelar-secondary{
+.btn-cancelar{
 	width: 150px;
 }
 
+.color{
+   width: 708px;
+   height: 215px;
+   background-color: white;
+   border-radius: 2px;
+}
+
+h2 {
+   margin: 10px 0 10px;
+}
+
+.LinkcrearCursoCarrera{
+   float: left; 
+}
 
 
-/* ----------------------
-   Elizabeth 
-   ----------------------
-*/
-.perfil {
-   border: 1px solid red;
-   margin-left: 120px;
-   position: relative;
+.h2CursosCarreras{
+  float: right; 
 }

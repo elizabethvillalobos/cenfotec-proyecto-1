@@ -160,7 +160,7 @@ body {
    background-color: transparent;
    color: #666;
    font-family: "Lato", Helvetica, Arial, sans-serif;
-   font-size: 16px;
+   font-size: 16.2px;
    line-height: 1.72222;
    margin: 20px auto;
    width: 1000px;
@@ -1314,9 +1314,9 @@ aside {
    ---------- */
 main {
    background: #fefefe;
-   /*height: 480px;*/
+   /*height: 440px;*/
    margin-left: 200px;
-   min-height: 380px;
+   min-height: 450px;
    /*overflow: scroll;*/
    padding: 10px 20px 40px;
 }

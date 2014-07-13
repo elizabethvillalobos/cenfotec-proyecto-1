@@ -13,8 +13,12 @@ h2{
 form{
     background: #ecf0f1;
     width: 400px;
+<<<<<<< HEAD
     margin-bottom: 40px;
     margin-left: 285px;
+=======
+    margin: 0 auto 40px;
+>>>>>>> origin/master
 }
 
 fieldset{

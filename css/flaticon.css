@@ -8,13 +8,14 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
 	font-family: Flaticon;
-        font-size: 20px;
-font-style: normal;
-
+    font-size: 20px;
+	font-style: normal;
 }
+
 .flaticon-add73:before {
 	content: "\e000";
 }
@@ -24,57 +25,69 @@ font-style: normal;
 .flaticon-calendar68:before {
 	content: "\e002";
 }
-.flaticon-check34:before {
+.flaticon-cancel17:before {
 	content: "\e003";
 }
-.flaticon-close3:before {
+.flaticon-check34:before {
 	content: "\e004";
 }
-.flaticon-filled9:before {
+.flaticon-close3:before {
 	content: "\e005";
 }
-.flaticon-information38:before {
+.flaticon-collapse3:before {
 	content: "\e006";
 }
-.flaticon-list40:before {
+.flaticon-expand22:before {
 	content: "\e007";
 }
-.flaticon-lock26:before {
+.flaticon-filled9:before {
 	content: "\e008";
 }
-.flaticon-machine2:before {
+.flaticon-information38:before {
 	content: "\e009";
 }
-.flaticon-magnifier12:before {
+.flaticon-left1:before {
 	content: "\e00a";
 }
-.flaticon-male12:before {
+.flaticon-list40:before {
 	content: "\e00b";
 }
-.flaticon-multiple25:before {
+.flaticon-lock26:before {
 	content: "\e00c";
 }
-.flaticon-remove11:before {
+.flaticon-machine2:before {
 	content: "\e00d";
 }
-.flaticon-remove9:before {
+.flaticon-magnifier12:before {
 	content: "\e00e";
 }
-.flaticon-seo2:before {
+.flaticon-male12:before {
 	content: "\e00f";
 }
-.flaticon-small24:before {
+.flaticon-multiple25:before {
 	content: "\e010";
 }
-.flaticon-star83:before {
+.flaticon-remove11:before {
 	content: "\e011";
 }
-.flaticon-verification5:before {
+.flaticon-remove9:before {
 	content: "\e012";
 }
-.flaticon-warning12:before {
+.flaticon-seo2:before {
 	content: "\e013";
 }
-.flaticon-warning2:before {
+.flaticon-small24:before {
 	content: "\e014";
+}
+.flaticon-star83:before {
+	content: "\e015";
+}
+.flaticon-verification5:before {
+	content: "\e016";
+}
+.flaticon-warning12:before {
+	content: "\e017";
+}
+.flaticon-warning2:before {
+	content: "\e018";
 }

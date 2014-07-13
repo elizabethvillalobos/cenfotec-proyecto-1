@@ -3,9 +3,7 @@
 	<head>
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
 		<meta charset="utf-8">
-		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/flaticon.css">
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/gic.css">
 
 		<link rel="stylesheet" href="css/pages/evaluacion.css">
@@ -65,7 +63,7 @@
 					<ul class="sec-nav-category">
 						<li>
 							<a href="#" >Mi Ranking</a>
-							<li><a href="#" class="">Evaluaciones</a></li>
+							<li><a href="#" class="active">Evaluaciones</a></li>
 							<ul class="thrd-nav-category">
 							    <li><a href="#" class="active">Pendientes</a></li>
 								<li><a href="#">Realizadas</a></li>
@@ -77,57 +75,345 @@
 
 			<main>
 				<div id="body">
-
 					<div class="subapartado">
 						
 						<div class="titulo1">
 							<p class="titulo2">
-							<span class="stit2">Usuario:<span>Elizabeth</span></span><span>Fecha:<span>24-8-14 Hora:10:00am</span></span>
+								<span class="stit2">Usuario:<span>Elizabeth</span></span><span>Fecha:<span>24-8-14 Hora:10:00am</span></span>
 							</p>
 						</div>
 
 						<div class="info">
-							<div class="mod-bd">
+							<form id="formEvaluacion" action="#" method="post">
+								<fieldset>
+									<h2 >Formulario de Evaluación</h2>
 
-								<form id="evaluar-cita" action="#" method="post">
-									<fieldset>
-										<legend>Formulario de Evaluación</legend>
-										
-										<div class="form-row form-row-rad">
-											<div>
-												<label for="radio1">Si</label>
-												<input id="" name="radioOption" type="radio">
-											</div>
-											<div>
-												<label for="radio2">No</label>
-												<input id="" name="radioOption" type="radio" >
-											</div>
-											
-										</div>
-										
-										
-										<div class="form-row form-row-butt">
-											<button class="btn-primary">Boton primario</button>
-											<button class="btn-secondary">Cancel</button>
+									<div class="form-row-ev">
+										<div class="preguntas">
+											<label class="formLabel">1)¿El profesor se presentó a la cita?</label>
 										</div>
 
-								     </fieldset>
-					             </form>    
-								
-							</div>
+										<div class="opcs">
+											<label class="">Si</label>
+										    <input class="rd" name="radio" type="radio" >
+										</div>
+
+										<div class="opcs">
+											<label class="" for="radio2">No</label>
+										    <input class="rd" name="radio" type="radio"  >
+										</div>
+									</div>
+                                    <div id="wrapperItems">   
+								    <div class="form-row-ev">                                		
+                                		<div class="preguntas">
+                                			<label class="formLabel">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
+									    </div>
+										<div class="opcs">	
+										    <input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+                                    
+									<div class="form-row-ev">
+										<div class="preguntas">
+											<label class="formLabel" >3)¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>										
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel" >Promedio obtenido en esta cita:</label>
+										</div>
+										<div class="opcs">
+										    <label id="promedio"><span >3</span></label>
+										</div>
+									</div>	
+									</div>				    
+
+									<div id="btn-row">
+
+										<button class="btn-primary">Enviar</button>
+										<button class="btn-secondary">Cancel</button>
+									</div>
+								</fieldset>
+					        </form>    
 						</div>
-
 					</div>
 
-					<div class="subapartado">
+						<div class="subapartado">
 						
 						<div class="titulo1">
 							<p class="titulo2">
-							<span class="stit2">Usuario:<span>Elizabeth</span></span><span>Fecha:<span>24-8-14 Hora:10:00am</span></span>
+								<span class="stit2">Usuario:<span>Elizabeth</span></span><span>Fecha:<span>24-8-14 Hora:10:00am</span></span>
 							</p>
 						</div>
 
-	             </div>
+						<div class="info">
+							<form id="formEvaluacion" action="#" method="post">
+								<fieldset>
+									<h2 >Formulario de Evaluación</h2>
+
+									<div class="form-row-ev">
+										<div class="preguntas">
+											<label class="formLabel">1)¿El profesor se presentó a la cita?</label>
+										</div>
+
+										<div class="opcs">
+											<label class="">Si</label>
+										    <input class="rd" name="radio" type="radio" >
+										</div>
+
+										<div class="opcs">
+											<label class="" for="radio2">No</label>
+										    <input class="rd" name="radio" type="radio"  >
+										</div>
+									</div>
+                                    <div id="wrapperItems">   
+								    <div class="form-row-ev">                                		
+                                		<div class="preguntas">
+                                			<label class="formLabel">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
+									    </div>
+										<div class="opcs">	
+										    <input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+                                    
+									<div class="form-row-ev">
+										<div class="preguntas">
+											<label class="formLabel" >3)¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>										
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel" >Promedio obtenido en esta cita:</label>
+										</div>
+										<div class="opcs">
+										    <label id="promedio"><span >3</span></label>
+										</div>
+									</div>	
+									</div>				    
+
+									<div id="btn-row">
+
+										<button class="btn-primary">Enviar</button>
+										<button class="btn-secondary">Cancel</button>
+									</div>
+								</fieldset>
+					        </form>    
+						</div>
+					</div>
+
+						<div class="subapartado">
+						
+						<div class="titulo1">
+							<p class="titulo2">
+								<span class="stit2">Usuario:<span>Elizabeth</span></span><span>Fecha:<span>24-8-14 Hora:10:00am</span></span>
+							</p>
+						</div>
+
+						<div class="info">
+							<form id="formEvaluacion" action="#" method="post">
+								<fieldset>
+									<h2 >Formulario de Evaluación</h2>
+
+									<div class="form-row-ev">
+										<div class="preguntas">
+											<label class="formLabel">1)¿El profesor se presentó a la cita?</label>
+										</div>
+
+										<div class="opcs">
+											<label class="">Si</label>
+										    <input class="rd" name="radio" type="radio" >
+										</div>
+
+										<div class="opcs">
+											<label class="" for="radio2">No</label>
+										    <input class="rd" name="radio" type="radio"  >
+										</div>
+									</div>
+                                    <div id="wrapperItems">   
+								    <div class="form-row-ev">                                		
+                                		<div class="preguntas">
+                                			<label class="formLabel">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
+									    </div>
+										<div class="opcs">	
+										    <input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+                                    
+									<div class="form-row-ev">
+										<div class="preguntas">
+											<label class="formLabel" >3)¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>										
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel" >Promedio obtenido en esta cita:</label>
+										</div>
+										<div class="opcs">
+										    <label id="promedio"><span >3</span></label>
+										</div>
+									</div>	
+									</div>				    
+
+									<div id="btn-row">
+
+										<button class="btn-primary">Enviar</button>
+										<button class="btn-secondary">Cancel</button>
+									</div>
+								</fieldset>
+					        </form>    
+						</div>
+					</div>
+						<div class="subapartado">
+						
+						<div class="titulo1">
+							<p class="titulo2">
+								<span class="stit2">Usuario:<span>Elizabeth</span></span><span>Fecha:<span>24-8-14 Hora:10:00am</span></span>
+							</p>
+						</div>
+
+						<div class="info">
+							<form id="formEvaluacion" action="#" method="post">
+								<fieldset>
+									<h2 >Formulario de Evaluación</h2>
+
+									<div class="form-row-ev">
+										<div class="preguntas">
+											<label class="formLabel">1)¿El profesor se presentó a la cita?</label>
+										</div>
+
+										<div class="opcs">
+											<label class="">Si</label>
+										    <input class="rd" name="radio" type="radio" >
+										</div>
+
+										<div class="opcs">
+											<label class="" for="radio2">No</label>
+										    <input class="rd" name="radio" type="radio"  >
+										</div>
+									</div>
+                                    <div id="wrapperItems">   
+								    <div class="form-row-ev">                                		
+                                		<div class="preguntas">
+                                			<label class="formLabel">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
+									    </div>
+										<div class="opcs">	
+										    <input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+                                    
+									<div class="form-row-ev">
+										<div class="preguntas">
+											<label class="formLabel" >3)¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+										</div>
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+									</div>										
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="formLabel" >Promedio obtenido en esta cita:</label>
+										</div>
+										<div class="opcs">
+										    <label id="promedio"><span >3</span></label>
+										</div>
+									</div>	
+									</div>				    
+
+									<div id="btn-row">
+
+										<button class="btn-primary">Enviar</button>
+										<button class="btn-secondary">Cancel</button>
+									</div>
+								</fieldset>
+					        </form>    
+						</div>
+					</div>				
+	            </div>
 			</main>
 			
 			<footer>

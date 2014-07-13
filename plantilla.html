@@ -2,21 +2,14 @@
 <html>
 	<head>
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
-		<meta charset="utf-8"><link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/flaticon.css">
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="css/gic.css">
-
-		<!-- Aqui deben agregar la hoja de estilo del modulo que corresponda
-		Ejemplo:
-			<link rel="stylesheet" href="css/pages/citas.css">
-			<link rel="stylesheet" href="css/pages/evaluacion.css">
-			<link rel="stylesheet" href="css/pages/configuracion.css">
-			etc... -->
 	</head>
 	<body>
 		<div class="wrapper">
 			<header>
-				<a href="index.html" class="home">
+				<a href="../index.html" class="home">
 					<h1 class="logo">Gestor Inteligente de Citas</h1>
 				</a>
 
@@ -24,7 +17,7 @@
 				<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
+							<a href="citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
 							<a href="evaluacion.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
@@ -36,7 +29,7 @@
 							<a href="reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="configuracion.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
+							<a href="configuracion/perfil.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -61,29 +54,36 @@
 			</header>
 
 			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li>
-							<a href="#" class="active">Categoría activa</a>
-							<ul class="thrd-nav-category">
-								<li><a href="#">Sub-categoría</a></li>
-								<li><a href="#" class="active">Sub-categoría activa</a></li>
-								<li><a href="#">Sub-categoría</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Categoría con notificación <span class="notificacion">5</span></a></li>
-						<li><a href="#">Categoría</a></li>
-					</ul>
-				</nav>
-			</aside>
+                <nav class="secondary-nav">
+                    <ul class="sec-nav-category accordion">
+                        <li class="accordion-item expanded">
+                            <a href="citas.html" class="active">Categoría activa</a>
+                            <ul class="thrd-nav-category accordion-detail">
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#" class="active">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                                <li><a href="#">Sub-categoría</a></li>
+                            </ul>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Categoría con notificación <span class="notificacion">5</span></a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Categoría</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
 
 			<main>
 				<div class="mod-hd">
-					<h2>Solicitar cita de atencion</h2>
-					<p>Aqui va el titulo y cualquier boton o icono que se muestre en el mockup</p>
+
 				</div>
 				<div class="mod-bd">
-					<h2>Formulario</h2>
 					
 				</div>
 			</main>
@@ -92,14 +92,8 @@
 				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
 			</footer>
 		</div>
-		
+
 		<!-- Load JS -->
-		<script src="js/jquery-1.8.3.min.js"></script>
-		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap-select.js"></script>
-		<script src="js/flatui-checkbox.js"></script>
-		<script src="js/flatui-radio.js"></script>
-        <script src="js/gic.js"></script>
+        <script src="js/common-logic.js"></script>
 	</body>
 </html>

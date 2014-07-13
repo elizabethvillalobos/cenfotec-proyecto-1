@@ -1,7 +1,7 @@
 var ebtnCrear = document.querySelector('#btnCrearCurso'),
 	aInputs = document.querySelectorAll('form .form-control'),
 	eError = document.querySelector('.alert-error'),
-	regis=false
+	regis=false,
 	ecodigo = document.querySelector('#txtCodCurso');
 
 /* validar crear curso */
@@ -20,6 +20,7 @@ function soloGuion(e){
        caracteresAdmitidos = "áéíóúabcdefghijklmnñopqrstuvwxyz1234567890-";
        especiales = "8-37-39-46";
 
+<<<<<<< HEAD
        tecla_especial = false
        for(var i in especiales){
             if(key == especiales[i]){
@@ -32,3 +33,6 @@ function soloGuion(e){
             return false;
         }
     }
+=======
+
+>>>>>>> origin/master

@@ -53,13 +53,13 @@ hr{
 }
 
 #basic-accordion{
-	
+
 
 	width:760px;
 	position:absolute;
 	overflow-y: scroll;
-	height: 350px;
-   margin-top: 20px;
+	max-height: 370px;
+   margin-top: 25px;
 }
 
 .accordion-heading{
@@ -67,11 +67,11 @@ hr{
 	background:#e74c3c;
 	border:1px solid #FFF;
 	cursor:pointer;
-	font-weight:bold;
+	
 }
 
 .accordion-heading:hover{
-	background-color: #333;
+	background-color: #666;
 }
 
 .accordion-inner{

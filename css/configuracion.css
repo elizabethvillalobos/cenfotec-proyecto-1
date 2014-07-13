@@ -80,6 +80,7 @@ hr{
 
 .accordion-toggle{
 	color: white;
+	display: block;
 }
 
 .form-control1 {
@@ -111,7 +112,7 @@ hr{
 	width: 150px;
 }
 
-.form-row-buttonCrearCarrera{
+.form-row-buttonCrearCarrera, .form-row-buttonModificarCarrera{
 	float: right;
 }
 

@@ -5,105 +5,75 @@ para que sea mas facil la integracion.
 //   Javier Barboza Solis
 //   ----------
 .selector {}*/
-
-#body{
-	width:750px;
-	min-height:50px;
-	overflow: hidden;
-	border-radius: 5px;
-	font-family: Arial,sans-serif;
-    font-size: 14px;
-}
-
-.subapartado{ 
-	width:750px;
-	min-height:50px;
-	-webkit-transition: height 3.5s ease 0s;
-}
-
-.titulo1{
-	width:750px;
-	height:50px;
-	background-color: #e74c3c;
-	overflow: hidden;
-	border-bottom: 1px solid #3c3c3c;
-}
-
 .titulo2{
-	margin:13px ;
-	color: white;
+	margin:8px ;
+	color: #FFFFFF;
 }
 
 .stit2{
-	padding-right: 400px;
+	padding-right: 300px;
 
 }
-
-.info{
-	text-align: left;
-	width:750px;
-	height:0px;
-	background: #7f8c8d;
-	overflow: hidden;
-	-webkit-transition: height 3.5s ease 0s;
-}
-
-.subapartado:hover .info{
-
-    height:250px;
-	background-color: #fff;
-}
-
 #wrapperItems{
 	display: ;
 }
 
+#pregunta1{
+	padding-left: 10px;
+	width:600px;
+	float: left;
+	
+}
+
 .preguntas{
-	width:500px;
+	padding-left: 10px;
+	width:600px;
 	float: left;
-	display: inline-flex;
-	margin-right: 40px;
-}
-.opcs,input{
-	margin: 0px auto;
-	width: 30px;
-	float: left;
-	display: inline-flex;
+	margin-right: 55px;	
 }
 
-.formLabel{
-	margin: auto 0px;
-	height: 24px;
+.opcs {
+    display: inline-flex;
+    margin: 0 15px 0 0;
+    width: 30px;
 }
-#formEvaluacion{
-	border: 0px;
-}
-.rd{
-	margin: 0px;
-	padding: 0px 3px;
+.checkbox, .radio {
+    padding-left: 20px;
+    margin: 0px auto;
 }
 
+.radio + .radio, .checkbox + .checkbox {
+    margin-top: 0px;
+}
+
+label {
+    line-height: 1.3;
+   
+}
 fieldset{
 	background: #FFFFFF;
 	width: auto;
-	padding: 0px;
 	margin: 0px;
-}
-
-legend{
 	padding: 0px;
 }
 
+.accordion-item .accordion-detail {
+    padding: 0px;
+}
+
+.form-row, .row {
+    width: 210px;
+}
 
 h2{
-	margin: 4px 0px 15px 0px;
+	margin: 5px 0px 20px 5px;
 
 }
 
 .form-row-ev{
-	width: 650px;
-	height: 26px;
-	margin: 2px 0px;
+	width: 700px;
+	height: 30px;
+	margin: 4px 0px -2px 0px;
 	border-bottom: 1px solid #95a5a6;
 }
 
@@ -120,10 +90,6 @@ h2{
 
 }
 
-#btn-row{
-
-
-}
 
 
 

@@ -100,27 +100,12 @@ function removeClass(pEl, pClassName) {
     pEl.className = pEl.className.replace(pClassName, '').trim();
 };
 
-<<<<<<< HEAD
-function validarCorreo(pCorreo, pElementoError, pMsjError) { 
-  var expreg = new RegExp("\w+([\.-]?\w+)@(ucenfotec.ac.cr)/"),
-      correcto=true;
-  
-  if(!expreg.test(pCorreo)){
-      correcto=false;
-    pElementoError.innerHTML=pMsjError;
-    pElementoError.className += ' error';
-  }
-    
-   return  correcto;
-}
-=======
 // Validar que solo puedan introducirse letras
 function soloLetras(e){
     key = e.keyCode || e.which;
     tecla = String.fromCharCode(key).toLowerCase();
     letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
     especiales = "8-37-39-46";
->>>>>>> origin/master
 
     tecla_especial = false
     for(var i in especiales) {
@@ -195,13 +180,17 @@ function validarCamposLlenos(pArreglo, pElementoError, pMsjError){
 
 // Validar que correo sea valido y pertenezca el dominio de Cenfotec.
 function validarCorreo(pCorreo, pElementoError, pMsjError) { 
-    var expreg = new RegExp("^[@ucenfotec.ac.cr]$");
+  var expreg = new RegExp("\w+([\.-]?\w+)@(ucenfotec.ac.cr)/"),
+      correcto=true;
   
-    if (!expreg.test(pCorreo)) {
-        pElementoError.innerHTML=pMsjError;
-        pElementoError.className += ' error';
-    }
-};
+  if(!expreg.test(pCorreo)){
+      correcto=false;
+    pElementoError.innerHTML=pMsjError;
+    pElementoError.className += ' error';
+  }
+    
+   return  correcto;
+}
 
 
 // ------------------------------------------

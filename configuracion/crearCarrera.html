@@ -30,7 +30,7 @@
 							<a href="../reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="editar-perfil.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
+							<a href="configuracion.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -45,7 +45,7 @@
 					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
 					<ul>
 						<li>
-							<a href="perfil.html" class="usr-editar-perfil">Editar perfil</a>
+							<a href="perfil-modificar.html" class="usr-editar-perfil">Editar perfil</a>
 						</li>
 						<li>
 							<a href="#" class="usr-cerrar-sesion">Cerrar sesión</a>
@@ -58,13 +58,13 @@
                 <nav class="secondary-nav">
                     <ul class="sec-nav-category accordion">
                         <li class="accordion-item">
-                            <a href="#" class="active">Perfil</a>
+                            <a href="perfil.html">Perfil</a>
                         </li>
                         <li class="accordion-item">
                             <a href="#">Mi Cuenta</a>
                         </li>
                         <li class="accordion-item">
-                            <a href="carreras.html">Carreras y Cursos</a>
+                            <a href="consultarCarreras.html" class="active">Carreras y Cursos</a>
                         </li>
                         <li class="accordion-item">
                             <a href="#">Usuarios</a>
@@ -77,15 +77,40 @@
             </aside>
 
 			<main>
-				<section class="msg-confirm">
+				<section class="perfil-editar">
 					<div class="mod-hd">
-						<h2 class="flaticon-male12">Carrera creada</h2>
+						<h2>Crear Carrera</h2>
 					</div>
-					<div class="mod-bd">
-						<p>El perfil se actualizó con éxito.</p>
+					<!-- El atributo novalidate es para evitar que el browser 
+					haga las validaciones. -->
+					<form id="crear-carrera" class="mod-bd form-horizontal" action="#" method="post" data-validate="true" novalidate>
+						<div class="form-row">
+							<label for="codigo-carrera">Codigo:</label>
+							<input id="codigo-carrera" type="text" placeholder="Ingrese el codigo" class="form-control" required/>
+						</div>
 
-						<a href="configuracion.html" class="btn btn-default">Volver</a>
-					</div>
+						<div class="form-row">
+							<label for="nombre-carrera">Nombre:</label>
+							<input id="nombre-carrera" type="text" placeholder="Ingrese el nombre" class="form-control" required/>
+						</div>
+
+						<div class="form-row">
+							<label for="director-academico">Director Académico:</label>
+							<select id="director-academico" required>
+	                            <option value="">Seleccione una opción</option>
+	                            <option value="Director1">Director1</option>
+	                            <option value="Director2">Director2</option>
+	                            <option value="Director3">Director3</option>
+	                            <option value="Director4">Director4</option>
+	                            <option value="Director5">Director5</option>
+                            </select>
+						</div>
+
+						<div class="form-row form-row-button">
+							<button id="btn-guardar-carrera" class="btn btn-primary" type="submit">Guardar</button>
+							<button id="btn-cancelar" class="btn btn-secondary" type="submit">Cancelar</button>
+						</div>
+					</form>
 				</section>
 			</main>
 			
@@ -95,6 +120,14 @@
 		</div>
 
 		<!-- Load JS -->
-		<script src="../js/common-logic.js"></script>
+		<script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="../js/jquery.html5uploader-1.1.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/bootstrap-select.js"></script>
+        <script src="../js/flatui.js"></script>
+        <script src="../js/html5uploader.js"></script>
+        <script src="../js/common-logic.js"></script>
+        <script src="../js/configuracion.js"></script>
 	</body>
 </html>

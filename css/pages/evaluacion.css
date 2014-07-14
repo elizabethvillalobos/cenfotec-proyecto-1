@@ -14,8 +14,11 @@ para que sea mas facil la integracion.
 	padding-right: 300px;
 
 }
-#wrapperItems{
-	display: ;
+.ocultarForm{
+	display: none;
+}
+.mostrarForm{
+
 }
 
 #pregunta1{

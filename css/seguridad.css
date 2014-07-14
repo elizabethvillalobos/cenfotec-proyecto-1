@@ -14,8 +14,17 @@
     margin-left: 0;
 }
 
+#form-registro{
+    width: 700px;
+    margin-left: 50px
+}
+
 h2{
     text-align: center;
+}
+
+#titulo{
+    margin-top: 0;
 }
 
 form{
@@ -119,8 +128,12 @@ input{
     float: left
 }
 
+.acciones-admin{
+    overflow: hidden;
+    margin-top: 20px 
+}
+
 .item-usuario{
-    float: left;
-    margin-right: 35px;
-    margin-bottom: 0;
+    float: right;
+    margin-right: 64px;
 }

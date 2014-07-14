@@ -61,7 +61,8 @@
 					</ul>
 				</section>
 			</header>
-				<aside>
+
+			<aside>
 				<nav class="secondary-nav">
 					<ul class="sec-nav-category">
 						<li>
@@ -80,11 +81,11 @@
 
 			<main>
 				<div id="carreras-hd">
-					<h2 >Ingeniería de Software - Cursos </h2>
-					<a href="registrarCurso.html">Crear curso</a>
+					<h2>Lista de carreras </h2>
+					<a  href="crearCarrera.html">Crear Carrera</a>
 				</div> 
 				<div id="buscarCarreras">
-					<input id="q" type="text" value="" placeholder="Buscar cursos" />
+					<input id="q" type="text" value="" placeholder="Buscar carreras" />
 					<button id="btnBuscarCarreras" class="flaticon-magnifier12" type="submit"></button>
 				</div>
 			
@@ -92,48 +93,9 @@
 					<div class="accordion-group">
 						<div class="accordion-heading">
 							<a class="accordion-toggle collapsed" href="#collapseOne" data-parent="#basic-accordion"
-							data-toggle="collapse">Nombre del curso</a>
+							data-toggle="collapse">Nombre de la carrera</a>
 						</div>
 						<div id="collapseOne" class="accordion-body collapse">
-							<div class="accordion-inner">
-								<form class="detalleCarrera" action="#" method="post">
-									<div class="color">
-									<fieldset>
-									
-										<div class="form-row">
-											<label for="text1">Código:</label>
-											<input id="text1" type="text" placeholder="Código de la carrera" 
-												class="form-control1" readonly="readonly"/>
-										</div>
-										<div class="form-row">
-											<label for="text2">Director Académico:</label>
-											<input id="text2" type="text" placeholder="Nombre del director académico" 
-												class="form-control1" readonly="readonly"/>
-										</div>
-										<div class="form-row">
-									
-										</div>
-										<div class="form-row form-row-buttonAccionesCurso">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar"
-												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar"
-												value="Deshabilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnModificar" 
-												value="Modificar">
-
-									</div>
-									</fieldset>
-									</div>
-								</form>
-							</div>	
-						</div>
-					</div>
-					<div class="accordion-group">
-						<div class="accordion-heading">
-							<a class="accordion-toggle collapsed" href="#collapseTwo" data-parent="#basic-accordion"
-							data-toggle="collapse">Nombre del curso</a>
-						</div>
-						<div id="collapseTwo" class="accordion-body collapse">
 							<div class="accordion-inner">
 								<form class="detalleCarrera" action="#" method="post">
 									<div class="color">
@@ -149,9 +111,9 @@
 												class="form-control1" readonly="readonly"/>
 										</div>
 										<div class="form-row">
-											
+											<a href="consultarCursos.html">Ver Cursos</a>
 										</div>
-										<div class="form-row form-row-buttonAccionesCurso">
+										<div class="form-row form-row-buttonAcciones">
 											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar2"
 												value="Habilitar">
 											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar2"
@@ -162,15 +124,87 @@
 									</fieldset>
 									</div>
 								</form>
+							</div>	
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle collapsed" href="#collapseTwo" data-parent="#basic-accordion"
+							data-toggle="collapse">Nombre de la carrera</a>
+						</div>
+						<div id="collapseTwo" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<form class="detalleCarrera" action="#" method="post">
+									<fieldset>
+										<div class="form-row">
+											<label for="text1">Código:</label>
+											<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
+												readonly="readonly"/>
+										</div>
+										<div class="form-row">
+											<label for="text2">Director Académico:</label>
+											<input id="text2" type="text" placeholder="Nombre del director académico" 
+												class="form-control1" readonly="readonly"/>
+										</div>
+										<div class="form-row">
+											<a href="consultarCursos.html">Ver Cursos</a>
+										</div>
+										<div class="form-row form-row-buttonAcciones">
+											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar2"
+												value="Habilitar">
+											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar2"
+												value="Deshabilitar">
+											<input type="button" class="btn btn-secondaryAction" id="btnModificar2" 
+												value="Modificar">
+										</div>
+									</fieldset>
+								</form>
 							</div>
 						</div>
 					</div>
 					<div class="accordion-group">
 						<div class="accordion-heading">
 							<a class="accordion-toggle collapsed" href="#collapseThree" data-parent="#basic-accordion"
-							data-toggle="collapse">Nombre del curso</a>
+							data-toggle="collapse">Nombre de la carrera</a>
 						</div>
 						<div id="collapseThree" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<form class="detalleCarrera" action="#" method="post">
+								<div class="color">
+									<fieldset>
+										<div class="form-row">
+											<label for="text1">Código:</label>
+											<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
+												readonly="readonly"/>
+										</div>
+										<div class="form-row">
+											<label for="text2">Director Académico:</label>
+											<input id="text2" type="text" placeholder="Nombre del director académico" 
+												class="form-control1" readonly="readonly"/>
+										</div>
+										<div class="form-row">
+											<a href="consultarCursos.html">Ver Cursos</a>
+										</div>
+										<div class="form-row form-row-buttonAcciones">
+											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar2"
+												value="Habilitar">
+											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar2"
+												value="Deshabilitar">
+											<input type="button" class="btn btn-secondaryAction" id="btnModificar2" 
+												value="Modificar">
+										</div>
+									</fieldset>
+									</div>
+								</form>
+							</div>	
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle collapsed" href="#collapseFour" data-parent="#basic-accordion"
+							data-toggle="collapse">Nombre de la carrera</a>
+						</div>
+						<div id="collapseFour" class="accordion-body collapse">
 							<div class="accordion-inner">
 								<form class="detalleCarrera" action="#" method="post">
 									<div class="color">
@@ -186,125 +220,14 @@
 												class="form-control1" readonly="readonly"/>
 										</div>
 										<div class="form-row">
-									
-										</div>
-										<div class="form-row form-row-buttonAccionesCurso">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar3"
-												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar3"
-												value="Deshabilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
-												value="Modificar">
-										</div>
-									</fieldset>
-									</div>
-								</form>
-							</div>	
-						</div>
-					</div>
-					<div class="accordion-group">
-						<div class="accordion-heading">
-							<a class="accordion-toggle collapsed" href="#collapseFour" data-parent="#basic-accordion"
-							data-toggle="collapse">Nombre del curso</a>
-						</div>
-						<div id="collapseFour" class="accordion-body collapse">
-							<div class="accordion-inner">
-								<form class="detalleCarrera" action="#" method="post">
-											<div class="color">
-									<fieldset>
-										<div class="form-row">
-											<label for="text1">Código:</label>
-											<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
-												readonly="readonly"/>
-										</div>
-										<div class="form-row">
-											<label for="text2">Director Académico:</label>
-											<input id="text2" type="text" placeholder="Nombre del director académico" 
-												class="form-control1" readonly="readonly"/>
-										</div>
-										<div class="form-row">
-											<a href="#">Ver Cursos</a>
+											<a href="consultarCursos.html">Ver Cursos</a>
 										</div>
 										<div class="form-row form-row-buttonAcciones">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar3"
+											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar2"
 												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar3"
+											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar2"
 												value="Deshabilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
-												value="Modificar">
-										</div>
-									</fieldset>
-									</div>
-								</form>
-							</div>	
-						</div>
-					</div>
-					<div class="accordion-group">
-						<div class="accordion-heading">
-							<a class="accordion-toggle collapsed" href="#collapseFour" data-parent="#basic-accordion"
-							data-toggle="collapse">Nombre del curso</a>
-						</div>
-						<div id="collapseFour" class="accordion-body collapse">
-							<div class="accordion-inner">
-								<form class="detalleCarrera" action="#" method="post">
-											<div class="color">
-									<fieldset>
-										<div class="form-row">
-											<label for="text1">Código:</label>
-											<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
-												readonly="readonly"/>
-										</div>
-										<div class="form-row">
-											<label for="text2">Director Académico:</label>
-											<input id="text2" type="text" placeholder="Nombre del director académico" 
-												class="form-control1" readonly="readonly"/>
-										</div>
-										<div class="form-row">
-									
-										</div>
-										<div class="form-row form-row-buttonAccionesCurso">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar3"
-												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar3"
-												value="Deshabilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
-												value="Modificar">
-										</div>
-									</fieldset>
-									</div>
-								</form>
-							</div>	
-						</div>
-					</div>
-					<div class="accordion-group">
-						<div class="accordion-heading">
-							<a class="accordion-toggle collapsed" href="#collapseFour" data-parent="#basic-accordion"
-							data-toggle="collapse">Nombre del curso</a>
-						</div>
-						<div id="collapseFour" class="accordion-body collapse">
-							<div class="accordion-inner">
-								<form class="detalleCarrera" action="#" method="post">
-											<div class="color">
-									<fieldset>
-										<div class="form-row">
-											<label for="text1">Código:</label>
-											<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
-												readonly="readonly"/>
-										</div>
-										<div class="form-row">
-											<label for="text2">Director Académico:</label>
-											<input id="text2" type="text" placeholder="Nombre del director académico" 
-												class="form-control1" readonly="readonly"/>
-										</div>
-										<div class="form-row">
-									
-										</div>
-										<div class="form-row form-row-buttonAccionesCurso">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar3"
-												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar3"
-												value="Deshabilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
+											<input type="button" class="btn btn-secondaryAction" id="btnModificar2" 
 												value="Modificar">
 										</div>
 									</fieldset>
@@ -316,12 +239,12 @@
 					<div class="accordion-group">
 						<div class="accordion-heading">
 							<a class="accordion-toggle collapsed" href="#collapseFive" data-parent="#basic-accordion"
-							data-toggle="collapse">Nombre del curso</a>
+							data-toggle="collapse">Nombre de la carrera</a>
 						</div>
 						<div id="collapseFive" class="accordion-body collapse">
 							<div class="accordion-inner">
 								<form class="detalleCarrera" action="#" method="post">
-											<div class="color">
+									<div class="color">
 									<fieldset>
 										<div class="form-row">
 											<label for="text1">Código:</label>
@@ -334,14 +257,14 @@
 												class="form-control1" readonly="readonly"/>
 										</div>
 										<div class="form-row">
-									
+											<a href="consultarCursos.html">Ver Cursos</a>
 										</div>
-										<div class="form-row form-row-buttonAccionesCurso">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar3"
+										<div class="form-row form-row-buttonAcciones">
+											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar2"
 												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar3"
+											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar2"
 												value="Deshabilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
+											<input type="button" class="btn btn-secondaryAction" id="btnModificar2" 
 												value="Modificar">
 										</div>
 									</fieldset>
@@ -357,7 +280,8 @@
 				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
 			</footer>
 		</div>
-			<!-- Load JS -->
+		
+		<!-- Load JS -->
 		<script src="js/jquery-1.8.3.min.js"></script>
 		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

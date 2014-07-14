@@ -90,8 +90,17 @@ h2{
 
 #promedio{
 	font-size: 24px;
-
 }
+
+.wrapperItems {
+	height: 0;
+	overflow: hidden;
+	transition: height 0.3s;
+}
+.wrapperItems.visible {
+	height: 170px;
+}
+
 
 
 

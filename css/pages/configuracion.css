@@ -47,7 +47,7 @@ hr{
 }
 
 #basic-accordion{
-   width:760px;
+   width:750px;
    position:absolute;
    overflow-y: scroll;
    max-height: 370px;

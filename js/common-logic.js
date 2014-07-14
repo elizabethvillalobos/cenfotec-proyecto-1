@@ -11,7 +11,10 @@
 //   2. Inicializacion de funcionalidad especificas.
 // ------------------------------------------
 
+//Variables de datos quemados para usuario 
 
+var correoAdmin = 'admin@ucenfotec.ac.cr',
+    pwAdmin = 'Cenfo2014';
 
 // ------------------------------------------
 // Funciones generales
@@ -146,18 +149,18 @@ function toggleClass(pEl) {
 };
 
 // Validar que dos campos contengan la misma informacion.
-function validarCamposIguales(pArreglo, pElemetoError, pMsjError){
-    var diferentes=false;
-    for(var i=0; i<pArreglo.length; i++){
-        if(pArreglo[i].value == pArreglo[i+1].value){
-            diferentes=true;
-        }
-    }    
+function validarCamposIguales(pValor1, pValor2, pElementoError, pMsjError){
+    var iguales=false;
     
-    if(diferentes){
+    if(pValor1===pValor2){
+        iguales=true;
+    }else{
+        
         pElementoError.innerHTML=pMsjError;
         pElementoError.className += ' error';
-    }        
+    }
+    
+    return iguales;
 };
 
 // Validar que los campos de un formulario esten llenos.
@@ -180,7 +183,7 @@ function validarCamposLlenos(pArreglo, pElementoError, pMsjError){
 
 // Validar que correo sea valido y pertenezca el dominio de Cenfotec.
 function validarCorreo(pCorreo, pElementoError, pMsjError) { 
-  var expreg = new RegExp("\w+([\.-]?\w+)@(ucenfotec.ac.cr)/"),
+  var expreg = /^\w+@ucenfotec.ac.cr$/,
       correcto=true;
   
   if(!expreg.test(pCorreo)){
@@ -190,6 +193,49 @@ function validarCorreo(pCorreo, pElementoError, pMsjError) {
   }
     
    return  correcto;
+}
+
+// Validar que la contraseña sea valida para el usuario.
+function validarContrasena(pCorreo, pContrasena, pElementoError, pMsjError) { 
+  var coincide=false;
+  
+    if(pCorreo===correoAdmin){
+        if(pContrasena===pwAdmin){
+        coincide=true;
+        }else{
+            pElementoError.innerHTML=pMsjError;
+            pElementoError.className += ' error';
+      
+        }
+     }   
+    
+    return  coincide;
+}
+
+//Validar que la contraseña sea segura (de 8 a 10 caracteres inlcuye letra y numero sin caracteres especiales)
+function validarSeguridadContrasena(pContrasena, pElementoError, pMsjError) { 
+  var expreg = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$/,
+      segura=true;
+  
+  if(!expreg.test(pContrasena)){
+      correcto=false;
+    pElementoError.innerHTML=pMsjError;
+    pElementoError.className += ' error';
+  }
+    
+   return  segura;
+}
+
+//Generar código aleatorio alfanumerico
+function rand_code(chars, lon){
+code = "";
+    for (x=0; x < lon; x++){
+        rand = Math.floor(Math.random()*chars.length);
+        code += chars.substr(rand, 1);
+    }
+
+    return code;
+
 }
 
 

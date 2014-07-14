@@ -2,12 +2,21 @@
     left: 420px;
 }
 
+main{
+    
+} 
+
+.mod-bd{
+}
+
 .iniciarSesion{
     margin-left: 0;
+    padding: 0 20px
 }
 
 .registrarUsuario {
     margin-left: 0;
+    padding: 0 20px
 } 
 
 .activarCuenta{
@@ -16,7 +25,8 @@
 
 #form-registro{
     width: 700px;
-    margin-left: 50px
+    margin-left: 130px;
+    margin-top: 15px;
 }
 
 h2{
@@ -31,10 +41,10 @@ form{
     background: #ecf0f1;
     width: 400px;
 <<<<<<< HEAD
-    margin-bottom: 40px;
+    margin-bottom: 0px;
     margin-left: 285px;
 =======
-    margin: 0 auto 40px;
+    margin: 0 auto 0px;
 >>>>>>> origin/master
 }
 
@@ -81,7 +91,7 @@ label{
 }
 
 #btnRegistrar{
-   margin: 0 130px 
+   margin: 0px 120px 
 }
 
 footer{
@@ -95,45 +105,18 @@ footer{
 }
 
 input{
-    text-indent: 13px;
+    text-indent: 18px;
     padding: 0;
 } 
 
-/*.alert-error{
+.alert-error{
     display: none;
-}*/
+}
 
 .error{
     display: block;
 }
 
-
-
-.alert-error{
-
-}
-
-.encabezado{
-    overflow: hidden;
-    margin: 10px 0 20px 0;
-}
-
-.busquedaUsuarios{
-    position: static;
-    display: inline-block;
-    float: right;
-}
-
-.crearUsuario{
-    float: left
-}
-
-.acciones-admin{
-    overflow: hidden;
-    margin-top: 20px 
-}
-
-.item-usuario{
-    float: right;
-    margin-right: 64px;
+#codigoActiv{
+    
 }

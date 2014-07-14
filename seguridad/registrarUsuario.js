@@ -5,18 +5,29 @@ var eBtnRegistrar = document.querySelector('#btnRegistrar'),
 
 eBtnRegistrar.addEventListener('click', function (evento) {
     
-    alert('hola');
-    alert('k ase');
-   /* evento.preventDefault();
+    var eCorreo = document.querySelector('#email').value,
+        eContrasena = document.querySelector('#contrasena').value,
+        eConfirmContrasena = document.querySelector('#confirmContrasena').value,
+        eCodigoActiv = document.querySelector('#codigoActiv'),
+        caracteres = "0123456789abcdefABCDEF",
+        longitud = 8;
+    
+    evento.preventDefault();
+    
     var camposVacios=validarCamposLlenos(aInputs, eError, 'Todos los campos deben estar llenos');
     if(!camposVacios){
         var correoCorrecto=validarCorreo(eCorreo, eError, 'El correo es incorrecto');
+        if(correoCorrecto){
+            var segura=validarSeguridadContrasena(eContrasena, eError, 'La contraseña debe contener de 8 a 10 caracteres incluyendo numeros, sin caracteres especiales.');
+            if(segura){
+                var iguales=validarCamposIguales(eContrasena, eConfirmContrasena, eError, 'Las contraseñas no coinciden');
+                if(iguales){
+                    var codigo = rand_code(caracteres, longitud);
+                    eCodigoActiv.innerHTML=codigo;
+                }
+            }
+        }
     }
-    
-    if(correoCorrecto){
-        document.querySelector('#login').submmit;
-    }
-    */
     
 
     

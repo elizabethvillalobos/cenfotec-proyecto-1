@@ -87,12 +87,14 @@
 						data-validate="true" novalidate>
 						<div class="form-row">
 							<label for="codigo-carrera">Codigo:</label>
-							<input id="codigo-carrera" type="text" placeholder="Ingrese el codigo" class="form-control" required/>
+							<input id="codigo-carrera" type="text" placeholder="Ingrese el codigo" class="form-control" 
+							onkeypress="return soloLetras(event)" required/>
 						</div>
 
 						<div class="form-row">
 							<label for="nombre-carrera">Nombre:</label>
-							<input id="nombre-carrera" type="text" placeholder="Ingrese el nombre" class="form-control" required/>
+							<input id="nombre-carrera" type="text" placeholder="Ingrese el nombre" class="form-control" 
+							onkeypress="return soloLetras(event)" required/>
 						</div>
 
 						<div class="form-row">

@@ -1314,10 +1314,10 @@ aside {
    ---------- */
 main {
    background: #fefefe;
-   /*height: 440px;*/
+   height: 440px;
    margin-left: 200px;
    min-height: 450px;
-   /*overflow: scroll;*/
+   overflow: scroll;
    padding: 10px 20px 40px;
 }
 

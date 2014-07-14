@@ -238,6 +238,20 @@ code = "";
 
 }
 
+//Calcular el promedio de evlacion de cita
+function calcularPromedio(paNumeros){
+    var sumatoria=0;
+    
+    for(var i=0; i<paNumeros.length; i++){
+        sumatoria+=paNumeros[i];
+    }
+    
+    var promedio = sumatoria/paNumeros.length;
+    
+    return promedio;
+
+}
+
 
 // ------------------------------------------
 // Inicializar funcionalidades

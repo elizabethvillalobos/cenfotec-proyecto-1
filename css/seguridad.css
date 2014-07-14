@@ -1,10 +1,18 @@
-.logo{
+.centrado{
     left: 420px;
 }
 
-main{
+.iniciarSesion{
     margin-left: 0;
-}    
+}
+
+.registrarUsuario {
+    margin-left: 0;
+} 
+
+.activarCuenta{
+    margin-left: 0;
+}
 
 h2{
     text-align: center;
@@ -82,14 +90,37 @@ input{
     padding: 0;
 } 
 
-.alert-error{
+/*.alert-error{
     display: none;
-}
+}*/
 
 .error{
     display: block;
 }
 
-#mail{
 
+
+.alert-error{
+
+}
+
+.encabezado{
+    overflow: hidden;
+    margin: 10px 0 20px 0;
+}
+
+.busquedaUsuarios{
+    position: static;
+    display: inline-block;
+    float: right;
+}
+
+.crearUsuario{
+    float: left
+}
+
+.item-usuario{
+    float: left;
+    margin-right: 35px;
+    margin-bottom: 0;
 }

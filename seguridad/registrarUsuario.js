@@ -23,6 +23,7 @@ eBtnRegistrar.addEventListener('click', function (evento) {
                 var iguales=validarCamposIguales(eContrasena, eConfirmContrasena, eError, 'Las contraseñas no coinciden');
                 if(iguales){
                     var codigo = rand_code(caracteres, longitud);
+                    alert('El codigo de activacion es : '+codigo);
                     eCodigoActiv.innerHTML=codigo;
                 }
             }

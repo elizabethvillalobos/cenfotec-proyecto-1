@@ -4,7 +4,20 @@ para que sea mas facil la integracion.
 // ----------
 //   Javier Barboza Solis
 //   ----------
-.selector {}*/
+/* ----------
+   Paleta de colores
+   ---------- 
+   White: #FFFFFF
+   Clouds: #ecf0f1
+   Silver: #bdc3c7
+   Concrete: #95a5a6
+   Asbestos: #7f8c8d
+   Gris oscuro (header): #333;
+   Black: #000000
+   Alizarin: #e74c3c
+   Pomegranate: #c0392b
+   Midnight blue: #2c3e50 
+*/
 .titulo2{
 	margin:8px ;
 	color: #FFFFFF;
@@ -103,12 +116,56 @@ h2{
 	height: 170px;
 }
 
-.form-row-ev .nbr{
-    
+
+/*EVALUAR CITA Y CONSULTAR CITA FIN*/
+
+/*empieza mi ranking*/
+
+#rankDiv{
+	background: #333;
+	height: 200px;
+	color: #ffffff;
+	
+}
+#puntuacion{
+    float: right;
+    margin: 1px 40px 0 0;
 }
 
+.circulo {
+  background: none repeat scroll 0 0 #e74c3c;
+	border-radius: 40px;
+	color: #ffffff;
+	display: block;
+	font-size: 60px;
+	font-weight: bold;
+	line-height: 80px;
+	margin-left: 50px;
+	text-align: center;
+	width: 80px;
+}
 
+h1{
+	font-size: 36px;
+}
+#cantidad{
+	font-weight: bold;
+    margin: 178px 2px 0px 550px;
+    position: absolute;
+    width: 180px;
+}
 
+#user{
+    float: left;
+    margin: 30px 0 20px 40px;
+    width: 100px;
+}
+
+th{
+	font-size: 18px;
+	font-weight: bold;
+}
+/*empieza mi ranking*/
 
 
 

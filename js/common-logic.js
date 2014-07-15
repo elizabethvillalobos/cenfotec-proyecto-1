@@ -214,7 +214,7 @@ function validarContrasena(pCorreo, pContrasena, pElementoError, pMsjError) {
 
 //Validar que la contraseña sea segura (de 8 a 10 caracteres inlcuye letra y numero sin caracteres especiales)
 function validarSeguridadContrasena(pContrasena, pElementoError, pMsjError) { 
-  var expreg = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$/,
+  var expreg = /(?!^[0-9]+$)(?!^[a-z]+$)(?!^[A-Z]+$)^([a-zA-Z0-9]{8,10})$/,
       segura=true;
   
   if(!expreg.test(pContrasena)){

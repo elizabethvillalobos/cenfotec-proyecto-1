@@ -72,37 +72,26 @@
 			<main>
 				<section class="perfil-editar">
 					<div class="mod-hd">
-						<h2>Crear Carrera</h2>
+						<h2>Ingeniería de Software - Crear un nuevo curso</h2>
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="crear-carrera" class="mod-bd form-horizontal" action="crearCarrera-confirmar.html" method="post" 
+					<form id="crear-curso" class="mod-bd form-horizontal" action="registarCurso-Confirmar.html" method="post" 
 						data-validate="true" novalidate>
 						<div class="form-row">
-							<label for="codigo-carrera">Codigo:</label>
-							<input id="codigo-carrera" type="text" placeholder="Ingrese el codigo" class="form-control" 
+							<label for="codigo-curso">Codigo:</label>
+							<input id="codigo-curso" type="text" placeholder="Ingrese el codigo" class="form-control" 
 							onkeypress="return soloGuion(event)" required/>
 						</div>
+
 						<div class="form-row">
-							<label for="nombre-carrera">Nombre:</label>
-							<input id="nombre-carrera" type="text" placeholder="Ingrese el nombre" class="form-control" 
+							<label for="nombre-curso">Nombre:</label>
+							<input id="nombre-curso" type="text" placeholder="Ingrese el nombre" class="form-control" 
 							onkeypress="return soloLetras(event)" required/>
 						</div>
 
-						<div class="form-row">
-							<label for="director-academico">Director Académico:</label>
-							<select id="director-academico" required>
-	                            <option value="">Seleccione una opción</option>
-	                            <option value="Director1">Director1</option>
-	                            <option value="Director2">Director2</option>
-	                            <option value="Director3">Director3</option>
-	                            <option value="Director4">Director4</option>
-	                            <option value="Director5">Director5</option>
-                            </select>
-						</div>
-
 						<div class="form-row form-row-button">
-							<button id="btn-guardar-carrera" class="btn btn-primary" type="submit">Guardar</button>
+							<button id="btn-guardar-curso" class="btn btn-primary" type="submit">Guardar</button>
 							<!--<button id="btn-cancelar" class="btn btn-secondary" type="submit">Cancelar</button>-->
 							<a href="crearCarrera-cancelar.html" class="btn btn-default js-modal" 
 								data-modal-id="modal-cancelar">Cancelar</a>

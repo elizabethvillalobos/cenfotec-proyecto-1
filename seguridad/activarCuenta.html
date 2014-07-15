@@ -4,8 +4,11 @@
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
 		<meta charset="utf-8">
 		<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/flaticon.css">
 		<link rel="stylesheet" href="../css/gic.css">
-		<link rel="stylesheet" href="../css/pages/seguridad.css">		
+		<link rel="stylesheet" href="../css/seguridad.css">
+
+		
 	</head>
 	<body>
 			
@@ -13,25 +16,25 @@
 				    <div class="wrapper">
 			
 				<h1 class="logo centrado">Gestor Inteligente de                         Citas</h1>
-            </header>
-			<main class='iniciarSesion'>
+				</header>
+			<main class='activarCuenta'>
 				
 				<div class="mod-bd">
 				
 					<h2>Gestor Inteligente de Citas</h2>
-					<form  name="inicioSesion" id="login" action="../index.html" method="post">
+					<form id="login" action="../index.html" method="post">
 						<fieldset class="field">
-							<legend>Inicio</legend>
+							<legend>Activación de cuenta</legend>
 							
 							<div class="form-row">
-								<label for="">Correo electrónico:</label>
-								<span class="flaticon-black218 icon"></span>
+								<label for="">Código de activación de cuenta:</label>
+								<span class="flaticon-lock26 icon"></span>
 								<input id="email" type="mail" placeholder="" class="form-control" />
 							</div>
 							<div class="form-row ">
-								<label for="">Contraseña:</label>
+								<label for="">Confirmación de código:</label>
 								<span class="flaticon-lock26 icon"></span>
-								<input id="contrasena" type="password" placeholder=""  class="form-control" />
+								<input id="contraseña" type="password" placeholder=""  class="form-control" />
 							</div>
 							
 							
@@ -40,16 +43,13 @@
 							
 							
 							<div class="form-row form-row-button">
-								<button class="btn btn-primary">Iniciar sesión</button>
+								<button class="btn btn-primary">Activar cuenta</button>
 								
 							</div>
 							
 							<p class="alert-error flaticon-remove11 "></p>
 							
-							<div class="links">
-							    <a href="" id="aRegistrar">Registrarse</a>
-							    <a href="" id="aOlvide">Olvidé mi contraseña</a>
-							</div>
+							
 						</fieldset>
 					</form>
 
@@ -63,7 +63,7 @@
 		
 		<!-- Load JS -->
 		<script src="../js/common-logic.js"></script>
-        <script src="../seguridad/iniciarSesion.js"></script>
+        <script src="../js/seguridad.js"></script>
 		<script src="js/jquery-1.8.3.min.js"></script>
 		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

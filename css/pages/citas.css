@@ -36,6 +36,7 @@ Ejemplo:
 	....
 }
 
+<<<<<<< HEAD
 */
 /*
 // ----------
@@ -43,6 +44,10 @@ Ejemplo:
 //   ----------*/
 .mod-bd{
 	position:relative;
+=======
+.cita .form-row-button {
+   margin: 20px 0 0 160px;
+>>>>>>> 3e5a42fa502500817a4b34bc39e68ed6ccc0858c
 }
 .listForm{
 	border: 2px solid #bdc3c7;

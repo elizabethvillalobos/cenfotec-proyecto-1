@@ -5,60 +5,59 @@
 		<meta charset="utf-8">
 		<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="../css/gic.css">
-		<link rel="stylesheet" href="../css/seguridad.css">	
+		<link rel="stylesheet" href="../css/pages/seguridad.css">	
 	</head>
 	<body>
 			
 			<header>
 				    <div class="wrapper">
 			
-				<h1 class="logo">Gestor Inteligente de                         Citas</h1>
+				<h1 class="logo centrado">Gestor Inteligente de                         Citas</h1>
 				</header>
-			<main>
+			<main class='registrarUsuario'>
 				
 				<div class="mod-bd">
 				
 
-					<h2>Gestor Inteligente de Citas</h2>
-					<form id="solicitar-cita" action="#" method="post">
+					<form id="form-registro"  class="form-horizontal" action="" method="post">
 						<fieldset class="field">
 							<legend>Registro</legend>
 							
 							<div class="form-row">
 								<label for="">Correo electrónico:</label>
 								<span class="flaticon-black218 icon"></span>
-								<input id="" type="mail" placeholder="" class="form-control" />
+								<input id="email" type="mail" placeholder="" class="form-control" />
 							</div>
 							<div class="form-row ">
 								<label for="">Nombre:</label>
 								<span class="flaticon-male12 icon"></span>
-								<input id="" type="password" placeholder="" class="form-control" />
+								<input id="" type="text" placeholder="" class="form-control" />
 							</div>
 							<div class="form-row ">
 								<label for="">Primer apellido:</label>
 								<span class="flaticon-male12 icon"></span>
-								<input id="" type="password" placeholder="" class="form-control" />
+								<input id="" type="text" placeholder="" class="form-control" />
 							</div>
 							<div class="form-row ">
 								<label for="">Segundo apellido:</label>
 								<span class="flaticon-male12 icon"></span>
-								<input id="" type="password" placeholder="" class="form-control" />
+								<input id="" type="text" placeholder="" class="form-control" />
 							</div>
 							<div class="form-row ">
 								<label for="">Contraseña:</label>
 								<span class="flaticon-lock26 icon"></span>
-								<input id="" type="password" placeholder="" class="form-control" />
+								<input id="contrasena" type="password" placeholder="" class="form-control" />
 							</div>
 							<div class="form-row ">
 								<label for="">Confirmar contraseña:</label>
 								<span class="flaticon-lock26 icon"></span>
-								<input id="" type="password" placeholder="" class="form-control" />
+								<input id="confirmContrasena" type="password" placeholder="" class="form-control" />
 							</div>
 							
 							
 							
 							<div class="form-row form-row-button">
-								<button id="btnRegistrar" class="btn btn-primary">Registrar</button>
+								<button id="btnRegistrar" class="btn btn-primary" >Registrar</button>
 								
 							</div>
 							
@@ -76,7 +75,7 @@
 		
 		<!-- Load JS -->
 		<script src="../js/common-logic.js"></script>
-        <script src="../js/seguridad.js"></script>
+		<script src="../seguridad/registrarUsuario.js"></script>
 		<script src="js/jquery-1.8.3.min.js"></script>
 		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

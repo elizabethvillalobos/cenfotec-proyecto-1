@@ -1,17 +1,28 @@
 var eBtnIniciarSesion = document.querySelector('.btn-primary'),
     aInputs = document.querySelectorAll('form .form-control'),
     eError = document.querySelector('.alert-error'),
-    eCorreo = document.querySelector('#mail').value,
-    regis=false,
-    document.querySelector('#login').submmit;
+    regis=false;
 
 eBtnIniciarSesion.addEventListener('click', function (evento) {
     
+    var eCorreo = document.querySelector('#email').value,
+        eContrasena = document.querySelector('#contrasena').value;
+    
     evento.preventDefault();
+    
     var camposVacios=validarCamposLlenos(aInputs, eError, 'Todos los campos deben estar llenos');
     if(!camposVacios){
-        validarCorreo(eCorreo, eError, 'El correo es incorrecto');
+        var correoCorrecto=validarCorreo(eCorreo, eError, 'El correo es incorrecto');
+        if(correoCorrecto){
+            var coincide=validarContrasena(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
+            if(coincide){
+                alert('Bienvenido');
+                document.submmit('#login');
+            }
+        }
     }
+    
+    
     
     
 

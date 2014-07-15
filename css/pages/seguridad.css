@@ -1,19 +1,51 @@
-.logo{
+.centrado{
     left: 420px;
 }
 
 main{
+    
+} 
+
+.mod-bd{
+}
+
+.iniciarSesion{
     margin-left: 0;
-}    
+    padding: 0 20px
+}
+
+.registrarUsuario {
+    margin-left: 0;
+    padding: 0 20px
+} 
+
+.activarCuenta{
+    margin-left: 0;
+}
+
+#form-registro{
+    width: 700px;
+    margin-left: 130px;
+    margin-top: 15px;
+}
 
 h2{
     text-align: center;
 }
 
+#titulo{
+    margin-top: 0;
+}
+
 form{
     background: #ecf0f1;
     width: 400px;
-    margin: 0 auto 40px;
+<<<<<<< HEAD
+    margin-bottom: 0px;
+    margin-left: 285px;
+=======
+    margin: 0 auto 0px;
+>>>>>>> origin/master
 }
 
 fieldset{
@@ -59,7 +91,7 @@ label{
 }
 
 #btnRegistrar{
-   margin: 0 130px 
+   margin: 0px 120px 
 }
 
 footer{
@@ -73,7 +105,7 @@ footer{
 }
 
 input{
-    text-indent: 13px;
+    text-indent: 18px;
     padding: 0;
 } 
 
@@ -83,4 +115,8 @@ input{
 
 .error{
     display: block;
+}
+
+#codigoActiv{
+    
 }

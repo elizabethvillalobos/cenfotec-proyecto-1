@@ -12,23 +12,23 @@ document.getElementById('btnDeshabilitar5').disabled = false;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar').onclick = function mostrarFormModificar(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/modificarCarrera.html";
+	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/modificarCarrera.html";
 }
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar2').onclick = function mostrarFormModificar(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/modificarCarrera.html";
+	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/modificarCarrera.html";
 }
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar3').onclick = function mostrarFormModificar(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/modificarCarrera.html";
+	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/modificarCarrera.html";
 }
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar4').onclick = function mostrarFormModificar(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/modificarCarrera.html";
+	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/modificarCarrera.html";
 }
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar5').onclick = function mostrarFormModificar(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/modificarCarrera.html";
+	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/modificarCarrera.html";
 }
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/
 document.getElementById('btnHabilitar').onclick = function deshabilitarBtnHabilitar(){

@@ -3,19 +3,12 @@
 	<head>
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
 		<meta charset="utf-8">
-		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/gic.css">
-		<link rel="stylesheet" href="css/configuracion.css">
-
-		<!-- Aqui deben agregar la hoja de estilo del modulo que corresponda
-		Ejemplo:
-			<link rel="stylesheet" href="css/pages/citas.css">
-			<link rel="stylesheet" href="css/pages/evaluacion.css">
-			<link rel="stylesheet" href="css/pages/configuracion.css">
-			etc... -->
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="../css/gic.css">
+		<link rel="stylesheet" href="../css/pages/configuracion.css">
 	</head>
 	<body>
-		<div class="wrapper">
+			<div class="wrapper">
 			<header>
 				<a href="index.html" class="home">
 					<h1 class="logo">Gestor Inteligente de Citas</h1>
@@ -52,16 +45,15 @@
 					<img class="usr-photo" src="images/users/default-user.png" width="40" height="40">
 					<ul>
 						<li>
-							<a class="usr-editar-perfil">Editar perfil</a>
+							<a href="#" class="usr-editar-perfil">Editar perfil</a>
 						</li>
 						<li>
-							<a class="usr-cerrar-sesion">Cerrar sesión</a>
+							<a href="#" class="usr-cerrar-sesion">Cerrar sesión</a>
 						</li>
 					</ul>
 				</section>
 			</header>
-
-			<aside>
+				<aside>
 				<nav class="secondary-nav">
 					<ul class="sec-nav-category">
 						<li>
@@ -69,43 +61,25 @@
 							<ul class="thrd-nav-category">
 								<li><a href="#">Perfil</a></li>
 								<li><a href="#">Mi Cuenta</a></li>
-								<li><a href="#" class="active">Carreras y Cursos</a></li>
+								<li><a href="consultarCarreras.html" class="active">Carreras y cursos</a></li>
 								<li><a href="#">Usuarios</a></li>
 								<li><a href="#">General</a></li>
-						</li>		
+							</ul>
+						</li>
 					</ul>
 				</nav>
 			</aside>
-
 			<main>
-				
-				
-					<h2>Crear Curso - Ingeniería de Software</h2>
-						<form id="solicitar-cita"  class="form-horizontal" method="post">
-						<fieldset>
-						
-							<div class="form-row">
-								<label for="">Código:</label>
-								<input type="text" id="txtCodCurso" class="form-control"  placeholder="Ingrese el dato..." onkeypress="return soloGuion(event)">
-							</div>
-							<div class="form-row ">
-								<label for="">Nombre:</label>
-								<input type="text" id="txtNomCurso" class="form-control"  placeholder="Ingrese el dato..."  onkeypress="return soloLetras(event)">
-							</div>
-							<div class="form-row ">
-								<label for="">Profesor(es):</label>
-								<input type="text" id="txtNomCurso" class="form-control"  placeholder="Ingrese el dato...">
-							</div>
+				<section class="msg-confirm">
+					<div class="mod-hd">
+						<h2 class="flaticon-male12">Carrera creada</h2>
+					</div>
+					<div class="mod-bd">
+						<p>La carrera se ha creado con éxito.</p>
 
-							
-							<p class="alert-error flaticon-remove11"></p>					
-							<div class="form-row form-row-button">
-								<button class="btn btn btn-primary" id="btnCrearCurso">Guardar</button>
-								<button class="btn btn-secondary">Cancelar</button>
-							</div>
-							
-					</fieldset>
-					</form>
+						<a href="consultarCarreras.html" class="btn btn-default">Volver</a>
+					</div>
+				</section>
 			</main>
 			
 			<footer>
@@ -113,14 +87,7 @@
 			</footer>
 		</div>
 
-		<script type="text/javascript" src="js/configuracion.js"></script>
-		<script type="text/javascript" src="js/common-logic.js"></script>
-	
-		
-		
-  
-	</form>
-
-
+		<!-- Load JS -->
+		<script src="../js/common-logic.js"></script>
 	</body>
 </html>

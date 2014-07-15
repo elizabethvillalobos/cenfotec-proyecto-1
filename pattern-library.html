@@ -144,6 +144,8 @@
 					</table>
 
 					<h2>Formulario</h2>
+
+                    <h3>Formulario Vertical</h3>
 					<form id="solicitar-cita" action="#" method="post">
 						<fieldset>
 							<legend>Ejemplo básico</legend>
@@ -207,12 +209,85 @@
 								<label for="textarea1">Textarea:</label>
                                 <textarea id="textarea1" placeholder="Enter text here..." class="form-control"></textarea>
 							</div>
+
 							<div class="form-row form-row-button">
-								<button class="btn btn-primary">Boton primario</button>
-								<button class="btn btn-default">Boton secundario</button>
+								<button class="btn btn-primary" type="submit">Boton primario</button>
+                                <button class="btn btn-default" type="button">Boton secundario</button>
 							</div>
 						</fieldset>
 					</form>
+
+                    <h3>Formulario Horizontal</h3>
+                    <form id="solicitar-cita" class="form-horizontal" action="#" method="post">
+                        <fieldset>
+                            <legend>Ejemplo básico</legend>
+                            <div class="form-row">
+                                <label for="text1">Text input:</label>
+                                <input id="text1" type="text" placeholder="Enter something" class="form-control" />
+                            </div>
+
+                            <div class="form-row form-control-icon">
+                                <label for="text1">Text input with icon:</label>
+                                <span class="flaticon-male12"></span>
+                                <input id="text1" type="text" placeholder="Enter something" class="form-control" />
+                            </div>
+
+                            <div class="form-row ">
+                                <label for="password1">Password input:</label>
+                                <input id="password1" type="password" placeholder="Password here" class="form-control" />
+                            </div>
+                            
+                            <div class="form-row form-row-checkbox">
+                                <label class="checkbox" for="checkbox1">
+                                    <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
+                                    Checkbox
+                                </label>
+                                <label class="checkbox" for="checkbox1">
+                                    <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
+                                    Checkbox
+                                </label>
+                                <label class="checkbox" for="checkbox1">
+                                    <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
+                                    Checkbox
+                                </label>
+                            </div>
+
+                            <div class="form-row form-row-radio">
+                                <label class="radio">
+                                    <input type="radio" name="group1" value="1" data-toggle="radio">Radio off
+                                </label>
+
+                                <label class="radio">
+                                    <input type="radio" name="group1" value="2" data-toggle="radio" checked>Radio on
+                                </label>
+
+                                <label class="radio">
+                                    <input type="radio" name="group1" value="1" data-toggle="radio">Radio off
+                                </label>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="select1">Select:</label>
+                                <select id="select1">
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="0">Opción 1</option>
+                                    <option value="1">Opción 2</option>
+                                    <option value="3">Opción 3</option>
+                                    <option value="4">Opción 4</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-row">
+                                <label for="textarea1">Textarea:</label>
+                                <textarea id="textarea1" placeholder="Enter text here..." class="form-control"></textarea>
+                            </div>
+
+                            <div class="form-row form-row-button">
+                                <button class="btn btn-primary" type="submit">Boton primario</button>
+                                <button class="btn btn-default" type="button">Boton secundario</button>
+                            </div>
+                        </fieldset>
+                    </form>
 
 					<h2>Alertas</h2>
 					<p class="alert-success flaticon-check34">Mauris condimentum, libero non accumsan rhoncus, dui massa lobortis turpis.</p>

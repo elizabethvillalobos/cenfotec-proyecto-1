@@ -907,7 +907,9 @@ fieldset[disabled] .btn {
    margin-top: 10px;
 }
 
-.mod-bd {}
+.mod-bd {
+  position: relative;
+}
 
 
 /* ----------

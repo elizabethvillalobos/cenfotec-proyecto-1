@@ -110,7 +110,113 @@
 
 								<!-- Javier: hay que agregarle la clase wrapperItems a todos los 
 								divs que tienen los campos cuando se responde que si -->
-                                <div id="wrapperItems" class="wrapperItems"> 
+                                <div class="wrapperItems"> 
+
+                                	<div class="form-row-ev"> 
+                                		<div class="preguntas">
+                                			<label class="">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
+								        </div>
+
+								        <div class="opcs">	
+								        	<input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
+									    </div>
+								    </div>
+                                
+									<div class="form-row-ev">
+
+										<div class="preguntas">
+											<label class="" >3)¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
+										</div>
+
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+
+									</div>
+
+									<div class="form-row-ev">	
+
+										<div class="preguntas">
+											<label class="" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
+										</div>
+
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+
+									</div>
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+										</div>
+
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+
+									</div>										
+
+									<div class="form-row-ev">
+
+										<div class="preguntas">
+											<label class="" >Promedio obtenido en esta cita:</label>
+										</div>
+
+										<div class="opcs">
+										    <label id="promedio">3</label>
+										</div>
+
+									</div>	
+
+								</div>
+
+								<div class="form-row form-row-button">
+									<button class="btn btn-primary">Enviar</button>
+							        <button class="btn btn-default">Cancelar</button>
+						        </div>
+
+							</fieldset>
+				        </form>
+                    </div>
+                </li>
+
+
+
+                <li class="accordion-item">
+                    <a href="#">
+                        	<p class="titulo2">
+                        		<span class="stit2">Usuario a evaluar:<span>Pablo Monestel</span></span><span>Fecha:<span>24-8-14 Hora:10:00am</span></span>
+                        	</p>
+                        </a>
+                    <div class="accordion-detail">
+                        <form id="" action="#" method="post">               	
+
+								<fieldset>
+									<h2 >Formulario de Evaluación de Cita</h2>
+
+									<div class="form-row-ev">
+										<div id="pregunta1">
+											<label class="">1)¿El profesor se presentó a la cita?</label>
+										</div>
+
+										<div class="opcs">
+											<label class="radio">
+												<!-- Javier hay que asignar el value "si" o "no" para que funke -->
+				                                <input type="radio" name="group1" value="si" data-toggle="radio">SI
+				                            </label>
+				                        </div>
+
+			                            <div class="opcs">
+			                            	<label class="radio">
+			                            		<!-- Javier hay que asignar el value "si" o "no" para que funke -->
+			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
+			                                </label>				                            
+
+									    </div>	
+								</div>
+
+                                <div class="wrapperItems"> 
 
                                 	<div class="form-row-ev"> 
                                 		<div class="preguntas">
@@ -181,8 +287,6 @@
                     </div>
                 </li>
 
-
-
                 <li class="accordion-item">
                     <a href="#">
                         	<p class="titulo2">
@@ -202,121 +306,21 @@
 
 										<div class="opcs">
 											<label class="radio">
-				                                <input type="radio" name="group1" value="2" data-toggle="radio" checked>SI
+												<!-- Javier hay que asignar el value "si" o "no" para que funke -->
+				                                <input type="radio" name="group1" value="si" data-toggle="radio">SI
 				                            </label>
 				                        </div>
 
 			                            <div class="opcs">
 			                            	<label class="radio">
-			                            		<input type="radio" name="group1" value="1" data-toggle="radio">NO
-			                                </label>				                            
+			                            		<!-- Javier hay que asignar el value "si" o "no" para que funke -->
+			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
+			                                </label>			                            
 
 									    </div>	
 								</div>
 
-                                <div id="wrapperItems"> 
-
-                                	<div class="form-row-ev"> 
-                                		<div class="preguntas">
-                                			<label class="">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
-								        </div>
-
-								        <div class="opcs">	
-								        	<input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
-									    </div>
-								    </div>
-                                
-									<div class="form-row-ev">
-
-										<div class="preguntas">
-											<label class="" >3)¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
-										</div>
-
-										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
-										</div>
-
-									</div>
-
-									<div class="form-row-ev">	
-
-										<div class="preguntas">
-											<label class="" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
-										</div>
-
-										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
-										</div>
-
-									</div>
-
-									<div class="form-row-ev">	
-										<div class="preguntas">
-											<label class="">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
-										</div>
-
-										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
-										</div>
-
-									</div>										
-
-									<div class="form-row-ev">
-
-										<div class="preguntas">
-											<label class="" >Promedio obtenido en esta cita:</label>
-										</div>
-
-										<div class="opcs">
-										    <label id="promedio"><span >3</span></label>
-										</div>
-
-									</div>	
-
-								</div>
-
-								<div class="form-row form-row-button">
-									<button class="btn btn-primary">Enviar</button>
-							        <button class="btn btn-default">Cancelar</button>
-						        </div>
-
-							</fieldset>
-				        </form>
-                    </div>
-                </li>
-
-                <li class="accordion-item">
-                    <a href="#">
-                        	<p class="titulo2">
-                        		<span class="stit2">Usuario a evaluar:<span>Pablo Monestel</span></span><span>Fecha:<span>24-8-14 Hora:10:00am</span></span>
-                        	</p>
-                        </a>
-                    <div class="accordion-detail">
-                        <form id="" action="#" method="post">               	
-
-								<fieldset>
-									<h2 >Formulario de Evaluación de Cita</h2>
-
-									<div class="form-row-ev">
-										<div id="pregunta1">
-											<label class="">1)¿El profesor se presentó a la cita?</label>
-										</div>
-
-										<div class="opcs">
-											<label class="radio">
-				                                <input type="radio" name="group1" value="2" data-toggle="radio" checked>SI
-				                            </label>
-				                        </div>
-
-			                            <div class="opcs">
-			                            	<label class="radio">
-			                            		<input type="radio" name="group1" value="1" data-toggle="radio">NO
-			                                </label>				                            
-
-									    </div>	
-								</div>
-
-                                <div id="wrapperItems"> 
+                                <div class="wrapperItems"> 
 
                                 	<div class="form-row-ev"> 
                                 		<div class="preguntas">

@@ -241,3 +241,30 @@ h2 {
    border-radius: 10px;
    width: 200px;
 }
+
+/*Miguel */
+
+.encabezado{
+    overflow: hidden;
+    margin: 10px 0 20px 0;
+}
+
+.busquedaUsuarios{
+    position: static;
+    display: inline-block;
+    float: right;
+}
+
+.crearUsuario{
+    float: left
+}
+
+.acciones-admin{
+    overflow: hidden;
+    margin-top: 20px 
+}
+
+.item-usuario{
+    float: right;
+    margin-right: 72px;
+}

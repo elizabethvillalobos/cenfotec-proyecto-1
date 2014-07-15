@@ -14,12 +14,6 @@ para que sea mas facil la integracion.
 	padding-right: 300px;
 
 }
-.ocultarForm{
-	display: none;
-}
-.mostrarForm{
-
-}
 
 #pregunta1{
 	padding-left: 10px;
@@ -101,7 +95,9 @@ h2{
 	height: 170px;
 }
 
-
+.form-row-ev .nbr{
+    
+}
 
 
 

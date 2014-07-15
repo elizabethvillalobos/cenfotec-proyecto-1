@@ -19,15 +19,13 @@ btnSelectInvitado.addEventListener('click',function(){
 function toggleForms() {
 	totalSelected=0;
 	var frmSolicitud=document.querySelector('#solicitarCita');
-	//var frmLista=document.querySelector('.frmLista');
 	var frmLista=document.querySelector('#listForm');
     frmSolicitud.className = "backContent";
-	//frmLista.className = "frmLista frontContent";
 	frmLista.className = "frontContent";
 	var title=document.querySelector('#lblLegent');
 	var ul = document.getElementById("listElements");
 	while( ul.firstChild ){
-	  ul.removeChild( ul.firstChild );
+		ul.removeChild( ul.firstChild );
 	}
 	
 	if(btnClickeado==btnSelectCurso){		
@@ -82,7 +80,6 @@ function toggleItem(clickedItem, maxOfItems) {
 btnVolver.addEventListener('click',function(){
 	getActiveItems();
 	var frmSolicitud=document.querySelector('#solicitarCita');
-	//var frmLista=document.querySelector('.frmLista');
 	var frmLista=document.querySelector('#listForm');
     frmSolicitud.className = "frontContent";
 	frmLista.className = "backContent";
@@ -122,26 +119,16 @@ btnEnviar.addEventListener('click',function(event){
 		myInputs.push(inputs[i]);
 	}
 	var errorRibbon=document.querySelector('#errorRibbon');
-	event.preventDefault();
+	
 	if(validarCamposLlenos(inputs,errorRibbon,"Es necesario llenar los campos vacíos"))
 	{
 		errorRibbon.className = "alert-error flaticon-remove11 showed";		
+		event.preventDefault();
 	}
 	else
-	{
-		
-		var pcurso="Curso:="+document.querySelector('#txtCurso').value;
-		var pinvitado="Invitado:="+document.querySelector('#txtInvitado').value;
-		var pasunto="Asunto:="+document.querySelector('#txtAsunto').value;
-		var plugar="Lugar:="+getRadioChecked('rdoLugar');
-		var ptipo="Tipo:="+getRadioChecked('rdoTipo');
-		var pdescripcion="Descripcion:="+document.querySelector('#txtObservaciones').value;
-		var parametros=[pcurso,pinvitado,pasunto,plugar,ptipo,pdescripcion];
-		
-		window.location = addPararmsURL("mensaje.html",parametros);
+	{		
 		errorRibbon.style.display = 'none';
-		errorRibbon.className = "alert-error flaticon-remove11 hidden";
-		
+		errorRibbon.className = "alert-error flaticon-remove11 hidden";	
 	}
 });
 

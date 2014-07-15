@@ -2,10 +2,11 @@
 <html>
 	<head>
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
-		<meta charset="utf-8"><link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/flaticon.css">
-		<link rel="stylesheet" href="css/gic.css">
-		<link rel="stylesheet" href="css/pages/citas.css">
+		<meta charset="utf-8">
+		<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/flaticon.css">
+		<link rel="stylesheet" href="../css/gic.css">
+		<link rel="stylesheet" href="../css/pages/citas.css">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -55,16 +56,23 @@
 			<aside>
 				<nav class="secondary-nav">
 					<ul class="sec-nav-category">
-						<li>
-							<a href="#" class="active">Solicitudes</a>
-							<ul class="thrd-nav-category">
-								<li><a href="#">Ana Pérez</a></li>
-								<li><a href="#" class="active">Johans Cantillo</a></li>
-								<li><a href="#">Esteban Echeverría</a></li>
+						<li class="accordion-item">
+							<a href="citas.html" class="active">Agenda</a>							
+						</li>
+						<li class="accordion-item">
+							<a href="#">Citas finalizadas</a>
+						</li>
+						<li class="accordion-item expanded">
+							<a href="#">Solicitudes de cita</a>
+							<ul class="thrd-nav-category accordion-detail">
+								<li><a href="#">Ernesto Rivera</a></li>
+								<li><a href="#">Oscar Jimenes</a></li>
+								<li><a href="#">Alejandro Leiva</a></li>
+								<li><a href="#">Olger Cubillo</a></li>
+								<li><a href="#">Rocío Solano</a></li>
+								<li><a href="#">Alejandro Villalobos</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Categoría </a></li>
-						<li><a href="#">Categoría</a></li>
 					</ul>
 				</nav>
 			</aside>
@@ -115,19 +123,18 @@
 							</div>
 							<p id="errorRibbon" class="alert-error flaticon-remove11 hidden">Mauris condimentum, libero non accumsan rhoncus, dui massa lobortis turpis.</p>
 							<div class="form-row form-row-button">
-								<button id="btnEnviar" class="btn btn-primary">Enviar</button>
+								<a href="solicitudEnviada.html" id="btnEnviar" class="btn btn-primary">Enviar</a>
 							</div>
 						</fieldset>
 					</form>
 					
 					<div id="listForm" class="backContent">
-					<fieldset class="frmLista">
-						<legend id="lblLegent"></legend>
-						<ul id="listElements">
-							
-						</ul>
-						<button id="btnVolver" class="btn btn-primary">Volver</button>
-					</fieldset>
+						<fieldset class="frmLista">
+							<legend id="lblLegent"></legend>
+							<ul id="listElements">								
+							</ul>
+							<button id="btnVolver" class="btn btn-primary">Volver</button>
+						</fieldset>
 					</div>
 				</div>
 			</main>
@@ -138,14 +145,14 @@
 		</div>
 		
 		<!-- Load JS -->
-		<script src="js/jquery-1.8.3.min.js"></script>
-		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap-select.js"></script>
-		<script src="js/flatui-checkbox.js"></script>
-		<script src="js/flatui-radio.js"></script>
-        <script src="js/gic.js"></script>
-		<script src="js/common-logic.js"></script>
-		<script src="js/solicitarCita.js"></script>
+		<script src="../js/jquery-1.8.3.min.js"></script>
+		<script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/bootstrap-select.js"></script>
+		<script src="../js/flatui-checkbox.js"></script>
+		<script src="../js/flatui-radio.js"></script>
+        <script src="../js/gic.js"></script>
+		<script src="../js/common-logic.js"></script>
+		<script src="../js/solicitarCita.js"></script>
 	</body>
 </html>

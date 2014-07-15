@@ -229,7 +229,7 @@ function validarSeguridadContrasena(pContrasena, pElementoError, pMsjError) {
 
 //Generar código aleatorio alfanumerico
 function rand_code(chars, lon){
-code = "";
+    var code = "";
     for (x=0; x < lon; x++){
         rand = Math.floor(Math.random()*chars.length);
         code += chars.substr(rand, 1);
@@ -254,12 +254,12 @@ function calcularPromedio(paNumeros){
 }
 
 //Imprimir código de activacion en la página de mensaje
-
-document.querySelector('#codigoActiv').innerHTML = codigoActivacion;
-
+var eCodigoActivacion = document.querySelector('#codigoActiv');
+if (eCodigoActivacion) {
+    eCodigoActivacion.innerHTML = codigoActivacion;
+}
 
 //Validar clave de activacion de cuenta
-
 function validarClave(pClave, pElementoError, pMsjError){
     var correcta=false;
     

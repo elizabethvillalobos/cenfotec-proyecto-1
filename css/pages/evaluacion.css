@@ -22,6 +22,14 @@ para que sea mas facil la integracion.
 	
 }
 
+#pregunta1A{
+	padding-left: 20px;
+	width:550px;
+	float: left;
+	margin-right: 70px;
+	
+}
+
 .preguntas{
 	padding-left: 10px;
 	width:600px;

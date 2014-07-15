@@ -10,7 +10,8 @@ eBtnRegistrar.addEventListener('click', function (evento) {
         eConfirmContrasena = document.querySelector('#confirmContrasena').value,
         eCodigoActiv = document.querySelector('#codigoActiv'),
         caracteres = "0123456789abcdefABCDEF",
-        longitud = 8;
+        longitud = 8,
+        formulario = document.querySelector('#form-registro');
     
     evento.preventDefault();
     
@@ -23,8 +24,10 @@ eBtnRegistrar.addEventListener('click', function (evento) {
                 var iguales=validarCamposIguales(eContrasena, eConfirmContrasena, eError, 'Las contraseñas no coinciden');
                 if(iguales){
                     var codigo = rand_code(caracteres, longitud);
-                    alert('El codigo de activacion es : '+codigo);
-                    eCodigoActiv.innerHTML=codigo;
+//                    alert('El codigo de activacion es : '+codigo);
+                                        eCodigoActiv.innerHTML=codigo;
+
+                    formulario.submit();
                 }
             }
         }

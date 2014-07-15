@@ -6,7 +6,8 @@ var eBtnIniciarSesion = document.querySelector('.btn-primary'),
 eBtnIniciarSesion.addEventListener('click', function (evento) {
     
     var eCorreo = document.querySelector('#email').value,
-        eContrasena = document.querySelector('#contrasena').value;
+        eContrasena = document.querySelector('#contrasena').value,
+        formulario = document.querySelector('#login');
     
     evento.preventDefault();
     
@@ -16,8 +17,7 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
         if(correoCorrecto){
             var coincide=validarContrasena(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
             if(coincide){
-                alert('Bienvenido');
-                document.submmit('#login');
+                formulario.submit();
             }
         }
     }

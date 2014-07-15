@@ -13,7 +13,8 @@
 
 //Variables de datos quemados para usuario 
 
-var correoAdmin = 'admin@ucenfotec.ac.cr',
+var codigoActivacion = localStorage.getItem('codigoActivacion'),
+    correoAdmin = 'admin@ucenfotec.ac.cr',
     pwAdmin = 'Cenfo2014';
 
 // ------------------------------------------
@@ -252,6 +253,25 @@ function calcularPromedio(paNumeros){
 
 }
 
+//Imprimir código de activacion en la página de mensaje
+
+document.querySelector('#codigoActiv').innerHTML = codigoActivacion;
+
+
+//Validar clave de activacion de cuenta
+
+function validarClave(pClave, pElementoError, pMsjError){
+    var correcta=false;
+    
+    if(pClave===codigoActivacion){
+        correcta=true;
+    }else{
+        pElementoError.innerHTML=pMsjError;
+        pElementoError.className += ' error';
+    }
+
+    return correcta;
+}
 
 // ------------------------------------------
 // Inicializar funcionalidades

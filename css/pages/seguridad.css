@@ -118,5 +118,10 @@ input{
 }
 
 #codigoActiv{
-    
+    margin-left: 10px;
+    font-size: 20px
+}
+
+#btn-activarCuenta{
+    margin-left: 315px;
 }

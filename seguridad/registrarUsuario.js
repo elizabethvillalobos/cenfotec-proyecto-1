@@ -25,8 +25,8 @@ eBtnRegistrar.addEventListener('click', function (evento) {
                 if(iguales){
                     var codigo = rand_code(caracteres, longitud);
 //                    alert('El codigo de activacion es : '+codigo);
-                                        eCodigoActiv.innerHTML=codigo;
 
+                    localStorage.setItem('codigoActivacion', codigo);
                     formulario.submit();
                 }
             }

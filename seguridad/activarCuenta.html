@@ -6,7 +6,7 @@
 		<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="../css/flaticon.css">
 		<link rel="stylesheet" href="../css/gic.css">
-		<link rel="stylesheet" href="../css/seguridad.css">
+		<link rel="stylesheet" href="../css/pages/seguridad.css">
 
 		
 	</head>
@@ -22,19 +22,19 @@
 				<div class="mod-bd">
 				
 					<h2>Gestor Inteligente de Citas</h2>
-					<form id="login" action="../index.html" method="post">
+					<form id="activacion" action="../index.html" method="post">
 						<fieldset class="field">
 							<legend>Activación de cuenta</legend>
 							
 							<div class="form-row">
 								<label for="">Código de activación de cuenta:</label>
 								<span class="flaticon-lock26 icon"></span>
-								<input id="email" type="mail" placeholder="" class="form-control" />
+								<input id="codigoAct" type="text" placeholder="" class="form-control" />
 							</div>
 							<div class="form-row ">
 								<label for="">Confirmación de código:</label>
 								<span class="flaticon-lock26 icon"></span>
-								<input id="contraseña" type="password" placeholder=""  class="form-control" />
+								<input id="codigoConfirm" type="text" placeholder=""  class="form-control" />
 							</div>
 							
 							
@@ -43,7 +43,7 @@
 							
 							
 							<div class="form-row form-row-button">
-								<button class="btn btn-primary">Activar cuenta</button>
+								<button id="btnActivar" class="btn btn-primary">Activar cuenta</button>
 								
 							</div>
 							
@@ -63,7 +63,7 @@
 		
 		<!-- Load JS -->
 		<script src="../js/common-logic.js"></script>
-        <script src="../js/seguridad.js"></script>
+        <script src="../seguridad/activarCuenta.js"></script>
 		<script src="js/jquery-1.8.3.min.js"></script>
 		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

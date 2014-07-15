@@ -244,7 +244,7 @@ function calcularPromedio(paNumeros){
     var sumatoria=0;
     
     for(var i=0; i<paNumeros.length; i++){
-        sumatoria+=paNumeros[i];
+        sumatoria+=paNumeros[i].value;
     }
     
     var promedio = sumatoria/paNumeros.length;

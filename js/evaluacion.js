@@ -25,6 +25,7 @@ if (eRadiosChecked) {
 	}
 }
 
+<<<<<<< HEAD
 for(var i=0; i < aPuntajes.length; i++) {
     aPuntajes[i].addEventListener('change', function(event){
         
@@ -37,8 +38,15 @@ for(var i=0; i < aPuntajes.length; i++) {
         ePromedio.innerHTML=promedio;
     });
 
+=======
+if (aPuntajes) {
+	for(var i=0; i < aPuntajes.length; i++) {
+    	aPuntajes[i].addEventListener('change', function(){
+        	var promedio = calcularPromedio(aPuntajes);
+        	ePromedio.innerHTML = promedio;
+    	});
+	}
+>>>>>>> origin/master
 }
-
-
 
 

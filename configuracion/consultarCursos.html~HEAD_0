@@ -3,10 +3,10 @@
 	<head>
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
 		<meta charset="utf-8">
-		<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" href="../css/flaticon.css">
-		<link rel="stylesheet" href="../css/gic.css">
-		<link rel="stylesheet" href="../css/configuracion.css">
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/flaticon.css">
+		<link rel="stylesheet" href="css/gic.css">
+		<link rel="stylesheet" href="css/configuracion.css">
 		<!-- Aqui deben agregar la hoja de estilo del modulo que corresponda
 		Ejemplo:
 			<link rel="stylesheet" href="css/pages/citas.css">
@@ -50,7 +50,7 @@
 
 				<section class="usr-info">
 					<span class="usr-greeting">Bienvenido, Elizabeth!</span>
-					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
+					<img class="usr-photo" src="images/users/default-user.png" width="40" height="40">
 					<ul>
 						<li>
 							<a href="#" class="usr-editar-perfil">Editar perfil</a>
@@ -80,7 +80,7 @@
 
 			<main>
 				<div id="carreras-hd">
-					<h2 >Desarrollo de Software - Cursos </h2>
+					<h2 >Ingeniería de Software - Cursos </h2>
 					<a href="registrarCurso.html">Crear curso</a>
 				</div> 
 				<div id="buscarCarreras">
@@ -92,22 +92,22 @@
 					<div class="accordion-group">
 						<div class="accordion-heading">
 							<a class="accordion-toggle collapsed" href="#collapseOne" data-parent="#basic-accordion"
-							data-toggle="collapse">Fundamentos de programación</a>
+							data-toggle="collapse">Nombre del curso</a>
 						</div>
 						<div id="collapseOne" class="accordion-body collapse">
 							<div class="accordion-inner">
 								<form class="detalleCarrera" action="#" method="post">
-									<div class="colorDetalleCurso">
+									<div class="color">
 									<fieldset>
 									
 										<div class="form-row">
 											<label for="text1">Código:</label>
-											<input id="text1" type="text" placeholder="INF-02" 
+											<input id="text1" type="text" placeholder="Código de la carrera" 
 												class="form-control1" readonly="readonly"/>
 										</div>
 										<div class="form-row">
-											<label for="text2">Profesor(es):</label>
-											<input id="text2" type="text" placeholder="Antonio Luna" 
+											<label for="text2">Director Académico:</label>
+											<input id="text2" type="text" placeholder="Nombre del director académico" 
 												class="form-control1" readonly="readonly"/>
 										</div>
 										<div class="form-row">
@@ -131,30 +131,27 @@
 					<div class="accordion-group">
 						<div class="accordion-heading">
 							<a class="accordion-toggle collapsed" href="#collapseTwo" data-parent="#basic-accordion"
-							data-toggle="collapse">Proyecto de ingeniería del software 1</a>
+							data-toggle="collapse">Nombre del curso</a>
 						</div>
 						<div id="collapseTwo" class="accordion-body collapse">
 							<div class="accordion-inner">
 								<form class="detalleCarrera" action="#" method="post">
-									<div class="colorDetalleCurso">
+									<div class="color">
 									<fieldset>
 										<div class="form-row">
 											<label for="text1">Código:</label>
-											<input id="text1" type="text" placeholder="BISOFT-04" class="form-control1" 
+											<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
 												readonly="readonly"/>
 										</div>
 										<div class="form-row">
-											<label for="textoProfe1Curso">Profesor(es)</label>
-											<input id="textoProfe1Curso" type="text" placeholder="Pablo Monestel" 
+											<label for="text2">Director Académico:</label>
+											<input id="text2" type="text" placeholder="Nombre del director académico" 
 												class="form-control1" readonly="readonly"/>
 										</div>
 										<div class="form-row">
-											<input id="textoProfe2Curso" type="text" placeholder="Alvaro Cordero" 
-											class="form-control1" readonly="readonly"/>
-										
+											
 										</div>
-										
-										<div class="form-row form-row-buttonAcciones2profes">
+										<div class="form-row form-row-buttonAccionesCurso">
 											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar2"
 												value="Habilitar">
 											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar2"
@@ -171,21 +168,21 @@
 					<div class="accordion-group">
 						<div class="accordion-heading">
 							<a class="accordion-toggle collapsed" href="#collapseThree" data-parent="#basic-accordion"
-							data-toggle="collapse">Fundamentos de bases de datos</a>
+							data-toggle="collapse">Nombre del curso</a>
 						</div>
 						<div id="collapseThree" class="accordion-body collapse">
 							<div class="accordion-inner">
 								<form class="detalleCarrera" action="#" method="post">
-									<div class="colorDetalleCurso">
+									<div class="color">
 									<fieldset>
 										<div class="form-row">
 											<label for="text1">Código:</label>
-											<input id="text1" type="text" placeholder="INF-03" class="form-control1" 
+											<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
 												readonly="readonly"/>
 										</div>
 										<div class="form-row">
-											<label for="text2">Profesor(es):</label>
-											<input id="text2" type="text" placeholder="Joel Martinez" 
+											<label for="text2">Director Académico:</label>
+											<input id="text2" type="text" placeholder="Nombre del director académico" 
 												class="form-control1" readonly="readonly"/>
 										</div>
 										<div class="form-row">
@@ -208,12 +205,12 @@
 					<div class="accordion-group">
 						<div class="accordion-heading">
 							<a class="accordion-toggle collapsed" href="#collapseFour" data-parent="#basic-accordion"
-							data-toggle="collapse">Estructuras de datos</a>
+							data-toggle="collapse">Nombre del curso</a>
 						</div>
-						<div id="collapseThree" class="accordion-body collapse">
+						<div id="collapseFour" class="accordion-body collapse">
 							<div class="accordion-inner">
 								<form class="detalleCarrera" action="#" method="post">
-									<div class="colorDetalleCurso">
+											<div class="color">
 									<fieldset>
 										<div class="form-row">
 											<label for="text1">Código:</label>
@@ -221,7 +218,81 @@
 												readonly="readonly"/>
 										</div>
 										<div class="form-row">
-											<label for="text2">Profesor(es):</label>
+											<label for="text2">Director Académico:</label>
+											<input id="text2" type="text" placeholder="Nombre del director académico" 
+												class="form-control1" readonly="readonly"/>
+										</div>
+										<div class="form-row">
+											<a href="#">Ver Cursos</a>
+										</div>
+										<div class="form-row form-row-buttonAcciones">
+											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar3"
+												value="Habilitar">
+											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar3"
+												value="Deshabilitar">
+											<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
+												value="Modificar">
+										</div>
+									</fieldset>
+									</div>
+								</form>
+							</div>	
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle collapsed" href="#collapseFour" data-parent="#basic-accordion"
+							data-toggle="collapse">Nombre del curso</a>
+						</div>
+						<div id="collapseFour" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<form class="detalleCarrera" action="#" method="post">
+											<div class="color">
+									<fieldset>
+										<div class="form-row">
+											<label for="text1">Código:</label>
+											<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
+												readonly="readonly"/>
+										</div>
+										<div class="form-row">
+											<label for="text2">Director Académico:</label>
+											<input id="text2" type="text" placeholder="Nombre del director académico" 
+												class="form-control1" readonly="readonly"/>
+										</div>
+										<div class="form-row">
+									
+										</div>
+										<div class="form-row form-row-buttonAccionesCurso">
+											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar3"
+												value="Habilitar">
+											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar3"
+												value="Deshabilitar">
+											<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
+												value="Modificar">
+										</div>
+									</fieldset>
+									</div>
+								</form>
+							</div>	
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle collapsed" href="#collapseFour" data-parent="#basic-accordion"
+							data-toggle="collapse">Nombre del curso</a>
+						</div>
+						<div id="collapseFour" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<form class="detalleCarrera" action="#" method="post">
+											<div class="color">
+									<fieldset>
+										<div class="form-row">
+											<label for="text1">Código:</label>
+											<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
+												readonly="readonly"/>
+										</div>
+										<div class="form-row">
+											<label for="text2">Director Académico:</label>
 											<input id="text2" type="text" placeholder="Nombre del director académico" 
 												class="form-control1" readonly="readonly"/>
 										</div>
@@ -245,86 +316,12 @@
 					<div class="accordion-group">
 						<div class="accordion-heading">
 							<a class="accordion-toggle collapsed" href="#collapseFive" data-parent="#basic-accordion"
-							data-toggle="collapse">Arquitectura de computadoras</a>
-						</div>
-						<div id="collapseFour" class="accordion-body collapse">
-							<div class="accordion-inner">
-								<form class="detalleCarrera" action="#" method="post">
-											<div class="colorDetalleCurso">
-									<fieldset>
-										<div class="form-row">
-											<label for="text1">Código:</label>
-											<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
-												readonly="readonly"/>
-										</div>
-										<div class="form-row">
-											<label for="text2">Profesor(es):</label>
-											<input id="text2" type="text" placeholder="Nombre del director académico" 
-												class="form-control1" readonly="readonly"/>
-										</div>
-										<div class="form-row">
-									
-										</div>
-										<div class="form-row form-row-buttonAccionesCurso">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar3"
-												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar3"
-												value="Deshabilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
-												value="Modificar">
-										</div>
-									</fieldset>
-									</div>
-								</form>
-							</div>	
-						</div>
-					</div>
-					<div class="accordion-group">
-						<div class="accordion-heading">
-							<a class="accordion-toggle collapsed" href="#collapseSix" data-parent="#basic-accordion"
-							data-toggle="collapse">Estructura de datos 2</a>
-						</div>
-						<div id="collapseFour" class="accordion-body collapse">
-							<div class="accordion-inner">
-								<form class="detalleCarrera" action="#" method="post">
-											<div class="colorDetalleCurso">
-									<fieldset>
-										<div class="form-row">
-											<label for="text1">Código:</label>
-											<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
-												readonly="readonly"/>
-										</div>
-										<div class="form-row">
-											<label for="text2">Profesor(es):</label>
-											<input id="text2" type="text" placeholder="Nombre del director académico" 
-												class="form-control1" readonly="readonly"/>
-										</div>
-										<div class="form-row">
-									
-										</div>
-										<div class="form-row form-row-buttonAccionesCurso">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar3"
-												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar3"
-												value="Deshabilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
-												value="Modificar">
-										</div>
-									</fieldset>
-									</div>
-								</form>
-							</div>	
-						</div>
-					</div>
-					<div class="accordion-group">
-						<div class="accordion-heading">
-							<a class="accordion-toggle collapsed" href="#collapseSeven" data-parent="#basic-accordion"
-							data-toggle="collapse">Proyecto de ingeniería del software 2</a>
+							data-toggle="collapse">Nombre del curso</a>
 						</div>
 						<div id="collapseFive" class="accordion-body collapse">
 							<div class="accordion-inner">
 								<form class="detalleCarrera" action="#" method="post">
-											<div class="colorDetalleCurso">
+											<div class="color">
 									<fieldset>
 										<div class="form-row">
 											<label for="text1">Código:</label>
@@ -361,13 +358,13 @@
 			</footer>
 		</div>
 			<!-- Load JS -->
-		<script src="../js/jquery-1.8.3.min.js"></script>
-		<script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/bootstrap-select.js"></script>
-		<script src="../js/flatui-checkbox.js"></script>
-		<script src="../js/flatui-radio.js"></script>
-        <script src="../js/gic.js"></script>
-        <script src="../js/pruebaConfiguracion.js"></script>
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-select.js"></script>
+		<script src="js/flatui-checkbox.js"></script>
+		<script src="js/flatui-radio.js"></script>
+        <script src="js/gic.js"></script>
+        <script src="js/pruebaConfiguracion.js"></script>
 	</body>
 </html>

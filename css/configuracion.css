@@ -168,3 +168,60 @@ h2 {
 
 
 }
+
+/*Javier Barboza empieza configuracionGeneral*/
+#divTxtCit{
+    float: left;
+    width: 150px;
+}
+
+#divNbr{
+    float: left;
+    margin: 20px 0 5px 5px;
+    width: 60px;
+}
+
+.nbr{
+   width: 55px;
+}
+
+.frmC{
+    height: 80px;
+    padding: 5px;
+    border: 0px;
+    border-radius: 0px;
+    
+}
+
+
+#divBtnEvr{
+   float: right;
+    margin: 15px 20px 0 0;
+    width: 80px;
+
+}
+
+.accord{
+   padding: 0 150px;
+}
+
+#mainCG{
+   background: none repeat scroll 0 0 #999;
+   padding: 20px;
+}
+.lbl{
+   font-size: 18px;
+}
+
+#divTxtMail{
+    float: left;
+    width: 100px;
+}
+
+#divMail{
+    float: left;
+    margin: 20px 0 5px 5px;
+    width: 185px;
+}
+
+/*termina configuracion general*/

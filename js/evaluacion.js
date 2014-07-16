@@ -25,16 +25,13 @@ if (eRadiosChecked) {
 	}
 }
 
-for(var i=0; i < aPuntajes.length; i++) {
-    aPuntajes[i].addEventListener('change', function(){
-        //alert(aPuntajes[i]);
-        var promedio = calcularPromedio(aPuntajes);
-        //alert(promedio);
-        ePromedio.innerHTML=promedio;
-    });
-
+if (aPuntajes) {
+	for(var i=0; i < aPuntajes.length; i++) {
+    	aPuntajes[i].addEventListener('change', function(){
+        	var promedio = calcularPromedio(aPuntajes);
+        	ePromedio.innerHTML = promedio;
+    	});
+	}
 }
-
-
 
 

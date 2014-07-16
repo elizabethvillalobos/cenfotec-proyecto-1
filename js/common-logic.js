@@ -387,9 +387,23 @@ if (eAccordionItems) {
 // ------------------------------------------
 modalWindow();
 
-
 //Imprimir código de activacion en la página de mensaje
 var eCodigoActivacion = document.querySelector('#codigoActiv');
 if (eCodigoActivacion) {
     eCodigoActivacion.innerHTML = codigoActivacion;
+}
+
+// Inicializar la validacion de formularios.
+var eFormValidar = document.querySelector('form[data-validate="true"]');
+if (eFormValidar) {
+    var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
+    if (eFormBtnSubmit) {
+        eFormBtnSubmit.addEventListener('click', function(event) {
+            event.preventDefault();
+            limpiarMensajesError();
+            if (validarForm(eFormValidar.id)) {
+                eFormValidar.submit();
+            }
+        });
+    }
 }

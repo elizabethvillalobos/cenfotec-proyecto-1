@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="../css/gic.css">
+		<link rel="stylesheet" href="../css/pages/configuracion.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<a href="../index.html" class="home">
+					<h1 class="logo">Gestor Inteligente de Citas</h1>
+				</a>
+
+				<!-- Menu principal -->
+				<nav class="main-nav">
+					<ul>
+						<li>
+							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
+						</li>
+						<li>
+							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
+						</li>
+						<li>
+							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+						</li>
+						<li>
+							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+						</li>
+						<li>
+							<a href="perfil.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
+						</li>
+					</ul>
+				</nav>
+
+				<section class="busqueda">
+					<input id="q" type="text" value="" placeholder="Buscar personas" />
+					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
+				</section>
+
+				<section class="usr-info">
+					<span class="usr-greeting">Bienvenido, Elizabeth!</span>
+					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
+					<ul>
+						<li>
+							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Perfil</a>
+						</li>
+						<li>
+							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
+						</li>
+					</ul>
+				</section>
+			</header>
+
+			<aside>
+                <nav class="secondary-nav">
+                    <ul class="sec-nav-category accordion">
+                        <li class="accordion-item">
+                            <a href="#" class="active">Perfil</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Mi Cuenta</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="carreras.html">Carreras y Cursos</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Usuarios</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">General</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+			<main>
+				<section class="perfil-editar">
+					<div class="mod-hd">
+						<h2>Editar Perfil</h2>
+					</div>
+					<!-- El atributo novalidate es para evitar que el browser 
+					haga las validaciones. -->
+					<form id="editar-perfil" class="mod-bd form-horizontal" action="perfilConfirmado.html" method="post" data-validate="true" novalidate>
+						<div class="form-row">
+							<label for="perfil-nombre">Nombre:</label>
+							<input id="perfil-nombre" type="text" placeholder="Ingrese el nombre" class="form-control" required/>
+						</div>
+
+						<div class="form-row">
+							<label for="perfil-apellidos">Apellidos:</label>
+							<input id="perfil-apellidos" type="text" placeholder="Ingrese los apellidos" class="form-control" required/>
+						</div>
+
+						<div class="form-row">
+							<label for="perfil-avatar">Avatar:</label>
+							<!-- Drop media element -->
+                			<div class="media-drop">
+			                    <div id="droppedimage"></div> <!-- Image placeholder -->
+			                    <div id="dropbox" class="media-drop-placeholder" style="width: 200px; height: 200px">
+			                        <span class="media-drop-placeholder-title">Arrastrar imagen aquí</span>
+			                        <span class="media-drop-placeholder-or">o</span>
+
+			                        <div class="media-drop-placeholder-uploadbutton">
+			                            <input id="realUploadBtn" name="media-drop-placeholder-file" type="file" accept="image/*" tabindex="-1"/>
+			                            <button id="uploadBtn" type="button" class="btn" tabindex="-1">Buscar archivo&hellip;</button>
+			                        </div>
+			                    </div>
+			                    <!-- Error message placeholder. -->
+	                			<p class="help-block error errormessages"></p>
+
+	                			<button id="resetupload" type="button" class="btn btn-default">Subir nueva imagen</button>
+	                		</div>
+						</div>
+
+						<div class="form-row">
+							<label for="perfil-email">Correo electrónico:</label>
+							<input id="perfil-email" type="email" placeholder="Ingrese el correo electrónico" class="form-control" data-validate-type="email" required/>
+						</div>
+
+						<div class="form-row">
+							<label for="perfil-telefono">Teléfono:</label>
+							<input id="perfil-telefono" type="text" placeholder="Ingrese el número telefónico" class="form-control" />
+						</div>
+
+						<div class="form-row">
+							<label for="perfil-skype">Skype Id:</label>
+							<input id="perfil-skype" type="text" placeholder="Ingrese la cuenta de Skype" class="form-control" />
+						</div>
+
+						<div class="form-row">
+							<label for="perfil-rol">Rol:</label>
+							<select id="perfil-rol" required>
+	                            <option value="">Seleccione una opción</option>
+	                            <option value="estudiante">Estudiante</option>
+	                            <option value="profesor">Profesor</option>
+	                            <option value="direccion-academica">Dirección Académica</option>
+	                            <option value="rectoria">Rectoría</option>
+	                            <option value="administrador">Administrador</option>
+                            </select>
+						</div>
+
+						<div class="form-row">
+							<label for="perfil-carrera">Carrera:</label>
+							<select id="perfil-carrera" required>
+	                            <option value="">Seleccione una opción</option>
+	                            <option value="desarrollo-diseño-web">Desarrollo y diseño web</option>
+	                            <option value="desarrollo-software">Desarrollo de software</option>
+	                            <option value="integracion-tecnologias">Integración de tecnologías</option>
+	                            <option value="telematica">Telemática</option>
+	                            <option value="ciberseguridad">Ciberseguridad</option>
+	                            <option value="tecnologia-bases-datos">Tecnología de bases de datos</option>
+	                            <option value="ingles">Inglés</option>
+                            </select>
+						</div>
+
+						<div class="form-row">
+							<label for="perfil-cursos">Cursos:</label>
+							<select id="perfil-curso" required>
+	                            <option value="">Seleccione una opción</option>
+	                            <option value="fundamentos-de-programación">Fundamentos de programación</option>
+	                            <option value="proyecto-ingenieria-software-1">Proyecto de ingeniería del software 1</option>
+	                            <option value="introduccion-tecnología-informacion">Introducción a la tecnología de información</option>
+	                            <option value="ingles-tecnologias-informacion-1">Inglés para tecnologías de información 1</option>
+                            </select>
+						</div>
+
+						<div class="form-row">
+							<label for="perfil-horario">Horario:</label>
+							<input id="perfil-horario" type="text" placeholder="Ingrese el horario de atención" class="form-control" />
+						</div>
+
+						<div class="form-row form-row-button">
+							<button id="btn-guardar-perfil" class="btn btn-primary" type="submit">Guardar</button>
+						</div>
+					</form>
+				</section>
+			</main>
+			
+			<footer>
+				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
+			</footer>
+		</div>
+
+		<!-- Load JS -->
+		<script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="../js/jquery.html5uploader-1.1.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/bootstrap-select.js"></script>
+        <script src="../js/flatui.js"></script>
+        <script src="../js/html5uploader.js"></script>
+        <script src="../js/common-logic.js"></script>
+        <script src="../js/configuracion.js"></script>
+	</body>
+</html>

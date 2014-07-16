@@ -57,7 +57,7 @@ hr{
 	width:750px;
 	position:absolute;
 	overflow-y: scroll;
-	max-height: 320px;
+	max-height: 340px;
    margin-top: 10px;
    
 }
@@ -111,11 +111,17 @@ hr{
    margin-top: -130px;
    margin-right: 50px;
 }
-
+.form-row-buttonAcciones2profes{
+   float: right;
+   margin-top: -180px;
+   margin-right: 50px;
+}
 .btn-secondaryAction{
 	display: block;
 	margin-top: 10px;
 	width: 150px;
+   background-color: #bdc3c7;
+
 }
 
 .form-row-buttonCrearCarrera, .form-row-buttonModificarCarrera{
@@ -142,14 +148,16 @@ hr{
 	width: 150px;
 }
 
-.color{
+.colorDetalleCurso{
    margin: -20px -20px ;
    width: 699px;
-   height: 190px;
+   height: 208px;
    background-color: white;
    border-radius: 2px;
    padding-left: 20px;
 }
+
+
 
 h2 {
    margin: 10px 0 10px;
@@ -164,7 +172,13 @@ h2 {
   float: right; 
 }
 
-.detalleCarrera{
+.textoProfe1Curso{
+
+   margin-bottom: 20px;
+}
+.detallecarrera:{
+
+   background-color: black;
 
 
 }

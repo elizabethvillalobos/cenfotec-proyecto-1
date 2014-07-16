@@ -147,7 +147,14 @@ h2 {
   float: right; 
 }
 
-
+.colorDetalleCarrera{
+   margin: -20px -20px ;
+   width: 699px;
+   height: 208px;
+   background-color: white;
+   border-radius: 2px;
+   padding-left: 20px;
+}
 
 /* ----------------------
    Elizabeth 

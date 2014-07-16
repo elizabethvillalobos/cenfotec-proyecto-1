@@ -66,10 +66,13 @@
 // ----------
 //   Jose
 //   ----------*/
-.cita .form-row-button {
-   margin: 20px 0 0 160px;
+form{
+	border:none;
+	padding:0px;
 }
-
+#solicitarCita .form-row{
+	margin-left:0px;
+}
 #listForm {
 	-moz-border-radius: 5px;	
 	border: 2px solid #bdc3c7;	
@@ -153,5 +156,16 @@ form.form-horizontal{
 	border-top: 2px solid #ecf0f1;
 	padding:10px 0px 0px 0px;
 }
+#crearSolicitud{
+	color:#bdc3c7;
+	position: absolute;
+	right: 20px;
+	top: 4px;
+}
+#crearSolicitud:hover{
+	color:#fff;
+	cursor:pointer;
+}
+
 
 

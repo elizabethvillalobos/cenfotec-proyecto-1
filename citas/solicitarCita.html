@@ -20,16 +20,16 @@
 							<a href="citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="evaluacion.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
+							<a href="../evaluacion/evaluacion.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
-							<a href="mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
 						</li>
 						<li>
-							<a href="reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="configuracion.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
+							<a href="../configuracion/configuracion.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -63,10 +63,11 @@
 							<a href="#">Citas finalizadas</a>
 						</li>
 						<li class="accordion-item expanded">
+							<span id="crearSolicitud" class="flaticon-add73"></span>
 							<a href="#">Solicitudes de cita</a>
 							<ul class="thrd-nav-category accordion-detail">
-								<li><a href="#">Ernesto Rivera</a></li>
-								<li><a href="#">Oscar Jimenes</a></li>
+								<li><a href="solicitudes.html">Ernesto Rivera</a></li>
+								<li><a href="#">Oscar Sandí</a></li>
 								<li><a href="#">Alejandro Leiva</a></li>
 								<li><a href="#">Olger Cubillo</a></li>
 								<li><a href="#">Rocío Solano</a></li>
@@ -78,54 +79,52 @@
 			</aside>
 
 			<main>
-				<div class="mod-hd">
-					<h2>Solicitar cita de atención</h2>
-				</div>
-				<div class="mod-bd">
-					<form id="solicitarCita" class="frontContent" action="#" method="post">
-						<fieldset>
-							<legend>Información de Solicitud</legend>
-							<div class="form-row">
-                                <label for="txtCurso">Curso:</label>
-								<input id="txtCurso" type="text" placeholder="Seleccione un curso" class="inputExplore form-control" disabled/>
-								<button type="button" id="btnSelectCurso"class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button>
-							</div>													
-							<div class="form-row">
-                                <label for="txtInvitado">Invitado:</label>
-								<input id="txtInvitado" type="text" placeholder="Seleccione un profesor" class="inputExplore form-control" disabled/>
-								<button type="button" id="btnSelectInvitado" class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button>
-							</div>
-							<div class="form-row">
-								<label for="txtAsunto">Asunto a Tratar:</label>
-								<input id="txtAsunto" type="text" placeholder="Ingrese el asunto a tratar en la cita" class="form-control" />
-							</div>								
-							<div class="form-row form-row-radio">
-								<label>Lugar:</label>
-								<label class="radio">
-                                    <input type="radio" name="rdoLugar" value="1" data-toggle="radio" checked>Presencial
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="rdoLugar" value="2" data-toggle="radio">Virtual
-                                </label>
-							</div>
-							<div class="form-row form-row-radio">
-								<label>Tipo:</label>
-								<label class="radio">
-                                    <input type="radio" name="rdoTipo" value="1" data-toggle="radio" checked>Individual
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="rdoTipo" value="2" data-toggle="radio">Grupal
-                                </label>
-							</div>
-							<div class="form-row">
-								<label for="txtObservaciones">Observaciones:</label>
-                                <textarea id="txtObservaciones" placeholder="Ingrese comentarios adicionales de la cita" class="form-control"></textarea>
-							</div>
-							<p id="errorRibbon" class="alert-error flaticon-remove11 hidden">Mauris condimentum, libero non accumsan rhoncus, dui massa lobortis turpis.</p>
-							<div class="form-row form-row-button">
-								<a href="solicitudEnviada.html" id="btnEnviar" class="btn btn-primary">Enviar</a>
-							</div>
-						</fieldset>
+				<section class="cita">
+					<div class="mod-hd">
+						<h2>Solicitar cita de atención</h2>
+					</div>
+					<div class="mod-bd">
+					<form id="solicitarCita" class="frontContent" action="#" method="post">						
+						<div class="form-row">
+							<label for="txtCurso">Curso (opcional):</label>
+							<input id="txtCurso" type="text" placeholder="Seleccione un curso" class="inputExplore form-control" disabled/>
+							<button type="button" id="btnSelectCurso"class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button>
+						</div>													
+						<div class="form-row">
+							<label for="txtInvitado">Invitado:</label>
+							<input id="txtInvitado" type="text" placeholder="Seleccione un profesor" class="inputExplore form-control" disabled/>
+							<button type="button" id="btnSelectInvitado" class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button>
+						</div>
+						<div class="form-row">
+							<label for="txtAsunto">Asunto a Tratar:</label>
+							<input id="txtAsunto" type="text" placeholder="Ingrese el asunto a tratar en la cita" class="form-control" />
+						</div>								
+						<div class="form-row form-row-radio">
+							<label>Lugar:</label>
+							<label class="radio">
+								<input type="radio" name="rdoLugar" value="1" data-toggle="radio" checked>Presencial
+							</label>
+							<label class="radio">
+								<input type="radio" name="rdoLugar" value="2" data-toggle="radio">Virtual
+							</label>
+						</div>
+						<div class="form-row form-row-radio">
+							<label>Tipo:</label>
+							<label class="radio">
+								<input type="radio" name="rdoTipo" value="1" data-toggle="radio" checked>Individual
+							</label>
+							<label class="radio">
+								<input type="radio" name="rdoTipo" value="2" data-toggle="radio">Grupal
+							</label>
+						</div>
+						<div class="form-row">
+							<label for="txtObservaciones">Observaciones:</label>
+							<textarea id="txtObservaciones" placeholder="Ingrese comentarios adicionales de la cita" class="form-control"></textarea>
+						</div>
+						<p id="errorRibbon" class="alert-error flaticon-remove11 hidden">Mauris condimentum, libero non accumsan rhoncus, dui massa lobortis turpis.</p>
+						<div class="form-row form-row-button">
+							<a href="solicitudEnviada.html" id="btnEnviar" class="btn btn-primary">Enviar</a>
+						</div>
 					</form>
 					
 					<div id="listForm" class="backContent">
@@ -136,7 +135,10 @@
 							<button id="btnVolver" class="btn btn-primary">Volver</button>
 						</fieldset>
 					</div>
-				</div>
+				</section>
+				
+			
+			
 			</main>
 			
 			<footer>

@@ -276,6 +276,53 @@ function validarClave(pClave, pElementoError, pMsjError){
     return correcta;
 }
 
+// Crear un nuevo nodo <p class="alert-error"> que muestra
+// el mensaje de texto pasado por parametro dentro del nodo tambien
+// pasado por parametro.
+function mostrarMensajeError(pEl, pMsg) {
+	// Buscar el parentNode del input.
+	var eFormRow = closestParentNode(pEl, 'form-row');
+	// Agregar la clase "error" al div en que se encuentra el input.
+	eFormRow.className += ' error';
+	// Crear un elemento p para mostrar el error del input en especifico.
+	addElementToDOM('p', '', 'alert-error flaticon-remove11', pMsg, eFormRow);
+}
+
+// Limpiar mensajes de error
+function limpiarMensajesError() {
+	var eFormRows = document.querySelectorAll('.form-row.error'),
+		eAlertErrors = document.querySelectorAll('p.alert-error');
+	
+	// Eliminar la clase "error" de los "div.form-row".
+	if (eFormRows) {
+		for (var i=0; i < eFormRows.length; i++) {
+			removeClass(eFormRows[i], 'error');
+		}
+	}
+	// Eliminar los nodos p que son mensajes de error.
+	if (eAlertErrors) {
+		for (var j=0; j < eAlertErrors.length; j++) {
+			var eAlertErrorParent = eAlertErrors[j].parentNode;
+			eAlertErrorParent.removeChild(eAlertErrors[j]);
+		}
+	}
+}
+
+//validar si hay al menos un radio seleccionado en un grupo de radios
+function hayRadioSeleccionado(radioName){
+	var radios = document.getElementsByName(radioName);
+	var isChecked=false;
+	for (var i=0; i<radios.length; i++) {
+		if (radios[i].checked) {
+			isChecked=true;
+		}
+	}
+	if(!isChecked){
+		mostrarMensajeError(radios[0],"Debe seleccionar una opción.");
+	}
+	return isChecked;
+}
+
 // ------------------------------------------
 // Inicializar funcionalidades
 // ------------------------------------------

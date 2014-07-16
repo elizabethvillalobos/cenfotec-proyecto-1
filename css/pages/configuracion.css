@@ -1,29 +1,35 @@
 #frmRegistroCurso{
+
    display: block;
    height: 200px;
    width: 500px;
 }
 
 .txtRegistroCurso{
+
    margin: 15px auto;
 }
 
 .selecProfCurso{
-   margin-left: 180px;
+
+	margin-left: 180px;
+
 }
 
 .alert-error{
-   display: none;
+
+	display: none;
 }
 
 .error{
-   display: block;
+
+	display: block;
 }
 
 #buscarCarreras {
    right: 25px;
    position: absolute;
-   top: 100px;
+   top: 105px;
 }
 
 #btnBuscarCarreras {
@@ -42,37 +48,40 @@
 }
 
 hr{
-   background-color: white; 
-   height: 2px;
+	background-color: white; 
+	height: 2px;
 }
 
 #basic-accordion{
-   width:750px;
-   position:absolute;
-   overflow-y: scroll;
-   max-height: 370px;
+   
+	width:750px;
+	position:absolute;
+	overflow-y: scroll;
+	max-height: 320px;
    margin-top: 10px;
+   
 }
 
 .accordion-heading{
-   padding:5px;
-   background:#e74c3c;
-   border:1px solid #FFF;
-   cursor:pointer;
+	padding:5px;
+	background:#e74c3c;
+	border:1px solid #FFF;
+	cursor:pointer;
+	
 }
 
 .accordion-heading:hover{
-   background-color: #666;
+	background-color: #666;
 }
 
 .accordion-inner{
-   padding:15px;
-   background:#EEE;
+	padding:15px;
+	background:#EEE;
 }
 
 .accordion-toggle{
-   color: white;
-   display: block;
+	color: white;
+	display: block;
 }
 
 .form-control1 {
@@ -93,25 +102,30 @@ hr{
 }
 
 .form-row-buttonAcciones{
+	float: right;
+	margin-top: -170px;
+	margin-right: 50px;
+}
+.form-row-buttonAccionesCurso{
    float: right;
-   margin-top: -170px;
+   margin-top: -130px;
    margin-right: 50px;
 }
 
 .btn-secondaryAction{
-   display: block;
-   margin-top: 10px;
-   width: 150px;
+	display: block;
+	margin-top: 10px;
+	width: 150px;
 }
 
 .form-row-buttonCrearCarrera, .form-row-buttonModificarCarrera{
-   float: right;
+	float: right;
 }
 
 .btn-guardar{
-   color: #ffffff;
+	color: #ffffff;
    background-color: #e74c3c;
-   width: 150px;
+	width: 150px;
 }
 
 .btn-guardar:hover,
@@ -125,14 +139,16 @@ hr{
 }
 
 .btn-cancelar{
-   width: 150px;
+	width: 150px;
 }
 
 .color{
-   width: 708px;
-   height: 215px;
+   margin: -20px -20px ;
+   width: 699px;
+   height: 190px;
    background-color: white;
    border-radius: 2px;
+   padding-left: 20px;
 }
 
 h2 {
@@ -143,128 +159,69 @@ h2 {
    float: left; 
 }
 
+
 .h2CursosCarreras{
   float: right; 
 }
 
+.detalleCarrera{
 
 
-/* ----------------------
-   Elizabeth 
-   ----------------------
-*/
-.perfil {
-   margin-left: 150px;
-   position: relative;
 }
 
-.perfil .btn-modificar-perfil {
-   position: absolute;
-   right: 0;
-   top: 5px;
+/*Javier Barboza empieza configuracionGeneral*/
+#divTxtCit{
+    float: left;
+    width: 150px;
 }
 
-.perfil h2 {
-   line-height: 1.5;
-   margin-bottom: 0;
+#divNbr{
+    float: left;
+    margin: 20px 0 5px 5px;
+    width: 60px;
 }
 
-.perfil .enviar-msj {
-   color: #666;
-   line-height: 1;
+.nbr{
+   width: 55px;
 }
 
-.perfil .enviar-msj:hover {
-   color: #e74c3c;
+.frmC{
+    height: 80px;
+    padding: 5px;
+    border: 0px;
+    border-radius: 0px;
+    
 }
 
-.perfil .enviar-msj:before {
-   position: relative;
-   top: 2px;
+
+#divBtnEvr{
+   float: right;
+    margin: 15px 20px 0 0;
+    width: 80px;
+
 }
 
-.perfil .perfil-photo {
-   left: -150px;
-   position: absolute;
-   top: 0;
+.accord{
+   padding: 0 150px;
 }
 
-.perfil-photo {
-   border: 2px solid #ecf0f1;
-   border-radius: 10px;
+#mainCG{
+   background: none repeat scroll 0 0 #999;
+   padding: 20px;
+}
+.lbl{
+   font-size: 18px;
 }
 
-/*Editar perfil*/
-.perfil-editar .alert-error {
-   display: block;
+#divTxtMail{
+    float: left;
+    width: 100px;
 }
 
-.perfil-editar .form-row-button {
-   margin-left: 25.5%;
+#divMail{
+    float: left;
+    margin: 20px 0 5px 5px;
+    width: 185px;
 }
 
-.perfil-editar .media-drop {
-   display: inline-block;
-   position: relative;
-}
-
-.perfil-editar .media-drop-placeholder {
-   background: #ecf0f1;
-   border-radius: 5px;
-   padding-top: 20px;
-   text-align: center;
-}
-
-.perfil-editar .media-drop-placeholder-title {
-   display: block;
-   font-weight: bold;
-   margin-top: 30px;
-}
-
-.perfil-editar .media-drop-placeholder-uploadbutton input {
-   height: 37px;
-   left: 50%;
-   margin-left: -75px;
-   opacity: 0;
-   position: absolute;
-   top: 105px;
-   width: 140px;
-   z-index: 1;
-}
-
-.perfil-editar .media-drop-placeholder-uploadbutton #uploadBtn {
-   position: relative;
-   z-index: 0;
-}
-
-.perfil-editar #droppedimage img {
-   border-radius: 10px;
-   width: 200px;
-}
-
-/*Miguel */
-
-.encabezado{
-    overflow: hidden;
-    margin: 10px 0 20px 0;
-}
-
-.busquedaUsuarios{
-    position: static;
-    display: inline-block;
-    float: right;
-}
-
-.crearUsuario{
-    float: left
-}
-
-.acciones-admin{
-    overflow: hidden;
-    margin-top: 20px 
-}
-
-.item-usuario{
-    float: right;
-    margin-right: 72px;
-}
+/*termina configuracion general*/

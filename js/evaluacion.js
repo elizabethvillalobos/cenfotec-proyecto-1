@@ -25,28 +25,15 @@ if (eRadiosChecked) {
 	}
 }
 
-<<<<<<< HEAD
 for(var i=0; i < aPuntajes.length; i++) {
     aPuntajes[i].addEventListener('change', function(event){
         
         var eEl = event.currentTarget,
             eElParent = closestParentNode(eEl, 'wrapperItems'),
             aPuntajesParent = eElParent.querySelectorAll('input'),
-            sumatoria = 0;
+            ePromedioParent = eElParent.querySelector('#promedio');
         
         var promedio = calcularPromedio(aPuntajesParent);
-        ePromedio.innerHTML=promedio;
+        ePromedioParent.innerHTML=promedio;
     });
-
-=======
-if (aPuntajes) {
-	for(var i=0; i < aPuntajes.length; i++) {
-    	aPuntajes[i].addEventListener('change', function(){
-        	var promedio = calcularPromedio(aPuntajes);
-        	ePromedio.innerHTML = promedio;
-    	});
-	}
->>>>>>> origin/master
 }
-
-

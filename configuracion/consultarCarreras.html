@@ -113,10 +113,10 @@
 											<a href="consultarCursos.html">Ver Cursos</a>
 										</div>
 										<div class="form-row form-row-buttonAcciones">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar"
-												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar"
-												value="Deshabilitar">
+											<input type="button" class="btn btn-secondaryAction js-modal" id="btnHabilitar"
+												value="Habilitar" data-modal-id="modal-habilitar1">
+											<input type="button" class="btn btn-secondaryAction js-modal" id="btnDeshabilitar"
+												value="Deshabilitar" data-modal-id="modal-deshabilitar2">
 											<input type="button" class="btn btn-secondaryAction" id="btnModificar" 
 												value="Modificar">
 										</div>
@@ -149,10 +149,10 @@
 											<a href="consultarCursos.html">Ver Cursos</a>
 										</div>
 										<div class="form-row form-row-buttonAcciones">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar2"
-												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar2"
-												value="Deshabilitar">
+											<input type="button" class="btn btn-secondaryAction js-modal" id="btnHabilitar2"
+												value="Habilitar" data-modal-id="modal-habilitar3">
+											<input type="button" class="btn btn-secondaryAction js-modal" id="btnDeshabilitar2"
+												value="Deshabilitar" data-modal-id="modal-deshabilitar4">
 											<input type="button" class="btn btn-secondaryAction" id="btnModificar2" 
 												value="Modificar">
 										</div>
@@ -185,10 +185,10 @@
 											<a href="consultarCursos.html">Ver Cursos</a>
 										</div>
 										<div class="form-row form-row-buttonAcciones">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar3"
-												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar3"
-												value="Deshabilitar">
+											<input type="button" class="btn btn-secondaryAction js-modal" id="btnHabilitar3"
+												value="Habilitar" data-modal-id="modal-habilitar5">
+											<input type="button" class="btn btn-secondaryAction js-modal" id="btnDeshabilitar3"
+												value="Deshabilitar" data-modal-id="modal-deshabilitar6">
 											<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
 												value="Modificar">
 										</div>
@@ -221,10 +221,10 @@
 											<a href="consultarCursos.html">Ver Cursos</a>
 										</div>
 										<div class="form-row form-row-buttonAcciones">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar4"
-												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar4"
-												value="Deshabilitar">
+											<input type="button" class="btn btn-secondaryAction js-modal" id="btnHabilitar4"
+												value="Habilitar" data-modal-id="modal-habilitar7">
+											<input type="button" class="btn btn-secondaryAction js-modal" id="btnDeshabilitar4"
+												value="Deshabilitar" data-modal-id="modal-deshabilitar8">
 											<input type="button" class="btn btn-secondaryAction" id="btnModificar4" 
 												value="Modificar">
 										</div>
@@ -257,10 +257,10 @@
 											<a href="consultarCursos.html">Ver Cursos</a>
 										</div>
 										<div class="form-row form-row-buttonAcciones">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar5"
-												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar5"
-												value="Deshabilitar">
+											<input type="button" class="btn btn-secondaryAction js-modal" id="btnHabilitar5"
+												value="Habilitar" data-modal-id="modal-habilitar9">
+											<input type="button" class="btn btn-secondaryAction js-modal" id="btnDeshabilitar5"
+												value="Deshabilitar" data-modal-id="modal-deshabilitar10">
 											<input type="button" class="btn btn-secondaryAction" id="btnModificar5" 
 												value="Modificar">
 										</div>
@@ -270,6 +270,87 @@
 						</div>
 					</div>
 					
+				</div>
+
+				<div id="modal-habilitar1" class="modal js-modal-window">
+					<h3>¿Está seguro que desea habilitar la carrera?</h3>
+					<div class="form-row">
+						<input type="button" class="btn btn-primary js-modal-close" id="btnAceptarHabilitar" value="Aceptar">
+						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar" value="Cancelar">
+					</div>
+				</div>
+
+				<div id="modal-deshabilitar2" class="modal js-modal-window">
+					<h3>¿Está seguro que desea deshabilitar la carrera?</h3>
+					<div class="form-row">
+						<input type="button" class="btn btn-primary js-modal-close" id="btnAceptarDeshabilitar" value="Aceptar">
+						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarDeshabilitar" value="Cancelar">
+					</div>
+				</div>
+
+
+				<div id="modal-habilitar3" class="modal js-modal-window">
+					<h3>¿Está seguro que desea habilitar la carrera?</h3>
+					<div class="form-row">
+						<input type="button" class="btn btn-primary js-modal-close" id="btnAceptarHabilitar2" value="Aceptar">
+						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar2" value="Cancelar">
+					</div>
+				</div>
+
+				<div id="modal-deshabilitar4" class="modal js-modal-window">
+					<h3>¿Está seguro que desea deshabilitar la carrera?</h3>
+					<div class="form-row">
+						<input type="button" class="btn btn-primary js-modal-close" id="btnAceptarDeshabilitar2" value="Aceptar">
+						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarDeshabilitar2" value="Cancelar">
+					</div>
+				</div>
+
+				<div id="modal-habilitar5" class="modal js-modal-window">
+					<h3>¿Está seguro que desea habilitar la carrera?</h3>
+					<div class="form-row">
+						<input type="button" class="btn btn-primary js-modal-close" id="btnAceptarHabilitar3" value="Aceptar">
+						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar3" value="Cancelar">
+					</div>
+				</div>
+
+				<div id="modal-deshabilitar6" class="modal js-modal-window">
+					<h3>¿Está seguro que desea deshabilitar la carrera?</h3>
+					<div class="form-row">
+						<input type="button" class="btn btn-primary js-modal-close" id="btnAceptarDeshabilitar3" value="Aceptar">
+						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarDeshabilitar3" value="Cancelar">
+					</div>
+				</div>
+
+				<div id="modal-habilitar7" class="modal js-modal-window">
+					<h3>¿Está seguro que desea habilitar la carrera?</h3>
+					<div class="form-row">
+						<input type="button" class="btn btn-primary js-modal-close" id="btnAceptarHabilitar4" value="Aceptar">
+						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar4" value="Cancelar">
+					</div>
+				</div>
+
+				<div id="modal-deshabilitar8" class="modal js-modal-window">
+					<h3>¿Está seguro que desea deshabilitar la carrera?</h3>
+					<div class="form-row">
+						<input type="button" class="btn btn-primary js-modal-close" id="btnAceptarDeshabilitar4" value="Aceptar">
+						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarDeshabilitar4" value="Cancelar">
+					</div>
+				</div>
+
+				<div id="modal-habilitar9" class="modal js-modal-window">
+					<h3>¿Está seguro que desea habilitar la carrera?</h3>
+					<div class="form-row">
+						<input type="button" class="btn btn-primary js-modal-close" id="btnAceptarHabilitar5" value="Aceptar">
+						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar5" value="Cancelar">
+					</div>
+				</div>
+
+				<div id="modal-deshabilitar10" class="modal js-modal-window">
+					<h3>¿Está seguro que desea deshabilitar la carrera?</h3>
+					<div class="form-row">
+						<input type="button" class="btn btn-primary js-modal-close" id="btnAceptarDeshabilitar5" value="Aceptar">
+						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarDeshabilitar5" value="Cancelar">
+					</div>
 				</div>
 			</main>
 			

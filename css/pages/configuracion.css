@@ -73,6 +73,19 @@ hr{
 .accordion-toggle{
    color: white;
    display: block;
+   position: relative;
+}
+
+.accordion-toggle:after{
+   content: "\e006";
+   font: normal 14px Flaticon;
+   position: absolute;
+   right: 10px;
+   top: 10px; 
+}
+
+.accordion-toggle.collapsed:after{
+   content: "\e007";
 }
 
 .form-control1 {

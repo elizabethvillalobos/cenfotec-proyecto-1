@@ -3,6 +3,7 @@ var btnSelectInvitado=document.querySelector('#btnSelectInvitado');
 var btnEnviar=document.querySelector('#btnEnviar');
 var btnClickeado;
 var btnVolver =document.querySelector('#btnVolver');
+var btnCrearSolicitud=document.querySelector('#crearSolicitud');
 var totalSelected=0;
 
 
@@ -104,33 +105,43 @@ function getActiveItems() {
 }
 
 btnEnviar.addEventListener('click',function(event){
+	if(!inputLlenos('solicitarCita')){
+		event.preventDefault();
+	}
+	if(!hayRadioSeleccionado('rdoLugar'))
+	{
+		event.preventDefault();
+	}
+	if(!hayRadioSeleccionado('rdoTipo'))
+	{
+		event.preventDefault();
+	}
+});
+function inputLlenos(idContainer){
+	limpiarMensajesError();
+	var estanLlenos=true;
 	var myInputs=new Array();
-	//select all input text
-	var inputs = document.getElementById('solicitarCita').getElementsByTagName('input');	
+	var inputs = document.getElementById(idContainer).getElementsByTagName('input');	
 	for(i=0; i<inputs.length; i++){		
-		if(inputs[i].type=="text")
+		if(inputs[i].type=="text" && inputs[i].getAttribute('id')!="txtCurso")
 		{
 			myInputs.push(inputs[i]);
 		}
 	}
 	//select all textarea
-	inputs = document.getElementById('solicitarCita').getElementsByTagName('textarea');	
+	inputs = document.getElementById(idContainer).getElementsByTagName('textarea');	
 	for(i=0; i<inputs.length; i++){		
 		myInputs.push(inputs[i]);
 	}
-	var errorRibbon=document.querySelector('#errorRibbon');
 	
-	if(validarCamposLlenos(inputs,errorRibbon,"Es necesario llenar los campos vacíos"))
-	{
-		errorRibbon.className = "alert-error flaticon-remove11 showed";		
-		event.preventDefault();
+	for(i=0;i<myInputs.length;i++){
+		if(myInputs[i].value.trim()==''){
+			mostrarMensajeError(myInputs[i], "Este campo no puede estar vacío.");
+			estanLlenos=false;
+		}
 	}
-	else
-	{		
-		errorRibbon.style.display = 'none';
-		errorRibbon.className = "alert-error flaticon-remove11 hidden";	
-	}
-});
+	return estanLlenos;
+}
 
 function getRadioChecked(radioName){
 	var radios = document.getElementsByName(radioName);
@@ -143,10 +154,6 @@ function getRadioChecked(radioName){
 	return radioChecked;
 }
 
-function addPararmsURL(targetPage, parametros){
-	var url=targetPage+"?";
-	for(i=0; i<parametros.length; i++){
-		url+=parametros[i]+"&";
-	}
-	return url;
-}
+btnCrearSolicitud.addEventListener('click',function(){
+	window.location = "solicitarCita.html"
+});

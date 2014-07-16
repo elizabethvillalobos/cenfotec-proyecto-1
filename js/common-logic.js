@@ -247,11 +247,12 @@ function calcularPromedio(paNumeros){
     var sumatoria=0;
     
     for(var i=0; i<paNumeros.length; i++){
-        sumatoria+=paNumeros[i].value;
+        sumatoria+=parseInt(paNumeros[i].value);
     }
     
     var promedio = sumatoria/paNumeros.length;
     
+    promedio = promedio.toFixed(2);
     return promedio;
 
 }

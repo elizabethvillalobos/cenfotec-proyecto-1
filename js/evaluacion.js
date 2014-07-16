@@ -26,10 +26,14 @@ if (eRadiosChecked) {
 }
 
 for(var i=0; i < aPuntajes.length; i++) {
-    aPuntajes[i].addEventListener('change', function(){
-        //alert(aPuntajes[i]);
-        var promedio = calcularPromedio(aPuntajes);
-        //alert(promedio);
+    aPuntajes[i].addEventListener('change', function(event){
+        
+        var eEl = event.currentTarget,
+            eElParent = closestParentNode(eEl, 'wrapperItems'),
+            aPuntajesParent = eElParent.querySelectorAll('input'),
+            sumatoria = 0;
+        
+        var promedio = calcularPromedio(aPuntajesParent);
         ePromedio.innerHTML=promedio;
     });
 

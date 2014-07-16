@@ -27,10 +27,10 @@ if (eRadiosChecked) {
 
 for(var i=0; i < aPuntajes.length; i++) {
     aPuntajes[i].addEventListener('change', function(){
-        alert(aPuntajes[i]);
+        //alert(aPuntajes[i]);
         var promedio = calcularPromedio(aPuntajes);
-        alert(promedio);
-        peResultado.innerHTML=promedio;
+        //alert(promedio);
+        ePromedio.innerHTML=promedio;
     });
 
 }

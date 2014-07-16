@@ -3,29 +3,25 @@
 	<head>
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
 		<meta charset="utf-8">
-		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/gic.css">
-
-		<link rel="stylesheet" href="css/pages/evaluacion.css">
-		<!-- Aqui deben agregar la hoja de estilo del modulo que corresponda
-		Ejemplo:
-			<link rel="stylesheet" href="css/pages/citas.css">
-			<link rel="stylesheet" href="css/pages/configuracion.css">
-			etc... -->
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="../css/gic.css">
+		<link rel="stylesheet" href="../css/pages/evaluacion.css">
 	</head>
 	<body>
 		<div class="wrapper">
 			<header>
-				<h1 class="logo">Gestor Inteligente de Citas</h1>
+				<a href="../index.html" class="home">
+					<h1 class="logo">Gestor Inteligente de Citas</h1>
+				</a>
 
 				<!-- Menu principal -->
 				<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
+							<a href="../citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="evaluacion.html" class=" active evaluacion flaticon-verification5"><span>Evaluación</span></a>
+							<a href="miRanking.html" class=" active evaluacion flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
 							<a href="mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
@@ -46,13 +42,13 @@
 
 				<section class="usr-info">
 					<span class="usr-greeting">Bienvenido, Elizabeth!</span>
-					<img class="usr-photo" src="images/users/default-user.png" width="40" height="40">
+					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
 					<ul>
 						<li>
-							<a href="#" class="usr-editar-perfil">Editar perfil</a>
+							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Perfil</a>
 						</li>
 						<li>
-							<a href="#" class="usr-cerrar-sesion">Cerrar sesión</a>
+							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
 						</li>
 					</ul>
 				</section>
@@ -61,12 +57,12 @@
 			 <aside>
 	                <nav class="secondary-nav">
 	                    <ul class="sec-nav-category accordion">
-	                    	<li class="accordion-item"><a href="#">Mi Ranking</a></li>
+	                    	<li class="accordion-item"><a href="miRanking.html">Mi Ranking</a></li>
 	                        <li class="accordion-item expanded">
 	                            <a href="#.html" class="active">Evaluaciones</a>
 	                            <ul class="thrd-nav-category accordion-detail">
-	                                <li><a href="evaluarCita.html" class="active">Pendientes</a></li>
-	                                <li><a href="consultarEvaluacionesRealizadas.html">Realizadas</a></li>   
+	                                <li><a href="evaluarCita.html" class="">Pendientes</a></li>
+	                                <li><a href="consultarEvaluacionesRealizadas.html" class="active">Realizadas</a></li>   
 	                            </ul>
 	                        </li>                   
 	                    </ul>
@@ -75,51 +71,42 @@
 
 			<main>
 				<ul class="accordion">
+
                     <li class="accordion-item expanded">
                         <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Usuario a evaluar:<span>Pablo Monestel</span></span><span>Fecha:<span>24-8-14 Hora:10:00am</span></span>
+                        		<span class="stit2">Usuario Evaluado:<span>Pablo Monestel</span></span><span>Fecha:<span>24-6-14 Hora:10:00am</span></span>
                         	</p>
                         </a>
 
                         <div class="accordion-detail">
                             <form id="" action="#" method="post">
 								<fieldset>
-									<h2 >Formulario de Evaluación de Cita</h2>
+									<h2 >Cita Evaluada</h2>
 
 									<div class="form-row-ev">
-										<div id="pregunta1">
-											<label class="">1)¿El profesor se presentó a la cita?</label>
+										<div id="pregunta1A">
+											<label class="">Preguntas y puntaje obtenido por pregunta.</label>
 										</div>
 
 										<div class="opcs">
-											<label class="radio">
-												<!-- Javier hay que asignar el value "si" o "no" para que funke -->
-				                                <input type="radio" name="group1" value="si" data-toggle="radio">SI
-				                            </label>
-				                        </div>
-
-			                            <div class="opcs">
-			                            	<label class="radio">
-			                            		<!-- Javier hay que asignar el value "si" o "no" para que funke -->
-			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
-			                                </label>				                            
-
-									    </div>	
-								</div>
+										    <label id="promedio">Puntos</label>
+										</div>
+	
+								    </div>
 
 								<!-- Javier: hay que agregarle la clase wrapperItems a todos los 
 								divs que tienen los campos cuando se responde que si -->
-                                <div class="wrapperItems"> 
+                                <div class="wrapperItems.visible"> 
 
                                 	<div class="form-row-ev"> 
                                 		<div class="preguntas">
                                 			<label class="">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
 								        </div>
 
-								        <div class="opcs">	
-								        	<input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
-									    </div>
+								        <div class="opcs">
+										    <label id="promedio">3</label>
+										</div>
 								    </div>
                                 
 									<div class="form-row-ev">
@@ -129,7 +116,7 @@
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <label id="promedio">3</label>
 										</div>
 
 									</div>
@@ -141,7 +128,7 @@
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <label id="promedio">3</label>
 										</div>
 
 									</div>
@@ -152,7 +139,7 @@
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <label id="promedio">3</label>
 										</div>
 
 									</div>										
@@ -169,12 +156,7 @@
 
 									</div>	
 
-								</div>
-
-								<div class="form-row form-row-button">
-									<button class="btn btn-primary">Enviar</button>
-							        <button class="btn btn-default">Cancelar</button>
-						        </div>
+								</div>								
 
 							</fieldset>
 				        </form>
@@ -186,46 +168,38 @@
                 <li class="accordion-item">
                     <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Usuario a evaluar:<span>Pablo Monestel</span></span><span>Fecha:<span>24-8-14 Hora:10:00am</span></span>
+                        		<span class="stit2">Usuario Evaluado:<span>Pablo Monestel</span></span><span>Fecha:<span>24-6-14 Hora:10:00am</span></span>
                         	</p>
                         </a>
-                    <div class="accordion-detail">
-                        <form id="" action="#" method="post">               	
 
+                        <div class="accordion-detail">
+                            <form id="" action="#" method="post">
 								<fieldset>
-									<h2 >Formulario de Evaluación de Cita</h2>
+									<h2 >Cita Evaluada</h2>
 
 									<div class="form-row-ev">
-										<div id="pregunta1">
-											<label class="">1)¿El profesor se presentó a la cita?</label>
+										<div id="pregunta1A">
+											<label class="">Preguntas y puntaje obtenido por pregunta.</label>
 										</div>
 
 										<div class="opcs">
-											<label class="radio">
-												<!-- Javier hay que asignar el value "si" o "no" para que funke -->
-				                                <input type="radio" name="group1" value="si" data-toggle="radio">SI
-				                            </label>
-				                        </div>
+										    <label id="promedio">Puntos</label>
+										</div>
+	
+								    </div>
 
-			                            <div class="opcs">
-			                            	<label class="radio">
-			                            		<!-- Javier hay que asignar el value "si" o "no" para que funke -->
-			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
-			                                </label>				                            
-
-									    </div>	
-								</div>
-
-                                <div class="wrapperItems"> 
+								<!-- Javier: hay que agregarle la clase wrapperItems a todos los 
+								divs que tienen los campos cuando se responde que si -->
+                                <div class="wrapperItems.visible"> 
 
                                 	<div class="form-row-ev"> 
                                 		<div class="preguntas">
                                 			<label class="">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
 								        </div>
 
-								        <div class="opcs">	
-								        	<input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
-									    </div>
+								        <div class="opcs">
+										    <label id="promedio">3</label>
+										</div>
 								    </div>
                                 
 									<div class="form-row-ev">
@@ -235,7 +209,7 @@
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <label id="promedio">3</label>
 										</div>
 
 									</div>
@@ -247,7 +221,7 @@
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <label id="promedio">3</label>
 										</div>
 
 									</div>
@@ -258,7 +232,7 @@
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <label id="promedio">3</label>
 										</div>
 
 									</div>										
@@ -270,66 +244,54 @@
 										</div>
 
 										<div class="opcs">
-										    <label id="promedio"><span >3</span></label>
+										    <label id="promedio">3</label>
 										</div>
 
 									</div>	
 
-								</div>
-
-								<div class="form-row form-row-button">
-									<button class="btn btn-primary">Enviar</button>
-							        <button class="btn btn-default">Cancelar</button>
-						        </div>
+								</div>								
 
 							</fieldset>
 				        </form>
                     </div>
                 </li>
+
 
                 <li class="accordion-item">
-                    <a href="#">
+                     <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Usuario a evaluar:<span>Pablo Monestel</span></span><span>Fecha:<span>24-8-14 Hora:10:00am</span></span>
+                        		<span class="stit2">Usuario Evaluado:<span>Pablo Monestel</span></span><span>Fecha:<span>24-6-14 Hora:10:00am</span></span>
                         	</p>
                         </a>
-                    <div class="accordion-detail">
-                        <form id="" action="#" method="post">               	
 
+                        <div class="accordion-detail">
+                            <form id="" action="#" method="post">
 								<fieldset>
-									<h2 >Formulario de Evaluación de Cita</h2>
+									<h2 >Cita Evaluada</h2>
 
 									<div class="form-row-ev">
-										<div id="pregunta1">
-											<label class="">1)¿El profesor se presentó a la cita?</label>
+										<div id="pregunta1A">
+											<label class="">Preguntas y puntaje obtenido por pregunta.</label>
 										</div>
 
 										<div class="opcs">
-											<label class="radio">
-												<!-- Javier hay que asignar el value "si" o "no" para que funke -->
-				                                <input type="radio" name="group1" value="si" data-toggle="radio">SI
-				                            </label>
-				                        </div>
+										    <label id="promedio">Puntos</label>
+										</div>
+	
+								    </div>
 
-			                            <div class="opcs">
-			                            	<label class="radio">
-			                            		<!-- Javier hay que asignar el value "si" o "no" para que funke -->
-			                            		<input type="radio" name="group1" value="no" data-toggle="radio">NO
-			                                </label>			                            
-
-									    </div>	
-								</div>
-
-                                <div class="wrapperItems"> 
+								<!-- Javier: hay que agregarle la clase wrapperItems a todos los 
+								divs que tienen los campos cuando se responde que si -->
+                                <div class="wrapperItems.visible"> 
 
                                 	<div class="form-row-ev"> 
                                 		<div class="preguntas">
                                 			<label class="">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
 								        </div>
 
-								        <div class="opcs">	
-								        	<input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
-									    </div>
+								        <div class="opcs">
+										    <label id="promedio">3</label>
+										</div>
 								    </div>
                                 
 									<div class="form-row-ev">
@@ -339,7 +301,7 @@
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <label id="promedio">3</label>
 										</div>
 
 									</div>
@@ -351,7 +313,7 @@
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <label id="promedio">3</label>
 										</div>
 
 									</div>
@@ -362,7 +324,7 @@
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <label id="promedio">3</label>
 										</div>
 
 									</div>										
@@ -374,25 +336,17 @@
 										</div>
 
 										<div class="opcs">
-										    <label id="promedio"><span >3</span></label>
+										    <label id="promedio">3</label>
 										</div>
 
 									</div>	
 
-								</div>
-
-								<div class="form-row form-row-button">
-									<button class="btn btn-primary">Enviar</button>
-							        <button class="btn btn-default">Cancelar</button>
-						        </div>
+								</div>								
 
 							</fieldset>
 				        </form>
                     </div>
                 </li>
-
-
-
              </ul>
             </main>
 			
@@ -402,14 +356,13 @@
 
 		</div>
 
-		<script src="js/jquery-1.8.3.min.js"></script>
-        <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap-select.js"></script>
-        <script src="js/flatui-checkbox.js"></script>
-        <script src="js/flatui-radio.js"></script>
-        <script src="js/flatui.js"></script>
-        <script src="js/common-logic.js"></script>	
-        <script src="js/evaluacion.js"></script>
+		<script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/bootstrap-select.js"></script>
+        <script src="../js/flatui-radio.js"></script>
+        <script src="../js/flatui.js"></script>
+        <script src="../js/common-logic.js"></script>	
+        <script src="../js/evaluacion.js"></script>
 	</body>
 </html>

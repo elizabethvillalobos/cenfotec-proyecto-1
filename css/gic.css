@@ -750,25 +750,21 @@ fieldset[disabled] .btn {
 .alert-info,
 .alert-success,
 .alert-warning {
-   border: 2px solid;
    border-radius: 5px;
-   font-size: 14px;
+   font-size: 13px;
    line-height: 1;
-   margin: 10px 0;
+   margin: 3px 0;
    padding: 3px 3px 6px;
 }
 .alert-error:before,
 .alert-info:before,
 .alert-success:before,
 .alert-warning:before {
+  font-size: 12px;
    margin: 0 8px 0 0;
-   position: relative;
-   top: 3px;
 }
 
 .alert-error {
-   background: #fcd7d7; 
-   border-color: red;
    color: red;  
 }
 .alert-error:before {
@@ -776,12 +772,10 @@ fieldset[disabled] .btn {
 }
 
 .alert-success {
-   border-color: #2ecc71;
    color: #2ecc71;
 }
 
 .alert-warning {
-   border-color: #f1c40f;
    color: #f1c40f;
 }
 

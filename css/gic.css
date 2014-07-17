@@ -1167,38 +1167,38 @@ header a:hover {
    User info
    ---------- */
 .usr-info {
-   font-size: 12px;
-   min-width: 250px;
-   position: absolute;
-   right: 15px;
-   text-align: right;
-   top: 27px;
+    font-size: 12px;
+    min-width: 250px;
+    position: absolute;
+    right: 15px;
+    text-align: right;
+    top: 27px;
 }
 .usr-info a {
-   color: #bdc3c7;
-   text-decoration: underline;
+    color: #bdc3c7;
+    text-decoration: underline;
 }
 .usr-info ul {
-   clear: left;
-   margin: 0;
+    clear: left;
+    margin: 0;
 }
 .usr-info li {
-   display: inline-block;
+    display: inline-block;
 }
 .usr-greeting {
-   line-height: 22px;
+    line-height: 22px;
 }
 .usr-editar-perfil {
-   border-right: 1px solid #bdc3c7;
-   margin-right: 3px;
-   padding-right: 6px;
+    border-right: 1px solid #bdc3c7;
+    margin-right: 3px;
+    padding-right: 6px;
 }
 .usr-photo {
-   border: 1px solid #bdc3c7;
-   -moz-border-radius: 5px;
-   border-radius: 5px;
-   float: right;
-   margin-left: 10px;
+    border: 1px solid #666;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    float: right;
+    margin-left: 10px;
 }
 
 

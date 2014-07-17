@@ -291,7 +291,7 @@ h2 {
 .perfil .perfil-photo {
    left: -150px;
    position: absolute;
-   top: 0;
+   top: -80px;
 }
 
 .perfil-photo {
@@ -302,6 +302,11 @@ h2 {
 /*Editar perfil*/
 .perfil-editar .alert-error {
    display: block;
+}
+
+.perfil-editar .data {
+    display: inline-block;
+    width: 74%;
 }
 
 .perfil-editar .form-row-button {

@@ -18,16 +18,16 @@
 				<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
+							<a href="citas/citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="../evaluacion.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
+							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
-							<a href="../mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
 						</li>
 						<li>
-							<a href="../reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
 							<a href="../configuracion/perfil.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
@@ -60,14 +60,16 @@
 						<li class="accordion-item">
 							<a href="citas.html" class="active">Agenda</a>							
 						</li>
-						<li class="accordion-item">
-							<a href="#">Citas finalizadas</a>
-						</li>
 						<li class="accordion-item expanded">
-							<a href="#">Solicitudes de cita</a>
+							<span id="crearSolicitud" class="flaticon-add73"></span>
+							<a href="solicitudes.html">Solicitudes de cita</a>
 							<ul class="thrd-nav-category accordion-detail">
-								<li><a href="#" class="active">Alvaro Cordero</a></li>
-								<li><a href="#">Antonio Luna</a></li>
+								<li><a href="solicitudes.html" class="active">Ernesto Rivera</a></li>
+								<li><a href="solicitudesEstudiantes.html">Oscar Sandí</a></li>
+								<li><a href="#">Alejandro Leiva</a></li>
+								<li><a href="#">Olger Cubillo</a></li>
+								<li><a href="#">Rocío Solano</a></li>
+								<li><a href="#">Alejandro Villalobos</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -107,8 +109,8 @@
 							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
 						</div>
 						<div class="form-row form-row-button">
-							<a href="citas-finalizar.html" id="btnAceptar" class="btn btn-primary">Aceptar</a>
-							<a href="citas-cancelar.html" id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a>
+							<a href="solicitudAceptada.html" id="btnAceptar" class="btn btn-primary">Aceptar</a>
+							<a href="solicitudRechazada.html" id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a>
 						</div>
 					</div>
 				</section>
@@ -130,5 +132,6 @@
 
 		<!-- Load JS -->
         <script src="../js/common-logic.js"></script>
+		<script src="../js/solicitarCita.js"></script>
 	</body>
 </html>

@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="../css/gic.css">
+		<link rel="stylesheet" href="../css/pages/configuracion.css">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -26,10 +27,10 @@
 							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
 						</li>
 						<li>
-							<a href="reportes/reportes.html" class="reportes active flaticon-seo2"><span>Reportes</span></a>
+							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="../configuracion/perfil.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
+							<a href="perfil.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -54,28 +55,38 @@
 			</header>
 
 			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li class="accordion-item">
-							<a href="#">Opcion 1</a>
-						</li>
-						<li class="accordion-item">
-							<a href="#">Opcion 2</a>
-						</li>
-						<li class="accordion-item">
-							<a href="#">Opcion 3</a>
-						</li>
-					</ul>
-				</nav>
-			</aside>
+                <nav class="secondary-nav">
+                    <ul class="sec-nav-category accordion">
+                        <li class="accordion-item">
+                            <a href="#" class="active">Perfil</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Mi Cuenta</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="carreras.html">Carreras y Cursos</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Usuarios</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">General</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
 
 			<main>
-				<div class="mod-hd">
-					<h2>Reportes</h2>
-				</div>
-				<div class="mod-bd">
-					
-				</div>
+				<section class="msg-confirm">
+					<div class="mod-hd">
+						<h2 class="flaticon-male12">Perfil modificado</h2>
+					</div>
+					<div class="mod-bd">
+						<p>El perfil se actualizó con éxito.</p>
+
+						<a href="configuracion.html" class="btn btn-default">Volver</a>
+					</div>
+				</section>
 			</main>
 			
 			<footer>
@@ -83,6 +94,7 @@
 			</footer>
 		</div>
 
-        <script src="../js/common-logic.js"></script>
+		<!-- Load JS -->
+		<script src="../js/common-logic.js"></script>
 	</body>
 </html>

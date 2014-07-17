@@ -1,16 +1,4 @@
 
-// ------------- ATENCION -------------------
-// Ordenen esta vara alfabeticamente porque sino se vuelve un arroz con mango. 
-// Es mas facil encontrar las funciones cuando estan en orden alfabetico.
-// Y por fa, documenten las funciones. Antes de declarar la funcion, 
-// agreguen un comentario diciendo que hace la funcion.
-// 
-// 
-// Organizacion del archivo
-//   1. Funciones generales
-//   2. Inicializacion de funcionalidad especificas.
-// ------------------------------------------
-
 //Variables de datos quemados para usuario 
 
 var codigoActivacion = localStorage.getItem('codigoActivacion'),
@@ -18,7 +6,7 @@ var codigoActivacion = localStorage.getItem('codigoActivacion'),
     pwAdmin = 'Cenfo2014',
     aCorreos = ["admin@ucenfotec.ac.cr", "rector@ucenfotec.ac.cr", "director@ucenfotec.ac.cr", "profesor@ucenfotec.ac.cr", "estudiante@ucenfotec.ac.cr", "asistente@ucenfotec.ac.cr", "mercadeo@ucenfotec.ac.cr"],
     aContrasenas = ["Admin2014", "Recto2014", "Dire2014", "prof2014", "estu2014", "asis2014", "merc2014"],
-    aLinkXRoles = [];
+    aRoles = [];
 
 // ------------------------------------------
 // Funciones generales
@@ -53,7 +41,7 @@ function closestParentNode(pChildObj, pParentName) {
         node = node.parentNode;
     }
     return node;
-};
+}
 
 // Devuelve true o false si en un elemento del DOM tiene la clase
 // que se pasa por parametro.
@@ -61,7 +49,7 @@ function closestParentNode(pChildObj, pParentName) {
 // @pClassName: clase a verificar.
 function hasClass(pEl, pClassName) {
     return pEl.className.indexOf(pClassName) > -1 ? true : false;
-};
+}
 
 // Muestra una ventana modal.
 // Esta funcion utliza tres clases en el HTML:
@@ -105,7 +93,7 @@ function modalWindow() {
 // Eliminar una clase de un elemento HTML
 function removeClass(pEl, pClassName) {
     pEl.className = pEl.className.replace(pClassName, '').trim();
-};
+}
 
 // Validar que solo puedan introducirse letras
 function soloLetras(e){
@@ -211,9 +199,61 @@ function validarContrasena(pCorreo, pContrasena, pElementoError, pMsjError) {
             pElementoError.className += ' error';
       
         }
-     }   
-    
-    return  coincide;
+     }      
+    return coincide;
+}
+
+// Retorna true/false si el correo es valido.
+function validarEmail(pEmail) {
+    var re = new RegExp(/^\"?[\w-_\.]*\"?@ucenfotec\.ac\.cr$/);
+    return re.test(pEmail);
+}
+
+// Validar un formulario.
+function validarForm(pFormId) {
+    var bValido = true,
+        eInputs = document.querySelectorAll('#' + pFormId + ' input[required], textarea[required]'),
+        eSelects = document.querySelectorAll('#' + pFormId + ' select[required]'),
+        eTextareas = document.querySelectorAll('#' + pFormId + ' textarea[required]');
+
+    // Validar que los inputs requeridos esten llenos.
+    for(var i=0; i < eInputs.length; i++) {
+        if (eInputs[i].value == '') {
+            bValido = false;
+            mostrarMensajeError(eInputs[i], 'Este campo no puede estar vacío.');
+        } else if (eInputs[i].dataset.validateType) {
+            switch(eInputs[i].dataset.validateType) {
+                case 'email':
+                    if (!validarEmail(eInputs[i].value)) {
+                        bValido = false;
+                        mostrarMensajeError(eInputs[i], 'El correo electrónico no es válido.');
+                    }
+                    break;
+                case 'number':
+                    if (!validateNumber(eInputs[i].value)) {
+                        bValido = false;
+                        mostrarMensajeError(eInputs[i], 'Este campo solo admite números.');
+                    }
+                    break;
+                case 'string':
+                    // Pendiente...
+                    console.log('validate string');
+                    break;
+                case 'letters':
+                    // Pendiente...
+                    console.log('validate letras');
+                    break;
+            }
+        }
+    }
+    // Validar que los selects tengan un valor
+    for(var j=0; j < eSelects.length; j++) {
+        if (eSelects[j].value == '') {
+            bValido = false;
+            mostrarMensajeError(eSelects[j], 'Debe seleccionar una opción.');
+        }
+    }
+    return bValido;
 }
 
 //Validar que la contraseña sea segura (de 8 a 10 caracteres inlcuye letra y numero sin caracteres especiales)
@@ -230,6 +270,10 @@ function validarSeguridadContrasena(pContrasena, pElementoError, pMsjError) {
    return  segura;
 }
 
+function validarNumero(pNumber) {
+    return !isNaN(Number(pNumber));
+}
+
 //Generar código aleatorio alfanumerico
 function rand_code(chars, lon){
     var code = "";
@@ -239,7 +283,6 @@ function rand_code(chars, lon){
     }
 
     return code;
-
 }
 
 //Calcular el promedio de evlacion de cita
@@ -247,19 +290,13 @@ function calcularPromedio(paNumeros){
     var sumatoria=0;
     
     for(var i=0; i<paNumeros.length; i++){
-        sumatoria+=paNumeros[i].value;
+        sumatoria+=parseInt(paNumeros[i].value);
     }
     
     var promedio = sumatoria/paNumeros.length;
     
+    promedio = promedio.toFixed(2);
     return promedio;
-
-}
-
-//Imprimir código de activacion en la página de mensaje
-var eCodigoActivacion = document.querySelector('#codigoActiv');
-if (eCodigoActivacion) {
-    eCodigoActivacion.innerHTML = codigoActivacion;
 }
 
 //Validar clave de activacion de cuenta
@@ -350,3 +387,24 @@ if (eAccordionItems) {
 // Inicializar modal windows
 // ------------------------------------------
 modalWindow();
+
+//Imprimir código de activacion en la página de mensaje
+var eCodigoActivacion = document.querySelector('#codigoActiv');
+if (eCodigoActivacion) {
+    eCodigoActivacion.innerHTML = codigoActivacion;
+}
+
+// Inicializar la validacion de formularios.
+var eFormValidar = document.querySelector('form[data-validate="true"]');
+if (eFormValidar) {
+    var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
+    if (eFormBtnSubmit) {
+        eFormBtnSubmit.addEventListener('click', function(event) {
+            event.preventDefault();
+            limpiarMensajesError();
+            if (validarForm(eFormValidar.id)) {
+                eFormValidar.submit();
+            }
+        });
+    }
+}

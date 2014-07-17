@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="../css/pages/citas.css">
 	</head>
 	<body>
-		<div class="wrapper">
+		<div id="solicitudes" class="wrapper">
 			<header>
 				<a href="../index.html" class="home">
 					<h1 class="logo">Gestor Inteligente de Citas</h1>
@@ -18,7 +18,7 @@
 				<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
+							<a href="citas/citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
 							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
@@ -60,14 +60,12 @@
 						<li class="accordion-item">
 							<a href="citas.html" class="active">Agenda</a>							
 						</li>
-						<li class="accordion-item">
-							<a href="#">Citas finalizadas</a>
-						</li>
 						<li class="accordion-item expanded">
+							<span id="crearSolicitud" class="flaticon-add73"></span>
 							<a href="#">Solicitudes de cita</a>
 							<ul class="thrd-nav-category accordion-detail">
-								<li><a href="#" class="active">Ernesto Rivera</a></li>
-								<li><a href="#">Oscar Sandí</a></li>
+								<li><a href="solicitudes.html" class="active">Ernesto Rivera</a></li>
+								<li><a href="solicitudesEstudiantes.html">Oscar Sandí</a></li>
 								<li><a href="#">Alejandro Leiva</a></li>
 								<li><a href="#">Olger Cubillo</a></li>
 								<li><a href="#">Rocío Solano</a></li>
@@ -89,8 +87,8 @@
 							<span class="label">Solicitante:</span>
 							<div class="data-wrap">
 								<span class="data cita-invitado">Ernesto Rivera</span>
-								<span class="data">ana.perez@ucenfotec.com</span>
-								<span class="data">5555-5555</span>
+								<span class="data">neto.rivera@ucenfotec.com</span>
+								<span class="data">2568-5555</span>
 							</div>
 						</div>
 
@@ -98,22 +96,22 @@
 
 						<div class="row">
 							<span class="label">Asunto a tratar:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span class="data">Duda sobre nota del examen.</span>
 						</div>
 
 						<div class="row">
 							<span class="label">Curso:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span class="data">Programación Orientada a Objetos.</span>
 						</div>
 
 						<div class="row">
 							<span class="label">Observaciones:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span class="data">Hola profe! Quería solicitarle el desgloce de mi nota ya que quiero mejorar en mis puntos más débiles.</span>
 						</div>
 						
 						
 						<h3>Asignación de fecha y hora</h3>
-						<form id="solicitar-cita" class="form-horizontal" action="#" method="post">
+						<form id="solicitarCita" class="form-horizontal" action="#" method="post">
                             <div class="form-row">
                                 <label for="txtFecha">Fecha:</label>
                                 <input id="txtFecha" type="text" placeholder="Ingrese la fecha" class="form-control" />
@@ -131,8 +129,8 @@
 							
 							
                             <div class="form-row form-row-button">
-								<a href="citasAceptar.html" class="btn btn-primary">Aceptar</a>
-								<a href="citasRechazar.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a>
+								<a href="solicitudPropuesta.html" id="btnAceptar" class="btn btn-primary">Aceptar</a>
+								<a href="solicitudRechazada.html" id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a>
 							</div>                  
 						</form>
 						
@@ -142,9 +140,9 @@
 				
 				<div id="modal-cancelar" class="modal js-modal-window">
 					<span class="close flaticon-close3 js-modal-close">Close</span>
-					<h3>¿Está seguro que desea rechazar la cita de atención?</h3>
+					<h3>¿Está seguro que desea rechazar la solicitud de cita de atención?</h3>
 					<div class="form-row">
-						<a href="citasRechazar.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
+						<a href="solicitudRechazada.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
 						<a href="#" class="btn btn-default js-modal-close">Cancelar</a>
 					</div>
 				</div>
@@ -157,5 +155,6 @@
 
 		<!-- Load JS -->
         <script src="../js/common-logic.js"></script>
+		<script src="../js/solicitarCita.js"></script>
 	</body>
 </html>

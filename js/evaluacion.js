@@ -26,15 +26,14 @@ if (eRadiosChecked) {
 }
 
 for(var i=0; i < aPuntajes.length; i++) {
-    aPuntajes[i].addEventListener('change', function(){
-        //alert(aPuntajes[i]);
-        var promedio = calcularPromedio(aPuntajes);
-        //alert(promedio);
-        ePromedio.innerHTML=promedio;
+    aPuntajes[i].addEventListener('change', function(event){
+        
+        var eEl = event.currentTarget,
+            eElParent = closestParentNode(eEl, 'wrapperItems'),
+            aPuntajesParent = eElParent.querySelectorAll('input'),
+            ePromedioParent = eElParent.querySelector('#promedio');
+        
+        var promedio = calcularPromedio(aPuntajesParent);
+        ePromedioParent.innerHTML=promedio;
     });
-
 }
-
-
-
-

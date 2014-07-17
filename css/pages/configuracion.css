@@ -250,6 +250,7 @@ h2 {
     width: 185px;
 }
 
+
 .frontContent {
    display:block;
    position:relative;   
@@ -319,3 +320,135 @@ h2 {
    width: 100%;
 }
 
+/*termina configuracion general*/
+
+
+
+/* ----------------------
+   Elizabeth 
+   ----------------------
+*/
+.perfil {
+   margin-left: 150px;
+   position: relative;
+}
+
+.perfil .btn-modificar-perfil {
+   position: absolute;
+   right: 0;
+   top: 5px;
+}
+
+.perfil h2 {
+   line-height: 1.5;
+   margin-bottom: 0;
+}
+
+.perfil .enviar-msj {
+   color: #666;
+   line-height: 1;
+}
+
+.perfil .enviar-msj:hover {
+   color: #e74c3c;
+}
+
+.perfil .enviar-msj:before {
+   position: relative;
+   top: 2px;
+}
+
+.perfil .perfil-photo {
+   left: -150px;
+   position: absolute;
+   top: 0;
+}
+
+.perfil-photo {
+   border: 2px solid #ecf0f1;
+   border-radius: 10px;
+}
+
+/*Editar perfil*/
+.perfil-editar .alert-error {
+   display: block;
+}
+
+.perfil-editar .form-row-button {
+   margin-left: 25.5%;
+}
+
+.perfil-editar .media-drop {
+   display: inline-block;
+   position: relative;
+}
+
+.perfil-editar .media-drop-placeholder {
+   background: #ecf0f1;
+   border-radius: 5px;
+   padding-top: 20px;
+   text-align: center;
+}
+
+.perfil-editar .media-drop-placeholder-title {
+   display: block;
+   font-weight: bold;
+   margin-top: 30px;
+}
+
+.perfil-editar .media-drop-placeholder-uploadbutton input {
+   height: 37px;
+   left: 50%;
+   margin-left: -75px;
+   opacity: 0;
+   position: absolute;
+   top: 105px;
+   width: 140px;
+   z-index: 1;
+}
+
+.perfil-editar .media-drop-placeholder-uploadbutton #uploadBtn {
+   position: relative;
+   z-index: 0;
+}
+
+.perfil-editar #droppedimage img {
+   border-radius: 10px;
+   width: 200px;
+}
+
+/* ----------------------
+   Fin - Elizabeth 
+   ----------------------
+*/
+
+
+/* Miguel */
+
+.encabezado{
+    overflow: hidden;
+    margin: 10px 0 20px 0;
+}
+
+.busquedaUsuarios{
+    position: static;
+    display: inline-block;
+    float: right;
+}
+
+.crearUsuario{
+    float: left
+}
+
+.acciones-admin{
+    overflow: hidden;
+    margin-top: 20px 
+}
+
+.item-usuario{
+    float: right;
+    margin-right: 72px;
+}
+
+/* Fin - Miguel */
+>>>>>>> origin/master

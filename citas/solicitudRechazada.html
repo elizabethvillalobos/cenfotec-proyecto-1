@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="../css/pages/citas.css">
 	</head>
 	<body>
-		<div id="solicitudesEstudiantes" class="wrapper">
+		<div class="wrapper">
 			<header>
 				<a href="../index.html" class="home">
 					<h1 class="logo">Gestor Inteligente de Citas</h1>
@@ -18,16 +18,16 @@
 				<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="citas/citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
+							<a href="citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
+							<a href="../evaluacion.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
-							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+							<a href="../mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
 						</li>
 						<li>
-							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+							<a href="../reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
 							<a href="../configuracion/perfil.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
@@ -77,52 +77,16 @@
 			</aside>
 
 			<main>
-				<section class="cita">
+				<section class="msg-confirm">
 					<div class="mod-hd">
-						<h2>Sábado 19 de Julio</h2>
-						<span class="cita-hora-inicio-fin">2:00 p.m. a 3:00 p.m.</span>
+						<h2 class="flaticon-cancel17">La solicitud de cita de atención ha sido rechazada</h2>
 					</div>
 					<div class="mod-bd">
-						<div class="row">
-							<span class="label">Invitado:</span>
-							<div class="data-wrap">
-								<span class="data cita-invitado">Alvaro Cordero</span>
-								<span class="data">alva.cordero@ucenfotec.com</span>
-								<span class="data">5555-5555</span>
-							</div>
-						</div>
+						<p>Se ha enviado un mensaje al correo electrónico de <strong>Ernesto Rivera</strong> para notificarle el rechazo de la solicitud.</p>
 
-						<img class="cita-photo" src="../images/users/default-user.png" width="75" height="75">
-
-						<div class="row">
-							<span class="label">Asunto a tratar:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-						</div>
-
-						<div class="row">
-							<span class="label">Curso:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-						</div>
-
-						<div class="row">
-							<span class="label">Observaciones:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-						</div>
-						<div class="form-row form-row-button">
-							<a href="solicitudAceptada.html" id="btnAceptar" class="btn btn-primary">Aceptar</a>
-							<a href="solicitudRechazada.html" id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a>
-						</div>
+						<a href="solicitudes.html" class="btn btn-default">Volver</a>
 					</div>
 				</section>
-
-				<div id="modal-cancelar" class="modal js-modal-window">
-					<span class="close flaticon-close3 js-modal-close">Close</span>
-					<h3>¿Está seguro que desea cancelar la cita de atención?</h3>
-					<div class="form-row">
-						<a href="solicitudRechazada.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<a href="#" class="btn btn-default js-modal-close">Cancelar</a>
-					</div>
-				</div>
 			</main>
 			
 			<footer>

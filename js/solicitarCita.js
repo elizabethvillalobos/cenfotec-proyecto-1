@@ -1,3 +1,10 @@
+// ------------------------------------------
+// CREACION DE UNA NUEVA SOLICITUD
+// ------------------------------------------
+
+// ------------------------------------------
+// Variables globales
+// ------------------------------------------
 var btnSelectCurso=document.querySelector('#btnSelectCurso');
 var btnSelectInvitado=document.querySelector('#btnSelectInvitado');
 var btnEnviar=document.querySelector('#btnEnviar');
@@ -6,17 +13,54 @@ var btnVolver =document.querySelector('#btnVolver');
 var btnCrearSolicitud=document.querySelector('#crearSolicitud');
 var totalSelected=0;
 
-
-btnSelectCurso.addEventListener('click',function(){
-	btnClickeado=btnSelectCurso;
-	toggleForms();
-});
-
-btnSelectInvitado.addEventListener('click',function(){
-	btnClickeado=btnSelectInvitado;
-	toggleForms();
-});
-
+// ------------------------------------------
+// Eventos
+// ------------------------------------------
+if(btnSelectCurso!=null){
+	btnSelectCurso.addEventListener('click',function(){
+		btnClickeado=btnSelectCurso;
+		toggleForms();
+	});
+}
+if(btnSelectInvitado!=null){
+	btnSelectInvitado.addEventListener('click',function(){
+		btnClickeado=btnSelectInvitado;
+		toggleForms();
+	});
+}
+if(btnVolver!=null){
+	btnVolver.addEventListener('click',function(){
+		getActiveItems();
+		var frmSolicitud=document.querySelector('#solicitarCita');
+		var frmLista=document.querySelector('#listForm');
+		frmSolicitud.className = "frontContent";
+		frmLista.className = "backContent";
+	});
+}
+if(btnEnviar!=null){
+	btnEnviar.addEventListener('click',function(event){
+		if(!inputLlenos('solicitarCita')){
+			event.preventDefault();
+		}
+		if(!hayRadioSeleccionado('rdoLugar'))
+		{
+			event.preventDefault();
+		}
+		if(!hayRadioSeleccionado('rdoTipo'))
+		{
+			event.preventDefault();
+		}
+	});
+}
+if(btnCrearSolicitud!=null){
+	btnCrearSolicitud.addEventListener('click',function(){
+		window.location = "solicitarCita.html"
+	});
+}
+// ------------------------------------------
+// Funciones
+// ------------------------------------------
+//cambiar del formulario a la lista de cursos e invitados y viseversa
 function toggleForms() {
 	totalSelected=0;
 	var frmSolicitud=document.querySelector('#solicitarCita');
@@ -63,9 +107,9 @@ function toggleForms() {
 	}
 }
 
+//activar y desactivar elemento de la lista
 function toggleItem(clickedItem, maxOfItems) {
 	if ( clickedItem.classList.contains("activeItem") ) {
-		// Do stuff here
 		clickedItem.className = "listItem";
 		totalSelected--;
 	}
@@ -78,14 +122,7 @@ function toggleItem(clickedItem, maxOfItems) {
 	}	
 }
 
-btnVolver.addEventListener('click',function(){
-	getActiveItems();
-	var frmSolicitud=document.querySelector('#solicitarCita');
-	var frmLista=document.querySelector('#listForm');
-    frmSolicitud.className = "frontContent";
-	frmLista.className = "backContent";
-});
-
+//obtener los elementos activos de la lista
 function getActiveItems() {
 	var activeItems=document.querySelectorAll('.activeItem');
 	for (i=0; i<activeItems.length; i++)
@@ -104,23 +141,69 @@ function getActiveItems() {
 	}
 }
 
-btnEnviar.addEventListener('click',function(event){
-	if(!inputLlenos('solicitarCita')){
-		event.preventDefault();
+
+
+//obtener el radio activo
+function getRadioChecked(radioName){
+	var radios = document.getElementsByName(radioName);
+	var radioChecked;
+	for (var i=0; i<radios.length; i++) {
+		if (radios[i].checked) {
+			radioChecked=radios[i].value;
+		}
 	}
-	if(!hayRadioSeleccionado('rdoLugar'))
-	{
-		event.preventDefault();
-	}
-	if(!hayRadioSeleccionado('rdoTipo'))
-	{
-		event.preventDefault();
-	}
-});
+	return radioChecked;
+}
+
+
+// ------------------------------------------
+// CONFIRMACION Y RECHAZO DE SOLICITUDES
+// ------------------------------------------
+
+// ------------------------------------------
+// Variables globales
+// ------------------------------------------
+var btnAceptar1=document.querySelector('#solicitudes #btnAceptar');
+var btnRechazar1=document.querySelector('#solicitudes #btnRechazar');
+var btnAceptar2=document.querySelector('#solicitudesEstudiantes #btnAceptar');
+var btnRechazar2=document.querySelector('#solicitudesEstudiantes #btnRechazar');
+
+// ------------------------------------------
+// Eventos
+// ------------------------------------------
+if(btnAceptar1!=null){
+	btnAceptar.addEventListener('click',function(){
+		if(!inputLlenos('solicitarCita')){
+			event.preventDefault();
+		}
+	});
+}
+if(btnRechazar1!=null){
+	btnRechazar.addEventListener('click',function(){
+		
+	});
+}
+if(btnAceptar2!=null){
+	btnRechazar.addEventListener('click',function(){
+		
+	});
+}
+if(btnRechazar2!=null){
+	btnRechazar.addEventListener('click',function(){
+		
+	});
+}
+
+// ------------------------------------------
+// FUNCIONES COMPARTIDAS
+// ------------------------------------------
+
+//verificar si los inputs estan llenos
 function inputLlenos(idContainer){
 	limpiarMensajesError();
 	var estanLlenos=true;
 	var myInputs=new Array();
+	//select all inputs text
 	var inputs = document.getElementById(idContainer).getElementsByTagName('input');	
 	for(i=0; i<inputs.length; i++){		
 		if(inputs[i].type=="text" && inputs[i].getAttribute('id')!="txtCurso")
@@ -128,7 +211,7 @@ function inputLlenos(idContainer){
 			myInputs.push(inputs[i]);
 		}
 	}
-	//select all textarea
+	//select all textareas
 	inputs = document.getElementById(idContainer).getElementsByTagName('textarea');	
 	for(i=0; i<inputs.length; i++){		
 		myInputs.push(inputs[i]);
@@ -142,18 +225,3 @@ function inputLlenos(idContainer){
 	}
 	return estanLlenos;
 }
-
-function getRadioChecked(radioName){
-	var radios = document.getElementsByName(radioName);
-	var radioChecked;
-	for (var i=0; i<radios.length; i++) {
-		if (radios[i].checked) {
-			radioChecked=radios[i].value;
-		}
-	}
-	return radioChecked;
-}
-
-btnCrearSolicitud.addEventListener('click',function(){
-	window.location = "solicitarCita.html"
-});

@@ -6,7 +6,7 @@ var codigoActivacion = localStorage.getItem('codigoActivacion'),
     pwAdmin = 'Cenfo2014',
     aCorreos = ["admin@ucenfotec.ac.cr", "rector@ucenfotec.ac.cr", "director@ucenfotec.ac.cr", "profesor@ucenfotec.ac.cr", "estudiante@ucenfotec.ac.cr", "asistente@ucenfotec.ac.cr", "mercadeo@ucenfotec.ac.cr"],
     aContrasenas = ["Admin2014", "Recto2014", "Dire2014", "prof2014", "estu2014", "asis2014", "merc2014"],
-    aLinkXRoles = [];
+    aRoles = [];
 
 // ------------------------------------------
 // Funciones generales
@@ -290,11 +290,12 @@ function calcularPromedio(paNumeros){
     var sumatoria=0;
     
     for(var i=0; i<paNumeros.length; i++){
-        sumatoria+=paNumeros[i].value;
+        sumatoria+=parseInt(paNumeros[i].value);
     }
     
     var promedio = sumatoria/paNumeros.length;
     
+    promedio = promedio.toFixed(2);
     return promedio;
 }
 

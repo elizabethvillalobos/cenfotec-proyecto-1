@@ -2,7 +2,8 @@ var ebtnCrearCurso = document.querySelector('#btnCrearCurso'),
 	aInputs = document.querySelectorAll('form .form-control'),
 	eError = document.querySelector('.alert-error'),
 	regis=false,
-	ecodigo = document.querySelector('#txtCodCurso');
+	ecodigo = document.querySelector('#txtCodCurso'),
+	totalSelected = 0;
 
 /* validar crear curso */
 
@@ -107,6 +108,75 @@ if (eFormValidar) {
 	}
 }
 
-// Fin - Elizabeth
-// -------------------------------------------
 
+var btnSelecProfe = document.querySelector('.btnSelectInvitado');
+if (btnSelecProfe!=null) {
+	btnSelecProfe.addEventListener('click',function () {
+	toggleForms();
+	});
+}
+
+function toggleForms() {
+	totalSelected=0;
+	var frmCarrera=document.querySelector('#crear-carrera');
+	var frmLista=document.querySelector('#listForm');
+    frmCarrera.className = "backContent";
+	frmLista.className = "frontContent";
+	var title=document.querySelector('#lblLegent');
+	var ul = document.getElementById("listElements");
+	while( ul.firstChild ){
+		ul.removeChild( ul.firstChild );
+	}
+	
+	title.innerHTML="Seleccionar Profesor";		
+	for(i=0;i<20;i++)
+	{
+		var li = document.createElement("li");
+		li.appendChild(document.createTextNode("Alvaro Cordero"));
+		li.setAttribute("value","1");
+		li.setAttribute("class","listItem");
+		ul.appendChild(li);
+	}
+	
+	var listItems=document.getElementsByClassName('listItem');
+	for(var i = 0; i < listItems.length; i++) {
+		var listItem = listItems[i];
+		listItem.onclick = function() {			
+			toggleItem(this,3);
+		}
+	}
+}
+
+function toggleItem(clickedItem, maxOfItems) {
+	if ( clickedItem.classList.contains("activeItem") ) {
+		// Do stuff here
+		clickedItem.className = "listItem";
+		totalSelected--;
+	}
+	else
+	{
+		if(totalSelected<maxOfItems){	
+			clickedItem.className = "listItem activeItem";
+			totalSelected++;
+		}
+	}	
+}
+
+btnVolver.addEventListener('click',function(){
+	getActiveItems();
+	var frmCarrera=document.querySelector('#crear-carrera');
+	var frmLista=document.querySelector('#listForm');
+    frmCarrera.className = "frontContent";
+	frmLista.className = "backContent";
+});
+
+function getActiveItems() {
+	var activeItems=document.querySelectorAll('.activeItem'),
+		nombreProfesores=document.querySelectorAll('.nombreProfe');
+	for (i=0; i<activeItems.length; i++)
+    {
+		if(i<nombreProfesores.length){
+			nombreProfesores[i].value=activeItems[i].innerHTML;
+		}
+	}
+}

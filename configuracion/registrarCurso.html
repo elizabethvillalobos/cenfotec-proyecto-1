@@ -5,8 +5,8 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="../css/gic.css">
+
 	<link rel="stylesheet" href="../css/pages/configuracion.css">
-	
 </head>
 <body>
 	<div class="wrapper">
@@ -92,18 +92,18 @@
 					</div>
 					<div class="form-row">
 						<label for="txtInvitado1">Profesor(es):</label>
-						<input id="txtInvitado1" type="text" placeholder="Seleccione un profesor" class="inputExplore" disabled/>
-						<button type="button" id="btnSelectInvitado" class="btn btnIcon btn-default evaluacion flaticon-magnifier12 "></button>
+						<input id="txtInvitado1" type="text" placeholder="Seleccione un profesor" class="inputExplore nombreProfe" disabled/>
+						<button type="button" class="btn btnIcon btn-default evaluacion flaticon-magnifier12 btnSelectInvitado"></button>
 					</div>
 					<div class="form-row">
 						<label for="txtInvitado2"></label>
-						<input id="txtInvitado2" type="text" placeholder="Seleccione un profesor" class="inputExplore" disabled/>
-						<button type="button" id="btnSelectInvitado" class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button>
+						<input id="txtInvitado2" type="text" placeholder="Seleccione un profesor" class="inputExplore nombreProfe" disabled/>
+						<button type="button" class="btn btn-default evaluacion flaticon-magnifier12 btnIcon btnSelectInvitado"></button>
 					</div>
 					<div class="form-row">
 						<label for="txtInvitado3"></label>
-						<input id="txtInvitado3" type="text" placeholder="Seleccione un profesor" class="inputExplore" disabled/>
-						<button type="button" id="btnSelectInvitado" class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button>
+						<input id="txtInvitado3" type="text" placeholder="Seleccione un profesor" class="inputExplore nombreProfe" disabled/>
+						<button type="button"  class="btn btn-default evaluacion flaticon-magnifier12 btnIcon btnSelectInvitado"></button>
 					</div>
 
 					<div class="form-row form-row-button">
@@ -121,6 +121,15 @@
 					<a href="crearCarrera-cancelar.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
 					<a href="#" class="btn btn-default js-modal-close">Cancelar</a>
 				</div>
+			
+			</div>
+			<div id="listForm" class="backContent">
+				<fieldset class="frmLista">
+					<legend id="lblLegent"></legend>
+					<ul id="listElements">								
+					</ul>
+					<button id="btnVolver" class="btn btn-primary">Volver</button>
+				</fieldset>
 			</div>
 		</main>
 		

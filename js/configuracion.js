@@ -51,14 +51,18 @@ if (eFormValidar) {
 /*validar correo en consfiguracionGeneral/notificaciones Javier*/
 
 var ebtnEnviar = document.querySelector('#btnEvr'),
-    eMail = document.querySelector('#email').value,
+    eMailEl = document.querySelector('#email'),
+    eMail = '',
     eMsjError = document.querySelector('#msjError');
 
-    ebtnEnviar.addEventListener('click',function(){
-
-        var correoCorrecto = validarCorreo(eMail, eMsjError, 'El correo es incorrecto');
-    
-    });
+if (eMailEl) {
+	eMail = eMailEl.value;
+}
+if (ebtnEnviar) {
+	ebtnEnviar.addEventListener('click',function(){
+		var correoCorrecto = validarCorreo(eMail, eMsjError, 'El correo no es válido.');
+	});
+}
 
 /*validar correo en notificaciones*/    
 
@@ -133,6 +137,7 @@ function toggleItem(clickedItem, maxOfItems) {
 	}	
 }
 
+var btnVolver = document.querySelector('#btnVolver');
 if (btnVolver) {
 	btnVolver.addEventListener('click',function(){
 		getActiveItems();

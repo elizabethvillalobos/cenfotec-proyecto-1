@@ -1,22 +1,122 @@
 main {
+	background: #ddd; 
 	margin-left: 0;
+	padding: 10px;
 }
 
-.dashboard section {
-	float: left;
+.dashboard a:hover {
+	color: #e74c3c;
 }
+
+.dashboard h3,
+.dashboard h4 {
+	background: #ccc;
+	color: #666;
+	font: 18px Oswald, sans-serif;
+	margin: 0;
+	padding: 20px 20px;
+	text-transform: uppercase;
+}
+
+.dash-agenda,
+.dash-notificacion,
+.dash-ranking {
+	background: #f2f2f2;
+	float: left;
+	margin: 0 0.65%;
+	width: 32%;
+}
+
+/*Agenda*/
 
 .dash-agenda {
-	width: 30%;
-	outline: 1px solid red;
+	background: #e74c3c;
+	height: 440px;
 }
 
-.dash-ranking {
-	width: 30%;
-	outline: 1px solid blue;
+.dash-agenda h3 {
+	background: #c0392b;
+	color: #f2f2f2;
+}
+
+.dash-agenda-citas {
+	height: 207px;
+	margin: 0;
+	padding: 0;
+	overflow-y: scroll;
+}
+
+.dash-agenda-citas li {
+	border-bottom: 1px solid #c0392b;
+	color: #f2f2f2;
+	list-style: none;
+	padding: 10px 20px 10px 40px;
+	position: relative;
+}
+
+.dash-agenda-citas li:before {
+	content: "\e018";
+	font: normal 20px Flaticon;
+	left: 15px;
+	position: absolute;
+	top: 15px;
+}
+
+.dash-agenda-solicitudes {
+	background: #666;
+	height: 168px;
+	overflow-y: scroll;
+}
+
+.dash-agenda-solicitudes a {
+	color: #ccc;
+}
+
+.dash-agenda-solicitudes h4 {
+	background: #3c3c3c;
+	color: #ccc;
+	font-size: 16px;
+	margin: 0;
+	padding: 10px 20px;
+}
+
+.dash-agenda-solicitudes ul {
+	list-style: none;
+	margin: 5px 0;
+	padding: 0 20px;
+}
+
+/*Mensajes y evaluaciones*/
+.dashboard .dash-mensajes {
+	margin-bottom: 10px;
 }
 
 .dash-notificacion {
-	width: 30%;
-	outline: 1px solid green;
+	display: block;
+	height: 215px;
+	text-align: center;
 }
+
+.dash-notificacion {
+	color: #666;
+}
+
+.dash-notificacion-label {
+	display: block;
+	font: 16px Oswald, sans-serif;
+	margin-top: 30px;
+	text-transform: uppercase;
+}
+
+.dash-notificacion-total {
+	display: block;
+	font: 90px Arial, sans-serif;
+}
+
+.dash-ranking {
+	height: 440px;
+}
+
+
+
+

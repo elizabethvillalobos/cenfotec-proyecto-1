@@ -31,3 +31,18 @@ function soloGuion(e){
         return false;
     }
 }
+
+// Inicializar la validacion de formularios.
+var eFormValidar = document.querySelector('form[data-validate="true"]');
+if (eFormValidar) {
+    var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
+        eFormBtnSubmit.addEventListener('click', function(event) {
+            event.preventDefault();
+            limpiarMensajesError();
+            if (validarForm(eFormValidar.id)) {
+                eFormValidar.submit();
+            }
+        });
+
+}
+

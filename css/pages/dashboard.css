@@ -1,3 +1,22 @@
 main {
 	margin-left: 0;
 }
+
+.dashboard section {
+	float: left;
+}
+
+.dash-agenda {
+	width: 30%;
+	outline: 1px solid red;
+}
+
+.dash-ranking {
+	width: 30%;
+	outline: 1px solid blue;
+}
+
+.dash-notificacion {
+	width: 30%;
+	outline: 1px solid green;
+}

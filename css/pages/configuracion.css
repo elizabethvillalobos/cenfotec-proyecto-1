@@ -313,25 +313,25 @@ h2 {
    margin-left: 25.5%;
 }
 
-.perfil-editar .media-drop {
+.media-drop {
    display: inline-block;
    position: relative;
 }
 
-.perfil-editar .media-drop-placeholder {
+.media-drop-placeholder {
    background: #ecf0f1;
    border-radius: 5px;
    padding-top: 20px;
    text-align: center;
 }
 
-.perfil-editar .media-drop-placeholder-title {
+.media-drop-placeholder-title {
    display: block;
    font-weight: bold;
    margin-top: 30px;
 }
 
-.perfil-editar .media-drop-placeholder-uploadbutton input {
+.media-drop-placeholder-uploadbutton input {
    height: 37px;
    left: 50%;
    margin-left: -75px;
@@ -342,12 +342,12 @@ h2 {
    z-index: 1;
 }
 
-.perfil-editar .media-drop-placeholder-uploadbutton #uploadBtn {
+.media-drop-placeholder-uploadbutton #uploadBtn {
    position: relative;
    z-index: 0;
 }
 
-.perfil-editar #droppedimage img {
+#droppedimage img {
    border-radius: 10px;
    width: 200px;
 }

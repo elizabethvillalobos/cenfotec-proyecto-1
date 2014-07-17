@@ -482,7 +482,7 @@ form.form-horizontal .form-control {
 }
 
 .form-control:focus {
-   border-color: #666;
+   border-color: #888;
    box-shadow: none;
    outline: 0;
 }
@@ -1150,7 +1150,7 @@ header a:hover {
    color: #7f8c8d;
    position: absolute;
    right: 0;
-   top: 0;
+   top: 1px;
    width: 32px;
 }
 #btnBuscar:before {

@@ -247,10 +247,12 @@ function validarForm(pFormId) {
         }
     }
     // Validar que los selects tengan un valor
-    for(var j=0; j < eSelects.length; j++) {
-        if (eSelects[j].value == '') {
-            bValido = false;
-            mostrarMensajeError(eSelects[j], 'Debe seleccionar una opción.');
+    if (eSelects) {
+        for(var j=0; j < eSelects.length; j++) {
+            if (eSelects[j].value == '') {
+                bValido = false;
+                mostrarMensajeError(eSelects[j], 'Debe seleccionar una opción.');
+            }
         }
     }
     return bValido;
@@ -394,17 +396,3 @@ if (eCodigoActivacion) {
     eCodigoActivacion.innerHTML = codigoActivacion;
 }
 
-// Inicializar la validacion de formularios.
-var eFormValidar = document.querySelector('form[data-validate="true"]');
-if (eFormValidar) {
-    var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
-    if (eFormBtnSubmit) {
-        eFormBtnSubmit.addEventListener('click', function(event) {
-            event.preventDefault();
-            limpiarMensajesError();
-            if (validarForm(eFormValidar.id)) {
-                eFormValidar.submit();
-            }
-        });
-    }
-}

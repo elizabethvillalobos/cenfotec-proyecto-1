@@ -22,7 +22,7 @@
 							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="../miRanking.html" class="evaluacion  flaticon-verification5"><span>Evaluación</span></a>
+							<a href="../evaluacion/miRanking.html" class="evaluacion  flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
 							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
@@ -46,10 +46,10 @@
 					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
 					<ul>
 						<li>
-							<a href="#" class="usr-editar-perfil">Perfil</a>
+							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Perfil</a>
 						</li>
 						<li>
-							<a href="#" class="usr-cerrar-sesion">Cerrar sesión</a>
+							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
 						</li>
 					</ul>
 				</section>
@@ -62,7 +62,7 @@
 							<a href="#" class="active">Configuración</a>
 							<ul class="thrd-nav-category">
 								<li><a href="perfil.html">Perfil</a></li>
-								<li><a href="#">Mi Cuenta</a></li>
+								<li><a href="#">Mi cuenta</a></li>
 								<li><a href="consultarCarreras.html" class="">Carreras y cursos</a></li>
 								<li><a href="consultarUsuario.html">Usuarios</a></li>
 								<li><a href="configuracionGeneral.html" class="active">General</a></li>
@@ -134,14 +134,15 @@
 		                            	</div>
 
 		                            	<div id="divMail">
-		                            		<input id="text1" type="text" placeholder="mail@dominio" class="form-control" />
+		                            		<input id="email" type="text" placeholder="mail@dominio" class="form-control" />
+		                            		<p id="msjError" class="alert-error flaticon-remove11 "></p>
 		                            	</div>
 
 		                            	<div  id="divBtnEvr">
-											<button class="btn btn-primary" type="submit">Aplicar</button>
+											<button id="btnEvr"class="btn btn-primary" type="submit">Aplicar</button>
 			                                
 							            </div>
-
+							            
 	                                </form>
                             	</div>                                
 
@@ -161,7 +162,7 @@
 		<script src="../js/flatui-checkbox.js"></script>
 		<script src="../js/flatui-radio.js"></script>
         <script src="../js/gic.js"></script>
-        <script src="../js/pruebaConfiguracion.js"></script>
+        <script src="../js/configuracion.js"></script>
         <script src="../js/common-logic.js"></script> 
 	</body>
 </html>

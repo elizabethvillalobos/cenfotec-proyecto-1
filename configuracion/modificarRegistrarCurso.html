@@ -82,13 +82,13 @@
 					<div class="form-row">
 						<label for="codigo-curso">Codigo:</label>
 						<input id="codigo-curso" type="text" placeholder="Ingrese el codigo" class="form-control" 
-						onkeypress="return soloGuion(event)" required/>
+						onkeypress="return soloGuion(event)" value="INF-02"required/>
 					</div>
 
 					<div class="form-row">
 						<label for="nombre-curso">Nombre:</label>
 						<input id="nombre-curso" type="text" placeholder="Ingrese el nombre" class="form-control" 
-						onkeypress="return soloLetras(event)" required/>
+						onkeypress="return soloLetras(event)" value="Antonio Luna" required/>
 					</div>
 					<div class="form-row">
 						<label for="txtInvitado1">Profesor(es):</label>
@@ -116,9 +116,9 @@
 			</section>
 			<div id="modal-cancelar" class="modal js-modal-window">
 				<span class="close flaticon-close3 js-modal-close">Close</span>
-				<h3>¿Está seguro que desea cancelar la creación de la carrera?</h3>
+				<h3>¿Está seguro que desea cancelar la modificación de este curso?</h3>
 				<div class="form-row">
-					<a href="crearCarrera-cancelar.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
+					<a href="modificarCurso-cancelar.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
 					<a href="#" class="btn btn-default js-modal-close">Cancelar</a>
 				</div>
 			</div>

@@ -31,3 +31,16 @@ function soloGuion(e){
         return false;
     }
 }
+
+/*validar correo en consfiguracionGeneral/notificaciones Javier*/
+var ebtnEnviar = document.querySelector('#btnEvr'),
+    eMail = document.querySelector('#email').value
+    eMsjError = document.querySelector('#msjError');
+
+    ebtnEnviar.addEventListener('click',function(){
+
+        var correoCorrecto=validarCorreo(eMail, eMsjError, 'El correo es incorrecto');
+    
+    });
+
+/*validar correo en notificaciones*/    

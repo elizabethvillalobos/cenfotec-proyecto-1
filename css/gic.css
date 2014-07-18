@@ -168,14 +168,15 @@
 
 
 html { 
-   background: #ecf0f1;
+   background: url('../images/system/bg-17.jpg') no-repeat;
+   background-size: cover;
 }
 
 body {
    background-color: transparent;
    color: #666;
    font-family: "Lato", Helvetica, Arial, sans-serif;
-   font-size: 16.2px;
+   font-size: 16px;
    line-height: 1.72222;
    margin: 20px auto;
    width: 1000px;
@@ -191,10 +192,11 @@ h3,
 h4,
 h5,
 h6 {
-   font-family: inherit;
-   font-weight: 700;
-   line-height: 1.1;
-   margin: 30px 0 10px;
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 30px 0 10px;
+    text-transform: uppercase;
 }
 
 h1 {
@@ -314,7 +316,7 @@ form.form-horizontal label {
    position: relative;
    vertical-align: top;
    top: 8px;
-   width: 25%;
+   width: 160px;
 }
 
 legend {
@@ -540,12 +542,12 @@ form.form-horizontal .form-control-icon span {
 }
 
 form.form-horizontal .alert-error {
-   margin-left: 25.5%;
+   margin-left: 165px;
    width: 74%;
 }
 
 form.form-horizontal .form-row-button {
-   margin-left: 25.5%;
+   margin-left: 165px;
 }
 
 form.form-horizontal .form-row-checkbox,
@@ -561,6 +563,7 @@ form.form-horizontal .form-row-radio label {
 
 
 .row {
+    margin: 3px;
    padding-left: 160px;
    position: relative;
 }
@@ -808,12 +811,16 @@ fieldset[disabled] .btn {
    Mensaje de confirmacion
    ---------- */
 .msg-confirm {
-   background: #ecf0f1;
-   border: 2px solid #ecf0f1;
+   background: #ddd;
    -moz-border-radius: 10px;
    border-radius: 10px;
    margin: 40px 80px;
    padding: 20px;
+}
+
+.msg-confirm h2 {
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    text-transform: none;
 }
 
 .msg-confirm h2:before {
@@ -857,8 +864,11 @@ fieldset[disabled] .btn {
 }
 
 .modal h3 {
-   font-size: 14px;
-   margin: 0 0 20px 0;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+    margin: 0 0 20px 0;
+    text-transform: none;
 }
 
 .modal .close {
@@ -1072,7 +1082,7 @@ header a:hover {
    ---------- */
 .main-nav {
    position: absolute;
-   left: 20%;
+   left: 188px;
    top: 33px;
 }
 .main-nav ul {
@@ -1083,7 +1093,7 @@ header a:hover {
 .main-nav li {
    float: left;
    line-height: 1;
-   margin-right: 5px;
+   margin-right: 10px;
 }
 .main-nav a {
    -webkit-transition: color 0.2s;
@@ -1148,12 +1158,12 @@ header a:hover {
    color: #3c3c3c;
    font-size: 12px;
    padding: 5px 25px 5px 8px;
-   width: 140px;
+   width: 180px;
    transition: width 0.3s;
 }
 #q:focus {
    border-color: #e74c3c;
-   width: 230px;
+   width: 250px;
 }
 #q:focus,
 #btnBuscar:focus {

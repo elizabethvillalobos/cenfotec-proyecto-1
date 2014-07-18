@@ -4,14 +4,21 @@
 // ------------------------------------------
 (function($) {
 	var selects = $('select');
-	if (selects) {
+	if (selects != null) {
 		$('select').selectpicker({style: 'btn-hg btn-primary', menuStyle: 'dropdown-inverse'});
 	}
     
     var btnGroud = $(".btn-group");
-    if (btnGroud) {
+    if (btnGroud != null) {
     	$('.btn-group').on('click', 'a', function() {
       	$(this).siblings().removeClass('active').end().addClass('active');
     	});
+	}
+
+	var aDatePickers = $('.datepicker');
+	if (aDatePickers != null) {
+		for (var i = 0; i < aDatePickers.length; i++) {
+			aDatePickers[i].datepicker();
+		}
 	}
 })(jQuery);

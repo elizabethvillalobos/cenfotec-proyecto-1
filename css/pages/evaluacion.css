@@ -1,23 +1,6 @@
-/* 
-En este archivo agreguen su nombre como comentario y debajo agregan sus estilos, 
-para que sea mas facil la integracion.
-// ----------
-//   Javier Barboza Solis
-//   ----------
 /* ----------
-   Paleta de colores
-   ---------- 
-   White: #FFFFFF
-   Clouds: #ecf0f1
-   Silver: #bdc3c7
-   Concrete: #95a5a6
-   Asbestos: #7f8c8d
-   Gris oscuro (header): #333;
-   Black: #000000
-   Alizarin: #e74c3c
-   Pomegranate: #c0392b
-   Midnight blue: #2c3e50 
-*/
+//   Javier Barboza Solis
+   ---------- */
 
 #frm{
 	padding: 5px;
@@ -29,20 +12,20 @@ para que sea mas facil la integracion.
 }
 
 .stit2{
-	padding-right: 300px;
-
+	display: inline-block;
+	width: 420px;
 }
 
 #pregunta1{
 	padding-left: 10px;
-	width:600px;
+	width: 615px;
 	float: left;
 	
 }
 
 #pregunta1A{
 	padding-left: 20px;
-	width:550px;
+	width: 550px;
 	float: left;
 	margin-right: 70px;
 	
@@ -57,7 +40,7 @@ para que sea mas facil la integracion.
 
 .opcs {
     display: inline-flex;
-    margin: 0 15px 0 0;
+    margin: 0 0 0 15px;
     width: 30px;
 }
 .checkbox, .radio {
@@ -85,8 +68,8 @@ fieldset{
 }
 
 .form-row, .row {
-    width: 210px;
-    padding-left: 500px;
+    margin-right: 15px;
+    text-align: right;
 }
 
 h2{
@@ -95,14 +78,14 @@ h2{
 }
 
 .form-row-ev{
-	width: 700px;
 	height: 30px;
 	margin: 4px 0px -2px 0px;
+	padding-bottom: 5px;
 	border-bottom: 1px solid #95a5a6;
 }
 
 .nbr{  
-	border-radius: 1px solid #95a5a6;
+	border: 1px solid #95a5a6;
 	margin: 0px auto;
 	padding: 0px;
 	width: 80px;
@@ -134,18 +117,21 @@ h2{
 	background: #333;
 	height: 175px;
 	color: #ffffff;
+	margin-top: 10px;
+	position: relative;
 	
 }
-#puntuacion{
+#puntuacion {
     float: right;
-    margin: 0px 40px 0 0;
+    margin: 10px 40px;
 }
 
 .circulo {
-  background: none repeat scroll 0 0 #e74c3c;
+ 	background: none repeat scroll 0 0 #e74c3c;
 	border-radius: 40px;
 	color: #ffffff;
 	display: block;
+	font-family: Oswald, sans-serif;
 	font-size: 60px;
 	font-weight: bold;
 	line-height: 80px;
@@ -154,14 +140,21 @@ h2{
 	width: 80px;
 }
 
-h1{
+h1 {
 	font-size: 36px;
 	margin-top: 10px;
 }
+
+#puntuacion h1{
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+	font-size: 36px;
+	margin-top: 10px;
+	text-transform: none;
+}
 #cantidad{
-	font-weight: bold;
-    margin: 151px 2px 0px 550px;
+    right: 30px;
     position: absolute;
+    top: 145px;
     width: 180px;
 }
 
@@ -191,33 +184,43 @@ tr{
 
 
 
+/* Elizabeth */
+.accordion {
+	margin-top: 10px;
+}
 
+.accordion-item.expanded > a:after,
+.accordion-item.collapsed > a:after {
+	top: 18px;
+}
 
+main .accordion-item .accordion-detail {
+	background: #ffffff;
+	padding: 0;
+	transition: none;
+}
 
+main .accordion-item.collapsed .accordion-detail {
+	padding: 0;
+}
 
+main .accordion-item.expanded .accordion-detail {
+   padding: 0;
+}
 
+.accordion-detail form {
+	border-radius: 0;
+	padding: 10px;
+}
 
+.accordion-detail fieldset {
+	padding: 10px;
+}
 
+.evaluacion-fecha {
+	margin-right: 20px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.wrapperItems p {
+	margin: 0 10px 20px;
+}

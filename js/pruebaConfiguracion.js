@@ -122,4 +122,25 @@ document.getElementById('btnDeshabilitar5').onclick = function deshabilitarBtnDe
 	document.getElementById('btnHabilitar5').disabled = false;
 }
 
+/***************************************************************************************************************************/
+														/*Sexta carrera*/
+/***************************************************************************************************************************/
+/*Inicializa botones*/
+document.getElementById('btnHabilitar6').disabled = true;
+document.getElementById('btnDeshabilitar6').disabled = false;
 
+/*Direcciona a la página que contiene el formulario de modificación de carrera*/
+document.getElementById('btnModificar6').onclick = function mostrarFormModificar(){
+	window.location = "modificarCarrera.html";
+}
+
+/*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/
+document.getElementById('btnHabilitar6').onclick = function deshabilitarBtnHabilitar(){
+	document.getElementById('btnHabilitar6').disabled = true;
+	document.getElementById('btnDeshabilitar6').disabled = false;
+}
+/*Desactiva el botón Deshabilitar si es presionado y activa el botón Habilitar*/
+document.getElementById('btnDeshabilitar6').onclick = function deshabilitarBtnDeshabilitar(){
+	document.getElementById('btnDeshabilitar6').disabled = true;
+	document.getElementById('btnHabilitar6').disabled = false;
+}

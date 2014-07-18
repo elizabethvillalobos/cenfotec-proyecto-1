@@ -62,21 +62,26 @@
 				</section>
 			</header>
 				<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li>
-							<a href="#" class="active">Configuración</a>
-							<ul class="thrd-nav-category">
-								<li><a href="perfil.html">Perfil</a></li>
-								<li><a href="#">Mi Cuenta</a></li>
-								<li><a href="consultarCarreras.html" class="active">Carreras y cursos</a></li>
-								<li><a href="consultarUsuario.html">Usuarios</a></li>
-								<li><a href="configuracionGeneral.html">General</a></li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-			</aside>
+                <nav class="secondary-nav">
+                    <ul class="sec-nav-category accordion">
+                        <li class="accordion-item">
+                            <a href="perfil.html" >Perfil</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Mi Cuenta</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="consultarCarreras.html" class="active">Carreras y Cursos</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="consultarUsuario.html">Usuarios</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="configuracionGeneral.html">General</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
 
 
 				<main>
@@ -91,9 +96,6 @@
 					
 
 					<div id="basic-accordion" class="accordion">
-						<div class="VerCursosActivos">
-							<a class="accordion-toggle">Cursos Activos
-						</div>
 						<div class="accordion-group">
 							<div class="accordion-heading">
 								<a class="accordion-toggle collapsed" href="#collapseOne" data-parent="#basic-accordion"
@@ -119,8 +121,8 @@
 													
 												</div>
 												<div class="form-row form-row-buttonAccionesCurso">
-													<input type="button" class="btn btn-secondaryAction js-modal" id="btnHabilitar" data-modal-id="modal-habilitar1" value="Habilitar" disabled>
-													<input type="button" class="btn btn-secondaryAction js-modal" id="btnDeshabilitar2" data-modal-id="modal-deshabilitar1" value="Deshabilitar" >
+													<input type="button" id="btnHabilitarCurso" class="btn btn-secondaryAction botonActivado" value="Habilitar" >
+													<input type="button" id="btnDeshabilitarCurso" class="btn btn-secondaryAction botonDesactivado" value="Deshabilitar" >
 													<input type="button" class="btn btn-secondaryAction" id="btnModificar2" value="Modificar" onclick=" location.href='modificarRegistrarCurso.html' ">
 												</div>
 											</fieldset>
@@ -190,8 +192,8 @@
 													
 												</div>
 												<div class="form-row form-row-buttonAccionesCurso">
-													<input type="button" class="btn btn-secondaryAction js-modal" id="btnHabilitar3" data-modal-id="modal-habilitar3" value="Habilitar" disabled>
-													<input type="button" class="btn btn-secondaryAction js-modal" id="btnDeshabilitar3" data-modal-id="modal-deshabilitar3" value="Deshabilitar" >
+													<input type="button" class="btn btn-secondaryAction botonActivado" id="btnHabilitar3"  value="Habilitar" >
+													<input type="button" class="btn btn-secondaryAction botonDesactivado" id="btnDeshabilitar3" value="Deshabilitar" >
 													<input type="button" class="btn btn-secondaryAction" id="btnModificar3" value="Modificar">
 												</div>
 												
@@ -304,6 +306,7 @@
 								</div>	
 							</div>
 						</div>
+						
 						<div class="accordion-group">
 							<div class="accordion-heading">
 								<a class="accordion-toggle collapsed" href="#collapseSeven" data-parent="#basic-accordion"
@@ -320,7 +323,7 @@
 													readonly="readonly"/>
 												</div>
 												<div class="form-row">
-													<label for="text2">Director Académico:</label>
+													<label for="text2">Director académico:</label>
 													<input id="text2" type="text" placeholder="Nombre del director académico" 
 													class="form-control1" readonly="readonly"/>
 												</div>
@@ -330,77 +333,48 @@
 													<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
 													value="Modificar">
 												</div>
+														
 											</fieldset>
 										</div>
 									</form>
 								</div>	
 							</div>
 						</div>
-
-
-
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle collapsed" href="#collapseSeven" data-parent="#basic-accordion"
+								data-toggle="collapse">Ética y profesionalismo</a>
+							</div>
+							<div id="collapseSeven" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<form class="detalleCarrera" action="#" method="post">
+										<div class="colorDetalleCurso">
+											<fieldset>
+												<div class="form-row">
+													<label for="text1">Código:</label>
+													<input id="text1" type="text" placeholder="Código de la carrera" class="form-control1" 
+													readonly="readonly"/>
+												</div>
+												<div class="form-row">
+													<label for="text2">Director académico:</label>
+													<input id="text2" type="text" placeholder="Nombre del director académico" 
+													class="form-control1" readonly="readonly"/>
+												</div>
+													<div class="form-row form-row-buttonAccionesCurso" action="modificarCurso.html">
+													<input type="button" class="btn btn-secondaryAction js-modal" id="btnHabilitar3" value="Habilitar" data-modal-id="modal-habilitar " disabled>
+													<input type="button" class="btn btn-secondaryAction js-modal" id="btnDeshabilitar3" value="Deshabilitar" data-modal-id="modal-habilitar1">
+													<input type="button" class="btn btn-secondaryAction" id="btnModificar3" 
+													value="Modificar">
+												</div>
+														
+											</fieldset>
+										</div>
+									</form>
+								</div>	
+							</div>
+						</div>
 					
-				<div id="modal-habilitar1" class="modal js-modal-window">
-					<h3>¿Está seguro que desea habilitar el curso?</h3>
-					<div class="form-row">
-						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar" value="Cancelar">
-					</div>
-				</div>
-				<div id="modal-deshabilitar1" class="modal js-modal-window">
-					<h3>¿Está seguro que desea deshabilitar el curso?</h3>
-					<div class="form-row">
-						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar" value="Cancelar">
-					</div>
-				</div>
-
-				<div id="modal-habilitar2" class="modal js-modal-window">
-					<h3>¿Está seguro que desea habilitar el curso?</h3>
-					<div class="form-row">
-						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar" value="Cancelar">
-					</div>
-				</div>
-
-				<div id="modal-deshabilitar2" class="modal js-modal-window">
-					<h3>¿Está seguro que desea deshabilitar el curso?</h3>
-					<div class="form-row">
-						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar" value="Cancelar">
-					</div>
-				</div>
-
-
-					<div id="modal-habilitar3" class="modal js-modal-window">
-					<h3>¿Está seguro que desea habilitar el curso?</h3>
-					<div class="form-row">
-						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar" value="Cancelar">
-					</div>
-				</div>
-				<div id="modal-deshabilitar3" class="modal js-modal-window">
-					<h3>¿Está seguro que desea deshabilitar el curso?</h3>
-					<div class="form-row">
-						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar" value="Cancelar">
-					</div>
-				</div>
-
-				<div id="modal-habilitar4" class="modal js-modal-window">
-					<h3>¿Está seguro que desea habilitar el curso?</h3>
-					<div class="form-row">
-						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar" value="Cancelar">
-					</div>
-				</div>
-				<div id="modal-deshabilitar4" class="modal js-modal-window">
-					<h3>¿Está seguro que desea deshabilitar el curso?</h3>
-					<div class="form-row">
-						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<input type="button" class="btn btn-default js-modal-close" id="btnCancelarHabilitar" value="Cancelar">
-					</div>
-				</div>
+				
 
 				</main>
 				
@@ -417,6 +391,7 @@
 			<script src="../js/flatui-radio.js"></script>
 			<script src="../js/gic.js"></script>
 			<script src="../js/pruebaConfiguracion.js"></script>
+			<script src="../js/pruebaConfiguracion2.js"></script>
 			<script src="../js/configuracion.js"></script>
 			<script src="../js/common-logic.js"></script>
 		</body>

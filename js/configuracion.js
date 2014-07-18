@@ -32,7 +32,7 @@ function soloGuion(e){
         return false;
     }
 }
-<<<<<<< HEAD
+
 
 
 // Elizabeth
@@ -181,5 +181,4 @@ function getActiveItems() {
 		}
 	}
 }
-=======
->>>>>>> origin/master
+

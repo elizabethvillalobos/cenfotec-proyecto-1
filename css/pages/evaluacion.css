@@ -86,6 +86,7 @@ fieldset{
 
 .form-row, .row {
     width: 210px;
+    padding-left: 500px;
 }
 
 h2{

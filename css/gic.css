@@ -168,7 +168,8 @@
 
 
 html { 
-   background: #ecf0f1;
+   background: url('../images/system/bg-17.jpg') no-repeat;
+   background-size: cover;
 }
 
 body {

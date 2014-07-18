@@ -1,11 +1,11 @@
 main {
-	background: #ddd; 
+	background: #f2f2f2; 
 	margin-left: 0;
 	padding: 10px;
 }
 
 .dashboard a:hover {
-	color: #e74c3c;
+	color: #c0392b;
 }
 
 .dashboard h3,
@@ -14,17 +14,17 @@ main {
 	color: #666;
 	font: 18px Oswald, sans-serif;
 	margin: 0;
-	padding: 20px 20px;
+	padding: 20px 15px;
 	text-transform: uppercase;
 }
 
 .dash-agenda,
 .dash-notificacion,
 .dash-ranking {
-	background: #f2f2f2;
+	background: #ffffff;
 	float: left;
 	margin: 0 0.65%;
-	width: 32%;
+	width: 30%;
 }
 
 /*Agenda*/
@@ -32,6 +32,7 @@ main {
 .dash-agenda {
 	background: #e74c3c;
 	height: 440px;
+	width: 36%;
 }
 
 .dash-agenda h3 {
@@ -40,28 +41,58 @@ main {
 }
 
 .dash-agenda-citas {
-	height: 207px;
+	height: 212px;
 	margin: 0;
 	padding: 0;
-	overflow-y: scroll;
+}
+
+.dash-agenda-citas a {
+	color: #f2f2f2;
+	display: block;
+	overflow: hidden;
+	padding: 10px 15px 10px;
+	transition: background 0.3s;
+}
+
+.dash-agenda-citas a:hover {
+	background: #c0392b;
+	color: #f2f2f2;
+
 }
 
 .dash-agenda-citas li {
 	border-bottom: 1px solid #c0392b;
 	color: #f2f2f2;
 	list-style: none;
-	padding: 10px 20px 10px 40px;
+	overflow: hidden;
 	position: relative;
 }
 
-.dash-agenda-citas li:before {
-	content: "\e018";
-	font: normal 20px Flaticon;
-	left: 15px;
-	position: absolute;
-	top: 15px;
+.dash-agenda-cita span {
+	font-size: 15px;
+	float: left;
 }
 
+.dash-agenda-fecha {
+	width: 60%;
+}
+
+.dash-agenda-hora {
+	float: right;
+	text-align: right;
+	width: 22%;
+}
+
+.dash-agenda-photo {
+	border: 1px solid #c0392b;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	float: left;
+	margin-right: 5px;
+}
+
+
+/*Solicitudes*/
 .dash-agenda-solicitudes {
 	background: #666;
 	height: 168px;
@@ -82,8 +113,12 @@ main {
 
 .dash-agenda-solicitudes ul {
 	list-style: none;
-	margin: 5px 0;
+	margin: 10px 0;
 	padding: 0 20px;
+}
+
+.dash-agenda-solicitudes li {
+	line-height: 2;
 }
 
 /*Mensajes y evaluaciones*/
@@ -113,10 +148,50 @@ main {
 	font: 90px Arial, sans-serif;
 }
 
+
+/*Ranking*/
 .dash-ranking {
 	height: 440px;
 }
 
+.dash-ranking-amount {
+	display: block;
+	font: 50px Arial, sans-serif;
+	margin-top: 100px;
+	text-align: center;
+}
 
+.dash-ranking-asistidas {
+	display: block;
+	text-align: center;
+}
 
+/*Ranking stars*/
+.rating-stars {
+	padding: 0;
+	text-align: center;
+}
+
+.rating-stars li {
+	display: inline-block;
+	font-size: 40px;
+	list-style: none;
+}
+
+.rating-stars li:before {
+	content: "\2605";
+	position: absolute;
+	overflow: hidden;
+}
+
+.rating-1:before,
+.rating-2:before,
+.rating-3:before,
+.rating-4:before {
+	width: auto;	
+}
+
+.rating-5:before {
+	width: 20px;
+}
 

@@ -48,14 +48,20 @@ hr{
 }
 
 #basic-accordion{
-   
-	width:760px;
-	position:absolute;
+	width: 100%;
 	overflow-y: scroll;
 	max-height: 345px;
   margin-top: 10px;
 
    
+}
+
+.accordion form {
+    padding: 0;
+}
+
+.accordion-detail a {
+    font-size: 1em;
 }
 
 .accordion-heading{
@@ -77,6 +83,7 @@ hr{
 
 .accordion-toggle{
    color: white;
+   font-size: 1.1em;
    display: block;
    position: relative;
 }
@@ -185,8 +192,7 @@ h2 {
 }
 
 .colorDetalleCarrera{
-   margin: -20px -20px ;
-   width: 699px;
+   width: 100%;
    height: 208px;
    background-color: white;
    border-radius: 2px;
@@ -194,8 +200,7 @@ h2 {
 }
 
 .colorDetalleCurso{
-   margin: -20px -20px ;
-   width: 699px;
+   width: 100%;
    height: 208px;
    background-color: white;
    border-radius: 2px;
@@ -339,6 +344,10 @@ h2 {
    Elizabeth 
    ----------------------
 */
+#carreras-hd a {
+    font-size: 1.2em;
+}
+
 main #q {
   border: 2px solid #999;
 }
@@ -367,6 +376,7 @@ main #q {
 
 .perfil .enviar-msj {
    color: #666;
+   font-size: 1em;
    line-height: 1;
 }
 

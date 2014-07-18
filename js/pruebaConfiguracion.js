@@ -1,19 +1,4 @@
-/*Funcion para redireccionar a una pagina*/
-function delayer1(){
-	window.location = "deshabilitarCarrera-confirmar.html";	
-}
-/*Funcion para redireccionar a una pagina*/
-function delayer2(){
-	window.location = "deshabilitarCarrera-cancelar.html";
-}
-/*Funcion para redireccionar a una pagina*/
-function delayer3(){
-	window.location = "habilitarCarrera-confirmar.html";
-}
-/*Funcion para redireccionar a una pagina*/
-function delayer4(){
-	window.location = "habilitarCarrera-cancelar.html";	
-}
+
 
 /***************************************************************************************************************************/
 														/*Primera carrera*/
@@ -39,37 +24,6 @@ document.getElementById('btnDeshabilitar').onclick = function deshabilitarBtnDes
 		document.getElementById('btnHabilitar').disabled = false;		
 }
 
-/*Accion del boton aceptar del modal de confirmacion de deshabilitacion de carrera.
-Cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnAceptarDeshabilitar').onclick = function modificaEstado(){
-	document.getElementById('btnDeshabilitar').disabled = true;
-	document.getElementById('btnHabilitar').disabled = false;
-	setTimeout('delayer1()',2000);	
-}
-
-/*Accion del boton cancelar del modal de cancelacion de deshabilitacion de carrera.
-No cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnCancelarDeshabilitar').onclick = function noModificaEstado(){
-	document.getElementById('btnDeshabilitar').disabled = false;
-	document.getElementById('btnHabilitar').disabled = true;
-	setTimeout('delayer2()',2000);	
-}
-
-/*Accion del boton aceptar del modal de confirmacion de habilitacion de carrera.
-Cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnAceptarHabilitar').onclick = function modificaEstado(){
-		document.getElementById('btnDeshabilitar').disabled = false;
-		document.getElementById('btnHabilitar').disabled = true;
-		setTimeout('delayer3()',2000);
-}  
-	
-/*Accion del boton cancelar del modal de confirmacion de habilitacion de carrera.
-No cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnCancelarHabilitar').onclick = function noModificaEstado(){
-		document.getElementById('btnDeshabilitar').disabled = true;
-		document.getElementById('btnHabilitar').disabled = false;
-		setTimeout('delayer4()',2000);
-}
 
 /***************************************************************************************************************************/
 														/*Segunda carrera*/
@@ -95,38 +49,6 @@ document.getElementById('btnDeshabilitar2').onclick = function deshabilitarBtnDe
 }
 
 
-/*Accion del boton aceptar del modal de confirmacion de deshabilitacion de carrera.
-Cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnAceptarDeshabilitar2').onclick = function modificaEstado(){
-	document.getElementById('btnDeshabilitar2').disabled = true;
-	document.getElementById('btnHabilitar2').disabled = false;
-	setTimeout('delayer1()',2000);	
-}
-
-/*Accion del boton cancelar del modal de cancelacion de deshabilitacion de carrera.
-No cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnCancelarDeshabilitar2').onclick = function noModificaEstado(){
-	document.getElementById('btnHabilitar2').disabled = true;
-	document.getElementById('btnDeshabilitar2').disabled = false;
-	setTimeout('delayer2()',2000);	
-}
-
-/*Accion del boton aceptar del modal de confirmacion de habilitacion de carrera.
-Cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnAceptarHabilitar2').onclick = function modificaEstado(){
-		document.getElementById('btnDeshabilitar2').disabled = false;
-		document.getElementById('btnHabilitar2').disabled = true;
-		setTimeout('delayer3()',2000);
-}  
-	
-/*Accion del boton cancelar del modal de confirmacion de habilitacion de carrera.
-No cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnCancelarHabilitar2').onclick = function noModificaEstado(){
-		document.getElementById('btnDeshabilitar2').disabled = true;
-		document.getElementById('btnHabilitar2').disabled = false;
-		setTimeout('delayer4()',2000);
-}
-
 /***************************************************************************************************************************/
 														/*Tercera carrera*/
 /***************************************************************************************************************************/
@@ -150,37 +72,7 @@ document.getElementById('btnDeshabilitar3').onclick = function deshabilitarBtnDe
 	document.getElementById('btnHabilitar3').disabled = false;
 }
 
-/*Accion del boton aceptar del modal de confirmacion de deshabilitacion de carrera.
-Cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnAceptarDeshabilitar3').onclick = function modificaEstado(){
-	document.getElementById('btnDeshabilitar3').disabled = true;
-	document.getElementById('btnHabilitar3').disabled = false;
-	setTimeout('delayer1()',2000);	
-}
 
-/*Accion del boton cancelar del modal de cancelacion de deshabilitacion de carrera.
-No cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnCancelarDeshabilitar3').onclick = function noModificaEstado(){
-	document.getElementById('btnHabilitar3').disabled = true;
-	document.getElementById('btnDeshabilitar3').disabled = false;
-	setTimeout('delayer2()',2000);	
-}
-
-/*Accion del boton aceptar del modal de confirmacion de habilitacion de carrera.
-Cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnAceptarHabilitar3').onclick = function modificaEstado(){
-		document.getElementById('btnDeshabilitar3').disabled = false;
-		document.getElementById('btnHabilitar3').disabled = true;
-		setTimeout('delayer3()',2000);
-}  
-	
-/*Accion del boton cancelar del modal de confirmacion de habilitacion de carrera.
-No cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnCancelarHabilitar3').onclick = function noModificaEstado(){
-		document.getElementById('btnDeshabilitar3').disabled = true;
-		document.getElementById('btnHabilitar3').disabled = false;
-		setTimeout('delayer4()',2000);
-}
 
 /***************************************************************************************************************************/
 														/*Cuarta carrera*/
@@ -205,37 +97,7 @@ document.getElementById('btnDeshabilitar4').onclick = function deshabilitarBtnDe
 	document.getElementById('btnHabilitar4').disabled = false;
 }
 
-/*Accion del boton aceptar del modal de confirmacion de deshabilitacion de carrera.
-Cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnAceptarDeshabilitar4').onclick = function modificaEstado(){
-	document.getElementById('btnDeshabilitar4').disabled = true;
-	document.getElementById('btnHabilitar4').disabled = false;
-	setTimeout('delayer1()',2000);	
-}
 
-/*Accion del boton cancelar del modal de cancelacion de deshabilitacion de carrera.
-No cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnCancelarDeshabilitar4').onclick = function noModificaEstado(){
-	document.getElementById('btnHabilitar4').disabled = true;
-	document.getElementById('btnDeshabilitar4').disabled = false;
-	setTimeout('delayer2()',2000);	
-}
-
-/*Accion del boton aceptar del modal de confirmacion de habilitacion de carrera.
-Cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnAceptarHabilitar4').onclick = function modificaEstado(){
-		document.getElementById('btnDeshabilitar4').disabled = false;
-		document.getElementById('btnHabilitar4').disabled = true;
-		setTimeout('delayer3()',2000);
-}  
-	
-/*Accion del boton cancelar del modal de confirmacion de habilitacion de carrera.
-No cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnCancelarHabilitar4').onclick = function noModificaEstado(){
-		document.getElementById('btnDeshabilitar4').disabled = true;
-		document.getElementById('btnHabilitar4').disabled = false;
-		setTimeout('delayer4()',2000);
-}
 
 /***************************************************************************************************************************/
 														/*Quinta carrera*/
@@ -260,34 +122,4 @@ document.getElementById('btnDeshabilitar5').onclick = function deshabilitarBtnDe
 	document.getElementById('btnHabilitar5').disabled = false;
 }
 
-/*Accion del boton aceptar del modal de confirmacion de deshabilitacion de carrera.
-Cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnAceptarDeshabilitar5').onclick = function modificaEstado(){
-	document.getElementById('btnDeshabilitar5').disabled = true;
-	document.getElementById('btnHabilitar5').disabled = false;
-	setTimeout('delayer1()',2000);	
-}
 
-/*Accion del boton cancelar del modal de cancelacion de deshabilitacion de carrera.
-No cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnCancelarDeshabilitar5').onclick = function noModificaEstado(){
-	document.getElementById('btnHabilitar5').disabled = true;
-	document.getElementById('btnDeshabilitar5').disabled = false;
-	setTimeout('delayer2()',2000);	
-}
-
-/*Accion del boton aceptar del modal de confirmacion de habilitacion de carrera.
-Cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnAceptarHabilitar5').onclick = function modificaEstado(){
-		document.getElementById('btnDeshabilitar5').disabled = false;
-		document.getElementById('btnHabilitar5').disabled = true;
-		setTimeout('delayer3()',2000);
-}  
-	
-/*Accion del boton cancelar del modal de confirmacion de habilitacion de carrera.
-No cambia el estado de los botones habilitar y deshabilitar*/
-document.getElementById('btnCancelarHabilitar5').onclick = function noModificaEstado(){
-		document.getElementById('btnDeshabilitar5').disabled = true;
-		document.getElementById('btnHabilitar5').disabled = false;
-		setTimeout('delayer4()',2000);
-}

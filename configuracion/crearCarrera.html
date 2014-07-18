@@ -78,15 +78,15 @@
 			<main>
 				<section class="perfil-editar">
 					<div class="mod-hd">
-						<h2>Crear Carrera</h2>
+						<h2>Crear carrera</h2>
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
 					<form id="crear-carrera" class="mod-bd form-horizontal" action="crearCarrera-confirmar.html" method="post" 
 						data-validate="true" novalidate>
 						<div class="form-row">
-							<label for="codigo-carrera">Codigo:</label>
-							<input id="codigo-carrera" type="text" placeholder="Ingrese el codigo" class="form-control" 
+							<label for="codigo-carrera">Código:</label>
+							<input id="codigo-carrera" type="text" placeholder="Ingrese el código" class="form-control" 
 							onkeypress="return soloGuion(event)" required/>
 						</div>
 						<div class="form-row">
@@ -96,14 +96,14 @@
 						</div>
 
 						<div class="form-row">
-							<label for="director-academico">Director Académico:</label>
+							<label for="director-academico">Director académico:</label>
 							<select id="director-academico" required>
 	                            <option value="">Seleccione una opción</option>
-	                            <option value="Director1">Director1</option>
-	                            <option value="Director2">Director2</option>
-	                            <option value="Director3">Director3</option>
-	                            <option value="Director4">Director4</option>
-	                            <option value="Director5">Director5</option>
+	                            <option value="Director1">Pablo Monestel</option>
+	                            <option value="Director2">María Eugenia Ucrós</option>
+	                            <option value="Director3">Luis Chacón</option>
+	                            <option value="Director4">Nelson Brenes</option>
+	                            <option value="Director5">Andrea Espinach</option>
                             </select>
 						</div>
 
@@ -119,8 +119,8 @@
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea cancelar la creación de la carrera?</h3>
 					<div class="form-row">
-						<a href="crearCarrera-cancelar.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<a href="#" class="btn btn-default js-modal-close">Cancelar</a>
+						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Si</a>
+						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>
 				

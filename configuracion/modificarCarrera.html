@@ -60,10 +60,10 @@
                             <a href="perfil.html" >Perfil</a>
                         </li>
                         <li class="accordion-item">
-                            <a href="#">Mi Cuenta</a>
+                            <a href="#">Mi cuenta</a>
                         </li>
                         <li class="accordion-item">
-                            <a href="consultarCarreras.html" class="active">Carreras y Cursos</a>
+                            <a href="consultarCarrerasCarreraAgregada.html" class="active">Carreras y cursos</a>
                         </li>
                         <li class="accordion-item">
                             <a href="consultarUsuario.html">Usuarios</a>
@@ -85,26 +85,28 @@
 					<form id="modificar-carrera" class="mod-bd form-horizontal" action="modificarCarrera-confirmar.html" 
 						method="post" data-validate="true" novalidate>
 						<div class="form-row">
-							<label for="codigo-carrera">Codigo:</label>
-							<input id="codigo-carrera" type="text" placeholder="Ingrese el codigo"class="form-control" 
-							onkeypress="return soloLetras(event)" required/>
+
+							<label for="codigo-carrera">Código:</label>
+							<input id="codigo-carrera" type="text" placeholder="Ingrese el código" value="DSOF-002" 
+								class="form-control" onkeypress="return soloGuion(event)" required/>
 						</div>
 
 						<div class="form-row">
 							<label for="nombre-carrera">Nombre:</label>
-							<input id="nombre-carrera" type="text" placeholder="Ingrese el nombre" class="form-control" 
-							onkeypress="return soloLetras(event)" required/>
+							<input id="nombre-carrera" type="text" placeholder="Ingrese el nombre de la carrera" 
+								value="Desarrollo de Software" class="form-control" onkeypress="return soloLetras(event)" 
+								required/>
 						</div>
 
 						<div class="form-row">
-							<label for="director-academico">Director Académico:</label>
+							<label for="director-academico">Director académico:</label>
 							<select id="director-academico" required>
-	                     		<option value="">Seleccione una opción</option>
+	                     		<option value="">María Eugenia Ucrós</option>
 	                            <option value="Director1">Pablo Monestel</option>
-	                            <option value="Director2">María Eugenia Ucrós</option>
 	                            <option value="Director3">Luis Chacón</option>
 	                            <option value="Director4">Nelson Brenes</option>
 	                            <option value="Director5">Andrea Espinach</option>
+	                            <option value="Director5">Luis Montero</option>
                             </select>
 						</div>
 
@@ -119,7 +121,7 @@
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea cancelar la modificación de la carrera?</h3>
 					<div class="form-row">
-						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Si</a>
+						<a href="consultarCarrerasCarreraAgregada.html" class="btn btn-primary js-modal-aceptar">Si</a>
 						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>

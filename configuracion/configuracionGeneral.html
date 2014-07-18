@@ -127,23 +127,22 @@
                             <div class="accordion-detail">
 
                             	<div>
-                            		<form class="frmC" action="configuracionGeneralConfirm.html" method="post">
+                            		<form class="frmC" action="cnfiguraciongGeneralConfirm" method="post" data-validate="true" novalidate>
 
 	                            		<div id="divTxtMail">
 	                            			<label class="lbl">Correo para envíos:</label>
 		                            	</div>
 
 		                            	<div id="divMail">
-		                            		<input id="email" type="text" placeholder="mail@dominio" class="form-control" />		                            		
+		                            		<input id="email" type="text" placeholder="mail@ucenfotec.ac.cr" class="form-control" />		                            		
 		                            	</div>
 
 		                            	<div  id="divBtnEvr">
-											<button id="btnEvr"class="btn btn-primary" type="submit">Aplicar</button>
-			                                <p id="msjError" class="alert-error flaticon-remove11 "></p>   
-							            </div>
-							            
+											<button id="btnEvr"class="btn btn-primary" type="submit">Aplicar</button>			                                   
+							            </div>							            
 	                                </form>
-                            	</div>                                
+                            	</div> 
+                            	<p class="help-block error errormessages"></p>                               
 
                             </div>
                         </li>

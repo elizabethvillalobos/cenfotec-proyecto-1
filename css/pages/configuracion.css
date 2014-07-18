@@ -16,11 +16,6 @@
 
 }
 
-.alert-error{
-
-	display: none;
-}
-
 .error{
 
 	display: block;
@@ -57,14 +52,14 @@ hr{
 	width:760px;
 	position:absolute;
 	overflow-y: scroll;
-	max-height: 320px;
+	max-height: 345px;
   margin-top: 10px;
 
    
 }
 
 .accordion-heading{
-	padding:5px;
+	padding:5px 10px;
 	background:#e74c3c;
 	border:1px solid #FFF;
 	cursor:pointer;
@@ -90,8 +85,8 @@ hr{
    content: "\e006";
    font: normal 14px Flaticon;
    position: absolute;
-   right: 10px;
-   top: 10px; 
+   right: 5px;
+   top: 8px; 
 }
 
 .accordion-toggle.collapsed:after{
@@ -122,17 +117,25 @@ hr{
 	float: right;
 	margin-top: -170px;
 	margin-right: 50px;
+    position: relative;
+    z-index: 1;
 }
 .form-row-buttonAccionesCurso{
    float: right;
    margin-top: -130px;
    margin-right: 50px;
 }
-
+.form-row-buttonAcciones2profes{
+   float: right;
+   margin-top: -180px;
+   margin-right: 50px;
+}
 .btn-secondaryAction{
 	display: block;
 	margin-top: 10px;
 	width: 150px;
+
+    background-color: #bdc3c7;
 }
 
 .form-row-buttonCrearCarrera, .form-row-buttonModificarCarrera{
@@ -190,9 +193,17 @@ h2 {
    padding-left: 20px;
 }
 
-.detalleCarrera{
+.colorDetalleCurso{
+   margin: -20px -20px ;
+   width: 699px;
+   height: 208px;
+   background-color: white;
+   border-radius: 2px;
+   padding-left: 20px;
+}
 
-
+.textoProfe1Curso{
+   margin-bottom: 20px;
 }
 
 /*Javier Barboza empieza configuracionGeneral*/
@@ -332,6 +343,11 @@ main #q {
   border: 2px solid #999;
 }
 
+.mod-hd {
+    overflow: hidden;
+    position: relative;
+}
+
 .perfil {
    margin-left: 150px;
    position: relative;
@@ -456,10 +472,11 @@ main #q {
     margin: 10px 0 20px 0;
 }
 
-.busquedaUsuarios{
-    position: static;
-    display: inline-block;
-    float: right;
+.busquedaUsuarios {
+    left: inherit;
+    position: absolute;
+    right: 0;
+    top: 12px;
 }
 
 .crearUsuario{
@@ -473,6 +490,14 @@ main #q {
 
 .item-usuario{
     float: right;
-    margin-right: 72px;
+    margin-left: 107px;
 }
 
+.usuarios .accordion-detail {
+    padding: 0 10px 10px;
+}
+
+.usuarios .perfil-photo {
+    left: -145px;
+    top: -90px;
+}

@@ -132,13 +132,13 @@ h2{
 
 #rankDiv{
 	background: #333;
-	height: 200px;
+	height: 175px;
 	color: #ffffff;
 	
 }
 #puntuacion{
     float: right;
-    margin: 1px 40px 0 0;
+    margin: 0px 40px 0 0;
 }
 
 .circulo {
@@ -156,10 +156,11 @@ h2{
 
 h1{
 	font-size: 36px;
+	margin-top: 10px;
 }
 #cantidad{
 	font-weight: bold;
-    margin: 168px 2px 0px 550px;
+    margin: 151px 2px 0px 550px;
     position: absolute;
     width: 180px;
 }
@@ -173,6 +174,16 @@ h1{
 th{
 	font-size: 18px;
 	font-weight: bold;
+	height: 45px;
+}
+tr{
+	font-size: 18px;
+	font-weight: bold;
+	height: 40px;
+}
+
+#mainRnkg{
+	padding-bottom: 0px;
 }
 /*termina mi ranking--termina Javier*/
 

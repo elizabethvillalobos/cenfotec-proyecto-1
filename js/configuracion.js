@@ -54,13 +54,14 @@ if (eFormValidar) {
 var ebtnEnviar = document.querySelector('#btnEvr'),
     eMailEl = document.querySelector('#email'),
     eMail = '',
-    eMsjError = document.querySelector('#msjError');
+    eMsjError = document.querySelector('.alert-error');
 
 if (eMailEl) {
 	eMail = eMailEl.value;
 }
 if (ebtnEnviar) {
-	ebtnEnviar.addEventListener('click',function(){
+	ebtnEnviar.addEventListener('click',function(evento){
+        evento.preventDefault();
 		var correoCorrecto = validarCorreo(eMail, eMsjError, 'El correo no es válido.');
 	});
 }

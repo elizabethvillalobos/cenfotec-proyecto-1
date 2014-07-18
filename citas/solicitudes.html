@@ -117,6 +117,16 @@
 						</div>
 
 						<div class="row">
+							<span class="label">Lugar:</span>
+							<span class="data">Cenfotec</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Tipo:</span>
+							<span class="data">Individual</span>
+						</div>
+
+						<div class="row">
 							<span class="label">Observaciones:</span>
 							<span class="data">Hola profe! Quería solicitarle el desgloce de mi nota ya que quiero mejorar en mis puntos más débiles.</span>
 						</div>
@@ -126,19 +136,18 @@
 						<form id="solicitarCita" class="form-horizontal" action="#" method="post">
                             <div class="form-row">
                                 <label for="txtFecha">Fecha:</label>
-                                <input id="txtFecha" type="text" placeholder="Ingrese la fecha" class="form-control" />
+                                <input id="txtFecha" type="text" placeholder="Ingrese la fecha" class="form-control datepicker" />
                             </div>
 
                             <div class="form-row">
                                 <label for="txtHoraInicio">Hora de inicio:</label>
-                                <input id="txtHoraInicio" type="text" placeholder="Ingrese la hora de inicio" class="form-control" />
+                                <input id="txtHoraInicio" type="time" class="form-control form-control-time" />
                             </div>
 
                             <div class="form-row ">
                                 <label for="txtHoraFin">Hora de fin:</label>
-                                <input id="txtHoraFin" type="text" placeholder="Ingrese la hora de fin" class="form-control" />
-                            </div>
-							
+                                <input id="txtHoraFin" type="time" class="form-control form-control-time" />
+                            </div>							
 							
                             <div class="form-row form-row-button">
 								<a href="solicitudPropuesta.html" id="btnAceptar" class="btn btn-primary">Aceptar</a>
@@ -166,6 +175,12 @@
 		</div>
 
 		<!-- Load JS -->
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+		<!-- <script src="../js/vendors/jquery-1.8.3.min.js"></script> -->
+		<!-- <script src="../js/vendors/jquery-ui.js"></script> -->
+		<script src="../js/gic.js"></script>
         <script src="../js/common-logic.js"></script>
 		<script src="../js/solicitarCita.js"></script>
 	</body>

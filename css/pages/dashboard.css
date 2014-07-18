@@ -156,8 +156,8 @@ main {
 
 .dash-ranking-amount {
 	display: block;
-	font: 50px Arial, sans-serif;
-	margin-top: 100px;
+	font: 90px Arial, sans-serif;
+	margin-top: 90px;
 	text-align: center;
 }
 
@@ -186,12 +186,12 @@ main {
 
 .rating-1:before,
 .rating-2:before,
-.rating-3:before,
-.rating-4:before {
+.rating-3:before {
 	width: auto;	
 }
 
+.rating-4:before,
 .rating-5:before {
-	width: 20px;
+	width: 0px;
 }
 

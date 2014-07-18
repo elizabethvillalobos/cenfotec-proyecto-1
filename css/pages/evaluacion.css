@@ -121,16 +121,17 @@ h2{
 	position: relative;
 	
 }
-#puntuacion{
+#puntuacion {
     float: right;
     margin: 10px 40px;
 }
 
 .circulo {
-  background: none repeat scroll 0 0 #e74c3c;
+ 	background: none repeat scroll 0 0 #e74c3c;
 	border-radius: 40px;
 	color: #ffffff;
 	display: block;
+	font-family: Oswald, sans-serif;
 	font-size: 60px;
 	font-weight: bold;
 	line-height: 80px;
@@ -139,9 +140,16 @@ h2{
 	width: 80px;
 }
 
-h1{
+h1 {
 	font-size: 36px;
 	margin-top: 10px;
+}
+
+#puntuacion h1{
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+	font-size: 36px;
+	margin-top: 10px;
+	text-transform: none;
 }
 #cantidad{
     right: 30px;

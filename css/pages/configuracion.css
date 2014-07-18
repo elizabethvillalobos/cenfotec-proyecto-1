@@ -27,9 +27,9 @@
 }
 
 #buscarCarreras {
-   right: 25px;
+   right: 20px;
    position: absolute;
-   top: 105px;
+   top: 108px;
 }
 
 #btnBuscarCarreras {
@@ -54,7 +54,7 @@ hr{
 
 #basic-accordion{
    
-	width:750px;
+	width:760px;
 	position:absolute;
 	overflow-y: scroll;
 	max-height: 320px;
@@ -328,6 +328,10 @@ h2 {
    Elizabeth 
    ----------------------
 */
+main #q {
+  border: 2px solid #999;
+}
+
 .perfil {
    margin-left: 150px;
    position: relative;
@@ -423,8 +427,20 @@ h2 {
    width: 200px;
 }
 
+#resetupload {
+    display: block !important;
+}
+
 .perfil-modificar .media-drop-placeholder {
   display: none;
+}
+
+#btnCrearCarrera:before {
+    left: -7px;
+    line-height: 0;
+    position: relative;
+    top: 3px;
+    margin: 0;
 }
 
 /* ----------------------

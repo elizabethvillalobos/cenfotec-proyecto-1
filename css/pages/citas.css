@@ -16,7 +16,7 @@
 .cita {
    border: 2px solid #ecf0f1;
    border-radius: 10px;
-   margin: 10px 5px 30px;
+   margin: 10px 5px 20px;
    padding: 5px 20px 20px;
    position: relative;
 }
@@ -169,6 +169,99 @@ form.form-horizontal{
 	right: 0px;
 	top: 4px;
 }
+
+
+
+/* Elizabeth 
+   --------------*/
+
+form.form-horizontal .form-control-time {
+	width: 150px;
+}
+
+/* Datepicker */
+.ui-datepicker {
+	background: #f2f2f2;
+	color: #999;
+}
+
+.ui-datepicker a {
+	color: #666;
+}
+
+.ui-datepicker a:hover {
+	color: #e74c3c;
+}
+
+
+.ui-datepicker table {
+	border: 2px solid #666;
+	border-width: 0 2px 2px;
+}
+
+.ui-datepicker td,
+.ui-datepicker th {
+	padding: 2px 6px;
+	text-align: center;
+}
+
+.ui-datepicker tr:nth-child(even) td {
+	background: #ccc;
+}
+
+.ui-datepicker .ui-datepicker-header{
+	background: #666;
+	color: #f2f2f2;
+	padding: 3px;
+	position: relative;
+	text-align: center;
+}
+
+.ui-datepicker .ui-datepicker-title {
+	font-family: Oswald, sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+	color: #f2f2f2;
+	position: absolute;
+	top: 2px;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+	left: 5px;
+}
+
+.ui-datepicker .ui-datepicker-prev .ui-icon,
+.ui-datepicker .ui-datepicker-next .ui-icon {
+	display: none;
+}
+
+.ui-datepicker .ui-datepicker-prev:before,
+.ui-datepicker .ui-datepicker-next:before {
+	content: "\e006";
+	cursor: pointer;
+	display: block;
+	font-family: Flaticon;
+	font-size: 16px;
+}
+
+.ui-datepicker .ui-datepicker-prev:before {
+	transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+}
+
+.ui-datepicker .ui-datepicker-next:before {	
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+}
+
+.ui-datepicker .ui-datepicker-next {
+	right: 5px;
+}
+
 
 
 

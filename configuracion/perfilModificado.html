@@ -45,7 +45,7 @@
 					<img class="usr-photo" src="../images/users/administrador.jpg" width="40" height="40">
 					<ul>
 						<li>
-							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Perfil</a>
+							<a href="perfil.html" class="usr-editar-perfil">Perfil</a>
 						</li>
 						<li>
 							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
@@ -61,9 +61,7 @@
                             <a href="perfil.html" class="active">Perfil</a>
                         </li>
                         <li class="accordion-item">
-
                             <a href="miCuenta.html">Mi cuenta</a>
-
                         </li>
                         <li class="accordion-item">
                             <a href="consultarCarreras.html">Carreras y cursos</a>
@@ -79,14 +77,53 @@
             </aside>
 
 			<main>
-				<section class="msg-confirm">
+				<section class="perfil">
 					<div class="mod-hd">
-						<h2 class="flaticon-male12">Perfil guardado</h2>
+						<h2>Carlos Rojas Barrantes</h2>
+						<!-- <a href="../mensajeria/mensajeria.html" class="enviar-msj flaticon-black218">Enviar mensaje</a> -->
+						<a href="perfilModificar.html" class="btn btn-primary btn-modificar-perfil">Modificar</a>
 					</div>
 					<div class="mod-bd">
-						<p>El perfil se actualizó con éxito.</p>
+						<img class="perfil-photo" src="../images/users/administrador.jpg" width="130" height="130">
 
-						<a href="perfilModificado.html" class="btn btn-default">Volver</a>
+						<div class="row">
+							<span class="label">Correo electrónico:</span>
+							<span class="data email">crojasb@ucenfotec.ac.cr</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Teléfono:</span>
+							<span class="data">7012-7788</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Skype Id:</span>
+							<span class="data">carlos.rojas</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Rol:</span>
+							<span class="data">Administrador</span>
+						</div>
+
+						<!-- <div class="row">
+							<span class="label">Carrera:</span>
+							<span class="data">Desarrollo de software</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Cursos:</span>
+							<div class="data-wrap">
+								<span class="data">INF-01 Introducción a la tecnología de información</span>
+								<span class="data">INF-02 Fundamentos de Programación</span>
+								<span class="data">BISOFT-04 Proyecto de Ingeniería de Software 1</span>
+							</div>
+						</div>
+
+						<div class="row">
+							<span class="label">Horario:</span>
+							<span class="data">Lunes, Martes y Jueves de 4:00 p.m. a 6:00 p.m.</span>
+						</div> -->
 					</div>
 				</section>
 			</main>
@@ -97,6 +134,6 @@
 		</div>
 
 		<!-- Load JS -->
-		<script src="../js/common-logic.js"></script>
+        <script src="../js/common-logic.js"></script>
 	</body>
 </html>

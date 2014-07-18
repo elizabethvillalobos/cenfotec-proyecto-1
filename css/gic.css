@@ -1073,7 +1073,7 @@ header a:hover {
    ---------- */
 .main-nav {
    position: absolute;
-   left: 20%;
+   left: 188px;
    top: 33px;
 }
 .main-nav ul {
@@ -1084,7 +1084,7 @@ header a:hover {
 .main-nav li {
    float: left;
    line-height: 1;
-   margin-right: 5px;
+   margin-right: 10px;
 }
 .main-nav a {
    -webkit-transition: color 0.2s;
@@ -1149,12 +1149,12 @@ header a:hover {
    color: #3c3c3c;
    font-size: 12px;
    padding: 5px 25px 5px 8px;
-   width: 140px;
+   width: 180px;
    transition: width 0.3s;
 }
 #q:focus {
    border-color: #e74c3c;
-   width: 230px;
+   width: 250px;
 }
 #q:focus,
 #btnBuscar:focus {

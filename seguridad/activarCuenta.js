@@ -15,10 +15,7 @@ eBtnActivar.addEventListener('click', function (evento) {
     if(!camposVacios){
         var correcta=validarClave(eCodigoActivacion, eError, 'El código ingresado no coincide con el suministrado');
         if(correcta){
-            var iguales=validarCamposIguales(eCodigoActivacion, eCodigoConfirmacion, eError, 'Los códigos no coinciden');
-            if(iguales){
-                formulario.submit();
-            }
+            formulario.submit();
         }
     }
         

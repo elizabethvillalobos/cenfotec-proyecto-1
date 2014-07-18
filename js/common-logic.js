@@ -4,9 +4,9 @@
 var codigoActivacion = localStorage.getItem('codigoActivacion'),
     correoAdmin = 'admin@ucenfotec.ac.cr',
     pwAdmin = 'Cenfo2014',
-    aCorreos = ["admin@ucenfotec.ac.cr", "rector@ucenfotec.ac.cr", "director@ucenfotec.ac.cr", "profesor@ucenfotec.ac.cr", "estudiante@ucenfotec.ac.cr", "asistente@ucenfotec.ac.cr", "mercadeo@ucenfotec.ac.cr"],
-    aContrasenas = ["Admin2014", "Recto2014", "Dire2014", "prof2014", "estu2014", "asis2014", "merc2014"],
-    aRoles = [];
+    aCorreos = ["crojasb@ucenfotec.ac.cr", "pmonestel@ucenfotec.ac.cr", "acorraless@ucenfotec.ac.cr"],
+    aContrasenas = ["Admin2014", "Prof2014", "Estu2014"],
+    aVistasRol = ["../index.html", "../index-Profesor.html", "../index-Estudiante.html"];
 
 // ------------------------------------------
 // Funciones generales
@@ -157,20 +157,20 @@ function validarCamposIguales(pValor1, pValor2, pElementoError, pMsjError){
 
 // Validar que los campos de un formulario esten llenos.
 function validarCamposLlenos(pArreglo, pElementoError, pMsjError){
-   var regis=false;
+   var campoVacio=false;
     for(var i=0; i<pArreglo.length; i++){
         
         if(pArreglo[i].value=='') {  
-           regis=true;
+           campoVacio=true;
         }
     }
     
-    if(regis){
+    if(campoVacio){
         pElementoError.innerHTML=pMsjError;
         pElementoError.className += ' error';
     }
     
-    return regis;
+    return campoVacio;
 };
 
 // Validar que correo sea valido y pertenezca el dominio de Cenfotec.
@@ -187,20 +187,61 @@ function validarCorreo(pCorreo, pElementoError, pMsjError) {
    return  correcto;
 }
 
+//Validar que el correo se encuentre registrado
+
+function validarCorreoRegistrado(pCorreo, pElementoError, pMsjError){
+    var registrado=false;
+    
+    for(var i=0; i<aCorreos.length; i++){
+        
+        if(pCorreo==aCorreos[i]){
+            registrado=true;
+        }
+    }
+    
+    if(registrado==false){
+        pElementoError.innerHTML=pMsjError;
+        pElementoError.className += ' error';
+    }
+    
+    return registrado;
+
+}
+
 // Validar que la contraseña sea valida para el usuario.
 function validarContrasena(pCorreo, pContrasena, pElementoError, pMsjError) { 
-  var coincide=false;
-  
-    if(pCorreo===correoAdmin){
-        if(pContrasena===pwAdmin){
-        coincide=true;
-        }else{
-            pElementoError.innerHTML=pMsjError;
-            pElementoError.className += ' error';
-      
+    var coincide=false;
+    
+    for(var i=0; i<aCorreos.length; i++){
+        if(pCorreo==aCorreos[i]){
+            if(pContrasena==aContrasenas[i]){
+                coincide=true;
+            }
         }
-     }      
+    }
+  
+    if(!coincide){
+        Error.innerHTML=pMsjError;
+        pElementoError.className += ' error';
+      
+    }
+    
     return coincide;
+}
+
+//Validar la vista que tendra el usuario segun sea el rol
+function validarVistaRol(pCorreo, pFormulario){
+    var indice;
+    
+    for(var i=0; i<aCorreos.length; i++){
+        if(pCorreo==aCorreos[i]){
+            indice = i;
+        }
+        
+    }
+    
+    pFormulario.action = aVistasRol[indice];
+
 }
 
 // Retorna true/false si el correo es valido.
@@ -260,11 +301,11 @@ function validarForm(pFormId) {
 
 //Validar que la contraseña sea segura (de 8 a 10 caracteres inlcuye letra y numero sin caracteres especiales)
 function validarSeguridadContrasena(pContrasena, pElementoError, pMsjError) { 
-  var expreg = /(?!^[0-9]+$)(?!^[a-z]+$)(?!^[A-Z]+$)^([a-zA-Z0-9]{8,10})$/,
+  var expreg = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
       segura=true;
   
   if(!expreg.test(pContrasena)){
-      correcto=false;
+      segura=false;
     pElementoError.innerHTML=pMsjError;
     pElementoError.className += ' error';
   }

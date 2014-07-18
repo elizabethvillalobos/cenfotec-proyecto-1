@@ -12,7 +12,7 @@
 			<header>
 				<a href="../index.html" class="home">
 					<h1 class="logo">Gestor Inteligente de Citas</h1>
-				</a>			
+				</a>
 
 				<!-- Menu principal -->
 				<nav class="main-nav">
@@ -57,12 +57,12 @@
 			 <aside>
 	                <nav class="secondary-nav">
 	                    <ul class="sec-nav-category accordion">
-	                    	<li class="accordion-item"><a class="active" href="miRanking.html">Mi ranking</a></li>
-	                        <li class="accordion-item">
-	                            <a href="evaluarCita.html" >Evaluaciones</a>
+	                    	<li class="accordion-item"><a href="miRanking.html">Mi ranking</a></li>
+	                        <li class="accordion-item expanded">
+	                            <a href="evaluarCita.html" class="active">Evaluaciones</a>
 	                            <ul class="thrd-nav-category accordion-detail">
-	                                <li><a href="evaluarCita.html" class="">Pendientes</a></li>
-	                                <li><a href="consultarEvaluacionesRealizadas.html" class="active">Realizadas</a></li>   
+	                                <li><a href="evaluarCita.html" class="active">Pendientes</a></li>
+	                                <li><a href="consultarEvaluacionesRealizadas.html">Realizadas</a></li>   
 	                            </ul>
 	                        </li>                   
 	                    </ul>
@@ -70,73 +70,31 @@
             </aside>
 
 			<main>
-				<div id="rankDiv">
-					
-					<div id="user">
-							<h1><span >Mi ranking</span></h1>
-				    </div>
+				<section class="msg-confirm">
+                        <div class="mod-hd">
+                            <h2 class="flaticon-cancel17">¡La evaluación se completo exitosamente!</h2>
+                        </div>
+                        <div class="mod-bd">
+                            <p>Se ha guardado exitosamente la información.</p>
 
-					<div id ="puntuacion">
-						
-						<h1><span class="circulo">3</span>Puntuación</h1>
-					</div>
-
-					<div id="cantidad">
-						<span id="">Citas asistidas: 8 de 10</span>
-					</div>
-					
-				</div>
-
-				<table>
-					<thead>
-						<tr>
-							<th>Criterio a evaluar</th>
-							<th></th>
-							<th class="center"></th>
-							<th class="center">Promedio</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Puntualidad</td>
-							<td></td>
-							<td class="center"></td>
-							<td class="center">3</td>
-						</tr>
-						<tr>
-							<td>Cordialidad y respeto</td>
-							<td></td>
-							<td class="center"></td>
-							<td class="center">3</td>
-						</tr>
-						<tr>
-							<td>Colaboración</td>
-							<td></td>
-							<td class="center"></td>
-							<td class="center">3</td>
-						</tr>
-						<tr>
-							<td>Satisfacción</td>
-							<td></td>
-							<td class="center"></td>
-							<td class="center">3</td>
-						</tr>
-						<tr>
-							<td>Promedio obtenido</td>
-							<td></td>
-							<td class="center"></td>
-							<td class="center">3</td>
-						</tr>
-					</tbody>
-				</table>
+                            <a href="evaluarCita.html" class="btn btn-default">Volver</a>
+                        </div>
+                    </section>
             </main>
 			
 			<footer>
 				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
 			</footer>
+
 		</div>
 
-		<script src="../js/common-logic.js"></script>	
+		<script src="../js/jquery-1.8.3.min.js"></script>
+        <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/bootstrap-select.js"></script>
+        <script src="../js/flatui-radio.js"></script>
+        <script src="../js/flatui.js"></script>
+        <script src="../js/common-logic.js"></script>	
         <script src="../js/evaluacion.js"></script>
 	</body>
 </html>

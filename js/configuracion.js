@@ -50,6 +50,7 @@ if (eFormValidar) {
 
 /*validar correo en consfiguracionGeneral/notificaciones Javier*/
 
+
 var ebtnEnviar = document.querySelector('#btnEvr'),
     eMailEl = document.querySelector('#email'),
     eMail = '',

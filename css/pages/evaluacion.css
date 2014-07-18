@@ -18,6 +18,11 @@ para que sea mas facil la integracion.
    Pomegranate: #c0392b
    Midnight blue: #2c3e50 
 */
+
+#frm{
+	padding: 5px;
+	
+}
 .titulo2{
 	margin:8px ;
 	color: #FFFFFF;
@@ -106,7 +111,7 @@ h2{
 #promedio{
 	font-size: 24px;
     position: relative;
-    right: 20px
+    margin-right: 20px;
     
 }
 
@@ -116,7 +121,7 @@ h2{
 	transition: height 0.3s;
 }
 .wrapperItems.visible {
-	height: 170px;
+	height: 220px;
 }
 
 

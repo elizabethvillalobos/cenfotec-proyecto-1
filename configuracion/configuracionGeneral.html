@@ -78,7 +78,7 @@
                             <a href="#">Citas</a>
                             <ul class="accordion-detail">
                             	<div>
-                            		<form class="frmC">
+                            		<form class="frmC" action="configuracionGeneralConfirm.html" method="post">
 
 	                            		<div id="divTxtCit">
 	                            			<label class="lbl">Dias de expiración de solicitud:</label>
@@ -102,7 +102,7 @@
                             <div class="accordion-detail">
 
                             	<div>
-                            		<form class="frmC">
+                            		<form class="frmC" action="configuracionGeneralConfirm.html" method="post">
 
 	                            		<div id="divTxtCit">
 	                            			<label class="lbl">Máximo carateres por mensaje:</label>
@@ -127,20 +127,19 @@
                             <div class="accordion-detail">
 
                             	<div>
-                            		<form class="frmC">
+                            		<form class="frmC" action="configuracionGeneralConfirm.html" method="post">
 
 	                            		<div id="divTxtMail">
 	                            			<label class="lbl">Correo para envíos:</label>
 		                            	</div>
 
 		                            	<div id="divMail">
-		                            		<input id="email" type="text" placeholder="mail@dominio" class="form-control" />
-		                            		<p id="msjError" class="alert-error flaticon-remove11 "></p>
+		                            		<input id="email" type="text" placeholder="mail@dominio" class="form-control" />		                            		
 		                            	</div>
 
 		                            	<div  id="divBtnEvr">
 											<button id="btnEvr"class="btn btn-primary" type="submit">Aplicar</button>
-			                                
+			                                <p id="msjError" class="alert-error flaticon-remove11 "></p>   
 							            </div>
 							            
 	                                </form>

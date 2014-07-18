@@ -18,6 +18,11 @@ para que sea mas facil la integracion.
    Pomegranate: #c0392b
    Midnight blue: #2c3e50 
 */
+
+#frm{
+	padding: 5px;
+	
+}
 .titulo2{
 	margin:8px ;
 	color: #FFFFFF;
@@ -81,6 +86,7 @@ fieldset{
 
 .form-row, .row {
     width: 210px;
+    padding-left: 500px;
 }
 
 h2{
@@ -106,7 +112,7 @@ h2{
 #promedio{
 	font-size: 24px;
     position: relative;
-    right: 20px
+    margin-right: 20px;
     
 }
 
@@ -116,7 +122,7 @@ h2{
 	transition: height 0.3s;
 }
 .wrapperItems.visible {
-	height: 170px;
+	height: 220px;
 }
 
 
@@ -126,13 +132,13 @@ h2{
 
 #rankDiv{
 	background: #333;
-	height: 200px;
+	height: 175px;
 	color: #ffffff;
 	
 }
 #puntuacion{
     float: right;
-    margin: 1px 40px 0 0;
+    margin: 0px 40px 0 0;
 }
 
 .circulo {
@@ -150,10 +156,11 @@ h2{
 
 h1{
 	font-size: 36px;
+	margin-top: 10px;
 }
 #cantidad{
 	font-weight: bold;
-    margin: 168px 2px 0px 550px;
+    margin: 151px 2px 0px 550px;
     position: absolute;
     width: 180px;
 }
@@ -167,6 +174,16 @@ h1{
 th{
 	font-size: 18px;
 	font-weight: bold;
+	height: 45px;
+}
+tr{
+	font-size: 18px;
+	font-weight: bold;
+	height: 40px;
+}
+
+#mainRnkg{
+	padding-bottom: 0px;
 }
 /*termina mi ranking--termina Javier*/
 

@@ -55,18 +55,23 @@
 			</header>
 				<aside>
 				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li>
-							<a href="#" class="active">Configuración</a>
-							<ul class="thrd-nav-category">
-								<li><a href="#">Perfil</a></li>
-								<li><a href="#">Mi Cuenta</a></li>
-								<li><a href="consultarCarreras.html" class="active">Carreras y cursos</a></li>
-								<li><a href="#">Usuarios</a></li>
-								<li><a href="#">General</a></li>
-							</ul>
-						</li>
-					</ul>
+					<ul class="sec-nav-category accordion">
+                        <li class="accordion-item">
+                            <a href="perfil.html" >Perfil</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="#">Mi Cuenta</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="consultarCarreras.html" class="active">Carreras y Cursos</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="consultarUsuario.html">Usuarios</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="configuracionGeneral.html">General</a>
+                        </li>
+                    </ul>
 				</nav>
 			</aside>
 
@@ -94,12 +99,12 @@
 						<div class="form-row">
 							<label for="director-academico">Director Académico:</label>
 							<select id="director-academico" required>
-	                            <option value="">Seleccione una opción</option>
-	                            <option value="Director1">Director1</option>
-	                            <option value="Director2">Director2</option>
-	                            <option value="Director3">Director3</option>
-	                            <option value="Director4">Director4</option>
-	                            <option value="Director5">Director5</option>
+	                     		<option value="">Seleccione una opción</option>
+	                            <option value="Director1">Pablo Monestel</option>
+	                            <option value="Director2">María Eugenia Ucrós</option>
+	                            <option value="Director3">Luis Chacón</option>
+	                            <option value="Director4">Nelson Brenes</option>
+	                            <option value="Director5">Andrea Espinach</option>
                             </select>
 						</div>
 
@@ -114,8 +119,8 @@
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea cancelar la modificación de la carrera?</h3>
 					<div class="form-row">
-						<a href="modificarCarrera-cancelar.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<a href="#" class="btn btn-default js-modal-close">Cancelar</a>
+						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Si</a>
+						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>
 			</main>

@@ -60,7 +60,7 @@
 					<ul class="sec-nav-category">
 						<li>
 							<a href="#" class="active">Configuración</a>
-							<ul class="thrd-nav-category">
+							<ul class="sec-nav-category">
 								<li><a href="perfil.html">Perfil</a></li>
 								<li><a href="#">Mi cuenta</a></li>
 								<li><a href="consultarCarreras.html" class="">Carreras y cursos</a></li>
@@ -78,7 +78,7 @@
                             <a href="#">Citas</a>
                             <ul class="accordion-detail">
                             	<div>
-                            		<form class="frmC">
+                            		<form class="frmC" action="configuracionGeneralConfirm.html" method="post">
 
 	                            		<div id="divTxtCit">
 	                            			<label class="lbl">Dias de expiración de solicitud:</label>
@@ -102,7 +102,7 @@
                             <div class="accordion-detail">
 
                             	<div>
-                            		<form class="frmC">
+                            		<form class="frmC" action="configuracionGeneralConfirm.html" method="post">
 
 	                            		<div id="divTxtCit">
 	                            			<label class="lbl">Máximo carateres por mensaje:</label>
@@ -127,24 +127,23 @@
                             <div class="accordion-detail">
 
                             	<div>
-                            		<form class="frmC">
+                            		<form class="frmC" action="#" method="post" >
 
 	                            		<div id="divTxtMail">
 	                            			<label class="lbl">Correo para envíos:</label>
 		                            	</div>
 
 		                            	<div id="divMail">
-		                            		<input id="email" type="text" placeholder="mail@dominio" class="form-control" />
-		                            		<p id="msjError" class="alert-error flaticon-remove11 "></p>
+		                            		<input id="email" type="text" placeholder="mail@ucenfotec.ac.cr" class="form-control" />
+		                            		<p class="alert-error flaticon-remove11 "></p>		                            		
 		                            	</div>
 
 		                            	<div  id="divBtnEvr">
-											<button id="btnEvr"class="btn btn-primary" type="submit">Aplicar</button>
-			                                
-							            </div>
-							            
+											<button id="btnEvr"class="btn btn-primary" type="submit">Aplicar</button>			                                   
+							            </div>							            
 	                                </form>
-                            	</div>                                
+                            	</div> 
+                            	                               
 
                             </div>
                         </li>

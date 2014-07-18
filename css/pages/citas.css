@@ -70,9 +70,6 @@ form{
 	border:none;
 	padding:0px;
 }
-#solicitarCita .form-row{
-	margin-left:0px;
-}
 #listForm {
 	-moz-border-radius: 5px;	
 	border: 2px solid #bdc3c7;	
@@ -165,6 +162,12 @@ form.form-horizontal{
 #crearSolicitud:hover{
 	color:#fff;
 	cursor:pointer;
+}
+.listo{
+	color:#bdc3c7;
+	position: absolute;
+	right: 0px;
+	top: 4px;
 }
 
 

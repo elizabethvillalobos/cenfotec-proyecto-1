@@ -145,7 +145,7 @@ if (btnVolver) {
 		getActiveItems();
 		var frmCarrera=document.querySelector('#crear-carrera');
 		var frmLista=document.querySelector('#listForm');
-	    frmCarrera.className = "frontContent";
+	    frmCarrera.className = "frontContent mod-bd form-horizontal";
 		frmLista.className = "backContent";
 	});
 }
@@ -159,4 +159,25 @@ function getActiveItems() {
 			nombreProfesores[i].value=activeItems[i].innerHTML;
 		}
 	}
+}
+
+function soloLetrasYnumeros(e){
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz1234567890";
+    especiales = "8-37-39-46";
+
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]){
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if (letras.indexOf(tecla)==-1 && !tecla_especial) {
+        return false;
+    } else {
+        return true;
+    }
 }

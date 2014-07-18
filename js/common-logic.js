@@ -346,7 +346,7 @@ function calcularPromedio(paNumeros){
 function validarClave(pClave, pElementoError, pMsjError){
     var correcta=false;
     
-    if(pClave===codigoActivacion){
+    if(pClave==codigoActivacion){
         correcta=true;
     }else{
         pElementoError.innerHTML=pMsjError;

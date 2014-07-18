@@ -6,7 +6,6 @@ var eBtnActivar = document.querySelector('#btnActivar'),
 eBtnActivar.addEventListener('click', function (evento) {
 
     var eCodigoActivacion = document.querySelector('#codigoAct').value,
-        eCodigoConfirmacion = document.querySelector('#codigoConfirm').value,
         formulario = document.querySelector('#activacion');
     
     evento.preventDefault();

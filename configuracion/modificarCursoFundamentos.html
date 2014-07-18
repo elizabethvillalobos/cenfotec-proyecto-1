@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="../css/gic.css">
+
 	<link rel="stylesheet" href="../css/pages/configuracion.css">
 </head>
 <body>
@@ -60,10 +61,10 @@
                             <a href="perfil.html" >Perfil</a>
                         </li>
                         <li class="accordion-item">
-                            <a href="#">Mi Cuenta</a>
+                            <a href="#">Mi cuenta</a>
                         </li>
                         <li class="accordion-item">
-                            <a href="consultarCarreras.html" class="active">Carreras y Cursos</a>
+                            <a href="consultarCarreras.html" class="active">Carreras y cursos</a>
                         </li>
                         <li class="accordion-item">
                             <a href="consultarUsuario.html">Usuarios</a>
@@ -77,26 +78,26 @@
 		<main>
 			<section class="perfil-editar">
 				<div class="mod-hd">
-					<h2>Desarrollo y Diseño Web - Crear un nuevo curso</h2>
+					<h2>Ingeniería de Software - Crear un nuevo curso</h2>
 				</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="crear-carrera" class="mod-bd form-horizontal" action="registarCurso-Confirmar.html" method="post" 
+					<form id="crear-carrera" class="mod-bd form-horizontal" action="consultarCursoAgregadoEditado.html" method="post" 
 					data-validate="true" novalidate>
 					<div class="form-row">
 						<label for="codigo-curso">Codigo:</label>
-						<input id="codigo-curso" type="text" placeholder="Ingrese el codigo" class="form-control" 
+						<input id="codigo-curso" type="text" placeholder="Ingrese el codigo"  value="INF-02" class="form-control" 
 						onkeypress="return soloGuion(event)" required/>
 					</div>
 
 					<div class="form-row">
 						<label for="nombre-curso">Nombre:</label>
-						<input id="nombre-curso" type="text" placeholder="Ingrese el nombre" class="form-control" 
-						onkeypress="return soloLetrasYnumeros(event)" required/>
+						<input id="nombre-curso" type="text" placeholder="Ingrese el nombre" value="Fundamentos de Programación"class="form-control" 
+						onkeypress="return soloLetras(event)" required/>
 					</div>
 					<div class="form-row">
 						<label for="txtInvitado1">Profesor(es):</label>
-						<input id="txtInvitado1" type="text" placeholder="Seleccione un profesor" class="inputExplore nombreProfe" disabled/>
+						<input id="txtInvitado1" type="text" placeholder="Antonio Luna" class="inputExplore nombreProfe" disabled/>
 						<button type="button" class="btn btnIcon btn-default evaluacion flaticon-magnifier12 btnSelectInvitado"></button>
 					</div>
 					<div class="form-row">
@@ -113,7 +114,7 @@
 					<div class="form-row form-row-button">
 						<button id="btn-guardar-curso" class="btn btn-primary" type="submit">Guardar</button>
 						<!--<button id="btn-cancelar" class="btn btn-secondary" type="submit">Cancelar</button>-->
-						<a class="btn btn-default js-modal" 
+						<a href="crearCarrera-cancelar.html" class="btn btn-default js-modal" 
 						data-modal-id="modal-cancelar">Cancelar</a>
 					</div>
 				</form>
@@ -122,7 +123,7 @@
 				<span class="close flaticon-close3 js-modal-close">Close</span>
 				<h3>¿Está seguro que desea cancelar la creación de la carrera?</h3>
 				<div class="form-row">
-					<a href="consultarCursosDesarrollo.html" class="btn btn-primary js-modal-aceptar">Si</a>
+					<a href="consultarCursoAgregado.html" class="btn btn-primary js-modal-aceptar">Si</a>
 					<a href="#" class="btn btn-default js-modal-close">No</a>
 				</div>
 			
@@ -152,6 +153,5 @@
 	<script src="../js/html5uploader.js"></script>
 	<script src="../js/common-logic.js"></script>
 	<script src="../js/configuracion.js"></script>
-	<script src="../js/pruebaConfiguracion2d.js"></script>
 </body>
 </html>

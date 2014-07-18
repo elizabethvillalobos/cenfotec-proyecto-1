@@ -115,6 +115,3 @@ document.getElementById('btnHabilitarCurso8').onclick = function habilitarCurso(
 }
 
 
-
-
-

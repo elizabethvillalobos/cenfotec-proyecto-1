@@ -40,12 +40,7 @@ h2{
 form{
     background: #ecf0f1;
     width: 400px;
-<<<<<<< HEAD
-    margin-bottom: 0px;
-    margin-left: 285px;
-=======
     margin: 0 auto 0px;
->>>>>>> origin/master
 }
 
 fieldset{
@@ -63,6 +58,7 @@ legend{
 
 .links{
     font-size: 12px;
+    text-align: center;
 }
 
 .links a{
@@ -70,7 +66,6 @@ legend{
 }
 
 #aRegistrar{
-    margin-left: 105px ;
     border-right: 2px solid #bdc3c7;
     padding: 0 15px 0 0;
 }
@@ -99,6 +94,7 @@ footer{
 }
 
 .icon{
+    color: #999;
     position: absolute;
     z-index: 1;
     margin-left: 5px;

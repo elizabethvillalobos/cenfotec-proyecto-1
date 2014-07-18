@@ -1,6 +1,7 @@
 var eBtnIniciarSesion = document.querySelector('.btn-primary'),
     aInputs = document.querySelectorAll('form .form-control'),
     eError = document.querySelector('.alert-error'),
+    aCorreos = ["crojasb@ucenfotec.ac.cr", "pmonestel@ucenfotec.ac.cr", "acorraless@ucenfotec.ac.cr"],
     regis=false;
 
 eBtnIniciarSesion.addEventListener('click', function (evento) {
@@ -15,15 +16,18 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
     if(!camposVacios){
         var correoCorrecto=validarCorreo(eCorreo, eError, 'El correo es incorrecto');
         if(correoCorrecto){
-            var coincide=validarContrasena(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
-            if(coincide){
-                formulario.submit();
-            }
+            var correoRegistrado = validarCorreoRegistrado(eCorreo, eError, 'El correo no está registrado');
+            if(correoRegistrado){
+                var coincide=validarContrasena(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
+                if(coincide){
+                    validarVistaRol(eCorreo, formulario);
+                    formulario.submit();
+                }
+            }    
         }
     }
     
-    
-    
+   
     
 
     

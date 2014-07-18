@@ -33,66 +33,42 @@ function soloGuion(e){
     }
 }
 
+// Inicializar la validacion de formularios.
+var eFormValidar = document.querySelector('form[data-validate="true"]');
+if (eFormValidar) {
+    var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
+        eFormBtnSubmit.addEventListener('click', function(event) {
+            event.preventDefault();
+            limpiarMensajesError();
+            if (validarForm(eFormValidar.id)) {
+                eFormValidar.submit();
+            }
+        });
 
-
-// Elizabeth
-// -------------------------------------------
-// Retorna true/false si el correo es valido.
-function validateEmail(pEmail) {
-	var re = new RegExp(/^\"?[\w-_\.]*\"?@ucenfotec\.ac\.cr$/);
-	return re.test(pEmail);
 }
 
-function validateNumber(pNumber) {
-	return !isNaN(Number(pNumber));
+
+/*validar correo en consfiguracionGeneral/notificaciones Javier*/
+
+
+var ebtnEnviar = document.querySelector('#btnEvr'),
+    eMailEl = document.querySelector('#email'),
+    eMail = '',
+    eMsjError = document.querySelector('#msjError');
+
+if (eMailEl) {
+	eMail = eMailEl.value;
+}
+if (ebtnEnviar) {
+	ebtnEnviar.addEventListener('click',function(){
+		var correoCorrecto = validarCorreo(eMail, eMsjError, 'El correo no es válido.');
+	});
 }
 
-// Validar un formulario.
-function validarForm(pFormId) {
-	var bValido = true,
-		eInputs = document.querySelectorAll('#' + pFormId + ' input[required], textarea[required]'),
-		eSelects = document.querySelectorAll('#' + pFormId + ' select[required]'),
-		eTextareas = document.querySelectorAll('#' + pFormId + ' textarea[required]');
+/*validar correo en notificaciones*/    
 
-	// Validar que los inputs requeridos esten llenos.
-	for(var i=0; i < eInputs.length; i++) {
-		if (eInputs[i].value == '') {
-			bValido = false;
-			mostrarMensajeError(eInputs[i], 'Este campo no puede estar vacío.');
-		} else if (eInputs[i].dataset.validateType) {
-			switch(eInputs[i].dataset.validateType) {
-			    case 'email':
-			        if (!validateEmail(eInputs[i].value)) {
-			        	bValido = false;
-			        	mostrarMensajeError(eInputs[i], 'El correo electrónico no es válido.');
-			        }
-			        break;
-			    case 'number':
-			    	if (!validateNumber(eInputs[i].value)) {
-			    		bValido = false;
-			        	mostrarMensajeError(eInputs[i], 'Este campo solo admite números.');
-			    	}
-			        break;
-			    case 'string':
-			    	// Pendiente...
-			        console.log('validate string');
-			        break;
-			    case 'letters':
-			    	// Pendiente...
-				    console.log('validate letras');
-			    	break;
-			}
-		}
-	}
-	// Validar que los selects tengan un valor
-	for(var j=0; j < eSelects.length; j++) {
-		if (eSelects[j].value == '') {
-			bValido = false;
-			mostrarMensajeError(eSelects[j], 'Debe seleccionar una opción.');
-		}
-	}
-	return bValido;
-}
+
+
 
 // Inicializar la validacion.
 var eFormValidar = document.querySelector('form[data-validate="true"]');
@@ -108,7 +84,6 @@ if (eFormValidar) {
 		});
 	}
 }
-
 
 var btnSelecProfe = document.querySelector('.btnSelectInvitado');
 if (btnSelecProfe!=null) {
@@ -163,13 +138,16 @@ function toggleItem(clickedItem, maxOfItems) {
 	}	
 }
 
-btnVolver.addEventListener('click',function(){
-	getActiveItems();
-	var frmCarrera=document.querySelector('#crear-carrera');
-	var frmLista=document.querySelector('#listForm');
-    frmCarrera.className = "frontContent";
-	frmLista.className = "backContent";
-});
+var btnVolver = document.querySelector('#btnVolver');
+if (btnVolver) {
+	btnVolver.addEventListener('click',function(){
+		getActiveItems();
+		var frmCarrera=document.querySelector('#crear-carrera');
+		var frmLista=document.querySelector('#listForm');
+	    frmCarrera.className = "frontContent";
+		frmLista.className = "backContent";
+	});
+}
 
 function getActiveItems() {
 	var activeItems=document.querySelectorAll('.activeItem'),
@@ -181,4 +159,3 @@ function getActiveItems() {
 		}
 	}
 }
-

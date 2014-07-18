@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
+		<meta charset="utf-8"><link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/flaticon.css">
+		<link rel="stylesheet" href="css/gic.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<h1 class="logo">Gestor Inteligente de Citas</h1>
+
+				<!-- Menu principal -->
+				<nav class="main-nav">
+					<ul>
+						<li>
+							<a href="citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
+						</li>
+						<li>
+							<a href="evaluacion.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
+						</li>
+						<li>
+							<a href="mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+						</li>
+						<li>
+							<a href="reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+						</li>
+						<li>
+							<a href="configuracion.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
+						</li>
+					</ul>
+				</nav>
+
+				<section class="busqueda">
+					<input id="q" type="text" value="" placeholder="Buscar personas" />
+					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
+				</section>
+
+				<section class="usr-info">
+					<span class="usr-greeting">Bienvenido, Elizabeth!</span>
+					<img class="usr-photo" src="images/users/default-user.png" width="40" height="40">
+					<ul>
+						<li>
+							<a href="#" class="usr-editar-perfil">Editar perfil</a>
+						</li>
+						<li>
+							<a href="#" class="usr-cerrar-sesion">Cerrar sesión</a>
+						</li>
+					</ul>
+				</section>
+			</header>
+
+			<aside>
+				<nav class="secondary-nav">
+					<ul class="sec-nav-category">
+						<li>
+							<a href="#" class="active">Categoría activa</a>
+							<ul class="thrd-nav-category">
+								<li><a href="#">Sub-categoría</a></li>
+								<li><a href="#" class="active">Sub-categoría activa</a></li>
+								<li><a href="#">Sub-categoría</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Categoría con notificación <span class="notificacion">5</span></a></li>
+						<li><a href="#">Categoría</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<main>
+				<div class="mod-hd">
+					<h2>Solicitar cita de atención</h2>
+					<p>Solicite citas rapidamente con cualquier funcionario.</p>
+				</div>
+				<div class="mod-bd">
+					<h2>Formulario</h2>
+					<form id="solicitar-cita" action="#" method="post">
+						<fieldset>
+							<legend>Información de Solicitud</legend>
+							<div class="form-row">
+                                <label for="cmbCurso">Curso:</label>
+                                <select id="cmbCurso">
+                                    <option value="0">Proyecto 1</option>
+                                    <option value="1">Programación 1</option>
+									<option value="2">Procesos Empresariales</option>
+                                </select>
+							</div>													
+							<div class="form-row">
+                                <label for="cmbInvitado">Invitado:</label>
+                                <select id="cmbInvitado">
+                                    <option value="0">Alvaro Camacho</option>
+                                    <option value="1">Pablo Monestel</option>
+									<option value="2">Diego Palomo</option>
+                                </select>
+							</div>
+							<div class="form-row">
+								<label for="txtAsunto">Asunto a Tratar:</label>
+								<input id="txtAsunto" type="text" placeholder="Ingrese el asunto a tratar en la cita" class="form-control" />
+							</div>								
+							<div class="form-row form-row-radio">
+								<label>Lugar:</label>
+								<label class="radio">
+                                    <input type="radio" name="rdoLugar" value="1" data-toggle="radio">Presencial
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="rdoLugar" value="2" data-toggle="radio" checked>Virtual
+                                </label>
+							</div>
+							<div class="form-row form-row-radio">
+								<label>Tipo:</label>
+								<label class="radio">
+                                    <input type="radio" name="rdoTipo" value="1" data-toggle="radio">Individual
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="rdoTipo" value="2" data-toggle="radio" checked>Grupal
+                                </label>
+							</div>
+							<div class="form-row">
+								<label for="txtObservaciones">Observaciones:</label>
+                                <textarea id="txtObservaciones" placeholder="Ingrese comentarios adicionales de la cita" class="form-control"></textarea>
+							</div>
+							<div class="form-row form-row-button">
+								<button class="btn btn-primary">Enviar</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</main>
+			
+			<footer>
+				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
+			</footer>
+		</div>
+		
+		<!-- Load JS -->
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-select.js"></script>
+		<script src="js/flatui-checkbox.js"></script>
+		<script src="js/flatui-radio.js"></script>
+        <script src="js/gic.js"></script>
+	</body>
+</html>

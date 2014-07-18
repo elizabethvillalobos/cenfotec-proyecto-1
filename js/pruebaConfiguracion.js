@@ -1,18 +1,18 @@
 /*Funcion para redireccionar a una pagina*/
 function delayer1(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/deshabilitarCarrera-confirmar.html";	
+	window.location = "deshabilitarCarrera-confirmar.html";	
 }
 /*Funcion para redireccionar a una pagina*/
 function delayer2(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/deshabilitarCarrera-cancelar.html";
+	window.location = "deshabilitarCarrera-cancelar.html";
 }
 /*Funcion para redireccionar a una pagina*/
 function delayer3(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/habilitarCarrera-confirmar.html";
+	window.location = "habilitarCarrera-confirmar.html";
 }
 /*Funcion para redireccionar a una pagina*/
 function delayer4(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/habilitarCarrera-cancelar.html";	
+	window.location = "habilitarCarrera-cancelar.html";	
 }
 
 /***************************************************************************************************************************/
@@ -24,7 +24,7 @@ document.getElementById('btnDeshabilitar').disabled = false;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar').onclick = function mostrarFormModificar(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/modificarCarrera.html";
+	window.location = "modificarCarrera.html";
 }
 
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/
@@ -80,7 +80,7 @@ document.getElementById('btnDeshabilitar2').disabled = true;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar2').onclick = function mostrarFormModificar(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/modificarCarrera.html";
+	window.location = "modificarCarrera.html";
 }
 
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/
@@ -136,7 +136,7 @@ document.getElementById('btnDeshabilitar3').disabled = false;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar3').onclick = function mostrarFormModificar(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/modificarCarrera.html";
+	window.location = "modificarCarrera.html";
 }
 
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/
@@ -191,7 +191,7 @@ document.getElementById('btnDeshabilitar4').disabled = true;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar4').onclick = function mostrarFormModificar(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/modificarCarrera.html";
+	window.location = "modificarCarrera.html";
 }
 
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/
@@ -246,7 +246,7 @@ document.getElementById('btnDeshabilitar5').disabled = false;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar5').onclick = function mostrarFormModificar(){
-	window.location = "C:/Users/Casa/Documents/GitHub/cenfotec-proyecto-1/configuracion/modificarCarrera.html";
+	window.location = "modificarCarrera.html";
 }
 
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/

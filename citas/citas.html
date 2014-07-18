@@ -41,8 +41,8 @@
 				</section>
 
 				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Elizabeth!</span>
-					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
+					<span class="usr-greeting">Bienvenido, Carlos!</span>
+					<img class="usr-photo" src="../images/users/administrador.jpg" width="40" height="40">
 					<ul>
 						<li>
 							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Perfil</a>
@@ -60,21 +60,16 @@
 						<li class="accordion-item expanded">
 							<a href="citas.html" class="active">Agenda</a>
 							<ul class="thrd-nav-category accordion-detail">
-								<li><a href="citas.html" class="active">Sábado 19 de Julio</a></li>
+								<li><a href="citas.html" class="active">Lunes 21 de Julio</a></li>
 								<li><a href="citas23Julio.html">Miércoles 23 de Julio</a></li>
-								<li><a href="#">Jueves 31 de Julio</a></li>
-								<li><a href="#">Viernes 1 de Agosto</a></li>
-								<li><a href="#">Miércoles 3 de Setiembre</a></li>
-								<li><a href="#">Miércoles 3 de Setiembre</a></li>
-								<li><a href="#">Miércoles 3 de Setiembre</a></li>
-								<li><a href="#">Miércoles 3 de Setiembre</a></li>
+								<li><a href="citas31Julio.html">Jueves 31 de Julio</a></li>
+								<li><a href="citas1Agosto.html">Viernes 1 de Agosto</a></li>
+								<li><a href="citas3Setiembre.html">Miércoles 3 de Setiembre</a></li>
 							</ul>
 						</li>
 						<li class="accordion-item">
-							<a href="#">Citas finalizadas</a>
-						</li>
-						<li class="accordion-item">
-							<a href="#">Solicitudes de cita</a>
+							<span id="crearSolicitud" class="flaticon-add73"></span>
+							<a href="solicitarCita.html">Solicitudes de cita</a>
 						</li>
 					</ul>
 				</nav>
@@ -83,86 +78,95 @@
 			<main>
 				<section class="cita">
 					<div class="mod-hd">
-						<h2>Sábado 19 de Julio</h2>
-						<span class="cita-hora-inicio-fin">2:00 p.m. a 3:00 p.m.</span>
+						<h2>Lunes 21 de Julio</h2>
+						<span class="cita-hora-inicio-fin">4:00 p.m. a 5:00 p.m.</span>
 					</div>
 					<div class="mod-bd">
 						<div class="row">
 							<span class="label">Invitado:</span>
 							<div class="data-wrap">
-								<span class="data cita-invitado">Ana Perez</span>
-								<span class="data">ana.perez@ucenfotec.com</span>
-								<span class="data">5555-5555</span>
+								<span class="data cita-invitado">Juan Carlos Brenes Álvarez</span>
+								<span class="data">jbrenesa@ucenfotec.ac.cr</span>
+								<span class="data">8850-0504</span>
 							</div>
 						</div>
 
-						<img class="cita-photo" src="../images/users/default-user.png" width="75" height="75">
+						<img class="cita-photo" src="../images/users/juan-carlos-brenes.jpg" width="75" height="75">
 
 						<div class="row">
 							<span class="label">Asunto a tratar:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span class="data">Árboles binarios</span>
 						</div>
 
 						<div class="row">
 							<span class="label">Curso:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span class="data">Estructuras de datos</span>
 						</div>
 
 						<div class="row">
 							<span class="label">Observaciones:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span class="data">Profesor, quiero recibir una tutoría sobre recorridos de árboles binarios.</span>
 						</div>
 						<div class="form-row form-row-button">
-							<a href="citasFinalizar.html" class="btn btn-primary">Finalizar</a>
-							<a href="citasCancelar.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
 
 				<section class="cita">
 					<div class="mod-hd">
-						<h2>Miércoles 19 de Diciembre</h2>
+						<h2>Lunes 21 de Julio</h2>
 						<span class="cita-hora-inicio-fin">5:00 p.m. a 6:00 p.m.</span>
 					</div>
 					<div class="mod-bd">
 						<div class="row">
 							<span class="label">Invitado:</span>
 							<div class="data-wrap">
-								<span class="data cita-invitado">Juan Mora</span>
-								<span class="data">juan.mora@ucenfotec.com</span>
-								<span class="data">5555-5555</span>
+								<span class="data cita-invitado">Susana Fuentes Morales</span>
+								<span class="data">sfuentesm@ucenfotec.ac.cr</span>
+								<span class="data">7002-2414</span>
 							</div>
 						</div>
 
-						<img class="cita-photo" src="../images/users/default-user.png" width="75" height="75">
+						<img class="cita-photo" src="../images/users/susana-fuentes.jpg" width="75" height="75">
 
 						<div class="row">
 							<span class="label">Asunto a tratar:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span class="data">Algoritmos</span>
 						</div>
 
 						<div class="row">
 							<span class="label">Curso:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span class="data">Fundamentos de programación</span>
 						</div>
 
 						<div class="row">
 							<span class="label">Observaciones:</span>
-							<span class="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<span class="data">Tengo disponibilidad los martes y jueves por las tardes.</span>
 						</div>
 
 						<div class="form-row form-row-button">
-							<a href="citasFinalizar.html" class="btn btn-primary">Finalizar</a>
-							<a href="citasCancelar.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
+
+				<div id="modal-finalizar" class="modal js-modal-window">
+					<span class="close flaticon-close3 js-modal-close">Close</span>
+					<h3>¿Está seguro que desea finalizar la cita de atención?</h3>
+					<div class="form-row">
+						<a href="citaFinalizada.html" class="btn btn-primary js-modal-aceptar">Sí</a>
+						<a href="#" class="btn btn-default js-modal-close">No</a>
+					</div>
+				</div>
 				<div id="modal-cancelar" class="modal js-modal-window">
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea cancelar la cita de atención?</h3>
 					<div class="form-row">
-						<a href="citasCancelar.html" class="btn btn-primary js-modal-aceptar">Aceptar</a>
-						<a href="#" class="btn btn-default js-modal-close">Cancelar</a>
+						<a href="citaCancelada.html" class="btn btn-primary js-modal-aceptar">Sí</a>
+						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>
 			</main>
@@ -174,5 +178,6 @@
 
 		<!-- Load JS -->
         <script src="../js/common-logic.js"></script>
+        <script src="../js/solicitarCita.js"></script>
 	</body>
 </html>

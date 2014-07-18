@@ -21,16 +21,16 @@
 							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="../evaluacion.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
+							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
-							<a href="../mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
 						</li>
 						<li>
-							<a href="../reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="editar-perfil.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
+							<a href="perfil.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -41,14 +41,14 @@
 				</section>
 
 				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Elizabeth!</span>
-					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
+					<span class="usr-greeting">Bienvenido, Carlos!</span>
+					<img class="usr-photo" src="../images/users/administrador.jpg" width="40" height="40">
 					<ul>
 						<li>
-							<a href="perfil.html" class="usr-editar-perfil">Editar perfil</a>
+							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Perfil</a>
 						</li>
 						<li>
-							<a href="#" class="usr-cerrar-sesion">Cerrar sesión</a>
+							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
 						</li>
 					</ul>
 				</section>
@@ -58,7 +58,7 @@
                 <nav class="secondary-nav">
                     <ul class="sec-nav-category accordion">
                         <li class="accordion-item">
-                            <a href="perfil.html" class="active">Perfil</a>
+                            <a href="perfil.html">Perfil</a>
                         </li>
                         <li class="accordion-item">
                             <a href="#">Mi Cuenta</a>
@@ -66,7 +66,7 @@
                         <li class="accordion-item">
                             <a href="consultarCarreras.html">Carreras y Cursos</a>
                         </li>
-                        <li class="accordion-item">
+                        <li class="accordion-item" class="active">
                             <a href="consultarUsuario.html">Usuarios</a>
                         </li>
                         <li class="accordion-item">
@@ -77,25 +77,25 @@
             </aside>
 
 			<main>
-				<section class="perfil-editar">
+				<section>
 					<div class="mod-hd">
-						<h2>Editar Perfil</h2>
+						<h2>Modificar Usuario</h2>
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="editar-perfil" class="mod-bd form-horizontal" action="perfil-confirmar.html" method="post" data-validate="true" novalidate>
+					<form id="modificar-usuario" class="mod-bd form-horizontal" action="usuarioGuardado.html" method="post" data-validate="true" novalidate>
 						<div class="form-row">
-							<label for="perfil-nombre">Nombre:</label>
-							<input id="perfil-nombre" type="text" placeholder="Ingrese el nombre" class="form-control" required/>
+							<label for="usuario-nombre">Nombre:</label>
+							<input id="usuario-nombre" type="text" placeholder="Ingrese el nombre" class="form-control" value="Juan" required/>
 						</div>
 
 						<div class="form-row">
-							<label for="perfil-apellidos">Apellidos:</label>
-							<input id="perfil-apellidos" type="text" placeholder="Ingrese los apellidos" class="form-control" required/>
+							<label for="usuario-apellidos">Apellidos:</label>
+							<input id="usuario-apellidos" type="text" placeholder="Ingrese los apellidos" class="form-control" value="Pérez Pérez" required/>
 						</div>
 
 						<div class="form-row">
-							<label for="perfil-avatar">Avatar:</label>
+							<label for="usuario-avatar">Avatar:</label>
 							<!-- Drop media element -->
                 			<div class="media-drop">
 			                    <div id="droppedimage"></div> <!-- Image placeholder -->
@@ -116,64 +116,63 @@
 						</div>
 
 						<div class="form-row">
-							<label for="perfil-email">Correo electrónico:</label>
-							<input id="perfil-email" type="email" placeholder="Ingrese el correo electrónico" class="form-control" data-validate-type="email" required/>
+							<label for="usuario-email">Correo electrónico:</label>
+							<input id="usuario-email" type="email" placeholder="Ingrese el correo electrónico" class="form-control" data-validate-type="email" required/>
 						</div>
 
 						<div class="form-row">
-							<label for="perfil-telefono">Teléfono:</label>
-							<input id="perfil-telefono" type="text" placeholder="Ingrese el número telefónico" class="form-control" />
+							<label for="usuario-telefono">Teléfono:</label>
+							<input id="usuario-telefono" type="text" placeholder="Ingrese el número telefónico" class="form-control" value="5555-5555" />
 						</div>
 
 						<div class="form-row">
-							<label for="perfil-skype">Skype Id:</label>
-							<input id="perfil-skype" type="text" placeholder="Ingrese la cuenta de Skype" class="form-control" />
+							<label for="usuario-skype">Skype Id:</label>
+							<input id="usuario-skype" type="text" placeholder="Ingrese la cuenta de Skype" class="form-control" value="juan.perez" />
 						</div>
 
 						<div class="form-row">
-							<label for="perfil-rol">Rol:</label>
-							<select id="perfil-rol" required>
-	                            <option value="">Seleccione una opción</option>
-	                            <option value="estudiante">Estudiante</option>
-	                            <option value="profesor">Profesor</option>
-	                            <option value="direccion-academica">Dirección Académica</option>
-	                            <option value="rectoria">Rectoría</option>
-	                            <option value="administrador">Administrador</option>
-                            </select>
+							<label for="usuario-rol">Rol:</label>
+							<select if="usuario-rol">
+								<option value="">Seleccione una opcion</option>
+								<option value="">Estudiante</option>
+								<option value="">Asistente de Curso</option>
+								<option value="">Profesor</option>
+								<option value="">Dirección Académica</option>
+								<option value="">Rector</option>
+								<option value="">Mercadeo</option>
+								<option value="" selected>Administrador</option>
+							</select>
 						</div>
 
 						<div class="form-row">
-							<label for="perfil-carrera">Carrera:</label>
-							<select id="perfil-carrera" required>
-	                            <option value="">Seleccione una opción</option>
-	                            <option value="desarrollo-diseño-web">Desarrollo y diseño web</option>
-	                            <option value="desarrollo-software">Desarrollo de software</option>
-	                            <option value="integracion-tecnologias">Integración de tecnologías</option>
-	                            <option value="telematica">Telemática</option>
-	                            <option value="ciberseguridad">Ciberseguridad</option>
-	                            <option value="tecnologia-bases-datos">Tecnología de bases de datos</option>
-	                            <option value="ingles">Inglés</option>
-                            </select>
+							<label for="usuario-carrera">Carrera:</label>
+							<select if="usuario-carrera">
+								<option value="">Seleccione una opcion</option>
+								<option value="">Desarrollo y diseño web</option>
+								<option value="" selected>Desarrollo de software</option>
+								<option value="">Integración de tecnologías</option>
+								<option value="">Telemática</option>
+								<option value="">Cyberseguridad</option>
+							</select>
 						</div>
 
 						<div class="form-row">
-							<label for="perfil-cursos">Cursos:</label>
-							<select id="perfil-curso" required>
-	                            <option value="">Seleccione una opción</option>
-	                            <option value="fundamentos-de-programación">Fundamentos de programación</option>
-	                            <option value="proyecto-ingenieria-software-1">Proyecto de ingeniería del software 1</option>
-	                            <option value="introduccion-tecnología-informacion">Introducción a la tecnología de información</option>
-	                            <option value="ingles-tecnologias-informacion-1">Inglés para tecnologías de información 1</option>
-                            </select>
+							<label for="usuario-cursos">Cursos:</label>
+							<select if="usuario-cursos">
+								<option value="" selected>Fundamentos de programación</option>
+								<option value="">Proyecto de ingeniería de software</option>
+								<option value="">Fundamentos de bases de datos</option>
+								<option value="">Estructuras de datos</option>
+							</select>
 						</div>
 
 						<div class="form-row">
-							<label for="perfil-horario">Horario:</label>
-							<input id="perfil-horario" type="text" placeholder="Ingrese el horario de atención" class="form-control" />
+							<label for="usuario-horario">Horario:</label>
+							<input id="usuario-horario" type="email" placeholder="Lunes, Martes y Jueves de 4:00 p.m. a 6:00 p.m." class="form-control" data-validate-type="email"/>
 						</div>
 
 						<div class="form-row form-row-button">
-							<button id="btn-guardar-perfil" class="btn btn-primary" type="submit">Guardar</button>
+							<button id="btn-guardar-usuario" class="btn btn-primary" type="submit">Guardar</button>
 						</div>
 					</form>
 				</section>

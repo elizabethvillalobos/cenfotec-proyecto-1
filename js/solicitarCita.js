@@ -197,13 +197,6 @@ if(btnAceptar!=null){
 			{
 				event.preventDefault();
 			}
-			else
-			{
-				if($('#txtHoraInicio').val()<$('#txtHoraFin').val())
-				{
-					event.preventDefault();
-				}
-			}
 		}
 	});
 }

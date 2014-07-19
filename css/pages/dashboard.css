@@ -2,6 +2,7 @@ main {
 	background: #f2f2f2; 
 	margin-left: 0;
 	padding: 10px;
+	overflow: visible;
 }
 
 .dashboard a:hover {
@@ -69,12 +70,12 @@ main {
 }
 
 .dash-agenda-cita span {
-	font-size: 15px;
+	font-size: 1em;
 	float: left;
 }
 
 .dash-agenda-fecha {
-	width: 60%;
+	width: 55%;
 }
 
 .dash-agenda-hora {
@@ -95,8 +96,7 @@ main {
 /*Solicitudes*/
 .dash-agenda-solicitudes {
 	background: #666;
-	height: 168px;
-	overflow-y: scroll;
+	height: 162px;
 }
 
 .dash-agenda-solicitudes a {

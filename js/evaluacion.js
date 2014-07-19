@@ -37,3 +37,22 @@ for(var i=0; i < aPuntajes.length; i++) {
         ePromedioParent.innerHTML=promedio;
     });
 }
+
+/*
+if(ebtnEva) {
+	ebtnEva.addEventListener('click',function(){
+
+		for (var j = 0; j < eRadiosChecked.length; j++) {
+			if(eRadiosChecked[j].value = 'si' || eRadiosChecked[j].value = 'no'){
+				eFormu.submit();
+			}	
+			else{
+				alert('Debe responder a la pregunta #1');
+							
+			}
+		}			 		       
+	});
+	
+}
+
+*/

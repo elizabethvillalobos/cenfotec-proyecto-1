@@ -18,19 +18,19 @@
 				<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
+							<a href="citas/Profesor/citas-Profesor.html" class="citas flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
+							<a href="evaluacion/Profesor/miRanking-Profesor.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
-							<a href="mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+							<a href="mensajeria/Profesor/mensajeria-Profesor.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
 						</li>
 						<li>
-							<a href="reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+							<a href="reportes/Profesor/reportes-Profesor.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="configuracion/perfil.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
+							<a href="configuracion/Profesor/perfil-Profesor.html" class="configuracion  flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -41,11 +41,11 @@
 				</section>
 
 				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Carlos!</span>
-					<img class="usr-photo" src="images/users/administrador.jpg" width="40" height="40">
+					<span class="usr-greeting">Bienvenido, Pablo!</span>
+					<img class="usr-photo" src="images/users/pablo-monestel.jpg" width="40" height="40">
 					<ul>
 						<li>
-							<a href="configuracion/perfil.html" class="usr-editar-perfil">Perfil</a>
+							<a href="configuracion/Profesor/perfil-Profesor.html" class="usr-editar-perfil">Perfil</a>
 						</li>
 						<li>
 							<a href="seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
@@ -54,32 +54,44 @@
 				</section>
 			</header>
 
-			<main class="dashboard">
-			    <h1>Profesor</h1>
-				<!-- <section class="dash-agenda">
-					<h3>Agenda</h3>
+			<main class="dashboard dashboard-profesor">
+				<section class="dash-agenda">
+					<a href="citas/citas.html">
+						<h3>Agenda</h3>
+					</a>
 
 					<ul class="dash-agenda-citas">
 						<li>
-							<a href="#" class="dash-agenda-fecha">Lunes 3 de Agosto, 2014</a>
-							<span class="dash-agenda-hora">2:00 p.m. a 3:00 p.m.</span>
-							<span class="dash-agenda-invitado">Pedro Perez</span>
+							<a href="citas/citas.html" class="dash-agenda-cita">
+								<img class="dash-agenda-photo" src="images/users/juan-carlos-brenes.jpg" width="50" height="50">
+								<span class="dash-agenda-fecha">Lunes 21 de Julio</span>
+								<span class="dash-agenda-hora">4:00 p.m.</span>
+								<span class="dash-agenda-invitado">Juan Carlos Brenes Álvarez</span>
+							</a>
 						</li>
 						<li>
-							<a href="#" class="dash-agenda-fecha">Lunes 3 de Agosto, 2014</a>
-							<span class="dash-agenda-hora">2:00 p.m. a 3:00 p.m.</span>
-							<span class="dash-agenda-invitado">Pedro Perez</span>
+							<a href="citas/citas.html" class="dash-agenda-cita">
+							<img class="dash-agenda-photo" src="images/users/susana-fuentes.jpg" width="50" height="50">
+								<span class="dash-agenda-fecha">Lunes 21 de Julio</span>
+								<span class="dash-agenda-hora">5:00 p.m.</span>
+								<span class="dash-agenda-invitado">Susana Fuentes Morales</span>
+							</a>
 						</li>
 						<li>
-							<a href="#" class="dash-agenda-fecha">Lunes 3 de Agosto, 2014</a>
-							<span class="dash-agenda-hora">2:00 p.m. a 3:00 p.m.</span>
-							<span class="dash-agenda-invitado">Pedro Perez</span>
+							<a href="citas/citas23Julio.html" class="dash-agenda-cita">
+							<img class="dash-agenda-photo" src="images/users/luis-guzman.jpg" width="50" height="50">
+								<span class="dash-agenda-fecha">Miércoles 23 de Julio</span>
+								<span class="dash-agenda-hora">4:00 p.m.</span>
+								<span class="dash-agenda-invitado">Luis Guzmán Valverde</span>
+							</a>
 						</li>
 					</ul>
 					<div class="dash-agenda-solicitudes">
-						<h4>Solicitudes de Cita</h4>
+						<a href="citas/solicitarCita.html">
+							<h4>Solicitudes de Cita</h4>
+						</a>
 						<ul>
-							<li><a href="#">Ana Montoya</a></li>
+							<li><a href="citas/solicitudes.html">Ernesto Rivera</a></li>
 							<li><a href="#">Carlos Castro</a></li>
 							<li><a href="#">Juan Mora</a></li>
 						</ul>
@@ -87,26 +99,28 @@
 				</section>
 
 				<section class="dash-ranking">
-					<h3>Mi Ranking</h3>
+					<a href="evaluacion/miRanking.html">
+						<h3>Mi Ranking</h3>
+					</a>
+					<span class="dash-ranking-amount rating-amount">5</span>
 					<ul class="rating-stars">
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
+						<li class="rating-1"></li>
+						<li class="rating-2"></li>
+						<li class="rating-3"></li>
+						<li class="rating-4"></li>
+						<li class="rating-5"></li>
 					</ul>
-					<span class="dash-ranking-amount rating-amount">4.5</span>
-					<span class="dash-ranking-n rating-label">9 de 10 citas asistidas</span>
+					<span class="dash-ranking-asistidas rating-label">10 de 10 citas asistidas</span>
 				</section>
 				
 				<a href="mensajeria/mensajeria.html" class="dash-mensajes dash-notificacion">
 					<span class="dash-notificacion-label">Mensajes Nuevos</span>
-					<span class="dash-notificacion-total">5</span>
+					<span class="dash-notificacion-total">8</span>
 				</a>
 				<a href="evaluacion/evaluarCita.html" class="dash-evaluaciones dash-notificacion">
 					<span class="dash-notificacion-label">Evaluaciones Pendientes</span>
 					<span class="dash-notificacion-total">3</span>
-				</a> -->
+				</a>
 			</main>
 			
 			<footer>

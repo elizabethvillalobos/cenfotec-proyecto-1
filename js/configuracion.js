@@ -37,33 +37,69 @@ function soloGuion(e){
 var eFormValidar = document.querySelector('form[data-validate="true"]');
 if (eFormValidar) {
     var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
-        eFormBtnSubmit.addEventListener('click', function(event) {
-            event.preventDefault();
-            limpiarMensajesError();
-            if (validarForm(eFormValidar.id)) {
-                eFormValidar.submit();
-            }
-        });
-
+	eFormBtnSubmit.addEventListener('click', function(event) {
+		event.preventDefault();
+        limpiarMensajesError();
+        if (validarForm(eFormValidar.id)) {
+            eFormValidar.submit();
+        }
+    });
 }
+
+// Modificar usuarios
+$('select#usuario-carrera').on('change', function() {
+	var $el = $(this);
+	switch ($el.val()) {
+		case 'carrera-diseno-web':
+			$('.cursos-desarrollo').hide()
+			$('#usuario-curso-desarrollo').attr('required', false);
+
+			$('.cursos-diseno-web').show()
+			$('#usuario-curso-diseno').attr('required', true);
+			break;
+		case 'carrera-desarrollo':
+			$('.cursos-diseno-web').hide()
+			$('#usuario-curso-diseno').attr('required', false);
+
+			$('.cursos-desarrollo').show()
+			$('#usuario-curso-desarrollo').attr('required', true);
+			break;
+		case '':
+			$('.cursos-diseno-web').hide()
+			$('#usuario-curso-diseno').attr('required', false);
+
+			$('.cursos-desarrollo').hide()
+			$('#usuario-curso-desarrollo').attr('required', false);
+			break;
+	}
+});
 
 
 /*validar correo en consfiguracionGeneral/notificaciones Javier*/
 
 
 var ebtnEnviar = document.querySelector('#btnEvr'),
-    eMailEl = document.querySelector('#email'),
-    eMail = '',
+    eform = document.querySelector('#form-confGrl'),
+    
     eMsjError = document.querySelector('.alert-error');
 
-if (eMailEl) {
+/*if (eMailEl) {
 	eMail = eMailEl.value;
-}
-if (ebtnEnviar) {
-	ebtnEnviar.addEventListener('click',function(evento){
-        evento.preventDefault();
-		var correoCorrecto = validarCorreo(eMail, eMsjError, 'El correo no es válido.');
+}*/
+if(ebtnEnviar) {
+	ebtnEnviar.addEventListener('click',function(event){
+       var eMailNotif = document.querySelector('#emailNot').value;
+		
+		event.preventDefault();
+		 
+		var mailCorrecto = validarCorreo(eMailNotif, eMsjError, 'El correo no es válido.');
+        
+
+		if(mailCorrecto){
+			eform.submit();
+		}       
 	});
+	
 }
 
 /*validar correo en notificaciones*/    
@@ -72,19 +108,19 @@ if (ebtnEnviar) {
 
 
 // Inicializar la validacion.
-var eFormValidar = document.querySelector('form[data-validate="true"]');
-if (eFormValidar) {
-	var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
-	if (eFormBtnSubmit) {
-		eFormBtnSubmit.addEventListener('click', function(event) {
-			event.preventDefault();
-			limpiarMensajesError();
-			if (validarForm(eFormValidar.id)) {
-				eFormValidar.submit();
-			}
-		});
-	}
-}
+// var eFormValidar = document.querySelector('form[data-validate="true"]');
+// if (eFormValidar) {
+// 	var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
+// 	if (eFormBtnSubmit) {
+// 		eFormBtnSubmit.addEventListener('click', function(event) {
+// 			event.preventDefault();
+// 			limpiarMensajesError();
+// 			if (validarForm(eFormValidar.id)) {
+// 				eFormValidar.submit();
+// 			}
+// 		});
+// 	}
+// }
 
 var btnSelecProfe = document.querySelector('.btnSelectInvitado');
 if (btnSelecProfe!=null) {
@@ -105,12 +141,14 @@ function toggleForms() {
 		ul.removeChild( ul.firstChild );
 	}
 	
+
 	title.innerHTML="Seleccionar Profesor";		
 	var listaProfes = ["Antonio Luna","Juan Vargas", "Pablo Monestel", "Álvaro Cordero", "Joel Martinez","Ana Mendez","Minor Tenorio","Normal Neil","Esteban Castro", "Nicole Pacheco","Kenny Moraga", "Katherine Guevara", "Adrián Arias", "Daniel Solano", "Francisco Miranda", "Pablo Marín", "Josue Zamora", "Brandon Carmona"];
 	for(i=0;i<listaProfes.length;i++)
 	{
 		var li = document.createElement("li");
 		li.appendChild(document.createTextNode(listaProfes[i]));
+
 		li.setAttribute("value","1");
 		li.setAttribute("class","listItem");
 		ul.appendChild(li);

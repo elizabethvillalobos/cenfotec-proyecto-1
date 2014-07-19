@@ -14,10 +14,8 @@
     	});
 	}
 
-	var aDatePickers = $('.datepicker');
-	if (aDatePickers.length) {
-		for (var i = 0; i < aDatePickers.length; i++) {
-			aDatePickers[i].datepicker();
-		}
+	var eDatePickers = $('.datepicker');
+	if (eDatePickers.length) {
+		eDatePickers.datepicker();
 	}
 })(jQuery);

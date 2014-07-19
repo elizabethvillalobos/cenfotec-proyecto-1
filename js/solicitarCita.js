@@ -74,13 +74,14 @@ function toggleForms() {
 	}
 	
 	if(btnClickeado==btnSelectCurso){		
-		title.innerHTML="Seleccionar Curso";		
-		for(i=0;i<20;i++)
+		title.innerHTML="Seleccionar Curso";
+		var listaCurso=["Inglés para tecnologías de información 1","Introducción a la tecnología de información","Fundamentos de programación","Proyecto de ingeniería del software 1","Inglés para tecnologías de información 2","Programación orientada a objetos","Procesos empresariales","Fundamentos de bases de datos","Estructuras discretas"]
+		for(i=0;i<listaCurso.length;i++)
 		{
 			var li = document.createElement("li");
-			li.appendChild(document.createTextNode("BISOFT-01"));
+			li.appendChild(document.createTextNode(listaCurso[i]));
 			li.setAttribute("value","1");
-			li.setAttribute("class","listItem");
+			li.setAttribute("class","listItem itemAlto");
 			ul.appendChild(li);
 		}
 	}
@@ -88,10 +89,11 @@ function toggleForms() {
 	{
 		if(btnClickeado==btnSelectInvitado){
 			title.innerHTML="Seleccionar Invitado";
-			for(i=0;i<20;i++)
+			var listaInvitados=["Antonio Luna","Alvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"]
+			for(i=0;i<listaInvitados.length;i++)
 			{
 				var li = document.createElement("li");
-				li.appendChild(document.createTextNode("Alvaro Cordero"));
+				li.appendChild(document.createTextNode(listaInvitados[i]));
 				li.setAttribute("value","1");
 				li.setAttribute("class","listItem");
 				ul.appendChild(li);
@@ -110,14 +112,26 @@ function toggleForms() {
 //activar y desactivar elemento de la lista
 function toggleItem(clickedItem, maxOfItems) {
 	if ( clickedItem.classList.contains("activeItem") ) {
-		clickedItem.className = "listItem";
+		if ( clickedItem.classList.contains("itemAlto") ) {
+			clickedItem.className = "listItem itemAlto";
+		}
+		else
+		{
+			clickedItem.className = "listItem";
+		}
 		totalSelected--;
 	}
 	else
 	{
 		if(totalSelected<maxOfItems){	
-			clickedItem.className = "listItem activeItem";
-			totalSelected++;
+			if ( clickedItem.classList.contains("itemAlto") ) {
+				clickedItem.className = "listItem activeItem itemAlto";
+			}
+			else
+			{
+				clickedItem.className = "listItem activeItem";
+			}
+				totalSelected++;
 		}
 	}	
 }
@@ -163,6 +177,7 @@ function getRadioChecked(radioName){
 // ------------------------------------------
 // Variables globales
 // ------------------------------------------
+var btnAceptar=document.querySelector('#btnAceptar');
 var btnAceptar1=document.querySelector('#solicitudes #btnAceptar');
 var btnRechazar1=document.querySelector('#solicitudes #btnRechazar');
 var btnAceptar2=document.querySelector('#solicitudesEstudiantes #btnAceptar');
@@ -171,6 +186,27 @@ var btnRechazar2=document.querySelector('#solicitudesEstudiantes #btnRechazar');
 // ------------------------------------------
 // Eventos
 // ------------------------------------------
+if(btnAceptar!=null){
+	btnAceptar.addEventListener('click',function(){
+		if(!inputLlenos('solicitarCita')){
+			event.preventDefault();
+		}
+		else
+		{
+			if($('#txtFecha').datepicker("getDate")<new Date())
+			{
+				event.preventDefault();
+			}
+			else
+			{
+				if($('#txtHoraInicio').val()<$('#txtHoraFin').val())
+				{
+					event.preventDefault();
+				}
+			}
+		}
+	});
+}
 if(btnAceptar1!=null){
 	btnAceptar.addEventListener('click',function(){
 		if(!inputLlenos('solicitarCita')){
@@ -210,11 +246,6 @@ function inputLlenos(idContainer){
 		{
 			myInputs.push(inputs[i]);
 		}
-	}
-	//select all textareas
-	inputs = document.getElementById(idContainer).getElementsByTagName('textarea');	
-	for(i=0; i<inputs.length; i++){		
-		myInputs.push(inputs[i]);
 	}
 	
 	for(i=0;i<myInputs.length;i++){

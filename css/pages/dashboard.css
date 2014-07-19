@@ -2,6 +2,7 @@ main {
 	background: #f2f2f2; 
 	margin-left: 0;
 	padding: 10px;
+	overflow: visible;
 }
 
 .dashboard a:hover {
@@ -69,12 +70,12 @@ main {
 }
 
 .dash-agenda-cita span {
-	font-size: 15px;
+	font-size: 1em;
 	float: left;
 }
 
 .dash-agenda-fecha {
-	width: 60%;
+	width: 55%;
 }
 
 .dash-agenda-hora {
@@ -88,15 +89,14 @@ main {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	float: left;
-	margin-right: 5px;
+	margin-right: 10px;
 }
 
 
 /*Solicitudes*/
 .dash-agenda-solicitudes {
 	background: #666;
-	height: 168px;
-	overflow-y: scroll;
+	height: 162px;
 }
 
 .dash-agenda-solicitudes a {
@@ -168,30 +168,28 @@ main {
 
 /*Ranking stars*/
 .rating-stars {
+	background: url('../../images/system/star-inactive.png') left top repeat-x;
+	height: 36px;
+	margin: 0 auto 30px;
 	padding: 0;
 	text-align: center;
+	width: 200px;
 }
 
 .rating-stars li {
-	display: inline-block;
-	font-size: 40px;
+	background: url('../../images/system/star-active.png') no-repeat left top;
+	float: left;
+	height: 36px;
 	list-style: none;
+	width: 40px;
 }
 
-.rating-stars li:before {
-	content: "\2605";
-	position: absolute;
-	overflow: hidden;
+.rating-4,
+.rating-5 {
+	display: none;
 }
 
-.rating-1:before,
-.rating-2:before,
-.rating-3:before {
-	width: auto;	
+.dashboard-profesor .rating-4,
+.dashboard-profesor .rating-5 {
+	display: block;
 }
-
-.rating-4:before,
-.rating-5:before {
-	width: 0px;
-}
-

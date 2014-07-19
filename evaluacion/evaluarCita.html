@@ -30,7 +30,7 @@
 							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="../configuracion/perfil.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
+							<a href="../configuracion/perfil.html" class="configuracion  flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -57,12 +57,12 @@
 			 <aside>
 	                <nav class="secondary-nav">
 	                    <ul class="sec-nav-category accordion">
-	                    	<li class="accordion-item"><a href="miRanking.html">Mi ranking</a></li>
+	                    	<li class="accordion-item"><a  href="miRanking.html">Mi ranking</a></li>
 	                        <li class="accordion-item expanded">
 	                            <a href="evaluarCita.html" class="active">Evaluaciones</a>
 	                            <ul class="thrd-nav-category accordion-detail">
 	                                <li><a href="evaluarCita.html" class="active">Pendientes</a></li>
-	                                <li><a href="consultarEvaluacionesRealizadas.html">Realizadas</a></li>   
+	                                <li><a href="consultarEvaluacionesRealizadas.html" >Realizadas</a></li>   
 	                            </ul>
 	                        </li>                   
 	                    </ul>
@@ -74,9 +74,7 @@
                     <li class="accordion-item expanded">
                         <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Evaluando a Antonio Luna</span>
-                        		<span class="evaluacion-fecha">Fecha: 10 de Julio de 2014</span>
-                        		<span class="evaluacion-hora">Hora: 2:00pm</span>
+                        		<span class="stit2">Usuario a evaluar: <span>Marcela Madriz</span></span><span>Fecha: <span>21/07/14 Hora: 2:00pm</span></span>
                         	</p>
                         </a>
 
@@ -87,7 +85,7 @@
 
 									<div class="form-row-ev">
 										<div id="pregunta1">
-											<label class="">1)¿El profesor se presentó a la cita?</label>
+											<label class="">1)¿El estudiante se presentó a la cita?</label>
 										</div>
 
 										<div class="opcs">
@@ -109,7 +107,7 @@
 
                                 	<div class="form-row-ev"> 
                                 		<div class="preguntas">
-                                			<label class="">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
+                                			<label class="">2)¿En qué grado el estudiante cumplió con puntualidad a la cita?</label>
 								        </div>
 
 								        <div class="opcs">	
@@ -120,7 +118,110 @@
 									<div class="form-row-ev">
 
 										<div class="preguntas">
-											<label class="" >3)¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
+											<label class="" >3)¿En qué grado el estudiante logró mantener un ambiente cordial y de respeto?</label>
+										</div>
+
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+
+									</div>
+
+									<div class="form-row-ev">	
+
+										<div class="preguntas">
+											<label class="" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
+										</div>
+
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+
+									</div>
+
+									<div class="form-row-ev">	
+										<div class="preguntas">
+											<label class="">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+										</div>
+
+										<div class="opcs">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										</div>
+
+									</div>										
+
+									<div class="form-row-ev">
+
+										<div class="preguntas">
+											<label class="" >Promedio obtenido en esta cita:</label>
+										</div>
+
+										<div class="opcs">
+										    <label id="promedio">3</label>
+										</div>
+
+									</div>	
+
+								</div>
+
+								<div class="form-row form-row-button">
+									<button class="btn btn-primary">Enviar</button>							        
+						        </div>
+
+							</fieldset>
+				        </form>
+                    </div>
+                </li>
+
+
+
+                <li class="accordion-item">
+                    <a href="#">
+                        	<p class="titulo2">
+                        		<span class="stit2">Usuario a evaluar: <span>Luis Guzmán</span></span><span>Fecha: <span>23/07/14 Hora: 7:00pm</span></span>
+                        	</p>
+                        </a>
+                    <div class="accordion-detail">
+                        <form id="frm" action="evaluarCitaConfirm.html" method="post">
+								<fieldset>
+									<h2 >Formulario de evaluación de cita</h2>
+
+									<div class="form-row-ev">
+										<div id="pregunta1">
+											<label class="">1)¿El estudiante se presentó a la cita?</label>
+										</div>
+
+										<div class="opcs">
+											<label class="radio">												
+				                                <input type="radio" name="group1" value="si" data-toggle="radio">SI
+				                            </label>
+				                        </div>
+
+			                            <div class="opcs">
+			                            	<label class="radio">			                            		
+			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
+			                                </label>				                            
+
+									    </div>	
+								</div>
+								
+                                <div class="wrapperItems"> 
+                                	<p>A continuación para cada pregunta los indicadores: 5 = plenamente satisfactorio, 4 = muy satisfactorio, 3 = satisfactorio , 2 = no satisfatorio, 1 = totalmente insatisfactorio.</p>
+
+                                	<div class="form-row-ev"> 
+                                		<div class="preguntas">
+                                			<label class="">2)¿En qué grado el estudiante cumplió con puntualidad a la cita?</label>
+								        </div>
+
+								        <div class="opcs">	
+								        	<input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
+									    </div>
+								    </div>
+                                
+									<div class="form-row-ev">
+
+										<div class="preguntas">
+											<label class="" >3)¿En qué grado el estudiante logró mantener un ambiente cordial y de respeto?</label>
 										</div>
 
 										<div class="opcs">
@@ -178,9 +279,7 @@
                 <li class="accordion-item">
                     <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Evaluando a Álvaro Cordero</span>
-                        		<span class="evaluacion-fecha">Fecha: 13 de Julio de 2014</span>
-                        		<span class="evaluacion-hora">Hora: 7:00pm</span>
+                        		<span class="stit2">Usuario a evaluar: <span>Ernesto Rivera</span></span><span>Fecha: <span>28/07/14 Hora: 5:00pm</span></span>
                         	</p>
                         </a>
                     <div class="accordion-detail">
@@ -190,7 +289,7 @@
 
 									<div class="form-row-ev">
 										<div id="pregunta1">
-											<label class="">1)¿El profesor se presentó a la cita?</label>
+											<label class="">1)¿El estudiante se presentó a la cita?</label>
 										</div>
 
 										<div class="opcs">
@@ -212,7 +311,7 @@
 
                                 	<div class="form-row-ev"> 
                                 		<div class="preguntas">
-                                			<label class="">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
+                                			<label class="">2)¿En qué grado el estudiante cumplió con puntualidad a la cita?</label>
 								        </div>
 
 								        <div class="opcs">	
@@ -223,7 +322,7 @@
 									<div class="form-row-ev">
 
 										<div class="preguntas">
-											<label class="" >3)¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
+											<label class="" >3)¿En qué grado el estudiante logró mantener un ambiente cordial y de respeto?</label>
 										</div>
 
 										<div class="opcs">
@@ -255,109 +354,6 @@
 
 									</div>										
 
-									<div class="form-row-ev">
-
-										<div class="preguntas">
-											<label class="" >Promedio obtenido en esta cita:</label>
-										</div>
-
-										<div class="opcs">
-										    <label id="promedio">3</label>
-										</div>
-
-									</div>	
-
-								</div>
-
-								<div class="form-row form-row-button">
-									<button class="btn btn-primary">Enviar</button>							        
-						        </div>
-
-							</fieldset>
-				        </form>
-                    </div>
-                </li>
-
-                <li class="accordion-item">
-                    <a href="#">
-                        	<p class="titulo2">
-                        		<span class="stit2">Evaluando a Pablo Monestel</span>
-                        		<span class="evaluacion-fecha">Fecha: 14 de Julio de 2014</span>
-                        		<span class="evaluacion-hora">Hora: 5:00pm</span>
-                        	</p>
-                        </a>
-                    <div class="accordion-detail">
-                        <form id="frm" action="evaluarCitaConfirm.html" method="post">
-								<fieldset>
-									<h2 >Formulario de evaluación de cita</h2>
-
-									<div class="form-row-ev">
-										<div id="pregunta1">
-											<label class="">1)¿El profesor se presentó a la cita?</label>
-										</div>
-
-										<div class="opcs">
-											<label class="radio">												
-				                                <input type="radio" name="group1" value="si" data-toggle="radio">SI
-				                            </label>
-				                        </div>
-
-			                            <div class="opcs">
-			                            	<label class="radio">			                            		
-			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
-			                                </label>				                            
-
-									    </div>	
-								</div>
-								
-                                <div class="wrapperItems"> 
-                                	<p>A continuación para cada pregunta los indicadores: 5 = plenamente satisfactorio, 4 = muy satisfactorio, 3 = satisfactorio , 2 = no satisfatorio, 1 = totalmente insatisfactorio.</p>
-
-                                	<div class="form-row-ev"> 
-                                		<div class="preguntas">
-                                			<label class="">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
-								        </div>
-
-								        <div class="opcs">	
-								        	<input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
-									    </div>
-								    </div>
-                                
-									<div class="form-row-ev">
-
-										<div class="preguntas">
-											<label class="" >3)¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
-										</div>
-
-										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
-										</div>
-
-									</div>
-
-									<div class="form-row-ev">	
-
-										<div class="preguntas">
-											<label class="" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
-										</div>
-
-										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
-										</div>
-
-									</div>
-
-									<div class="form-row-ev">	
-										<div class="preguntas">
-											<label class="">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
-										</div>
-
-										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
-										</div>
-
-									</div>										
-z
 									<div class="form-row-ev">
 
 										<div class="preguntas">
@@ -386,6 +382,7 @@ z
 			<footer>
 				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
 			</footer>
+
 		</div>
 
 		<script src="../js/vendors/jquery-1.8.3.min.js"></script>

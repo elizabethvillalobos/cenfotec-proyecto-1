@@ -114,11 +114,11 @@ function toggleForms() {
 		ul.removeChild( ul.firstChild );
 	}
 	
-	title.innerHTML="Seleccionar Profesor";		
+	title.innerHTML="Seleccionar profesor";		
 	for(i=0;i<20;i++)
 	{
 		var li = document.createElement("li");
-		li.appendChild(document.createTextNode("Alvaro Cordero"));
+		li.appendChild(document.createTextNode("Álvaro Cordero"));
 		li.setAttribute("value","1");
 		li.setAttribute("class","listItem");
 		ul.appendChild(li);

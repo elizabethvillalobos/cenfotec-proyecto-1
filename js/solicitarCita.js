@@ -54,7 +54,25 @@ if(btnEnviar!=null){
 }
 if(btnCrearSolicitud!=null){
 	btnCrearSolicitud.addEventListener('click',function(){
-		window.location = "solicitarCita.html"
+		var url = window.location.pathname;
+		var primerDivision = url.split("/");
+		primerDivision=primerDivision[primerDivision.length-1];
+		if (primerDivision.indexOf("profesor") >= 0)
+		{
+			window.location = "solicitarCita-profesor.html"
+		}
+		else
+		{
+			if (primerDivision.toLowerCase().indexOf("estudiante") >= 0)
+			{
+				window.location = "solicitarCita-estudiante.html"
+			}
+			else
+			{
+				window.location = "solicitarCita.html"
+			}
+		}
+		
 	});
 }
 // ------------------------------------------

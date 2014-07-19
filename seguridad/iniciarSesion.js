@@ -1,7 +1,6 @@
 var eBtnIniciarSesion = document.querySelector('.btn-primary'),
     aInputs = document.querySelectorAll('form .form-control'),
     eError = document.querySelector('.alert-error'),
-    aCorreos = ["crojasb@ucenfotec.ac.cr", "pmonestel@ucenfotec.ac.cr", "acorraless@ucenfotec.ac.cr"],
     regis=false;
 
 eBtnIniciarSesion.addEventListener('click', function (evento) {

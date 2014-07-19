@@ -61,12 +61,12 @@
                             <a href="perfil.html">Perfil</a>
                         </li>
                         <li class="accordion-item">
-                            <a href="#">Mi Cuenta</a>
+                            <a href="miCuenta.html">Mi cuenta</a>
                         </li>
                         <li class="accordion-item">
-                            <a href="consultarCarreras.html">Carreras y Cursos</a>
+                            <a href="consultarCarreras.html" class="active">Carreras y cursos</a>
                         </li>
-                        <li class="accordion-item" class="active">
+                        <li class="accordion-item">
                             <a href="consultarUsuario.html">Usuarios</a>
                         </li>
                         <li class="accordion-item">
@@ -76,7 +76,7 @@
                 </nav>
             </aside>
 
-			<main>
+			<main class="usuario-modificar">
 				<section>
 					<div class="mod-hd">
 						<h2>Modificar Usuario</h2>
@@ -86,24 +86,26 @@
 					<form id="modificar-usuario" class="mod-bd form-horizontal" action="usuarioGuardado.html" method="post" data-validate="true" novalidate>
 						<div class="form-row">
 							<label for="usuario-nombre">Nombre:</label>
-							<input id="usuario-nombre" type="text" placeholder="Ingrese el nombre" class="form-control" value="Juan" required/>
+							<input id="usuario-nombre" type="text" placeholder="Ingrese el nombre" class="form-control" value="Juan Carlos" required/>
 						</div>
 
 						<div class="form-row">
 							<label for="usuario-apellidos">Primer apellido:</label>
-							<input id="usuario-apellidos" type="text" placeholder="Ingrese los apellidos" class="form-control" value="Pérez" required/>
+							<input id="usuario-apellidos" type="text" placeholder="Ingrese el primer" class="form-control" value="Brenes" required/>
 						</div>
 						
 						<div class="form-row">
 							<label for="usuario-apellidos">Segundo apellido:</label>
-							<input id="usuario-apellidos" type="text" placeholder="Ingrese los apellidos" class="form-control" value="Pérez" required/>
+							<input id="usuario-apellidos" type="text" placeholder="Ingrese el segundo apellido" class="form-control" value="Álvarez" required/>
 						</div>
 
 						<div class="form-row">
 							<label for="usuario-avatar">Avatar:</label>
 							<!-- Drop media element -->
                 			<div class="media-drop">
-			                    <div id="droppedimage"></div> <!-- Image placeholder -->
+			                    <div id="droppedimage">
+			                    	<img src="../images/users/juan-carlos-brenes.jpg">
+			                    </div>
 			                    <div id="dropbox" class="media-drop-placeholder" style="width: 200px; height: 200px">
 			                        <span class="media-drop-placeholder-title">Arrastrar imagen aquí</span>
 			                        <span class="media-drop-placeholder-or">o</span>
@@ -122,59 +124,75 @@
 
 						<div class="form-row">
 							<label for="usuario-email">Correo electrónico:</label>
-							<input id="usuario-email" type="email" placeholder="Ingrese el correo electrónico" class="form-control" data-validate-type="email" required/>
+							<input id="usuario-email" type="email" placeholder="Ingrese el correo electrónico" value="jbrenesa@ucenfotec.ac.cr" class="form-control" data-validate-type="email" required/>
 						</div>
 
 						<div class="form-row">
 							<label for="usuario-telefono">Teléfono:</label>
-							<input id="usuario-telefono" type="text" placeholder="Ingrese el número telefónico" class="form-control" value="5555-5555" />
+							<input id="usuario-telefono" type="text" placeholder="Ingrese el número telefónico" class="form-control" value="8850-0504" />
 						</div>
 
 						<div class="form-row">
 							<label for="usuario-skype">Skype Id:</label>
-							<input id="usuario-skype" type="text" placeholder="Ingrese la cuenta de Skype" class="form-control" value="juan.perez" />
+							<input id="usuario-skype" type="text" placeholder="Ingrese la cuenta de Skype" class="form-control" value="jc.brenes" />
 						</div>
 
 						<div class="form-row">
 							<label for="usuario-rol">Rol:</label>
-							<select if="usuario-rol">
-								<option value="">Seleccione una opcion</option>
-								<option value="">Estudiante</option>
-								<option value="">Asistente de Curso</option>
+							<select id="usuario-rol">
+								<option value="">Seleccione una opción</option>
+								<option value="" selected>Estudiante</option>
+								<option value="">Asistente de curso</option>
 								<option value="">Profesor</option>
-								<option value="">Dirección Académica</option>
+								<option value="">Dirección académica</option>
 								<option value="">Rector</option>
 								<option value="">Mercadeo</option>
-								<option value="" selected>Administrador</option>
+								<option value="">Administrador</option>
 							</select>
 						</div>
 
 						<div class="form-row">
 							<label for="usuario-carrera">Carrera:</label>
-							<select if="usuario-carrera">
-								<option value="">Seleccione una opcion</option>
-								<option value="">Desarrollo y diseño web</option>
-								<option value="" selected>Desarrollo de software</option>
+							<select id="usuario-carrera">
+								<option value="">Seleccione una opción</option>
+								<option value="carrera-diseno-web">Desarrollo y diseño web</option>
+								<option value="carrera-desarrollo" selected>Desarrollo de software</option>
 								<option value="">Integración de tecnologías</option>
 								<option value="">Telemática</option>
-								<option value="">Cyberseguridad</option>
+								<option value="">Inglés</option>
 							</select>
 						</div>
 
-						<div class="form-row">
-							<label for="usuario-cursos">Cursos:</label>
-							<select if="usuario-cursos">
+						<div class="form-row cursos-diseno-web">
+							<label for="usuario-curso-diseno">Cursos:</label>
+							<select id="usuario-curso-diseno">
+								<option value="">Diseño web 1</option>
+								<option value="">Diseño visual digital 1</option>
+								<option value="">Fundamentos de programación web</option>
+								<option value="">Animación web 2D</option>
+								<option value="">Proyecto de desarrollo web 1</option>
+								<option value="">Programación del lado del servidor</option>
+								<option value="">Comunicación social en la web</option>
+							</select>
+						</div>
+
+						<div class="form-row cursos-desarrollo">
+							<label for="usuario-curso-desarrollo">Cursos:</label>
+							<select id="usuario-curso-desarrollo" required>
 								<option value="" selected>Fundamentos de programación</option>
-								<option value="">Proyecto de ingeniería de software</option>
+								<option value="">Proyecto de ingeniería de software 1</option>
 								<option value="">Fundamentos de bases de datos</option>
 								<option value="">Estructuras de datos</option>
+								<option value="">Arquitectura de computadoras</option>
+								<option value="" selected>Estructura de datos 2</option>
+								<option value="">Proyecto de ingeniería del software 2</option>
 							</select>
 						</div>
 
-						<div class="form-row">
+						<!-- <div class="form-row">
 							<label for="usuario-horario">Horario:</label>
 							<input id="usuario-horario" type="email" placeholder="Lunes, Martes y Jueves de 4:00 p.m. a 6:00 p.m." class="form-control" data-validate-type="email"/>
-						</div>
+						</div> -->
 
 						<div class="form-row form-row-button">
 							<button id="btn-guardar-usuario" class="btn btn-primary" type="submit">Guardar</button>

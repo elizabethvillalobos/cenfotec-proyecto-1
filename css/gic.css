@@ -177,7 +177,7 @@ body {
    color: #666;
    font-family: "Lato", Helvetica, Arial, sans-serif;
    line-height: 1.72222;
-   margin: 20px auto;
+   margin: 20px auto 100px;
    max-width: 1024px;
    /*width: 1000px;*/
    width: 85%;

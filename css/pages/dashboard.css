@@ -189,3 +189,7 @@ main {
 	display: none;
 }
 
+.dashboard-profesor .rating-4,
+.dashboard-profesor .rating-5 {
+	display: block;
+}

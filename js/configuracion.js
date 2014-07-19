@@ -62,7 +62,7 @@ var ebtnEnviar = document.querySelector('#btnEvr'),
 if(ebtnEnviar) {
 	ebtnEnviar.addEventListener('click',function(event){
        var eMailNotif = document.querySelector('#emailNot').value;
-		alert(eMailNotif);
+		
 		event.preventDefault();
 		 
 		var mailCorrecto = validarCorreo(eMailNotif, eMsjError, 'El correo no es válido.');

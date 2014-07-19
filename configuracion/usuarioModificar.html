@@ -61,10 +61,10 @@
                             <a href="perfil.html">Perfil</a>
                         </li>
                         <li class="accordion-item">
-                            <a href="#">Mi Cuenta</a>
+                            <a href="#">Mi cuenta</a>
                         </li>
                         <li class="accordion-item">
-                            <a href="consultarCarreras.html">Carreras y Cursos</a>
+                            <a href="consultarCarreras.html">Carreras y cursos</a>
                         </li>
                         <li class="accordion-item" class="active">
                             <a href="consultarUsuario.html">Usuarios</a>
@@ -79,24 +79,24 @@
 			<main>
 				<section>
 					<div class="mod-hd">
-						<h2>Modificar Usuario</h2>
+						<h2>Modificar usuario</h2>
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
 					<form id="modificar-usuario" class="mod-bd form-horizontal" action="usuarioGuardado.html" method="post" data-validate="true" novalidate>
 						<div class="form-row">
 							<label for="usuario-nombre">Nombre:</label>
-							<input id="usuario-nombre" type="text" placeholder="Ingrese el nombre" class="form-control" value="Juan" required/>
+							<input id="usuario-nombre" onkeypress="return soloLetras(event)" type="text" placeholder="Ingrese el nombre" class="form-control" value="Juan" required/>
 						</div>
 
 						<div class="form-row">
 							<label for="usuario-apellidos">Primer apellido:</label>
-							<input id="usuario-apellidos" type="text" placeholder="Ingrese los apellidos" class="form-control" value="Pérez" required/>
+							<input id="usuario-apellidos" onkeypress="return soloLetras(event)" type="text" placeholder="Ingrese los apellidos" class="form-control" value="Pérez" required/>
 						</div>
 						
 						<div class="form-row">
 							<label for="usuario-apellidos">Segundo apellido:</label>
-							<input id="usuario-apellidos" type="text" placeholder="Ingrese los apellidos" class="form-control" value="Pérez" required/>
+							<input id="usuario-apellidos" onkeypress="return soloLetras(event)" type="text" placeholder="Ingrese los apellidos" class="form-control" value="Pérez" required/>
 						</div>
 
 						<div class="form-row">

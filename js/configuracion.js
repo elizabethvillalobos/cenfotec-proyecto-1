@@ -52,18 +52,27 @@ if (eFormValidar) {
 
 
 var ebtnEnviar = document.querySelector('#btnEvr'),
-    eMailEl = document.querySelector('#email'),
-    eMail = '',
+    eform = document.querySelector('#form-confGrl'),
+    
     eMsjError = document.querySelector('.alert-error');
 
-if (eMailEl) {
+/*if (eMailEl) {
 	eMail = eMailEl.value;
-}
-if (ebtnEnviar) {
-	ebtnEnviar.addEventListener('click',function(evento){
-        evento.preventDefault();
-		var correoCorrecto = validarCorreo(eMail, eMsjError, 'El correo no es válido.');
+}*/
+if(ebtnEnviar) {
+	ebtnEnviar.addEventListener('click',function(event){
+       var eMailNotif = document.querySelector('#emailNot').value;
+		alert(eMailNotif);
+		event.preventDefault();
+		 
+		var mailCorrecto = validarCorreo(eMailNotif, eMsjError, 'El correo no es válido.');
+        
+
+		if(mailCorrecto){
+			eform.submit();
+		}       
 	});
+	
 }
 
 /*validar correo en notificaciones*/    

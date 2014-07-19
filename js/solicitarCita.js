@@ -177,6 +177,7 @@ function getRadioChecked(radioName){
 // ------------------------------------------
 // Variables globales
 // ------------------------------------------
+var btnAceptar=document.querySelector('#btnAceptar');
 var btnAceptar1=document.querySelector('#solicitudes #btnAceptar');
 var btnRechazar1=document.querySelector('#solicitudes #btnRechazar');
 var btnAceptar2=document.querySelector('#solicitudesEstudiantes #btnAceptar');
@@ -185,6 +186,27 @@ var btnRechazar2=document.querySelector('#solicitudesEstudiantes #btnRechazar');
 // ------------------------------------------
 // Eventos
 // ------------------------------------------
+if(btnAceptar!=null){
+	btnAceptar.addEventListener('click',function(){
+		if(!inputLlenos('solicitarCita')){
+			event.preventDefault();
+		}
+		else
+		{
+			if($('#txtFecha').datepicker("getDate")<new Date())
+			{
+				event.preventDefault();
+			}
+			else
+			{
+				if($('#txtHoraInicio').val()<$('#txtHoraFin').val())
+				{
+					event.preventDefault();
+				}
+			}
+		}
+	});
+}
 if(btnAceptar1!=null){
 	btnAceptar.addEventListener('click',function(){
 		if(!inputLlenos('solicitarCita')){

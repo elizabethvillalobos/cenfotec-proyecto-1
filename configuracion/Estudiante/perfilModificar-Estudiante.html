@@ -18,10 +18,10 @@
 				<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="../../citas/Profesor/citas-Profesor.html" class="citas flaticon-calendar68"><span>Citas</span></a>
+							<a href="../../citas/Estudiante/citas-Estudiante.html" class="citas flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="../../evaluacion/Profesor/miRanking-Profesor.html" class="evaluacion  flaticon-verification5"><span>Evaluación</span></a>
+							<a href="../../evaluacion/Estudiante/miRanking-Estudiante.html" class="evaluacion  flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
 							<a href="../../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
@@ -30,7 +30,7 @@
 							<a href="../../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="perfil-Profesor.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
+							<a href="perfil-Estudiante.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -41,11 +41,11 @@
 				</section>
 
 				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Pablo!</span>
-					<img class="usr-photo" src="../../images/users/pablo-monestel.jpg" width="40" height="40">
+					<span class="usr-greeting">Bienvenido, Ernesto!</span>
+					<img class="usr-photo" src="../../images/users/ernesto-rivera.jpg" width="40" height="40">
 					<ul>
 						<li>
-							<a href="perfil-Profesor.html" class="usr-editar-perfil">Perfil</a>
+							<a href="perfil-Estudiante.html" class="usr-editar-perfil">Perfil</a>
 						</li>
 						<li>
 							<a href="../../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
@@ -58,14 +58,12 @@
                 <nav class="secondary-nav">
                     <ul class="sec-nav-category accordion">
                         <li class="accordion-item">
-                            <a href="perfil-Profesor.html" class="active">Perfil</a>
+                            <a href="perfil-Estudiante.html" class="active">Perfil</a>
                         </li>
                         <li class="accordion-item">
-                            <a href="miCuenta-Profesor.html">Mi cuenta</a>
+                            <a href="#">Mi cuenta</a>
                         </li>
-                        <li class="accordion-item">
-                            <a href="consultarUsuario-Profesor.html" >Usuarios</a>
-                        </li>
+                        
                     </ul>
                 </nav>
             </aside>
@@ -77,20 +75,20 @@
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="editar-modificar" class="mod-bd form-horizontal" action="perfilGuardado-Profesor.html" method="post" data-validate="true" novalidate>
+					<form id="editar-modificar" class="mod-bd form-horizontal" action="perfilGuardado-Estudiante.html" method="post" data-validate="true" novalidate>
 						<div class="form-row">
 							<label for="perfil-nombre">Nombre:</label>
-							<input id="perfil-nombre" type="text" placeholder="Ingrese el nombre" class="form-control" value="Pablo" required/>
+							<input id="perfil-nombre" type="text" placeholder="Ingrese el nombre" class="form-control" value="Ernesto" required/>
 						</div>
 
 						<div class="form-row">
 							<label for="perfil-apellido-1">Primer apellido:</label>
-							<input id="perfil-apellido-1" type="text" placeholder="Ingrese el primer apellido" class="form-control" value="Monestel" required/>
+							<input id="perfil-apellido-1" type="text" placeholder="Ingrese el primer apellido" class="form-control" value="Rivera" required/>
 						</div>
 
 						<div class="form-row">
 							<label for="perfil-apellido-2">Segundo apellido:</label>
-							<input id="perfil-apellido-2" type="text" placeholder="Ingrese el segundo apellido" class="form-control" value="" required/>
+							<input id="perfil-apellido-2" type="text" placeholder="Ingrese el segundo apellido" class="form-control" value="Rivera" required/>
 						</div>
 
 						<div class="form-row">
@@ -98,7 +96,7 @@
 							<!-- Drop media element -->
                 			<div class="media-drop">
 			                    <div id="droppedimage">
-			                    	<img src="../../images/users/pablo-monestel.jpg">
+			                    	<img src="../../images/users/ernesto-rivera.jpg">
 			                    </div>
 			                    <div id="dropbox" class="media-drop-placeholder" style="width: 200px; height: 200px;">
 			                        <span class="media-drop-placeholder-title">Arrastrar imagen aquí</span>
@@ -123,20 +121,20 @@
 
 						<div class="form-row">
 							<label for="perfil-telefono">Teléfono:</label>
-							<input id="perfil-telefono" type="text" placeholder="Ingrese el número telefónico" class="form-control" value="8719-5963" />
+							<input id="perfil-telefono" type="text" placeholder="Ingrese el número telefónico" class="form-control" value="2568-5635" />
 						</div>
 
 						<div class="form-row">
 							<label for="perfil-skype">Skype id:</label>
-							<input id="perfil-skype" type="text" placeholder="Ingrese la cuenta de Skype" class="form-control" value="pabs.monestel" />
+							<input id="perfil-skype" type="text" placeholder="Ingrese la cuenta de Skype" class="form-control" value="ernesto.rivera" />
 						</div>
 
 						<div class="form-row">
 							<label for="perfil-rol">Rol:</label>
-							<span class="data">Profesor</span>
+							<span class="data">Estudiante</span>
 						</div>
 
-						<!-- <div class="form-row">
+						 <div class="form-row">
 							<label for="perfil-carrera">Carrera:</label>
 							<span class="data">Desarrollo de Software</span>
 						</div>
@@ -146,10 +144,12 @@
 							<span class="data">Proyecto de ingeniería del software 1</span>
 						</div>
 
+<!--
 						<div class="form-row">
 							<label for="perfil-horario">Horario:</label>
 							<span class="data">Lunes, Martes y Jueves de 4:00 p.m. a 6:00 p.m.</span>
-						</div> -->
+						</div> 
+-->
 
 						<div class="form-row form-row-button">
 							<button id="btn-guardar-perfil" class="btn btn-primary" type="submit">Guardar</button>

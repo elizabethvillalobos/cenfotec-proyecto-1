@@ -3,9 +3,9 @@
 	<head>
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="../css/gic.css">
-		<link rel="stylesheet" href="../css/pages/evaluacion.css">
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/gic.css">
+		<link rel="stylesheet" href="../../css/pages/evaluacion.css">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -18,10 +18,10 @@
 				<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
+							<a href="../../citas/Estudiante/citas-Estudiante.html" class="citas flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="miRanking.html" class="evaluacion active flaticon-verification5"><span>Evaluación</span></a>
+							<a href="miRanking-Estudiante.html" class="evaluacion active flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
 							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
@@ -30,7 +30,7 @@
 							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="../configuracion/perfil.html" class="configuracion  flaticon-machine2"><span>Configuración</span></a>
+							<a href="../../configuracion/Estudiante/perfil-Estudiante.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -41,14 +41,14 @@
 				</section>
 
 				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Carlos!</span>
-					<img class="usr-photo" src="../images/users/administrador.jpg" width="40" height="40">
+					<span class="usr-greeting">Bienvenido, Ernesto!</span>
+					<img class="usr-photo" src="../../images/users/ernesto-rivera.jpg" width="40" height="40">
 					<ul>
 						<li>
-							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Perfil</a>
+							<a href="../../configuracion/Estudiante/perfil-Estudiante.html" class="usr-editar-perfil">Perfil</a>
 						</li>
 						<li>
-							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
+							<a href="../../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
 						</li>
 					</ul>
 				</section>
@@ -57,19 +57,19 @@
 			 <aside>
 	                <nav class="secondary-nav">
 	                    <ul class="sec-nav-category accordion">
-	                    	<li class="accordion-item"><a class="active" href="miRanking.html">Mi ranking</a></li>
-	                        <li class="accordion-item">
-	                            <a href="evaluarCita.html" >Evaluaciones</a>
+	                    	<li class="accordion-item"><a href="miRanking-Estudiante.html">Mi ranking</a></li>
+	                        <li class="accordion-item expanded">
+	                            <a href="#.html" class="active">Evaluaciones</a>
 	                            <ul class="thrd-nav-category accordion-detail">
-	                                <li><a href="evaluarCita.html" class="">Pendientes</a></li>
-	                                <li><a href="consultarEvaluacionesRealizadas.html" >Realizadas</a></li>   
+	                                <li><a href="evaluarCita-Estudiante.html" class="">Pendientes</a></li>
+	                                <li><a href="consultarEvaluacionesRealizadas-Estudiante.html" class="active">Realizadas</a></li>   
 	                            </ul>
 	                        </li>                   
 	                    </ul>
 	                </nav>
             </aside>
 
-			<main>
+			<main id="mainRnkg">
 				<div id="rankDiv">
 					
 					<div id="user">
@@ -78,11 +78,11 @@
 
 					<div id ="puntuacion">
 						
-						<h1><span class="circulo">4</span>Puntuación</h1>
+						<h1><span class="circulo">3</span>Puntuación</h1>
 					</div>
 
 					<div id="cantidad">
-						<span id="">Citas asistidas: 9 de 10</span>
+						<span id="">Citas asistidas: 8 de 10</span>
 					</div>
 					
 				</div>
@@ -101,31 +101,31 @@
 							<td>Puntualidad</td>
 							<td></td>
 							<td class="center"></td>
-							<td class="center">4</td>
+							<td class="center">3</td>
 						</tr>
 						<tr>
 							<td>Cordialidad y respeto</td>
 							<td></td>
 							<td class="center"></td>
-							<td class="center">4</td>
+							<td class="center">3</td>
 						</tr>
 						<tr>
 							<td>Colaboración</td>
 							<td></td>
 							<td class="center"></td>
-							<td class="center">4</td>
+							<td class="center">3</td>
 						</tr>
 						<tr>
 							<td>Satisfacción</td>
 							<td></td>
 							<td class="center"></td>
-							<td class="center">4</td>
+							<td class="center">3</td>
 						</tr>
 						<tr>
 							<td>Promedio obtenido</td>
 							<td></td>
 							<td class="center"></td>
-							<td class="center">4</td>
+							<td class="center">3</td>
 						</tr>
 					</tbody>
 				</table>
@@ -136,7 +136,7 @@
 			</footer>
 		</div>
 
-		<script src="../js/common-logic.js"></script>	
-        <script src="../js/evaluacion.js"></script>
+		<script src="../../js/common-logic.js"></script>	
+        <script src="../../js/evaluacion.js"></script>
 	</body>
 </html>

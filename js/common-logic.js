@@ -250,12 +250,19 @@ function validarEmail(pEmail) {
     return re.test(pEmail);
 }
 
+// Retorna true/false si el telefono es valido.
+function validarTelefono(pPhone) {
+    var re = new RegExp(/^[0-9]{4}\-[0-9]{4}$/);
+    return re.test(pPhone);
+}
+
 // Validar un formulario.
 function validarForm(pFormId) {
     var bValido = true,
         eInputs = document.querySelectorAll('#' + pFormId + ' input[required], textarea[required]'),
         eSelects = document.querySelectorAll('#' + pFormId + ' select[required]'),
-        eTextareas = document.querySelectorAll('#' + pFormId + ' textarea[required]');
+        eTextareas = document.querySelectorAll('#' + pFormId + ' textarea[required]'),
+        eInputsPhone = document.querySelectorAll('#' + pFormId + ' input[data-validate-type="phone"]');
 
     // Validar que los inputs requeridos esten llenos.
     for(var i=0; i < eInputs.length; i++) {
@@ -288,7 +295,7 @@ function validarForm(pFormId) {
         }
     }
     // Validar que los selects tengan un valor
-    if (eSelects) {
+    if (eSelects.length) {
         for(var j=0; j < eSelects.length; j++) {
             var eSelectedOption = eSelects[j].querySelector('option[selected]');
 
@@ -298,6 +305,16 @@ function validarForm(pFormId) {
             }
         }
     }
+
+    if (eInputsPhone.length) {
+        for(var p=0; p < eInputsPhone.length; p++) {
+            if (!validarTelefono(eInputsPhone[p].value)) {
+                bValido = false;
+                mostrarMensajeError(eInputsPhone[p], 'El formato del número de teléfono es inválido. Ejemplo: 5555-5555');
+            }
+        }
+    }
+
     return bValido;
 }
 

@@ -189,6 +189,15 @@ form.form-horizontal .form-control-time {
 	color: #e74c3c;
 }
 
+.ui-datepicker-current-day a {
+	color: #e74c3c;
+	font-weight: bold;
+}
+
+.ui-datepicker-today a {
+	color: #3c3c3c;
+	font-weight: bold;
+}
 
 .ui-datepicker table {
 	border: 2px solid #666;

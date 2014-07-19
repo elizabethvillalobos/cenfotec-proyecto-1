@@ -344,6 +344,10 @@ h2 {
    Elizabeth 
    ----------------------
 */
+.accordion-usuarios a {
+    font-size: 1.1em;
+}
+
 #carreras-hd a {
     font-size: 1.2em;
 }
@@ -457,7 +461,8 @@ main #q {
     display: block !important;
 }
 
-.perfil-modificar .media-drop-placeholder {
+.perfil-modificar .media-drop-placeholder,
+.usuario-modificar .media-drop-placeholder {
   display: none;
 }
 
@@ -493,14 +498,17 @@ main #q {
     float: left
 }
 
+.cursos-diseno-web {
+    display: none;
+}
+
 .acciones-admin{
     overflow: hidden;
-    margin-top: 20px 
+    margin: 20px 0 0 150px;
 }
 
 .item-usuario{
-    float: right;
-    margin-left: 107px;
+    margin-right: 50px;
 }
 
 .usuarios .accordion-detail {

@@ -225,11 +225,6 @@ function inputLlenos(idContainer){
 			myInputs.push(inputs[i]);
 		}
 	}
-	//select all textareas
-	inputs = document.getElementById(idContainer).getElementsByTagName('textarea');	
-	for(i=0; i<inputs.length; i++){		
-		myInputs.push(inputs[i]);
-	}
 	
 	for(i=0;i<myInputs.length;i++){
 		if(myInputs[i].value.trim()==''){

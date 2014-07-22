@@ -83,9 +83,6 @@ var ebtnEnviar = document.querySelector('#btnEvr'),
     
     eMsjError = document.querySelector('.alert-error');
 
-/*if (eMailEl) {
-	eMail = eMailEl.value;
-}*/
 if(ebtnEnviar) {
 	ebtnEnviar.addEventListener('click',function(event){
        var eMailNotif = document.querySelector('#emailNot').value;

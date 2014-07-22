@@ -54,7 +54,25 @@ if(btnEnviar!=null){
 }
 if(btnCrearSolicitud!=null){
 	btnCrearSolicitud.addEventListener('click',function(){
-		window.location = "solicitarCita.html"
+		var url = window.location.pathname;
+		var primerDivision = url.split("/");
+		primerDivision=primerDivision[primerDivision.length-1];
+		if (primerDivision.indexOf("profesor") >= 0)
+		{
+			window.location = "solicitarCita-profesor.html"
+		}
+		else
+		{
+			if (primerDivision.toLowerCase().indexOf("estudiante") >= 0)
+			{
+				window.location = "solicitarCita-estudiante.html"
+			}
+			else
+			{
+				window.location = "solicitarCita.html"
+			}
+		}
+		
 	});
 }
 // ------------------------------------------
@@ -177,6 +195,7 @@ function getRadioChecked(radioName){
 // ------------------------------------------
 // Variables globales
 // ------------------------------------------
+var btnAceptar=document.querySelector('#btnAceptar');
 var btnAceptar1=document.querySelector('#solicitudes #btnAceptar');
 var btnRechazar1=document.querySelector('#solicitudes #btnRechazar');
 var btnAceptar2=document.querySelector('#solicitudesEstudiantes #btnAceptar');
@@ -185,6 +204,20 @@ var btnRechazar2=document.querySelector('#solicitudesEstudiantes #btnRechazar');
 // ------------------------------------------
 // Eventos
 // ------------------------------------------
+if(btnAceptar!=null){
+	btnAceptar.addEventListener('click',function(){
+		if(!inputLlenos('solicitarCita')){
+			event.preventDefault();
+		}
+		else
+		{
+			if($('#txtFecha').datepicker("getDate")<new Date())
+			{
+				event.preventDefault();
+			}
+		}
+	});
+}
 if(btnAceptar1!=null){
 	btnAceptar.addEventListener('click',function(){
 		if(!inputLlenos('solicitarCita')){

@@ -83,9 +83,6 @@ var ebtnEnviar = document.querySelector('#btnEvr'),
     
     eMsjError = document.querySelector('.alert-error');
 
-/*if (eMailEl) {
-	eMail = eMailEl.value;
-}*/
 if(ebtnEnviar) {
 	ebtnEnviar.addEventListener('click',function(event){
        var eMailNotif = document.querySelector('#emailNot').value;
@@ -141,11 +138,14 @@ function toggleForms() {
 		ul.removeChild( ul.firstChild );
 	}
 	
-	title.innerHTML="Seleccionar profesor";		
-	for(i=0;i<20;i++)
+
+	title.innerHTML="Seleccionar Profesor";		
+	var listaProfes = ["Antonio Luna","Juan Vargas", "Pablo Monestel", "Álvaro Cordero", "Joel Martinez","Ana Mendez","Minor Tenorio","Normal Neil","Esteban Castro", "Nicole Pacheco","Kenny Moraga", "Katherine Guevara", "Adrián Arias", "Daniel Solano", "Francisco Miranda", "Pablo Marín", "Josue Zamora", "Brandon Carmona"];
+	for(i=0;i<listaProfes.length;i++)
 	{
 		var li = document.createElement("li");
-		li.appendChild(document.createTextNode("Álvaro Cordero"));
+		li.appendChild(document.createTextNode(listaProfes[i]));
+
 		li.setAttribute("value","1");
 		li.setAttribute("class","listItem");
 		ul.appendChild(li);

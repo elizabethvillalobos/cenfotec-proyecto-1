@@ -267,6 +267,25 @@ form.form-horizontal .form-control-time {
 	right: 5px;
 }
 
+.ui-datepicker-current-day a {
+	color: #e74c3c;
+	font-weight: bold;
+}
 
+.ui-datepicker-today a {
+	color: #333;
+	font-weight: bold;
+}
+
+
+
+/*fix*/
+.secondary-nav a {
+	padding: 8px 45px 8px 8px;
+}
+
+.thrd-nav-category a {
+	padding: 8px;
+}
 
 

@@ -184,9 +184,8 @@ main {
 	width: 40px;
 }
 
-.rating-4,
-.rating-5 {
-	display: none;
+li.rating-5 {
+	width: 30px;
 }
 
 .dashboard-profesor .rating-4,

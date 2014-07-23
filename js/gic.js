@@ -1,6 +1,3 @@
-// ------------------------------------------
-// Inializar funcionalidad de Flat-UI (no modificar)
-// ------------------------------------------
 (function($) {
 	var selects = $('select');
 	if (selects.length) {
@@ -12,10 +9,5 @@
     	$('.btn-group').on('click', 'a', function() {
       	$(this).siblings().removeClass('active').end().addClass('active');
     	});
-	}
-
-	var eDatePickers = $('.datepicker');
-	if (eDatePickers.length) {
-		eDatePickers.datepicker();
 	}
 })(jQuery);

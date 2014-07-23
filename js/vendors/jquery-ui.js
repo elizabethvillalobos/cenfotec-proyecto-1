@@ -3801,6 +3801,7 @@ function Datepicker() {
 		buttonImageOnly: false, // True if the image appears alone, false if it appears on a button
 		hideIfNoPrevNext: false, // True to hide next/previous month links
 			// if not applicable, false to just disable them
+		hideOnSelect: true,
 		navigationAsDateFormat: false, // True if date formatting applied to prev/today/next links
 		gotoCurrent: false, // True if today link goes back to current selection instead
 		changeMonth: false, // True if month can be selected directly, false if only prev/next
@@ -4285,7 +4286,8 @@ $.extend(Datepicker.prototype, {
 		inst._keyEvent = true;
 		if ($.datepicker._datepickerShowing) {
 			switch (event.keyCode) {
-				case 9: $.datepicker._hideDatepicker();
+				case 9: 
+						$.datepicker._hideDatepicker();
 						handled = false;
 						break; // hide on tab out
 				case 13: sel = $("td." + $.datepicker._dayOverClass + ":not(." +
@@ -4305,7 +4307,8 @@ $.extend(Datepicker.prototype, {
 						}
 
 						return false; // don't submit the form
-				case 27: $.datepicker._hideDatepicker();
+				case 27:
+						$.datepicker._hideDatepicker();
 						break; // hide on escape
 				case 33: $.datepicker._adjustDate(event.target, (event.ctrlKey ?
 							-$.datepicker._get(inst, "stepBigMonths") :
@@ -4594,11 +4597,17 @@ $.extend(Datepicker.prototype, {
 			};
 
 			// DEPRECATED: after BC for 1.8.x $.effects[ showAnim ] is not needed
-			if ( $.effects && ( $.effects.effect[ showAnim ] || $.effects[ showAnim ] ) ) {
-				inst.dpDiv.hide(showAnim, $.datepicker._get(inst, "showOptions"), duration, postProcess);
-			} else {
-				inst.dpDiv[(showAnim === "slideDown" ? "slideUp" :
-					(showAnim === "fadeIn" ? "fadeOut" : "hide"))]((showAnim ? duration : null), postProcess);
+			if (inst.settings.hideOnSelect) {
+				if ( $.effects && ( $.effects.effect[ showAnim ] || $.effects[ showAnim ] ) ) {
+					inst.dpDiv.hide(showAnim, $.datepicker._get(inst, "showOptions"), duration, postProcess);
+
+					
+
+
+				} else {
+					inst.dpDiv[(showAnim === "slideDown" ? "slideUp" :
+						(showAnim === "fadeIn" ? "fadeOut" : "hide"))]((showAnim ? duration : null), postProcess);
+				}
 			}
 
 			if (!showAnim) {
@@ -4637,6 +4646,9 @@ $.extend(Datepicker.prototype, {
 		var $target = $(event.target),
 			inst = $.datepicker._getInst($target[0]);
 
+
+		if ($.datepicker._curInst.settings.hideOnSelect) {
+
 		if ( ( ( $target[0].id !== $.datepicker._mainDivId &&
 				$target.parents("#" + $.datepicker._mainDivId).length === 0 &&
 				!$target.hasClass($.datepicker.markerClassName) &&
@@ -4644,6 +4656,8 @@ $.extend(Datepicker.prototype, {
 				$.datepicker._datepickerShowing && !($.datepicker._inDialog && $.blockUI) ) ) ||
 			( $target.hasClass($.datepicker.markerClassName) && $.datepicker._curInst !== inst ) ) {
 				$.datepicker._hideDatepicker();
+		}
+
 		}
 	},
 
@@ -4740,6 +4754,8 @@ $.extend(Datepicker.prototype, {
 			this._updateDatepicker(inst);
 		} else {
 			this._hideDatepicker();
+			this._updateDatepicker(inst);
+
 			this._lastInput = inst.input[0];
 			if (typeof(inst.input[0]) !== "object") {
 				inst.input.focus(); // restore focus
@@ -5325,6 +5341,7 @@ $.extend(Datepicker.prototype, {
 			isRTL = this._get(inst, "isRTL"),
 			showButtonPanel = this._get(inst, "showButtonPanel"),
 			hideIfNoPrevNext = this._get(inst, "hideIfNoPrevNext"),
+			hideOnSelect = this._get(inst, "hideOnSelect"),
 			navigationAsDateFormat = this._get(inst, "navigationAsDateFormat"),
 			numMonths = this._getNumberOfMonths(inst),
 			showCurrentAtPos = this._get(inst, "showCurrentAtPos"),

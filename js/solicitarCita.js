@@ -16,6 +16,21 @@ var totalSelected=0;
 // ------------------------------------------
 // Eventos
 // ------------------------------------------
+
+var eDatePickers = $('.datepicker');
+if (eDatePickers.length) {
+	eDatePickers.datepicker({
+		dateFormat: 'dd/mm/yy',
+		dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+		hideOnSelect: true,
+		prevText: 'Prev',
+		nextText: 'Sig',
+		minDate: new Date(),
+		monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+		'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre']
+	});
+}
+
 if(btnSelectCurso!=null){
 	btnSelectCurso.addEventListener('click',function(){
 		btnClickeado=btnSelectCurso;

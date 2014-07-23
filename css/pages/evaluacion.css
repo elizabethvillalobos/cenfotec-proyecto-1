@@ -128,14 +128,15 @@ h2{
 
 .circulo {
  	background: none repeat scroll 0 0 #e74c3c;
-	border-radius: 40px;
+	border-radius: 100px;
 	color: #ffffff;
 	display: block;
 	font-family: Oswald, sans-serif;
-	font-size: 60px;
+	font-size: 50px;
 	font-weight: bold;
 	line-height: 80px;
 	margin-left: 50px;
+	padding: 0 5px;
 	text-align: center;
 	width: 80px;
 }

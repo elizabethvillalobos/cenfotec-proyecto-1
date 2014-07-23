@@ -298,8 +298,8 @@ form.form-horizontal .form-control-time {
 
 
 #page-agenda .ui-datepicker {
-	background: #555;
-	left: 20%; top: 162px !important; width: 184px;
+	background: #555; left: 50% !important; margin-left: -502px !important; 
+	top: 162px !important; width: 180px;
 }
 
 #page-agenda .ui-datepicker a {
@@ -307,7 +307,7 @@ form.form-horizontal .form-control-time {
 }
 
 #page-agenda .ui-datepicker-calendar {
-	border: 0; width: 184px;
+	border: 0; width: 180px;
 }
 
 #page-agenda .ui-datepicker td, 
@@ -355,3 +355,8 @@ form.form-horizontal .form-control-time {
 }
 
 
+@media all and (max-width: 1024px) and (min-width: 750px) {
+    #page-agenda .ui-datepicker {
+        margin-left: -475px !important;
+    }
+}

@@ -107,7 +107,7 @@ function toggleForms() {
 	{
 		if(btnClickeado==btnSelectInvitado){
 			title.innerHTML="Seleccionar Invitado";
-			var listaInvitados=["Antonio Luna","Alvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"]
+			var listaInvitados=["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"]
 			for(i=0;i<listaInvitados.length;i++)
 			{
 				var li = document.createElement("li");

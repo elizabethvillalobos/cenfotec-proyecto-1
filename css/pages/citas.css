@@ -78,6 +78,9 @@ form{
 	padding:20px;
 	width: 100%;
 }
+#enviarRow{
+	margin-left:0px;
+}
 .btnIcon {
 	margin-bottom:3px;
 	padding:5px 10px;

@@ -3,14 +3,14 @@
 	<head>
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="../../css/gic.css">
-		<link rel="stylesheet" href="../../css/pages/citas.css">
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="../css/gic.css">
+		<link rel="stylesheet" href="../css/pages/citas.css">
 	</head>
 	<body id="page-agenda">
 		<div class="wrapper">
 			<header>
-				<a href="../../index-Estudiante.html" class="home">
+				<a href="../index.html" class="home">
 					<h1 class="logo">Gestor Inteligente de Citas</h1>
 				</a>
 
@@ -18,16 +18,19 @@
 				<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="citas-Estudiante.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
+							<a href="citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="../../evaluacion/estudiante/miRanking-Estudiante.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
+							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
-							<a href="../../mensajeria/estudiante/mensajeria-Estudiante.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
 						</li>
 						<li>
-							<a href="../../reportes/estudiante/reportes-Estudiante.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+						</li>
+						<li>
+							<a href="../configuracion/perfil.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -38,14 +41,14 @@
 				</section>
 
 				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Diego!</span>
-					<img class="usr-photo" src="../../images/users/diego-barillas.jpg" width="40" height="40">
+					<span class="usr-greeting">Bienvenido, Álvaro!</span>
+					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
 					<ul>
 						<li>
-							<a href="../../configuracion/Estudiante/perfil-Estudiante.html" class="usr-editar-perfil">Mi cuenta</a>
+							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Mi cuenta</a>
 						</li>
 						<li>
-							<a href="../../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
+							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
 						</li>
 					</ul>
 				</section>
@@ -62,7 +65,7 @@
 						</li>
 						<li class="accordion-item">
 							<span id="crearSolicitud" class="flaticon-add73"></span>
-							<a href="solicitarCita-Estudiante.html">Solicitudes de cita</a>
+							<a href="solicitarCita.html">Solicitudes de cita</a>
 						</li>
 					</ul>
 				</nav>
@@ -84,7 +87,7 @@
 							</div>
 						</div>
 
-						<img class="cita-photo" src="../../images/users/juan-carlos-brenes.jpg" width="75" height="75">
+						<img class="cita-photo" src="../images/users/juan-carlos-brenes.jpg" width="75" height="75">
 
 						<div class="row">
 							<span class="label">Asunto a tratar:</span>
@@ -117,10 +120,58 @@
 					</div>
 				</section>
 
+				<section class="cita cita-24-07-2014">
+					<div class="mod-hd">
+						<h2>Jueves 24 de Julio</h2>
+						<span class="cita-hora-inicio-fin">2:00 p.m. a 3:00 p.m.</span>
+					</div>
+					<div class="mod-bd">
+						<div class="row">
+							<span class="label">Invitado:</span>
+							<div class="data-wrap">
+								<span class="data cita-invitado">Diego Barillas Valverde</span>
+								<span class="data">dbarillasv@ucenfotec.ac.cr</span>
+								<span class="data">8850-0504</span>
+							</div>
+						</div>
+
+						<img class="cita-photo" src="../images/users/diego-barillas.jpg" width="75" height="75">
+
+						<div class="row">
+							<span class="label">Asunto a tratar:</span>
+							<span class="data">Casos de uso</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Curso:</span>
+							<span class="data">Proyecto de ingeniería de software 1</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Modalidad:</span>
+							<span class="data">Virtual</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Tipo:</span>
+							<span class="data">Grupal</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Observaciones:</span>
+							<span class="data">Hola profe, es sobre casos de uso expandidos.</span>
+						</div>
+						<div class="form-row form-row-button">
+							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+						</div>
+					</div>
+				</section>
+
 				<section class="cita cita-28-07-2014">
 					<div class="mod-hd">
 						<h2>Lunes 28 de Julio</h2>
-						<span class="cita-hora-inicio-fin">4:00 p.m. a 5:00 p.m.</span>
+						<span class="cita-hora-inicio-fin">4:00 p.m. a 4:00 p.m.</span>
 					</div>
 					<div class="mod-bd">
 						<div class="row">
@@ -132,7 +183,7 @@
 							</div>
 						</div>
 
-						<img class="cita-photo" src="../../images/users/susana-fuentes.jpg" width="75" height="75">
+						<img class="cita-photo" src="../images/users/susana-fuentes.jpg" width="75" height="75">
 
 						<div class="row">
 							<span class="label">Asunto a tratar:</span>
@@ -181,7 +232,7 @@
 							</div>
 						</div>
 
-						<img class="cita-photo" src="../../images/users/luis-guzman.jpg" width="75" height="75">
+						<img class="cita-photo" src="../images/users/luis-guzman.jpg" width="75" height="75">
 
 						<div class="row">
 							<span class="label">Asunto a tratar:</span>
@@ -230,7 +281,7 @@
 							</div>
 						</div>
 
-						<img class="cita-photo" src="../../images/users/walter-torres.jpg" width="75" height="75">
+						<img class="cita-photo" src="../images/users/walter-torres.jpg" width="75" height="75">
 
 						<div class="row">
 							<span class="label">Asunto a tratar:</span>
@@ -279,7 +330,7 @@
 							</div>
 						</div>
 
-						<img class="cita-photo" src="../../images/users/marcela-madriz.jpg" width="75" height="75">
+						<img class="cita-photo" src="../images/users/marcela-madriz.jpg" width="75" height="75">
 
 						<div class="row">
 							<span class="label">Asunto a tratar:</span>
@@ -313,6 +364,7 @@
 					</div>
 				</section>
 
+
 				<section class="cita no-cita">
 					<p class="flaticon-information38">No hay citas agendadas.</p>
 				</section>
@@ -342,10 +394,10 @@
 		</div>
 
 		<!-- Load JS -->
-		<script src="../../js/vendors/jquery-1.8.3.min.js"></script>
-		<script src="../../js/vendors/jquery-ui.js"></script>
-		<script src="../../js/gic.js"></script>
-        <script src="../../js/common-logic.js"></script>
-        <script src="../../js/citas.js"></script>
+		<script src="../js/vendors/jquery-1.8.3.min.js"></script>
+		<script src="../js/vendors/jquery-ui.js"></script>
+		<script src="../js/gic.js"></script>
+        <script src="../js/common-logic.js"></script>
+        <script src="../js/citas.js"></script>
 	</body>
 </html>

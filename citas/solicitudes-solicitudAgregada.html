@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="../css/pages/citas.css">
 	</head>
 	<body>
-		<div class="wrapper">
+		<div id="solicitudes" class="wrapper">
 			<header>
 				<a href="../index.html" class="home">
 					<h1 class="logo">Gestor Inteligente de Citas</h1>
@@ -41,8 +41,8 @@
 				</section>
 
 				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Carlos!</span>
-					<img class="usr-photo" src="../images/users/administrador.jpg" width="40" height="40">
+					<span class="usr-greeting">Bienvenido, Álvaro!</span>
+					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
 					<ul>
 						<li>
 							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Mi cuenta</a>
@@ -62,10 +62,12 @@
 						</li>
 						<li class="accordion-item expanded">
 							<span id="crearSolicitud" class="flaticon-add73"></span>
-							<a href="solicitudes.html" class="active">Solicitudes de cita</a>
+							<a href="#" class="active">Solicitudes de cita</a>
 							<ul class="thrd-nav-category accordion-detail">
-								<li><a href="solicitudes.html">Ernesto Rivera</a></li>
-								<li><a href="solicitudesEstudiantes.html">Pablo Monestel</a></li>
+								<li>
+									<span class="listo flaticon-check34"></span>
+									<a href="solicitudes.html" class="active">Diego Barillas</a>
+								</li>
 								<li>
 									<span class="listo flaticon-check34"></span>
 									<a href="solicitudInfo.html">Alejandro Leiva</a>
@@ -89,16 +91,72 @@
 			</aside>
 
 			<main>
-				<section class="msg-confirm">
+				<section class="cita">
 					<div class="mod-hd">
-						<h2 class="flaticon-cancel17">La solicitud de cita de atención ha sido realizada</h2>
+						<h2>Diego Barillas Valverde</h2>
+						<span class="cita-hora-inicio-fin">Solicitud pendiente</span>
 					</div>
 					<div class="mod-bd">
-						<p>Se ha enviado un mensaje al correo electrónico de <strong>Antonio Luna</strong> para notificarle que tiene una solicitud de cita nueva.</p>
+						<div class="row">
+							<span class="label">Solicitante:</span>
+							<div class="data-wrap">
+								<span class="data cita-invitado">Diego Barillas Valverde</span>
+								<span class="data">dbarillasv@ucenfotec.ac.cr</span>
+								<span class="data">2568-5635</span>
+							</div>
+						</div>
 
-						<a href="solicitudes.html" class="btn btn-default">Volver</a>
+						<img class="cita-photo" src="../images/users/diego-barillas.jpg" width="75" height="75">
+
+						<div class="row">
+							<span class="label">Asunto a tratar:</span>
+							<span class="data">Casos de uso</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Curso:</span>
+							<span class="data">Programación orientada a objetos</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Lugar:</span>
+							<span class="data">Cenfotec</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Tipo:</span>
+							<span class="data">Individual</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Observaciones:</span>
+							<span class="data">Hola profe, es sobre casos de uso expandidos.</span>
+						</div>
+						
+						
+						<h3>Fecha y hora</h3>
+						<div class="row">
+							<span class="label">Fecha:</span>
+							<span class="data">24 de Julio de 2014</span>
+						</div>
+
+						<div class="row">
+							<span class="label">Hora:</span>
+							<span class="data">2:00 p.m. a 3:00 p.m.</span>
+						</div>
+						
 					</div>
 				</section>
+
+				
+				<div id="modal-cancelar" class="modal js-modal-window">
+					<span class="close flaticon-close3 js-modal-close">Close</span>
+					<h3>¿Está seguro que desea rechazar la solicitud de cita de atención?</h3>
+					<div class="form-row">
+						<a href="solicitudRechazada.html" class="btn btn-primary js-modal-aceptar">Sí</a>
+						<a href="#" class="btn btn-default js-modal-close">No</a>
+					</div>
+				</div>
 			</main>
 			
 			<footer>
@@ -106,7 +164,9 @@
 			</footer>
 		</div>
 
-		<!-- Load JS -->
+		<script src="../js/vendors/jquery-1.8.3.min.js"></script>
+		<script src="../js/vendors/jquery-ui.js"></script>
+		<script src="../js/gic.js"></script>
         <script src="../js/common-logic.js"></script>
 		<script src="../js/solicitarCita.js"></script>
 	</body>

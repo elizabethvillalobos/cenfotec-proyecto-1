@@ -78,6 +78,9 @@ form{
 	padding:20px;
 	width: 100%;
 }
+#enviarRow{
+	margin-left:0px;
+}
 .btnIcon {
 	margin-bottom:3px;
 	padding:5px 10px;
@@ -175,6 +178,18 @@ form.form-horizontal .form-control-time {
 	width: 150px;
 }
 
+.no-cita {
+	text-align: center;
+}
+
+.no-cita p {
+	font-size: 1.2em; height: 390px; line-height: 390px; 
+}
+
+.sec-nav-category .accordion-item.expanded .accordion-detail {
+	height: 222px;
+}
+
 /* Datepicker */
 .ui-datepicker {
 	background: #f2f2f2;
@@ -267,6 +282,10 @@ form.form-horizontal .form-control-time {
 	right: 5px;
 }
 
+.ui-datepicker-unselectable {
+	color: #777;
+}
+
 .ui-datepicker-current-day a {
 	color: #e74c3c;
 	font-weight: bold;
@@ -277,6 +296,53 @@ form.form-horizontal .form-control-time {
 	font-weight: bold;
 }
 
+
+#page-agenda .ui-datepicker {
+	background: #555;
+	left: 20%; top: 162px !important; width: 184px;
+}
+
+#page-agenda .ui-datepicker a {
+	color: #f2f2f2;
+}
+
+#page-agenda .ui-datepicker-calendar {
+	border: 0; width: 184px;
+}
+
+#page-agenda .ui-datepicker td, 
+#page-agenda .ui-datepicker th {
+	padding: 2px 0;
+}
+ 
+#page-agenda .ui-datepicker th {
+	background: #c0392b;
+}
+
+#page-agenda tr:nth-child(even) td {
+	background: #3c3c3c;
+}
+
+
+#page-agenda .ui-datepicker-today a { 
+	color: #c0392b;
+}
+
+#page-agenda .ui-datepicker td.ui-datepicker-current-day {
+	background: #c0392b;
+}
+
+#page-agenda .ui-datepicker-current-day a {
+	color: #f2f2f2;
+}
+
+#page-agenda .cita {
+	display: none;
+}
+
+#page-agenda .cita.visible {
+	display: block;
+}
 
 
 /*fix*/

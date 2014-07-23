@@ -16,6 +16,21 @@ var totalSelected=0;
 // ------------------------------------------
 // Eventos
 // ------------------------------------------
+
+var eDatePickers = $('.datepicker');
+if (eDatePickers.length) {
+	eDatePickers.datepicker({
+		dateFormat: 'dd/mm/yy',
+		dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+		hideOnSelect: true,
+		prevText: 'Prev',
+		nextText: 'Sig',
+		minDate: new Date(),
+		monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+		'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre']
+	});
+}
+
 if(btnSelectCurso!=null){
 	btnSelectCurso.addEventListener('click',function(){
 		btnClickeado=btnSelectCurso;
@@ -107,7 +122,7 @@ function toggleForms() {
 	{
 		if(btnClickeado==btnSelectInvitado){
 			title.innerHTML="Seleccionar Invitado";
-			var listaInvitados=["Antonio Luna","Alvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"]
+			var listaInvitados=["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"]
 			for(i=0;i<listaInvitados.length;i++)
 			{
 				var li = document.createElement("li");
@@ -196,50 +211,40 @@ function getRadioChecked(radioName){
 // Variables globales
 // ------------------------------------------
 var btnAceptar=document.querySelector('#btnAceptar');
-var btnAceptar1=document.querySelector('#solicitudes #btnAceptar');
-var btnRechazar1=document.querySelector('#solicitudes #btnRechazar');
-var btnAceptar2=document.querySelector('#solicitudesEstudiantes #btnAceptar');
-var btnRechazar2=document.querySelector('#solicitudesEstudiantes #btnRechazar');
 
 // ------------------------------------------
 // Eventos
 // ------------------------------------------
 if(btnAceptar!=null){
-	btnAceptar.addEventListener('click',function(){
+	btnAceptar.addEventListener('click',function(event){
 		if(!inputLlenos('solicitarCita')){
 			event.preventDefault();
 		}
 		else
 		{
-			if($('#txtFecha').datepicker("getDate")<new Date())
-			{
+			var today=new Date();
+			today.setHours(0);
+			today.setMinutes(0);
+			today.setSeconds(0);
+			var fecha=document.querySelector('#txtFecha');
+			if($('#txtFecha').datepicker("getDate")<today)
+			{					
+				mostrarMensajeError(fecha,"Debe seleccionar una fecha válida");
 				event.preventDefault();
 			}
+			var horaIni=$('#txtHoraInicio');
+			var horaFin=$('#txtHoraFin');
+			if(horaIni.val()>horaFin.val())
+			{
+				mostrarMensajeError(document.querySelector('#txtHoraInicio'),"Debe seleccionar una hora válida");
+				mostrarMensajeError(document.querySelector('#txtHoraFin'),"Debe seleccionar una hora válida");
+				event.preventDefault();
+			}
+			
 		}
 	});
 }
-if(btnAceptar1!=null){
-	btnAceptar.addEventListener('click',function(){
-		if(!inputLlenos('solicitarCita')){
-			event.preventDefault();
-		}
-	});
-}
-if(btnRechazar1!=null){
-	btnRechazar.addEventListener('click',function(){
-		
-	});
-}
-if(btnAceptar2!=null){
-	btnRechazar.addEventListener('click',function(){
-		
-	});
-}
-if(btnRechazar2!=null){
-	btnRechazar.addEventListener('click',function(){
-		
-	});
-}
+
 
 // ------------------------------------------
 // FUNCIONES COMPARTIDAS
@@ -253,7 +258,7 @@ function inputLlenos(idContainer){
 	//select all inputs text
 	var inputs = document.getElementById(idContainer).getElementsByTagName('input');	
 	for(i=0; i<inputs.length; i++){		
-		if(inputs[i].type=="text" && inputs[i].getAttribute('id')!="txtCurso")
+		if((inputs[i].type=="text" || inputs[i].type=="time" )&& inputs[i].getAttribute('id')!="txtCurso")
 		{
 			myInputs.push(inputs[i]);
 		}

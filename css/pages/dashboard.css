@@ -184,8 +184,15 @@ main {
 	width: 40px;
 }
 
-.rating-4,
-.rating-5 {
+li.rating-5 {
+	width: 30px;
+}
+
+.dashboard-estudiante .rating-4 {
+	width: 20px;
+}
+
+.dashboard-estudiante .rating-5 {
 	display: none;
 }
 

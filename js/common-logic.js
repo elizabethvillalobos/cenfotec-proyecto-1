@@ -284,12 +284,10 @@ function validarForm(pFormId) {
                     }
                     break;
                 case 'string':
-                    // Pendiente...
-                    console.log('validate string');
+                    // Pendiente.
                     break;
                 case 'letters':
-                    // Pendiente...
-                    console.log('validate letras');
+                    // Pendiente.
                     break;
             }
         }

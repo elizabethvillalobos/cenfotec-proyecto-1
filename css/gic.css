@@ -1083,9 +1083,8 @@ header a:hover {
    Main menu
    ---------- */
 .main-nav {
-   position: absolute;
-   left: 190px;
-   top: 33px;
+   float: left;
+   margin: 25px 0 0 200px;
 }
 .main-nav ul {
    list-style: none;
@@ -1095,7 +1094,7 @@ header a:hover {
 .main-nav li {
    float: left;
    line-height: 1;
-   margin-right: 10px;
+   margin-right: 12px;
 }
 .main-nav a {
    -webkit-transition: color 0.2s;
@@ -1104,47 +1103,43 @@ header a:hover {
    height: 48px;
    position: relative;
    text-decoration: none;
-   width: 52px;   
+   min-width: 35px;
 }
-.main-nav a:hover,
-.main-nav .active {
-   color: #e74c3c;
-}
-.main-nav a:hover span,
-.main-nav .active span {
-   opacity: 1;
+.main-nav a:hover:before,
+.main-nav .active:before {
+    color: #e74c3c;
+    font-size: 26px;
 }
 .main-nav a:before {
-   font-size: 28px;
+   font-size: 18px;
    left: 0;
+   line-height: 28px;
    margin: 0;
    position: absolute;
    right: 0;
    text-align: center;
    top: 0;
+   transition: font-size 0.2s;
 }
 .main-nav span {
-   transition: opacity 0.2s;
    bottom: 0; 
-   color: #e74c3c;
    font-family: Arial, sans-serif;
    font-size: 0.9em;
-   opacity: 0;
    position: absolute;
    text-align: center;
    width: 100%;
 }
-.main-nav .configuracion span {
-    margin-left: -1.1em;
+.main-nav .configuracion {
+    width: 6.1em;
 }
-.main-nav .evaluacion span {
-    margin-left: -0.5em;
+.main-nav .evaluacion {
+    width: 5em;
 }
-.main-nav .mensajeria span {
-    margin-left: -0.5em;
+.main-nav .mensajeria {
+    width: 5em;
 }
-.main-nav .reportes span {
-    /*margin-left: -0.3em;*/
+.main-nav .reportes  {
+    width: 4em;
 }
 
 
@@ -1152,44 +1147,44 @@ header a:hover {
    Busqueda
    ---------- */
 .busqueda {
-   left: 53%;
-   position: absolute;
-   top: 32px;
+    float: left;
+    position: relative;
+    margin: 28px 0 0 20px;
 }
 #q {
-   border: 2px solid #3c3c3c;
-   -webkit-border-radius: 10px;
-   border-radius: 10px;
-   color: #3c3c3c;
-   font-size: 1em;
-   padding: 5px 25px 5px 8px;
-   width: 190px;
-   transition: width 0.3s;
+    border: 2px solid #3c3c3c;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    color: #3c3c3c;
+    font-size: 1em;
+    padding: 5px 25px 5px 8px;
+    transition: width 0.3s;
+    width: 190px;
 }
 #q:focus {
-   border-color: #e74c3c;
-   width: 250px;
+    border-color: #e74c3c;
+    width: 250px;
 }
 #q:focus,
 #btnBuscar:focus {
-   outline: 0;
+    outline: 0;
 }
 #btnBuscar {
-   background: transparent;
-   border: 0;
-   color: #7f8c8d;
-   position: absolute;
-   right: 0;
-   top: 4px;
-   width: 32px;
+    background: transparent;
+    border: 0;
+    color: #7f8c8d;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 32px;
 }
 #btnBuscar:before {
-   font-size: 1.2em;
-   margin: 0;
+    font-size: 1.2em;
+    margin: 0;
 }
 #q:focus,
 #btnBuscar:focus {
-   outline: 0;
+    outline: 0;
 }
 
 

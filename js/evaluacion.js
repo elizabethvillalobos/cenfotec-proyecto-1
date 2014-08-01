@@ -16,6 +16,7 @@ if (eRadiosChecked) {
 				eElParent = closestParentNode(eEl, 'accordion-detail'),
 				eWrapperItems = eElParent.querySelector('.wrapperItems');
 
+			limpiarMensajesError();
 			if (eEl.querySelector('input[type="radio"]').value == 'si') {
 				eWrapperItems.className += ' visible';
 			} else {
@@ -45,18 +46,21 @@ var ebtnEnviar =  document.querySelectorAll('.btn-primary'),
      eForm = document.querySelector('#frm'),
      eError = document.querySelector('.alert-error');
 
-if(ebtnEnviar) {
+if (ebtnEnviar.length) {
 	for (var i = 0; i < ebtnEnviar.length; i++) {
+		ebtnEnviar[i].addEventListener('click',function(evento) {
+			evento.preventDefault();
+			var eBtn = evento.currentTarget,
+				eElParent = closestParentNode(eBtn, 'accordion-detail'),
+				eForm = closestParentNode(eBtn, 'form-evaluacion'),
+				eRadio = eElParent.querySelectorAll('input[type="radio"]');
 
-
-		ebtnEnviar[i].addEventListener('click',function(evento){
-
-		var aRadios = document.querySelectorAll('input[type="radio"]');
-
-		validarRadiosChecked(aRadios,eForm,eError,'Debe seleccionar una opción');
-
-		evento.preventDefault();
-					 		       
+			limpiarMensajesError();
+			if (eRadio[0].checked || eRadio[1].checked) {
+				eForm.submit();
+			} else {
+				mostrarMensajeError(eRadio[0], 'Debe seleccionar una opción.', 'form-row-ev');
+			}			 		       
 	    });
 
 	};	

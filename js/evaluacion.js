@@ -25,6 +25,8 @@ if (eRadiosChecked) {
 	}
 }
 
+/********************************************************************************/
+
 for(var i=0; i < aPuntajes.length; i++) {
     aPuntajes[i].addEventListener('change', function(event){
         
@@ -38,21 +40,42 @@ for(var i=0; i < aPuntajes.length; i++) {
     });
 }
 
-/*
-if(ebtnEva) {
-	ebtnEva.addEventListener('click',function(){
+/**********************************************************************************/
+var ebtnEnviar =  document.querySelectorAll('.btn-primary'),
+     eForm = document.querySelector('#frm'),
+     eError = document.querySelector('.alert-error');
 
-		for (var j = 0; j < eRadiosChecked.length; j++) {
-			if(eRadiosChecked[j].value = 'si' || eRadiosChecked[j].value = 'no'){
-				eFormu.submit();
-			}	
-			else{
-				alert('Debe responder a la pregunta #1');
-							
-			}
-		}			 		       
-	});
+if(ebtnEnviar) {
+	for (var i = 0; i < ebtnEnviar.length; i++) {
+
+
+		ebtnEnviar[i].addEventListener('click',function(evento){
+
+		var aRadios = document.querySelectorAll('input[type="radio"]');
+
+		validarRadiosChecked(aRadios,eForm,eError,'Debe seleccionar una opción');
+
+		evento.preventDefault();
+					 		       
+	    });
+
+	};	
 	
 }
 
-*/
+function validarRadiosChecked(pArregloRadios,pFormulario,pElmtError,pErrorMsj){
+
+	for (var i = 0; i <pArregloRadios.length; i++) {
+
+			if(pArregloRadios[i].checked){
+
+				pFormulario.submit();
+
+			} else{
+
+				pElmtError.innerHTML = pErrorMsj;
+
+			};
+		};
+}
+

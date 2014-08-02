@@ -28,10 +28,10 @@
                         </a>
 
                         <div class="accordion-detail">
-                            <form id="frm" action="/cenfotec-proyecto-1/evaluacion/evaluarCitaConfirm.php" method="post">
+                            <form id="frm" class="form-evaluacion" action="/cenfotec-proyecto-1/evaluacion/evaluarCitaConfirm.php" method="post">
 								<fieldset>
+								<div class="msj-ev">
 									<h2 >Formulario de evaluación de cita</h2>
-
 									<div class="form-row-ev">
 										<div id="pregunta1">
 											<label class="">1)¿El estudiante se presentó a la cita?</label>
@@ -48,7 +48,8 @@
 			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
 			                                </label>
 									    </div>
-									    	
+								    </div> 
+
 								</div>
 								
                                 <div class="wrapperItems"> 
@@ -131,11 +132,10 @@
                         	</p>
                         </a>
                     <div class="accordion-detail">
-                        <form id="frm" action="evaluarCitaConfirm.html" method="post">
+                        <form id="frm" class="form-evaluacion" action="evaluarCitaConfirm2.html" method="post">
 								<fieldset>
-									<h2 >Formulario de evaluación de cita</h2>
-
-									<p class= "alert-error "></p>
+									<div class="msj-ev">
+									<h2>Formulario de evaluación de cita</h2>									
 
 									<div class="form-row-ev">
 										<div id="pregunta1">
@@ -151,8 +151,10 @@
 			                            <div class="opcs">
 			                            	<label class="radio">			                            		
 			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
-			                                </label>	
-									    </div>	
+			                                </label>
+									    </div>
+								    </div> 
+
 								</div>
 								
                                 <div class="wrapperItems"> 
@@ -233,9 +235,10 @@
                         	</p>
                         </a>
                     <div class="accordion-detail">
-                        <form id="frm" action="evaluarCitaConfirm.html" method="post">
+                        <form id="frm" class="form-evaluacion" action="evaluarCitaConfirm3.html" method="post">
 								<fieldset>
-									<h2 >Formulario de evaluación de cita</h2>
+									<div class="msj-ev">
+									<h2>Formulario de evaluación de cita</h2>									
 
 									<div class="form-row-ev">
 										<div id="pregunta1">
@@ -251,9 +254,10 @@
 			                            <div class="opcs">
 			                            	<label class="radio">			                            		
 			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
-			                                </label>				                            
+			                                </label>
+									    </div>
+								    </div> 
 
-									    </div>	
 								</div>
 								
                                 <div class="wrapperItems"> 

@@ -376,9 +376,10 @@ function validarClave(pClave, pElementoError, pMsjError){
 // Crear un nuevo nodo <p class="alert-error"> que muestra
 // el mensaje de texto pasado por parametro dentro del nodo tambien
 // pasado por parametro.
-function mostrarMensajeError(pEl, pMsg) {
+function mostrarMensajeError(pEl, pMsg, pFormRow) {
+    var pFormRow = pFormRow || 'form-row';
 	// Buscar el parentNode del input.
-	var eFormRow = closestParentNode(pEl, 'form-row');
+	var eFormRow = closestParentNode(pEl, pFormRow);
 	// Agregar la clase "error" al div en que se encuentra el input.
 	eFormRow.className += ' error';
 	// Crear un elemento p para mostrar el error del input en especifico.
@@ -387,7 +388,7 @@ function mostrarMensajeError(pEl, pMsg) {
 
 // Limpiar mensajes de error
 function limpiarMensajesError() {
-	var eFormRows = document.querySelectorAll('.form-row.error'),
+	var eFormRows = document.querySelectorAll('.error'),
 		eAlertErrors = document.querySelectorAll('p.alert-error');
 	
 	// Eliminar la clase "error" de los "div.form-row".

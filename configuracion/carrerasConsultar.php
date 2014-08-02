@@ -220,7 +220,7 @@
 				</div>
 			</main>
 			
-			<? include('../includes/footer.php'); ?>
+			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
 		
 		<!-- Load JS -->

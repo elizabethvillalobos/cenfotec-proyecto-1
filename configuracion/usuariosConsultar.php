@@ -26,9 +26,6 @@
                     <a class="crearUsuario btn btn-default flaticon-add73" href="/cenfotec-proyecto-1/configuracion/usuariosCrear.php">Crear usuario</a>
                 </div>
                 <div class="mod-bd">
-
-                <?php mostrarUsuarios(); ?>
-
 					<ul class="accordion ">
                         <li class="accordion-item accordion-usuarios">
                             <a  href="#">Diego Barillas Valverde</a>

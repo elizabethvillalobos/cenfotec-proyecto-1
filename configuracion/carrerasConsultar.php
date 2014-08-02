@@ -16,13 +16,13 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<? include('../includes/header.php'); ?>
-			<? include('../includes/aside-configuracion.php'); ?>
+			<?php include(ROOT.'/includes/header.php'); ?>
+			<?php include(ROOT.'/includes/aside-configuracion.php'); ?>
 
 			<main>
 				<div id="carreras-hd">
 					<h2>Lista de carreras </h2>
-					<a  href="/cenfotec-proyecto-1/configuracino/carrerasCrear.php" class="btn btn-default flaticon-add73">Crear carrera</a>
+					<a  href="/cenfotec-proyecto-1/configuracion/carrerasCrear.php" class="btn btn-default flaticon-add73">Crear carrera</a>
 				</div> 
 				<div id="buscarCarreras">
 					<input id="q" type="text" value="" placeholder="Buscar carreras" />

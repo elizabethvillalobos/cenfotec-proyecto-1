@@ -1,10 +1,12 @@
 <?php
 switch ($currentSubModule) {
     case 'solicitudes':
+        $subModAgenda = '';
         $subModSolicitudes = 'class="active"';
         break;
     default: 
         $subModAgenda = 'class="active"';
+        $subModSolicitudes = '';
         break;
 }
 ?>

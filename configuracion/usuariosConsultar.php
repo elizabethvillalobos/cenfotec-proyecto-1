@@ -23,11 +23,11 @@
 			<main class='usuarios'>
 				<div class="mod-hd">
 				    <h2>Usuarios</h2>                    
-                    <a class="crearUsuario btn btn-default flaticon-add73" href="#">Crear usuario</a>
+                    <a class="crearUsuario btn btn-default flaticon-add73" href="/cenfotec-proyecto-1/configuracion/usuariosCrear.php">Crear usuario</a>
                 </div>
                 <div class="mod-bd">
-				    
-                    <?php mostrarUsuarios(); ?>
+
+                <?php mostrarUsuarios(); ?>
 
 					<ul class="accordion ">
                         <li class="accordion-item accordion-usuarios">

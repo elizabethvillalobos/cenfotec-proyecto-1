@@ -1,3 +1,9 @@
+<?php
+	require_once('../includes/functions.php');  
+	$currentModule = 'evaluacion';
+	$currentSubModule = 'evaluacionesRealizadas'; 
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,65 +15,8 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<header>
-				<a href="../index.html" class="home">
-					<h1 class="logo">Gestor Inteligente de Citas</h1>
-				</a>
-
-				<!-- Menu principal -->
-				<nav class="main-nav">
-					<ul>
-						<li>
-							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
-						</li>
-						<li>
-							<a href="miRanking.html" class="evaluacion active flaticon-verification5"><span>Evaluación</span></a>
-						</li>
-						<li>
-							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
-						</li>
-						<li>
-							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
-						</li>
-						<li>
-							<a href="../configuracion/perfil.html" class="configuracion  flaticon-machine2"><span>Configuración</span></a>
-						</li>
-					</ul>
-				</nav>
-
-				<section class="busqueda">
-					<input id="q" type="text" value="" placeholder="Buscar personas" />
-					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
-				</section>
-
-				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Álvaro!</span>
-					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
-					<ul>
-						<li>
-							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Mi cuenta</a>
-						</li>
-						<li>
-							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
-						</li>
-					</ul>
-				</section>
-			</header>
-
-			 <aside>
-	               <nav class="secondary-nav">
-	                    <ul class="sec-nav-category accordion">
-	                    	<li class="accordion-item"><a  href="miRanking.html">Mi ranking</a></li>
-	                        <li class="accordion-item expanded">
-	                            <a href="evaluarCita.html" class="active ">Evaluaciones</a>
-	                            <ul class="thrd-nav-category accordion-detail">
-	                                <li><a href="evaluarCita.html" >Pendientes</a></li>
-	                                <li><a href="consultarEvaluacionesRealizadas.html" class="active">Realizadas</a></li>   
-	                            </ul>
-	                        </li>                   
-	                    </ul>
-	                </nav>
-            </aside>
+			<?php include(ROOT.'/includes/header.php'); ?>
+			<?php include(ROOT.'/includes/aside-evaluacion.php'); ?>
 
 			<main>
 				<ul class="accordion">
@@ -350,10 +299,7 @@
              </ul>
             </main>
 			
-			<footer>
-				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
-			</footer>
-
+			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
 
 		<script src="../js/vendors/jquery-1.8.3.min.js"></script>

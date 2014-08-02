@@ -1093,7 +1093,7 @@ header a:hover {
 .main-nav li {
     float: left;
     line-height: 1;
-    margin-right: 12px;
+    margin-right: 10px;
 }
 .main-nav a {
     -webkit-transition: color 0.2s;
@@ -1151,7 +1151,7 @@ header a:hover {
 .busqueda {
     float: left;
     position: relative;
-    margin: 28px 0 0 20px;
+    margin: 28px 0 0;
 }
 #q {
     border: 2px solid #3c3c3c;
@@ -1161,11 +1161,11 @@ header a:hover {
     font-size: 1em;
     padding: 5px 25px 5px 8px;
     transition: width 0.3s;
-    width: 190px;
+    width: 160px;
 }
 #q:focus {
     border-color: #e74c3c;
-    width: 250px;
+    width: 210px;
 }
 #q:focus,
 #btnBuscar:focus {
@@ -1307,6 +1307,10 @@ aside {
 .secondary-nav li {
     margin: 0 10px;
     position: relative;
+}
+
+.secondary-nav li:first-child a {
+    border-top: 1px solid #666;
 }
 
 .secondary-nav .active {

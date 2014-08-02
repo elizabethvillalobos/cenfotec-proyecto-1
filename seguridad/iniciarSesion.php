@@ -1,16 +1,18 @@
+<?php
+	require_once('../includes/functions.php');
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
 		<meta charset="utf-8">
-		<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="../css/gic.css">
 		<link rel="stylesheet" href="../css/pages/seguridad.css">	
 	</head>
 	<body>
-		<header>
-			<h1 class="logo centrado">Gestor Inteligente de Citas</h1>
-        </header>
+		<?php include(ROOT.'/includes/header-light.php'); ?>
 		<main class='iniciarSesion'>
 				
 				<div class="mod-bd">
@@ -39,8 +41,8 @@
 							</div>
 							
 							<div class="links">
-							    <a href="../seguridad/registrarUsuario.html" id="aRegistrar">Registrarse</a>
-							    <a href="" id="aOlvide">Olvidé mi contraseña</a>
+							    <a href="/cenfotec-proyecto-1/seguridad/registrarUsuario.php" id="aRegistrar">Registrarse</a>
+							    <a href="/cenfotec-proyecto-1/seguridad/olvideContrasena.php" id="aOlvide">Olvidé mi contraseña</a>
 							</div>
 						</fieldset>
 					</form>
@@ -48,9 +50,7 @@
 				</div>
 			</main>
 			
-			<footer>
-				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
-			</footer>
+			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
 		
 		<!-- Load JS -->

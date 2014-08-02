@@ -1,4 +1,5 @@
-<? 
+<?php 
+	require_once('../includes/functions.php');
 	$currentModule = 'evaluacion';
 	$currentSubModule = 'miRanking'; 
 ?>
@@ -6,16 +7,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
+		<title><?php echo APP_TITLE; ?></title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="../css/gic.css">
-		<link rel="stylesheet" href="../css/pages/evaluacion.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/evaluacion.css">
 	</head>
 	<body>
 		<div class="wrapper">
-			<? include('../includes/header.php'); ?>
-			<? include('../includes/aside-evaluacion.php'); ?>
+			<?php include(ROOT.'/includes/header.php'); ?>
+			<?php include(ROOT.'/includes/aside-evaluacion.php'); ?>
+			
 			<main>
 				<div id="rankDiv">
 					
@@ -78,10 +80,10 @@
 				</table>
             </main>
 			
-			<? include('../includes/footer.php'); ?>
+			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
 
-		<script src="../js/common-logic.js"></script>	
-        <script src="../js/evaluacion.js"></script>
+		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>	
+        <script src="/cenfotec-proyecto-1/js/evaluacion.js"></script>
 	</body>
 </html>

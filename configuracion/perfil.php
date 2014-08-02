@@ -1,42 +1,31 @@
 <?php
-	$currentModule = 'configuracion';
+	require_once('../includes/functions.php');
+	$currentSubModule = 'perfil';
 ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
+		<title><?php echo APP_TITLE; ?></title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="../css/gic.css">
-		<link rel="stylesheet" href="../css/pages/configuracion.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/configuracion.css">
 	</head>
 	<body>
 		<div class="wrapper">
-			<?php include('../includes/header.php'); ?>
-
-			<aside>
-                <nav class="secondary-nav">
-                    <ul class="sec-nav-category accordion">
-                        <li class="accordion-item">
-                            <a href="perfil.html" class="active">Perfil</a>
-                        </li>
-                        <li class="accordion-item">
-                            <a href="miCuenta.html">Cambiar contraseña</a>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
+			<?php include(ROOT.'/includes/header.php'); ?>
+			<?php include(ROOT.'/includes/aside-miCuenta.php'); ?>
 
 			<main>
 				<section class="perfil">
 					<div class="mod-hd">
 						<h2>Álvaro Cordero Peña</h2>
 						<!-- <a href="../mensajeria/mensajeria.html" class="enviar-msj flaticon-black218">Enviar mensaje</a> -->
-						<a href="perfilModificar.html" class="btn btn-primary btn-modificar-perfil">Modificar</a>
+						<a href="/cenfotec-proyecto-1/configuracion/perfilModificar.php" class="btn btn-primary btn-modificar-perfil">Modificar</a>
 					</div>
 					<div class="mod-bd">
-						<img class="perfil-photo" src="../images/users/default-user.png" width="130" height="130">
+						<img class="perfil-photo" src="/cenfotec-proyecto-1/images/users/default-user.png" width="130" height="130">
 
 						<div class="row">
 							<span class="label">Correo electrónico:</span>
@@ -79,10 +68,10 @@
 				</section>
 			</main>
 			
-			<?php include('../includes/footer.php'); ?>
+			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
 
 		<!-- Load JS -->
-        <script src="../js/common-logic.js"></script>
+        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 	</body>
 </html>

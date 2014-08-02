@@ -6,24 +6,24 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
+		<title><?php echo APP_TITLE; ?></title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="css/gic.css">
-		<link rel="stylesheet" href="css/pages/dashboard.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/dashboard.css">
 	</head>
 	<body>
 		<div class="wrapper">
 			<?php include(ROOT.'/includes/header.php'); ?>
 
 			<main class="dashboard">
-				<? include('includes/agenda.php'); ?>
+				<?php include(ROOT.'/includes/agenda.php'); ?>
 
-				<? include('includes/mi-ranking.php'); ?>
+				<?php include(ROOT.'/includes/mi-ranking.php'); ?>
 				
-				<? include('includes/mensajes-nuevos.php'); ?>
+				<?php include(ROOT.'/includes/mensajes-nuevos.php'); ?>
 
-				<? include('includes/evaluaciones-pendientes.php'); ?>
+				<?php include(ROOT.'/includes/evaluaciones-pendientes.php'); ?>
 			</main>
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>

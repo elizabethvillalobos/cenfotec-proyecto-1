@@ -1,6 +1,7 @@
 <?php
 // Constanstes
 define('ROOT', dirname(dirname(__FILE__)));
+define('APP_TITLE', 'Universidad Cenfotec - Gestor Ingeligente de Citas');
 
 
 $db_hostname = 'localhost';

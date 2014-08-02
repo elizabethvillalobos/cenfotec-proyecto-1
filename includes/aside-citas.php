@@ -1,10 +1,11 @@
 <?php
-if ($currentSubModule == 'agenda') { 
-    $agenda = 'class="active"';
-}
-
-if ($currentSubModule == 'solicitudes') { 
-    $solicitudes = 'class="active"';
+switch ($currentSubModule) {
+    case 'solicitudes':
+        $subModSolicitudes = 'class="active"';
+        break;
+    default: 
+        $subModAgenda = 'class="active"';
+        break;
 }
 ?>
 
@@ -12,14 +13,16 @@ if ($currentSubModule == 'solicitudes') {
 	<nav class="secondary-nav">
 		<ul class="sec-nav-category">
 			<li class="accordion-item <?php if ($currentSubModule == 'agenda') { echo ' expanded'; } ?>">
-				<a href="/cenfotec-proyecto-1/citas/agenda.php" <?php echo $agenda; ?>>Agenda</a>
-				<div id="agenda" class="accordion-detail">
-					<input id="agenda-fecha" type="text" class="datepicker" />
-				</div>
+				<a href="/cenfotec-proyecto-1/citas/agenda.php" <?php echo $subModAgenda; ?>>Agenda</a>
+				<?php if ($currentSubModule == 'agenda') { ?>
+					<div id="agenda" class="accordion-detail">
+						<input id="agenda-fecha" type="text" class="datepicker" />
+					</div>
+				<?php } ?>
 			</li>
 			<li class="accordion-item <?php if ($currentSubModule == 'solicitudes') { echo ' expanded'; } ?>">
 				<!-- <span id="crearSolicitud" class="flaticon-add73"></span> -->
-				<a href="/cenfotec-proyecto-1/citas/solicitudes.php" <?php echo $solicitudes; ?> >Solicitudes de cita</a>
+				<a href="/cenfotec-proyecto-1/citas/solicitudes.php" <?php echo $subModSolicitudes; ?> >Solicitudes de cita</a>
 				<ul class="thrd-nav-category accordion-detail">
 					<li>
 						<a href="/cenfotec-proyecto-1/citas/solicitudes.php">Diego Barillas</a>

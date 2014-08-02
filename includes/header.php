@@ -24,7 +24,7 @@
 				<a href="/cenfotec-proyecto-1/reportes/reportes.php" class="reportes flaticon-seo2 <?php if ($currentModule == 'reportes') { echo 'active'; } ?>"><span>Reportes</span></a>
 			</li>
 			<li>
-				<a href="/cenfotec-proyecto-1/configuracion/consultarCarreras.php" class="configuracion flaticon-machine2 <?php if ($currentModule == 'configuracion') { echo 'active'; } ?>"><span>Configuración</span></a>
+				<a href="/cenfotec-proyecto-1/configuracion/carrerasConsultar.php" class="configuracion flaticon-machine2 <?php if ($currentModule == 'configuracion') { echo 'active'; } ?>"><span>Configuración</span></a>
 			</li>
 		</ul>
 	</nav>

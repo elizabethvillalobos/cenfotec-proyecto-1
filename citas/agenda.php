@@ -1,4 +1,5 @@
 <?php 
+	require_once('../includes/functions.php');
 	$currentModule = 'citas';
 	$currentSubModule = 'agenda'; 
 ?>
@@ -6,16 +7,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
+		<title><?php echo APP_TITLE; ?></title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="../css/gic.css">
-		<link rel="stylesheet" href="../css/pages/citas.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/citas.css">
 	</head>
 	<body id="page-agenda">
 		<div class="wrapper">
-			<?php include('../includes/header.php'); ?>
-			<?php include('../includes/aside-citas.php'); ?>
+			<?php include(ROOT.'/includes/header.php'); ?>
+			<?php include(ROOT.'/includes/aside-citas.php'); ?>
 
 			<main>
 				<section class="cita cita-23-07-2014 visible">
@@ -334,14 +335,14 @@
 				</div>
 			</main>
 			
-			<?php include('../includes/footer.php'); ?>
+			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
 
 		<!-- Load JS -->
-		<script src="../js/vendors/jquery-1.8.3.min.js"></script>
-		<script src="../js/vendors/jquery-ui.js"></script>
-		<script src="../js/gic.js"></script>
-        <script src="../js/common-logic.js"></script>
-        <script src="../js/citas.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-ui.js"></script>
+		<script src="/cenfotec-proyecto-1/js/gic.js"></script>
+        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+        <script src="/cenfotec-proyecto-1/js/citas.js"></script>
 	</body>
 </html>

@@ -7,11 +7,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
+		<title><?php echo APP_TITLE; ?></title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="../css/gic.css">
-		<link rel="stylesheet" href="../css/pages/evaluacion.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/evaluacion.css">
 	</head>
 	<body>
 		<div class="wrapper">

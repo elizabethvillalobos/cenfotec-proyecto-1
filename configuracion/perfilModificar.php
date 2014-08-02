@@ -1,71 +1,21 @@
+<?php
+    require_once('../includes/functions.php');
+    $currentSubModule = 'perfil';
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
+		<title><?php echo APP_TITLE; ?></title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="../css/gic.css">
-		<link rel="stylesheet" href="../css/pages/configuracion.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/configuracion.css">
 	</head>
 	<body>
 		<div class="wrapper">
-			<header>
-				<a href="../index.html" class="home">
-					<h1 class="logo">Gestor Inteligente de Citas</h1>
-				</a>
-
-				<!-- Menu principal -->
-				<nav class="main-nav">
-					<ul>
-						<li>
-							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
-						</li>
-						<li>
-							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
-						</li>
-						<li>
-							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
-						</li>
-						<li>
-							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
-						</li>
-						<li>
-							<a href="perfil.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
-						</li>
-					</ul>
-				</nav>
-
-				<section class="busqueda">
-					<input id="q" type="text" value="" placeholder="Buscar personas" />
-					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
-				</section>
-
-				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Álvaro!</span>
-					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
-					<ul>
-						<li>
-							<a href="perfil.html" class="usr-editar-perfil">Mi cuenta</a>
-						</li>
-						<li>
-							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
-						</li>
-					</ul>
-				</section>
-			</header>
-
-			<aside>
-                <nav class="secondary-nav">
-                    <ul class="sec-nav-category accordion">
-                        <li class="accordion-item">
-                            <a href="perfil.html" class="active">Perfil</a>
-                        </li>
-                        <li class="accordion-item">
-                            <a href="miCuenta.html">Cambiar contraseña</a>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
+			<?php include(ROOT.'/includes/header.php'); ?>
+			<?php include(ROOT.'/includes/aside-miCuenta.php'); ?>
 
 			<main>
 				<section class="perfil-modificar">
@@ -74,7 +24,7 @@
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="editar-modificar" class="mod-bd form-horizontal" action="perfilGuardado.html" method="post" data-validate="true" novalidate>
+					<form id="editar-modificar" class="mod-bd form-horizontal" action="/cenfotec-proyecto-1/configuracion/perfilGuardado.php" method="post" data-validate="true" novalidate>
 						<div class="form-row">
 							<label for="perfil-nombre">Nombre:</label>
 							<input id="perfil-nombre" type="text" placeholder="Ingrese el nombre" class="form-control" value="Álvaro" required/>
@@ -155,20 +105,18 @@
 				</section>
 			</main>
 			
-			<footer>
-				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
-			</footer>
+			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
 
 		<!-- Load JS -->
-		<script src="../js/vendors/jquery-1.8.3.min.js"></script>
-        <script src="../js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="../js/vendors/jquery.html5uploader-1.1.js"></script>
-        <script src="../js/vendors/bootstrap.min.js"></script>
-        <script src="../js/vendors/bootstrap-select.js"></script>
-        <script src="../js/flatui.js"></script>
-        <script src="../js/html5uploader.js"></script>
-        <script src="../js/common-logic.js"></script>
-        <script src="../js/configuracion.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
+        <script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="/cenfotec-proyecto-1/js/vendors/jquery.html5uploader-1.1.js"></script>
+        <script src="/cenfotec-proyecto-1/js/vendors/bootstrap.min.js"></script>
+        <script src="/cenfotec-proyecto-1/js/vendors/bootstrap-select.js"></script>
+        <script src="/cenfotec-proyecto-1/js/flatui.js"></script>
+        <script src="/cenfotec-proyecto-1/js/html5uploader.js"></script>
+        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+        <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 	</body>
 </html>

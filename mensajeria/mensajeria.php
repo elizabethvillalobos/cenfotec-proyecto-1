@@ -1,16 +1,19 @@
-<? $currentModule = 'mensajeria'; ?>
+<?php
+	require_once('../includes/functions.php');
+	$currentModule = 'mensajeria'; 
+?>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
+		<title><?php echo APP_TITLE; ?></title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="../css/gic.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
 	</head>
 	<body>
 		<div class="wrapper">
-			<? include('../includes/header.php'); ?>
+			<?php include(ROOT.'/includes/header.php'); ?>
 
 			<aside>
 				<nav class="secondary-nav">
@@ -42,9 +45,9 @@
 				</div>
 			</main>
 			
-			<? include('../includes/footer.php'); ?>
+			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
 
-        <script src="../js/common-logic.js"></script>
+        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 	</body>
 </html>

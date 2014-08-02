@@ -5,11 +5,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Universidad Cenfotec - Gestor Ingeligente de Citas</title>
+		<title><?php echo APP_TITLE; ?></title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="../css/gic.css">
-		<link rel="stylesheet" href="../css/pages/seguridad.css">	
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/seguridad.css">	
 	</head>
 	<body>
 		<?php include(ROOT.'/includes/header-light.php'); ?>
@@ -54,7 +54,7 @@
 		</div>
 		
 		<!-- Load JS -->
-		<script src="../js/common-logic.js"></script>
-        <script src="../seguridad/iniciarSesion.js"></script>
+		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+        <script src="/cenfotec-proyecto-1/seguridad/iniciarSesion.js"></script>
 	</body>
 </html>

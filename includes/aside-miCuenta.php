@@ -1,4 +1,7 @@
 <?php
+$subModPassword = '';
+$subModPerfil = '';
+
 switch ($currentSubModule) {
     case 'contraseña':
         $subModPassword = 'class="active"';

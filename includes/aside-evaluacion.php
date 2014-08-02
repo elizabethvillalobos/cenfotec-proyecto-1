@@ -1,4 +1,10 @@
 <?php
+
+$subModEvaluaciones = '';
+$subModEvaluacionesPendientes = '';
+$subModEvaluacionesRealizadas = '';
+$subModMiRanking = '';
+
 switch ($currentSubModule) {
     case 'evaluacionesPendientes':
         $subModEvaluaciones = 'class="active"';

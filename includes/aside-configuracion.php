@@ -1,4 +1,8 @@
 <?php
+$subModUsuarios = '';
+$subModGeneral = '';
+$subModCarreras = '';
+
 switch ($currentSubModule) {
     case 'usuarios':
         $subModUsuarios = 'class="active"';

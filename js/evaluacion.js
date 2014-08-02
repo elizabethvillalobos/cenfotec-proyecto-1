@@ -43,8 +43,7 @@ for(var i=0; i < aPuntajes.length; i++) {
 
 /**********************************************************************************/
 var ebtnEnviar =  document.querySelectorAll('.btn-primary'),
-     eForm = document.querySelector('#frm'),
-     eError = document.querySelector('.alert-error');
+     eForm = document.querySelector('#frm');
 
 if (ebtnEnviar.length) {
 	for (var i = 0; i < ebtnEnviar.length; i++) {
@@ -59,7 +58,7 @@ if (ebtnEnviar.length) {
 			if (eRadio[0].checked || eRadio[1].checked) {
 				eForm.submit();
 			} else {
-				mostrarMensajeError(eRadio[0], 'Debe seleccionar una opción.', 'form-row-ev');
+				mostrarMensajeError(eRadio[0], 'Debe seleccionar una opción.', 'msj-ev');
 			}			 		       
 	    });
 
@@ -67,19 +66,5 @@ if (ebtnEnviar.length) {
 	
 }
 
-function validarRadiosChecked(pArregloRadios,pFormulario,pElmtError,pErrorMsj){
 
-	for (var i = 0; i <pArregloRadios.length; i++) {
-
-			if(pArregloRadios[i].checked){
-
-				pFormulario.submit();
-
-			} else{
-
-				pElmtError.innerHTML = pErrorMsj;
-
-			};
-		};
-}
 

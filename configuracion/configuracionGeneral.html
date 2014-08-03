@@ -140,13 +140,36 @@
                             		<form class="frmC" id="form-confGrl" action="configuracionGeneralConfirm.html" method="post" >
 
 	                            		<div id="divTxtMail">
-	                            			<label class="lbl">Correo para envíos:</label>
+	                            			<label class="lbl">Servidor smtp:</label>
+	                            			<input id="emailNot" type="text" placeholder="smtp" class="form-control" />
 		                            	</div>
 
 		                            	<div id="divMail">
+		                            		<label class="lbl">Puerto:</label>
+		                            		<input id="emailNot" type="text" placeholder="puerto" class="form-control" />
+		                            		<p class="alert-error"></p>		                            		
+		                            	</div>
+
+		                            	<div id="divMail">
+		                            		<label class="lbl">Smtp seguridad:</label>
+		                            		<input id="emailNot" type="text" placeholder="ssl" class="form-control" />
+		                            		<p class="alert-error"></p>		                            		
+		                            	</div>
+
+		                            	<div id="divMail">
+		                            		<label class="lbl">Usuario:</label>
 		                            		<input id="emailNot" type="text" placeholder="mail@ucenfotec.ac.cr" class="form-control" />
 		                            		<p class="alert-error"></p>		                            		
 		                            	</div>
+
+		                            	<div id="divMail">
+		                            		<label class="lbl">Clave:</label>
+		                            		<input id="emailNot" type="text" placeholder="clave" class="form-control" />
+		                            		<p class="alert-error"></p>		                            		
+		                            	</div>
+
+		                            	
+
 
 		                            	<div  id="divBtnEvr">
 											<button id="btnEvr"class="btn btn-primary" type="submit">Aplicar</button>			                                   

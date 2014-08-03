@@ -15,13 +15,13 @@
 				<h2>Gestor Inteligente de Citas</h2>
                 <section class="msg-confirm">
                     <div class="mod-hd">
-                        <h2 class="flaticon-information38">Mensaje de activación de cuenta</h2>
+                        <h2 class="flaticon-information38">Mensaje de recuperación de contraseña</h2>
                     </div>
                     <div class="mod-bd">
-                        <p>Este es el código para activar la cuenta: <strong id="codigoActiv"></strong></p>
-                        <p>Presione activar cuenta e ingrese el código para poder acceder al sistema (se reconocen las mayúsculas y las minúsculas)</p>   
+                        
+                        <p>La contraseña de su cuenta fue enviada al correo que suministró, favor revisar su bandeja de entrada para recuperar su contraseña.</p>   
 
-                        <a href="/cenfotec-proyecto-1/seguridad/activarCuenta.php"  id="btn-activarCuenta" class="btn btn-primary">Activar cuenta</a>
+                        <a href="/cenfotec-proyecto-1/seguridad/recordarContrasena.php"  id="btn-activarCuenta" class="btn btn-primary">Regresar</a>
                     </div>
                 </section>
 			</div>

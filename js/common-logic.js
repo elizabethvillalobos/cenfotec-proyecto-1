@@ -455,3 +455,83 @@ if (eCodigoActivacion) {
     eCodigoActivacion.innerHTML = codigoActivacion;
 }
 
+//Algoritmo de sugerencias de la barra de busqueda general de personas en el header
+
+function realizarBusqueda(evento){
+    var eSection = document.querySelector('#resultados'),
+    eBusqueda = document.querySelector('#q'),
+    eNombre = document.querySelector('#nombre'),
+    eApellido1 = document.querySelector('#apellido1'),
+    eApellido2=document.querySelector('#apellido2'),
+    alinks=document.querySelectorAll('.js-linksBusqueda'),
+    einfoperfil = document.querySelector('#infoPerfil'),
+    aNombres = ["Anita", "Anita", "Carla", "Carlos", "Carolina", "Miguel", "Manuel"],
+    aApellido1 = ["Ramirez", "Ramos", "Rojas", "Vargas", "Valencia", "Medina", "Mondragon"],
+    aApellido2 = ["Salas", "Salazar", "Solorzano", "Lopez", "Lizano", "Gomez", "Garcia"];
+    
+    if(alinks.length){
+        for(var j=0; j<alinks.length; j++){
+             alinks[j].remove();
+        }
+    }
+        
+    for(var i=0; i<aNombres.length; i++){
+        var busqueda = eBusqueda.value,
+            caseInsensitive = 'i';
+        
+        busqueda = busqueda.replace(/\s/g,'');
+        var criterio = new RegExp(busqueda, caseInsensitive);
+        
+        if(criterio!="/(?:)/i"){
+            if(criterio.test(aNombres[i]+aApellido1[i]+aApellido2[i]) ){
+            
+                var usuario=document.createElement("a");
+                var nombre=document.createTextNode(aNombres[i]+" ");
+                var apellido1=document.createTextNode(aApellido1[i]+" ");
+                var apellido2=document.createTextNode(aApellido2[i]+" ");
+
+                usuario.setAttribute('href', 'perfil.html');
+                usuario.setAttribute('class', 'js-linksBusqueda');
+                usuario.appendChild(nombre);
+                usuario.appendChild(apellido1);
+                usuario.appendChild(apellido2);
+                eSection.appendChild(usuario);
+            } 
+        }
+
+        
+    }
+    
+    /*if(alinks.length){
+        
+        for(var g=0; g<alinks.length; g++){
+            alinks[g].addEventListener('click', function(event){
+
+                eNombre.innerHTML="Nombre";
+                eApellido1.innerHTML="Apellido1";
+                eApellido2.innerHTML="Apellido2";
+                
+//                var txt1=document.createElement("p");
+//                var nombreP=document.createTextNode("Nombre ");
+//                txt1.appendChild(nombreP);
+//                
+//                var txt2=document.createElement("p");
+//                var apellido1P=document.createTextNode("Apellido1 ");
+//                txt2.appendChild(apellido1P);
+//                
+//                var txt3=document.createElement("p");
+//                var apellido2P=document.createTextNode("Apellido2 ");
+//                txt3.appendChild(apellido2P);
+//
+//                einfoperfil.appendChild(txt1);
+//                einfoperfil.appendChild(txt2);
+//                einfoperfil.appendChild(txt3);
+
+
+            });
+    
+        }
+    }*/
+
+}
+

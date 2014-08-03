@@ -490,7 +490,7 @@ function realizarBusqueda(evento){
                 var apellido1=document.createTextNode(aApellido1[i]+" ");
                 var apellido2=document.createTextNode(aApellido2[i]+" ");
 
-                usuario.setAttribute('href', 'perfil.html');
+                usuario.setAttribute('href', '/cenfotec-proyecto-1/busqueda/perfil-usr.php');
                 usuario.setAttribute('class', 'js-linksBusqueda');
                 usuario.appendChild(nombre);
                 usuario.appendChild(apellido1);

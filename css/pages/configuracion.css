@@ -382,6 +382,7 @@ main #q {
    color: #666;
    font-size: 1em;
    line-height: 1;
+    margin-right: 15px;
 }
 
 .perfil .enviar-msj:hover {

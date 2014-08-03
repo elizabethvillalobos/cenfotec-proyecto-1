@@ -30,9 +30,12 @@
 	</nav>
 
 	<section class="busqueda">
-		<input id="q" type="text" value="" placeholder="Buscar personas" />
-		<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
-	</section>
+					<input id="q" type="text" value="" placeholder="Buscar personas" onkeyup="realizarBusqueda(event)" />
+					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
+       <div id="resultados">
+           
+       </div>
+        </section>
 
 	<section class="usr-info">
 		<span class="usr-greeting">Bienvenido, <?php echo $loggedInUserName; ?>!</span>

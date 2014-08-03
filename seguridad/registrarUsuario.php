@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/seguridad.css">	
 	</head>
 	<body>
-		<? include('../includes/header-light.php'); ?>
+		<?php include('../includes/header-light.php'); ?>
 		<main class='registrarUsuario'>
 			
 			<div class="mod-bd">

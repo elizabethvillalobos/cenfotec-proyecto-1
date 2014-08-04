@@ -283,8 +283,17 @@ th {
     padding: 5px 8px;
 }
 
-tr:nth-child(even) td {
+tr:nth-child(even) {
     background: #ecf0f1;
+}
+
+tr:hover {
+	background: #999999;
+	color: #fff;
+}
+
+.selectable tr:hover {
+	cursor: pointer;
 }
 
 

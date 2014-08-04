@@ -283,8 +283,17 @@ th {
     padding: 5px 8px;
 }
 
-tr:nth-child(even) td {
+tr:nth-child(even) {
     background: #ecf0f1;
+}
+
+tr:hover {
+	background: #999999;
+	color: #fff;
+}
+
+.selectable tr:hover {
+	cursor: pointer;
 }
 
 
@@ -1449,4 +1458,11 @@ footer p {
 #resultados{
     position: absolute;
     z-index: 1;
+}
+
+/*Pagina perfil del usuario seleccionado en la busqueda*/
+
+#perfil-usr{
+    margin-left: 0px;
+    padding: 10px 20px 40px 60px;
 }

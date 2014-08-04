@@ -36,60 +36,44 @@
 
 			<main>
 				<div class="mod-hd">
-					<h2>Reporte de ranking</h2>
+					<h2>Solicitudes - Diego Barillas Valverde</h2>
 					<table>
 						<thead>
 							<tr>
-								<th class="center">Posición</th>
+								<th class="center">Asunto</th>
 								<th class="center">Usuario</th>
-								<th class="center">Rol</th>
-								<th class="center">Total de Citas</th>
-								<th class="center">Puntuación Total</th>
+								<th class="center">Fecha</th>
+								<th class="center">Hora</th>
+								<th class="center">Observaciones</th>
+								<th class="center">Estado</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td class="center">1</td>
-								<td>Diego Barillas Valverde</td>
-								<td>Estudiante</td>
-								<td class="center">10</td>
-								<td class="center">10</td>
-							</tr>
-							<tr>
-								<td class="center">2</td>
-								<td>Pablo Monestel</td>
-								<td>Coordinador Académico</td>
-								<td class="center">5</td>
-								<td class="center">10</td>
-							</tr>
-							<tr>
-								<td class="center">3</td>
+								<td>Teoría de bases de datos</td>
 								<td>Antonio Luna</td>
-								<td>Profesor</td>
-								<td class="center">10</td>
-								<td class="center">9</td>
+								<td class="center">04/08/14</td>
+								<td class="center">2:00pm - 3:00pm</td>
+								<td class="center">Profe, no me quedó clara la materia!</td>
+								<td class="center">Pendiente</td>
 							</tr>
 							<tr>
-								<td class="center">4</td>
-								<td>Miguel Coto</td>
-								<td>Estudiante</td>
-								<td class="center">2</td>
-								<td class="center">8</td>
+								<td>Desarrollo de página web</td>
+								<td>Pablo Monestel</td>
+								<td class="center">02/08/14</td>
+								<td class="center">4:00pm - 4:30pm</td>
+								<td class="center">-</td>
+								<td class="center">Aceptada</td>
 							</tr>
 							<tr>
-								<td class="center">5</td>
-								<td>Alexander Corrales Solís</td>
-								<td>Estudiante</td>
-								<td class="center">1</td>
-								<td class="center">8</td>
+								<td>ERS</td>
+								<td>Álvaro Cordero</td>
+								<td class="center">01/08/14</td>
+								<td class="center">2:00pm - 2:45pm</td>
+								<td class="center">Es sobre lo que le pregunte por skype ayer</td>
+								<td class="center">Expirada</td>
 							</tr>
-							<tr>
-								<td class="center">6</td>
-								<td>Andrea Arroyo Cascante</td>
-								<td>Asistente de curso</td>
-								<td class="center">5</td>
-								<td class="center">5</td>
-							</tr>
+							
 							
 						</tbody>
 					</table>

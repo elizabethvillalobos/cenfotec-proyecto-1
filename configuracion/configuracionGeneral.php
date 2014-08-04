@@ -11,7 +11,7 @@
 	<body>
 		<div class="wrapper">
 			<header>
-				<a href="../index.html" class="home">
+				<a href="../index.php" class="home">
 					<h1 class="logo">Gestor Inteligente de Citas</h1>
 				</a>
 
@@ -19,19 +19,19 @@
 			<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
+							<a href="../citas/citas.php" class="citas flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="../evaluacion/miRanking.html" class="evaluacion  flaticon-verification5"><span>Evaluación</span></a>
+							<a href="../evaluacion/miRanking.php" class="evaluacion  flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
-							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+							<a href="../mensajeria/mensajeria.php" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
 						</li>
 						<li>
-							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+							<a href="../reportes/reportes.php" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="configuracion/perfil.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
+							<a href="configuracion/perfil.php" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -46,10 +46,10 @@
 					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
 					<ul>
 						<li>
-							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Mi cuenta</a>
+							<a href="../configuracion/perfil.php" class="usr-editar-perfil">Mi cuenta</a>
 						</li>
 						<li>
-							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
+							<a href="../seguridad/iniciarSesion.php" class="usr-cerrar-sesion">Cerrar sesión</a>
 						</li>
 					</ul>
 				</section>
@@ -60,7 +60,7 @@
 				<nav class="secondary-nav">
 					<ul class="sec-nav-category">
 						<li class="accordion-item">
-                            <a href="perfil.html">Perfil</a>
+                            <a href="perfil.php">Perfil</a>
 
                         </li>
                         <li class="accordion-item">
@@ -68,13 +68,13 @@
                         </li>
                         <li class="accordion-item">
 
-                            <a href="consultarCarreras.html">Carreras y cursos</a>
+                            <a href="consultarCarreras.php">Carreras y cursos</a>
  						</li>
                         <li class="accordion-item">
-                            <a href="consultarUsuario.html">Usuarios</a>
+                            <a href="consultarUsuario.php">Usuarios</a>
                         </li>
                         <li class="accordion-item">
-                            <a href="configuracionGeneral.html" class="active">General</a>
+                            <a href="configuracionGeneral.php" class="active">General</a>
                         </li>
 
 					</ul>
@@ -88,7 +88,7 @@
                             <a href="#">Citas</a>
                             <ul class="accordion-detail">
                             	<div>
-                            		<form class="frmC" action="configuracionGeneralConfirm.html" method="post">
+                            		<form class="frmC" action="configuracionGeneralConfirm.php" method="post">
 
 	                            		<div id="divTxtCit">
 	                            			<label class="lbl">Dias de expiración de solicitud:</label>
@@ -112,7 +112,7 @@
                             <div class="accordion-detail">
 
                             	<div>
-                            		<form class="frmC" action="configuracionGeneralConfirm.html" method="post">
+                            		<form class="frmC" action="configuracionGeneralConfirm.php" method="post">
 
 	                            		<div id="divTxtCit">
 	                            			<label class="lbl">Máximo carateres por mensaje:</label>
@@ -137,11 +137,11 @@
                             <div class="accordion-detail">
 
                             	<div>
-                            		<form class="frmC" id="form-confGrl" action="configuracionGeneralConfirm.html" method="post" >
+                            		<form class="frmC" id="form-confGrl" action="configuracionGeneralConfirm.php" method="post" >
 
 	                            		<div id="divTxtMail">
-	                            			<label class="lbl">Servidor smtp:</label>
-	                            			<input id="emailNot" type="text" placeholder="smtp" class="form-control" />
+	                            			<label class="lbl">Servidor smtp:<input id="emailNot" type="text" placeholder="smtp" class="form-control" /></label>
+	                            			
 		                            	</div>
 
 		                            	<div id="divMail">

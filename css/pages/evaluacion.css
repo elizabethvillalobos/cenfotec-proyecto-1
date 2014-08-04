@@ -6,6 +6,14 @@
 	padding: 5px;
 	
 }
+
+.alert-error, .alert-info, .alert-success, .alert-warning {
+padding: 0px 0px 0px 535px;
+}
+
+
+
+
 .titulo2{
 	margin:8px ;
 	color: #FFFFFF;

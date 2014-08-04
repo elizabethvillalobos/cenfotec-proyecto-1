@@ -16,6 +16,7 @@ if (eRadiosChecked) {
 				eElParent = closestParentNode(eEl, 'accordion-detail'),
 				eWrapperItems = eElParent.querySelector('.wrapperItems');
 
+			limpiarMensajesError();
 			if (eEl.querySelector('input[type="radio"]').value == 'si') {
 				eWrapperItems.className += ' visible';
 			} else {
@@ -24,6 +25,8 @@ if (eRadiosChecked) {
 		});
 	}
 }
+
+/********************************************************************************/
 
 for(var i=0; i < aPuntajes.length; i++) {
     aPuntajes[i].addEventListener('change', function(event){
@@ -38,21 +41,30 @@ for(var i=0; i < aPuntajes.length; i++) {
     });
 }
 
-/*
-if(ebtnEva) {
-	ebtnEva.addEventListener('click',function(){
+/**********************************************************************************/
+var ebtnEnviar =  document.querySelectorAll('.btn-primary'),
+     eForm = document.querySelector('#frm');
 
-		for (var j = 0; j < eRadiosChecked.length; j++) {
-			if(eRadiosChecked[j].value = 'si' || eRadiosChecked[j].value = 'no'){
-				eFormu.submit();
-			}	
-			else{
-				alert('Debe responder a la pregunta #1');
-							
-			}
-		}			 		       
-	});
+if (ebtnEnviar.length) {
+	for (var i = 0; i < ebtnEnviar.length; i++) {
+		ebtnEnviar[i].addEventListener('click',function(evento) {
+			evento.preventDefault();
+			var eBtn = evento.currentTarget,
+				eElParent = closestParentNode(eBtn, 'accordion-detail'),
+				eForm = closestParentNode(eBtn, 'form-evaluacion'),
+				eRadio = eElParent.querySelectorAll('input[type="radio"]');
+
+			limpiarMensajesError();
+			if (eRadio[0].checked || eRadio[1].checked) {
+				eForm.submit();
+			} else {
+				mostrarMensajeError(eRadio[0], 'Debe seleccionar una opción.', 'msj-ev');
+			}			 		       
+	    });
+
+	};	
 	
 }
 
-*/
+
+

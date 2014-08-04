@@ -1,6 +1,10 @@
 <?php
 	require_once('../includes/functions.php');
+<<<<<<< HEAD
     $currentModule = '';
+=======
+	$currentModule = '';
+>>>>>>> origin/master
 	$currentSubModule = 'perfil';
 ?>
 

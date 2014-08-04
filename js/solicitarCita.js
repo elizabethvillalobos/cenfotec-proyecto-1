@@ -84,7 +84,7 @@ if(btnCrearSolicitud!=null){
 			}
 			else
 			{
-				window.location = "solicitarCita.html"
+				window.location = "solicitarCita.php"
 			}
 		}
 		

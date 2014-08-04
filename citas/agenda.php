@@ -61,8 +61,8 @@
 							<span class="data">Profesor, nuestro equipo quiere recibir retroalimentación sobre nuestros casos de uso en formato expandido. Mi id de skype es: juancarlos.brenes</span>
 						</div>
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
@@ -109,8 +109,8 @@
 							<span class="data">Hola profe, es sobre casos de uso expandidos.</span>
 						</div>
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
@@ -158,8 +158,8 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
@@ -207,8 +207,8 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
@@ -256,8 +256,8 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
@@ -305,12 +305,11 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
-
 
 				<section class="cita no-cita">
 					<p class="flaticon-information38">No hay citas agendadas.</p>
@@ -321,7 +320,7 @@
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea finalizar la cita de atención?</h3>
 					<div class="form-row">
-						<a href="citaFinalizada.html" class="btn btn-primary js-modal-aceptar">Sí</a>
+						<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
 						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>
@@ -329,7 +328,7 @@
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea cancelar la cita de atención?</h3>
 					<div class="form-row">
-						<a href="citaCancelada.html" class="btn btn-primary js-modal-aceptar">Sí</a>
+						<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
 						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>

@@ -2,6 +2,7 @@
     require_once('../includes/functions.php');
 
     $currentModule = 'configuracion';
+    $currentSubModule = 'usuarios';
 ?>
 
 <!DOCTYPE html>

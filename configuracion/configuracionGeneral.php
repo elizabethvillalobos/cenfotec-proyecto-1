@@ -1,3 +1,9 @@
+<?php
+    require_once('../includes/functions.php');
+    $currentModule = 'configuracion';
+    $currentSubModule = 'general';
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,81 +12,11 @@
 		<link href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/configuracion.css">
-		
 	</head>
 	<body>
 		<div class="wrapper">
-			<header>
-				<a href="../index.html" class="home">
-					<h1 class="logo">Gestor Inteligente de Citas</h1>
-				</a>
-
-				<!-- Menu principal -->
-			<nav class="main-nav">
-					<ul>
-						<li>
-							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
-						</li>
-						<li>
-							<a href="../evaluacion/miRanking.html" class="evaluacion  flaticon-verification5"><span>Evaluación</span></a>
-						</li>
-						<li>
-							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
-						</li>
-						<li>
-							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
-						</li>
-						<li>
-							<a href="configuracion/perfil.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
-						</li>
-					</ul>
-				</nav>
-
-				<section class="busqueda">
-					<input id="q" type="text" value="" placeholder="Buscar personas" />
-					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
-				</section>
-
-				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Álvaro!</span>
-					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
-					<ul>
-						<li>
-							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Mi cuenta</a>
-						</li>
-						<li>
-							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
-						</li>
-					</ul>
-				</section>
-			</header>
-
-			<aside>
-
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li class="accordion-item">
-                            <a href="perfil.html">Perfil</a>
-
-                        </li>
-                        <li class="accordion-item">
-                            <a href="#">Mi cuenta</a>
-                        </li>
-                        <li class="accordion-item">
-
-                            <a href="consultarCarreras.html">Carreras y cursos</a>
- 						</li>
-                        <li class="accordion-item">
-                            <a href="consultarUsuario.html">Usuarios</a>
-                        </li>
-                        <li class="accordion-item">
-                            <a href="configuracionGeneral.html" class="active">General</a>
-                        </li>
-
-					</ul>
-				</nav>
-			</aside>
-
+			<?php include(ROOT.'/includes/header.php'); ?>
+            <?php include(ROOT.'/includes/aside-configuracion.php'); ?>
 
 			<main id="mainCG">
 				<ul class="accord">
@@ -88,7 +24,7 @@
                             <a href="#">Citas</a>
                             <ul class="accordion-detail">
                             	<div>
-                            		<form class="frmC" action="configuracionGeneralConfirm.html" method="post">
+                            		<form class="frmC" action="/cenfotec-proyecto-1/configuracion/configuracionGeneralConfirm.php" method="post">
 
 	                            		<div id="divTxtCit">
 	                            			<label class="lbl">Dias de expiración de solicitud:</label>

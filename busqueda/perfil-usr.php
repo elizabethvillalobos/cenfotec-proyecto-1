@@ -1,5 +1,6 @@
 <?php
 	require_once('../includes/functions.php');
+    $currentModule = '';
 	$currentSubModule = 'perfil';
 ?>
 
@@ -15,9 +16,8 @@
 	<body>
 		<div class="wrapper">
 			<?php include(ROOT.'/includes/header.php'); ?>
-			<?php include(ROOT.'/includes/aside-miCuenta.php'); ?>
 
-			<main>
+			<main id="perfil-usr">
 				<section class="perfil">
 					<div class="mod-hd">
 						<h2>Álvaro Cordero Peña</h2>

@@ -1450,3 +1450,10 @@ footer p {
     position: absolute;
     z-index: 1;
 }
+
+/*Pagina perfil del usuario seleccionado en la busqueda*/
+
+#perfil-usr{
+    margin-left: 0px;
+    padding: 10px 20px 40px 60px;
+}

@@ -37,7 +37,7 @@
 			<main>
 				<div class="mod-hd">
 					<h2>Reporte de agendas</h2>
-					<table id="tblAgendas" class="selectable">
+					<table id="tblAgendas" class="tblReportes selectable">
 						<thead>
 							<tr>
 								<th class="center">Usuario</th>

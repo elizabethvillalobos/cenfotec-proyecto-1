@@ -37,7 +37,7 @@
 			<main>
 				<div class="mod-hd">
 					<h2>Reporte de usuarios</h2>
-					<table>
+					<table class="reporte">
 						<thead>
 							<tr>
 								<th class="center">Usuario</th>

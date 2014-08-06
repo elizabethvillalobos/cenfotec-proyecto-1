@@ -17,6 +17,8 @@ var totalSelected=0;
 // Eventos
 // ------------------------------------------
 
+var myMinDate = new Date();
+myMinDate.setDate(myMinDate.getDate() + 1);
 var eDatePickers = $('.datepicker');
 if (eDatePickers.length) {
 	eDatePickers.datepicker({
@@ -25,7 +27,7 @@ if (eDatePickers.length) {
 		hideOnSelect: true,
 		prevText: 'Prev',
 		nextText: 'Sig',
-		minDate: new Date(),
+		minDate: myMinDate,
 		monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
 		'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre']
 	});
@@ -84,7 +86,7 @@ if(btnCrearSolicitud!=null){
 			}
 			else
 			{
-				window.location = "solicitarCita.html"
+				window.location = "solicitarCita.php"
 			}
 		}
 		

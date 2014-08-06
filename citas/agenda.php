@@ -15,8 +15,71 @@
 	</head>
 	<body id="page-agenda">
 		<div class="wrapper">
+
+			<header>
+				<a href="../index.html" class="home">
+					<h1 class="logo">Gestor Inteligente de Citas</h1>
+				</a>
+
+				<!-- Menu principal -->
+				<nav class="main-nav">
+					<ul>
+						<li>
+							<a href="citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
+						</li>
+						<li>
+							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
+						</li>
+						<li>
+							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+						</li>
+						<li>
+							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+						</li>
+						<li>
+							<a href="../configuracion/perfil.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
+						</li>
+					</ul>
+				</nav>
+
+				<section class="busqueda">
+					<input id="q" type="text" value="" placeholder="Buscar personas" />
+					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
+				</section>
+
+				<section class="usr-info">
+					<span class="usr-greeting">Bienvenido, Álvaro!</span>
+					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
+					<ul>
+						<li>
+							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Mi cuenta</a>
+						</li>
+						<li>
+							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
+						</li>
+					</ul>
+				</section>
+			</header>
+
+			<aside>
+				<nav class="secondary-nav">
+					<ul class="sec-nav-category">
+						<li class="accordion-item expanded">
+							<a href="citas.html" class="active">Agenda</a>
+							<div id="agenda" class="accordion-detail">
+								<input id="agenda-fecha" type="text" class="datepicker" />
+							</div>
+						</li>
+						<li class="accordion-item">
+							<a href="solicitudes.html">Solicitudes de cita</a>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+
 			<?php include(ROOT.'/includes/header.php'); ?>
 			<?php include(ROOT.'/includes/aside-citas.php'); ?>
+
 
 			<main>
 				<section class="cita cita-23-07-2014 visible">
@@ -61,8 +124,8 @@
 							<span class="data">Profesor, nuestro equipo quiere recibir retroalimentación sobre nuestros casos de uso en formato expandido. Mi id de skype es: juancarlos.brenes</span>
 						</div>
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
@@ -109,8 +172,8 @@
 							<span class="data">Hola profe, es sobre casos de uso expandidos.</span>
 						</div>
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
@@ -158,8 +221,8 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
@@ -207,8 +270,8 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
@@ -256,8 +319,8 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
@@ -305,12 +368,11 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<a href="citaFinalizada.html" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-							<a href="citaCancelada.html" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+							<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</div>
 				</section>
-
 
 				<section class="cita no-cita">
 					<p class="flaticon-information38">No hay citas agendadas.</p>
@@ -321,7 +383,7 @@
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea finalizar la cita de atención?</h3>
 					<div class="form-row">
-						<a href="citaFinalizada.html" class="btn btn-primary js-modal-aceptar">Sí</a>
+						<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
 						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>
@@ -329,7 +391,7 @@
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea cancelar la cita de atención?</h3>
 					<div class="form-row">
-						<a href="citaCancelada.html" class="btn btn-primary js-modal-aceptar">Sí</a>
+						<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
 						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>

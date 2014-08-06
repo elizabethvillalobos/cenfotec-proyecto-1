@@ -1,3 +1,9 @@
+<?php 
+	require_once('../includes/functions.php');
+	$currentModule = 'citas';
+	$currentSubModule = 'solicitudes'; 
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,8 +15,8 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<?php include('../includes/header.php'); ?>
-			<?php include('../includes/aside-citas.php'); ?>
+			<?php include(ROOT.'/includes/header.php'); ?>
+			<?php include(ROOT.'/includes/aside-citas.php'); ?>
 
 			<main>
 				<section class="cita">

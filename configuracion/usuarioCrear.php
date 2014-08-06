@@ -1,8 +1,8 @@
 <?php
     require_once('../includes/functions.php');
     require_once(ROOT.'/includes/functions-usuarios.php');
-
     $currentModule = 'configuracion';
+    $currentSubModule = 'usuarios';
 ?>
 
 

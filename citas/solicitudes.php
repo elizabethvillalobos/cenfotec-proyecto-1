@@ -15,8 +15,8 @@
 	</head>
 	<body>
 		<div id="solicitudes" class="wrapper">
-			<?php include('../includes/header.php'); ?>
-			<?php include('../includes/aside-citas.php'); ?>
+			<?php include(ROOT.'/includes/header.php'); ?>
+			<?php include(ROOT.'/includes/aside-citas.php'); ?>
 
 			<main>
 				<section class="cita">
@@ -80,28 +80,24 @@
                             </div>							
 							
                             <div class="form-row form-row-button">
-								<a href="solicitudPropuesta.html" id="btnAceptar" class="btn btn-primary">Aceptar</a>
-								<a href="solicitudRechazada.html" id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a>
+								<a href="/cenfotec-proyecto-1/citas/solicitudPropuesta.php" id="btnAceptar" class="btn btn-primary">Aceptar</a>
+								<a href="/cenfotec-proyecto-1/citas/solicitudRechazada.php" id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a>
 							</div>                  
 						</form>
-						
 					</div>
 				</section>
-
 				
 				<div id="modal-cancelar" class="modal js-modal-window">
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea rechazar la solicitud de cita de atención?</h3>
 					<div class="form-row">
-						<a href="solicitudRechazada.html" class="btn btn-primary js-modal-aceptar">Sí</a>
+						<a href="/cenfotec-proyecto-1/citas/solicitudRechazada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
 						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>
 			</main>
 			
-			<footer>
-				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
-			</footer>
+			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
 
 		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>

@@ -1,3 +1,9 @@
+<?php
+    require_once('../includes/functions.php');
+    $currentModule = 'configuracion';
+    $currentSubModule = 'general';
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,10 +12,10 @@
 		<link href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/configuracion.css">
-		
 	</head>
 	<body>
 		<div class="wrapper">
+<<<<<<< HEAD:configuracion/configuracionGeneral.php
 			<header>
 				<a href="../index.php" class="home">
 					<h1 class="logo">Gestor Inteligente de Citas</h1>
@@ -81,6 +87,10 @@
 				</nav>
 			</aside>
 
+=======
+			<?php include(ROOT.'/includes/header.php'); ?>
+            <?php include(ROOT.'/includes/aside-configuracion.php'); ?>
+>>>>>>> origin/master:configuracion/configuracionGeneral.php
 
 			<main id="mainCG">
 				<ul class="accord">
@@ -88,7 +98,11 @@
                             <a href="#">Citas</a>
                             <ul class="accordion-detail">
                             	<div>
+<<<<<<< HEAD:configuracion/configuracionGeneral.php
                             		<form class="frmC" action="configuracionGeneralConfirm.php" method="post">
+=======
+                            		<form class="frmC" action="/cenfotec-proyecto-1/configuracion/configuracionGeneralConfirm.php" method="post">
+>>>>>>> origin/master:configuracion/configuracionGeneral.php
 
 	                            		<div id="divTxtCit">
 	                            			<label class="lbl">Dias de expiración de solicitud:</label>

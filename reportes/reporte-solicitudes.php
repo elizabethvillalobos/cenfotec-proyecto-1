@@ -19,10 +19,10 @@
 				<nav class="secondary-nav">
 					<ul class="sec-nav-category">
 						<li class="accordion-item">
-							<a href="reportes.php" class="active">Ranking</a>
+							<a href="reportes.php">Ranking</a>
 						</li>
 						<li class="accordion-item">
-							<a href="reporte-solicitudes.php">Solicitudes</a>
+							<a href="reporte-solicitudes.php" class="active">Solicitudes</a>
 						</li>
 						<li class="accordion-item">
 							<a href="reporte-agendas.php">Agendas</a>
@@ -36,59 +36,66 @@
 
 			<main>
 				<div class="mod-hd">
-					<h2>Reporte de ranking</h2>
-					<table>
+					<h2>Reporte de solicitudes</h2>
+					<table id="tblSolicitudes" class="selectable">
 						<thead>
 							<tr>
-								<th class="center">Posición</th>
 								<th class="center">Usuario</th>
 								<th class="center">Rol</th>
-								<th class="center">Total de Citas</th>
-								<th class="center">Puntuación Total</th>
+								<th class="center">Realizadas</th>
+								<th class="center">Aceptadas</th>
+								<th class="center">Rechazadas</th>
+								<th class="center">Expiradas</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td class="center">1</td>
 								<td>Diego Barillas Valverde</td>
 								<td>Estudiante</td>
 								<td class="center">10</td>
 								<td class="center">10</td>
+								<td class="center">0</td>
+								<td class="center">0</td>
 							</tr>
 							<tr>
-								<td class="center">2</td>
 								<td>Pablo Monestel</td>
 								<td>Coordinador Académico</td>
-								<td class="center">5</td>
-								<td class="center">10</td>
+								<td class="center">-</td>
+								<td class="center">8</td>
+								<td class="center">1</td>
+								<td class="center">0</td>
 							</tr>
 							<tr>
-								<td class="center">3</td>
 								<td>Antonio Luna</td>
 								<td>Profesor</td>
-								<td class="center">10</td>
-								<td class="center">9</td>
+								<td class="center">-</td>
+								<td class="center">8</td>
+								<td class="center">2</td>
+								<td class="center">0</td>
 							</tr>
 							<tr>
-								<td class="center">4</td>
 								<td>Miguel Coto</td>
 								<td>Estudiante</td>
-								<td class="center">2</td>
-								<td class="center">8</td>
+								<td class="center">5</td>
+								<td class="center">5</td>
+								<td class="center">0</td>
+								<td class="center">0</td>
 							</tr>
 							<tr>
-								<td class="center">5</td>
 								<td>Alexander Corrales Solís</td>
 								<td>Estudiante</td>
-								<td class="center">1</td>
-								<td class="center">8</td>
+								<td class="center">5</td>
+								<td class="center">5</td>
+								<td class="center">3</td>
+								<td class="center">0</td>
 							</tr>
 							<tr>
-								<td class="center">6</td>
 								<td>Andrea Arroyo Cascante</td>
 								<td>Asistente de curso</td>
-								<td class="center">5</td>
-								<td class="center">5</td>
+								<td class="center">3</td>
+								<td class="center">1</td>
+								<td class="center">1</td>
+								<td class="center">1</td>
 							</tr>
 							
 						</tbody>
@@ -103,5 +110,6 @@
 		</div>
 
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+		<script src="/cenfotec-proyecto-1/js/reportes.js"></script>
 	</body>
 </html>

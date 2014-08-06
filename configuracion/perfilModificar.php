@@ -1,5 +1,6 @@
 <?php
     require_once('../includes/functions.php');
+    $currentModule = '';
     $currentSubModule = 'perfil';
 ?>
 
@@ -70,7 +71,7 @@
 
 						<div class="form-row">
 							<label for="perfil-telefono">Teléfono:</label>
-							<input id="perfil-telefono" type="text" placeholder="Ingrese el número telefónico" class="form-control" value="7012-6789" data-validate-type="phone" />
+							<input id="perfil-telefono" type="text" placeholder="Ingrese el número telefónico" class="form-control" value="8800-0101" data-validate-type="phone" />
 						</div>
 
 						<div class="form-row">

@@ -20,7 +20,7 @@
 			<main id="perfil-usr">
 				<section class="perfil">
 					<div class="mod-hd">
-						<h2>Carla Rojas Solorzano</h2>
+						<h2>Álvaro Cordero Peña</h2>
 						
                         <a href="../citas/solicitarCita.php" class="enviar-msj flaticon-calendar68">Solicitar cita</a>
                         <a href="../mensajeria/mensajeria.html" class="enviar-msj flaticon-black218">Enviar mensaje</a> 
@@ -33,22 +33,22 @@
 
 						<div class="row">
 							<span class="label">Correo electrónico:</span>
-							<span class="data email">crojass@ucenfotec.ac.cr</span>
+							<span class="data email">acordero@ucenfotec.ac.cr</span>
 						</div>
 
 						<div class="row">
 							<span class="label">Teléfono:</span>
-							<span class="data">8830-9187</span>
+							<span class="data">8800-0101</span>
 						</div>
 
 						<div class="row">
 							<span class="label">Skype Id:</span>
-							<span class="data">carlosrojas98</span>
+							<span class="data">al_corpe</span>
 						</div>
 
 						<div class="row">
 							<span class="label">Rol:</span>
-							<span class="data">Estudiante</span>
+							<span class="data">Profesor</span>
 						</div>
 
 						<div class="row">
@@ -64,6 +64,10 @@
 							</div>
 						</div>
 
+						<div class="row">
+							<span class="label">Horario:</span>
+							<span class="data">Lunes, martes, miércoles y viernes de 6:00 p.m. a 9:00 p.m.</span>
+						</div>
 					</div>
 				</section>
 			</main>

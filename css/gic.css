@@ -287,15 +287,13 @@ tr:nth-child(even) {
     background: #ecf0f1;
 }
 
-.tblReporte tr:hover {
+tr:hover {
 	background: #999999;
 	color: #fff;
 }
 
 .selectable tr:hover {
 	cursor: pointer;
-	background: #999999;
-	color: #fff;
 }
 
 

@@ -1,76 +1,26 @@
+<?php
+require_once('../../includes/functions.php');
+$currentModule = 'citas';
+$currentSubModule = 'solicitudes'; 
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<title><?php echo APP_TITLE; ?></title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="../../css/gic.css">
 		<link rel="stylesheet" href="../../css/pages/citas.css">
 	</head>
 	<body>
 		<div class="wrapper">
-			<header>
-				<a href="../../index-Estudiante.html" class="home">
-					<h1 class="logo">Gestor Inteligente de Citas</h1>
-				</a>
-
-				<!-- Menu principal -->
-				<nav class="main-nav">
-					<ul>
-						<li>
-							<a href="citas-Estudiante.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
-						</li>
-						<li>
-							<a href="../../evaluacion/estudiante/miRanking-Estudiante.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
-						</li>
-						<li>
-							<a href="../../mensajeria/estudiante/mensajeria-Estudiante.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
-						</li>
-						<li>
-							<a href="../../reportes/estudiante/reportes-Estudiante.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
-						</li>
-					</ul>
-				</nav>
-
-				<section class="busqueda">
-					<input id="q" type="text" value="" placeholder="Buscar personas" />
-					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
-				</section>
-
-				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Diego!</span>
-					<img class="usr-photo" src="../../images/users/diego-barillas.jpg" width="40" height="40">
-					<ul>
-						<li>
-							<a href="../../configuracion/Estudiante/perfil-Estudiante.html" class="usr-editar-perfil">Mi cuenta</a>
-						</li>
-						<li>
-							<a href="../../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
-						</li>
-					</ul>
-				</section>
-			</header>
-
-			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li class="accordion-item">
-							<a href="citas-Estudiante.html">Agenda</a>							
-						</li>
-						<li class="accordion-item expanded">
-							<span id="crearSolicitud" class="flaticon-add73"></span>
-							<a href="solicitudes-Estudiante.html" class="active">Solicitudes de cita</a>
-							<ul class="thrd-nav-category accordion-detail">
-								<li><a href="solicitudes-Estudiante.html">Pablo Monestel</a></li>								 
-								<li>
-									<span class="listo flaticon-check34"></span>
-									<a href="solicitudInfo-Estudiante.html">Antonio Luna</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-			</aside>
+			<?php include(ROOT.'/includes/header.php'); ?>
+			<?php include(ROOT.'/includes/aside-citas.php'); ?>
 
 			<main>
 				<section class="cita">
@@ -78,7 +28,7 @@
 						<h2>Solicitar cita de atención</h2>
 					</div>
 					<div class="mod-bd">
-					<form id="solicitarCita" class="frontContent" action="#" method="post">						
+					<form id="solicitarCita" class="frontContent" action="../../includes/realizarSolicitud.php" method="post">						
 						<div class="form-row">
 							<label for="txtCurso">Curso (opcional):</label>
 							<input id="txtCurso" type="text" placeholder="Seleccione un curso" class="inputExplore form-control" disabled/>
@@ -91,7 +41,7 @@
 						</div>
 						<div class="form-row">
 							<label for="txtAsunto">Asunto a tratar:</label>
-							<input id="txtAsunto" type="text" placeholder="Ingrese el asunto a tratar en la cita" class="form-control" />
+							<input id="txtAsunto" name="asunto" type="text" placeholder="Ingrese el asunto a tratar en la cita" class="form-control" />
 						</div>								
 						<div class="form-row form-row-radio">
 							<label>Modalidad:</label>
@@ -116,7 +66,9 @@
 							<textarea id="txtObservaciones" placeholder="Ingrese comentarios adicionales de la cita" class="form-control"></textarea>
 						</div>
 						<div id="enviarRow" class="form-row form-row-button">
-							<a href="solicitudEnviada-Estudiante.html" id="btnEnviar" class="btn btn-primary">Enviar</a>
+							<button id="btnEnviar" class="btn btn-primary">Enviar</button>
+							
+							<!--a href="solicitudEnviada-Estudiante.html" id="btnEnviar" class="btn btn-primary">Enviar</a-->
 						</div>
 					</form>
 					
@@ -131,9 +83,7 @@
 				</section>
 			</main>
 			
-			<footer>
-				<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
-			</footer>
+			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
 		
 		<!-- Load JS -->

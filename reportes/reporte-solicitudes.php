@@ -37,7 +37,7 @@
 			<main>
 				<div class="mod-hd">
 					<h2>Reporte de solicitudes</h2>
-					<table id="tblSolicitudes" class="selectable">
+					<table id="tblSolicitudes" class="tblReportes selectable">
 						<thead>
 							<tr>
 								<th class="center">Usuario</th>

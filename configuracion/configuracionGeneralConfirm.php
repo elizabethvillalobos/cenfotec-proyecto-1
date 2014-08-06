@@ -11,7 +11,7 @@
 	<body>
 		<div class="wrapper">
 			<header>
-				<a href="../index.html" class="home">
+				<a href="../index.php" class="home">
 					<h1 class="logo">Gestor Inteligente de Citas</h1>
 				</a>
 
@@ -19,19 +19,19 @@
 			<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
+							<a href="../citas/citas.php" class="citas flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
-							<a href="../evaluacion/miRanking.html" class="evaluacion  flaticon-verification5"><span>Evaluación</span></a>
+							<a href="../evaluacion/miRanking.php" class="evaluacion  flaticon-verification5"><span>Evaluación</span></a>
 						</li>
 						<li>
-							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
+							<a href="../mensajeria/mensajeria.php" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
 						</li>
 						<li>
-							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
+							<a href="../reportes/reportes.php" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="configuracion/perfil.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
+							<a href="configuracion/perfil.php" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -46,10 +46,10 @@
 					<img class="usr-photo" src="../images/users/administrador.jpg" width="40" height="40">
 					<ul>
 						<li>
-							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Mi cuenta</a>
+							<a href="../configuracion/perfil.php" class="usr-editar-perfil">Mi cuenta</a>
 						</li>
 						<li>
-							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
+							<a href="../seguridad/iniciarSesion.php" class="usr-cerrar-sesion">Cerrar sesión</a>
 						</li>
 					</ul>
 				</section>
@@ -61,11 +61,11 @@
 						<li>
 							<a href="#" class="active">Configuración</a>
 							<ul class="thrd-nav-category">
-								<li><a href="perfil.html">Mi cuenta</a></li>
+								<li><a href="perfil.php">Mi cuenta</a></li>
 								<li><a href="#">Mi cuenta</a></li>
-								<li><a href="consultarCarreras.html" class="">Carreras y cursos</a></li>
-								<li><a href="consultarUsuario.html">Usuarios</a></li>
-								<li><a href="configuracionGeneral.html" class="active">General</a></li>
+								<li><a href="consultarCarreras.php" class="">Carreras y cursos</a></li>
+								<li><a href="consultarUsuario.php">Usuarios</a></li>
+								<li><a href="configuracionGeneral.php" class="active">General</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -80,7 +80,7 @@
                         <div class="mod-bd">
                             <p>Se han establecido correctamente los parametros.</p>
 
-                            <a href="configuracionGeneral.html" class="btn btn-default">Volver</a>
+                            <a href="configuracionGeneral.php" class="btn btn-default">Volver</a>
                         </div>
                     </section>
                  </main>   

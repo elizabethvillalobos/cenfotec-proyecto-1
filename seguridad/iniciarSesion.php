@@ -42,7 +42,7 @@
 							
 							<div class="links">
 							    <a href="/cenfotec-proyecto-1/seguridad/registrarUsuario.php" id="aRegistrar">Registrarse</a>
-							    <a href="/cenfotec-proyecto-1/seguridad/recordarContrasena.php" id="aOlvide">Olvidé mi contraseña</a>
+							    <a href="/cenfotec-proyecto-1/seguridad/olvideContrasena.php" id="aOlvide">Olvidé mi contraseña</a>
 							</div>
 						</fieldset>
 					</form>

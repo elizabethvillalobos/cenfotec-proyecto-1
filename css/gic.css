@@ -283,17 +283,8 @@ th {
     padding: 5px 8px;
 }
 
-tr:nth-child(even) {
+tr:nth-child(even) td {
     background: #ecf0f1;
-}
-
-tr:hover {
-	background: #999999;
-	color: #fff;
-}
-
-.selectable tr:hover {
-	cursor: pointer;
 }
 
 
@@ -1243,7 +1234,7 @@ header a:hover {
    ---------- */
 aside {
     background: #3c3c3c;
-    bottom: 28px;
+    bottom: 42px;
     font-size: 14px;
     left: 0;
     padding-top: 10px;
@@ -1380,11 +1371,11 @@ footer {
     -webkit-border-radius: 0 0 8px 8px;
     border-radius: 0 0 8px 8px;
     margin: 0 auto 10px;
-    padding: 5px 10px;
+    padding: 10px;
 }
 footer p {
     color: #ecf0f1;
-    font-size: 0.8em;
+    font-size: 0.9em;
     margin: 0;
 }
 
@@ -1458,11 +1449,4 @@ footer p {
 #resultados{
     position: absolute;
     z-index: 1;
-}
-
-/*Pagina perfil del usuario seleccionado en la busqueda*/
-
-#perfil-usr{
-    margin-left: 0px;
-    padding: 10px 20px 40px 60px;
 }

@@ -344,10 +344,6 @@ form.form-horizontal .form-control-time {
 	display: block;
 }
 
-#page-agenda .accordion-item .accordion-detail {
-	overflow: hidden;
-}
-
 
 /*fix*/
 .secondary-nav a {
@@ -361,6 +357,6 @@ form.form-horizontal .form-control-time {
 
 @media all and (max-width: 1024px) and (min-width: 750px) {
     #page-agenda .ui-datepicker {
-        margin-left: -469px !important;
+        margin-left: -475px !important;
     }
 }

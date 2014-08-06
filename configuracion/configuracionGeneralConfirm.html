@@ -75,7 +75,7 @@
 			<main id="mainCG">
 				 <section class="msg-confirm">
                         <div class="mod-hd">
-                            <h2 class="flaticon-machine2">¡Configuración realizada con exito!</h2>
+                            <h2 class="flaticon-machine2">¡Configuración realizada con éxito!</h2>
                         </div>
                         <div class="mod-bd">
                             <p>Se han establecido correctamente los parametros.</p>

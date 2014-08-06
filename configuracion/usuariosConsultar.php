@@ -109,7 +109,7 @@
                                     <div>
                                         <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
-                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
+                                        <a class="usuarios-deshabilitar" href="#">Habilitar</a>
                                         <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
                                     </div>
                                 </td>

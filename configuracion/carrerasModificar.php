@@ -1,3 +1,10 @@
+<?php
+    require_once('../includes/functions.php');
+
+    $currentModule = 'configuracion';
+    $currentSubModule = 'carreras';
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,50 +16,9 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<header>
-					<a href="../index.html" class="home">
-						<h1 class="logo">Gestor Inteligente de Citas</h1>
-					</a>
-
-					<!-- Menu principal -->
-					<nav class="main-nav">
-					<ul>
-						<li>
-							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
-						</li>
-						<li>
-							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
-						</li>
-						<li>
-							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
-						</li>
-						<li>
-							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
-						</li>
-						<li>
-							<a href="perfil.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
-						</li>
-					</ul>
-				</nav>
-
-					<section class="busqueda">
-						<input id="q" type="text" value="" placeholder="Buscar personas" />
-						<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
-					</section>
-
-				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Carlos!</span>
-					<img class="usr-photo" src="../images/users/administrador.jpg" width="40" height="40">
-					<ul>
-						<li>
-							<a href="perfil.html" class="usr-editar-perfil">Mi cuenta</a>
-						</li>
-						<li>
-							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
-						</li>
-					</ul>
-				</section>
-			</header>
+			<?php include(ROOT.'/includes/header.php'); ?>
+			<?php include(ROOT.'/includes/aside-configuracion.php'); ?>
+			
 				<aside>
 				<nav class="secondary-nav">
 					<ul class="sec-nav-category accordion">
@@ -82,7 +48,7 @@
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="modificar-carrera" class="mod-bd form-horizontal" action="modificarCarrera-confirmar.html" 
+					<form id="modificar-carrera" class="mod-bd form-horizontal" action="carrerasModificar-confirmar.php" 
 						method="post" data-validate="true" novalidate>
 						<div class="form-row">
 

@@ -54,11 +54,11 @@
 											<a href="consultarCursosDesarrollo.html" class="flaticon-list40">Ver cursos</a>
 										</div>
 										<div class="form-row form-row-buttonAcciones">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar2"
+											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar"
 												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar2"
+											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar"
 												value="Deshabilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnModificar2" 
+											<input type="button" class="btn btn-secondaryAction" id="btnModificar" 
 												value="Modificar" >
 										</div>
 									</fieldset>
@@ -91,11 +91,11 @@
 											<a href="consultarCursosDiseñoWeb.html" class="flaticon-list40">Ver cursos</a>
 										</div>
 										<div class="form-row form-row-buttonAcciones">
-											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar"
+											<input type="button" class="btn btn-secondaryAction" id="btnHabilitar2"
 												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar"
+											<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitar2"
 												value="Deshabilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btnModificar" 
+											<input type="button" class="btn btn-secondaryAction" id="btnModificar2" 
 												value="Modificar">
 										</div>
 									</fieldset>

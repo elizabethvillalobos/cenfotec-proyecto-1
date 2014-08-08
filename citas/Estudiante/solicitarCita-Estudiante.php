@@ -2,8 +2,6 @@
 require_once('../../includes/functions.php');
 $currentModule = 'citas';
 $currentSubModule = 'solicitudes'; 
-
-
 ?>
 
 

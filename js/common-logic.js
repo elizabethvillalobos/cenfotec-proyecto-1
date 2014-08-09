@@ -575,7 +575,6 @@ function autocompletar(pdivResultados, pinput, pdatos){
 
 //reemplazar el texto de un input de busqueda
 function reemplazarTextoInput(pdivResultados,pinput,ptarget){
-	pinput = document.querySelector('#txtCurso');
 	if(ptarget.innerText == ptarget.innerHTML){
 		pinput.value=ptarget.innerText;  
 		pdivResultados.innerHTML="";

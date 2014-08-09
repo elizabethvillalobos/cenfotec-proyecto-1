@@ -259,6 +259,19 @@ rCursos.addEventListener('click', function(e) {
 	reemplazarTextoInput(rCursos,input,e.target);		
 });
 
+function buscarFuncionarios(evento){
+    var resFuncionarios = document.querySelector('#resFuncionarios'),
+    input = document.querySelector('#txtFuncionario'),
+	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
+	autocompletar(resFuncionarios,input, datos);
+}
+
+var rFuncionarios=document.querySelector('#resFuncionarios');
+rFuncionarios.addEventListener('click', function(e) {
+	var input = document.querySelector('#txtFuncionario');
+	reemplazarTextoInput(rFuncionarios,input,e.target);		
+});
+
 
 
 // ------------------------------------------

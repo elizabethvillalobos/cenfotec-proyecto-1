@@ -29,15 +29,13 @@ $currentSubModule = 'solicitudes';
 					<form id="solicitarCita" class="frontContent" action="../../includes/realizarSolicitud.php" method="post">						
 						<div class="form-row">							
 							<label for="txtCurso">Curso (opcional):</label>
-								<input id="txtCurso" class="form-control" type="text" value="" placeholder="Buscar personas" onkeyup="buscarCursos(event)" />
-							    <div id="resCursos"></div>
-							<!--input id="txtCurso" type="text" placeholder="Seleccione un curso" class="inputExplore form-control" disabled/>
-							<button type="button" id="btnSelectCurso"class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button-->
+							<input id="txtCurso" class="form-control" type="text" value="" placeholder="Buscar curso" onkeyup="buscarCursos(event)" />
+							<div id="resCursos"></div>
 						</div>													
 						<div class="form-row">
-							<label for="txtInvitado">Invitado:</label>
-							<input id="txtInvitado" type="text" placeholder="Seleccione un profesor" class="inputExplore form-control" disabled/>
-							<button type="button" id="btnSelectInvitado" class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button>
+							<label for="txtFuncionario">Invitado:</label>
+							<input id="txtFuncionario" class="form-control" type="text" value="" placeholder="Buscar funcionario" onkeyup="buscarFuncionarios(event)" />
+							<div id="resFuncionarios"></div>
 						</div>
 						<div class="form-row">
 							<label for="txtAsunto">Asunto a tratar:</label>

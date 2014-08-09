@@ -27,10 +27,12 @@ $currentSubModule = 'solicitudes';
 					</div>
 					<div class="mod-bd">
 					<form id="solicitarCita" class="frontContent" action="../../includes/realizarSolicitud.php" method="post">						
-						<div class="form-row">
+						<div class="form-row">							
 							<label for="txtCurso">Curso (opcional):</label>
-							<input id="txtCurso" type="text" placeholder="Seleccione un curso" class="inputExplore form-control" disabled/>
-							<button type="button" id="btnSelectCurso"class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button>
+								<input id="txtCurso" class="form-control" type="text" value="" placeholder="Buscar personas" onkeyup="buscarCursos(event)" />
+							    <div id="resCursos"></div>
+							<!--input id="txtCurso" type="text" placeholder="Seleccione un curso" class="inputExplore form-control" disabled/>
+							<button type="button" id="btnSelectCurso"class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button-->
 						</div>													
 						<div class="form-row">
 							<label for="txtInvitado">Invitado:</label>

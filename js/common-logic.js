@@ -535,3 +535,50 @@ function realizarBusqueda(evento){
 
 }
 
+
+//esta funcion es la compartida la cual servira para mostrar los resultados de acuerdo a la informacion mostrada
+//pdivResultados: div que contiene los resultados a mostrar
+//pinput: caja de texto en la que se digita
+//pdatos: colleccion de resultados (string) que serán utilizados para mostrar con cada tecla digitada
+function autocompletar(pdivResultados, pinput, pdatos){
+	//sleccionar los de esa clase los que son hijos del input
+	var alinks=pdivResultados.querySelectorAll('.js-linksBusqueda');
+	
+    
+	//limpiar resultados anteriores
+    if(alinks.length){
+        for(var j=0; j<alinks.length; j++){
+             alinks[j].remove();
+        }
+    }
+      
+	//llenar con los resultados correctos
+    for(var i=0; i<pdatos.length; i++){
+        var busqueda = pinput.value,
+            caseInsensitive = 'i';
+        
+        busqueda = busqueda.replace(/\s/g,'');
+        var criterio = new RegExp(busqueda, caseInsensitive);
+        
+        if(criterio!="/(?:)/i"){
+            if(criterio.test(pdatos[i])){
+			
+				var resultado=document.createElement("span");
+				resultado.className="js-linksBusqueda";
+				resultado.innerHTML = pdatos[i];		
+				
+                pdivResultados.appendChild(resultado);
+            } 
+        }        
+    }
+}
+
+//reemplazar el texto de un input de busqueda
+function reemplazarTextoInput(pdivResultados,pinput,ptarget){
+	pinput = document.querySelector('#txtCurso');
+	if(ptarget.innerText == ptarget.innerHTML){
+		pinput.value=ptarget.innerText;  
+		pdivResultados.innerHTML="";
+	}
+}
+

@@ -257,6 +257,34 @@ if(btnAceptar!=null){
 }
 
 
+function buscarCursos(evento){
+    var resCursos = document.querySelector('#resCursos'),
+    input = document.querySelector('#txtCurso'),
+	datos = ["Inglés para tecnologías de información 1","Introducción a la tecnología de información","Fundamentos de programación","Proyecto de ingeniería del software 1","Inglés para tecnologías de información 2","Programación orientada a objetos","Procesos empresariales","Fundamentos de bases de datos","Estructuras discretas"];
+	autocompletar(resCursos,input, datos);
+}
+
+var rCursos=document.querySelector('#resCursos');
+rCursos.addEventListener('click', function(e) {
+	var input = document.querySelector('#txtCurso');
+	reemplazarTextoInput(rCursos,input,e.target);		
+});
+
+function buscarFuncionarios(evento){
+    var resFuncionarios = document.querySelector('#resFuncionarios'),
+    input = document.querySelector('#txtFuncionario'),
+	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
+	autocompletar(resFuncionarios,input, datos);
+}
+
+var rFuncionarios=document.querySelector('#resFuncionarios');
+rFuncionarios.addEventListener('click', function(e) {
+	var input = document.querySelector('#txtFuncionario');
+	reemplazarTextoInput(rFuncionarios,input,e.target);		
+});
+
+
+
 // ------------------------------------------
 // FUNCIONES COMPARTIDAS
 // ------------------------------------------

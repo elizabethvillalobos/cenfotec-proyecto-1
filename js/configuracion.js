@@ -243,10 +243,16 @@ function registrarCurso() {
 			  },
 		dataType: 'json',
 		success: function(response){    
-			console.log(response.data);
+			window.location ="registarCurso-Confirmar.html";
 		},
 		error: function(response){
-			console.log(response.data);
+			var error = document.createElement("p");
+			error.className="alert-error flaticon-remove11";
+			var msj = document.createTextNode("Este curso ya se encuentra almacenado.");
+			error.appendChild(msj);
+			var botonesDiv=document.querySelector('.form-row-button');
+			botonesDiv.appendChild(error);
+			
 		}
 	});
 };

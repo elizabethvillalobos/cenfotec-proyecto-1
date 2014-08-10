@@ -169,6 +169,15 @@ form.form-horizontal{
 	top: 4px;
 }
 
+#resCursos{
+	z-index: 1;
+	position: absolute;
+}
+#resFuncionarios{
+	z-index: 1;
+	position: absolute;
+}
+
 
 
 /* Elizabeth 

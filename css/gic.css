@@ -562,6 +562,11 @@ form.form-horizontal .form-row-button {
    margin-left: 165px;
 }
 
+form.form-horizontal .form-row-button .alert-error {
+   margin-left: 0px;
+   width: 74%;
+}
+
 form.form-horizontal .form-row-checkbox,
 form.form-horizontal .form-row-radio {
    margin-left: 25.5%;

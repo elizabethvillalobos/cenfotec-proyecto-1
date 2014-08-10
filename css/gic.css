@@ -564,13 +564,13 @@ form.form-horizontal .form-row-radio label {
 
 .row {
     margin: 3px;
-   padding-left: 160px;
-   position: relative;
+    padding-left: 160px;
+    position: relative;
 }
 .row .label {
-   left: 0;
-   margin-right: 10px;
-   position: absolute;
+    left: 0;
+    margin-right: 10px;
+    position: absolute;
 }
 
 
@@ -738,6 +738,7 @@ fieldset[disabled] .btn {
     color: #666;
     display: block;
     font-size: 1.1em;
+    line-height: 1.5;
     padding: 0;
     text-align: left;
     width: auto;

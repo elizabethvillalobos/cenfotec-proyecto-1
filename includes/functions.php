@@ -6,9 +6,9 @@ define('APP_TITLE', 'Universidad Cenfotec - Gestor Ingeligente de Citas');
 $db_hostname = 'localhost';
 $db_database = 'gic';
 $db_username = 'root';
-$db_password = '';
+$db_password = 'root';
 
-// $db_server = db_init();
+$db_server = db_init();
 
 function db_init() {
 	global 	$db_hostname,

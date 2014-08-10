@@ -235,7 +235,7 @@ function registrarCurso() {
 
 	var request = $.ajax({
 		url: "../includes/functions-cursos.php",
-		type: "post",
+		type: "get",
 		data: {
 			   'call': 'insertarCurso',
 			   'pcodigo': codigo,

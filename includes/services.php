@@ -11,7 +11,8 @@
 		
 		// Ejecutar consulta que retorna citas por usuario
 		// para una fecha específica.
-		$citasUsuario = getCitasUsuario($solicitante);
+		//$citasUsuario = getCitasUsuario($solicitante);
+		$citasUsuario = "hola mundo";
 
 		if (empty($citasUsuario)) {
 			deliver_response(200, 'No data', NULL);

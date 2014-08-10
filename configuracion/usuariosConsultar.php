@@ -3,7 +3,6 @@
     require_once(ROOT.'/includes/functions-usuarios.php');
 
     $currentModule = 'configuracion';
-    $currentSubModule = 'usuarios';
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +24,10 @@
 				    <h2>Usuarios</h2>
                 </div>
                 <div class="mod-bd">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79520edb557ec8a7a48f6c01747c93061a20b7b1
                     <a class="crearUsuario btn btn-default flaticon-add73" href="/cenfotec-proyecto-1/configuracion/usuarioCrear.php">Crear usuario</a>
                     <div class="usuarios-filtros">
                         <span class="usuarios-filtros-label">Filtrar por rol:</span>
@@ -36,8 +38,9 @@
                         <span class="usuarios-filtro filtro-mercadeo">Mercadeo</span>
                         <span class="usuarios-filtro filtro-administrador">Administrador</span>
                     </div>
-                    <table class="lista-usuarios">
+					<table class="lista-usuarios">
                         <tbody>
+<<<<<<< HEAD
                             <tr>
                                 <td class="usuarios-nombre">
                                     <a href="#">Diego Barillas Valverde</a>
@@ -160,6 +163,9 @@
                                     </div>
                                 </td>
                             </tr>
+=======
+                            <?php mostrarUsuarios() ?>
+>>>>>>> 79520edb557ec8a7a48f6c01747c93061a20b7b1
                         </tbody>
                     </table>
 				</div>

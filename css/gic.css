@@ -283,7 +283,7 @@ th {
     padding: 5px 8px;
 }
 
-tr:nth-child(even) {
+tr:nth-child(even) td {
     background: #ecf0f1;
 }
 
@@ -297,6 +297,7 @@ tr:nth-child(even) {
 	background: #999999;
 	color: #fff;
 }
+
 
 
 /* ----------
@@ -575,13 +576,13 @@ form.form-horizontal .form-row-radio label {
 
 .row {
     margin: 3px;
-   padding-left: 160px;
-   position: relative;
+    padding-left: 160px;
+    position: relative;
 }
 .row .label {
-   left: 0;
-   margin-right: 10px;
-   position: absolute;
+    left: 0;
+    margin-right: 10px;
+    position: absolute;
 }
 
 
@@ -749,6 +750,7 @@ fieldset[disabled] .btn {
     color: #666;
     display: block;
     font-size: 1.1em;
+    line-height: 1.5;
     padding: 0;
     text-align: left;
     width: auto;
@@ -1460,11 +1462,4 @@ footer p {
 #resultados{
     position: absolute;
     z-index: 1;
-}
-
-/*Pagina perfil del usuario seleccionado en la busqueda*/
-
-#perfil-usr{
-    margin-left: 0px;
-    padding: 10px 20px 40px 60px;
 }

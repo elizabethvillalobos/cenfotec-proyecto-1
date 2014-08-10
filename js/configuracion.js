@@ -79,21 +79,24 @@ $('select#usuario-carrera').on('change', function() {
 
 
 var ebtnEnviar = document.querySelector('#btnEvr'),
-    eform = document.querySelector('#form-confGrl'),
-    
+    eform = document.querySelector('#form-confGrl'),       
     eMsjError = document.querySelector('.alert-error');
 
 if(ebtnEnviar) {
 	ebtnEnviar.addEventListener('click',function(event){
-       var eMailNotif = document.querySelector('#emailNot').value;
-		
-		event.preventDefault();
-		 
-		var mailCorrecto = validarCorreo(eMailNotif, eMsjError, 'El correo no es válido.');
-        
 
-		if(mailCorrecto){
-			eform.submit();
+		event.preventDefault();
+
+       var aCamposTxt = document.querySelectorAll('.form-control'),
+           eMailNotif = document.querySelector('#emailNot').value;		
+		 
+		 limpiarMensajesError();
+		var camposVacios = validarCamposLlenos(aCamposTxt,eMsjError,'debe llenar todos los campos');
+		if(camposVacios){
+			var mailCorrecto = validarCorreo(eMailNotif, eMsjError, 'El correo no es válido.');
+			if (mailCorrecto) {
+				eform.submit();
+			};			
 		}       
 	});
 	

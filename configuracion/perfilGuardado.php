@@ -1,7 +1,10 @@
 <?php
     require_once('../includes/functions.php');
+
     $currentModule = '';
 	$currentSubModule = 'perfil';
+
+
 ?>
 
 <!DOCTYPE html>

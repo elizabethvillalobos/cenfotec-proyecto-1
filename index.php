@@ -28,7 +28,5 @@
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
-		<!-- Load JS -->
-        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 	</body>
 </html>

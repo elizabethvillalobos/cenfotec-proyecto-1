@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo APP_TITLE; ?></title>
+		<title></title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
@@ -77,37 +77,31 @@
 				</nav>
 			</aside>
 
-			<?php include(ROOT.'/includes/header.php'); ?>
-			<?php include(ROOT.'/includes/aside-citas.php'); ?>
-
+			<?php include('../includes/header.php'); ?>
+			<?php include('../includes/aside-citas.php'); ?>
 
 			<main>
-				<section class="cita cita-23-07-2014 visible">
-					<div class="mod-hd">
-						<h2>Miércoles 23 de Julio</h2>
-						<span class="cita-hora-inicio-fin">6:00 p.m. a 7:00 p.m.</span>
-					</div>
-					<div class="mod-bd">
-						<div class="row">
-							<span class="label">Invitado:</span>
-							<div class="data-wrap">
-								<span class="data cita-invitado">Juan Carlos Brenes Álvarez</span>
-								<span class="data">jbrenesa@ucenfotec.ac.cr</span>
-								<span class="data">8850-0504</span>
+				<!-- Elemento a utilizar por Handlebars para imprimir las citas.-->
+				<div id="citas-container"></div>
+
+				<!-- Handlebars template -->
+				<script id="template-cita" type="text/x-handlebars-template">
+  					<section class="cita visible">
+  						<div class="mod-hd">
+							<h2>Lunes {{ fechaInicio }}</h2>
+							<span class="cita-hora-inicio-fin">6:00 p.m. a 7:00 p.m.</span>
+						</div>
+						<div class="mod-bd">
+							<div class="row">
+								<span class="label">Invitado:</span>
+								<div class="data-wrap">
+									<span class="data cita-invitado">{{ nombreSolicitado}}</span>
+									<span class="data">{{ correoSolicitado }}</span>
+									{{#if telefonoSolicitado }}
+										<span class="data">{{ telefonoSolicitado }}</span>
+									{{/if}}
+								</div>
 							</div>
-						</div>
-
-						<img class="cita-photo" src="../images/users/juan-carlos-brenes.jpg" width="75" height="75">
-
-						<div class="row">
-							<span class="label">Asunto a tratar:</span>
-							<span class="data">Casos de uso en formato expandido</span>
-						</div>
-
-						<div class="row">
-							<span class="label">Curso:</span>
-							<span class="data">Proyecto de ingeniería de software 1</span>
-						</div>
 
 						<div class="row">
 							<span class="label">Modalidad:</span>
@@ -130,42 +124,14 @@
 					</div>
 				</section>
 
-				<section class="cita cita-24-07-2014">
-					<div class="mod-hd">
-						<h2>Jueves 24 de Julio</h2>
-						<span class="cita-hora-inicio-fin">2:00 p.m. a 3:00 p.m.</span>
-					</div>
-					<div class="mod-bd">
-						<div class="row">
-							<span class="label">Invitado:</span>
-							<div class="data-wrap">
-								<span class="data cita-invitado">Diego Barillas Valverde</span>
-								<span class="data">dbarillasv@ucenfotec.ac.cr</span>
-								<span class="data">2568-5635</span>
+							<img class="cita-photo" src="{{ imagenSolicitado }}" width="75" height="75">
+
+
+							<div class="row">
+								<span class="label">Asunto a tratar:</span>
+								<span class="data">{{ asunto }}</span>
 							</div>
-						</div>
 
-						<img class="cita-photo" src="../images/users/diego-barillas.jpg" width="75" height="75">
-
-						<div class="row">
-							<span class="label">Asunto a tratar:</span>
-							<span class="data">Casos de uso</span>
-						</div>
-
-						<div class="row">
-							<span class="label">Curso:</span>
-							<span class="data">Proyecto de ingeniería de software 1</span>
-						</div>
-
-						<div class="row">
-							<span class="label">Modalidad:</span>
-							<span class="data">Virtual</span>
-						</div>
-
-						<div class="row">
-							<span class="label">Tipo:</span>
-							<span class="data">Grupal</span>
-						</div>
 
 						<div class="row">
 							<span class="label">Observaciones:</span>
@@ -190,8 +156,13 @@
 								<span class="data cita-invitado">Susana Fuentes Morales</span>
 								<span class="data">sfuentesm@ucenfotec.ac.cr</span>
 								<span class="data">7002-2414</span>
+
+							<div class="row">
+								<span class="label">Curso:</span>
+								<span class="data">{{ curso }}</span>
+
 							</div>
-						</div>
+
 
 						<img class="cita-photo" src="../images/users/susana-fuentes.jpg" width="75" height="75">
 
@@ -239,10 +210,13 @@
 								<span class="data cita-invitado">Luis Guzmán Valverde</span>
 								<span class="data">lguzmanv@ucenfotec.ac.cr</span>
 								<span class="data">8337-9008</span>
-							</div>
-						</div>
 
-						<img class="cita-photo" src="../images/users/luis-guzman.jpg" width="75" height="75">
+							<div class="row">
+								<span class="label">Modalidad:</span>
+								<span class="data">{{ modalidad }}</span>
+
+							</div>
+
 
 						<div class="row">
 							<span class="label">Asunto a tratar:</span>
@@ -288,30 +262,13 @@
 								<span class="data cita-invitado">Walter Torres García</span>
 								<span class="data">wtorresg@ucenfotec.ac.cr</span>
 								<span class="data">6054-8488</span>
+
+							<div class="row">
+								<span class="label">Tipo:</span>
+								<span class="data">{{ tipo }}</span>
+
 							</div>
-						</div>
 
-						<img class="cita-photo" src="../images/users/walter-torres.jpg" width="75" height="75">
-
-						<div class="row">
-							<span class="label">Asunto a tratar:</span>
-							<span class="data">Revisión de casos de uso en formato expandido</span>
-						</div>
-
-						<div class="row">
-							<span class="label">Curso:</span>
-							<span class="data">Proyecto de ingeniería de software 1</span>
-						</div>
-
-						<div class="row">
-							<span class="label">Modalidad:</span>
-							<span class="data">Presencial</span>
-						</div>
-
-						<div class="row">
-							<span class="label">Tipo:</span>
-							<span class="data">Grupal</span>
-						</div>
 
 						<div class="row">
 							<span class="label">Observaciones:</span>
@@ -374,16 +331,32 @@
 					</div>
 				</section>
 
-				<section class="cita no-cita">
-					<p class="flaticon-information38">No hay citas agendadas.</p>
-				</section>
+							<div class="row">
+								<span class="label">Observaciones:</span>
+								<span class="data">{{ observaciones }}</span>
+							</div>
+							<div class="form-row form-row-button">
+								<button type="button" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
+								<button type="button" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+							</div>
+						</div>
+					</section>
+				</script>
 
+
+				<section class="cita no-cita">
+					<p class="flaticon-information38">No hay citas agendadas para la fecha seleccionada.</p>
+				</section>
 
 				<div id="modal-finalizar" class="modal js-modal-window">
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea finalizar la cita de atención?</h3>
 					<div class="form-row">
+
 						<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
+
+						<a href="citaFinalizada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
+
 						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>
@@ -391,18 +364,23 @@
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea cancelar la cita de atención?</h3>
 					<div class="form-row">
+
 						<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
+
+						<a href="citaCancelada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
+
 						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>
 			</main>
 			
-			<?php include(ROOT.'/includes/footer.php'); ?>
+			<?php include('../includes/footer.php'); ?>
 		</div>
 
 		<!-- Load JS -->
 		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
 		<script src="/cenfotec-proyecto-1/js/vendors/jquery-ui.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/handlebars-v1.3.0.js"></script>
 		<script src="/cenfotec-proyecto-1/js/gic.js"></script>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
         <script src="/cenfotec-proyecto-1/js/citas.js"></script>

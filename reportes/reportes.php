@@ -19,16 +19,19 @@
 				<nav class="secondary-nav">
 					<ul class="sec-nav-category">
 						<li class="accordion-item">
-							<a href="reportes.php" class="active">Ranking</a>
+							<a href="#">Ranking</a>
 						</li>
 						<li class="accordion-item">
-							<a href="reporte-solicitudes.php">Solicitudes</a>
+							<a href="#">Solicitudes</a>
 						</li>
 						<li class="accordion-item">
-							<a href="reporte-agendas.php">Agendas</a>
+							<a href="#">Citas</a>
 						</li>
 						<li class="accordion-item">
-							<a href="reporte-usuarios.php">Usuarios registrados</a>
+							<a href="#">Agendas</a>
+						</li>
+						<li class="accordion-item">
+							<a href="#">Usuarios registrados</a>
 						</li>
 					</ul>
 				</nav>
@@ -36,6 +39,7 @@
 
 			<main>
 				<div class="mod-hd">
+<<<<<<< HEAD
 					<h2>Reporte de ranking</h2>
 					<table class="tblReporte">
 						<thead>
@@ -93,6 +97,9 @@
 							
 						</tbody>
 					</table>
+=======
+					<h2>Reportes</h2>
+>>>>>>> 79520edb557ec8a7a48f6c01747c93061a20b7b1
 				</div>
 				<div class="mod-bd">
 					

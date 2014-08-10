@@ -1,7 +1,7 @@
 <?php
     require_once('../includes/functions.php');
-
     $currentModule = 'configuracion';
+    $currentSubModule = 'usuarios';
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="modificar-usuario" class="mod-bd form-horizontal" action="usuarioGuardado.html" method="post" data-validate="true" novalidate>
+					<form id="modificar-usuario" class="mod-bd form-horizontal" action="/cenfotec-proyecto-1/configuracion/usuariosConsultar.php" method="post" data-validate="true" novalidate>
 						<div class="form-row">
 							<label for="usuario-nombre">Nombre:</label>
 							<input id="usuario-nombre" onkeypress="return soloLetras(event)" type="text" placeholder="Ingrese el nombre" class="form-control" value="Juan Carlos" required/>

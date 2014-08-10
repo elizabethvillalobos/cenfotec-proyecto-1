@@ -1,3 +1,50 @@
+// Esta función consulta las citas por día para el usuario actual.
+// Utiliza ajax para consultar el servicio que retorna las citas.
+function consultarCitas(event) {
+	var $fecha = $(event.currentTarget).val(); // Obtener la fecha seleccionada.
+
+	// Solicitar datos al servicio.
+	$.ajax({
+		url: '../includes/services.php',
+		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			solicitante: 'evillalobos@ucenfotec.ac.cr'
+		},
+		dataType: 'json',
+		success: function(response) {
+			console.log(response);
+			// Imprimir los datos.
+			mostrarCitas($.parseJSON(response.data));
+		},
+		error: function(response) {
+			// Mostrar mensaje de error.
+			console.log('error');
+			console.log(response);
+		}
+	});
+}
+
+
+// Esta función muestra en el panel del módulo de citas
+// las citas que recibe por parámetro.
+// El parámetro citas debe ser un objeto JSON.
+function mostrarCitas(citas) {
+	var $noCita = $('.no-cita');
+
+	// Esconde el elemento que muestra el mensaje de que no hay citas.
+	$noCita.removeClass('visible');
+
+	if (citas) {
+		// Imprimir citas en el panel.
+		var source = $("#template-cita").html(),
+			template = Handlebars.compile(source);
+  		$("#citas-container").html(template(citas));
+	} else {
+		$noCita.addClass('visible');
+	}
+}
+
+// DOM ready
 (function($) {
 	var eAgenda = $('#agenda-fecha');
 	if (eAgenda.length) {
@@ -13,17 +60,6 @@
 		});
 		eAgenda.datepicker('show');
 	}
-	$('#agenda-fecha').on('change', actualizarCitas);
+	$('#agenda-fecha').on('change', consultarCitas);
 })(jQuery);
 
-function actualizarCitas(event) {
-	var $el = $(event.currentTarget),
-		$citasPorDia = $('.cita-' + $el.val().replace(new RegExp('/', 'g'), '-'));
-
-	$('.cita').removeClass('visible');
-	if ($citasPorDia.length) {
-		$citasPorDia.toggleClass('visible');
-	} else {
-		$('.no-cita').toggleClass('visible');
-	}
-}

@@ -17,8 +17,6 @@ var totalSelected=0;
 // Eventos
 // ------------------------------------------
 
-var myMinDate = new Date();
-myMinDate.setDate(myMinDate.getDate() + 1);
 var eDatePickers = $('.datepicker');
 if (eDatePickers.length) {
 	eDatePickers.datepicker({
@@ -27,7 +25,7 @@ if (eDatePickers.length) {
 		hideOnSelect: true,
 		prevText: 'Prev',
 		nextText: 'Sig',
-		minDate: myMinDate,
+		minDate: new Date(),
 		monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
 		'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre']
 	});

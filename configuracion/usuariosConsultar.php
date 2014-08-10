@@ -29,12 +29,13 @@
                     <a class="crearUsuario btn btn-default flaticon-add73" href="/cenfotec-proyecto-1/configuracion/usuarioCrear.php">Crear usuario</a>
                     <div class="usuarios-filtros">
                         <span class="usuarios-filtros-label">Filtrar por rol:</span>
-                        <span class="usuarios-filtro filtro-estudiante">Estudiante</span>
-                        <span class="usuarios-filtro filtro-profesor">Profesor</span>
-                        <span class="usuarios-filtro filtro-director-academico">Director académico</span>
                         <span class="usuarios-filtro filtro-rector">Rector</span>
+                        <span class="usuarios-filtro filtro-director-academico">Director académico</span>
+                        <span class="usuarios-filtro filtro-profesor">Profesor</span>
+                        <span class="usuarios-filtro filtro-estudiante">Estudiante</span>
+                        <span class="usuarios-filtro filtro-asistente">Asistente</span>
                         <span class="usuarios-filtro filtro-mercadeo">Mercadeo</span>
-                        <span class="usuarios-filtro filtro-administrador">Administrador</span>
+                        
                     </div>
 					<table class="lista-usuarios">
                         <tbody>
@@ -57,5 +58,6 @@
         <script src="/cenfotec-proyecto-1/js/vendors/flatui-radio.js"></script>
         <script src="/cenfotec-proyecto-1/js/gic.js"></script>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+        <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 	</body>
 </html>

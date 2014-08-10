@@ -9,6 +9,7 @@ console.log(fechaFormato);
 		url: '../includes/services.php',
 		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 		data: { // Objeto con los parámetros que utiliza el servicio.
+			query: 'consultar',
 			solicitante: 'evillalobos@ucenfotec.ac.cr'
 		},
 		dataType: 'json',

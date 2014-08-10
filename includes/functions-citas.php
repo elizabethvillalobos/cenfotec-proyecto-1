@@ -9,7 +9,6 @@
 				 'WHERE tcitas.curso = tcursos.id AND tcitas.idSolicitado = tusuarios.id '.
 				 'AND tcitas.esCita = 1 '.
 				 'AND tcitas.idSolicitante = "'.$idsolicitante.'"';
-		// $query = 'SELECT * FROM tcitas';
 
 		$queryResults = do_query($query);
 
@@ -28,5 +27,15 @@
 		}
 
 		return $results;
+	}
+
+
+	// Insertar una nueva cita.
+	// Esta función se ejecuta cuando se acepta la fecha y hora de una solicitud de cita.
+	function insertCita($idSolicitante, $idSolicitado, $fechaInicio, $fechaFin, $asunto, $modalidad, $tipo, $observaciones, $curso) {
+		$query = 'INSERT INTO tcitas(idSolicitante, idSolicitado, fechaInicio, fechaFin, asunto, modalidad, tipo, observaciones, curso, estado, esCita) '.
+				 'VALUES ($idSolicitante, $idSolicitado, $fechaInicio, $fechaFin, $asunto, $modalidad, $tipo, $observaciones, $curso, 1, 1)';
+
+		return do_query($query);
 	}
 ?>

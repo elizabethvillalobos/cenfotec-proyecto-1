@@ -488,6 +488,10 @@ main #q {
     top: 2px;
 }
 
+.lista-usuarios {
+    clear: both;
+}
+
 .lista-usuarios td {
     border-bottom: 1px solid #ddd;
     color: #333;

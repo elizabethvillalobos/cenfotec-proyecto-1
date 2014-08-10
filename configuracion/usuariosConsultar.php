@@ -3,6 +3,7 @@
     require_once(ROOT.'/includes/functions-usuarios.php');
 
     $currentModule = 'configuracion';
+    $currentSubModule = 'usuarios';
 ?>
 
 <!DOCTYPE html>

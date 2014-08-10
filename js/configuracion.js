@@ -234,22 +234,19 @@ function registrarCurso() {
 	  idCarrera = $('#idCarrera').val();
 
 	var request = $.ajax({
-		url: "../includes/functions-cursos.php",
+		url: "../includes/service-cursos.php",
 		type: "get",
 		data: {
-			   'call': 'insertarCurso',
 			   'pcodigo': codigo,
 			   'pnombre' : nombre,
 			   'pidCarrera' : idCarrera
 			  },
 		dataType: 'json',
 		success: function(response){    
-			alert("bien");
+			console.log(response.data);
 		},
 		error: function(response){
-			
-			console.log(response);
-			alert(response);
+			console.log(response.data);
 		}
 	});
 };

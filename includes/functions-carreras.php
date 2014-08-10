@@ -17,7 +17,7 @@ function displayCarreras() {
 		$html .= '<div class="accordion-group">';	
 		$html .= '<div class="accordion-heading">
 					<a class="accordion-toggle collapsed" href="#collapseTwo_'.$row['id'].'" data-parent="#basic-accordion"
-						data-toggle="collapse">'.$row['nombre'].'</a>
+						data-toggle="collapse">'.utf8_encode($row['nombre']).'</a>
 				  </div>';
 		$html .= '<div id="collapseTwo_'.$row['id'].'" class="accordion-body collapse">
 							<div class="accordion-inner">

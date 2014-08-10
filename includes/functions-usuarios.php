@@ -21,7 +21,7 @@ function mostrarUsuarios() {
 	while ($row = mysqli_fetch_assoc($usuarios)) {
 		echo '<tr>';
         echo '<td>';
-        echo '<a href="#">' . $row['nombre'].' '.$row['apellido1'].' '.$row['apellido2'];
+        echo '<a href="#">' . utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
         echo '</a>';
         echo '<span class="usuarios-email">'.$row['id'];
         echo '</span>';

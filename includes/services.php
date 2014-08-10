@@ -6,23 +6,40 @@
 	header('Content-Type:application/json');
 
 	// Procesar el request (url)
-	if (!empty($_GET['solicitante'])) {
-		$solicitante = $_GET['solicitante'];
-		
-		// Ejecutar consulta que retorna citas por usuario
-		// para una fecha específica.
-		//$citasUsuario = getCitasUsuario($solicitante);
-		$citasUsuario = "hola mundo";
+	if (!empty($_GET['query'])) {
+		$queryType = $_GET['query'];
 
-		if (empty($citasUsuario)) {
-			deliver_response(200, 'No data', NULL);
-		} else {
-			// Retornar resultados de la consulta.
-			deliver_response(200, 'OK', json_encode($citasUsuario));
+		switch ($queryType) {
+			case 'consultar':
+
+				break;
+			case 'insertar':
+				break;
+			case 'modificar':
+				break;
+			case 'eliminar':
+				break;
 		}
 	} else {
 		// Invalid request.
 		deliver_response(400, 'Bad request', NULL);
+	}
+
+	function consultarCitas() {
+		if (!empty($_GET['solicitante'])) {
+			$solicitante = $_GET['solicitante'];
+			
+			// Ejecutar consulta que retorna citas por usuario
+			// para una fecha específica.
+			$citasUsuario = getCitasUsuario($solicitante);
+
+			if (empty($citasUsuario)) {
+				deliver_response(200, 'No data', NULL);
+			} else {
+				// Retornar resultados de la consulta.
+				deliver_response(200, 'OK', json_encode($citasUsuario));
+			}
+		}
 	}
 
 

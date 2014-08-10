@@ -2,7 +2,7 @@
 
 // Usuarios
 function getUsuarios() {
-	$query = "SELECT * FROM tusuarios";
+	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `trol`.`nombre` AS 'Rol' FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id`";
 
 	return do_query($query);
 }
@@ -26,7 +26,7 @@ function mostrarUsuarios() {
         echo '<span class="usuarios-email">'.$row['id'];
         echo '</span>';
         echo '</td>';
-        echo '<td class="usuarios-rol">'.$row['rol'];
+        echo '<td class="usuarios-rol">'.$row['Rol'];
         echo '</td>';
         echo '<td>';
         echo '<div class="usuarios-acciones">';

@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title><?php echo APP_TITLE; ?></title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
@@ -15,8 +15,8 @@
 	</head>
 	<body id="page-agenda">
 		<div class="wrapper">
-			<?php include('../includes/header.php'); ?>
-			<?php include('../includes/aside-citas.php'); ?>
+			<?php include(ROOT.'/includes/header.php'); ?>
+			<?php include(ROOT.'/includes/aside-citas.php'); ?>
 
 			<main>
 				<!-- Elemento a utilizar por Handlebars para imprimir las citas.-->
@@ -26,7 +26,7 @@
 				<script id="template-cita" type="text/x-handlebars-template">
   					<section class="cita visible">
   						<div class="mod-hd">
-							<h2>Lunes {{ fechaInicio }}</h2>
+							<h2>{{ fechaInicio }}</h2>
 							<span class="cita-hora-inicio-fin">6:00 p.m. a 7:00 p.m.</span>
 						</div>
 						<div class="mod-bd">
@@ -34,7 +34,7 @@
 								<img class="cita-photo" src="{{ imagenSolicitado }}" width="75" height="75">
 								<span class="label">Invitado:</span>
 								<div class="data-wrap">
-									<span class="data cita-invitado">{{ nombreSolicitado}}</span>
+									<span class="data cita-invitado">{{ nombreSolicitado }}</span>
 									<span class="data">{{ correoSolicitado }}</span>
 									{{#if telefonoSolicitado }}
 										<span class="data">{{ telefonoSolicitado }}</span>
@@ -104,7 +104,7 @@
 				</div>
 			</main>
 			
-			<?php include('../includes/footer.php'); ?>
+			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
 
 		<!-- Load JS -->

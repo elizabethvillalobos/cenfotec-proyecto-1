@@ -14,7 +14,7 @@
 
 		while ($row = mysqli_fetch_assoc($queryResults)) {		
 			$results['correoSolicitado'] = $row['solicitadoCorreo'];
-			$results['nombreSolicitado'] = $row['nombreSolicitado'].' '.$row['apellido1Solicitado']; //.' '.$row['apellido2Solicitado'];
+			$results['nombreSolicitado'] = $row['nombreSolicitado'].' '.$row['apellido1Solicitado'].' '.$row['apellido2Solicitado'];
 			$results['imagenSolicitado'] = $row['imagenSolicitado'] == NULL ? '../images/users/default-user.png' : $row['imagenSolicitado'];
 			$results['telefonoSolicitado'] = $row['telefonoSolicitado'];
 			$results['fechaInicio'] = $row['fechaInicio'];
@@ -33,8 +33,7 @@
 	// Insertar una nueva cita.
 	// Esta función se ejecuta cuando se acepta la fecha y hora de una solicitud de cita.
 	function insertCita($idSolicitante, $idSolicitado, $fechaInicio, $fechaFin, $asunto, $modalidad, $tipo, $observaciones, $curso) {
-		$query = 'INSERT INTO tcitas(idSolicitante, idSolicitado, fechaInicio, fechaFin, asunto, modalidad, tipo, observaciones, curso, estado, esCita) '.
-				 'VALUES ($idSolicitante, $idSolicitado, $fechaInicio, $fechaFin, $asunto, $modalidad, $tipo, $observaciones, $curso, 1, 1)';
+		$query = "INSERT INTO tcitas(idSolicitante, idSolicitado, fechaInicio, fechaFin, asunto, modalidad, tipo, observaciones, curso, estado, esCita) VALUES ('$idSolicitante', '$idSolicitado', '$fechaInicio', '$fechaFin', '$asunto', '$modalidad', '$tipo', '$observaciones', '$curso', '1', '1')";
 
 		return do_query($query);
 	}

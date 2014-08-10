@@ -38,7 +38,6 @@
                     </div>
 					<table class="lista-usuarios">
                         <tbody>
-
                             <?php mostrarUsuarios() ?>
                         </tbody>
                     </table>

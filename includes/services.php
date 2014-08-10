@@ -11,9 +11,10 @@
 
 		switch ($queryType) {
 			case 'consultar':
-
+				consultarCitas();
 				break;
 			case 'insertar':
+				insertarCita();
 				break;
 			case 'modificar':
 				break;
@@ -40,6 +41,10 @@
 				deliver_response(200, 'OK', json_encode($citasUsuario));
 			}
 		}
+	}
+
+	function insertarCita() {
+		insertCita($idSolicitante, $idSolicitado, $fechaInicio, $fechaFin, $asunto, $modalidad, $tipo, $observaciones, $curso);
 	}
 
 

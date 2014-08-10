@@ -19,13 +19,13 @@ switch ($currentSubModule) {
 <aside>
     <nav class="secondary-nav">
         <ul class="sec-nav-category accordion">
-            <li class="accordion-item <?php if ($currentSubModule == 'carreras') { echo ' expanded'; } ?>">
+            <li class="accordion-item">
                 <a href="/cenfotec-proyecto-1/configuracion/carrerasConsultar.php" <?php echo $subModCarreras; ?> >Carreras y cursos</a>
             </li>
-            <li class="accordion-item <?php if ($currentSubModule == 'usuarios') { echo ' expanded'; } ?>">
+            <li class="accordion-item">
                 <a href="/cenfotec-proyecto-1/configuracion/usuariosConsultar.php" <?php echo $subModUsuarios; ?>>Usuarios</a>
             </li>
-            <li class="accordion-item <?php if ($currentSubModule == 'general') { echo ' expanded'; } ?>">
+            <li class="accordion-item">
                 <a href="/cenfotec-proyecto-1/configuracion/configuracionGeneral-copia.php" <?php echo $subModGeneral; ?>>General</a>
             </li>
         </ul>

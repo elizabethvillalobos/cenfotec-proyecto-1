@@ -1,9 +1,9 @@
 // Esta función consulta las citas por día para el usuario actual.
 // Utiliza ajax para consultar el servicio que retorna las citas.
 function consultarCitas(event) {
-	var $fecha = $(event.currentTarget).val(); // Obtener la fecha seleccionada.
-	var fechaFormato = new Date($fecha);
-console.log(fechaFormato);
+	var fecha = $(event.currentTarget).val(); // Obtener la fecha seleccionada.
+	// var fechaFormato = new Date(Date.parseDate(fecha, "d-m-Y"));
+console.log(fecha);
 	// Solicitar datos al servicio.
 	$.ajax({
 		url: '../includes/services.php',

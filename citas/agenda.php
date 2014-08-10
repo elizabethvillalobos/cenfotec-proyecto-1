@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo APP_TITLE; ?></title>
+		<title></title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
@@ -15,8 +15,8 @@
 	</head>
 	<body id="page-agenda">
 		<div class="wrapper">
-			<?php include(ROOT.'/includes/header.php'); ?>
-			<?php include(ROOT.'/includes/aside-citas.php'); ?>
+			<?php include('../includes/header.php'); ?>
+			<?php include('../includes/aside-citas.php'); ?>
 
 			<main>
 				<!-- Elemento a utilizar por Handlebars para imprimir las citas.-->
@@ -97,7 +97,7 @@
 				</div>
 			</main>
 			
-			<?php include(ROOT.'/includes/footer.php'); ?>
+			<?php include('../includes/footer.php'); ?>
 		</div>
 
 		<!-- Load JS -->

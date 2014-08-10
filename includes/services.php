@@ -14,7 +14,7 @@
 		$citasUsuario = getCitasUsuario($solicitante);
 
 		if (empty($citasUsuario)) {
-			deliver_response(200, 'OK', NULL);
+			deliver_response(200, 'No data', NULL);
 		} else {
 			// Retornar resultados de la consulta.
 			deliver_response(200, 'OK', json_encode($citasUsuario));

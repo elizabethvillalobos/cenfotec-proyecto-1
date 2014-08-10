@@ -12,14 +12,14 @@ function consultarCitas(event) {
 		},
 		dataType: 'json',
 		success: function(response) {
-			console.log(response.data);
+			console.log(response);
 			// Imprimir los datos.
 			mostrarCitas($.parseJSON(response.data));
 		},
 		error: function(response) {
+			// Mostrar mensaje de error.
 			console.log('error');
 			console.log(response);
-			// Mostrar mensaje de error.
 		}
 	});
 }
@@ -62,3 +62,4 @@ function mostrarCitas(citas) {
 	}
 	$('#agenda-fecha').on('change', consultarCitas);
 })(jQuery);
+

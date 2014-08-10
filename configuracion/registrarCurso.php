@@ -23,10 +23,11 @@
 			<section class="perfil-editar">
 				<div class="mod-hd">
 					<h2>Desarrollo y Diseño Web - Crear un nuevo curso</h2>
+					<span id="idCarrera"class="hidden">1</span>
 				</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="crear-carrera" class="mod-bd form-horizontal" action="registarCurso-Confirmar.html" method="post" 
+					<form id="crear-curso" class="mod-bd form-horizontal" action="registarCurso-Confirmar.html" method="post" 
 					data-validate="true" novalidate>
 					<div class="form-row">
 						<label for="codigo-curso">Código:</label>

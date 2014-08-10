@@ -41,7 +41,12 @@ if (eFormValidar) {
 		event.preventDefault();
         limpiarMensajesError();
         if (validarForm(eFormValidar.id)) {
-            eFormValidar.submit();
+			switch(eFormValidar.id){
+				case "crear-curso":
+					registrarCurso();
+				break;
+			}
+            //eFormValidar.submit();
         }
     });
 }
@@ -131,7 +136,7 @@ if (btnSelecProfe!=null) {
 
 function toggleForms() {
 	totalSelected=0;
-	var frmCarrera=document.querySelector('#crear-carrera');
+	var frmCarrera=document.querySelector('#crear-curso');
 	var frmLista=document.querySelector('#listForm');
     frmCarrera.className = "backContent";
 	frmLista.className = "frontContent";
@@ -182,7 +187,7 @@ var btnVolver = document.querySelector('#btnVolver');
 if (btnVolver) {
 	btnVolver.addEventListener('click',function(){
 		getActiveItems();
-		var frmCarrera=document.querySelector('#crear-carrera');
+		var frmCarrera=document.querySelector('#crear-curso');
 		var frmLista=document.querySelector('#listForm');
 	    frmCarrera.className = "frontContent mod-bd form-horizontal";
 		frmLista.className = "backContent";
@@ -220,3 +225,31 @@ function soloLetrasYnumeros(e){
         return true;
     }
 }
+
+
+//agregar nuevo curso
+function registrarCurso() {
+	var codigo = $('#codigo-curso').val(),
+	  nombre = $('#nombre-curso').val(),
+	  idCarrera = $('#idCarrera').val();
+
+	var request = $.ajax({
+		url: "../includes/functions-cursos.php",
+		type: "post",
+		data: {
+			   'call': 'insertarCurso',
+			   'pcodigo': codigo,
+			   'pnombre' : nombre,
+			   'pidCarrera' : idCarrera
+			  },
+		dataType: 'json',
+		success: function(response){    
+			alert("bien");
+		},
+		error: function(response){
+			
+			console.log(response);
+			alert(response);
+		}
+	});
+};

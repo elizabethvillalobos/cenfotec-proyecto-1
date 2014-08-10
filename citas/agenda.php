@@ -15,68 +15,6 @@
 	</head>
 	<body id="page-agenda">
 		<div class="wrapper">
-
-			<header>
-				<a href="../index.html" class="home">
-					<h1 class="logo">Gestor Inteligente de Citas</h1>
-				</a>
-
-				<!-- Menu principal -->
-				<nav class="main-nav">
-					<ul>
-						<li>
-							<a href="citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
-						</li>
-						<li>
-							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
-						</li>
-						<li>
-							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
-						</li>
-						<li>
-							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
-						</li>
-						<li>
-							<a href="../configuracion/perfil.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
-						</li>
-					</ul>
-				</nav>
-
-				<section class="busqueda">
-					<input id="q" type="text" value="" placeholder="Buscar personas" />
-					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
-				</section>
-
-				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Álvaro!</span>
-					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
-					<ul>
-						<li>
-							<a href="../configuracion/perfil.html" class="usr-editar-perfil">Mi cuenta</a>
-						</li>
-						<li>
-							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
-						</li>
-					</ul>
-				</section>
-			</header>
-
-			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li class="accordion-item expanded">
-							<a href="citas.html" class="active">Agenda</a>
-							<div id="agenda" class="accordion-detail">
-								<input id="agenda-fecha" type="text" class="datepicker" />
-							</div>
-						</li>
-						<li class="accordion-item">
-							<a href="solicitudes.html">Solicitudes de cita</a>
-						</li>
-					</ul>
-				</nav>
-			</aside>
-
 			<?php include('../includes/header.php'); ?>
 			<?php include('../includes/aside-citas.php'); ?>
 

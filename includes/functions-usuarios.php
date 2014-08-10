@@ -26,6 +26,18 @@ function mostrarUsuarios() {
         echo '<span class="usuarios-email">'.$row['id'];
         echo '</span>';
         echo '</td>';
+        echo '<td class="usuarios-rol">'.$row['rol'];
+        echo '</td>';
+        echo '<td>';
+        echo '<div class="usuarios-acciones">';
+        echo '<a class="usuarios-deshabilitar" href="#">'."Deshabilitar";
+        echo '</a>';
+        echo '<a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">'."Modificar";
+        echo '</a>';
+        echo '<span class="flaticon-machine2">';
+        echo '</span>';
+        echo '</div>';
+        echo '</td>';
         echo '</tr>';
 	}
 }

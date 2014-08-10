@@ -212,9 +212,17 @@ h2 {
 }
 
 /*Javier Barboza empieza configuracionGeneral*/
+#form-confGrl{
+  border: 0px;
+  border-radius: 0px;
+  padding: 0px;
+}
+
+
+
 #divTxtCit{
     float: left;
-    width: 150px;
+    width: 200px;
 }
 
 #divNbr{
@@ -228,13 +236,10 @@ h2 {
 }
 
 .frmC{
-    height: 90px;
+    height: 60px;
     padding: 5px;
-    border: 0px;
-    border-radius: 0px;
-    
+    border: 0px;    
 }
-
 
 #divBtnEvr{
    float: right;
@@ -255,17 +260,13 @@ h2 {
    font-size: 18px;
 }
 
-#divTxtMail{
-    float: left;
-    width: 100px;
-}
+
 
 #divMail{
-    float: left;
-    margin: 20px 0 5px 5px;
-    width: 185px;
+    margin: 15px 10px 15px 5px;
 }
 
+/********termina configuracion general*******/
 
 .frontContent {
    display:block;

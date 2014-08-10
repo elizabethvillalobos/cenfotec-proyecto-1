@@ -137,39 +137,38 @@
                             <div class="accordion-detail">
 
                             	<div>
-                            		<form class="frmC" id="form-confGrl" action="configuracionGeneralConfirm.php" method="post" >
+                            		<form id="form-confGrl" action="configuracionGeneralConfirm.php" method="post" >
 
 	                            		<div id="divTxtMail">
-	                            			<label class="lbl">Servidor smtp:<input id="emailNot" type="text" placeholder="smtp" class="form-control" /></label>
+	                            			<label class="lbl">Servidor smtp:<input id="smtpSvr" type="text" placeholder="smtp" class="form-control" /></label>
 	                            			
 		                            	</div>
 
 		                            	<div id="divMail">
 		                            		<label class="lbl">Puerto:</label>
-		                            		<input id="emailNot" type="text" placeholder="puerto" class="form-control" />
-		                            		<p class="alert-error"></p>		                            		
+		                            		<input id="port" type="text" placeholder="puerto" class="form-control" />
+		                            			                            		
 		                            	</div>
 
 		                            	<div id="divMail">
 		                            		<label class="lbl">Smtp seguridad:</label>
-		                            		<input id="emailNot" type="text" placeholder="ssl" class="form-control" />
-		                            		<p class="alert-error"></p>		                            		
+		                            		<input id="ssl" type="text" placeholder="ssl" class="form-control" />
+		                            			                            		
 		                            	</div>
 
 		                            	<div id="divMail">
-		                            		<label class="lbl">Usuario:</label>
+		                            		<label class="lbl">Usuario (dirección de correo):</label>
 		                            		<input id="emailNot" type="text" placeholder="mail@ucenfotec.ac.cr" class="form-control" />
 		                            		<p class="alert-error"></p>		                            		
 		                            	</div>
 
 		                            	<div id="divMail">
 		                            		<label class="lbl">Clave:</label>
-		                            		<input id="emailNot" type="text" placeholder="clave" class="form-control" />
-		                            		<p class="alert-error"></p>		                            		
+		                            		<input id="pass" type="password" placeholder="clave" class="form-control" />
+		                            				                            		
 		                            	</div>
 
-		                            	
-
+		                            	<p class="alert-error1"></p>
 
 		                            	<div  id="divBtnEvr">
 											<button id="btnEvr"class="btn btn-primary" type="submit">Aplicar</button>			                                   

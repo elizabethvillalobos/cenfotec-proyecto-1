@@ -42,18 +42,18 @@
 					</div>
 					<div class="form-row">
 						<label for="txtInvitado1">Profesor(es):</label>
-						<input id="txtInvitado1" type="text" placeholder="Seleccione un profesor" class="inputExplore nombreProfe" disabled required/>
-						<button type="button" class="btn btnIcon btn-default evaluacion flaticon-magnifier12 btnSelectInvitado"></button>
+						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor1(event)" />
+						<div id="resInvitados1"></div>
 					</div>
 					<div class="form-row">
-						<label for="txtInvitado2"></label>
-						<input id="txtInvitado2" type="text" placeholder="Seleccione un profesor" class="inputExplore nombreProfe" disabled/>
-					
+						<label></label>
+						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor2(event)" />
+						<div id="resInvitados2"></div>
 					</div>
 					<div class="form-row">
-						<label for="txtInvitado3"></label>
-						<input id="txtInvitado3" type="text" placeholder="Seleccione un profesor" class="inputExplore nombreProfe" disabled/>
-				
+						<label></label>
+						<input id="txtInvitado3" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor3(event)" />
+						<div id="resInvitados3"></div>
 					</div>
 
 					<div class="form-row form-row-button">

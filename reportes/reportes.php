@@ -39,6 +39,7 @@
 
 			<main>
 				<div class="mod-hd">
+				
 					<h2>Reporte de ranking</h2>
 					<table class="tblReporte">
 						<thead>
@@ -50,6 +51,7 @@
 								<th class="center">Puntuación Total</th>
 							</tr>
 						</thead>
+						
 						<tbody>
 							<tr>
 								<td class="center">1</td>

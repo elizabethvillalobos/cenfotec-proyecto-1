@@ -297,7 +297,6 @@ function registrarCurso() {
 	});
 };
 
-<<<<<<< HEAD
 //Filtros de mostrar usuarios
 
 $('.usuarios-filtro').on('click', function(e) {
@@ -326,7 +325,6 @@ $('.usuarios-filtro').on('click', function(e) {
 
 });
 
-=======
 //obtener profesores
 function obtenerProfesores() {	
 	var resultados;
@@ -340,4 +338,3 @@ function obtenerProfesores() {
 	});
 	return resultados;
 };
->>>>>>> origin/master

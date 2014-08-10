@@ -37,7 +37,7 @@
 			<main>
 				<div class="mod-hd">
 					<h2>Solicitudes - Diego Barillas Valverde</h2>
-					<table>
+					<table class="tblReporte">
 						<thead>
 							<tr>
 								<th class="center">Asunto</th>

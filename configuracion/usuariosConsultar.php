@@ -6,7 +6,6 @@
     $currentSubModule = 'usuarios';
 ?>
 
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,7 +26,7 @@
                 </div>
                 <div class="mod-bd">
 
-                    <a class="crearUsuario btn btn-default flaticon-add73" href="/cenfotec-proyecto-1/configuracion/usuariosCrear.php">Crear usuario</a>
+                    <a class="crearUsuario btn btn-default flaticon-add73" href="/cenfotec-proyecto-1/configuracion/usuarioCrear.php">Crear usuario</a>
                     <div class="usuarios-filtros">
                         <span class="usuarios-filtros-label">Filtrar por rol:</span>
                         <span class="usuarios-filtro filtro-estudiante">Estudiante</span>
@@ -50,7 +49,7 @@
                                         <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -65,7 +64,7 @@
                                         <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -80,7 +79,7 @@
                                         <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -93,9 +92,9 @@
                                 <td class="usuarios-acciones">
                                     <div>
                                         <span class="flaticon-machine2"></span>
-                                        <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
-                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
+                                        <a class="usuarios-habilitar" href="#">Habilitar</a>
+                                        <!-- <a class="usuarios-deshabilitar" href="#">Deshabilitar</a> -->
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -109,8 +108,10 @@
                                     <div>
                                         <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
-                                        <a class="usuarios-deshabilitar" href="#">Habilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
+
+                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
+
                                     </div>
                                 </td>
                             </tr>
@@ -125,7 +126,7 @@
                                         <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -140,7 +141,7 @@
                                         <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -155,7 +156,7 @@
                                         <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>

@@ -37,7 +37,7 @@
 			<main>
 				<div class="mod-hd">
 					<h2>Reporte de ranking</h2>
-					<table>
+					<table class="tblReporte">
 						<thead>
 							<tr>
 								<th class="center">Posición</th>

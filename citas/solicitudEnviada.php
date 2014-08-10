@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/citas.css">
 	</head>
 	<body>
-		<div id="solicitudesEstudiantes" class="wrapper">
+		<div class="wrapper">
 			<header>
 				<a href="../index.html" class="home">
 					<h1 class="logo">Gestor Inteligente de Citas</h1>
@@ -68,7 +68,7 @@
 								<li><a href="solicitudesEstudiantes.html">Pablo Monestel</a></li>
 								<li>
 									<span class="listo flaticon-check34"></span>
-									<a href="solicitudInfo.html" class="active">Alejandro Leiva</a>
+									<a href="solicitudInfo.html">Alejandro Leiva</a>
 								</li>
 								<li>
 									<span class="listo flaticon-check34"></span>
@@ -89,48 +89,16 @@
 			</aside>
 
 			<main>
-				<section class="cita">
+				<section class="msg-confirm">
 					<div class="mod-hd">
-						<h2>Fecha pendiente</h2>
-						<span class="cita-hora-inicio-fin">Hora pendiente</span>
+						<h2 class="flaticon-cancel17">La solicitud de cita de atención ha sido realizada</h2>
 					</div>
 					<div class="mod-bd">
-						<div class="row">
-							<span class="label">Invitado:</span>
-							<div class="data-wrap">
-								<span class="data cita-invitado">Pablo Monestel</span>
-								<span class="data">amonestel@ucenfotec.ac.cr</span>
-								<span class="data">8489-5012</span>
-							</div>
-						</div>
+						<p>Se ha enviado un mensaje al correo electrónico de <strong>Antonio Luna</strong> para notificarle que tiene una solicitud de cita nueva.</p>
 
-						<img class="cita-photo" src="../images/users/pablo-monestel.jpg" width="75" height="75">
-
-						<div class="row">
-							<span class="label">Asunto a tratar:</span>
-							<span class="data">Ayuda con definición de páginas</span>
-						</div>
-
-						<div class="row">
-							<span class="label">Curso:</span>
-							<span class="data">Proyecto de ingeniería de software 1</span>
-						</div>
-
-						<div class="row">
-							<span class="label">Observaciones:</span>
-							<span class="data">Hola profe, usted puede ayudarme con lo que le pregunté al final de la clase?</span>
-						</div>
+						<a href="solicitudes.html" class="btn btn-default">Volver</a>
 					</div>
 				</section>
-
-				<div id="modal-cancelar" class="modal js-modal-window">
-					<span class="close flaticon-close3 js-modal-close">Close</span>
-					<h3>¿Está seguro que desea cancelar la cita de atención?</h3>
-					<div class="form-row">
-						<a href="solicitudRechazada.html" class="btn btn-primary js-modal-aceptar">Sí</a>
-						<a href="#" class="btn btn-default js-modal-close">No</a>
-					</div>
-				</div>
 			</main>
 			
 			<footer>

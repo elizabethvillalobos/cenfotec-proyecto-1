@@ -2,7 +2,6 @@
 $subModUsuarios = '';
 $subModGeneral = '';
 $subModCarreras = '';
-$currentSubModule= '';
 
 switch ($currentSubModule) {
     case 'usuarios':

@@ -16,13 +16,13 @@ function db_init() {
 			$db_username,
 			$db_password;
 
-	$db_server = mysql_connect($db_hostname, $db_username, $db_password);
+	$db_server = mysqli_connect($db_hostname, $db_username, $db_password);
 
 	if (!$db_server) {
 		die('No se pudo establecer conexión con mySql: ' . mysql_error());
 	}
 
-	$db_selected = mysql_select_db($db_database, $db_server);
+	$db_selected = mysqli_select_db($db_server, $db_database);
 	if (!$db_selected) {
 		die('No se pudo establecer conexión con la base de datos: ' . mysql_error());
 	}		
@@ -34,7 +34,7 @@ function db_init() {
 function do_query($query) {
 	global $db_server;
 
-	$result = mysql_query($query, $db_server);
+	$result = mysqli_query($db_server, $query);
 
 	if (!$result) {
 		die('Falló la sentencia ' . mysql_error());

@@ -86,7 +86,7 @@ if(btnCrearSolicitud!=null){
 			}
 			else
 			{
-				window.location = "solicitarCita.html"
+				window.location = "solicitarCita.php"
 			}
 		}
 		
@@ -234,13 +234,24 @@ if(btnAceptar!=null){
 				mostrarMensajeError(fecha,"Debe seleccionar una fecha válida");
 				event.preventDefault();
 			}
-			var horaIni=$('#txtHoraInicio');
-			var horaFin=$('#txtHoraFin');
-			if(horaIni.val()>horaFin.val())
+			
+			var hInicio = new Date (new Date().toDateString() + ' ' + $('#txtHoraInicio').val());
+			var hFin = new Date (new Date().toDateString() + ' ' + $('#txtHoraFin').val());
+			
+			
+			if(hFin<hInicio)
 			{
-				mostrarMensajeError(document.querySelector('#txtHoraInicio'),"Debe seleccionar una hora válida");
-				mostrarMensajeError(document.querySelector('#txtHoraFin'),"Debe seleccionar una hora válida");
+				mostrarMensajeError(document.querySelector('#txtHoraFin'),"Debe seleccionar una hora mayor a la hora de inicio");
 				event.preventDefault();
+			}
+			else
+			{
+				var horaFin = new Date(hFin.getTime() - 30*60000); 
+				if(horaFin<hInicio)
+				{
+					mostrarMensajeError(document.querySelector('#txtHoraFin'),"La cita debe durar mínimo 30 minutos");
+					event.preventDefault();
+				}
 			}
 			
 		}

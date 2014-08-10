@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
-		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/citas.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/configuracion.css">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -18,7 +18,7 @@
 				<nav class="main-nav">
 					<ul>
 						<li>
-							<a href="citas.html" class="citas active flaticon-calendar68"><span>Citas</span></a>
+							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
 						</li>
 						<li>
 							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
@@ -30,7 +30,7 @@
 							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
 						</li>
 						<li>
-							<a href="../configuracion/perfil.html" class="configuracion flaticon-machine2"><span>Configuración</span></a>
+							<a href="consultarCarreras.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
 						</li>
 					</ul>
 				</nav>
@@ -55,50 +55,30 @@
 			</header>
 
 			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li class="accordion-item">
-							<a href="citas.html">Agenda</a>							
-						</li>
-						<li class="accordion-item expanded">
-							<span id="crearSolicitud" class="flaticon-add73"></span>
-							<a href="solicitudes.html" class="active">Solicitudes de cita</a>
-							<ul class="thrd-nav-category accordion-detail">
-								<li>
-									<span class="listo flaticon-check34"></span>
-									<a href="solicitudes.html" class="active">Diego Barillas</a>
-								</li>
-								<li>
-									<span class="listo flaticon-check34"></span>
-									<a href="solicitudInfo.html">Alejandro Leiva</a>
-								</li>
-								<li>
-									<span class="listo flaticon-check34"></span>
-									<a href="#">Olger Cubillo</a>
-								</li>
-								<li>
-									<span class="listo flaticon-check34"></span>
-									<a href="#">Rocío Solano</a>
-								</li>
-								<li>
-									<span class="listo flaticon-check34"></span>
-									<a href="#">Alejandro Villalobos</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-			</aside>
+                <nav class="secondary-nav">
+                    <ul class="sec-nav-category accordion">
+                        <li class="accordion-item">
+                            <a href="consultarCarreras.html">Carreras y cursos</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="consultarUsuario.html" class="active">Usuarios</a>
+                        </li>
+                        <li class="accordion-item">
+                            <a href="configuracionGeneral.html">General</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
 
 			<main>
 				<section class="msg-confirm">
 					<div class="mod-hd">
-						<h2 class="flaticon-cancel17">Fecha y hora de cita han sido enviadas</h2>
+						<h2 class="flaticon-male12">Usuario modificado</h2>
 					</div>
 					<div class="mod-bd">
-						<p>Se ha enviado un mensaje al correo electrónico de <strong>Diego Barillas</strong> para notificarle la propuesta de fecha y hora de la cita.</p>
+						<p>La información del usuario se actualizó con éxito.</p>
 
-						<a href="solicitudes-solicitudAgregada.html" class="btn btn-default">Volver</a>
+						<a href="consultarUsuarioModificado.html" class="btn btn-default">Volver</a>
 					</div>
 				</section>
 			</main>
@@ -109,7 +89,6 @@
 		</div>
 
 		<!-- Load JS -->
-        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
-		<script src="/cenfotec-proyecto-1/js/solicitarCita.js"></script>
+		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 	</body>
 </html>

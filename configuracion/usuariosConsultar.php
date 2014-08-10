@@ -5,7 +5,6 @@
     $currentModule = 'configuracion';
 ?>
 
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,6 +24,10 @@
 				    <h2>Usuarios</h2>
                 </div>
                 <div class="mod-bd">
+<<<<<<< HEAD
+
+=======
+>>>>>>> 79520edb557ec8a7a48f6c01747c93061a20b7b1
                     <a class="crearUsuario btn btn-default flaticon-add73" href="/cenfotec-proyecto-1/configuracion/usuarioCrear.php">Crear usuario</a>
                     <div class="usuarios-filtros">
                         <span class="usuarios-filtros-label">Filtrar por rol:</span>
@@ -37,7 +40,132 @@
                     </div>
 					<table class="lista-usuarios">
                         <tbody>
+<<<<<<< HEAD
+                            <tr>
+                                <td class="usuarios-nombre">
+                                    <a href="#">Diego Barillas Valverde</a>
+                                    <span class="usuarios-email">dbarillasv@ucenfotec.ac.cr</span>
+                                    </td>
+                                <td class="usuarios-rol">Estudiante</td>
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
+                                        <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
+                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="usuarios-nombre">
+                                    <a href="#">Juan Carlos Brenes Álvarez</a>
+                                    <span class="usuarios-email">jbrenesa@ucenfotec.ac.cr</span>
+                                </td>
+                                <td class="usuarios-rol">Estudiante</td>
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
+                                        <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
+                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="usuarios-nombre">
+                                    <a href="#">Álvaro Cordero Peña</a>
+                                    <span class="usuarios-email">acordero@ucenfotec.ac.cr</span>
+                                </td>
+                                <td class="usuarios-rol">Profesor</td>
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
+                                        <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
+                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="usuarios-deshabilitado">
+                                <td class="usuarios-nombre">
+                                    Susana Fuentes Morales
+                                    <span class="usuarios-email">sfuentesm@ucenfotec.ac.cr</span>
+                                </td>
+                                <td class="usuarios-rol">Estudiante</td>
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
+                                        <a class="usuarios-habilitar" href="#">Habilitar</a>
+                                        <!-- <a class="usuarios-deshabilitar" href="#">Deshabilitar</a> -->
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="usuarios-nombre">
+                                    <a href="#">Luis Guzmán Valverde</a>
+                                    <span class="usuarios-email">lguzmanv@ucenfotec.ac.cr</span>
+                                </td>
+                                <td class="usuarios-rol">Estudiante</td>
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
+                                        <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
+
+                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="usuarios-nombre">
+                                    <a href="#">Marcela Madriz López</a>
+                                    <span class="usuarios-email">mmadrizl@ucenfotec.ac.cr</span>
+                                </td>
+                                <td class="usuarios-rol">Estudiante</td>
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
+                                        <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
+                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="usuarios-nombre">
+                                    <a href="#">Pablo Monestel</a>
+                                    <span class="usuarios-email">pmonestel@ucenfotec.ac.cr</span>
+                                </td>
+                                <td class="usuarios-rol">Director académico</td>
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
+                                        <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
+                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="usuarios-nombre">
+                                    <a href="#">Walter Torres García</a>
+                                    <span class="usuarios-email">wtorresg@ucenfotec.ac.cr</span>
+                                </td>
+                                <td class="usuarios-rol">Estudiante</td>
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
+                                        <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
+                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
+                                    </div>
+                                </td>
+                            </tr>
+=======
                             <?php mostrarUsuarios() ?>
+>>>>>>> 79520edb557ec8a7a48f6c01747c93061a20b7b1
                         </tbody>
                     </table>
 				</div>

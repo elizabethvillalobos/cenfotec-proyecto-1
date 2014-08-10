@@ -58,7 +58,7 @@
 			</div>
 		</main>
 			
-		<? include('../includes/footer.php'); ?>
+		<?php include('../includes/footer.php'); ?>
 	</div>
 		
 		<!-- Load JS -->

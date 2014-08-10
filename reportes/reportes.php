@@ -39,7 +39,6 @@
 
 			<main>
 				<div class="mod-hd">
-<<<<<<< HEAD
 					<h2>Reporte de ranking</h2>
 					<table class="tblReporte">
 						<thead>
@@ -97,9 +96,7 @@
 							
 						</tbody>
 					</table>
-=======
 					<h2>Reportes</h2>
->>>>>>> 79520edb557ec8a7a48f6c01747c93061a20b7b1
 				</div>
 				<div class="mod-bd">
 					

@@ -5,7 +5,6 @@
     $currentModule = 'configuracion';
 ?>
 
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,6 +24,10 @@
 				    <h2>Usuarios</h2>
                 </div>
                 <div class="mod-bd">
+<<<<<<< HEAD
+
+=======
+>>>>>>> 79520edb557ec8a7a48f6c01747c93061a20b7b1
                     <a class="crearUsuario btn btn-default flaticon-add73" href="/cenfotec-proyecto-1/configuracion/usuarioCrear.php">Crear usuario</a>
                     <div class="usuarios-filtros">
                         <span class="usuarios-filtros-label">Filtrar por rol:</span>
@@ -37,18 +40,19 @@
                     </div>
 					<table class="lista-usuarios">
                         <tbody>
+<<<<<<< HEAD
                             <tr>
                                 <td class="usuarios-nombre">
                                     <a href="#">Diego Barillas Valverde</a>
                                     <span class="usuarios-email">dbarillasv@ucenfotec.ac.cr</span>
                                     </td>
                                 <td class="usuarios-rol">Estudiante</td>
-                                <td>
-                                    <div class="usuarios-acciones">
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
-                                        <span class="flaticon-machine2"></span>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -58,12 +62,12 @@
                                     <span class="usuarios-email">jbrenesa@ucenfotec.ac.cr</span>
                                 </td>
                                 <td class="usuarios-rol">Estudiante</td>
-                                <td>
-                                    <div class="usuarios-acciones">
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
-                                        <span class="flaticon-machine2"></span>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -73,12 +77,12 @@
                                     <span class="usuarios-email">acordero@ucenfotec.ac.cr</span>
                                 </td>
                                 <td class="usuarios-rol">Profesor</td>
-                                <td>
-                                    <div class="usuarios-acciones">
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
-                                        <span class="flaticon-machine2"></span>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -88,12 +92,12 @@
                                     <span class="usuarios-email">sfuentesm@ucenfotec.ac.cr</span>
                                 </td>
                                 <td class="usuarios-rol">Estudiante</td>
-                                <td>
-                                    <div class="usuarios-acciones">
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
                                         <a class="usuarios-habilitar" href="#">Habilitar</a>
                                         <!-- <a class="usuarios-deshabilitar" href="#">Deshabilitar</a> -->
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
-                                        <span class="flaticon-machine2"></span>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -103,12 +107,14 @@
                                     <span class="usuarios-email">lguzmanv@ucenfotec.ac.cr</span>
                                 </td>
                                 <td class="usuarios-rol">Estudiante</td>
-                                <td>
-                                    <div class="usuarios-acciones">
-                                        <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
-                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
+                                <td class="usuarios-acciones">
+                                    <div>
                                         <span class="flaticon-machine2"></span>
+                                        <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
+
+                                        <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
+
                                     </div>
                                 </td>
                             </tr>
@@ -118,12 +124,12 @@
                                     <span class="usuarios-email">mmadrizl@ucenfotec.ac.cr</span>
                                 </td>
                                 <td class="usuarios-rol">Estudiante</td>
-                                <td>
-                                    <div class="usuarios-acciones">
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
-                                        <span class="flaticon-machine2"></span>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -133,12 +139,12 @@
                                     <span class="usuarios-email">pmonestel@ucenfotec.ac.cr</span>
                                 </td>
                                 <td class="usuarios-rol">Director académico</td>
-                                <td>
-                                    <div class="usuarios-acciones">
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
-                                        <span class="flaticon-machine2"></span>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -148,15 +154,18 @@
                                     <span class="usuarios-email">wtorresg@ucenfotec.ac.cr</span>
                                 </td>
                                 <td class="usuarios-rol">Estudiante</td>
-                                <td>
-                                    <div class="usuarios-acciones">
+                                <td class="usuarios-acciones">
+                                    <div>
+                                        <span class="flaticon-machine2"></span>
                                         <!-- <a class="usuarios-habilitar" href="#">Habilitar</a> -->
                                         <a class="usuarios-deshabilitar" href="#">Deshabilitar</a>
-                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuariosModificar.php">Modificar</a>
-                                        <span class="flaticon-machine2"></span>
+                                        <a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">Modificar</a>
                                     </div>
                                 </td>
                             </tr>
+=======
+                            <?php mostrarUsuarios() ?>
+>>>>>>> 79520edb557ec8a7a48f6c01747c93061a20b7b1
                         </tbody>
                     </table>
 				</div>

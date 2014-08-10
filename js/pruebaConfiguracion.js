@@ -9,7 +9,7 @@ document.getElementById('btnDeshabilitar').disabled = false;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar').onclick = function mostrarFormModificar(){
-	window.location = "modificarCarrera.html";
+	window.location = "carrerasModificar.php";
 }
 
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/
@@ -34,7 +34,7 @@ document.getElementById('btnDeshabilitar2').disabled = true;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar2').onclick = function mostrarFormModificar(){
-	window.location = "modificarCarrera.html";
+	window.location = "carrerasModificar.php";
 }
 
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/
@@ -58,7 +58,7 @@ document.getElementById('btnDeshabilitar3').disabled = false;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar3').onclick = function mostrarFormModificar(){
-	window.location = "modificarCarrera.html";
+	window.location = "carrerasModificar.php";
 }
 
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/
@@ -83,7 +83,7 @@ document.getElementById('btnDeshabilitar4').disabled = true;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar4').onclick = function mostrarFormModificar(){
-	window.location = "modificarCarrera.html";
+	window.location = "carrerasModificar.php";
 }
 
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/
@@ -108,7 +108,7 @@ document.getElementById('btnDeshabilitar5').disabled = false;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar5').onclick = function mostrarFormModificar(){
-	window.location = "modificarCarrera.html";
+	window.location = "carrerasModificar.php";
 }
 
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/
@@ -131,7 +131,7 @@ document.getElementById('btnDeshabilitar6').disabled = false;
 
 /*Direcciona a la página que contiene el formulario de modificación de carrera*/
 document.getElementById('btnModificar6').onclick = function mostrarFormModificar(){
-	window.location = "modificarCarrera.html";
+	window.location = "carrerasModificar.php";
 }
 
 /*Desactiva el botón Habilitar si es presionado y activa el botón Deshabilitar*/

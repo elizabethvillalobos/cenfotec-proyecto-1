@@ -1,3 +1,10 @@
+<?php
+    require_once('../includes/functions.php');
+
+    $currentModule = 'configuracion';
+    $currentSubModule = 'cursos';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,73 +16,18 @@
 </head>
 <body>
 	<div class="wrapper">
-		<header>
-					<a href="../index.html" class="home">
-						<h1 class="logo">Gestor Inteligente de Citas</h1>
-					</a>
-
-					<!-- Menu principal -->
-					<nav class="main-nav">
-					<ul>
-						<li>
-							<a href="../citas/citas.html" class="citas flaticon-calendar68"><span>Citas</span></a>
-						</li>
-						<li>
-							<a href="../evaluacion/miRanking.html" class="evaluacion flaticon-verification5"><span>Evaluación</span></a>
-						</li>
-						<li>
-							<a href="../mensajeria/mensajeria.html" class="mensajeria flaticon-black218"><span>Mensajería</span></a>
-						</li>
-						<li>
-							<a href="../reportes/reportes.html" class="reportes flaticon-seo2"><span>Reportes</span></a>
-						</li>
-						<li>
-							<a href="consultarCarreras.html" class="configuracion active flaticon-machine2"><span>Configuración</span></a>
-						</li>
-					</ul>
-				</nav>
-
-					<section class="busqueda">
-						<input id="q" type="text" value="" placeholder="Buscar personas" />
-						<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
-					</section>
-
-				<section class="usr-info">
-					<span class="usr-greeting">Bienvenido, Álvaro!</span>
-					<img class="usr-photo" src="../images/users/default-user.png" width="40" height="40">
-					<ul>
-						<li>
-							<a href="perfil.html" class="usr-editar-perfil">Mi cuenta</a>
-						</li>
-						<li>
-							<a href="../seguridad/iniciarSesion.html" class="usr-cerrar-sesion">Cerrar sesión</a>
-						</li>
-					</ul>
-				</section>
-			</header>
-		<aside>
-                <nav class="secondary-nav">
-                    <ul class="sec-nav-category accordion">
-                        <li class="accordion-item">
-                            <a href="consultarCarreras.html" class="active">Carreras y cursos</a>
-                        </li>
-                        <li class="accordion-item">
-                            <a href="consultarUsuario.html">Usuarios</a>
-                        </li>
-                        <li class="accordion-item">
-                            <a href="configuracionGeneral.html">General</a>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
+		<?php include(ROOT.'/includes/header.php'); ?>
+		<?php include(ROOT.'/includes/aside-configuracion.php'); ?>
+		
 		<main>
 			<section class="perfil-editar">
 				<div class="mod-hd">
 					<h2>Desarrollo y Diseño Web - Crear un nuevo curso</h2>
+					<span id="idCarrera"class="hidden">1</span>
 				</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="crear-carrera" class="mod-bd form-horizontal" action="registarCurso-Confirmar.html" method="post" 
+					<form id="crear-curso" class="mod-bd form-horizontal" action="registarCurso-Confirmar.html" method="post" 
 					data-validate="true" novalidate>
 					<div class="form-row">
 						<label for="codigo-curso">Código:</label>
@@ -131,9 +83,7 @@
 			</div>
 		</main>
 		
-		<footer>
-			<p>2014 Universidad Cenfotec. Todos los derechos reservados.</p>
-		</footer>
+		<?php include(ROOT.'/includes/footer.php'); ?>
 	</div>
 
 	<!-- Load JS -->

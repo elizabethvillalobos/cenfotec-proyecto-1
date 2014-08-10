@@ -2,7 +2,6 @@
 $subModUsuarios = '';
 $subModGeneral = '';
 $subModCarreras = '';
-$currentSubModule= '';
 
 switch ($currentSubModule) {
     case 'usuarios':
@@ -27,7 +26,7 @@ switch ($currentSubModule) {
                 <a href="/cenfotec-proyecto-1/configuracion/usuariosConsultar.php" <?php echo $subModUsuarios; ?>>Usuarios</a>
             </li>
             <li class="accordion-item <?php if ($currentSubModule == 'general') { echo ' expanded'; } ?>">
-                <a href="/cenfotec-proyecto-1/configuracion/configuracionGeneral.php" <?php echo $subModGeneral; ?>>General</a>
+                <a href="/cenfotec-proyecto-1/configuracion/configuracionGeneral-copia.php" <?php echo $subModGeneral; ?>>General</a>
             </li>
         </ul>
     </nav>

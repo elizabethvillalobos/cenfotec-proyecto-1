@@ -1,6 +1,6 @@
 <?php
     require_once('../includes/functions.php');
-    require_once('../includes/functions-carreras.php');
+    require_once(ROOT.'/includes/functions-carreras.php');
 
     $currentModule = 'configuracion';
     $currentSubModule = 'carreras';
@@ -21,17 +21,19 @@
 			<?php include(ROOT.'/includes/aside-configuracion.php'); ?>
 
 			<main>
-				<div id="carreras-hd">
+				<div id="carreras-hd" class="mod-hd">
 					<h2>Lista de carreras </h2>
 					<a  href="/cenfotec-proyecto-1/configuracion/carrerasCrear.php" class="btn btn-default flaticon-add73">Crear carrera</a>
+
+					<div id="buscarCarreras">
+						<input id="q" type="text" value="" placeholder="Buscar carreras" />
+						<button id="btnBuscarCarreras" class="flaticon-magnifier12" type="submit"></button>
+					</div>
 				</div> 
-				<div id="buscarCarreras">
-					<input id="q" type="text" value="" placeholder="Buscar carreras" />
-					<button id="btnBuscarCarreras" class="flaticon-magnifier12" type="submit"></button>
-				</div>
-			
-				<div id="basic-accordion" class="accordion">
-					<?=displayCarreras();?>	
+				<div class="mod-bd">
+					<div id="basic-accordion" class="accordion">
+						<?=displayCarreras();?>	
+					</div>
 				</div>
 			</main>
 			

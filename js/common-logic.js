@@ -575,9 +575,9 @@ function autocompletar(pdivResultados, pinput, pdatos){
 
 //reemplazar el texto de un input de busqueda
 function reemplazarTextoInput(pdivResultados,pinput,ptarget){
-	if(ptarget.innerText == ptarget.innerHTML){
-		pinput.value=ptarget.innerText;  
+	//if(ptarget.innerText == ptarget.innerHTML){
+		pinput.value=ptarget.innerHTML;  
 		pdivResultados.innerHTML="";
-	}
+	//}
 }
 

@@ -127,6 +127,46 @@ if(ebtnEnviar) {
 // 	}
 // }
 
+function buscarProfesor1(evento){
+    var resInvitados1 = document.querySelector('#resInvitados1'),
+    input = document.querySelector('#txtInvitado1'),
+	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
+	//datos = obtenerProfesores();
+	autocompletar(resInvitados1,input, datos);
+}
+
+var rInvitados1=document.querySelector('#resInvitados1');
+rInvitados1.addEventListener('click', function(e) {
+	var input = document.querySelector('#txtInvitado1');
+	reemplazarTextoInput(rInvitados1,input,e.target);		
+});
+
+function buscarProfesor2(evento){
+    var resInvitados2 = document.querySelector('#resInvitados2'),
+    input = document.querySelector('#txtInvitado2'),
+	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
+	autocompletar(resInvitados2,input, datos);
+}
+
+var rInvitados2=document.querySelector('#resInvitados2');
+rInvitados2.addEventListener('click', function(e) {
+	var input = document.querySelector('#txtInvitado2');
+	reemplazarTextoInput(rInvitados2,input,e.target);		
+});
+
+function buscarProfesor3(evento){
+    var resInvitados3 = document.querySelector('#resInvitados3'),
+    input = document.querySelector('#txtInvitado3'),
+	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
+	autocompletar(resInvitados3,input, datos);
+}
+
+var rInvitados3=document.querySelector('#resInvitados3');
+rInvitados3.addEventListener('click', function(e) {
+	var input = document.querySelector('#txtInvitado3');
+	reemplazarTextoInput(rInvitados3,input,e.target);		
+});
+
 var btnSelecProfe = document.querySelector('.btnSelectInvitado');
 if (btnSelecProfe!=null) {
 	btnSelecProfe.addEventListener('click',function () {
@@ -257,6 +297,7 @@ function registrarCurso() {
 	});
 };
 
+<<<<<<< HEAD
 //Filtros de mostrar usuarios
 
 $('.usuarios-filtro').on('click', function(e) {
@@ -285,3 +326,18 @@ $('.usuarios-filtro').on('click', function(e) {
 
 });
 
+=======
+//obtener profesores
+function obtenerProfesores() {	
+	var resultados;
+	var request = $.ajax({
+		url: "../includes/service-profesores.php",
+		type: "get",
+		dataType: 'json',
+		success: function(response){    
+			resultados=response;
+		}
+	});
+	return resultados;
+};
+>>>>>>> origin/master

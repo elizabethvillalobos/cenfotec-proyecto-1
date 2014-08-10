@@ -1,9 +1,8 @@
 // Esta función consulta las citas por día para el usuario actual.
 // Utiliza ajax para consultar el servicio que retorna las citas.
 function consultarCitas(event) {
-	var $fecha = $(event.currentTarget).val(); // Obtener la fecha seleccionada.
-	var fechaFormato = new Date($fecha);
-console.log(fechaFormato);
+	var fecha = $('#agenda-fecha').datepicker('getDate'); // Obtener la fecha seleccionada.
+
 	// Solicitar datos al servicio.
 	$.ajax({
 		url: '../includes/services.php',
@@ -24,6 +23,34 @@ console.log(fechaFormato);
 			console.log(response);
 		}
 	});
+
+	// $.ajax({
+	// 	url: '../includes/services.php',
+	// 	type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+	// 	data: { // Objeto con los parámetros que utiliza el servicio.
+	// 		query: 'insertar',
+	// 		idSolicitante: 'evillalobos@ucenfotec.ac.cr',
+	// 		idSolicitado: 'pmonestel@ucenfotec.ac.cr',
+	// 		fechaInicio: fecha,
+	// 		fechaFin: fecha,
+	// 		asunto: 'PHP y mySql',
+	// 		modalidad: '0',
+	// 		tipo: '0',
+	// 		observaciones: 'Testing testing testing...',
+	// 		curso: 'BISOFT1'
+	// 	},
+	// 	dataType: 'json',
+	// 	success: function(response) {
+	// 		console.log(response);
+	// 		// Imprimir los datos.
+	// 		//mostrarCitas($.parseJSON(response.data));
+	// 	},
+	// 	error: function(response) {
+	// 		// Mostrar mensaje de error.
+	// 		console.log('error');
+	// 		console.log(response);
+	// 	}
+	// });
 }
 
 
@@ -61,7 +88,8 @@ function mostrarCitas(citas) {
 			prevText: 'Prev'
 		});
 		eAgenda.datepicker('show');
+
+		eAgenda.on('change', consultarCitas);
 	}
-	$('#agenda-fecha').on('change', consultarCitas);
 })(jQuery);
 

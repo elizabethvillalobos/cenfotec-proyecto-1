@@ -11,9 +11,10 @@
 
 		switch ($queryType) {
 			case 'consultar':
-
+				consultarCitas();
 				break;
 			case 'insertar':
+				insertarCita();
 				break;
 			case 'modificar':
 				break;
@@ -28,6 +29,7 @@
 	function consultarCitas() {
 		if (!empty($_GET['solicitante'])) {
 			$solicitante = $_GET['solicitante'];
+			//$fecha = $_GET['fecha'];
 			
 			// Ejecutar consulta que retorna citas por usuario
 			// para una fecha específica.
@@ -40,6 +42,15 @@
 				deliver_response(200, 'OK', json_encode($citasUsuario));
 			}
 		}
+	}
+
+	function insertarCita() {
+		// if (!empty($_GET['idSolicitante']) && !empty($_GET['idSolicitado']) && !empty($_GET['fechaInicio']) && !empty($_GET['fechaFin']) && !empty($_GET['asunto'])  && !empty($_GET['modalidad']) && !empty($_GET['tipo'])  && !empty($_GET['observaciones']) && !empty($_GET['curso'])) {
+			insertCita($_GET['idSolicitante'], $_GET['idSolicitado'], $_GET['fechaInicio'], $_GET['fechaFin'], $_GET['asunto'], $_GET['modalidad'], $_GET['tipo'], $_GET['observaciones'], $_GET['curso']);	
+			deliver_response(200, 'OK', NULL);
+		// } else {
+			// deliver_response(400, 'Invalid data', NULL);
+		// }
 	}
 
 

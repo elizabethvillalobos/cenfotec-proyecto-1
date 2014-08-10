@@ -24,7 +24,7 @@
 #buscarCarreras {
    right: 20px;
    position: absolute;
-   top: 108px;
+   top: 15px;
 }
 
 #btnBuscarCarreras {
@@ -267,7 +267,21 @@ h2 {
 }
 
 /********termina configuracion general*******/
-
+#resInvitados1{
+	z-index: 1;
+	position: absolute;
+	left: 180px;
+}
+#resInvitados2{
+	z-index: 1;
+	position: absolute;
+	left: 180px;
+}
+#resInvitados3{
+	z-index: 1;
+	position: absolute;
+	left: 180px;
+}
 .frontContent {
    display:block;
    position:relative;   

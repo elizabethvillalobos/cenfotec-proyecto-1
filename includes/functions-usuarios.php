@@ -23,10 +23,10 @@ function mostrarUsuarios() {
         echo '<td>';
         echo '<a href="#">' . utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
         echo '</a>';
-        echo '<span class="usuarios-email">'.$row['id'];
+        echo '<span class="usuarios-email">'.utf8_encode($row['id']);
         echo '</span>';
         echo '</td>';
-        echo '<td class="usuarios-rol">'.$row['Rol'];
+        echo '<td class="usuarios-rol">'.utf8_encode($row['Rol']);
         echo '</td>';
         echo '<td>';
         echo '<div class="usuarios-acciones">';

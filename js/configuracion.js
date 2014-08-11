@@ -297,6 +297,34 @@ function registrarCurso() {
 	});
 };
 
+//Filtros de mostrar usuarios
+
+$('.usuarios-filtro').on('click', function(e) {
+    var rol;
+    
+    switch($(e.currentTarget).text()){
+        case 'Rector':
+            rol=2;
+            break;
+        case 'Director académico':
+            rol=3;
+            break;
+        case 'Profesor':
+            rol=4;
+            break;
+        case 'Estudiante':
+            rol=5;
+            break;
+        case 'Asistente':
+            rol=6;
+            break;
+        case 'Mercadeo':
+            rol=7;
+            break;
+    }; 
+
+});
+
 //obtener profesores
 function obtenerProfesores() {	
 	var resultados;

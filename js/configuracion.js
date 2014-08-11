@@ -45,6 +45,10 @@ if (eFormValidar) {
 				case "crear-curso":
 					registrarCurso();
 				break;
+                
+                case "crear-usuario":
+                    crearUsuario();
+                break;
 			}
             //eFormValidar.submit();
         }
@@ -341,3 +345,40 @@ function obtenerProfesores() {
 	});
 	return resultados;
 };
+
+//crear usuario
+function crearUsuario() {
+	var nombre = $('#usuario-nombre').val(),
+	  apellido1 = $('#usuario-apellido1').val(),
+	  apellido2 = $('#usuario-apellido2').val(),
+        idUsr = $('#usuario-email').val(),
+        contrasena = $('#usuario-email').val(),
+        telefono = $('#usuario-telefono').val(),
+        skype = $('#usuario-skype').val(),
+        rol = $('#usuario-rol').val(),
+        carrera = $('#usuario-carrera').val(),
+        curso = $('#usuario-curso').val();
+
+	var request = $.ajax({
+		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
+		type: "post",
+		data: {
+                'call' : 'insertarUsuario',
+			   'pnombre': nombre,
+			   'papellido1' : apellido1,
+			   'papellido2' : apellido2,
+                'pidUsr' : idUsr,
+                'pcontrasena': contrasena,
+                'ptelefono': telefono,
+                'pskype': skype,
+                'prol': rol,
+                'pcarrera': carrera,
+                'pcurso': curso
+			  },
+		dataType: 'json',
+		success: function(response){    
+			
+		}
+	});
+};
+

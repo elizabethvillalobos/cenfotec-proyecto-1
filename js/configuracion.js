@@ -129,42 +129,38 @@ if(ebtnEnviar) {
 
 function buscarProfesor1(evento){
     var resInvitados1 = document.querySelector('#resInvitados1'),
-    input = document.querySelector('#txtInvitado1'),
-	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
-	datos = obtenerProfesores();
-	autocompletar(resInvitados1,input, datos);
+    input = document.querySelector('#txtInvitado1');
+	autocompletar(resInvitados1, input, obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
 var rInvitados1=document.querySelector('#resInvitados1');
 rInvitados1.addEventListener('click', function(e) {
 	var input = document.querySelector('#txtInvitado1');
-	reemplazarTextoInput(rInvitados1,input,e.target);		
+	reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
 });
 
 function buscarProfesor2(evento){
     var resInvitados2 = document.querySelector('#resInvitados2'),
-    input = document.querySelector('#txtInvitado2'),
-	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
-	autocompletar(resInvitados2,input, datos);
+    input = document.querySelector('#txtInvitado2');
+	autocompletar(resInvitados2, input, obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
 var rInvitados2=document.querySelector('#resInvitados2');
 rInvitados2.addEventListener('click', function(e) {
 	var input = document.querySelector('#txtInvitado2');
-	reemplazarTextoInput(rInvitados2,input,e.target);		
+	reemplazarTextoInput(rInvitados2,input,e.target, "idProfesor2");		
 });
 
 function buscarProfesor3(evento){
     var resInvitados3 = document.querySelector('#resInvitados3'),
-    input = document.querySelector('#txtInvitado3'),
-	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
-	autocompletar(resInvitados3,input, datos);
+    input = document.querySelector('#txtInvitado3');
+	autocompletar(resInvitados3, input, obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
 var rInvitados3=document.querySelector('#resInvitados3');
 rInvitados3.addEventListener('click', function(e) {
 	var input = document.querySelector('#txtInvitado3');
-	reemplazarTextoInput(rInvitados3,input,e.target);		
+	reemplazarTextoInput(rInvitados3,input,e.target, "idProfesor3");		
 });
 
 var btnSelecProfe = document.querySelector('.btnSelectInvitado');
@@ -271,7 +267,11 @@ function soloLetrasYnumeros(e){
 function registrarCurso() {
 	var codigo = $('#codigo-curso').val(),
 	  nombre = $('#nombre-curso').val(),
-	  idCarrera = $('#idCarrera').val();
+	  idCarrera = $('#idCarrera').val(),
+	  idProfesor1 = $('#idProfesor1').text(),
+	  idProfesor2 = $('#idProfesor2').text(),
+	  idProfesor3 = $('#idProfesor3').text(),
+	  idCarrera = $('#idCarrera').text();
 
 	var request = $.ajax({
 		url: "../includes/service-cursos.php",
@@ -279,6 +279,10 @@ function registrarCurso() {
 		data: {
 			   'pcodigo': codigo,
 			   'pnombre' : nombre,
+			   'pidCarrera' : idCarrera,
+			   'pidProfesor1' : idProfesor1,
+			   'pidProfesor2' : idProfesor2,
+			   'pidProfesor3' : idProfesor3,
 			   'pidCarrera' : idCarrera
 			  },
 		dataType: 'json',
@@ -327,17 +331,32 @@ $('.usuarios-filtro').on('click', function(e) {
 
 //obtener profesores
 function obtenerProfesores() {	
-	var resultados;
-	var request = $.ajax({
-		url: "../includes/service-profesores.php",
-		type: "get",
+	var resultados=[];
+	
+	// Solicitar datos al servicio.
+	$.ajax({
+		url: '../includes/service-usuarios.php',
+		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			query: 'consultarProfesores'
+		},
 		dataType: 'json',
-		success: function(response){    
-			resultados=response;
+		success: function(response){
+			var respuesta=$.parseJSON(response.data);
+			var nombres =[];
+			var ids = [];
+			for (var i=0; i<respuesta.profesores.length; i++)
+			{
+				nombres.push(respuesta.profesores[i].nombre);
+				ids.push(respuesta.profesores[i].id);
+			}
+			resultados.push(nombres);
+			resultados.push(ids);
 		},
 		error: function(response){
-			resultados=response;
-		}
+			resultados=null;
+		},
+		async: false
 	});
 	return resultados;
 };

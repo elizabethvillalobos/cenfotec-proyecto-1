@@ -1,17 +1,33 @@
 <?php
 	require_once('../includes/functions.php');
+	require_once('../includes/functions-usuarios.php');
 
 	// Retornar un json.
 	header('Content-Type:application/json');
 
-	$query = "SELECT * FROM tusuarios WHERE rol='4';";
-	$profesores = do_query($query);
-	$resultados = array();
-	while($r = mysqli_fetch_assoc($profesores)) {
-		$resultados[] = $r;
+	// Procesar el request (url)
+	if (!empty($_GET['query'])) {
+		$queryType = $_GET['query'];
+
+		switch ($queryType) {
+			case 'consultarProfesores':
+				consultarProfesores();
+				break;
+		}
+	} else {
+		// Invalid request.
+		deliver_response(400, 'Bad request', NULL);
 	}
-	if (mysqli_num_rows($profesores) > 0) {
-		deliver_response(400, 'Profesores retornados', json_encode($resultados));
+
+	function consultarProfesores() {
+		$profesores = getProfesores();
+
+		if (empty($profesores)) {
+			deliver_response(200, 'No data', NULL);
+		} else {
+			// Retornar resultados de la consulta.
+			deliver_response(200, 'OK', json_encode($profesores));
+		}
 	}
 	
 

@@ -539,11 +539,11 @@ function realizarBusqueda(evento){
 //pdivResultados: div que contiene los resultados a mostrar
 //pinput: caja de texto en la que se digita
 //pdatos: colleccion de resultados (string) que serán utilizados para mostrar con cada tecla digitada
-function autocompletar(pdivResultados, pinput, pdatos){
+//pids: colleccion de ids de los datos
+function autocompletar(pdivResultados, pinput, pdatos, pids){
 	//sleccionar los de esa clase los que son hijos del input
 	var alinks=pdivResultados.querySelectorAll('.js-linksBusqueda');
-	
-    
+	    
 	//limpiar resultados anteriores
     if(alinks.length){
         for(var j=0; j<alinks.length; j++){
@@ -562,9 +562,13 @@ function autocompletar(pdivResultados, pinput, pdatos){
         if(criterio!="/(?:)/i"){
             if(criterio.test(pdatos[i])){
 			
-				var resultado=document.createElement("span");
+				var resultado=document.createElement("div");
 				resultado.className="js-linksBusqueda";
 				resultado.innerHTML = pdatos[i];		
+				var id=document.createElement("span");
+				id.className="hidden";
+				id.innerHTML = pids[i];	
+				resultado.appendChild(id);
 				
                 pdivResultados.appendChild(resultado);
             } 
@@ -573,10 +577,17 @@ function autocompletar(pdivResultados, pinput, pdatos){
 }
 
 //reemplazar el texto de un input de busqueda
-function reemplazarTextoInput(pdivResultados,pinput,ptarget){
-	//if(ptarget.innerText == ptarget.innerHTML){
-		pinput.value=ptarget.innerHTML;  
-		pdivResultados.innerHTML="";
-	//}
+function reemplazarTextoInput(pdivResultados,pinput,ptarget,pnombreId){
+	var idElement = ptarget.querySelector('.hidden');	
+	var inputContainer = pinput.parentNode;		
+	var id=document.createElement("span");
+	id.id=pnombreId;
+	id.className="hidden";
+	id.innerHTML = idElement.innerHTML;
+	idElement.remove();	
+	inputContainer.appendChild(id);
+	
+	pinput.value=ptarget.innerHTML;  
+	pdivResultados.innerHTML="";
 }
 

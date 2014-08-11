@@ -187,6 +187,22 @@ form.form-horizontal .form-control-time {
 	width: 150px;
 }
 
+#modal-cancelar {
+	top: 20%;
+}
+
+#modal-cancelar label {
+	text-align: left;
+}
+
+#modal-cancelar textarea {
+	height: 80px; width: 100%;
+}
+
+#modal-cancelar .alert-error {
+	text-align: left;
+}
+
 .no-cita {
 	text-align: center;
 }

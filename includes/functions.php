@@ -43,4 +43,81 @@ function do_query($query) {
 	return $result;
 }
 
+
+// Retorna una fecha en el formato "Lunes 11 de Agosto de 2014"
+function dateLongString($dayWeek, $day, $month, $year) {
+	// Días
+	switch($dayWeek) {
+		case '1':
+			$dayString = 'Domingo';
+			break;
+		case '2':
+			$dayString = 'Lunes';
+			break;
+		case '3':
+			$dayString = 'Martes';
+			break;
+		case '4':
+			$dayString = 'Miércoles';
+			break;
+		case '5':
+			$dayString = 'Jueves';
+			break;
+		case '6':
+			$dayString = 'Viernes';
+			break;
+		case '7':
+			$dayString = 'Sábado';
+			break;
+	}
+
+	// Meses
+	switch($month) {
+		case '1':
+			$monthString = 'Enero';
+			break;
+		case '2':
+			$monthString = 'Febrero';
+			break;
+		case '3':
+			$monthString = 'Marzo';
+			break;
+		case '4':
+			$monthString = 'Abril';
+			break;
+		case '5':
+			$monthString = 'Mayo';
+			break;
+		case '6':
+			$monthString = 'Junio';
+			break;
+		case '7':
+			$monthString = 'Julio';
+			break;
+		case '8':
+			$monthString = 'Agosto';
+			break;
+		case '9':
+			$monthString = 'Setiembre';
+			break;
+		case '10':
+			$monthString = 'Octubre';
+			break;
+		case '11':
+			$monthString = 'Noviembre';
+			break;
+		case '12':
+			$monthString = 'Diciembre';
+			break;
+	}
+
+	return $dayString.' '.$day.' de '.$monthString.' de '.$year;
+}
+
+// Retorna una hora en el formato "12:00 p.m."
+function timeLongString($timeToString) {
+	return date('g:i a', strtotime($timeToString));
+}
+
 ?>
+

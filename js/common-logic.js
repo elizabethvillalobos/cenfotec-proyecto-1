@@ -58,35 +58,34 @@ function hasClass(pEl, pClassName) {
 //   .js-modal-window: este es la ventana modal a mostrarse.
 // Ver el pattern library como referencia para el HTML.
 function modalWindow() {
-    var eModalItems = document.querySelectorAll('.js-modal'),
-        eModalCloseItems = document.querySelectorAll('.js-modal-close'),
-        eBody = document.querySelector('body');
+    var $modalItems = $('.js-modal'),
+        $modalCloseItems = $('.js-modal-close'),
+        $body = $('body');
 
-    if (eModalItems) {
-        // Elementos que abren el modal window
-        for (var modal=0; modal < eModalItems.length; modal++) {
-            eModalItems[modal].addEventListener('click', function(event) {
-                event.preventDefault();
-                var sModalId = event.currentTarget.dataset.modalId,
-                    eModalWindow = document.querySelector('#' + sModalId);
-                eModalWindow.className = eModalWindow.className.trim() + ' visible';
-                addElementToDOM('div', 'overlay', 'overlay', '', eBody);
-            });
-        }
+    if ($modalItems.length) {
+        // Agregar listener a los elementos que abren los modal window.
+        $modalItems.on('click', function(event) {
+            event.preventDefault();
+            var modalId = event.currentTarget.dataset.modalId,
+                $modalWindow = $('#' + modalId),
+                $overlay = $('<div />')
+                            .addClass('overlay')
+                            .attr('id', 'overlay');
+
+            $modalWindow.addClass('visible');
+            $body.append($overlay);
+        });
     }
 
-    if (eModalCloseItems) {
-        // Elementos que cierran el modal window
-        for (var modalClose=0; modalClose < eModalCloseItems.length; modalClose++) {
-            eModalCloseItems[modalClose].addEventListener('click', function(event) {
-                event.preventDefault();
-                var eModalWindow = closestParentNode(event.currentTarget, 'js-modal-window'),
-                    eOverlay = document.querySelector('#overlay');
-
-                removeClass(eModalWindow, 'visible');
-                eBody.removeChild(eOverlay);
-            });
-        }
+    if ($modalCloseItems.length) {
+        // Agregar listeners a los elementos que cierran el modal window.
+        $modalCloseItems.on('click', function(event) {
+            event.preventDefault();
+            var $modalWindow = $(event.currentTarget).closest('.js-modal-window'),
+                $overlay = $('#overlay');
+                $modalWindow.removeClass('visible');
+                $overlay.remove();
+        });
     }
 };
 

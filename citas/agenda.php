@@ -22,12 +22,17 @@
 				<!-- Elemento a utilizar por Handlebars para imprimir las citas.-->
 				<div id="citas-container"></div>
 
+				<!-- Elemento a utilizar por Handlebars para imprimir las mensajes de confirmacion.-->
+				<div id="msg-container"></div>
+
 				<!-- Handlebars template -->
 				<script id="template-cita" type="text/x-handlebars-template">
-  					<section class="cita visible">
+				{{#each citas}}
+  					<section class="cita cita-pendiente visible">
+  						<input id="cita-id-{{ citaId }}" class="cita-id" type="hidden" value="{{ citaId }}" />
   						<div class="mod-hd">
-							<h2>{{ fechaInicio }}</h2>
-							<span class="cita-hora-inicio-fin">6:00 p.m. a 7:00 p.m.</span>
+							<h2>{{ fecha }}</h2>
+							<span class="cita-hora-inicio-fin">{{ horaInicio }} a {{ horaFin }}</span>
 						</div>
 						<div class="mod-bd">
 							<div class="row">
@@ -66,42 +71,58 @@
 								<span class="data">{{ observaciones }}</span>
 							</div>
 							<div class="form-row form-row-button">
-								<button type="button" class="btn btn-primary js-modal" data-modal-id="modal-finalizar">Finalizar</a>
-								<button type="button" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
+								<button type="button" class="btn btn-primary btn-finalizar js-modal" data-modal-id="modal-finalizar">Finalizar cita</a>
+								<button type="button" class="btn btn-default btn-cancelar js-modal" data-modal-id="modal-cancelar">Cancelar cita</a>
 							</div>
 						</div>
 					</section>
+				{{/each}}
 				</script>
-
 
 				<section class="cita no-cita">
 					<p class="flaticon-information38">No hay citas agendadas para la fecha seleccionada.</p>
 				</section>
 
+				<!-- Modal de finalizar cita -->
 				<div id="modal-finalizar" class="modal js-modal-window">
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea finalizar la cita de atención?</h3>
 					<div class="form-row">
-
-						<a href="/cenfotec-proyecto-1/citas/citaFinalizada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
-
-						<a href="citaFinalizada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
-
-						<a href="#" class="btn btn-default js-modal-close">No</a>
+						<button type="button" id="btn-finalizar-cita" class="btn btn-primary js-modal-aceptar">Sí</button>
+						<button type="button" class="btn btn-default js-modal-close">No</button>
 					</div>
 				</div>
+
+
+				<!-- Modal de cancelar cita -->
 				<div id="modal-cancelar" class="modal js-modal-window">
 					<span class="close flaticon-close3 js-modal-close">Close</span>
-					<h3>¿Está seguro que desea cancelar la cita de atención?</h3>
-					<div class="form-row">
 
-						<a href="/cenfotec-proyecto-1/citas/citaCancelada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
-
-						<a href="citaCancelada.php" class="btn btn-primary js-modal-aceptar">Sí</a>
-
-						<a href="#" class="btn btn-default js-modal-close">No</a>
-					</div>
+					<form id="cancelar-cita" action="#" method="post" data-validate="true" novalidate>
+						<h3>¿Está seguro que desea cancelar la cita de atención?</h3>
+						<input id="cita-id-cancelacion" type="hidden" value=""/>
+						<div class="form-row">
+							<label for="motivo-cancelacion">Motivo de la cancelación:</label>
+							<textarea id="motivo-cancelacion" class="form-control" required></textarea>
+						</div>
+						<div class="form-row">
+							<button type="button" id="btn-cancelar-cita" class="btn btn-primary js-modal-aceptar">Sí</button>
+							<button type="button" class="btn btn-default js-modal-close">No</button>
+						</div>
+					</form>
 				</div>
+
+				<!-- Handlebars template -->
+				<script id="template-msg-cancelar" type="text/x-handlebars-template">
+					<section id="msg-cancelar" class="msg-confirm">
+						<div class="mod-hd">
+							<h2 class="flaticon-cancel17">La cita de atención se ha cancelado.</h2>
+						</div>
+						<div class="mod-bd">
+							<p>Se ha enviado un mensaje al correo electrónico de <strong>{{ nombreSolicitado }}</strong> para notificarle que la cita fue cancelada.</p>
+						</div>
+					</section>
+				</script>
 			</main>
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>

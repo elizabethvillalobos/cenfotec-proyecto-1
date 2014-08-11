@@ -16,9 +16,8 @@
 			case 'insertar':
 				insertarCita();
 				break;
-			case 'modificar':
-				break;
-			case 'eliminar':
+			case 'cancelar':
+				cancelarCita();
 				break;
 		}
 	} else {
@@ -27,13 +26,14 @@
 	}
 
 	function consultarCitas() {
-		if (!empty($_GET['solicitante'])) {
+		if (!empty($_GET['solicitante']) && !empty($_GET['fechaInicio']) && !empty($_GET['fechaFin'])) {
 			$solicitante = $_GET['solicitante'];
-			//$fecha = $_GET['fecha'];
+			$fechaInicio = $_GET['fechaInicio'];
+			$fechaFin = $_GET['fechaFin'];
 			
 			// Ejecutar consulta que retorna citas por usuario
 			// para una fecha específica.
-			$citasUsuario = getCitasUsuario($solicitante);
+			$citasUsuario = getCitasUsuario($solicitante, $fechaInicio, $fechaFin);
 
 			if (empty($citasUsuario)) {
 				deliver_response(200, 'No data', NULL);
@@ -44,15 +44,29 @@
 		}
 	}
 
+
 	function insertarCita() {
-		// if (!empty($_GET['idSolicitante']) && !empty($_GET['idSolicitado']) && !empty($_GET['fechaInicio']) && !empty($_GET['fechaFin']) && !empty($_GET['asunto'])  && !empty($_GET['modalidad']) && !empty($_GET['tipo'])  && !empty($_GET['observaciones']) && !empty($_GET['curso'])) {
-			insertCita($_GET['idSolicitante'], $_GET['idSolicitado'], $_GET['fechaInicio'], $_GET['fechaFin'], $_GET['asunto'], $_GET['modalidad'], $_GET['tipo'], $_GET['observaciones'], $_GET['curso']);	
-			deliver_response(200, 'OK', NULL);
-		// } else {
-			// deliver_response(400, 'Invalid data', NULL);
-		// }
+		insertCita($_GET['idSolicitante'], $_GET['idSolicitado'], $_GET['fechaInicio'], $_GET['fechaFin'], $_GET['asunto'], $_GET['modalidad'], $_GET['tipo'], $_GET['observaciones'], $_GET['curso']);	
+		deliver_response(200, 'OK', NULL);
 	}
 
+
+	function cancelarCita() {
+		if (!empty($_GET['citaId']) && !empty($_GET['motivo']) && !empty($_GET['idSolicitante'])) {
+			$citaId = $_GET['citaId'];
+			$motivo = $_GET['motivo'];
+			$idSolicitante = $_GET['idSolicitante'];
+			$result = cancelCita($citaId, $motivo, $idSolicitante);
+
+			if ($result) {
+				deliver_response(200, 'OK', NULL);
+			} else {
+				deliver_response(401, 'Fallo en la cancelacion de la cita', NULL);
+			}
+		} else {
+			deliver_response(400, 'Bad request', NULL);
+		}
+	}
 
 	// Esta función retorna la respuesta que se enviará
 	// a la solicitud de ajax.

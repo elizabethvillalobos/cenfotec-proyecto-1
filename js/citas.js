@@ -1,56 +1,32 @@
+var citaSeleccionada;
+
 // Esta función consulta las citas por día para el usuario actual.
 // Utiliza ajax para consultar el servicio que retorna las citas.
-function consultarCitas(event) {
-	var fecha = $('#agenda-fecha').datepicker('getDate'); // Obtener la fecha seleccionada.
+function consultarCitas() {
+	var fechaInicio = new Date($('#agenda-fecha').datepicker('getDate')), // Obtener la fecha seleccionada.
+		fechaFin = new Date(fechaInicio);
+	fechaFin.setDate(fechaInicio.getDate() + 1);
 
 	// Solicitar datos al servicio.
 	$.ajax({
-		url: '../includes/services.php',
+		url: '../includes/service-citas.php',
 		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 		data: { // Objeto con los parámetros que utiliza el servicio.
 			query: 'consultar',
-			solicitante: 'evillalobos@ucenfotec.ac.cr'
+			solicitante: 'evillalobos@ucenfotec.ac.cr',
+			fechaInicio: fechaInicio.toISOString(),
+			fechaFin: fechaFin.toISOString()
 		},
 		dataType: 'json',
 		success: function(response) {
-			console.log(response);
 			// Imprimir los datos.
 			mostrarCitas($.parseJSON(response.data));
 		},
 		error: function(response) {
 			// Mostrar mensaje de error.
-			console.log('error');
 			console.log(response);
 		}
 	});
-
-	// $.ajax({
-	// 	url: '../includes/services.php',
-	// 	type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
-	// 	data: { // Objeto con los parámetros que utiliza el servicio.
-	// 		query: 'insertar',
-	// 		idSolicitante: 'evillalobos@ucenfotec.ac.cr',
-	// 		idSolicitado: 'pmonestel@ucenfotec.ac.cr',
-	// 		fechaInicio: fecha,
-	// 		fechaFin: fecha,
-	// 		asunto: 'PHP y mySql',
-	// 		modalidad: '0',
-	// 		tipo: '0',
-	// 		observaciones: 'Testing testing testing...',
-	// 		curso: 'BISOFT1'
-	// 	},
-	// 	dataType: 'json',
-	// 	success: function(response) {
-	// 		console.log(response);
-	// 		// Imprimir los datos.
-	// 		//mostrarCitas($.parseJSON(response.data));
-	// 	},
-	// 	error: function(response) {
-	// 		// Mostrar mensaje de error.
-	// 		console.log('error');
-	// 		console.log(response);
-	// 	}
-	// });
 }
 
 
@@ -62,22 +38,143 @@ function mostrarCitas(citas) {
 
 	// Esconde el elemento que muestra el mensaje de que no hay citas.
 	$noCita.removeClass('visible');
+	// Eliminar citas y mensajes que se hayan mostrado previamente.
+	$('.cita-pendiente').remove();
+	$('.msg-confirm').remove();
 
-	if (citas) {
-		// Imprimir citas en el panel.
-		var source = $("#template-cita").html(),
-			template = Handlebars.compile(source);
-  		$("#citas-container").html(template(citas));
-	} else {
+	if (citas === null) {
 		$noCita.addClass('visible');
+		return;
+	}
+
+	// Imprimir citas en el panel.
+	var source = $("#template-cita").html(),
+		template = Handlebars.compile(source);
+  	$("#citas-container").html(template(citas));
+
+  	// Ejecutar el codigo de los modal window para las citas que se agregaron.
+  	modalWindow();
+  	initCancelarCita();
+}
+
+
+// Insertar en la BD una nueva cita de atencion
+// con datos dummy.
+function insertarCita() {
+	var fechaInicio = new Date($('#agenda-fecha').datepicker('getDate')), // Obtener la fecha seleccionada.
+		fechaFin = new Date(fechaInicio);
+	fechaFin.setDate(fechaInicio.getDate() + 1);
+
+	// Insertar cita en la BD.
+	$.ajax({
+		url: '../includes/service-citas.php',
+		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			query: 'insertar',
+			idSolicitante: 'evillalobos@ucenfotec.ac.cr',
+			idSolicitado: 'aluna@ucenfotec.ac.cr',
+			fechaInicio: fechaInicio.toISOString(),
+			fechaFin: fechaFin.toISOString(),
+			asunto: 'Grafos',
+			modalidad: '0',
+			tipo: '0',
+			observaciones: 'Testing testing testing...',
+			curso: 'BISOFT1'
+		},
+		dataType: 'json',
+		success: function(response) {
+			console.log(response);
+		},
+		error: function(response) {
+			// Mostrar mensaje de error.
+			console.log(response);
+		}
+	});
+}
+
+
+// Inicializar funciones para cancelar citas.
+function initCancelarCita() {
+	var $btnCancelarCita = $('.btn-cancelar'), // Boton que se muestra en cada cita.
+		$btnCancelarConfirmar = $('#btn-cancelar-cita'); // Boton del modal
+
+	if ($btnCancelarCita.length) {
+		$btnCancelarCita.on('click', function(event) {
+			// Obtener el ID de la cita.
+			var citaId = $(event.currentTarget).closest('.cita-pendiente').find('.cita-id').val(),
+				$citaCancelacionInput = $('#cita-id-cancelacion'),
+				$motivo = $('#motivo-cancelacion').val('');
+			// Setear el ID de la cita en el input del modal.
+			$citaCancelacionInput.val(citaId);
+			$motivo.focus();
+			citaSeleccionada = citaId;
+		});
+	}
+
+	if ($btnCancelarConfirmar.length) {
+		$btnCancelarConfirmar.on('click', function(event) {
+			// Validar que el usuario haya ingresado el motivo de la cancelacion.
+			limpiarMensajesError();
+			if (validarForm('cancelar-cita')) {
+				var citaId = $('#cita-id-cancelacion').val(),
+					motivo = $('#motivo-cancelacion').val();
+				cancelarCita(citaId, motivo, 'evillalobos@ucenfotec.ac.cr');
+			}
+		});
 	}
 }
 
+
+// Ejecutar cancelar cita.
+function cancelarCita(citaId, motivo, idSolicitante) {
+	$.ajax({
+		url: '../includes/service-citas.php',
+		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			query: 'cancelar',
+			citaId: citaId,
+			motivo: motivo,
+			idSolicitante: idSolicitante
+		},
+		dataType: 'json',
+		success: function(response) {
+			mostrarMsgCancelacion();
+		},
+		error: function(response) {
+			// Mostrar mensaje de error.
+			console.log(response);
+		}
+	});
+}
+
+function mostrarMsgCancelacion() {
+	var source = $("#template-msg-cancelar").html(),
+		template = Handlebars.compile(source),
+		nombreSolicitado;
+
+	// Cerrar el modal de cancelar cita.
+	$('#modal-cancelar').find('.js-modal-close').click();
+
+	// Mostrar el mensaje de confirmacion.
+	if (citaSeleccionada) {
+		nombreSolicitado = $('#cita-id-' + citaSeleccionada).parent('.cita-pendiente').find('.cita-invitado').text();
+	}
+	$("#msg-container").html(template({
+		nombreSolicitado: nombreSolicitado
+	}));
+
+	// Eliminar citas que se hayan mostrado previamente.
+	$('.cita-pendiente').hide();
+}
+
+
 // DOM ready
 (function($) {
-	var eAgenda = $('#agenda-fecha');
-	if (eAgenda.length) {
-		eAgenda.datepicker({
+	// Inicializar el plugin del calendario y la funcion
+	// que muestra las citas para el dia actual.
+	var $agenda = $('#agenda-fecha');
+	if ($agenda.length) {
+		$agenda.datepicker({
 			dateFormat: 'dd/mm/yy',
 			dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
 			hideOnSelect: false,
@@ -87,9 +184,18 @@ function mostrarCitas(citas) {
 			nextText: 'Sig',
 			prevText: 'Prev'
 		});
-		eAgenda.datepicker('show');
+		$agenda.datepicker('show');
+		// Seleccionar el dia de hoy.
+		$('#agenda-fecha').datepicker('setDate', new Date());
 
-		eAgenda.on('change', consultarCitas);
+		// Add listener.
+		$agenda.on('change', function() {
+			consultarCitas();
+		});
+
+		// Cargar las citas para el dia de hoy.
+		consultarCitas();
 	}
+
 })(jQuery);
 

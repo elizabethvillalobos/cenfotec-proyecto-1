@@ -5,6 +5,11 @@ var ebtnCrearCurso = document.querySelector('#btnCrearCurso'),
 	ecodigo = document.querySelector('#txtCodCurso'),
 	totalSelected = 0;
 
+window.onload = function ()
+{
+	document.getElementById("crear-curso").reset();
+}	
+	
 /* validar crear curso */
 
 if (ebtnCrearCurso) {
@@ -36,19 +41,42 @@ function soloGuion(e){
 // Inicializar la validacion de formularios.
 var eFormValidar = document.querySelector('form[data-validate="true"]');
 if (eFormValidar) {
-    var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
+		
+	var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
 	eFormBtnSubmit.addEventListener('click', function(event) {
 		event.preventDefault();
-        limpiarMensajesError();
-        if (validarForm(eFormValidar.id)) {
-			switch(eFormValidar.id){
-				case "crear-curso":
-					registrarCurso();
-				break;
+		limpiarMensajesError();
+		if (validarForm(eFormValidar.id)) {
+			//validar que no hayan profesores repetidos
+			var idProfesor1 = $('#idProfesor1').text(),
+			  idProfesor2 = $('#idProfesor2').text(),
+			  idProfesor3 = $('#idProfesor3').text();	  
+			if((idProfesor1 != idProfesor2) && (idProfesor2 != idProfesor3) && (idProfesor1 != idProfesor3))
+			{
+				switch(eFormValidar.id){
+					case "crear-curso":
+						registrarCurso();
+					break;
+				}			
 			}
-            //eFormValidar.submit();
-        }
-    });
+			else
+			{
+				if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3))
+				{
+					mostrarMensajeError(document.querySelector('#txtInvitado1'),"No pueden haber profesores repetidos.");
+				}
+				if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3))
+				{
+					mostrarMensajeError(document.querySelector('#txtInvitado2'),"No pueden haber profesores repetidos.");
+				}
+				if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3))
+				{
+					mostrarMensajeError(document.querySelector('#txtInvitado3'),"No pueden haber profesores repetidos.");
+				}
+			}
+			//eFormValidar.submit();
+		}
+	});
 }
 
 // Modificar usuarios

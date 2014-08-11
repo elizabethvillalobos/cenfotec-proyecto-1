@@ -21,20 +21,19 @@
 		} else {
 			$query = "INSERT INTO tcursos(id, nombre, activo) VALUES ('$codigo','$nombre', '1')";
 			$resultado = do_query($query);
-			// $resultado="Registrado con exito";
-			echo $query;
+			
 			$query = "INSERT INTO tusuariosxcurso(idcurso, idusuario) VALUES ('$codigo','$idProfesor1')";
 			$resultado = do_query($query);
-			echo $query;
+			
 			$query = "INSERT INTO tusuariosxcurso(idcurso, idusuario) VALUES ('$codigo','$idProfesor2')";
 			$resultado = do_query($query);
-			echo $query;
+			
 			$query = "INSERT INTO tusuariosxcurso(idcurso, idusuario) VALUES ('$codigo','$idProfesor3')";
 			$resultado = do_query($query);
-			echo $query;
+			
 			$query = "INSERT INTO tcursosxcarrera(idcarrera, idcurso) VALUES ('$idCarrera','$codigo')";
 			$resultado = do_query($query);
-			echo $query;
+			
 			deliver_response(200, 'OK', 'Registrado con exito');
 		}
 	} else {

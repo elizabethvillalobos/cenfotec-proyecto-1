@@ -579,7 +579,11 @@ function autocompletar(pdivResultados, pinput, pdatos, pids){
 //reemplazar el texto de un input de busqueda
 function reemplazarTextoInput(pdivResultados,pinput,ptarget,pnombreId){
 	var idElement = ptarget.querySelector('.hidden');	
-	var inputContainer = pinput.parentNode;		
+	var inputContainer = pinput.parentNode;	
+	var lastId = inputContainer.querySelector('#'+pnombreId);
+	if(lastId != null){
+		lastId.remove();
+	}
 	var id=document.createElement("span");
 	id.id=pnombreId;
 	id.className="hidden";
@@ -590,4 +594,5 @@ function reemplazarTextoInput(pdivResultados,pinput,ptarget,pnombreId){
 	pinput.value=ptarget.innerHTML;  
 	pdivResultados.innerHTML="";
 }
+
 

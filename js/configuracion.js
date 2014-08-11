@@ -131,7 +131,7 @@ function buscarProfesor1(evento){
     var resInvitados1 = document.querySelector('#resInvitados1'),
     input = document.querySelector('#txtInvitado1'),
 	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
-	//datos = obtenerProfesores();
+	datos = obtenerProfesores();
 	autocompletar(resInvitados1,input, datos);
 }
 
@@ -333,6 +333,9 @@ function obtenerProfesores() {
 		type: "get",
 		dataType: 'json',
 		success: function(response){    
+			resultados=response;
+		},
+		error: function(response){
 			resultados=response;
 		}
 	});

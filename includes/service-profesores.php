@@ -6,8 +6,12 @@
 
 	$query = "SELECT * FROM tusuarios WHERE rol='4';";
 	$profesores = do_query($query);
+	$resultados = array();
+	while($r = mysqli_fetch_assoc($profesores)) {
+		$resultados[] = $r;
+	}
 	if (mysqli_num_rows($profesores) > 0) {
-		deliver_response(400, 'Profesores retornados', $profesores);
+		deliver_response(400, 'Profesores retornados', json_encode($resultados));
 	}
 	
 

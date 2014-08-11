@@ -1,5 +1,6 @@
 <?php
     require_once('../includes/functions.php');
+    require_once(ROOT.'/includes/functions-carreras.php');
 
     $currentModule = 'configuracion';
     $currentSubModule = 'carreras';
@@ -26,8 +27,7 @@
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="crear-carrera" class="mod-bd form-horizontal" action="/cenfotec-proyecto-1/configuracion/carrerasCrear-confirmar.php" method="post" 
-						data-validate="true" novalidate>
+					<form id="crear-carrera" class="mod-bd form-horizontal" action="" data-validate="true" novalidate>
 						<div class="form-row">
 							<label for="codigo-carrera">Código:</label>
 							<input id="codigo-carrera" type="text" placeholder="Ingrese el código" class="form-control" 
@@ -36,14 +36,14 @@
 						<div class="form-row">
 							<label for="nombre-carrera">Nombre:</label>
 							<input id="nombre-carrera" type="text" placeholder="Ingrese el nombre" class="form-control" 
-							onkeypress="return soloLetras(event)" required/>
+							onkeypress="return soloLeras(event)" required/>
 						</div>
 
 						<div class="form-row">
 							<label for="director-academico">Director académico:</label>
 							<select id="director-academico" required>
 	                            <option value="">Seleccione una opción</option>
-	                            <option value="Director1">Pablo Monestel</option>
+	                            <option value="1">Pablo Monestel</option>
 	                            <option value="Director2">María Eugenia Ucrós</option>
 	                            <option value="Director3">Luis Chacón</option>
 	                            <option value="Director4">Nelson Brenes</option>
@@ -53,7 +53,7 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<button id="btn-guardar-carrera" class="btn btn-primary" type="submit">Guardar</button>
+							<input id="btn-guardar-carrera" class="btn btn-primary" type="button" value="Enviar!"/>
 							<!--<button id="btn-cancelar" class="btn btn-secondary" type="submit">Cancelar</button>-->
 							<a href="crearCarrera-cancelar.html" class="btn btn-default js-modal" 
 								data-modal-id="modal-cancelar">Cancelar</a>
@@ -84,5 +84,6 @@
         <script src="/cenfotec-proyecto-1/js/html5uploader.js"></script>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
         <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
+        <script src="/cenfotec-proyecto-1/configuracion/inserts-config-js/insertarCarrera.js"></script>
 	</body>
 </html>

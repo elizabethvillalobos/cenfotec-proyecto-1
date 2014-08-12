@@ -69,20 +69,21 @@ function crearCarrera(){
 		$nombre = $_POST['pNombre'];
 		$director = $_POST['pDirector'];
 
-		$query = "INSERT INTO tcarrera VALUES" . "('$codigo', '$nombre', '$director','1')";
+		$query = "INSERT INTO tcarrera VALUES" . "('$codigo', '$nombre', '$director',1)";
 
 		$result = do_query($query);
 	}
 }
 
+
 if($_SERVER['REQUEST_METHOD']=="POST"){
 	$funcion = $_POST['call'];
-	echo $_POST['call'];
+	
 
 	if(function_exists('$funcion')) {        
 	    call_user_func('$funcion');
 	} else {
-	    echo 'Function :'.$funcion.' Not Exists!!';
+	    echo ' Function :'.$funcion.' No Existe!!';
 	}
 }
 

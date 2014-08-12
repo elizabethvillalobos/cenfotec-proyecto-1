@@ -33,7 +33,7 @@ function displayCarreras() {
 												class="form-control1" readonly="readonly"/>
 										</div>
 										<div class="form-row">
-											<a href="consultarCursosDesarrollo.html" class="flaticon-list40">Ver cursos</a>
+											<a href="consultarCursos.php?idCarrera=123" class="flaticon-list40">Ver cursos</a>
 										</div>
 										<div class="form-row form-row-buttonAcciones" id="'.$row['id'].'">
 											<input type="button" class="btn btn-secondaryAction" id="btn_enable" '.($row['activo'] == 1? 'disabled' : '').' 

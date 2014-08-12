@@ -1,6 +1,9 @@
 <?php
 
-include_once('functions.php');
+require_once('../includes/functions.php');
+require_once(ROOT.'/includes/functions-usuarios.php');
+
+
 
 header('Content-Type:application/json');
 

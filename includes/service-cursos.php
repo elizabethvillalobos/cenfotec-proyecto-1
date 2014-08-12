@@ -21,6 +21,33 @@
 		deliver_response(400, 'Bad request', NULL);
 	}
 	
+
+
+	function consultarCurso() {
+		if (!empty($_GET['pidCarrera'])) {
+			$pidCarrera = $_GET['pidCarrera'];
+			$query = "SELECT cc.idcarrera,cc.idcurso, c.nombre, c.activo FROM `tcursosxcarrera` AS cc INNER JOIN`tcursos` AS c ON cc.idcurso = c.id  WHERE idcarrera='$pidCarrera'";
+			$result = do_query($query);
+			
+			$jsonArray = [];
+			$index = 0;
+
+			while ($row = mysqli_fetch_assoc($result)) {
+				$results['idcurso'] = $row['idcurso'];
+				$results['nombre'] = $row['nombre'];
+				$results['activo'] = $row['activo'];
+				$jsonArray['cursos'][$index] = $results;
+				$index++;
+			}
+
+			deliver_response(200, 'ok', json_encode($jsonArray)); 
+		}
+	}
+
+
+
+
+
 	function registrarCurso()
 	{
 		if (!empty($_GET['pnombre']) && !empty($_GET['pcodigo'])) {

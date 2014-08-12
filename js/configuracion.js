@@ -7,7 +7,7 @@ var ebtnCrearCurso = document.querySelector('#btnCrearCurso'),
 
 window.onload = function ()
 {
-	document.getElementById("crear-curso").reset();
+	// document.getElementById("crear-curso").reset();
 }	
 	
 /* validar crear curso */
@@ -153,48 +153,48 @@ if(ebtnEnviar) {
 // 	}
 // }
 
-function buscarProfesor1(evento){
-    var resInvitados1 = document.querySelector('#resInvitados1'),
-    input = document.querySelector('#txtInvitado1');
-	autocompletar(resInvitados1, input, obtenerProfesores()[0], obtenerProfesores()[1]);
-}
+// function buscarProfesor1(evento){
+//     var resInvitados1 = document.querySelector('#resInvitados1'),
+//     input = document.querySelector('#txtInvitado1');
+// 	autocompletar(resInvitados1, input, obtenerProfesores()[0], obtenerProfesores()[1]);
+// }
 
-var rInvitados1=document.querySelector('#resInvitados1');
-rInvitados1.addEventListener('click', function(e) {
-	var input = document.querySelector('#txtInvitado1');
-	reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
-});
+// var rInvitados1=document.querySelector('#resInvitados1');
+// rInvitados1.addEventListener('click', function(e) {
+// 	var input = document.querySelector('#txtInvitado1');
+// 	reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
+// });
 
-function buscarProfesor2(evento){
-    var resInvitados2 = document.querySelector('#resInvitados2'),
-    input = document.querySelector('#txtInvitado2');
-	autocompletar(resInvitados2, input, obtenerProfesores()[0], obtenerProfesores()[1]);
-}
+// function buscarProfesor2(evento){
+//     var resInvitados2 = document.querySelector('#resInvitados2'),
+//     input = document.querySelector('#txtInvitado2');
+// 	autocompletar(resInvitados2, input, obtenerProfesores()[0], obtenerProfesores()[1]);
+// }
 
-var rInvitados2=document.querySelector('#resInvitados2');
-rInvitados2.addEventListener('click', function(e) {
-	var input = document.querySelector('#txtInvitado2');
-	reemplazarTextoInput(rInvitados2,input,e.target, "idProfesor2");		
-});
+// var rInvitados2=document.querySelector('#resInvitados2');
+// rInvitados2.addEventListener('click', function(e) {
+// 	var input = document.querySelector('#txtInvitado2');
+// 	reemplazarTextoInput(rInvitados2,input,e.target, "idProfesor2");		
+// });
 
-function buscarProfesor3(evento){
-    var resInvitados3 = document.querySelector('#resInvitados3'),
-    input = document.querySelector('#txtInvitado3');
-	autocompletar(resInvitados3, input, obtenerProfesores()[0], obtenerProfesores()[1]);
-}
+// function buscarProfesor3(evento){
+//     var resInvitados3 = document.querySelector('#resInvitados3'),
+//     input = document.querySelector('#txtInvitado3');
+// 	autocompletar(resInvitados3, input, obtenerProfesores()[0], obtenerProfesores()[1]);
+// }
 
-var rInvitados3=document.querySelector('#resInvitados3');
-rInvitados3.addEventListener('click', function(e) {
-	var input = document.querySelector('#txtInvitado3');
-	reemplazarTextoInput(rInvitados3,input,e.target, "idProfesor3");		
-});
+// var rInvitados3=document.querySelector('#resInvitados3');
+// rInvitados3.addEventListener('click', function(e) {
+// 	var input = document.querySelector('#txtInvitado3');
+// 	reemplazarTextoInput(rInvitados3,input,e.target, "idProfesor3");		
+// });
 
-var btnSelecProfe = document.querySelector('.btnSelectInvitado');
-if (btnSelecProfe!=null) {
-	btnSelecProfe.addEventListener('click',function () {
-	toggleForms();
-	});
-}
+// var btnSelecProfe = document.querySelector('.btnSelectInvitado');
+// if (btnSelecProfe!=null) {
+// 	btnSelecProfe.addEventListener('click',function () {
+// 	toggleForms();
+// 	});
+// }
 
 function toggleForms() {
 	totalSelected=0;
@@ -287,6 +287,40 @@ function soloLetrasYnumeros(e){
         return true;
     }
 }
+function consultarCursos(){
+
+	var idCarrera = location.search.split("=")[1];
+	console.log(idCarrera);
+	var request = $.ajax({
+		url: "../includes/service-cursos.php",
+		type: "get",
+		data: {
+			   'query': 'consultarCurso',
+			   'pidCarrera': idCarrera
+			   
+			  },
+		dataType: 'json',
+		success: function(response){    
+			imprimirCursos($.parseJSON(response.data));
+		},
+		error: function(response) {
+			console.log(response);
+		}
+
+	});	
+
+} 
+
+
+function imprimirCursos(aCursos){
+
+	var source = $("#template-curso").html(),
+	template = Handlebars.compile(source);
+  	$("#cursos-container").html(template(aCursos));
+
+
+}
+
 
 
 //agregar nuevo curso
@@ -327,6 +361,8 @@ function registrarCurso() {
 		}
 	});
 };
+
+
 
 //Filtros de mostrar usuarios
 

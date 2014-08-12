@@ -43,7 +43,6 @@ function mostrarUsuarios() {
 	}
 }
 
-<<<<<<< HEAD
 // Función que consulta las los profesores
 	function getProfesores() {
 		$query = "SELECT id FROM trol WHERE nombre = 'Profesor';";
@@ -80,7 +79,6 @@ function mostrarUsuarios() {
 		return $jsonArray;
 	}
 
-=======
 function insertarUsuario(){
 	if(isset($_POST['pnombre']) &&
 		isset($_POST['papellido1']) && 
@@ -111,6 +109,4 @@ function insertarUsuario(){
 
 }
 
-
->>>>>>> origin/master
 ?>

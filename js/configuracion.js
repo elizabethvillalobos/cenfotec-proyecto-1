@@ -303,6 +303,7 @@ function registrarCurso() {
 		url: "../includes/service-cursos.php",
 		type: "get",
 		data: {
+			   'query': 'registrarCurso',
 			   'pcodigo': codigo,
 			   'pnombre' : nombre,
 			   'pidCarrera' : idCarrera,

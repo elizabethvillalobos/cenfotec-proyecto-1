@@ -111,7 +111,7 @@ function insertarUsuario(){
 
 }
 
-<<<<<<< HEAD
+
 if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];
 	if(function_exists($function)) {        
@@ -120,9 +120,4 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
 	    echo 'Function Not Exists!!';
 	}
 }
-
-
-
-=======
->>>>>>> origin/master
 ?>

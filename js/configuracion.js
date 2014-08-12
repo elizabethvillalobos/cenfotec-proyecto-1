@@ -10,7 +10,6 @@ window.onload = function () {
 	if (eCrearCurso) {
 		eCrearCurso.reset();
 	}
-
 }	
 	
 /* validar crear curso */
@@ -171,7 +170,7 @@ if (rInvitados1) {
 		var input = document.querySelector('#txtInvitado1');
 		reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
 	});
-
+}
 
 var rInvitados2=document.querySelector('#resInvitados2');
 if (rInvitados2) {
@@ -282,9 +281,7 @@ function soloLetrasYnumeros(e){
     }
 }
 function consultarCursos(){
-
 	var idCarrera = location.search.split("=")[1];
-	console.log(idCarrera);
 	var request = $.ajax({
 		url: "../includes/service-cursos.php",
 		type: "get",
@@ -430,7 +427,7 @@ function crearUsuario() {
         rol = $('#usuario-rol').val(),
         carrera = $('#usuario-carrera').val(),
         curso = $('#usuario-curso').val();
-console.log('creando usuario');
+
 	var request = $.ajax({
 		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
 		type: "post",

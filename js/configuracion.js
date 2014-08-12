@@ -47,6 +47,7 @@ if (eFormValidar) {
 				break;
                 
                 case "crear-usuario":
+                    alert('Formulario validado');
                     crearUsuario();
                 break;
 			}
@@ -352,7 +353,7 @@ function crearUsuario() {
 	  apellido1 = $('#usuario-apellido1').val(),
 	  apellido2 = $('#usuario-apellido2').val(),
         idUsr = $('#usuario-email').val(),
-        contrasena = $('#usuario-email').val(),
+        contrasena = $('#usuario-contrasena').val(),
         telefono = $('#usuario-telefono').val(),
         skype = $('#usuario-skype').val(),
         rol = $('#usuario-rol').val(),

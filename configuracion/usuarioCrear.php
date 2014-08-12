@@ -25,7 +25,7 @@
 			<main class='usuarios'>
 				<section>
 					<div class="mod-hd">
-						<h2>Modificar usuario</h2>
+						<h2>Crear usuario</h2>
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->

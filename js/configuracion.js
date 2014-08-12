@@ -5,6 +5,13 @@ var ebtnCrearCurso = document.querySelector('#btnCrearCurso'),
 	ecodigo = document.querySelector('#txtCodCurso'),
 	totalSelected = 0;
 
+window.onload = function () {
+	var eCrearCurso = document.getElementById("crear-curso")
+	if (eCrearCurso) {
+		eCrearCurso.reset();
+	}
+}	
+	
 /* validar crear curso */
 
 if (ebtnCrearCurso) {
@@ -36,7 +43,8 @@ function soloGuion(e){
 // Inicializar la validacion de formularios.
 var eFormValidar = document.querySelector('form[data-validate="true"]');
 if (eFormValidar) {
-    var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
+		
+	var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
 	eFormBtnSubmit.addEventListener('click', function(event) {
 		event.preventDefault();
         limpiarMensajesError();
@@ -45,15 +53,32 @@ if (eFormValidar) {
 				case "crear-curso":
 					registrarCurso();
 				break;
-                
+                case "crear-carrera":
+					registrarCarrera();
+				break;
                 case "crear-usuario":
                     alert('Formulario validado');
                     crearUsuario();
                 break;
 			}
-            //eFormValidar.submit();
-        }
-    });
+		}
+		else {
+			if (idProfesor1 && idProfesor2 && idProfesor3) {
+				if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3))
+				{
+					mostrarMensajeError(document.querySelector('#txtInvitado1'),"No pueden haber profesores repetidos.");
+				}
+				if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3))
+				{
+					mostrarMensajeError(document.querySelector('#txtInvitado2'),"No pueden haber profesores repetidos.");
+				}
+				if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3))
+				{
+					mostrarMensajeError(document.querySelector('#txtInvitado3'),"No pueden haber profesores repetidos.");
+				}
+			}
+		}		
+	});
 }
 
 // Modificar usuarios
@@ -134,43 +159,45 @@ if(ebtnEnviar) {
 
 function buscarProfesor1(evento){
     var resInvitados1 = document.querySelector('#resInvitados1'),
-    input = document.querySelector('#txtInvitado1'),
-	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
-	datos = obtenerProfesores();
-	autocompletar(resInvitados1,input, datos);
+    input = document.querySelector('#txtInvitado1');
+	autocompletar(resInvitados1, input, obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
 var rInvitados1=document.querySelector('#resInvitados1');
-rInvitados1.addEventListener('click', function(e) {
-	var input = document.querySelector('#txtInvitado1');
-	reemplazarTextoInput(rInvitados1,input,e.target);		
-});
+if (rInvitados1) {
+	rInvitados1.addEventListener('click', function(e) {
+		var input = document.querySelector('#txtInvitado1');
+		reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
+	});
+}
 
 function buscarProfesor2(evento){
     var resInvitados2 = document.querySelector('#resInvitados2'),
-    input = document.querySelector('#txtInvitado2'),
-	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
-	autocompletar(resInvitados2,input, datos);
+    input = document.querySelector('#txtInvitado2');
+	autocompletar(resInvitados2, input, obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
 var rInvitados2=document.querySelector('#resInvitados2');
-rInvitados2.addEventListener('click', function(e) {
-	var input = document.querySelector('#txtInvitado2');
-	reemplazarTextoInput(rInvitados2,input,e.target);		
-});
+if (rInvitados2) {
+	rInvitados2.addEventListener('click', function(e) {
+		var input = document.querySelector('#txtInvitado2');
+		reemplazarTextoInput(rInvitados2,input,e.target, "idProfesor2");		
+	});
+}
 
 function buscarProfesor3(evento){
     var resInvitados3 = document.querySelector('#resInvitados3'),
-    input = document.querySelector('#txtInvitado3'),
-	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
-	autocompletar(resInvitados3,input, datos);
+    input = document.querySelector('#txtInvitado3');
+	autocompletar(resInvitados3, input, obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
 var rInvitados3=document.querySelector('#resInvitados3');
-rInvitados3.addEventListener('click', function(e) {
-	var input = document.querySelector('#txtInvitado3');
-	reemplazarTextoInput(rInvitados3,input,e.target);		
-});
+if (rInvitados3) {
+	rInvitados3.addEventListener('click', function(e) {
+		var input = document.querySelector('#txtInvitado3');
+		reemplazarTextoInput(rInvitados3,input,e.target, "idProfesor3");		
+	});
+}
 
 var btnSelecProfe = document.querySelector('.btnSelectInvitado');
 if (btnSelecProfe!=null) {
@@ -276,14 +303,23 @@ function soloLetrasYnumeros(e){
 function registrarCurso() {
 	var codigo = $('#codigo-curso').val(),
 	  nombre = $('#nombre-curso').val(),
-	  idCarrera = $('#idCarrera').val();
+	  idCarrera = $('#idCarrera').val(),
+	  idProfesor1 = $('#idProfesor1').text(),
+	  idProfesor2 = $('#idProfesor2').text(),
+	  idProfesor3 = $('#idProfesor3').text(),
+	  idCarrera = $('#idCarrera').text();
 
 	var request = $.ajax({
 		url: "../includes/service-cursos.php",
 		type: "get",
 		data: {
+			   'query': 'registrarCurso',
 			   'pcodigo': codigo,
 			   'pnombre' : nombre,
+			   'pidCarrera' : idCarrera,
+			   'pidProfesor1' : idProfesor1,
+			   'pidProfesor2' : idProfesor2,
+			   'pidProfesor3' : idProfesor3,
 			   'pidCarrera' : idCarrera
 			  },
 		dataType: 'json',
@@ -332,17 +368,32 @@ $('.usuarios-filtro').on('click', function(e) {
 
 //obtener profesores
 function obtenerProfesores() {	
-	var resultados;
-	var request = $.ajax({
-		url: "../includes/service-profesores.php",
-		type: "get",
+	var resultados=[];
+	
+	// Solicitar datos al servicio.
+	$.ajax({
+		url: '../includes/service-usuarios.php',
+		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			query: 'consultarProfesores'
+		},
 		dataType: 'json',
-		success: function(response){    
-			resultados=response;
+		success: function(response){
+			var respuesta=$.parseJSON(response.data);
+			var nombres =[];
+			var ids = [];
+			for (var i=0; i<respuesta.profesores.length; i++)
+			{
+				nombres.push(respuesta.profesores[i].nombre);
+				ids.push(respuesta.profesores[i].id);
+			}
+			resultados.push(nombres);
+			resultados.push(ids);
 		},
 		error: function(response){
-			resultados=response;
-		}
+			resultados=null;
+		},
+		async: false
 	});
 	return resultados;
 };
@@ -359,7 +410,7 @@ function crearUsuario() {
         rol = $('#usuario-rol').val(),
         carrera = $('#usuario-carrera').val(),
         curso = $('#usuario-curso').val();
-
+console.log('creando usuario');
 	var request = $.ajax({
 		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
 		type: "post",

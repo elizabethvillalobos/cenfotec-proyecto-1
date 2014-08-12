@@ -1,3 +1,4 @@
+﻿
 <?php
 require_once('../includes/functions.php');
 
@@ -43,6 +44,42 @@ function mostrarUsuarios() {
 	}
 }
 
+// Función que consulta las los profesores
+	function getProfesores() {
+		$query = "SELECT id FROM trol WHERE nombre = 'Profesor';";
+
+		$queryResults = do_query($query);
+		$jsonArray = [];
+		$index = 0;
+		$idProfesores=0;
+		
+		if (mysqli_num_rows($queryResults) > 0) {
+			while ($row = mysqli_fetch_assoc($queryResults)) {
+				$idProfesores = $row['id'];
+			}			
+		}
+		if($idProfesores != 0){
+			$query = "SELECT * FROM tusuarios WHERE rol='".$idProfesores."';";
+			$queryResults = do_query($query);
+		}
+		
+		while ($row = mysqli_fetch_assoc($queryResults)) {
+			$results['activo'] = $row['activo'];
+			$results['nombre'] = $row['nombre'].' '.$row['apellido1'].' '.$row['apellido2'];
+			$results['carrera'] = $row['carrera'] == NULL ? '-' : $row['carrera'];
+			$results['ranking'] = $row['ranking'];
+			$results['id'] = $row['id'];
+			$results['skypeid'] = $row['skypeid'];
+			$results['telefono'] = $row['telefono'];
+			$jsonArray['profesores'][$index] = $results;
+			$index++;
+		}
+
+		mysqli_free_result($queryResults);
+
+		return $jsonArray;
+	}
+
 function insertarUsuario(){
 	if(isset($_POST['pnombre']) &&
 		isset($_POST['papellido1']) && 
@@ -74,6 +111,7 @@ function insertarUsuario(){
 
 }
 
+<<<<<<< HEAD
 if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];
 	if(function_exists($function)) {        
@@ -85,4 +123,6 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
 
 
 
+=======
+>>>>>>> origin/master
 ?>

@@ -1,6 +1,6 @@
 /*AJAX PARA INSERTAR CARRERA, JAVIER BARBOZA*/
 
-$("#btn-guardar-carrera").click(function() {
+function registrarCarrera() {
   var codigo = $('#codigo-carrera').val(),
       nombre = $('#nombre-carrera').val(),
       director = $('#director-academico').val(); 
@@ -9,16 +9,16 @@ $("#btn-guardar-carrera").click(function() {
     url: "/cenfotec-proyecto-1/includes/functions-carreras.php",
     type: "post",
     data: {
-           'call': 'crearCarrera',
-           'pCodigo' : codigo,
-           'pNombre': nombre,
-           'pDirector' : director},
+      'call': 'crearCarrera',
+      'pCodigo' : codigo,
+      'pNombre': nombre,
+      'pDirector' : director
+    },
     dataType: 'json',
-
     success: function(response){           
     }
     
   });
-});
+};
 
 /*AJAX PARA INSERTAR CARRERA, JAVIER BARBOZA*/

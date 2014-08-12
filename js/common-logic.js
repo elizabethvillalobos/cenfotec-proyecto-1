@@ -596,3 +596,11 @@ function reemplazarTextoInput(pdivResultados,pinput,ptarget,pnombreId){
 }
 
 
+//VALIDAR QUE SOLO SE INGRESEN numero
+function validaSoloNumeros(event) {
+ if ((event.keyCode < 48) || (event.keyCode > 57)) 
+  event.returnValue = false;
+}
+
+
+

@@ -5,9 +5,12 @@ var ebtnCrearCurso = document.querySelector('#btnCrearCurso'),
 	ecodigo = document.querySelector('#txtCodCurso'),
 	totalSelected = 0;
 
-window.onload = function ()
-{
-	// document.getElementById("crear-curso").reset();
+window.onload = function () {
+	var eCrearCurso = document.getElementById("crear-curso")
+	if (eCrearCurso) {
+		eCrearCurso.reset();
+	}
+
 }	
 	
 /* validar crear curso */
@@ -51,29 +54,31 @@ if (eFormValidar) {
 				case "crear-curso":
 					registrarCurso();
 				break;
-                
+                case "crear-carrera":
+					registrarCarrera();
+				break;
                 case "crear-usuario":
+                    alert('Formulario validado');
                     crearUsuario();
                 break;
 			}
 		}
-		else
-		{
-			if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3))
-			{
-				mostrarMensajeError(document.querySelector('#txtInvitado1'),"No pueden haber profesores repetidos.");
+		else {
+			if (idProfesor1 && idProfesor2 && idProfesor3) {
+				if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3))
+				{
+					mostrarMensajeError(document.querySelector('#txtInvitado1'),"No pueden haber profesores repetidos.");
+				}
+				if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3))
+				{
+					mostrarMensajeError(document.querySelector('#txtInvitado2'),"No pueden haber profesores repetidos.");
+				}
+				if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3))
+				{
+					mostrarMensajeError(document.querySelector('#txtInvitado3'),"No pueden haber profesores repetidos.");
+				}
 			}
-			if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3))
-			{
-				mostrarMensajeError(document.querySelector('#txtInvitado2'),"No pueden haber profesores repetidos.");
-			}
-			if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3))
-			{
-				mostrarMensajeError(document.querySelector('#txtInvitado3'),"No pueden haber profesores repetidos.");
-			}
-		}
-		//eFormValidar.submit();
-		
+		}		
 	});
 }
 
@@ -153,48 +158,37 @@ if(ebtnEnviar) {
 // 	}
 // }
 
-// function buscarProfesor1(evento){
-//     var resInvitados1 = document.querySelector('#resInvitados1'),
-//     input = document.querySelector('#txtInvitado1');
-// 	autocompletar(resInvitados1, input, obtenerProfesores()[0], obtenerProfesores()[1]);
-// }
 
-// var rInvitados1=document.querySelector('#resInvitados1');
-// rInvitados1.addEventListener('click', function(e) {
-// 	var input = document.querySelector('#txtInvitado1');
-// 	reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
-// });
+function buscarProfesor1(evento){
+    var resInvitados1 = document.querySelector('#resInvitados1'),
+    input = document.querySelector('#txtInvitado1');
+	autocompletar(resInvitados1, input, obtenerProfesores()[0], obtenerProfesores()[1]);
+}
 
-// function buscarProfesor2(evento){
-//     var resInvitados2 = document.querySelector('#resInvitados2'),
-//     input = document.querySelector('#txtInvitado2');
-// 	autocompletar(resInvitados2, input, obtenerProfesores()[0], obtenerProfesores()[1]);
-// }
+var rInvitados1=document.querySelector('#resInvitados1');
+if (rInvitados1) {
+	rInvitados1.addEventListener('click', function(e) {
+		var input = document.querySelector('#txtInvitado1');
+		reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
+	});
 
-// var rInvitados2=document.querySelector('#resInvitados2');
-// rInvitados2.addEventListener('click', function(e) {
-// 	var input = document.querySelector('#txtInvitado2');
-// 	reemplazarTextoInput(rInvitados2,input,e.target, "idProfesor2");		
-// });
 
-// function buscarProfesor3(evento){
-//     var resInvitados3 = document.querySelector('#resInvitados3'),
-//     input = document.querySelector('#txtInvitado3');
-// 	autocompletar(resInvitados3, input, obtenerProfesores()[0], obtenerProfesores()[1]);
-// }
+var rInvitados2=document.querySelector('#resInvitados2');
+if (rInvitados2) {
+	rInvitados2.addEventListener('click', function(e) {
+		var input = document.querySelector('#txtInvitado2');
+		reemplazarTextoInput(rInvitados2,input,e.target, "idProfesor2");		
+	});
+}
 
-// var rInvitados3=document.querySelector('#resInvitados3');
-// rInvitados3.addEventListener('click', function(e) {
-// 	var input = document.querySelector('#txtInvitado3');
-// 	reemplazarTextoInput(rInvitados3,input,e.target, "idProfesor3");		
-// });
 
-// var btnSelecProfe = document.querySelector('.btnSelectInvitado');
-// if (btnSelecProfe!=null) {
-// 	btnSelecProfe.addEventListener('click',function () {
-// 	toggleForms();
-// 	});
-// }
+var rInvitados3=document.querySelector('#resInvitados3');
+if (rInvitados3) {
+	rInvitados3.addEventListener('click', function(e) {
+		var input = document.querySelector('#txtInvitado3');
+		reemplazarTextoInput(rInvitados3,input,e.target, "idProfesor3");		
+	});
+}
 
 function toggleForms() {
 	totalSelected=0;
@@ -430,13 +424,13 @@ function crearUsuario() {
 	  apellido1 = $('#usuario-apellido1').val(),
 	  apellido2 = $('#usuario-apellido2').val(),
         idUsr = $('#usuario-email').val(),
-        contrasena = $('#usuario-email').val(),
+        contrasena = $('#usuario-contrasena').val(),
         telefono = $('#usuario-telefono').val(),
         skype = $('#usuario-skype').val(),
         rol = $('#usuario-rol').val(),
         carrera = $('#usuario-carrera').val(),
         curso = $('#usuario-curso').val();
-
+console.log('creando usuario');
 	var request = $.ajax({
 		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
 		type: "post",

@@ -25,11 +25,11 @@
 			<main class='usuarios'>
 				<section>
 					<div class="mod-hd">
-						<h2>Modificar usuario</h2>
+						<h2>Crear usuario</h2>
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="modificar-usuario" class="mod-bd form-horizontal" action="usuarioGuardado.html" method="post" data-validate="true" novalidate>
+					<form id="crear-usuario" class="mod-bd form-horizontal" action="usuarioGuardado.html" method="post" data-validate="true" novalidate>
 						<div class="form-row">
 							<label for="usuario-nombre">Nombre:</label>
 							<input id="usuario-nombre" onkeypress="return soloLetras(event)" type="text" placeholder="Ingrese el nombre" class="form-control" value="" required/>
@@ -72,6 +72,11 @@
 							<label for="usuario-email">Correo electrónico:</label>
 							<input id="usuario-email" type="email" placeholder="Ingrese el correo electrónico" value="" class="form-control" data-validate-type="email" required/>
 						</div>
+						
+						<div class="form-row">
+							<label for="usuario-contrasena">Contraseña:</label>
+							<input id="usuario-contrasena" type="text" placeholder="Ingrese la contraseña" value="" class="form-control"  required/>
+						</div>
 
 						<div class="form-row">
 							<label for="usuario-telefono">Teléfono:</label>
@@ -109,9 +114,10 @@
 							</select>
 						</div>
 
-						<div class="form-row cursos-diseno-web">
-							<label for="usuario-curso-diseno">Cursos:</label>
-							<select id="usuario-curso-diseno">
+						<div class="form-row ">
+							<label for="usuario-curso">Cursos:</label>
+							<select id="usuario-curso">
+				                <option value="">Seleccione una opción</option>
 								<option value="">Diseño web 1</option>
 								<option value="">Diseño visual digital 1</option>
 								<option value="">Fundamentos de programación web</option>
@@ -121,25 +127,7 @@
 								<option value="">Comunicación social en la web</option>
 							</select>
 						</div>
-
-						<div class="form-row cursos-desarrollo">
-							<label for="usuario-curso-desarrollo">Cursos:</label>
-							<select id="usuario-curso-desarrollo" required>
-							    <option value="">Seleccione una opción</option>
-								<option value="">Fundamentos de programación</option>
-								<option value="">Proyecto de ingeniería de software 1</option>
-								<option value="">Fundamentos de bases de datos</option>
-								<option value="">Estructuras de datos</option>
-								<option value="">Arquitectura de computadoras</option>
-								<option value="">Estructura de datos 2</option>
-								<option value="">Proyecto de ingeniería del software 2</option>
-							</select>
-						</div>
-
-						<!-- <div class="form-row">
-							<label for="usuario-horario">Horario:</label>
-							<input id="usuario-horario" type="email" placeholder="Lunes, Martes y Jueves de 4:00 p.m. a 6:00 p.m." class="form-control" data-validate-type="email"/>
-						</div> -->
+						
 
 						<div class="form-row form-row-button">
 							<button id="btn-guardar-usuario" class="btn btn-primary" type="submit">Guardar</button>
@@ -160,5 +148,6 @@
         <script src="/cenfotec-proyecto-1/js/vendors/flatui-radio.js"></script>
         <script src="/cenfotec-proyecto-1/js/gic.js"></script>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+        <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 	</body>
 </html>

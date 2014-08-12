@@ -1,7 +1,6 @@
 <?php
-
-error_reporting(0);
-
+	error_reporting(0);
+	require_once('../includes/functions.php');
 
 function getCarreras(){
 	$query = 'SELECT * FROM tcarrera';
@@ -10,7 +9,6 @@ function getCarreras(){
 }
 
 function displayCarreras() {
-	
 	$carreras = getCarreras();
 	
 	while($row = mysqli_fetch_assoc($carreras)){
@@ -59,22 +57,25 @@ function displayCarreras() {
 /*INSERTAR CARRERA, JAVIER BARBOZA*/
 
 function crearCarrera(){
-	echo 'estoy en crearCarrera';	
-
 	if(isset($_POST['pCodigo']) &&
 		isset($_POST['pNombre']) && 
-		isset($_POST['pDirector'])){
+		isset($_POST['pDirector'])) {
 	
 		$codigo = $_POST['pCodigo'];
 		$nombre = $_POST['pNombre'];
 		$director = $_POST['pDirector'];
 
+<<<<<<< HEAD
 		$query = "INSERT INTO tcarrera VALUES" . "('$codigo', '$nombre', '$director',1)";
+=======
+		$query = "INSERT INTO tcarrera(id, nombre, idDirector, activo) VALUES ('$codigo', '$nombre', '$director', '1')";
+>>>>>>> origin/master
 
 		$result = do_query($query);
 	}
 }
 
+<<<<<<< HEAD
 
 if($_SERVER['REQUEST_METHOD']=="POST"){
 	$funcion = $_POST['call'];
@@ -84,6 +85,14 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 	    call_user_func('$funcion');
 	} else {
 	    echo ' Function :'.$funcion.' No Existe!!';
+=======
+if($_SERVER['REQUEST_METHOD']=="POST") {
+	$function = $_POST['call'];
+	if(function_exists($function)) {        
+	    call_user_func($function);
+	} else {
+	    echo 'Function Not Exists!!';
+>>>>>>> origin/master
 	}
 }
 

@@ -36,7 +36,11 @@
 						<div class="form-row">
 							<label for="nombre-carrera">Nombre:</label>
 							<input id="nombre-carrera" type="text" placeholder="Ingrese el nombre" class="form-control" 
+<<<<<<< HEAD
 							onkeypress="validaSoloNumeros()" required/>
+=======
+							onkeypress="return soloLetras(event)" required/>
+>>>>>>> origin/master
 						</div>
 
 						<div class="form-row">
@@ -53,7 +57,7 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<input id="btn-guardar-carrera" class="btn btn-primary" type="button" value="Enviar!"/>
+							<button type="submit" id="btn-guardar-carrera" class="btn btn-primary">Enviar</button>
 							<!--<button id="btn-cancelar" class="btn btn-secondary" type="submit">Cancelar</button>-->
 							<a href="crearCarrera-cancelar.html" class="btn btn-default js-modal" 
 								data-modal-id="modal-cancelar">Cancelar</a>
@@ -83,7 +87,7 @@
         <script src="/cenfotec-proyecto-1/js/flatui.js"></script>
         <script src="/cenfotec-proyecto-1/js/html5uploader.js"></script>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
-        <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
         <script src="/cenfotec-proyecto-1/configuracion/inserts-config-js/insertarCarrera.js"></script>
+        <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 	</body>
 </html>

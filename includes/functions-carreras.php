@@ -56,8 +56,36 @@ function displayCarreras() {
 	return $html;
 }
 
+/*INSERTAR CARRERA, JAVIER BARBOZA*/
 
+function crearCarrera(){
+	echo 'estoy en crearCarrera';	
 
+	if(isset($_POST['pCodigo']) &&
+		isset($_POST['pNombre']) && 
+		isset($_POST['pDirector'])){
+	
+		$codigo = $_POST['pCodigo'];
+		$nombre = $_POST['pNombre'];
+		$director = $_POST['pDirector'];
 
+		$query = "INSERT INTO tcarrera VALUES" . "('$codigo', '$nombre', '$director','1')";
+
+		$result = do_query($query);
+	}
+}
+
+if($_SERVER['REQUEST_METHOD']=="POST"){
+	$funcion = $_POST['call'];
+	echo $_POST['call'];
+
+	if(function_exists('$funcion')) {        
+	    call_user_func('$funcion');
+	} else {
+	    echo 'Function :'.$funcion.' Not Exists!!';
+	}
+}
+
+/*INSERTAR CARRERA, JAVIER BARBOZA*/
 
 ?>

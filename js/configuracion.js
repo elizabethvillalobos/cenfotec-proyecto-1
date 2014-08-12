@@ -45,19 +45,16 @@ if (eFormValidar) {
 	var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
 	eFormBtnSubmit.addEventListener('click', function(event) {
 		event.preventDefault();
-		limpiarMensajesError();
-		if (validarForm(eFormValidar.id)) {
-			//validar que no hayan profesores repetidos
-			var idProfesor1 = $('#idProfesor1').text(),
-			  idProfesor2 = $('#idProfesor2').text(),
-			  idProfesor3 = $('#idProfesor3').text();	  
-			if((idProfesor1 != idProfesor2) && (idProfesor2 != idProfesor3) && (idProfesor1 != idProfesor3))
-			{
-				switch(eFormValidar.id){
-					case "crear-curso":
-						registrarCurso();
-					break;
-				}			
+        limpiarMensajesError();
+        if (validarForm(eFormValidar.id)) {
+			switch(eFormValidar.id){
+				case "crear-curso":
+					registrarCurso();
+				break;
+                
+                case "crear-usuario":
+                    crearUsuario();
+                break;
 			}
 			else
 			{
@@ -388,3 +385,40 @@ function obtenerProfesores() {
 	});
 	return resultados;
 };
+
+//crear usuario
+function crearUsuario() {
+	var nombre = $('#usuario-nombre').val(),
+	  apellido1 = $('#usuario-apellido1').val(),
+	  apellido2 = $('#usuario-apellido2').val(),
+        idUsr = $('#usuario-email').val(),
+        contrasena = $('#usuario-email').val(),
+        telefono = $('#usuario-telefono').val(),
+        skype = $('#usuario-skype').val(),
+        rol = $('#usuario-rol').val(),
+        carrera = $('#usuario-carrera').val(),
+        curso = $('#usuario-curso').val();
+
+	var request = $.ajax({
+		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
+		type: "post",
+		data: {
+                'call' : 'insertarUsuario',
+			   'pnombre': nombre,
+			   'papellido1' : apellido1,
+			   'papellido2' : apellido2,
+                'pidUsr' : idUsr,
+                'pcontrasena': contrasena,
+                'ptelefono': telefono,
+                'pskype': skype,
+                'prol': rol,
+                'pcarrera': carrera,
+                'pcurso': curso
+			  },
+		dataType: 'json',
+		success: function(response){    
+			
+		}
+	});
+};
+

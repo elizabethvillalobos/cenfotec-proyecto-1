@@ -1,3 +1,4 @@
+﻿
 <?php
 
 // Usuarios
@@ -42,6 +43,7 @@ function mostrarUsuarios() {
 	}
 }
 
+<<<<<<< HEAD
 // Función que consulta las los profesores
 	function getProfesores() {
 		$query = "SELECT id FROM trol WHERE nombre = 'Profesor';";
@@ -78,4 +80,37 @@ function mostrarUsuarios() {
 		return $jsonArray;
 	}
 
+=======
+function insertarUsuario(){
+	if(isset($_POST['pnombre']) &&
+		isset($_POST['papellido1']) && 
+		isset($_POST['papellido2'])  && 
+		isset($_POST['pidUsr'])&& 
+        isset($_POST['pcontrasena'])&& 
+		isset($_POST['ptelefono']) && 
+		isset($_POST['pskype']) && 
+		isset($_POST['prol']) && 
+		isset($_POST['pcarrera']) && 
+		isset($_POST['pcurso'])){
+	
+		$id = $_POST['pidUsr'];
+		$contrasena = $_POST['pcontrasena'];
+		$activo = 1;
+        $nombre = $_POST['pnombre'];
+        $apellido1 = $_POST['papellido1'];
+        $apellido2 = $_POST['papellido2'];
+        $skype = $_POST['pskype'];
+        $rol = $_POST['prol'];
+        $carrera = $_POST['pcarrera'];
+        $curso = $_POST['pcurso'];
+
+		$query = "INSERT INTO tusuarios VALUES" . "('$id', '$contrasena', null, '$activo', '$nombre', '$apellido1', '$apellido2', null, '$skype', null, '$telefono', '$carrera')";
+
+		$result = do_query($query);
+	}
+
+}
+
+
+>>>>>>> origin/master
 ?>

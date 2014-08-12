@@ -36,11 +36,7 @@
 						<div class="form-row">
 							<label for="nombre-carrera">Nombre:</label>
 							<input id="nombre-carrera" type="text" placeholder="Ingrese el nombre" class="form-control" 
-<<<<<<< HEAD
-							onkeypress="validaSoloNumeros()" required/>
-=======
-							onkeypress="return soloLetras(event)" required/>
->>>>>>> origin/master
+								   onkeypress="return soloLetras(event)" required/>
 						</div>
 
 						<div class="form-row">

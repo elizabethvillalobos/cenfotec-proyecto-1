@@ -23,10 +23,13 @@
 	
 
 
+
+
+
 	function consultarCurso() {
 		if (!empty($_GET['pidCarrera'])) {
 			$pidCarrera = $_GET['pidCarrera'];
-			$query = "SELECT cc.idcarrera,cc.idcurso, c.nombre, c.activo FROM `tcursosxcarrera` AS cc INNER JOIN`tcursos` AS c ON cc.idcurso = c.id  WHERE idcarrera='$pidCarrera'";
+			$query = "SELECT tu.nombre AS nombreUsuario,tu.apellido1, tu.apellido2, cc.idcarrera,cc.idcurso, c.nombre, c.activo FROM `tcursosxcarrera` AS cc INNER JOIN`tcursos` AS c ON cc.idcurso = c.id INNER JOIN `tusuariosxcurso` AS uc ON cc.idcurso = uc.idcurso INNER JOIN `tusuarios` AS tu ON uc.idUsuario = tu.id WHERE idcarrera='$pidCarrera'";
 			$result = do_query($query);
 			
 			$jsonArray = [];
@@ -36,6 +39,9 @@
 				$results['idcurso'] = $row['idcurso'];
 				$results['nombre'] = $row['nombre'];
 				$results['activo'] = $row['activo'];
+				$results['nombreUsuario'] = $row['nombreUsuario'];
+				$results['apellido1'] = $row['apellido1'];
+				$results['apellido2'] = $row['apellido2'];
 				$jsonArray['cursos'][$index] = $results;
 				$index++;
 			}

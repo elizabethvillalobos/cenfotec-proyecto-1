@@ -1,15 +1,12 @@
 <?php
 
-require_once('../includes/functions.php');
-require_once(ROOT.'/includes/functions-usuarios.php');
-
-
+include_once('functions.php');
 
 header('Content-Type:application/json');
 
 // Usuarios
-function getUsuarios() {
-	$query = 'SELECT * FROM gic_usuarios';
+function getCursos() {
+	$query = 'SELECT * FROM tcursos';
 
 	return do_query($query);
 }

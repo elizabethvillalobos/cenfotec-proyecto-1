@@ -84,6 +84,7 @@ function insertarUsuario(){
 	if(isset($_POST['pnombre']) &&
 		isset($_POST['papellido1']) && 
 		isset($_POST['papellido2'])  && 
+        isset($_POST['pavatar'])  &&
 		isset($_POST['pidUsr'])&& 
         isset($_POST['pcontrasena'])&& 
 		isset($_POST['ptelefono']) && 
@@ -95,20 +96,63 @@ function insertarUsuario(){
 		$id = $_POST['pidUsr'];
 		$contrasena = $_POST['pcontrasena'];
 		$activo = '1';
-        $nombre = $_POST['pnombre'];
-        $apellido1 = $_POST['papellido1'];
-        $apellido2 = $_POST['papellido2'];
+        $nombre = utf8_decode($_POST['pnombre']);
+        $apellido1 = utf8_decode($_POST['papellido1']);
+        $apellido2 = utf8_decode($_POST['papellido2']);
+        $avatar = $_POST['pavatar'];
         $skype = $_POST['pskype'];
         $rol = $_POST['prol'];
         $telefono = $_POST['ptelefono'];
         $carrera = $_POST['pcarrera'];
         $curso = $_POST['pcurso'];
 
-		$query = "INSERT INTO tusuarios (id, contrasena, ranking, activo, nombre, apellido1, apellido2, imagen, skypeid, rol, telefono, carrera) VALUES ('$id', '$contrasena', null, '$activo', '$nombre', '$apellido1', '$apellido2', null, '$skype', null, '$telefono', '$carrera')";
+		$query = "INSERT INTO tusuarios (id, contrasena, ranking, activo, nombre, apellido1, apellido2, imagen, skypeid, rol, telefono, carrera) VALUES ('$id', '$contrasena', null, '$activo', '$nombre', '$apellido1', '$apellido2', '$avatar', '$skype', '$rol', '$telefono', '$carrera')";
 
 		$result = do_query($query);
 	}
 
+}
+
+function getRoles() {
+	$query = "SELECT * FROM trol";
+
+	return do_query($query);
+}
+
+function mostrarRoles() {
+    $roles = getRoles();
+
+	while ($row = mysqli_fetch_assoc($roles)) {
+		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
+	}
+}
+
+function getCarreras() {
+	$query = "SELECT * FROM tcarrera";
+
+	return do_query($query);
+}
+
+function mostrarCarreras2() {
+    $carreras = getCarreras();
+
+	while ($row = mysqli_fetch_assoc($carreras)) {
+		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
+	}
+}
+
+function getCursos() {
+	$query = "SELECT * FROM tcursos WHERE activo=1";
+
+	return do_query($query);
+}
+
+function mostrarCursos2() {
+    $cursos = getCursos();
+
+	while ($row = mysqli_fetch_assoc($cursos)) {
+		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
+	}
 }
 
 
@@ -120,4 +164,5 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
 	    echo 'Function Not Exists!!';
 	}
 }
+
 ?>

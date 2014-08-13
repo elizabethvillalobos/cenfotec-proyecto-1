@@ -80,7 +80,7 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
 	}
 }
 
-// obtener directores academicos y mostrarlos 
+// obtener directores academicos  
 function obtenerDirectores(){
 	$query = "SELECT * FROM tusuarios WHERE rol=3 AND activo=1";
 
@@ -88,6 +88,8 @@ function obtenerDirectores(){
 
 return $result;
 }
+
+
 function mostrarDirectores(){
 
 	$directores = obtenerDirectores();

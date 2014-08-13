@@ -41,6 +41,26 @@ function soloGuion(e){
     }
 }
 
+
+function validarDropdown(pIndice){
+
+	var selected = false;
+
+
+	if( pIndice > 0) {
+
+		selected=true;
+
+	}else {
+		var eEl = document.getElementById("director-academico");
+		mostrarMensajeError(eEl,"Debe seleccionar un director académico");
+	}
+
+	return selected;
+}
+                    
+
+
 // Inicializar la validacion de formularios.
 var eFormValidar = document.querySelector('form[data-validate="true"]');
 if (eFormValidar) {
@@ -50,12 +70,22 @@ if (eFormValidar) {
 		event.preventDefault();
         limpiarMensajesError();
         if (validarForm(eFormValidar.id)) {
+        	
 			switch(eFormValidar.id){
 				case "crear-curso":
 					registrarCurso();
 				break;
-                case "crear-carrera":
-					registrarCarrera();
+
+                case "crear-carrera":                 
+                   var indice = document.getElementById("director-academico").selectedIndex;
+                          
+                   var seleccionado = validarDropdown(indice);                                     
+
+                   if(seleccionado){
+                   	registrarCarrera();
+                   }                 	
+                   
+
 				break;
                 case "crear-usuario":
                     alert('Formulario validado');

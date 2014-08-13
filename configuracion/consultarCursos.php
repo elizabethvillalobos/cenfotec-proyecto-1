@@ -1,6 +1,7 @@
 <?php
     require_once('../includes/functions.php');
 
+
     $currentModule = 'configuracion';
     $currentSubModule = 'cursos';
 ?>
@@ -22,15 +23,10 @@
 
 			<main>
 				<div id="carreras-hd">
-					<h2 >Desarrollo de Software - Cursos </h2>
+					<div> <h2> Lista de cursos</h2></div>
 					<a href="registrarCurso.html" class="btn btn-default flaticon-add73">Crear curso</a
 				</div> 
-				<div id="buscarCarreras">
-					<input id="q" type="text" value="" placeholder="Buscar cursos" />
-					<button id="btnBuscarCarreras" class="flaticon-magnifier12" type="submit"></button>
-				</div>
-				
-
+		
 				<div id="basic-accordion" class="accordion">
 					<div id="cursos-container">  </div>
 					<script id="template-curso" type="text/x-handlebars-template">
@@ -39,7 +35,7 @@
 						<div class="accordion-group">
 						<div class="accordion-heading">
 							<a class="accordion-toggle collapsed" href="#collapseTwo" data-parent="#basic-accordion"
-							data-toggle="collapse">{{nombre}}</a>
+							data-toggle="collapse">{{nombre}} </a>
 						</div>
 						<div id="collapseTwo" class="accordion-body collapse">
 							<div class="accordion-inner">
@@ -53,11 +49,11 @@
 											</div>
 											<div class="form-row">
 												<label for="textoProfe1Curso">Profesor(es)</label>
-												<input id="textoProfe1Curso" type="text" placeholder="Pablo Monestel" 
+												<input id="textoProfe1Curso" type="text" placeholder="{{nombreUsuario}} {{apellido1}} {{apellido2}}"
 												class="form-control1" readonly="readonly"/>
 											</div>
 											<div class="form-row">
-												<input id="textoProfe2Curso" type="text" placeholder="Alvaro Cordero" 
+												<input id="textoProfe2Curso" type="text" placeholder="" 
 												class="form-control1" readonly="readonly"/>
 												
 											</div>

@@ -84,6 +84,7 @@ function insertarUsuario(){
 	if(isset($_POST['pnombre']) &&
 		isset($_POST['papellido1']) && 
 		isset($_POST['papellido2'])  && 
+        isset($_POST['pavatar'])  &&
 		isset($_POST['pidUsr'])&& 
         isset($_POST['pcontrasena'])&& 
 		isset($_POST['ptelefono']) && 
@@ -95,23 +96,23 @@ function insertarUsuario(){
 		$id = $_POST['pidUsr'];
 		$contrasena = $_POST['pcontrasena'];
 		$activo = '1';
-        $nombre = $_POST['pnombre'];
-        $apellido1 = $_POST['papellido1'];
-        $apellido2 = $_POST['papellido2'];
+        $nombre = utf8_decode($_POST['pnombre']);
+        $apellido1 = utf8_decode($_POST['papellido1']);
+        $apellido2 = utf8_decode($_POST['papellido2']);
+        $avatar = $_POST['pavatar'];
         $skype = $_POST['pskype'];
         $rol = $_POST['prol'];
         $telefono = $_POST['ptelefono'];
         $carrera = $_POST['pcarrera'];
         $curso = $_POST['pcurso'];
 
-		$query = "INSERT INTO tusuarios (id, contrasena, ranking, activo, nombre, apellido1, apellido2, imagen, skypeid, rol, telefono, carrera) VALUES ('$id', '$contrasena', null, '$activo', '$nombre', '$apellido1', '$apellido2', null, '$skype', null, '$telefono', '$carrera')";
+		$query = "INSERT INTO tusuarios (id, contrasena, ranking, activo, nombre, apellido1, apellido2, imagen, skypeid, rol, telefono, carrera) VALUES ('$id', '$contrasena', null, '$activo', '$nombre', '$apellido1', '$apellido2', '$avatar', '$skype', null, '$telefono', '$carrera')";
 
 		$result = do_query($query);
 	}
 
 }
 
-<<<<<<< HEAD
 if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];
 	if(function_exists($function)) {        
@@ -122,7 +123,4 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
 }
 
 
-
-=======
->>>>>>> origin/master
 ?>

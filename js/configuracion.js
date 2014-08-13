@@ -423,6 +423,7 @@ function crearUsuario() {
 	var nombre = $('#usuario-nombre').val(),
 	  apellido1 = $('#usuario-apellido1').val(),
 	  apellido2 = $('#usuario-apellido2').val(),
+        avatar = $('#droppedimage img').attr('src'),
         idUsr = $('#usuario-email').val(),
         contrasena = $('#usuario-contrasena').val(),
         telefono = $('#usuario-telefono').val(),
@@ -430,7 +431,6 @@ function crearUsuario() {
         rol = $('#usuario-rol').val(),
         carrera = $('#usuario-carrera').val(),
         curso = $('#usuario-curso').val();
-console.log('creando usuario');
 	var request = $.ajax({
 		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
 		type: "post",
@@ -439,6 +439,7 @@ console.log('creando usuario');
 			   'pnombre': nombre,
 			   'papellido1' : apellido1,
 			   'papellido2' : apellido2,
+                'pavatar' : avatar,
                 'pidUsr' : idUsr,
                 'pcontrasena': contrasena,
                 'ptelefono': telefono,

@@ -50,7 +50,7 @@
 							<!-- Drop media element -->
                 			<div class="media-drop">
 			                    <div id="droppedimage">
-			                    	<img src="">
+			                    	<img id="avatar" src="">
 			                    </div>
 			                    <div id="dropbox" class="media-drop-placeholder" style="width: 200px; height: 200px">
 			                        <span class="media-drop-placeholder-title">Arrastrar imagen aquí</span>
@@ -92,13 +92,13 @@
 							<label for="usuario-rol">Rol:</label>
 							<select id="usuario-rol">
 								<option value="">Seleccione una opción</option>
-								<option value="">Estudiante</option>
-								<option value="">Asistente de curso</option>
-								<option value="">Profesor</option>
-								<option value="">Dirección académica</option>
-								<option value="">Rector</option>
-								<option value="">Mercadeo</option>
-								<option value="">Administrador</option>
+								<option value="5">Estudiante</option>
+								<option value="6">Asistente de curso</option>
+								<option value="4">Profesor</option>
+								<option value="3">Dirección académica</option>
+								<option value="2">Rector</option>
+								<option value="7">Mercadeo</option>
+								<option value="1">Administrador</option>
 							</select>
 						</div>
 
@@ -142,11 +142,11 @@
 		<!-- Load JS -->
         <script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
         <script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="/cenfotec-proyecto-1/js/vendors/jquery.html5uploader-1.1.js"></script>
         <script src="/cenfotec-proyecto-1/js/vendors/bootstrap.min.js"></script>
         <script src="/cenfotec-proyecto-1/js/vendors/bootstrap-select.js"></script>
-        <script src="/cenfotec-proyecto-1/js/vendors/flatui-checkbox.js"></script>
-        <script src="/cenfotec-proyecto-1/js/vendors/flatui-radio.js"></script>
-        <script src="/cenfotec-proyecto-1/js/gic.js"></script>
+        <script src="/cenfotec-proyecto-1/js/flatui.js"></script>
+        <script src="/cenfotec-proyecto-1/js/html5uploader.js"></script>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
         <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 	</body>

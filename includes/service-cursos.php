@@ -21,38 +21,65 @@
 		deliver_response(400, 'Bad request', NULL);
 	}
 	
-
-
-
-
-
 	function consultarCurso() {
 		if (!empty($_GET['pidCarrera'])) {
 			$pidCarrera = $_GET['pidCarrera'];
-			$query = "SELECT tu.nombre AS nombreUsuario,tu.apellido1, tu.apellido2, cc.idcarrera,cc.idcurso, c.nombre, c.activo FROM `tcursosxcarrera` AS cc INNER JOIN`tcursos` AS c ON cc.idcurso = c.id INNER JOIN `tusuariosxcurso` AS uc ON cc.idcurso = uc.idcurso INNER JOIN `tusuarios` AS tu ON uc.idUsuario = tu.id WHERE idcarrera='$pidCarrera'";
+			//$query = "SELECT tu.nombre AS nombreUsuario,tu.apellido1, tu.apellido2, cc.idcarrera,cc.idcurso, c.nombre, c.activo FROM `tcursosxcarrera` AS cc INNER JOIN`tcursos` AS c ON cc.idcurso = c.id INNER JOIN `tusuariosxcurso` AS uc ON cc.idcurso = uc.idcurso INNER JOIN `tusuarios` AS tu ON uc.idUsuario = tu.id WHERE idcarrera='$pidCarrera'";
+
+			// $query = "SELECT tcursos.id as cursoId, tcursos.nombre as cursoNombre, tcursos.activo as cursoActivo, ".
+			// 		 "tusuarios.nombre as usuarioNombre, tusuarios.apellido1 as usuarioApellido1, tusuarios.apellido2 as usuarioApellido2 ".
+			// 		 "FROM tcursos ".
+			// 		 "INNER JOIN tusuariosxcurso on tcursos.id = tusuariosxcurso.idCurso ".
+			// 		 "INNER JOIN tusuarios on tusuarios.id = tusuariosxcurso.idUsuario ".
+			// 		 "INNER JOIN tcursosxcarrera on tcursosxcarrera.idCurso = tusuariosxcurso.idCurso ".
+			// 		 "INNER JOIN tcarrera on tcarrera.id = tcursosxcarrera.idCarrera ".
+			// 		 "WHERE (tcarrera.id = 'BISOFT') AND (tusuarios.rol = '4' OR tusuarios.rol = '3')";
+
+			$query = 'SELECT tcursos.id as cursoId, tcursos.nombre as cursoNombre, tcursos.activo as cursoActivo, '.
+					 'tusuarios.nombre as usuarioNombre, tusuarios.apellido1 as usuarioApellido1, tusuarios.apellido2 as usuarioApellido2 '.
+					 'FROM tcursos, tusuariosxcurso, tusuarios, tcursosxcarrera, tcarrera '.
+					 'WHERE tcursos.id = tusuariosxcurso.idCurso '.
+					 'AND tusuarios.id = tusuariosxcurso.idUsuario '.
+					 'AND tcursosxcarrera.idCurso = tusuariosxcurso.idCurso '.
+					 'AND tcarrera.id = tcursosxcarrera.idCarrera '.
+					 'AND tcarrera.id = "BISOFT" AND (tusuarios.rol = 4 OR tusuarios.rol = 3)';
+
+			// $query = 'SELECT * from tcursos';
 			$result = do_query($query);
 			
 			$jsonArray = [];
 			$index = 0;
+			$indexProf = 0;
+			$currentCourse = '';
 
 			while ($row = mysqli_fetch_assoc($result)) {
-				$results['idcurso'] = $row['idcurso'];
-				$results['nombre'] = $row['nombre'];
-				$results['activo'] = $row['activo'];
-				$results['nombreUsuario'] = $row['nombreUsuario'];
-				$results['apellido1'] = $row['apellido1'];
-				$results['apellido2'] = $row['apellido2'];
+				if ($row['cursoId'] != $currentCourse) {
+					// Resetear el array de profes para evitar que se muestren indices
+					// de la fila anterior.
+					$profesores = [];
+					
+					$results['idcurso'] = $row['cursoId'];
+					$results['nombre'] = utf8_encode($row['cursoNombre']);
+					$results['activo'] = $row['cursoActivo'];
+
+					$indexProf = 0;
+					$profesores[$indexProf]['profesorNombre'] = utf8_encode($row['usuarioNombre']).' '.utf8_encode($row['usuarioApellido1']).' '.utf8_encode($row['usuarioApellido2']);
+
+					$index++;
+				} else {
+					$indexProf++;
+					$profesores[$indexProf]['profesorNombre'] = utf8_encode($row['usuarioNombre']).' '.utf8_encode($row['usuarioApellido1']).' '.utf8_encode($row['usuarioApellido2']);
+				}
+				// Asignar el array de cursos
+				$results['profesores'] = $profesores;
+				$currentCourse = $row['cursoId'];
+
 				$jsonArray['cursos'][$index] = $results;
-				$index++;
 			}
 
 			deliver_response(200, 'ok', json_encode($jsonArray)); 
 		}
 	}
-
-
-
-
 
 	function registrarCurso()
 	{

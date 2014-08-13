@@ -79,6 +79,11 @@
 						</div>
 
 						<div class="form-row">
+							<label for="usuario-contrasena-repetir">Confirmar contraseña:</label>
+							<input id="usuario-contrasena-repetir" type="text" placeholder="Confirme la contraseña" value="" class="form-control" required/>
+						</div>
+
+						<div class="form-row">
 							<label for="usuario-telefono">Teléfono:</label>
 							<input id="usuario-telefono" type="text" placeholder="Ingrese el número telefónico" class="form-control" value="" data-validate-type="phone"/>
 						</div>

@@ -107,7 +107,7 @@ function insertarUsuario(){
         $carrera = $_POST['pcarrera'];
         $curso = $_POST['pcurso'];
 
-		$query = "INSERT INTO tusuarios (id, contrasena, ranking, activo, nombre, apellido1, apellido2, imagen, skypeid, rol, telefono, carrera) VALUES ('$id', '$contrasena', null, '$activo', '$nombre', '$apellido1', '$apellido2', '$avatar', '$skype', '$rol', '$telefono', '$carrera')";
+		$query = "INSERT INTO tusuarios(id, contrasena, ranking, activo, nombre, apellido1, apellido2, imagen, skypeid, rol, telefono, carrera) VALUES ('$id', '$contrasena', '0', '$activo', '$nombre', '$apellido1', '$apellido2', '$avatar', '$skype', '$rol', '$telefono', '$carrera')";
 
 		$result = do_query($query);
 	}
@@ -124,7 +124,7 @@ function mostrarRoles() {
     $roles = getRoles();
 
 	while ($row = mysqli_fetch_assoc($roles)) {
-		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
+		echo '<option value='.$row['id'].' > '.utf8_encode($row['nombre']).'</option>';
 	}
 }
 
@@ -138,7 +138,7 @@ function mostrarCarreras2() {
     $carreras = getCarreras();
 
 	while ($row = mysqli_fetch_assoc($carreras)) {
-		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
+		echo '<option value='.$row['id'].' > '.utf8_encode($row['nombre']).'</option>';
 	}
 }
 

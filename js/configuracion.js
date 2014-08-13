@@ -75,35 +75,29 @@ if (eFormValidar) {
 				break;
 
                 case "crear-carrera":                 
-                   var indice = document.getElementById("director-academico").selectedIndex;
-                          
-                   var seleccionado = validarDropdown(indice);                                     
-
-                   if(seleccionado){
-                   	registrarCarrera();
-                   }                 	
+                  	var indice = document.getElementById("director-academico").selectedIndex,
+                   	   seleccionado = validarDropdown(indice);
+                   	if (seleccionado){
+                   		registrarCarrera();
+                   	}                 	
                    
-
 				break;
                 case "crear-usuario":
                     var indice1 = document.getElementById("usuario-rol").selectedIndex,
                         indice2 = document.getElementById("usuario-carrera").selectedIndex;
                           
-                   var seleccionado = validarDropdown(indice1);                                     
-                   if(seleccionado){
+                	var seleccionado = validarDropdown(indice1);                                     
+                	if (seleccionado){
                        seleccionado = validarDropdown(indice2);
-                       if(seleccionado){
-                           alert('Formulario validado');
+                       if (seleccionado){
                             crearUsuario();
                        }
                    }                 	
-                    
-                    
                 break;
 			}
 		}
 		else {
-			if (idProfesor1 && idProfesor2 && idProfesor3) {
+			if (typeof(idProfesor1) != 'undefined' && typeof(idProfesor2) != 'undefined' && typeof(idProfesor3) != 'undefined') {
 				if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3)) {
 					mostrarMensajeError(document.querySelector('#txtInvitado1'),"No pueden haber profesores repetidos.");
 				}
@@ -324,11 +318,11 @@ function consultarCursos(){
 		type: "get",
 		data: {
 			   'query': 'consultarCurso',
-			   'pidCarrera': idCarrera
-			   
+			   'pidCarrera': idCarrera			   
 			  },
 		dataType: 'json',
-		success: function(response){    
+		success: function(response){ 
+		console.log($.parseJSON(response.data));   
 			imprimirCursos($.parseJSON(response.data));
 		},
 		error: function(response) {
@@ -448,8 +442,8 @@ function obtenerProfesores() {
 //crear usuario
 function crearUsuario() {
 	var nombre = $('#usuario-nombre').val(),
-	  apellido1 = $('#usuario-apellido1').val(),
-	  apellido2 = $('#usuario-apellido2').val(),
+		apellido1 = $('#usuario-apellido1').val(),
+		apellido2 = $('#usuario-apellido2').val(),
         avatar = $('#droppedimage img').attr('src'),
         idUsr = $('#usuario-email').val(),
         contrasena = $('#usuario-contrasena').val(),

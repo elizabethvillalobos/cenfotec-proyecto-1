@@ -80,6 +80,25 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
 	}
 }
 
+// obtener directores academicos y mostrarlos 
+function obtenerDirectores(){
+	$query = "SELECT * FROM tusuarios WHERE rol=3 AND activo=1";
+
+	$result = do_query($query);
+
+return $result;
+}
+function mostrarDirectores(){
+
+	$directores = obtenerDirectores();
+
+	while($row = mysqli_fetch_assoc($directores)){
+	echo '<option value='.$row['id'].' > '.$row['nombre'].$row['apellido1'].'</option>';
+		 
+	}
+
+}
+
 /*INSERTAR CARRERA, JAVIER BARBOZA*/
 
 ?>

@@ -4,7 +4,8 @@ require_once('../includes/functions.php');
 
 // Usuarios
 function getUsuarios() {
-	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `trol`.`nombre` AS 'Rol' FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id`";
+	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `trol`.`nombre` AS 'Rol' ".
+			 "FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id` ORDER BY tusuarios.apellido1, tusuarios.apellido2, tusuarios.nombre";
 
 	return do_query($query);
 }
@@ -23,7 +24,7 @@ function mostrarUsuarios() {
 	while ($row = mysqli_fetch_assoc($usuarios)) {
 		echo '<tr>';
         echo '<td>';
-        echo '<a href="#">' . utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
+        echo '<a href="#">'.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']).' '.utf8_encode($row['nombre']);
         echo '</a>';
         echo '<span class="usuarios-email">'.utf8_encode($row['id']);
         echo '</span>';

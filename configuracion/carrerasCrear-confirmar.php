@@ -25,7 +25,7 @@
 						<h2 class="flaticon-male12">Carrera creada</h2>
 					</div>
 					<div class="mod-bd">
-						<p>La carrera Ciberseguridad se ha creado con éxito.</p>
+						<p>La carrera se creó con éxito.</p>
 
 						<a href="/cenfotec-proyecto-1/configuracion/carrerasConsultar.php" class="btn btn-default">Volver</a>
 					</div>
@@ -36,6 +36,7 @@
 		</div>
 
 		<!-- Load JS -->
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
 		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 	</body>
 </html>

@@ -13,7 +13,6 @@ window.onload = function () {
 }	
 	
 /* validar crear curso */
-
 if (ebtnCrearCurso) {
 	ebtnCrearCurso.addEventListener('click',function (evento) {
 		evento.preventDefault();
@@ -105,20 +104,17 @@ if (eFormValidar) {
 		}
 		else {
 			if (idProfesor1 && idProfesor2 && idProfesor3) {
-				if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3))
-				{
+				if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3)) {
 					mostrarMensajeError(document.querySelector('#txtInvitado1'),"No pueden haber profesores repetidos.");
 				}
-				if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3))
-				{
+				if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3)) {
 					mostrarMensajeError(document.querySelector('#txtInvitado2'),"No pueden haber profesores repetidos.");
 				}
-				if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3))
-				{
+				if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3)) {
 					mostrarMensajeError(document.querySelector('#txtInvitado3'),"No pueden haber profesores repetidos.");
 				}
 			}
-		}		
+		}
 	});
 }
 
@@ -175,7 +171,6 @@ if(ebtnEnviar) {
 			};			
 		}       
 	});
-	
 }
 
 /*validar correo en notificaciones*/    
@@ -238,7 +233,7 @@ function toggleForms() {
 	frmLista.className = "frontContent";
 	var title=document.querySelector('#lblLegent');
 	var ul = document.getElementById("listElements");
-	while( ul.firstChild ){
+	while( ul.firstChild ) {
 		ul.removeChild( ul.firstChild );
 	}
 	
@@ -321,6 +316,7 @@ function soloLetrasYnumeros(e){
         return true;
     }
 }
+
 function consultarCursos(){
 	var idCarrera = location.search.split("=")[1];
 	var request = $.ajax({
@@ -338,22 +334,15 @@ function consultarCursos(){
 		error: function(response) {
 			console.log(response);
 		}
-
 	});	
-
-} 
-
-
-function imprimirCursos(aCursos){
-
-	var source = $("#template-curso").html(),
-	template = Handlebars.compile(source);
-  	$("#cursos-container").html(template(aCursos));
-
-
 }
 
 
+function imprimirCursos(aCursos){
+	var source = $("#template-curso").html(),
+	template = Handlebars.compile(source);
+  	$("#cursos-container").html(template(aCursos));
+}
 
 //agregar nuevo curso
 function registrarCurso() {
@@ -492,5 +481,4 @@ function crearUsuario() {
 			
 		}
 	});
-};
 }

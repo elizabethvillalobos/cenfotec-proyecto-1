@@ -51,5 +51,7 @@
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
         <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 
+        <!--<script src="/cenfotec-proyecto-1/js/pruebaConfiguracion.js"></script>-->
+
 	</body>
 </html>

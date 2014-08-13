@@ -41,6 +41,26 @@ function soloGuion(e){
     }
 }
 
+
+function validarDropdown(pIndice){
+
+	var selected = false;
+
+
+	if( pIndice > 0) {
+
+		selected=true;
+
+	}else {
+		var eEl = document.getElementById("director-academico");
+		mostrarMensajeError(eEl,"Debe seleccionar un director académico");
+	}
+
+	return selected;
+}
+                    
+
+
 // Inicializar la validacion de formularios.
 var eFormValidar = document.querySelector('form[data-validate="true"]');
 if (eFormValidar) {
@@ -50,16 +70,37 @@ if (eFormValidar) {
 		event.preventDefault();
         limpiarMensajesError();
         if (validarForm(eFormValidar.id)) {
+        	
 			switch(eFormValidar.id){
 				case "crear-curso":
 					registrarCurso();
 				break;
-                case "crear-carrera":
-					registrarCarrera();
+
+                case "crear-carrera":                 
+                   var indice = document.getElementById("director-academico").selectedIndex;
+                          
+                   var seleccionado = validarDropdown(indice);                                     
+
+                   if(seleccionado){
+                   	registrarCarrera();
+                   }                 	
+                   
+
 				break;
                 case "crear-usuario":
-                    alert('Formulario validado');
-                    crearUsuario();
+                    var indice1 = document.getElementById("usuario-rol").selectedIndex,
+                        indice2 = document.getElementById("usuario-carrera").selectedIndex;
+                          
+                   var seleccionado = validarDropdown(indice1);                                     
+                   if(seleccionado){
+                       seleccionado = validarDropdown(indice2);
+                       if(seleccionado){
+                           alert('Formulario validado');
+                            crearUsuario();
+                       }
+                   }                 	
+                    
+                    
                 break;
 			}
 		}
@@ -423,6 +464,7 @@ function crearUsuario() {
 	var nombre = $('#usuario-nombre').val(),
 	  apellido1 = $('#usuario-apellido1').val(),
 	  apellido2 = $('#usuario-apellido2').val(),
+        avatar = $('#droppedimage img').attr('src'),
         idUsr = $('#usuario-email').val(),
         contrasena = $('#usuario-contrasena').val(),
         telefono = $('#usuario-telefono').val(),
@@ -430,7 +472,7 @@ function crearUsuario() {
         rol = $('#usuario-rol').val(),
         carrera = $('#usuario-carrera').val(),
         curso = $('#usuario-curso').val();
-console.log('creando usuario');
+    
 	var request = $.ajax({
 		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
 		type: "post",
@@ -439,6 +481,7 @@ console.log('creando usuario');
 			   'pnombre': nombre,
 			   'papellido1' : apellido1,
 			   'papellido2' : apellido2,
+                'pavatar' : avatar,
                 'pidUsr' : idUsr,
                 'pcontrasena': contrasena,
                 'ptelefono': telefono,
@@ -453,4 +496,4 @@ console.log('creando usuario');
 		}
 	});
 };
-
+}

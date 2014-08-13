@@ -27,7 +27,7 @@
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="crear-carrera" class="mod-bd form-horizontal" action="" data-validate="true" novalidate>
+					<form id="crear-carrera" class="mod-bd form-horizontal" method="post" action="" data-validate="true" novalidate>
 						<div class="form-row">
 							<label for="codigo-carrera">Código:</label>
 							<input id="codigo-carrera" type="text" placeholder="Ingrese el código" class="form-control" 
@@ -41,14 +41,11 @@
 
 						<div class="form-row">
 							<label for="director-academico">Director académico:</label>
-							<select id="director-academico" required>
+							<select id="director-academico" name="" required>
 	                            <option value="">Seleccione una opción</option>
-	                            <option value="1">Pablo Monestel</option>
-	                            <option value="Director2">María Eugenia Ucrós</option>
-	                            <option value="Director3">Luis Chacón</option>
-	                            <option value="Director4">Nelson Brenes</option>
-	                            <option value="Director5">Andrea Espinach</option>
-	                            <option value="Director5">Luis Montero</option>
+	                            <?php
+						        mostrarDirectores();
+						        ?>	                            
                             </select>
 						</div>
 

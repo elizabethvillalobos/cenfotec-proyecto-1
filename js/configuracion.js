@@ -88,8 +88,19 @@ if (eFormValidar) {
 
 				break;
                 case "crear-usuario":
-                    alert('Formulario validado');
-                    crearUsuario();
+                    var indice1 = document.getElementById("usuario-rol").selectedIndex,
+                        indice2 = document.getElementById("usuario-carrera").selectedIndex;
+                          
+                   var seleccionado = validarDropdown(indice1);                                     
+                   if(seleccionado){
+                       seleccionado = validarDropdown(indice2);
+                       if(seleccionado){
+                           alert('Formulario validado');
+                            crearUsuario();
+                       }
+                   }                 	
+                    
+                    
                 break;
 			}
 		}
@@ -462,7 +473,6 @@ function crearUsuario() {
         carrera = $('#usuario-carrera').val(),
         curso = $('#usuario-curso').val();
     
-        alert(rol);
 	var request = $.ajax({
 		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
 		type: "post",

@@ -113,6 +113,49 @@ function insertarUsuario(){
 
 }
 
+function getRoles() {
+	$query = "SELECT * FROM trol";
+
+	return do_query($query);
+}
+
+function mostrarRoles() {
+    $roles = getRoles();
+
+	while ($row = mysqli_fetch_assoc($roles)) {
+		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
+	}
+}
+
+function getCarreras() {
+	$query = "SELECT * FROM tcarrera";
+
+	return do_query($query);
+}
+
+function mostrarCarreras2() {
+    $carreras = getCarreras();
+
+	while ($row = mysqli_fetch_assoc($carreras)) {
+		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
+	}
+}
+
+function getCursos() {
+	$query = "SELECT * FROM tcursos WHERE activo=1";
+
+	return do_query($query);
+}
+
+function mostrarCursos2() {
+    $cursos = getCursos();
+
+	while ($row = mysqli_fetch_assoc($cursos)) {
+		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
+	}
+}
+
+
 if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];
 	if(function_exists($function)) {        

@@ -24,12 +24,12 @@ function displayCarreras() {
 									<fieldset>
 										<div class="form-row">
 											<label for="text1">Código:</label>
-											<input id="text1" type="text" placeholder="codigo de carrera" value="'.$row['id'].'" class="form-control1" 
+											<input id="text1" type="text"  placeholder="'.$row['id'].'"  class="form-control1" 
 												readonly="readonly"/>
 										</div>
 										<div class="form-row">
 											<label for="text2">Director académico:</label>
-											<input id="text2" type="text" value="'.$row['idDirector'].'" placeholder="María Eugenia Ucrós" 
+											<input id="text2" type="text" placeholder="'.$row['idDirector'].'" 
 												class="form-control1" readonly="readonly"/>
 										</div>
 										<div class="form-row">

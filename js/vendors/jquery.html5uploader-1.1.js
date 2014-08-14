@@ -116,7 +116,7 @@
                 var blob = convertCanvasToBlob(canvas);
 
                 // Upload to server.
-                // realUploadImage(blob);
+                realUploadImage(blob);
             };
 
             var success = false;
@@ -542,3 +542,4 @@
     };
 
 })(jQuery);
+

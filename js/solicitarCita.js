@@ -5,18 +5,10 @@
 // ------------------------------------------
 // Variables globales
 // ------------------------------------------
-var btnSelectCurso=document.querySelector('#btnSelectCurso');
-var btnSelectInvitado=document.querySelector('#btnSelectInvitado');
 var btnEnviar=document.querySelector('#btnEnviar');
-var btnClickeado;
-var btnVolver =document.querySelector('#btnVolver');
 var btnCrearSolicitud=document.querySelector('#crearSolicitud');
-var totalSelected=0;
 
-// ------------------------------------------
-// Eventos
-// ------------------------------------------
-
+//cargar date picker
 var eDatePickers = $('.datepicker');
 if (eDatePickers.length) {
 	eDatePickers.datepicker({
@@ -31,27 +23,98 @@ if (eDatePickers.length) {
 	});
 }
 
-if(btnSelectCurso!=null){
-	btnSelectCurso.addEventListener('click',function(){
-		btnClickeado=btnSelectCurso;
-		toggleForms();
-	});
+//busqueda de cursos
+function buscarCurso(evento){
+    var resCursos = document.querySelector('#resCursos'),
+    input = document.querySelector('#txtCurso');
+	autocompletar(resCursos, input, obtenerCursos()[0], obtenerCursos()[1]);
 }
-if(btnSelectInvitado!=null){
-	btnSelectInvitado.addEventListener('click',function(){
-		btnClickeado=btnSelectInvitado;
-		toggleForms();
-	});
+
+var rCursos=document.querySelector('#resCursos');
+rCursos.addEventListener('click', function(e) {
+	var input = document.querySelector('#txtCurso');
+	reemplazarTextoInput(rCursos,input,e.target, "idCurso");		
+});
+
+//busqueda de invitados
+function buscarInvitado(evento){
+    var resInvitados = document.querySelector('#resInvitados'),
+    input = document.querySelector('#txtInvitado');
+	autocompletar(resInvitados, input, obtenerInvitados()[0], obtenerInvitados()[1]);
 }
-if(btnVolver!=null){
-	btnVolver.addEventListener('click',function(){
-		getActiveItems();
-		var frmSolicitud=document.querySelector('#solicitarCita');
-		var frmLista=document.querySelector('#listForm');
-		frmSolicitud.className = "frontContent";
-		frmLista.className = "backContent";
+
+var rInvitados=document.querySelector('#resInvitados');
+rInvitados.addEventListener('click', function(e) {
+	var input = document.querySelector('#txtInvitado');
+	reemplazarTextoInput(rInvitados,input,e.target, "idInvitado");		
+});
+
+//obtener cursos
+function obtenerCursos() {	
+	var resultados=[];
+	
+	// Solicitar datos al servicio.
+	$.ajax({
+		url: '../includes/service-cursos.php',
+		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			'query': 'consultarCursosActivos'
+		},
+		dataType: 'json',
+		success: function(response){
+			var respuesta=$.parseJSON(response.data);
+			var nombres =[];
+			var ids = [];
+			for (var i=0; i<respuesta.cursos.length; i++)
+			{
+				nombres.push(respuesta.cursos[i].nombre);
+				ids.push(respuesta.cursos[i].id);
+			}
+			resultados.push(nombres);
+			resultados.push(ids);
+		},
+		error: function(response){
+			resultados=null;
+		},
+		async: false
 	});
-}
+	return resultados;
+};
+
+//obtener profesores
+function obtenerInvitados() {	
+	var resultados=[];
+	
+	// Solicitar datos al servicio.
+	$.ajax({
+		url: '../includes/service-usuarios.php',
+		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			query: 'consultarInvitados'
+		},
+		dataType: 'json',
+		success: function(response){
+			var respuesta=$.parseJSON(response.data);
+			var nombres =[];
+			var ids = [];
+			for (var i=0; i<respuesta.invitados.length; i++)
+			{
+				nombres.push(respuesta.invitados[i].nombre);
+				ids.push(respuesta.invitados[i].id);
+			}
+			resultados.push(nombres);
+			resultados.push(ids);
+		},
+		error: function(response){
+			resultados=null;
+		},
+		async: false
+	});
+	return resultados;
+};
+
+
+//enviar formulario
 if(btnEnviar!=null){
 	btnEnviar.addEventListener('click',function(event){
 		if(!inputLlenos('solicitarCita')){
@@ -67,6 +130,8 @@ if(btnEnviar!=null){
 		}
 	});
 }
+
+//crear nueva solicitud
 if(btnCrearSolicitud!=null){
 	btnCrearSolicitud.addEventListener('click',function(){
 		var url = window.location.pathname;
@@ -90,106 +155,6 @@ if(btnCrearSolicitud!=null){
 		
 	});
 }
-// ------------------------------------------
-// Funciones
-// ------------------------------------------
-//cambiar del formulario a la lista de cursos e invitados y viseversa
-function toggleForms() {
-	totalSelected=0;
-	var frmSolicitud=document.querySelector('#solicitarCita');
-	var frmLista=document.querySelector('#listForm');
-    frmSolicitud.className = "backContent";
-	frmLista.className = "frontContent";
-	var title=document.querySelector('#lblLegent');
-	var ul = document.getElementById("listElements");
-	while( ul.firstChild ){
-		ul.removeChild( ul.firstChild );
-	}
-	
-	if(btnClickeado==btnSelectCurso){		
-		title.innerHTML="Seleccionar Curso";
-		var listaCurso=["Inglés para tecnologías de información 1","Introducción a la tecnología de información","Fundamentos de programación","Proyecto de ingeniería del software 1","Inglés para tecnologías de información 2","Programación orientada a objetos","Procesos empresariales","Fundamentos de bases de datos","Estructuras discretas"]
-		for(i=0;i<listaCurso.length;i++)
-		{
-			var li = document.createElement("li");
-			li.appendChild(document.createTextNode(listaCurso[i]));
-			li.setAttribute("value","1");
-			li.setAttribute("class","listItem itemAlto");
-			ul.appendChild(li);
-		}
-	}
-	else
-	{
-		if(btnClickeado==btnSelectInvitado){
-			title.innerHTML="Seleccionar Invitado";
-			var listaInvitados=["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"]
-			for(i=0;i<listaInvitados.length;i++)
-			{
-				var li = document.createElement("li");
-				li.appendChild(document.createTextNode(listaInvitados[i]));
-				li.setAttribute("value","1");
-				li.setAttribute("class","listItem");
-				ul.appendChild(li);
-			}
-		}
-	}
-	var listItems=document.getElementsByClassName('listItem');
-	for(var i = 0; i < listItems.length; i++) {
-		var listItem = listItems[i];
-		listItem.onclick = function() {			
-			toggleItem(this,1);
-		}
-	}
-}
-
-//activar y desactivar elemento de la lista
-function toggleItem(clickedItem, maxOfItems) {
-	if ( clickedItem.classList.contains("activeItem") ) {
-		if ( clickedItem.classList.contains("itemAlto") ) {
-			clickedItem.className = "listItem itemAlto";
-		}
-		else
-		{
-			clickedItem.className = "listItem";
-		}
-		totalSelected--;
-	}
-	else
-	{
-		if(totalSelected<maxOfItems){	
-			if ( clickedItem.classList.contains("itemAlto") ) {
-				clickedItem.className = "listItem activeItem itemAlto";
-			}
-			else
-			{
-				clickedItem.className = "listItem activeItem";
-			}
-				totalSelected++;
-		}
-	}	
-}
-
-//obtener los elementos activos de la lista
-function getActiveItems() {
-	var activeItems=document.querySelectorAll('.activeItem');
-	for (i=0; i<activeItems.length; i++)
-    {
-		if(btnClickeado==btnSelectCurso){		
-			var txtCurso =document.querySelector('#txtCurso');	
-			txtCurso.value=activeItems[i].innerHTML;
-		}
-		else
-		{
-			if(btnClickeado==btnSelectInvitado){
-				var txtInvitado =document.querySelector('#txtInvitado');	
-				txtInvitado.value=activeItems[i].innerHTML;
-			}
-		}
-	}
-}
-
-
-
 //obtener el radio activo
 function getRadioChecked(radioName){
 	var radios = document.getElementsByName(radioName);
@@ -203,18 +168,7 @@ function getRadioChecked(radioName){
 }
 
 
-// ------------------------------------------
-// CONFIRMACION Y RECHAZO DE SOLICITUDES
-// ------------------------------------------
-
-// ------------------------------------------
-// Variables globales
-// ------------------------------------------
 var btnAceptar=document.querySelector('#btnAceptar');
-
-// ------------------------------------------
-// Eventos
-// ------------------------------------------
 if(btnAceptar!=null){
 	btnAceptar.addEventListener('click',function(event){
 		if(!inputLlenos('solicitarCita')){
@@ -257,37 +211,7 @@ if(btnAceptar!=null){
 }
 
 
-function buscarCursos(evento){
-    var resCursos = document.querySelector('#resCursos'),
-    input = document.querySelector('#txtCurso'),
-	datos = ["Inglés para tecnologías de información 1","Introducción a la tecnología de información","Fundamentos de programación","Proyecto de ingeniería del software 1","Inglés para tecnologías de información 2","Programación orientada a objetos","Procesos empresariales","Fundamentos de bases de datos","Estructuras discretas"];
-	autocompletar(resCursos,input, datos);
-}
 
-var rCursos=document.querySelector('#resCursos');
-rCursos.addEventListener('click', function(e) {
-	var input = document.querySelector('#txtCurso');
-	reemplazarTextoInput(rCursos,input,e.target);		
-});
-
-function buscarFuncionarios(evento){
-    var resFuncionarios = document.querySelector('#resFuncionarios'),
-    input = document.querySelector('#txtFuncionario'),
-	datos = ["Antonio Luna","Álvaro Cordero","Pablo Monestel","Eduardo Solís","Jason Durán","Oscar Morales"];
-	autocompletar(resFuncionarios,input, datos);
-}
-
-var rFuncionarios=document.querySelector('#resFuncionarios');
-rFuncionarios.addEventListener('click', function(e) {
-	var input = document.querySelector('#txtFuncionario');
-	reemplazarTextoInput(rFuncionarios,input,e.target);		
-});
-
-
-
-// ------------------------------------------
-// FUNCIONES COMPARTIDAS
-// ------------------------------------------
 
 //verificar si los inputs estan llenos
 function inputLlenos(idContainer){

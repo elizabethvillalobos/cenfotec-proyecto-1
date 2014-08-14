@@ -119,5 +119,31 @@ function timeLongString($timeToString) {
 	return date('g:i a', strtotime($timeToString));
 }
 
+
+// Consultas genericas
+function getCarreras() {
+	$query = "SELECT * FROM tcarrera";
+	return do_query($query);
+}
+
+function mostrarCarrerasOnSelect() {
+    $carreras = getCarreras();
+	while ($row = mysqli_fetch_assoc($carreras)) {
+		echo '<option value='.$row['id'].' > '.utf8_encode($row['nombre']).'</option>';
+	}
+}
+
+function getCursos() {
+	$query = "SELECT * FROM tcursos WHERE activo=1";
+	return do_query($query);
+}
+
+function mostrarCursosOnSelect() {
+    $cursos = getCursos();
+	while ($row = mysqli_fetch_assoc($cursos)) {
+		echo '<option value='.utf8_encode($row['id']).' > '.utf8_encode($row['nombre']).'</option>';
+	}
+}
+
 ?>
 

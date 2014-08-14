@@ -65,7 +65,7 @@ hr{
 }
 
 .accordion-heading{
-	padding:5px 10px;
+	padding:4px 10px;
 	background:#e74c3c;
 	border:1px solid #FFF;
 	cursor:pointer;
@@ -86,6 +86,15 @@ hr{
    font-size: 1.1em;
    display: block;
    position: relative;
+}
+
+#wrapperProfesCursos{
+
+
+  width: 320px;
+  height: 90px;
+  overflow-y: scroll;
+
 }
 
 .accordion-toggle:after{
@@ -267,17 +276,9 @@ h2 {
 }
 
 /********termina configuracion general*******/
-#resInvitados1{
-	z-index: 1;
-	position: absolute;
-	left: 180px;
-}
-#resInvitados2{
-	z-index: 1;
-	position: absolute;
-	left: 180px;
-}
-#resInvitados3{
+#txtInvitado1-results,
+#txtInvitado2-results,
+#txtInvitado3-results {
 	z-index: 1;
 	position: absolute;
 	left: 180px;

@@ -1,5 +1,6 @@
 <?php
 	require_once('../includes/functions.php');
+	require_once('../includes/functions-cursos.php');
 
 	// Retornar un json.
 	header('Content-Type:application/json');
@@ -15,38 +16,64 @@
 			case 'consultarCurso':
 				consultarCurso();
 				break;
+			case 'consultarCursosActivos':
+				consultarCursosActivos();
+				break;
 		}
 	} else {
 		// Invalid request.
 		deliver_response(400, 'Bad request', NULL);
 	}
 	
-
-
 	function consultarCurso() {
 		if (!empty($_GET['pidCarrera'])) {
 			$pidCarrera = $_GET['pidCarrera'];
-			$query = "SELECT cc.idcarrera,cc.idcurso, c.nombre, c.activo FROM `tcursosxcarrera` AS cc INNER JOIN`tcursos` AS c ON cc.idcurso = c.id  WHERE idcarrera='$pidCarrera'";
+
+			$query = 'SELECT tcursos.id as cursoId, tcursos.nombre as cursoNombre, tcursos.activo as cursoActivo, '.
+					 'tusuarios.nombre as usuarioNombre, tusuarios.apellido1 as usuarioApellido1, tusuarios.apellido2 as usuarioApellido2 '.
+					 'FROM tcursos, tusuariosxcurso, tusuarios, tcursosxcarrera, tcarrera '.
+					 'WHERE tcursos.id = tusuariosxcurso.idCurso '.
+					 'AND tusuarios.id = tusuariosxcurso.idUsuario '.
+					 'AND tcursosxcarrera.idCurso = tusuariosxcurso.idCurso '.
+					 'AND tcarrera.id = tcursosxcarrera.idCarrera '.
+					 'AND tcarrera.id = "'.$pidCarrera.'" AND (tusuarios.rol = 4 OR tusuarios.rol = 3) '.
+					 'ORDER BY tcursos.id';
+
 			$result = do_query($query);
 			
 			$jsonArray = [];
 			$index = 0;
+			$indexProf = 0;
+			$currentCourse = '';
 
 			while ($row = mysqli_fetch_assoc($result)) {
-				$results['idcurso'] = $row['idcurso'];
-				$results['nombre'] = $row['nombre'];
-				$results['activo'] = $row['activo'];
+				if ($row['cursoId'] != $currentCourse) {
+					// Resetear el array de profes para evitar que se muestren indices
+					// de la fila anterior.
+					$profesores = [];
+					
+					$results['idcurso'] = $row['cursoId'];
+					$results['nombre'] = utf8_encode($row['cursoNombre']);
+					$results['activo'] = $row['cursoActivo'];
+
+					$indexProf = 0;
+					$profesores[$indexProf]['profesorNombre'] = utf8_encode($row['usuarioNombre']).' '.utf8_encode($row['usuarioApellido1']).' '.utf8_encode($row['usuarioApellido2']);
+
+					$index++;
+				} else {
+					$indexProf++;
+					$profesores[$indexProf]['profesorNombre'] = utf8_encode($row['usuarioNombre']).' '.utf8_encode($row['usuarioApellido1']).' '.utf8_encode($row['usuarioApellido2']);
+				}
+				// Asignar el array de cursos
+				$results['profesores'] = $profesores;
+				$currentCourse = $row['cursoId'];
+
 				$jsonArray['cursos'][$index] = $results;
-				$index++;
 			}
 
 			deliver_response(200, 'ok', json_encode($jsonArray)); 
 		}
 	}
-
-
-
-
 
 	function registrarCurso()
 	{
@@ -86,6 +113,16 @@
 		} else {
 			// Invalid request.
 			deliver_response(400, 'Bad request', NULL);
+		}
+	}
+	
+	function consultarCursosActivos() {
+		$cursos = getCursosActivos();
+		if (empty($cursos)) {
+			deliver_response(200, 'No data', NULL);
+		} else {
+			// Retornar resultados de la consulta.
+			deliver_response(200, 'OK', json_encode($cursos));
 		}
 	}
 	// Esta función retorna la respuesta que se enviará

@@ -22,15 +22,12 @@
 
 			<main>
 				<div id="carreras-hd">
-					<h2 >Desarrollo de Software - Cursos </h2>
-					<a href="registrarCurso.html" class="btn btn-default flaticon-add73">Crear curso</a
-				</div> 
-				<div id="buscarCarreras">
-					<input id="q" type="text" value="" placeholder="Buscar cursos" />
-					<button id="btnBuscarCarreras" class="flaticon-magnifier12" type="submit"></button>
-				</div>
-				
+					<div> <h2> Lista de cursos</h2></div>
 
+					<a href="/cenfotec-proyecto-1/configuracion/registrarCurso.php?idCarrera=" id="crear-curso" class="btn btn-default flaticon-add73">Crear curso</a
+
+				</div> 
+				<div class="mod-bd">
 				<div id="basic-accordion" class="accordion">
 					<div id="cursos-container">  </div>
 					<script id="template-curso" type="text/x-handlebars-template">
@@ -38,10 +35,10 @@
 
 						<div class="accordion-group">
 						<div class="accordion-heading">
-							<a class="accordion-toggle collapsed" href="#collapseTwo" data-parent="#basic-accordion"
-							data-toggle="collapse">{{nombre}}</a>
+							<a class="accordion-toggle collapsed" href="#{{idcurso}}" data-parent="#basic-accordion"
+							data-toggle="collapse">{{nombre}} </a>
 						</div>
-						<div id="collapseTwo" class="accordion-body collapse">
+						<div id="{{idcurso}}" class="accordion-body collapse">
 							<div class="accordion-inner">
 								<form class="detalleCarrera" action="#" method="post">
 									<div class="colorDetalleCurso">
@@ -51,17 +48,17 @@
 												<input id="text1" type="text" placeholder="{{idcurso}}" class="form-control1" 
 												readonly="readonly"/>
 											</div>
-											<div class="form-row">
-												<label for="textoProfe1Curso">Profesor(es)</label>
-												<input id="textoProfe1Curso" type="text" placeholder="Pablo Monestel" 
-												class="form-control1" readonly="readonly"/>
-											</div>
-											<div class="form-row">
-												<input id="textoProfe2Curso" type="text" placeholder="Alvaro Cordero" 
-												class="form-control1" readonly="readonly"/>
-												
-											</div>
+											<label for="textoProfe1Curso">Profesor(es)</label>
+											<div id="wrapperProfesCursos">
+
+												{{#each profesores}}
+												<div class="form-row">
+													<input id="textoProfe1Curso" type="text" placeholder="{{ profesorNombre }}" 
+													class="form-control1" readonly="readonly"/>
+												</div>
+												{{/each}}
 											
+											</div>
 											<div class="form-row form-row-buttonAcciones2profes">
 												<input type="button" class="btn btn-secondaryAction" id="btnHabilitarCurso2" value="Habilitar" disabled>
 												<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitarCurso2" value="Deshabilitar" >
@@ -73,12 +70,14 @@
 							</div>
 						</div>
 					</div>
+				
 				{{/each}}
 				</script>
 
 			</main>
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>
+		</div>
 		</div>
 		<!-- Load JS -->
 		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>

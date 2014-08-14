@@ -8,6 +8,7 @@ $(document).ready(function () {
 
 
     var settings = $(".media-drop").html5Uploader({
+
         postUrl: 'upload.php',
         imageUrl: 'image.php',
 
@@ -50,6 +51,7 @@ $(document).ready(function () {
                 $('.media-drop-placeholder').toggleClass('busyloading', false).css('cursor', 'auto');
 
             } else {
+
                 // Todo: toon nette foutmelding.
                 window.alert("Bestand wordt niet herkend als afbeelding, probeert u het opnieuw met een ander bestand.")
             }
@@ -63,9 +65,9 @@ $(document).ready(function () {
          */
         onUploaded: function (success, responseText) {
             if (success) {
-                window.alert('Image uploaded successfully: ' + responseText);
+                // window.alert('Image uploaded successfully: ' + responseText);
             } else {
-                window.alert('Image upload failed: ' + responseText);
+                // window.alert('Image upload failed: ' + responseText);
             }
         },
 
@@ -79,16 +81,15 @@ $(document).ready(function () {
         }
     });
 
-settings.cropRatio = 100 / 100;
-    // // Target image size selection.
-    // $('input[name="targetsize"]').on('change', function () {
-    //     var val = $(this).val();
-    //     if (val == '800,600') {
-            
-    //     } else if (val == '800,800') {
-    //         settings.cropRatio = 1;
-    //     } else if (val == '600,800') {
-    //         settings.cropRatio = 600 / 800;
-    //     }
-    // });
+    // Target image size selection.
+    $('input[name="targetsize"]').on('change', function () {
+        var val = $(this).val();
+        if (val == '800,600') {
+            settings.cropRatio = 800 / 600;
+        } else if (val == '800,800') {
+            settings.cropRatio = 1;
+        } else if (val == '600,800') {
+            settings.cropRatio = 600 / 800;
+        }
+    });
 });

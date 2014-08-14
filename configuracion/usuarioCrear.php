@@ -92,13 +92,7 @@
 							<label for="usuario-rol">Rol:</label>
 							<select id="usuario-rol">
 								<option value="">Seleccione una opción</option>
-								<option value="5">Estudiante</option>
-								<option value="6">Asistente de curso</option>
-								<option value="4">Profesor</option>
-								<option value="3">Dirección académica</option>
-								<option value="2">Rector</option>
-								<option value="7">Mercadeo</option>
-								<option value="1">Administrador</option>
+								<?php mostrarRoles() ?>
 							</select>
 						</div>
 
@@ -106,11 +100,7 @@
 							<label for="usuario-carrera">Carrera:</label>
 							<select id="usuario-carrera">
 								<option value="">Seleccione una opción</option>
-								<option value="carrera-diseno-web">Desarrollo y diseño web</option>
-								<option value="carrera-desarrollo">Desarrollo de software</option>
-								<option value="">Integración de tecnologías</option>
-								<option value="">Telemática</option>
-								<option value="">Inglés</option>
+								<?php mostrarCarrerasOnSelect() ?>
 							</select>
 						</div>
 
@@ -118,13 +108,7 @@
 							<label for="usuario-curso">Cursos:</label>
 							<select id="usuario-curso">
 				                <option value="">Seleccione una opción</option>
-								<option value="">Diseño web 1</option>
-								<option value="">Diseño visual digital 1</option>
-								<option value="">Fundamentos de programación web</option>
-								<option value="">Animación web 2D</option>
-								<option value="">Proyecto de desarrollo web 1</option>
-								<option value="">Programación del lado del servidor</option>
-								<option value="">Comunicación social en la web</option>
+								<?php mostrarCursosOnSelect() ?>
 							</select>
 						</div>
 						

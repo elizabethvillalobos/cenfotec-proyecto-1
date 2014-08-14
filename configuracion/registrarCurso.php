@@ -23,7 +23,6 @@
 			<section class="perfil-editar">
 				<div class="mod-hd">
 					<h2>Crear un nuevo curso</h2>
-					<span id="idCarrera"class="hidden">1</span>
 				</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->

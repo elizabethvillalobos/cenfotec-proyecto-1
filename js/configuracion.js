@@ -343,11 +343,10 @@ function imprimirCursos(aCursos){
 function registrarCurso() {
 	var codigo = $('#codigo-curso').val(),
 	  nombre = $('#nombre-curso').val(),
-	  idCarrera = $('#idCarrera').val(),
+	  idCarrera = location.search.split("=")[1];
 	  idProfesor1 = $('#idProfesor1').text(),
 	  idProfesor2 = $('#idProfesor2').text(),
-	  idProfesor3 = $('#idProfesor3').text(),
-	  idCarrera = $('#idCarrera').text();
+	  idProfesor3 = $('#idProfesor3').text();
 	if(idProfesor1!=""){
 		var request = $.ajax({
 			url: "../includes/service-cursos.php",
@@ -356,7 +355,6 @@ function registrarCurso() {
 				   'query': 'registrarCurso',
 				   'pcodigo': codigo,
 				   'pnombre' : nombre,
-				   'pidCarrera' : idCarrera,
 				   'pidProfesor1' : idProfesor1,
 				   'pidProfesor2' : idProfesor2,
 				   'pidProfesor3' : idProfesor3,

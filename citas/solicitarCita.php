@@ -27,13 +27,13 @@
 					<form id="solicitarCita" class="frontContent" action="#" method="post">						
 						<div class="form-row">
 							<label for="txtCurso">Curso (opcional):</label>
-							<input id="txtCurso" type="text" placeholder="Seleccione un curso" class="inputExplore form-control" disabled/>
-							<button type="button" id="btnSelectCurso"class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button>
+							<input id="txtCurso" class="form-control" type="text" value="" placeholder="Seleccione un curso" onkeyup="buscarCurso(event)" required/>
+							<div id="resCursos"></div>
 						</div>													
 						<div class="form-row">
 							<label for="txtInvitado">Invitado:</label>
-							<input id="txtInvitado" type="text" placeholder="Seleccione un profesor" class="inputExplore form-control" disabled/>
-							<button type="button" id="btnSelectInvitado" class="btn btn-default evaluacion flaticon-magnifier12 btnIcon"></button>
+							<input id="txtInvitado" class="form-control" type="text" value="" placeholder="Seleccione un invitado" onkeyup="buscarInvitado(event)" required/>
+							<div id="resInvitados"></div>
 						</div>
 						<div class="form-row">
 							<label for="txtAsunto">Asunto a tratar:</label>

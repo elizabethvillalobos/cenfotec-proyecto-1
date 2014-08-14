@@ -19,6 +19,9 @@
 			case 'cancelar':
 				cancelarCita();
 				break;
+			case 'crearSolicitud':
+				crearSolicitud();
+				break;
 		}
 	} else {
 		// Invalid request.
@@ -68,6 +71,11 @@
 		}
 	}
 
+	function crearSolicitud() {
+		insertCita($_GET['idSolicitante'], $_GET['idSolicitado'], $_GET['asunto'], $_GET['modalidad'], $_GET['tipo'], $_GET['observaciones'], $_GET['idCurso']);	
+		deliver_response(200, 'OK', NULL);
+	}
+	
 	// Esta función retorna la respuesta que se enviará
 	// a la solicitud de ajax.
 	// Parámetros:

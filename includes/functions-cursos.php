@@ -11,6 +11,7 @@ function getCursos() {
 	return do_query($query);
 }
 
+<<<<<<< HEAD
 function insertarCurso() {
 	$nombre=$_GET['pnombre'];
 	$codigo=$_GET['pcodigo'];
@@ -36,6 +37,8 @@ function insertarCurso() {
 	$arr = array('status' => 1, 'statusMessage' => '$resultado');
 	echo json_encode($response);
 }
+=======
+>>>>>>> 6db316653914b9a6566f79e08ca4c86ed2e43520
 
 if($_SERVER['REQUEST_METHOD']=="GET") {
 	$function = $_GET['call'];

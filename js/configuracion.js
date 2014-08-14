@@ -56,7 +56,6 @@ function validarDropdown(pIndice){
 
 	return selected;
 }
-                    
 
 
 // Inicializar la validacion de formularios.
@@ -194,6 +193,13 @@ function buscarProfesor(evento) {
 	autocompletar($resInvitados[0], $invitado[0], obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
+// function buscarProfesor(idInput){
+// 	idInput = "#"+idInput;
+// 	var idResults = idInput.replace("txt", "res");
+//     var resInvitados = document.querySelector(idResults),
+//     input = document.querySelector(idInput);
+// 	autocompletar(resInvitados, input, obtenerProfesores()[0], obtenerProfesores()[1]);
+
 var rInvitados1=document.querySelector('#txtInvitado1-results');
 if (rInvitados1) {
 	rInvitados1.addEventListener('click', function(e) {
@@ -329,6 +335,9 @@ function consultarCursos(){
 			console.log(response);
 		}
 	});	
+
+	// Cambiar el URL del boton Crear curso.
+	$('#crear-curso').attr('href', '/cenfotec-proyecto-1/configuracion/registrarCurso.php?idCarrera=' + idCarrera);
 }
 
 
@@ -342,7 +351,7 @@ function imprimirCursos(aCursos){
 function registrarCurso() {
 	var codigo = $('#codigo-curso').val(),
 	  nombre = $('#nombre-curso').val(),
-	  idCarrera = $('#carrera-curso').val(),
+	  idCarrera = location.search.split("=")[1];
 	  idProfesor1 = $('#idProfesor1').text(),
 	  idProfesor2 = $('#idProfesor2').text(),
 	  idProfesor3 = $('#idProfesor3').text();
@@ -373,44 +382,40 @@ function registrarCurso() {
 			
 		}
 	});
-=======
-	  idProfesor3 = $('#idProfesor3').text(),
-	  idCarrera = $('#idCarrera').text();
-=======
-	  idCarrera = location.search.split("=")[1];
-	  idProfesor1 = $('#idProfesor1').text(),
-	  idProfesor2 = $('#idProfesor2').text(),
-	  idProfesor3 = $('#idProfesor3').text();
->>>>>>> 97b9acdde0258632867eb758a013af4b71d29140
-	if(idProfesor1!=""){
-		var request = $.ajax({
-			url: "../includes/service-cursos.php",
-			type: "get",
-			data: {
-				   'query': 'registrarCurso',
-				   'pcodigo': codigo,
-				   'pnombre' : nombre,
-				   'pidProfesor1' : idProfesor1,
-				   'pidProfesor2' : idProfesor2,
-				   'pidProfesor3' : idProfesor3,
-				   'pidCarrera' : idCarrera
-				  },
-			dataType: 'json',
-			success: function(response){    
-				window.location ="registarCurso-Confirmar.html";
-			},
-			error: function(response){
-				var error = document.createElement("p");
-				error.className="alert-error flaticon-remove11";
-				var msj = document.createTextNode("Este curso ya se encuentra almacenado.");
-				error.appendChild(msj);
-				var botonesDiv=document.querySelector('.form-row-button');
-				botonesDiv.appendChild(error);
+
+	//   idCarrera = location.search.split("=")[1];
+	//   idProfesor1 = $('#idProfesor1').text(),
+	//   idProfesor2 = $('#idProfesor2').text(),
+	//   idProfesor3 = $('#idProfesor3').text();
+
+	// if(idProfesor1!=""){
+	// 	var request = $.ajax({
+	// 		url: "../includes/service-cursos.php",
+	// 		type: "get",
+	// 		data: {
+	// 			   'query': 'registrarCurso',
+	// 			   'pcodigo': codigo,
+	// 			   'pnombre' : nombre,
+	// 			   'pidProfesor1' : idProfesor1,
+	// 			   'pidProfesor2' : idProfesor2,
+	// 			   'pidProfesor3' : idProfesor3,
+	// 			   'pidCarrera' : idCarrera
+	// 			  },
+	// 		dataType: 'json',
+	// 		success: function(response){    
+	// 			window.location ="registarCurso-Confirmar.html";
+	// 		},
+	// 		error: function(response){
+	// 			var error = document.createElement("p");
+	// 			error.className="alert-error flaticon-remove11";
+	// 			var msj = document.createTextNode("Este curso ya se encuentra almacenado.");
+	// 			error.appendChild(msj);
+	// 			var botonesDiv=document.querySelector('.form-row-button');
+	// 			botonesDiv.appendChild(error);
 				
-			}
-		});
-	}
->>>>>>> 6db316653914b9a6566f79e08ca4c86ed2e43520
+	// 		}
+	// 	});
+	// }
 };
 
 

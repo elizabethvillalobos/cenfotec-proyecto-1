@@ -51,6 +51,7 @@
 						<input type="hidden" id="profesor-id-2" />
 						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off"/>
 						<div id="txtInvitado2-results"></div>
+
 					</div>
 					<div class="form-row">
 						<label></label>

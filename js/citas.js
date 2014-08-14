@@ -29,6 +29,26 @@ function consultarCitas() {
 	});
 }
 
+function enviarEmail() {
+	$.ajax({
+		url: '../includes/sendMail.php',
+		type: 'post', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			to: 'villaloboselizabeth@gmail.com',
+			subject: 'GIC: ',
+			message: 'TEst'
+		},
+		dataType: 'json',
+		success: function(response) {
+			// Imprimir los datos.
+			console.log(response);
+		},
+		error: function(response) {
+			// Mostrar mensaje de error.
+			console.log(response);
+		}
+	});
+}
 
 // Esta función muestra en el panel del módulo de citas
 // las citas que recibe por parámetro.
@@ -197,5 +217,6 @@ function mostrarMsgCancelacion() {
 		consultarCitas();
 	}
 
+	enviarEmail();
 })(jQuery);
 

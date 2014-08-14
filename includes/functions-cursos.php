@@ -12,7 +12,6 @@ function getCursos() {
 }
 
 function insertarCurso() {
-echo "0";
 	$nombre=$_GET['pnombre'];
 	$codigo=$_GET['pcodigo'];
 	$query = "SELECT * FROM tcursos WHERE id='$codigo';";

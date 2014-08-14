@@ -188,22 +188,21 @@ if(ebtnEnviar) {
 // }
 
 
-function buscarProfesor1(evento){
-    var resInvitados1 = document.querySelector('#resInvitados1'),
-    input = document.querySelector('#txtInvitado1');
-	autocompletar(resInvitados1, input, obtenerProfesores()[0], obtenerProfesores()[1]);
+function buscarProfesor(evento) {
+    var $invitado = $(evento.currentTarget),
+    	$resInvitados = $invitado.parent().find('#' + $invitado.attr('id') + '-results');
+	autocompletar($resInvitados[0], $invitado[0], obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
-var rInvitados1=document.querySelector('#resInvitados1');
+var rInvitados1=document.querySelector('#txtInvitado1-results');
 if (rInvitados1) {
 	rInvitados1.addEventListener('click', function(e) {
-		console.log('test');
 		var input = document.querySelector('#txtInvitado1');
 		reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
 	});
 }
 
-var rInvitados2=document.querySelector('#resInvitados2');
+var rInvitados2=document.querySelector('#txtInvitado2-results');
 if (rInvitados2) {
 	rInvitados2.addEventListener('click', function(e) {
 		var input = document.querySelector('#txtInvitado2');
@@ -212,7 +211,7 @@ if (rInvitados2) {
 }
 
 
-var rInvitados3=document.querySelector('#resInvitados3');
+var rInvitados3=document.querySelector('#txtInvitado3-results');
 if (rInvitados3) {
 	rInvitados3.addEventListener('click', function(e) {
 		var input = document.querySelector('#txtInvitado3');
@@ -313,7 +312,7 @@ function soloLetrasYnumeros(e){
 }
 
 function consultarCursos(){
-	var idCarrera = location.search.split("=")[1];
+	var idCarrera = location.search.split("idCarrera=")[1];
 	var request = $.ajax({
 		url: "../includes/service-cursos.php",
 		type: "get",
@@ -343,11 +342,10 @@ function imprimirCursos(aCursos){
 function registrarCurso() {
 	var codigo = $('#codigo-curso').val(),
 	  nombre = $('#nombre-curso').val(),
-	  idCarrera = $('#idCarrera').val(),
+	  idCarrera = $('#carrera-curso').val(),
 	  idProfesor1 = $('#idProfesor1').text(),
 	  idProfesor2 = $('#idProfesor2').text(),
-	  idProfesor3 = $('#idProfesor3').text(),
-	  idCarrera = $('#idCarrera').text();
+	  idProfesor3 = $('#idProfesor3').text();
 
 	var request = $.ajax({
 		url: "../includes/service-cursos.php",
@@ -359,8 +357,7 @@ function registrarCurso() {
 			   'pidCarrera' : idCarrera,
 			   'pidProfesor1' : idProfesor1,
 			   'pidProfesor2' : idProfesor2,
-			   'pidProfesor3' : idProfesor3,
-			   'pidCarrera' : idCarrera
+			   'pidProfesor3' : idProfesor3
 			  },
 		dataType: 'json',
 		success: function(response){    

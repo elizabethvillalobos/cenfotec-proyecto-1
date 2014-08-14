@@ -10,14 +10,6 @@ function getUsuarios() {
 	return do_query($query);
 }
 
-/*
-function insertarUsuario() {
-	$query = "INSERT INTO gic_usuarios(email, nombre, apellido1, apellido2) VALUES ('evillalobos@ucenfotec.ac.cr', 'Elizabeth', 'Villalobos', 'Molina'), ('jbarboza@ucenfotec.ac.cr', 'Javier', 'Barboza', 'Solís'), ('dbarillas@ucenfotec.ac.cr', 'Diego', 'Barillas', 'Valverde'), ('jcerdas@ucenfotec.ac.cr', 'Jose', 'Cerdas', 'González'), ('mcoto@ucenfotect.ac.cr', 'Miguel', 'Coto', 'García'), ('osantamaria@ucenfotec.ac.cr', 'Oscar', 'Santamaría', 'Venegas')";
-
-	return do_query($query);
-}
-*/
-
 function mostrarUsuarios() {
 	$usuarios = getUsuarios();
 
@@ -60,18 +52,17 @@ function mostrarUsuarios() {
 			}			
 		}
 		if($idProfesores != 0){
-			$query = "SELECT tusuarios.id, tusuarios.nombre, tusuarios.apellido1, tusuarios.apellido2 ".
-					 "FROM tusuarios WHERE tusuarios.activo = 1 AND rol = ".$idProfesores;
+			$query = "SELECT * FROM tusuarios WHERE tusuarios.activo = 1 AND rol = ".$idProfesores;
 			$queryResults = do_query($query);
 		}
 		
 		while ($row = mysqli_fetch_assoc($queryResults)) {
 			$results['nombre'] = utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
-			// $results['carrera'] = $row['carrera'] == NULL ? '-' : $row['carrera'];
-			// $results['ranking'] = $row['ranking'];
+			$results['carrera'] = $row['carrera'] == NULL ? '-' : $row['carrera'];
+			$results['ranking'] = $row['ranking'];
 			$results['id'] = $row['id'];
-			// $results['skypeid'] = $row['skypeid'];
-			// $results['telefono'] = $row['telefono'];
+			$results['skypeid'] = $row['skypeid'];
+			$results['telefono'] = $row['telefono'];
 			$jsonArray['profesores'][$index] = $results;
 			$index++;
 		}
@@ -125,34 +116,6 @@ function mostrarRoles() {
 
 	while ($row = mysqli_fetch_assoc($roles)) {
 		echo '<option value='.$row['id'].' > '.utf8_encode($row['nombre']).'</option>';
-	}
-}
-
-function getCarreras() {
-	$query = "SELECT * FROM tcarrera";
-
-	return do_query($query);
-}
-
-function mostrarCarreras2() {
-    $carreras = getCarreras();
-
-	while ($row = mysqli_fetch_assoc($carreras)) {
-		echo '<option value='.$row['id'].' > '.utf8_encode($row['nombre']).'</option>';
-	}
-}
-
-function getCursos() {
-	$query = "SELECT * FROM tcursos WHERE activo=1";
-
-	return do_query($query);
-}
-
-function mostrarCursos2() {
-    $cursos = getCursos();
-
-	while ($row = mysqli_fetch_assoc($cursos)) {
-		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
 	}
 }
 

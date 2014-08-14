@@ -100,7 +100,7 @@
 							<label for="usuario-carrera">Carrera:</label>
 							<select id="usuario-carrera">
 								<option value="">Seleccione una opción</option>
-								<?php mostrarCarreras2() ?>
+								<?php mostrarCarrerasOnSelect() ?>
 							</select>
 						</div>
 
@@ -108,7 +108,7 @@
 							<label for="usuario-curso">Cursos:</label>
 							<select id="usuario-curso">
 				                <option value="">Seleccione una opción</option>
-								<?php mostrarCursos2() ?>
+								<?php mostrarCursosOnSelect() ?>
 							</select>
 						</div>
 						

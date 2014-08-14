@@ -22,7 +22,7 @@
 
 			<main>
 				<div id="carreras-hd" class="mod-hd">
-					<h2>Lista de carreras </h2>
+					<h2>Carreras </h2>
 					<a  href="/cenfotec-proyecto-1/configuracion/carrerasCrear.php" class="btn btn-default flaticon-add73">Crear carrera</a>
 
 					<div id="buscarCarreras">
@@ -32,7 +32,7 @@
 				</div> 
 				<div class="mod-bd">
 					<div id="basic-accordion" class="accordion">
-						<?=displayCarreras();?>	
+						<?= displayCarreras(); ?>	
 					</div>
 				</div>
 			</main>

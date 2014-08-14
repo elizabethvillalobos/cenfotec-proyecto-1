@@ -188,10 +188,12 @@ if(ebtnEnviar) {
 // }
 
 
-function buscarProfesor1(evento){
-    var resInvitados1 = document.querySelector('#resInvitados1'),
-    input = document.querySelector('#txtInvitado1');
-	autocompletar(resInvitados1, input, obtenerProfesores()[0], obtenerProfesores()[1]);
+function buscarProfesor(idInput){
+	idInput = "#"+idInput;
+	var idResults = idInput.replace("txt", "res");
+    var resInvitados = document.querySelector(idResults),
+    input = document.querySelector(idInput);
+	autocompletar(resInvitados, input, obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
 var rInvitados1=document.querySelector('#resInvitados1');

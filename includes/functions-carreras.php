@@ -67,9 +67,13 @@ function crearCarrera(){
 
 		$query = "INSERT INTO tcarrera(id, nombre, idDirector, activo) VALUES ('$codigo', '$nombre', '$director', '1')";
 
-		$result = do_query($query);
+		$result = do_query($query);          
+
+
 	}
 }
+
+
 
 if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];

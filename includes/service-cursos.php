@@ -1,5 +1,6 @@
 <?php
 	require_once('../includes/functions.php');
+	require_once('../includes/functions-cursos.php');
 
 	// Retornar un json.
 	header('Content-Type:application/json');
@@ -14,6 +15,9 @@
 				break;
 			case 'consultarCurso':
 				consultarCurso();
+				break;
+			case 'consultarCursosActivos':
+				consultarCursosActivos();
 				break;
 		}
 	} else {
@@ -109,6 +113,16 @@
 		} else {
 			// Invalid request.
 			deliver_response(400, 'Bad request', NULL);
+		}
+	}
+	
+	function consultarCursosActivos() {
+		$cursos = getCursosActivos();
+		if (empty($cursos)) {
+			deliver_response(200, 'No data', NULL);
+		} else {
+			// Retornar resultados de la consulta.
+			deliver_response(200, 'OK', json_encode($cursos));
 		}
 	}
 	// Esta función retorna la respuesta que se enviará

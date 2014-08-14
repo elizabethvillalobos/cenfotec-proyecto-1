@@ -72,7 +72,7 @@ function mostrarUsuarios() {
 		return $jsonArray;
 	}
 	
-	// Función que consulta las los profesores
+	// Función que consulta los invitados
 	function getInvitados() {
 		$query = "SELECT tu.id, tu.nombre, tu.apellido1, tu.apellido2, tu.ranking, tu.activo, tu.carrera, tu.contrasena, tu.imagen, tu.skypeid, tu.telefono  FROM `trol` AS tr INNER JOIN `tusuarios` AS tu ON tr.id = tu.rol WHERE tr.nombre='Profesor' OR tr.nombre='Director de carrera' OR tr.nombre='Asistente';";
 		
@@ -81,22 +81,21 @@ function mostrarUsuarios() {
 		$index = 0;		
 		
 		while ($row = mysqli_fetch_assoc($queryResults)) {
-			$results['id'] = $row['id'];
-			$results['nombre'] = $row['nombre'].' '.$row['apellido1'].' '.$row['apellido2'];
-			$results['carrera'] = $row['carrera'] == NULL ? '-' : $row['carrera'];
-			$results['ranking'] = $row['ranking'];
-			$results['activo'] = $row['activo'];
-			$results['carrera'] = $row['carrera'];
-			$results['contrasena'] = $row['contrasena'];
-			$results['imagen'] = $row['imagen'];
-			$results['skypeid'] = $row['skypeid'];
-			$results['telefono'] = $row['telefono'];
+			$results['id'] = utf8_encode($row['id']);
+			$results['nombre'] = utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
+			$results['carrera'] = utf8_encode($row['carrera']) == NULL ? '-' : utf8_encode($row['carrera']);
+			$results['ranking'] = utf8_encode($row['ranking']);
+			$results['activo'] = utf8_encode($row['activo']);
+			$results['carrera'] = utf8_encode($row['carrera']);
+			$results['contrasena'] = utf8_encode($row['contrasena']);
+			$results['imagen'] = utf8_encode($row['imagen']);
+			$results['skypeid'] = utf8_encode($row['skypeid']);
+			$results['telefono'] = utf8_encode($row['telefono']);
 			$jsonArray['invitados'][$index] = $results;
 			$index++;
 		}
-
+		
 		mysqli_free_result($queryResults);
-
 		return $jsonArray;
 	}
 

@@ -1463,7 +1463,7 @@ footer p {
     width: 210px;
 }
 
-.form-row .js-linksBusqueda{
+.form-horizontal .form-row .js-linksBusqueda{
 	margin-left:160px;
 }
 

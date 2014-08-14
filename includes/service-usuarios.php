@@ -13,6 +13,9 @@
 			case 'consultarProfesores':
 				consultarProfesores();
 				break;
+			case 'consultarInvitados':
+				consultarInvitados();
+				break;
 		}
 	} else {
 		// Invalid request.
@@ -27,6 +30,16 @@
 		} else {
 			// Retornar resultados de la consulta.
 			deliver_response(200, 'OK', json_encode($profesores));
+		}
+	}
+	
+	function consultarInvitados() {
+		$invitados = getInvitados();
+		if (empty($invitados)) {
+			deliver_response(200, 'No data', NULL);
+		} else {
+			// Retornar resultados de la consulta.
+			deliver_response(200, 'OK', json_encode($invitados));
 		}
 	}
 	

@@ -348,34 +348,35 @@ function registrarCurso() {
 	  idProfesor2 = $('#idProfesor2').text(),
 	  idProfesor3 = $('#idProfesor3').text(),
 	  idCarrera = $('#idCarrera').text();
-
-	var request = $.ajax({
-		url: "../includes/service-cursos.php",
-		type: "get",
-		data: {
-			   'query': 'registrarCurso',
-			   'pcodigo': codigo,
-			   'pnombre' : nombre,
-			   'pidCarrera' : idCarrera,
-			   'pidProfesor1' : idProfesor1,
-			   'pidProfesor2' : idProfesor2,
-			   'pidProfesor3' : idProfesor3,
-			   'pidCarrera' : idCarrera
-			  },
-		dataType: 'json',
-		success: function(response){    
-			window.location ="registarCurso-Confirmar.html";
-		},
-		error: function(response){
-			var error = document.createElement("p");
-			error.className="alert-error flaticon-remove11";
-			var msj = document.createTextNode("Este curso ya se encuentra almacenado.");
-			error.appendChild(msj);
-			var botonesDiv=document.querySelector('.form-row-button');
-			botonesDiv.appendChild(error);
-			
-		}
-	});
+	if(idProfesor1!=""){
+		var request = $.ajax({
+			url: "../includes/service-cursos.php",
+			type: "get",
+			data: {
+				   'query': 'registrarCurso',
+				   'pcodigo': codigo,
+				   'pnombre' : nombre,
+				   'pidCarrera' : idCarrera,
+				   'pidProfesor1' : idProfesor1,
+				   'pidProfesor2' : idProfesor2,
+				   'pidProfesor3' : idProfesor3,
+				   'pidCarrera' : idCarrera
+				  },
+			dataType: 'json',
+			success: function(response){    
+				window.location ="registarCurso-Confirmar.html";
+			},
+			error: function(response){
+				var error = document.createElement("p");
+				error.className="alert-error flaticon-remove11";
+				var msj = document.createTextNode("Este curso ya se encuentra almacenado.");
+				error.appendChild(msj);
+				var botonesDiv=document.querySelector('.form-row-button');
+				botonesDiv.appendChild(error);
+				
+			}
+		});
+	}
 };
 
 

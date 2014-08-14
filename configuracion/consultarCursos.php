@@ -24,7 +24,7 @@
 			<main>
 				<div id="carreras-hd">
 					<div> <h2> Lista de cursos</h2></div>
-					<a href="registrarCurso.html" class="btn btn-default flaticon-add73">Crear curso</a
+					<a href="registrarCurso.php" class="btn btn-default flaticon-add73">Crear curso</a
 				</div> 
 				<div class="mod-bd">
 				<div id="basic-accordion" class="accordion">

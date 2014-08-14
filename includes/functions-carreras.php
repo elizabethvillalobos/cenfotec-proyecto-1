@@ -69,24 +69,7 @@ function crearCarrera(){
 
 		$query = "INSERT INTO tcarrera(id, nombre, idDirector, activo) VALUES ('$codigo', '$nombre', '$director', '1')";
 
-		$result = do_query($query);          
-
-
-	}
-}
-
-
-
-if($_SERVER['REQUEST_METHOD']=="POST") {
-	$function = $_POST['call'];
-	if(function_exists($function)) {        
-	    call_user_func($function);
-	} else {
-	    echo 'Function Not Exists!!';
-
 		$result = do_query($query);
-
-		echo $result;
 	}
 }
 
@@ -97,7 +80,6 @@ function obtenerDirectores(){
 
 	return $result;
 }
-
 
 function mostrarDirectores() {
 	$directores = obtenerDirectores();

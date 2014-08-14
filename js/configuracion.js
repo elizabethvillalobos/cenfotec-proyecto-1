@@ -345,7 +345,6 @@ function registrarCurso() {
 	  idCarrera = $('#carrera-curso').val(),
 	  idProfesor1 = $('#idProfesor1').text(),
 	  idProfesor2 = $('#idProfesor2').text(),
-<<<<<<< HEAD
 	  idProfesor3 = $('#idProfesor3').text();
 
 	var request = $.ajax({
@@ -377,6 +376,12 @@ function registrarCurso() {
 =======
 	  idProfesor3 = $('#idProfesor3').text(),
 	  idCarrera = $('#idCarrera').text();
+=======
+	  idCarrera = location.search.split("=")[1];
+	  idProfesor1 = $('#idProfesor1').text(),
+	  idProfesor2 = $('#idProfesor2').text(),
+	  idProfesor3 = $('#idProfesor3').text();
+>>>>>>> 97b9acdde0258632867eb758a013af4b71d29140
 	if(idProfesor1!=""){
 		var request = $.ajax({
 			url: "../includes/service-cursos.php",
@@ -385,7 +390,6 @@ function registrarCurso() {
 				   'query': 'registrarCurso',
 				   'pcodigo': codigo,
 				   'pnombre' : nombre,
-				   'pidCarrera' : idCarrera,
 				   'pidProfesor1' : idProfesor1,
 				   'pidProfesor2' : idProfesor2,
 				   'pidProfesor3' : idProfesor3,

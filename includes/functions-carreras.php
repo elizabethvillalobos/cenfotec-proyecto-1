@@ -68,8 +68,6 @@ function crearCarrera(){
 		$director = $_POST['pDirector'];
 
 		$query = "INSERT INTO tcarrera(id, nombre, idDirector, activo) VALUES ('$codigo', '$nombre', '$director', '1')";
-
-<<<<<<< HEAD
 		$result = do_query($query);          
 
 
@@ -84,11 +82,10 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
 	    call_user_func($function);
 	} else {
 	    echo 'Function Not Exists!!';
-=======
+
 		$result = do_query($query);
 
 		echo $result;
->>>>>>> origin/master
 	}
 }
 

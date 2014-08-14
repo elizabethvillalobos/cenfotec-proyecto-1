@@ -58,7 +58,7 @@ function obtenerCursos() {
 		url: '../includes/service-cursos.php',
 		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 		data: { // Objeto con los parámetros que utiliza el servicio.
-			query: 'consultarCursos'
+			'query': 'consultarCursosActivos'
 		},
 		dataType: 'json',
 		success: function(response){

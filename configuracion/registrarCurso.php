@@ -22,7 +22,7 @@
 		<main>
 			<section class="perfil-editar">
 				<div class="mod-hd">
-					<h2>Desarrollo y Diseño Web - Crear un nuevo curso</h2>
+					<h2>Crear un nuevo curso</h2>
 					<span id="idCarrera"class="hidden">1</span>
 				</div>
 					<!-- El atributo novalidate es para evitar que el browser 
@@ -42,16 +42,19 @@
 					</div>
 					<div class="form-row">
 						<label for="txtInvitado1">Profesor(es):</label>
+						<input type="hidden" id="profesor-id-1" />
 						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor1(event)" required/>
 						<div id="resInvitados1"></div>
 					</div>
 					<div class="form-row">
 						<label></label>
+						<input type="hidden" id="profesor-id-2" />
 						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor2(event)"/>
 						<div id="resInvitados2"></div>
 					</div>
 					<div class="form-row">
 						<label></label>
+						<input type="hidden" id="profesor-id-3" />
 						<input id="txtInvitado3" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor3(event)"/>
 						<div id="resInvitados3"></div>
 					</div>
@@ -97,6 +100,5 @@
 	<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 	<script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 	<script src="/cenfotec-proyecto-1/js/pruebaConfiguracion2d.js"></script>
-	<script >consultarCursos()</script>
 </body>
 </html>

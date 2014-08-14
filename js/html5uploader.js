@@ -65,9 +65,9 @@ $(document).ready(function () {
          */
         onUploaded: function (success, responseText) {
             if (success) {
-                window.alert('Image uploaded successfully: ' + responseText);
+                // window.alert('Image uploaded successfully: ' + responseText);
             } else {
-                window.alert('Image upload failed: ' + responseText);
+                // window.alert('Image upload failed: ' + responseText);
             }
         },
 

@@ -197,6 +197,7 @@ function buscarProfesor1(evento){
 var rInvitados1=document.querySelector('#resInvitados1');
 if (rInvitados1) {
 	rInvitados1.addEventListener('click', function(e) {
+		console.log('test');
 		var input = document.querySelector('#txtInvitado1');
 		reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
 	});

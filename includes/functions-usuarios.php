@@ -45,7 +45,7 @@ function mostrarUsuarios() {
 	}
 }
 
-// Función que consulta las los profesores
+// Función que consulta los profesores
 	function getProfesores() {
 		$query = "SELECT id FROM trol WHERE nombre = 'Profesor';";
 
@@ -60,18 +60,18 @@ function mostrarUsuarios() {
 			}			
 		}
 		if($idProfesores != 0){
-			$query = "SELECT * FROM tusuarios WHERE rol='".$idProfesores."';";
+			$query = "SELECT tusuarios.id, tusuarios.nombre, tusuarios.apellido1, tusuarios.apellido2 ".
+					 "FROM tusuarios WHERE tusuarios.activo = 1 AND rol = ".$idProfesores;
 			$queryResults = do_query($query);
 		}
 		
 		while ($row = mysqli_fetch_assoc($queryResults)) {
-			$results['activo'] = $row['activo'];
-			$results['nombre'] = $row['nombre'].' '.$row['apellido1'].' '.$row['apellido2'];
-			$results['carrera'] = $row['carrera'] == NULL ? '-' : $row['carrera'];
-			$results['ranking'] = $row['ranking'];
+			$results['nombre'] = utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
+			// $results['carrera'] = $row['carrera'] == NULL ? '-' : $row['carrera'];
+			// $results['ranking'] = $row['ranking'];
 			$results['id'] = $row['id'];
-			$results['skypeid'] = $row['skypeid'];
-			$results['telefono'] = $row['telefono'];
+			// $results['skypeid'] = $row['skypeid'];
+			// $results['telefono'] = $row['telefono'];
 			$jsonArray['profesores'][$index] = $results;
 			$index++;
 		}

@@ -7,5 +7,3 @@ while (!feof($handle)) {
     $buffer = fread($handle, 1028);
     $size += strlen($buffer);
 }
-
-echo "File size: $size bytes";

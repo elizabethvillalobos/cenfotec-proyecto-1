@@ -15,7 +15,8 @@ function registrarCarrera() {
       'pDirector' : director
     },
     dataType: 'json',
-    success: function(response){           
+    success: function(response) {  
+      window.location = "/cenfotec-proyecto-1/configuracion/carrerasCrear-confirmar.php";
     }
     
   });

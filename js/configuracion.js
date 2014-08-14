@@ -10,11 +10,9 @@ window.onload = function () {
 	if (eCrearCurso) {
 		eCrearCurso.reset();
 	}
-
 }	
 	
 /* validar crear curso */
-
 if (ebtnCrearCurso) {
 	ebtnCrearCurso.addEventListener('click',function (evento) {
 		evento.preventDefault();
@@ -77,49 +75,40 @@ if (eFormValidar) {
 				break;
 
                 case "crear-carrera":                 
-                   var indice = document.getElementById("director-academico").selectedIndex;
-                          
-                   var seleccionado = validarDropdown(indice);                                     
-
-                   if(seleccionado){
-                   	registrarCarrera();
-                   }                 	
+                  	var indice = document.getElementById("director-academico").selectedIndex,
+                   	   seleccionado = validarDropdown(indice);
+                   	if (seleccionado){
+                   		registrarCarrera();
+                   	}                 	
                    
-
 				break;
                 case "crear-usuario":
                     var indice1 = document.getElementById("usuario-rol").selectedIndex,
                         indice2 = document.getElementById("usuario-carrera").selectedIndex;
                           
-                   var seleccionado = validarDropdown(indice1);                                     
-                   if(seleccionado){
+                	var seleccionado = validarDropdown(indice1);                                     
+                	if (seleccionado){
                        seleccionado = validarDropdown(indice2);
-                       if(seleccionado){
-                           alert('Formulario validado');
+                       if (seleccionado){
                             crearUsuario();
                        }
                    }                 	
-                    
-                    
                 break;
 			}
 		}
 		else {
-			if (idProfesor1 && idProfesor2 && idProfesor3) {
-				if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3))
-				{
+			if (typeof(idProfesor1) != 'undefined' && typeof(idProfesor2) != 'undefined' && typeof(idProfesor3) != 'undefined') {
+				if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3)) {
 					mostrarMensajeError(document.querySelector('#txtInvitado1'),"No pueden haber profesores repetidos.");
 				}
-				if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3))
-				{
+				if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3)) {
 					mostrarMensajeError(document.querySelector('#txtInvitado2'),"No pueden haber profesores repetidos.");
 				}
-				if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3))
-				{
+				if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3)) {
 					mostrarMensajeError(document.querySelector('#txtInvitado3'),"No pueden haber profesores repetidos.");
 				}
 			}
-		}		
+		}
 	});
 }
 
@@ -176,7 +165,6 @@ if(ebtnEnviar) {
 			};			
 		}       
 	});
-	
 }
 
 /*validar correo en notificaciones*/    
@@ -209,10 +197,11 @@ function buscarProfesor1(evento){
 var rInvitados1=document.querySelector('#resInvitados1');
 if (rInvitados1) {
 	rInvitados1.addEventListener('click', function(e) {
+		console.log('test');
 		var input = document.querySelector('#txtInvitado1');
 		reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
 	});
-
+}
 
 var rInvitados2=document.querySelector('#resInvitados2');
 if (rInvitados2) {
@@ -239,7 +228,7 @@ function toggleForms() {
 	frmLista.className = "frontContent";
 	var title=document.querySelector('#lblLegent');
 	var ul = document.getElementById("listElements");
-	while( ul.firstChild ){
+	while( ul.firstChild ) {
 		ul.removeChild( ul.firstChild );
 	}
 	
@@ -322,41 +311,33 @@ function soloLetrasYnumeros(e){
         return true;
     }
 }
-function consultarCursos(){
 
+function consultarCursos(){
 	var idCarrera = location.search.split("=")[1];
-	console.log(idCarrera);
 	var request = $.ajax({
 		url: "../includes/service-cursos.php",
 		type: "get",
 		data: {
 			   'query': 'consultarCurso',
-			   'pidCarrera': idCarrera
-			   
+			   'pidCarrera': idCarrera			   
 			  },
 		dataType: 'json',
-		success: function(response){    
+		success: function(response){ 
+		console.log($.parseJSON(response.data));   
 			imprimirCursos($.parseJSON(response.data));
 		},
 		error: function(response) {
 			console.log(response);
 		}
-
 	});	
-
-} 
-
-
-function imprimirCursos(aCursos){
-
-	var source = $("#template-curso").html(),
-	template = Handlebars.compile(source);
-  	$("#cursos-container").html(template(aCursos));
-
-
 }
 
 
+function imprimirCursos(aCursos){
+	var source = $("#template-curso").html(),
+	template = Handlebars.compile(source);
+  	$("#cursos-container").html(template(aCursos));
+}
 
 //agregar nuevo curso
 function registrarCurso() {
@@ -462,8 +443,8 @@ function obtenerProfesores() {
 //crear usuario
 function crearUsuario() {
 	var nombre = $('#usuario-nombre').val(),
-	  apellido1 = $('#usuario-apellido1').val(),
-	  apellido2 = $('#usuario-apellido2').val(),
+		apellido1 = $('#usuario-apellido1').val(),
+		apellido2 = $('#usuario-apellido2').val(),
         avatar = $('#droppedimage img').attr('src'),
         idUsr = $('#usuario-email').val(),
         contrasena = $('#usuario-contrasena').val(),
@@ -472,7 +453,7 @@ function crearUsuario() {
         rol = $('#usuario-rol').val(),
         carrera = $('#usuario-carrera').val(),
         curso = $('#usuario-curso').val();
-    
+
 	var request = $.ajax({
 		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
 		type: "post",
@@ -495,5 +476,4 @@ function crearUsuario() {
 			
 		}
 	});
-};
 }

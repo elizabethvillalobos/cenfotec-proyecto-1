@@ -1,9 +1,11 @@
 <?php
-	error_reporting(0);
-	require_once('../includes/functions.php');
+
+error_reporting(0);
+require_once('../includes/functions.php');
 
 function getCarreras(){
-	$query = 'SELECT * FROM tcarrera';
+	$query = 'SELECT tcarrera.id as carreraId, tcarrera.nombre as carreraNombre, tcarrera.activo as carreraActiva, tusuarios.nombre as directorNombre, tusuarios.apellido1 as directorApellido1, tusuarios.apellido2 as directorApellido2 '.
+			 'FROM tcarrera, tusuarios WHERE tcarrera.idDirector = tusuarios.id ORDER BY tcarrera.nombre';
 	$result = do_query($query);
 	return $result;
 }
@@ -14,31 +16,31 @@ function displayCarreras() {
 	while($row = mysqli_fetch_assoc($carreras)){
 		$html .= '<div class="accordion-group">';	
 		$html .= '<div class="accordion-heading">
-					<a class="accordion-toggle collapsed" href="#collapseTwo_'.$row['id'].'" data-parent="#basic-accordion"
-						data-toggle="collapse">'.utf8_encode($row['nombre']).'</a>
+					<a class="accordion-toggle collapsed" href="#collapseTwo_'.$row['carreraId'].'" data-parent="#basic-accordion"
+						data-toggle="collapse">'.utf8_encode($row['carreraNombre']).'</a>
 				  </div>';
-		$html .= '<div id="collapseTwo_'.$row['id'].'" class="accordion-body collapse">
+		$html .= '<div id="collapseTwo_'.$row['carreraId'].'" class="accordion-body collapse">
 							<div class="accordion-inner">
 								<form class="detalleCarrera" action="#" method="post">
 									<div class="colorDetalleCarrera">
 									<fieldset>
 										<div class="form-row">
 											<label for="text1">Código:</label>
-											<input id="text1" type="text"  placeholder="'.$row['id'].'"  class="form-control1" 
+											<input id="text1" type="text"  placeholder="'.$row['carreraId'].'"  class="form-control1" 
 												readonly="readonly"/>
 										</div>
 										<div class="form-row">
 											<label for="text2">Director académico:</label>
-											<input id="text2" type="text" placeholder="'.$row['idDirector'].'" 
+											<input id="text2" type="text" placeholder="'.utf8_encode($row['directorNombre']).' '.utf8_encode($row['directorApellido1']).' '.utf8_encode($row['directorApellido2']).'" 
 												class="form-control1" readonly="readonly"/>
 										</div>
 										<div class="form-row">
-											<a href="consultarCursos.php?idCarrera='.$row['id'].'" class="flaticon-list40">Ver cursos</a>
+											<a href="consultarCursos.php?idCarrera='.$row['carreraId'].'" class="flaticon-list40">Ver cursos</a>
 										</div>
-										<div class="form-row form-row-buttonAcciones" id="'.$row['id'].'">
-											<input type="button" class="btn btn-secondaryAction" id="btn_enable" '.($row['activo'] == 1? 'disabled' : '').' 
+										<div class="form-row form-row-buttonAcciones" id="'.$row['carreraId'].'">
+											<input type="button" class="btn btn-secondaryAction" id="btn_enable" '.($row['carreraActiva'] == 1? 'disabled' : '').' 
 												value="Habilitar">
-											<input type="button" class="btn btn-secondaryAction" id="btn_disable" '.($row['activo'] == 1? '' : 'disabled').' 
+											<input type="button" class="btn btn-secondaryAction" id="btn_disable" '.($row['carreraActiva'] == 1? '' : 'disabled').' 
 												value="Deshabilitar">
 											<input type="button" class="btn btn-secondaryAction" id="btnModificar" 
 												value="Modificar" >
@@ -57,7 +59,7 @@ function displayCarreras() {
 /*INSERTAR CARRERA, JAVIER BARBOZA*/
 
 function crearCarrera(){
-	if(isset($_POST['pCodigo']) &&
+	if (isset($_POST['pCodigo']) &&
 		isset($_POST['pNombre']) && 
 		isset($_POST['pDirector'])) {
 	
@@ -68,8 +70,30 @@ function crearCarrera(){
 		$query = "INSERT INTO tcarrera(id, nombre, idDirector, activo) VALUES ('$codigo', '$nombre', '$director', '1')";
 
 		$result = do_query($query);
+
+		echo $result;
 	}
 }
+
+// obtener directores academicos  
+function obtenerDirectores(){
+	$query = "SELECT * FROM tusuarios WHERE rol=3 AND activo=1";
+	$result = do_query($query);
+
+	return $result;
+}
+
+
+function mostrarDirectores() {
+	$directores = obtenerDirectores();
+
+	while($row = mysqli_fetch_assoc($directores)){
+		echo '<option value='.$row['id'].' > '.utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).'</option>';
+	}
+
+}
+
+/*INSERTAR CARRERA, JAVIER BARBOZA*/
 
 if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];
@@ -79,28 +103,5 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
 	    echo 'Function Not Exists!!';
 	}
 }
-
-// obtener directores academicos  
-function obtenerDirectores(){
-	$query = "SELECT * FROM tusuarios WHERE rol=3 AND activo=1";
-
-	$result = do_query($query);
-
-return $result;
-}
-
-
-function mostrarDirectores(){
-
-	$directores = obtenerDirectores();
-
-	while($row = mysqli_fetch_assoc($directores)){
-	echo '<option value='.$row['id'].' > '.$row['nombre'].$row['apellido1'].'</option>';
-		 
-	}
-
-}
-
-/*INSERTAR CARRERA, JAVIER BARBOZA*/
 
 ?>

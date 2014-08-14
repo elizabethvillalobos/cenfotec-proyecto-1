@@ -1,7 +1,6 @@
 <?php
     require_once('../includes/functions.php');
 
-
     $currentModule = 'configuracion';
     $currentSubModule = 'cursos';
 ?>
@@ -24,7 +23,9 @@
 			<main>
 				<div id="carreras-hd">
 					<div> <h2> Lista de cursos</h2></div>
-					<a href="registrarCurso.php" class="btn btn-default flaticon-add73">Crear curso</a
+
+					<a href="/cenfotec-proyecto-1/configuracion/registrarCurso.php" class="btn btn-default flaticon-add73">Crear curso</a
+
 				</div> 
 				<div class="mod-bd">
 				<div id="basic-accordion" class="accordion">
@@ -49,21 +50,14 @@
 											</div>
 											<label for="textoProfe1Curso">Profesor(es)</label>
 											<div id="wrapperProfesCursos">
-											<div class="form-row">
-												
-												<input id="textoProfe1Curso" type="text" placeholder="{{nombreUsuario}} {{apellido1}} {{apellido2}}"
-												class="form-control1" readonly="readonly"/>
-											</div>
-											<div class="form-row">
-												<input id="textoProfe2Curso" type="text" placeholder="" 
-												class="form-control1" readonly="readonly"/>
-												
-											</div>
-											<div class="form-row">
-												<input id="textoProfe3Curso" type="text" placeholder="" 
-												class="form-control1" readonly="readonly"/>
-												
-											</div>
+
+												{{#each profesores}}
+												<div class="form-row">
+													<input id="textoProfe1Curso" type="text" placeholder="{{ profesorNombre }}" 
+													class="form-control1" readonly="readonly"/>
+												</div>
+												{{/each}}
+											
 											</div>
 											<div class="form-row form-row-buttonAcciones2profes">
 												<input type="button" class="btn btn-secondaryAction" id="btnHabilitarCurso2" value="Habilitar" disabled>

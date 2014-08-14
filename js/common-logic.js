@@ -550,7 +550,7 @@ function autocompletar(pdivResultados, pinput, pdatos, pids){
              alinks[j].remove();
         }
     }
-      
+console.log(pdatos);
 	//llenar con los resultados correctos
     for(var i=0; i<pdatos.length; i++){
         var busqueda = pinput.value,

@@ -4,7 +4,8 @@ require_once('../includes/functions.php');
 
 // Usuarios
 function getUsuarios() {
-	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `trol`.`nombre` AS 'Rol' FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id`";
+	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `trol`.`nombre` AS 'Rol' ".
+			 "FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id` ORDER BY tusuarios.apellido1, tusuarios.apellido2, tusuarios.nombre";
 
 	return do_query($query);
 }
@@ -23,7 +24,7 @@ function mostrarUsuarios() {
 	while ($row = mysqli_fetch_assoc($usuarios)) {
 		echo '<tr>';
         echo '<td>';
-        echo '<a href="#">' . utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
+        echo '<a href="#">'.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']).' '.utf8_encode($row['nombre']);
         echo '</a>';
         echo '<span class="usuarios-email">'.utf8_encode($row['id']);
         echo '</span>';
@@ -44,7 +45,7 @@ function mostrarUsuarios() {
 	}
 }
 
-// Función que consulta las los profesores
+// Función que consulta los profesores
 	function getProfesores() {
 		$query = "SELECT id FROM trol WHERE nombre = 'Profesor';";
 
@@ -59,18 +60,18 @@ function mostrarUsuarios() {
 			}			
 		}
 		if($idProfesores != 0){
-			$query = "SELECT * FROM tusuarios WHERE rol='".$idProfesores."';";
+			$query = "SELECT tusuarios.id, tusuarios.nombre, tusuarios.apellido1, tusuarios.apellido2 ".
+					 "FROM tusuarios WHERE tusuarios.activo = 1 AND rol = ".$idProfesores;
 			$queryResults = do_query($query);
 		}
 		
 		while ($row = mysqli_fetch_assoc($queryResults)) {
-			$results['activo'] = $row['activo'];
-			$results['nombre'] = $row['nombre'].' '.$row['apellido1'].' '.$row['apellido2'];
-			$results['carrera'] = $row['carrera'] == NULL ? '-' : $row['carrera'];
-			$results['ranking'] = $row['ranking'];
+			$results['nombre'] = utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
+			// $results['carrera'] = $row['carrera'] == NULL ? '-' : $row['carrera'];
+			// $results['ranking'] = $row['ranking'];
 			$results['id'] = $row['id'];
-			$results['skypeid'] = $row['skypeid'];
-			$results['telefono'] = $row['telefono'];
+			// $results['skypeid'] = $row['skypeid'];
+			// $results['telefono'] = $row['telefono'];
 			$jsonArray['profesores'][$index] = $results;
 			$index++;
 		}
@@ -106,7 +107,7 @@ function insertarUsuario(){
         $carrera = $_POST['pcarrera'];
         $curso = $_POST['pcurso'];
 
-		$query = "INSERT INTO tusuarios (id, contrasena, ranking, activo, nombre, apellido1, apellido2, imagen, skypeid, rol, telefono, carrera) VALUES ('$id', '$contrasena', null, '$activo', '$nombre', '$apellido1', '$apellido2', '$avatar', '$skype', '$rol', '$telefono', '$carrera')";
+		$query = "INSERT INTO tusuarios(id, contrasena, ranking, activo, nombre, apellido1, apellido2, imagen, skypeid, rol, telefono, carrera) VALUES ('$id', '$contrasena', '0', '$activo', '$nombre', '$apellido1', '$apellido2', '$avatar', '$skype', '$rol', '$telefono', '$carrera')";
 
 		$result = do_query($query);
 	}
@@ -123,7 +124,7 @@ function mostrarRoles() {
     $roles = getRoles();
 
 	while ($row = mysqli_fetch_assoc($roles)) {
-		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
+		echo '<option value='.$row['id'].' > '.utf8_encode($row['nombre']).'</option>';
 	}
 }
 
@@ -137,7 +138,7 @@ function mostrarCarreras2() {
     $carreras = getCarreras();
 
 	while ($row = mysqli_fetch_assoc($carreras)) {
-		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
+		echo '<option value='.$row['id'].' > '.utf8_encode($row['nombre']).'</option>';
 	}
 }
 
@@ -164,6 +165,5 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
 	    echo 'Function Not Exists!!';
 	}
 }
-
 
 ?>

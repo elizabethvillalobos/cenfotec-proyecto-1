@@ -10,14 +10,6 @@ function getUsuarios() {
 	return do_query($query);
 }
 
-/*
-function insertarUsuario() {
-	$query = "INSERT INTO gic_usuarios(email, nombre, apellido1, apellido2) VALUES ('evillalobos@ucenfotec.ac.cr', 'Elizabeth', 'Villalobos', 'Molina'), ('jbarboza@ucenfotec.ac.cr', 'Javier', 'Barboza', 'Solís'), ('dbarillas@ucenfotec.ac.cr', 'Diego', 'Barillas', 'Valverde'), ('jcerdas@ucenfotec.ac.cr', 'Jose', 'Cerdas', 'González'), ('mcoto@ucenfotect.ac.cr', 'Miguel', 'Coto', 'García'), ('osantamaria@ucenfotec.ac.cr', 'Oscar', 'Santamaría', 'Venegas')";
-
-	return do_query($query);
-}
-*/
-
 function mostrarUsuarios() {
 	$usuarios = getUsuarios();
 
@@ -35,7 +27,7 @@ function mostrarUsuarios() {
         echo '<div class="usuarios-acciones">';
         echo '<a class="usuarios-deshabilitar" href="#">'."Deshabilitar";
         echo '</a>';
-        echo '<a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">'."Modificar";
+        echo '<a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php?id='.$row['id'].'">'."Modificar";
         echo '</a>';
         echo '<span class="flaticon-machine2">';
         echo '</span>';
@@ -60,24 +52,50 @@ function mostrarUsuarios() {
 			}			
 		}
 		if($idProfesores != 0){
-			$query = "SELECT tusuarios.id, tusuarios.nombre, tusuarios.apellido1, tusuarios.apellido2 ".
-					 "FROM tusuarios WHERE tusuarios.activo = 1 AND rol = ".$idProfesores;
+			$query = "SELECT * FROM tusuarios WHERE tusuarios.activo = 1 AND rol = ".$idProfesores;
 			$queryResults = do_query($query);
 		}
 		
 		while ($row = mysqli_fetch_assoc($queryResults)) {
 			$results['nombre'] = utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
-			// $results['carrera'] = $row['carrera'] == NULL ? '-' : $row['carrera'];
-			// $results['ranking'] = $row['ranking'];
+			$results['carrera'] = $row['carrera'] == NULL ? '-' : $row['carrera'];
+			$results['ranking'] = $row['ranking'];
 			$results['id'] = $row['id'];
-			// $results['skypeid'] = $row['skypeid'];
-			// $results['telefono'] = $row['telefono'];
+			$results['skypeid'] = $row['skypeid'];
+			$results['telefono'] = $row['telefono'];
 			$jsonArray['profesores'][$index] = $results;
 			$index++;
 		}
 
 		mysqli_free_result($queryResults);
 
+		return $jsonArray;
+	}
+	
+	// Función que consulta los invitados
+	function getInvitados() {
+		$query = "SELECT tu.id, tu.nombre, tu.apellido1, tu.apellido2, tu.ranking, tu.activo, tu.carrera, tu.contrasena, tu.imagen, tu.skypeid, tu.telefono  FROM `trol` AS tr INNER JOIN `tusuarios` AS tu ON tr.id = tu.rol WHERE tr.nombre='Profesor' OR tr.nombre='Director de carrera' OR tr.nombre='Asistente';";
+		
+		$queryResults = do_query($query);
+		$jsonArray = [];
+		$index = 0;		
+		
+		while ($row = mysqli_fetch_assoc($queryResults)) {
+			$results['id'] = utf8_encode($row['id']);
+			$results['nombre'] = utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
+			$results['carrera'] = utf8_encode($row['carrera']) == NULL ? '-' : utf8_encode($row['carrera']);
+			$results['ranking'] = utf8_encode($row['ranking']);
+			$results['activo'] = utf8_encode($row['activo']);
+			$results['carrera'] = utf8_encode($row['carrera']);
+			$results['contrasena'] = utf8_encode($row['contrasena']);
+			$results['imagen'] = utf8_encode($row['imagen']);
+			$results['skypeid'] = utf8_encode($row['skypeid']);
+			$results['telefono'] = utf8_encode($row['telefono']);
+			$jsonArray['invitados'][$index] = $results;
+			$index++;
+		}
+		
+		mysqli_free_result($queryResults);
 		return $jsonArray;
 	}
 
@@ -128,32 +146,46 @@ function mostrarRoles() {
 	}
 }
 
-function getCarreras() {
-	$query = "SELECT * FROM tcarrera";
+function getUsuariosModif($pid) {
+    $query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`imagen`, `tusuarios`.`id`, `tusuarios`.`telefono`, `tusuarios`.`skypeid`, `trol`.`nombre` AS 'Rol' , `tusuarios`.`carrera`".
+			 "FROM tusuarios, trol WHERE `tusuarios`.`rol`= `trol`.`id` AND `tusuarios`.`id` = '$pid'";
 
-	return do_query($query);
+	$result = do_query($query);
+    
+    $row = mysqli_fetch_assoc($result);
+    
+    return $row;
 }
 
-function mostrarCarreras2() {
-    $carreras = getCarreras();
-
-	while ($row = mysqli_fetch_assoc($carreras)) {
-		echo '<option value='.$row['id'].' > '.utf8_encode($row['nombre']).'</option>';
-	}
-}
-
-function getCursos() {
-	$query = "SELECT * FROM tcursos WHERE activo=1";
-
-	return do_query($query);
-}
-
-function mostrarCursos2() {
-    $cursos = getCursos();
-
-	while ($row = mysqli_fetch_assoc($cursos)) {
-		echo '<option value='.$row['id'].' > '.$row['nombre'].'</option>';
-	}
+function modificarUsuario(){
+    
+    if(isset($_POST['pnombre']) &&
+		isset($_POST['papellido1']) && 
+		isset($_POST['papellido2'])  && 
+		isset($_POST['pidUsr'])&& 
+		isset($_POST['ptelefono']) && 
+		isset($_POST['pskype']) && 
+		isset($_POST['prol']) && 
+		isset($_POST['pcarrera'])){
+        
+        $id = $_POST['pidUsr'];
+		$contrasena = $_POST['pcontrasena'];
+		$activo = '1';
+        $nombre = utf8_decode($_POST['pnombre']);
+        $apellido1 = utf8_decode($_POST['papellido1']);
+        $apellido2 = utf8_decode($_POST['papellido2']);
+        $avatar = $_POST['pavatar'];
+        $skype = $_POST['pskype'];
+        $rol = $_POST['prol'];
+        $telefono = $_POST['ptelefono'];
+        $carrera = $_POST['pcarrera'];
+        $curso = $_POST['pcurso'];
+        
+        $query = "UPDATE tusuarios SET id='$id', nombre='$nombre', apellido1='$apellido1', apellido2='$apellido2', imagen='$avatar', skypeid='$skype', rol=$rol, telefono='$telefono', carrera='$carrera' WHERE id='$id'";
+        
+        do_query($query); 
+    }
+    
 }
 
 

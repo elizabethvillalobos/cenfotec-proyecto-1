@@ -296,7 +296,7 @@ function validarForm(pFormId) {
         for(var j=0; j < eSelects.length; j++) {
             var eSelectedOption = eSelects[j].querySelector('option[selected]');
 
-            if (eSelectedOption == 'selected') {
+            if (!eSelectedOption ) {
                 bValido = false;
                 mostrarMensajeError(eSelects[j], 'Debe seleccionar una opción.');
             }

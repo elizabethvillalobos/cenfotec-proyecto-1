@@ -4,42 +4,30 @@ include_once('functions.php');
 
 header('Content-Type:application/json');
 
-// Usuarios
-function getCursos() {
-	$query = 'SELECT * FROM tcursos';
+	// Función que consulta los cursos activos
+	function getCursosActivos() {
+		$query = "SELECT id, activo, nombre FROM `tcursos` WHERE activo='1';";
+		
+		$queryResults = do_query($query);
+		$jsonArray = [];
+		$index = 0;		
+		
+		while ($row = mysqli_fetch_assoc($queryResults)) {			
+			$results['id'] = $row['id'];
+			$results['activo'] = $row['activo'];
+			$results['nombre'] = $row['nombre'];
+			$jsonArray['cursos'][$index] = $results;
+			$index++;
+		}
 
-	return do_query($query);
-}
-
-function insertarCurso() {
-echo "0";
-	$nombre=$_GET['pnombre'];
-	$codigo=$_GET['pcodigo'];
-	$query = "SELECT * FROM tcursos WHERE id='$codigo';";
-	echo "1";
-	$cursos = do_query($query);
-	$resultado="";
-	echo "2";
-	if (mysqli_num_rows($cursos) > 0) {
-		$resultado="Ya existe";		
-	} 
-	else
-	{
-		$query = "INSERT INTO tcursos(id, nombre, activo) VALUES ('$codigo','$nombre', '1')";
-		do_query($query);
-		$resultado="Registrado con exito";
+		mysqli_free_result($queryResults);
+	
+		return $jsonArray;
 	}
-	echo $resultado;
-	header("HTTP/1.1 200 $resultado");
-	$response['status'] = 200;
-	$response['status-message'] = $resultado;
-	$response['data'] = NULL;
-	$arr = array('status' => 1, 'statusMessage' => '$resultado');
-	echo json_encode($response);
-}
 
-if($_SERVER['REQUEST_METHOD']=="GET") {
-	$function = $_GET['call'];
+
+if($_SERVER['REQUEST_METHOD']=="POST") {
+	$function = $_POST['call'];
 	if(function_exists($function)) {        
 	    call_user_func($function);
 	} else {

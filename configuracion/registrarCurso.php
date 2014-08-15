@@ -23,7 +23,6 @@
 			<section class="perfil-editar">
 				<div class="mod-hd">
 					<h2>Crear un nuevo curso</h2>
-					<span id="idCarrera"class="hidden">1</span>
 				</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
@@ -40,23 +39,25 @@
 						<input id="nombre-curso" type="text" placeholder="Ingrese el nombre" class="form-control" 
 						onkeypress="return soloLetrasYnumeros(event)" required/>
 					</div>
+
 					<div class="form-row">
 						<label for="txtInvitado1">Profesor(es):</label>
 						<input type="hidden" id="profesor-id-1" />
-						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor1(event)" required/>
-						<div id="resInvitados1"></div>
+						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off" required/>
+						<div id="txtInvitado1-results"></div>
 					</div>
 					<div class="form-row">
 						<label></label>
 						<input type="hidden" id="profesor-id-2" />
-						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor2(event)"/>
-						<div id="resInvitados2"></div>
+						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off"/>
+						<div id="txtInvitado2-results"></div>
+
 					</div>
 					<div class="form-row">
 						<label></label>
 						<input type="hidden" id="profesor-id-3" />
-						<input id="txtInvitado3" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor3(event)"/>
-						<div id="resInvitados3"></div>
+						<input id="txtInvitado3" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off" />
+						<div id="txtInvitado3-results"></div>
 					</div>
 
 					<div class="form-row form-row-button">
@@ -99,6 +100,5 @@
 	<script src="/cenfotec-proyecto-1/js/html5uploader.js"></script>
 	<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 	<script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
-	<script src="/cenfotec-proyecto-1/js/pruebaConfiguracion2d.js"></script>
 </body>
 </html>

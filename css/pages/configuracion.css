@@ -276,17 +276,9 @@ h2 {
 }
 
 /********termina configuracion general*******/
-#resInvitados1{
-	z-index: 1;
-	position: absolute;
-	left: 180px;
-}
-#resInvitados2{
-	z-index: 1;
-	position: absolute;
-	left: 180px;
-}
-#resInvitados3{
+#txtInvitado1-results,
+#txtInvitado2-results,
+#txtInvitado3-results {
 	z-index: 1;
 	position: absolute;
 	left: 180px;

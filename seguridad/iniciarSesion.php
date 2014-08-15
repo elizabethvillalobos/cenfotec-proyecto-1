@@ -1,5 +1,9 @@
 <?php
 	require_once('../includes/functions.php');
+    require_once(ROOT.'/includes/functions-usuarios.php');
+    
+    $aIds = getIdUsuarios();
+    $aContrasenas = getPWUsuarios();
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +22,7 @@
 				<div class="mod-bd">
 				
 					<h2>Gestor Inteligente de Citas</h2>
-					<form  name="inicioSesion" id="login" action="" method="post">
+					<form  name="inicioSesion" id="login" action="/cenfotec-proyecto-1/index.php" method="post">
 						<fieldset class="field">
 							<legend>Inicio</legend>
 							
@@ -54,6 +58,15 @@
 		</div>
 		
 		<!-- Load JS -->
+		<script type="text/javascript">
+            var aIdsUsuarios=<?php echo json_encode($aIds);?>;
+            var aPWUsuarios=<?php echo json_encode($aContrasenas);?>;
+            
+            /*for(var i=0;i<aPWUsuarios.length;i++){
+                alert(aPWUsuarios[i]);
+            }
+            */
+        </script>
 		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
         <script src="/cenfotec-proyecto-1/seguridad/iniciarSesion.js"></script>
 	</body>

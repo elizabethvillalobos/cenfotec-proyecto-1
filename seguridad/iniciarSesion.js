@@ -3,6 +3,8 @@ var eBtnIniciarSesion = document.querySelector('.btn-primary'),
     eError = document.querySelector('.alert-error'),
     regis=false;
 
+
+
 eBtnIniciarSesion.addEventListener('click', function (evento) {
     
     var eCorreo = document.querySelector('#email').value,
@@ -10,6 +12,8 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
         formulario = document.querySelector('#login');
     
     evento.preventDefault();
+    
+   
     
     var camposVacios=validarCamposLlenos(aInputs, eError, 'Todos los campos deben estar llenos');
     if(!camposVacios){
@@ -19,7 +23,7 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
             if(correoRegistrado){
                 var coincide=validarContrasena(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
                 if(coincide){
-                    validarVistaRol(eCorreo, formulario);
+//                    validarVistaRol(eCorreo, formulario);
                     formulario.submit();
                 }
             }    

@@ -1,5 +1,6 @@
 <?php
     require_once('../includes/functions.php');
+   
 
     $currentModule = 'configuracion';
     $currentSubModule = 'cursos';
@@ -22,34 +23,42 @@
 		<main>
 			<section class="perfil-editar">
 				<div class="mod-hd">
-					<h2>Crear un nuevo curso</h2>
+					<h2>Modificar un curso - Nombre del curso</h2>
 				</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="crear-curso" class="mod-bd form-horizontal" action="registarCurso-Confirmar.html" method="post" 
+					<form id="modificar-curso" class="mod-bd form-horizontal" action="registarCurso-Confirmar.html" method="post" 
 					data-validate="true" novalidate>
+
+					<?php
+                        if(isset($_GET['idCurso'])){
+                            $result = getCursoParaModificar($_GET['idCurso']);
+                        }
+                    ?>
+
+
 					<div class="form-row">
 						<label for="codigo-curso">Código:</label>
-						<input id="codigo-curso" type="text" placeholder="Ingrese el código" class="form-control" 
+						<input id="codigo-curso" type="text" value="<?php echo utf8_encode($result['cursoId'])?>" class="form-control" 
 						onkeypress="return soloGuion(event)" required/>
 					</div>
 
 					<div class="form-row">
 						<label for="nombre-curso">Nombre:</label>
-						<input id="nombre-curso" type="text" placeholder="Ingrese el nombre" class="form-control" 
+						<input id="nombre-curso" type="text" value="<?php echo utf8_encode($result['cursoNombre'])?>" class="form-control" 
 						onkeypress="return soloLetrasYnumeros(event)" required/>
 					</div>
 
 					<div class="form-row">
 						<label for="txtInvitado1">Profesor(es):</label>
 						<input type="hidden" id="profesor-id-1" />
-						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off" required/>
+						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="<?php echo utf8_encode($result['usuarioNombre'])?> <?php echo utf8_encode($result['usuarioApellido1'])?> <?php echo utf8_encode($result['usuarioApellido2'])?>" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off" required/>
 						<div id="txtInvitado1-results"></div>
 					</div>
 					<div class="form-row">
 						<label></label>
 						<input type="hidden" id="profesor-id-2" />
-						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off"/>
+						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="<?php echo utf8_encode($result['usuarioNombre'])?> <?php echo utf8_encode($result['usuarioApellido1'])?> <?php echo utf8_encode($result['usuarioApellido2'])?>" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off"/>
 						<div id="txtInvitado2-results"></div>
 
 					</div>
@@ -61,7 +70,7 @@
 					</div>
 
 					<div class="form-row form-row-button">
-						<button id="btn-guardar-curso" class="btn btn-primary" type="submit">Guardar</button>
+						<button id="btn-modificar-curso" class="btn btn-primary" type="submit">Guardar</button>
 						<!--<button id="btn-cancelar" class="btn btn-secondary" type="submit">Cancelar</button>-->
 						<a class="btn btn-default js-modal" 
 						data-modal-id="modal-cancelar">Cancelar</a>
@@ -70,7 +79,7 @@
 			</section>
 			<div id="modal-cancelar" class="modal js-modal-window">
 				<span class="close flaticon-close3 js-modal-close">Close</span>
-				<h3>¿Está seguro que desea cancelar la creación del curso?</h3>
+				<h3>¿Está seguro que desea cancelar la modificación del curso?</h3>
 				<div class="form-row">
 					<a href="consultarCursosDesarrollo.html" class="btn btn-primary js-modal-aceptar">Si</a>
 					<a href="#" class="btn btn-default js-modal-close">No</a>

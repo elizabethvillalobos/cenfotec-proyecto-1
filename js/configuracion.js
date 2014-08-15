@@ -11,7 +11,13 @@ window.onload = function () {
 		eCrearCurso.reset();
 	}
 }	
-	
+window.onload = function () {
+	var eModificarCurso = document.getElementById("modificar-curso")
+	if (eModificarCurso) {
+		eModificarCurso.reset();
+	}
+}	
+		
 /* validar crear curso */
 if (ebtnCrearCurso) {
 	ebtnCrearCurso.addEventListener('click',function (evento) {
@@ -56,6 +62,7 @@ function validarDropdown(pIndice){
 
 	return selected;
 }
+                    
 
 
 // Inicializar la validacion de formularios.
@@ -72,7 +79,9 @@ if (eFormValidar) {
 				case "crear-curso":
 					registrarCurso();
 				break;
-
+				case "modificar-curso":
+					modificarCurso();
+				break;
                 case "crear-carrera":                 
                   	var indice = document.getElementById("director-academico").selectedIndex,
                    	   seleccionado = validarDropdown(indice);
@@ -187,28 +196,22 @@ if(ebtnEnviar) {
 // }
 
 
-function buscarProfesor(evento) {
-    var $invitado = $(evento.currentTarget),
-    	$resInvitados = $invitado.parent().find('#' + $invitado.attr('id') + '-results');
-	autocompletar($resInvitados[0], $invitado[0], obtenerProfesores()[0], obtenerProfesores()[1]);
+function buscarProfesor1(evento){
+    var resInvitados1 = document.querySelector('#resInvitados1'),
+    input = document.querySelector('#txtInvitado1');
+	autocompletar(resInvitados1, input, obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
-// function buscarProfesor(idInput){
-// 	idInput = "#"+idInput;
-// 	var idResults = idInput.replace("txt", "res");
-//     var resInvitados = document.querySelector(idResults),
-//     input = document.querySelector(idInput);
-// 	autocompletar(resInvitados, input, obtenerProfesores()[0], obtenerProfesores()[1]);
-
-var rInvitados1=document.querySelector('#txtInvitado1-results');
+var rInvitados1=document.querySelector('#resInvitados1');
 if (rInvitados1) {
 	rInvitados1.addEventListener('click', function(e) {
+		console.log('test');
 		var input = document.querySelector('#txtInvitado1');
 		reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
 	});
 }
 
-var rInvitados2=document.querySelector('#txtInvitado2-results');
+var rInvitados2=document.querySelector('#resInvitados2');
 if (rInvitados2) {
 	rInvitados2.addEventListener('click', function(e) {
 		var input = document.querySelector('#txtInvitado2');
@@ -217,7 +220,7 @@ if (rInvitados2) {
 }
 
 
-var rInvitados3=document.querySelector('#txtInvitado3-results');
+var rInvitados3=document.querySelector('#resInvitados3');
 if (rInvitados3) {
 	rInvitados3.addEventListener('click', function(e) {
 		var input = document.querySelector('#txtInvitado3');
@@ -225,39 +228,7 @@ if (rInvitados3) {
 	});
 }
 
-function toggleForms() {
-	totalSelected=0;
-	var frmCarrera=document.querySelector('#crear-curso');
-	var frmLista=document.querySelector('#listForm');
-    frmCarrera.className = "backContent";
-	frmLista.className = "frontContent";
-	var title=document.querySelector('#lblLegent');
-	var ul = document.getElementById("listElements");
-	while( ul.firstChild ) {
-		ul.removeChild( ul.firstChild );
-	}
-	
 
-	title.innerHTML="Seleccionar Profesor";		
-	var listaProfes = ["Antonio Luna","Juan Vargas", "Pablo Monestel", "Álvaro Cordero", "Joel Martinez","Ana Mendez","Minor Tenorio","Normal Neil","Esteban Castro", "Nicole Pacheco","Kenny Moraga", "Katherine Guevara", "Adrián Arias", "Daniel Solano", "Francisco Miranda", "Pablo Marín", "Josue Zamora", "Brandon Carmona"];
-	for(i=0;i<listaProfes.length;i++)
-	{
-		var li = document.createElement("li");
-		li.appendChild(document.createTextNode(listaProfes[i]));
-
-		li.setAttribute("value","1");
-		li.setAttribute("class","listItem");
-		ul.appendChild(li);
-	}
-	
-	var listItems=document.getElementsByClassName('listItem');
-	for(var i = 0; i < listItems.length; i++) {
-		var listItem = listItems[i];
-		listItem.onclick = function() {			
-			toggleItem(this,3);
-		}
-	}
-}
 
 function toggleItem(clickedItem, maxOfItems) {
 	if ( clickedItem.classList.contains("activeItem") ) {
@@ -318,7 +289,8 @@ function soloLetrasYnumeros(e){
 }
 
 function consultarCursos(){
-	var idCarrera = location.search.split("idCarrera=")[1];
+	var idCarrera = location.search.split("=")[1];
+	console.log(idCarrera);
 	var request = $.ajax({
 		url: "../includes/service-cursos.php",
 		type: "get",
@@ -335,9 +307,6 @@ function consultarCursos(){
 			console.log(response);
 		}
 	});	
-
-	// Cambiar el URL del boton Crear curso.
-	$('#crear-curso').attr('href', '/cenfotec-proyecto-1/configuracion/registrarCurso.php?idCarrera=' + idCarrera);
 }
 
 
@@ -351,10 +320,11 @@ function imprimirCursos(aCursos){
 function registrarCurso() {
 	var codigo = $('#codigo-curso').val(),
 	  nombre = $('#nombre-curso').val(),
-	  idCarrera = location.search.split("=")[1];
+	  idCarrera = $('#idCarrera').val(),
 	  idProfesor1 = $('#idProfesor1').text(),
 	  idProfesor2 = $('#idProfesor2').text(),
-	  idProfesor3 = $('#idProfesor3').text();
+	  idProfesor3 = $('#idProfesor3').text(),
+	  idCarrera = $('#idCarrera').text();
 
 	var request = $.ajax({
 		url: "../includes/service-cursos.php",
@@ -366,7 +336,8 @@ function registrarCurso() {
 			   'pidCarrera' : idCarrera,
 			   'pidProfesor1' : idProfesor1,
 			   'pidProfesor2' : idProfesor2,
-			   'pidProfesor3' : idProfesor3
+			   'pidProfesor3' : idProfesor3,
+			   'pidCarrera' : idCarrera
 			  },
 		dataType: 'json',
 		success: function(response){    
@@ -382,41 +353,39 @@ function registrarCurso() {
 			
 		}
 	});
-
-	//   idCarrera = location.search.split("=")[1];
-	//   idProfesor1 = $('#idProfesor1').text(),
-	//   idProfesor2 = $('#idProfesor2').text(),
-	//   idProfesor3 = $('#idProfesor3').text();
-
-	// if(idProfesor1!=""){
-	// 	var request = $.ajax({
-	// 		url: "../includes/service-cursos.php",
-	// 		type: "get",
-	// 		data: {
-	// 			   'query': 'registrarCurso',
-	// 			   'pcodigo': codigo,
-	// 			   'pnombre' : nombre,
-	// 			   'pidProfesor1' : idProfesor1,
-	// 			   'pidProfesor2' : idProfesor2,
-	// 			   'pidProfesor3' : idProfesor3,
-	// 			   'pidCarrera' : idCarrera
-	// 			  },
-	// 		dataType: 'json',
-	// 		success: function(response){    
-	// 			window.location ="registarCurso-Confirmar.html";
-	// 		},
-	// 		error: function(response){
-	// 			var error = document.createElement("p");
-	// 			error.className="alert-error flaticon-remove11";
-	// 			var msj = document.createTextNode("Este curso ya se encuentra almacenado.");
-	// 			error.appendChild(msj);
-	// 			var botonesDiv=document.querySelector('.form-row-button');
-	// 			botonesDiv.appendChild(error);
-				
-	// 		}
-	// 	});
-	// }
 };
+
+function modificarCurso() {
+	var codigo = $('#codigo-curso').val(),
+	  nombre = $('#nombre-curso').val(),
+	  idCarrera = $('#idCarrera').val(),
+	  idProfesor1 = $('#idProfesor1').text(),
+	  idProfesor2 = $('#idProfesor2').text(),
+	  idProfesor3 = $('#idProfesor3').text(),
+	  idCarrera = $('#idCarrera').text();
+
+	var request = $.ajax({
+		url: "../includes/service-cursos.php",
+		type: "get",
+		data: {
+			   'query': 'modificarCurso',
+			   'pcodigo': codigo,
+			   'pnombre' : nombre,
+			   'pidCarrera' : idCarrera,
+			   'pidProfesor1' : idProfesor1,
+			   'pidProfesor2' : idProfesor2,
+			   'pidProfesor3' : idProfesor3,
+			   'pidCarrera' : idCarrera
+			  },
+		dataType: 'json',
+		success: function(response){    
+			window.location ="registarCurso-Confirmar.html";
+		},
+
+	});
+};
+
+
 
 
 

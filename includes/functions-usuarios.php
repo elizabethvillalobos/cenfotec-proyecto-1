@@ -4,7 +4,7 @@ require_once('../includes/functions.php');
 
 // Usuarios
 function getUsuarios() {
-	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `trol`.`nombre` AS 'Rol' ".
+	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `tusuarios`.`contrasena`, `trol`.`nombre` AS 'Rol' ".
 			 "FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id` ORDER BY tusuarios.apellido1, tusuarios.apellido2, tusuarios.nombre";
 
 	return do_query($query);
@@ -27,7 +27,7 @@ function mostrarUsuarios() {
         echo '<div class="usuarios-acciones">';
         echo '<a class="usuarios-deshabilitar" href="#">'."Deshabilitar";
         echo '</a>';
-        echo '<a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php">'."Modificar";
+        echo '<a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php?id='.$row['id'].'">'."Modificar";
         echo '</a>';
         echo '<span class="flaticon-machine2">';
         echo '</span>';
@@ -146,6 +146,71 @@ function mostrarRoles() {
 	}
 }
 
+function getUsuariosModif($pid) {
+    $query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`imagen`, `tusuarios`.`id`, `tusuarios`.`telefono`, `tusuarios`.`skypeid`, `trol`.`nombre` AS 'Rol' , `tusuarios`.`carrera`".
+			 "FROM tusuarios, trol WHERE `tusuarios`.`rol`= `trol`.`id` AND `tusuarios`.`id` = '$pid'";
+
+	$result = do_query($query);
+    
+    $row = mysqli_fetch_assoc($result);
+    
+    return $row;
+}
+
+function modificarUsuario(){
+    
+    if(isset($_POST['pnombre']) &&
+		isset($_POST['papellido1']) && 
+		isset($_POST['papellido2'])  && 
+		isset($_POST['pidUsr'])&& 
+		isset($_POST['ptelefono']) && 
+		isset($_POST['pskype']) && 
+		isset($_POST['prol']) && 
+		isset($_POST['pcarrera'])){
+        
+        $id = $_POST['pidUsr'];
+		$contrasena = $_POST['pcontrasena'];
+		$activo = '1';
+        $nombre = utf8_decode($_POST['pnombre']);
+        $apellido1 = utf8_decode($_POST['papellido1']);
+        $apellido2 = utf8_decode($_POST['papellido2']);
+        $avatar = $_POST['pavatar'];
+        $skype = $_POST['pskype'];
+        $rol = $_POST['prol'];
+        $telefono = $_POST['ptelefono'];
+        $carrera = $_POST['pcarrera'];
+        $curso = $_POST['pcurso'];
+        
+        $query = "UPDATE tusuarios SET id='$id', nombre='$nombre', apellido1='$apellido1', apellido2='$apellido2', imagen='$avatar', skypeid='$skype', rol=$rol, telefono='$telefono', carrera='$carrera' WHERE id='$id'";
+        
+        do_query($query); 
+    }
+    
+}
+
+function getIdUsuarios(){
+    $usuarios = getUsuarios();
+    $i=0;
+    
+    while ($row = mysqli_fetch_assoc($usuarios)) {
+		$arreglo[$i]= $row['id'];
+        $i++;
+	}
+    
+    return $arreglo;
+}
+
+function getPWUsuarios(){
+    $contrasenas = getUsuarios();
+    $i=0;
+    
+    while ($row = mysqli_fetch_assoc($contrasenas)) {
+		$arreglo[$i]= $row['contrasena'];
+        $i++;
+	}
+    
+    return $arreglo;
+}
 
 if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];

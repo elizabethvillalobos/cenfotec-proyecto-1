@@ -4,8 +4,8 @@
 var codigoActivacion = localStorage.getItem('codigoActivacion'),
     correoAdmin = 'admin@ucenfotec.ac.cr',
     pwAdmin = 'Cenfo2014',
-    aCorreos = ["acordero@ucenfotec.ac.cr", "pmonestel@ucenfotec.ac.cr", "dbarillasv@ucenfotec.ac.cr"],
-    aContrasenas = ["Admin2014", "Prof2014", "Estu2014"],
+    aCorreos = aIdsUsuarios,
+    aContrasenas = aPWUsuarios,
     aVistasRol = ["../index.html", "../index-Profesor.html", "../index-Estudiante.html"];
 
 // ------------------------------------------

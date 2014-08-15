@@ -1,5 +1,6 @@
 <?php
     require_once('../includes/functions.php');
+ 
 
     $currentModule = 'configuracion';
     $currentSubModule = 'cursos';
@@ -73,7 +74,7 @@
 											<div class="form-row form-row-buttonAcciones2profes">
 												<input type="button" class="btn btn-secondaryAction" id="btnHabilitarCurso2" value="Habilitar" disabled>
 												<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitarCurso2" value="Deshabilitar" >
-												<input type="button" class="btn btn-secondaryAction" id="btnModificar2" value="Modificar">
+												<input type="button" class="btn btn-secondaryAction"  onclick=" location.href='/cenfotec-proyecto-1/configuracion/modificarCurso.php?idCurso={{idcurso}}' " id="btnModificarCurso" value="Modificar">
 											</div>
 										</fieldset>
 									</div>

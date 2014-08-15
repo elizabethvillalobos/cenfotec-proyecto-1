@@ -11,7 +11,13 @@ window.onload = function () {
 		eCrearCurso.reset();
 	}
 }	
-	
+window.onload = function () {
+	var eModificarCurso = document.getElementById("modificar-curso")
+	if (eModificarCurso) {
+		eModificarCurso.reset();
+	}
+}	
+		
 /* validar crear curso */
 if (ebtnCrearCurso) {
 	ebtnCrearCurso.addEventListener('click',function (evento) {
@@ -73,7 +79,9 @@ if (eFormValidar) {
 				case "crear-curso":
 					registrarCurso();
 				break;
-
+				case "modificar-curso":
+					modificarCurso();
+				break;
                 case "crear-carrera":                 
                   	var indice = document.getElementById("director-academico").selectedIndex,
                    	   seleccionado = validarDropdown(indice);
@@ -220,39 +228,7 @@ if (rInvitados3) {
 	});
 }
 
-function toggleForms() {
-	totalSelected=0;
-	var frmCarrera=document.querySelector('#crear-curso');
-	var frmLista=document.querySelector('#listForm');
-    frmCarrera.className = "backContent";
-	frmLista.className = "frontContent";
-	var title=document.querySelector('#lblLegent');
-	var ul = document.getElementById("listElements");
-	while( ul.firstChild ) {
-		ul.removeChild( ul.firstChild );
-	}
-	
 
-	title.innerHTML="Seleccionar Profesor";		
-	var listaProfes = ["Antonio Luna","Juan Vargas", "Pablo Monestel", "Álvaro Cordero", "Joel Martinez","Ana Mendez","Minor Tenorio","Normal Neil","Esteban Castro", "Nicole Pacheco","Kenny Moraga", "Katherine Guevara", "Adrián Arias", "Daniel Solano", "Francisco Miranda", "Pablo Marín", "Josue Zamora", "Brandon Carmona"];
-	for(i=0;i<listaProfes.length;i++)
-	{
-		var li = document.createElement("li");
-		li.appendChild(document.createTextNode(listaProfes[i]));
-
-		li.setAttribute("value","1");
-		li.setAttribute("class","listItem");
-		ul.appendChild(li);
-	}
-	
-	var listItems=document.getElementsByClassName('listItem');
-	for(var i = 0; i < listItems.length; i++) {
-		var listItem = listItems[i];
-		listItem.onclick = function() {			
-			toggleItem(this,3);
-		}
-	}
-}
 
 function toggleItem(clickedItem, maxOfItems) {
 	if ( clickedItem.classList.contains("activeItem") ) {
@@ -378,6 +354,38 @@ function registrarCurso() {
 		}
 	});
 };
+
+function modificarCurso() {
+	var codigo = $('#codigo-curso').val(),
+	  nombre = $('#nombre-curso').val(),
+	  idCarrera = $('#idCarrera').val(),
+	  idProfesor1 = $('#idProfesor1').text(),
+	  idProfesor2 = $('#idProfesor2').text(),
+	  idProfesor3 = $('#idProfesor3').text(),
+	  idCarrera = $('#idCarrera').text();
+
+	var request = $.ajax({
+		url: "../includes/service-cursos.php",
+		type: "get",
+		data: {
+			   'query': 'modificarCurso',
+			   'pcodigo': codigo,
+			   'pnombre' : nombre,
+			   'pidCarrera' : idCarrera,
+			   'pidProfesor1' : idProfesor1,
+			   'pidProfesor2' : idProfesor2,
+			   'pidProfesor3' : idProfesor3,
+			   'pidCarrera' : idCarrera
+			  },
+		dataType: 'json',
+		success: function(response){    
+			window.location ="registarCurso-Confirmar.html";
+		},
+
+	});
+};
+
+
 
 
 

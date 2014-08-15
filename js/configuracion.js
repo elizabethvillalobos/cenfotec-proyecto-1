@@ -314,6 +314,7 @@ function soloLetrasYnumeros(e){
 
 function consultarCursos(){
 	var idCarrera = location.search.split("=")[1];
+	console.log(idCarrera);
 	var request = $.ajax({
 		url: "../includes/service-cursos.php",
 		type: "get",

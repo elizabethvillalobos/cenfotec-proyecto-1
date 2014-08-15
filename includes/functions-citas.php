@@ -30,18 +30,50 @@
 
 		while ($row = mysqli_fetch_assoc($queryResults)) {
 			$results['citaId'] = $row['citaId'];
-			$results['correoSolicitado'] = $row['solicitadoCorreo'];
-			$results['nombreSolicitado'] = $row['nombreSolicitado'].' '.$row['apellido1Solicitado'].' '.$row['apellido2Solicitado'];
+			$results['correoSolicitado'] = utf8_encode($row['solicitadoCorreo']);
+			$results['nombreSolicitado'] = utf8_encode($row['nombreSolicitado']).' '.utf8_encode($row['apellido1Solicitado']).' '.utf8_encode($row['apellido2Solicitado']);
 			$results['imagenSolicitado'] = $row['imagenSolicitado'] == NULL ? '../images/users/default-user.png' : $row['imagenSolicitado'];
 			$results['telefonoSolicitado'] = $row['telefonoSolicitado'];
 			$results['fecha'] = dateLongString($row['citaDiaDeSemana'], $row['citaDia'], $row['citaMes'], $row['citaAno']);
 			$results['horaInicio'] = timeLongString($row['citaHoraInicio']);
 			$results['horaFin'] = timeLongString($row['citaHoraFin']);
-			$results['asunto'] = $row['asunto'];
-			$results['observaciones'] = $row['observaciones'];
-			$results['curso'] = $row['cursoNombre'];	
+			$results['asunto'] = utf8_encode($row['asunto']);
+			$results['observaciones'] = utf8_encode($row['observaciones']);
+			$results['curso'] = utf8_encode($row['cursoNombre']);
 			$results['modalidad'] = $row['modalidad'] == 0 ? 'Presencial' : 'Virtual';
 			$results['tipo'] = $row['modalidad'] == 0 ? 'Individual' : 'Grupal';
+			$jsonArray['citas'][$index] = $results;
+			$index++;
+		}
+
+		mysqli_free_result($queryResults);
+
+		return $jsonArray;
+	}
+
+
+	// Función que retorna los datos de una cita en específico.
+	function getCitaPorId($citaId) {
+		$query = 'SELECT tcitas.id AS citaId, tcitas.idSolicitado AS solicitadoCorreo, tcitas.idSolicitante AS solicitanteCorreo, tcitas.asunto, '.
+				 'DAYOFWEEK(tcitas.fechaInicio) AS citaDiaDeSemana, DAYOFMONTH(tcitas.fechaInicio) AS citaDia, '.
+				 'MONTH(tcitas.fechaInicio) AS citaMes, YEAR(tcitas.fechaInicio) AS citaAno, '.
+				 'TIME(tcitas.fechaInicio) as citaHoraInicio, TIME(tcitas.fechaFin) as citaHoraFin '.
+				 'FROM tcitas '.
+				 'WHERE tcitas.esCita = "1" '.
+				 'AND tcitas.id = "'.$citaId.'"';
+
+		$queryResults = do_query($query);
+		$jsonArray = [];
+		$index = 0;
+
+		while ($row = mysqli_fetch_assoc($queryResults)) {
+			$results['citaId'] = $row['citaId'];
+			$results['correoSolicitado'] = utf8_encode($row['solicitadoCorreo']);
+			$results['correoSolicitante'] = utf8_encode($row['solicitanteCorreo']);
+			$results['fecha'] = dateLongString($row['citaDiaDeSemana'], $row['citaDia'], $row['citaMes'], $row['citaAno']);
+			$results['horaInicio'] = timeLongString($row['citaHoraInicio']);
+			$results['horaFin'] = timeLongString($row['citaHoraFin']);
+			$results['asunto'] = utf8_encode($row['asunto']);
 			$jsonArray['citas'][$index] = $results;
 			$index++;
 		}
@@ -80,6 +112,26 @@
 	function insertSolicitud($idSolicitante, $idSolicitado, $asunto, $modalidad, $tipo, $observaciones, $idCurso) {
 		$query = "INSERT INTO tcitas(idSolicitante, idSolicitado, asunto, modalidad, tipo, observaciones, curso, estado, esCita) VALUES ('$idSolicitante', '$idSolicitado', '$asunto', '$modalidad', '$tipo', '$observaciones', '$idcurso', '1', '0')";
 		return do_query($query);
+	}
+
+	// Función que retorna los datos de una cita en específico.
+	function getUsuarioPorId($usuarioId) {
+		$query = 'SELECT tusuarios.nombre AS nombreSolicitado, tusuarios.apellido1 AS apellido1Solicitado, tusuarios.apellido2 AS apellido2Solicitado '.
+				 'FROM tusuarios '.
+				 'WHERE tusuarios.id = "'.$usuarioId.'"';
+
+		$queryResults = do_query($query);
+		$jsonArray = [];
+		$index = 0;
+
+		while ($row = mysqli_fetch_assoc($queryResults)) {
+			$results['nombreCompleto'] = utf8_encode($row['nombreSolicitado']).' '.utf8_encode($row['apellido1Solicitado']).' '.utf8_encode($row['apellido2Solicitado']);
+			$jsonArray[$index] = $results;
+			$index++;
+		}
+		mysqli_free_result($queryResults);
+
+		return $jsonArray;
 	}
 
 ?>

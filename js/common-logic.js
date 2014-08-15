@@ -43,6 +43,42 @@ function closestParentNode(pChildObj, pParentName) {
     return node;
 }
 
+// Enviar un correo electronico.
+function enviarEmail(to, subject, message) {
+    var msg = '<!doctype html><html>'+
+              '<head>'+
+              '<title>Gestor inteligente de citas</title>' +
+              '<meta charset="utf-8"/>' +
+              '</head>' +
+              '<body style="font: 14px Helvetica, Arial, sans-serif;">' +
+              '<header style="background: #c0392b; color: #F2F2F2; height: 80px; padding: 10px 20px; text-align: right;">' +
+              '<img src="http://www.ucenfotec.ac.cr/wp-content/themes/ucenfotec-1-2/imagenes/logo-cenfotec-white-80.png" style="float: left;" />' +
+              '<h1 style="color: #f2f2f2; font-size: 22px; position: relative; top: 15px;">Gestor Inteligente de Citas</h1>' +
+              '</header>' +
+              '<main style="padding: 10px 30px;">' + message + 
+              '<p><a href="http://localhost:8888/cenfotec-proyecto-1/seguridad/iniciarSesion.php">Ir al gestor de citas</a></p>' +
+              '</main>' +
+              '<footer style="background: #333; color: #f2f2f2; font-size: 12px; padding: 10px 20px;">Cenfotec 2014</footer>' +
+              '</body></html>';
+
+    $.ajax({
+        url: '../includes/sendMail.php',
+        type: 'post', // Se utiliza get por vamos a obtener datos, no a postearlos.
+        data: { // Objeto con los parámetros que utiliza el servicio.
+            to: to,
+            subject: subject,
+            message: msg
+        },
+        dataType: 'json',
+        success: function(response) {
+            return true;
+        },
+        error: function(response) {
+            return false;
+        }
+    });
+}
+
 // Devuelve true o false si en un elemento del DOM tiene la clase
 // que se pasa por parametro.
 // @pEl: elemento del DOM a verificar.

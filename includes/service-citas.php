@@ -10,14 +10,20 @@
 		$queryType = $_GET['query'];
 
 		switch ($queryType) {
-			case 'consultar':
+			case 'consultarCitas':
 				consultarCitas();
+				break;
+			case 'consultarCitaPorId':
+				consultarCitaPorId();
 				break;
 			case 'insertar':
 				insertarCita();
 				break;
 			case 'cancelar':
 				cancelarCita();
+				break;
+			case 'consultarUsuarioPorId':
+				consultarUsuarioPorId();
 				break;
 			case 'crearSolicitud':
 				crearSolicitud();
@@ -47,6 +53,21 @@
 		}
 	}
 
+	function consultarCitaPorId() {
+		if (!empty($_GET['citaId'])) {
+			$citaId = $_GET['citaId'];
+			
+			$cita = getCitaPorId($citaId);
+
+			if (empty($cita)) {
+				deliver_response(200, 'No data', NULL);
+			} else {
+				// Retornar resultados de la consulta.
+				deliver_response(200, 'OK', json_encode($cita));
+			}
+		}
+	}
+
 
 	function insertarCita() {
 		insertCita($_GET['idSolicitante'], $_GET['idSolicitado'], $_GET['fechaInicio'], $_GET['fechaFin'], $_GET['asunto'], $_GET['modalidad'], $_GET['tipo'], $_GET['observaciones'], $_GET['curso']);	
@@ -68,6 +89,21 @@
 			}
 		} else {
 			deliver_response(400, 'Bad request', NULL);
+		}
+	}
+
+	function consultarUsuarioPorId() {
+		if (!empty($_GET['usuarioId'])) {
+			$usuarioId = $_GET['usuarioId'];
+			
+			$usuario = getUsuarioPorId($usuarioId);
+
+			if (empty($usuario)) {
+				deliver_response(200, 'No data', NULL);
+			} else {
+				// Retornar resultados de la consulta.
+				deliver_response(200, 'OK', json_encode($usuario));
+			}
 		}
 	}
 

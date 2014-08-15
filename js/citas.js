@@ -12,14 +12,15 @@ function consultarCitas() {
 		url: '../includes/service-citas.php',
 		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 		data: { // Objeto con los parámetros que utiliza el servicio.
-			query: 'consultar',
-			solicitante: 'evillalobos@ucenfotec.ac.cr',
+			query: 'consultarCitas',
+			solicitante: 'evillalobosm@ucenfotec.ac.cr',
 			fechaInicio: fechaInicio.toISOString(),
 			fechaFin: fechaFin.toISOString()
 		},
 		dataType: 'json',
 		success: function(response) {
 			// Imprimir los datos.
+			// console.log($.parseJSON(response.data));
 			mostrarCitas($.parseJSON(response.data));
 		},
 		error: function(response) {
@@ -29,26 +30,6 @@ function consultarCitas() {
 	});
 }
 
-function enviarEmail() {
-	$.ajax({
-		url: '../includes/sendMail.php',
-		type: 'post', // Se utiliza get por vamos a obtener datos, no a postearlos.
-		data: { // Objeto con los parámetros que utiliza el servicio.
-			to: 'villaloboselizabeth@gmail.com',
-			subject: 'GIC: ',
-			message: 'TEst'
-		},
-		dataType: 'json',
-		success: function(response) {
-			// Imprimir los datos.
-			console.log(response);
-		},
-		error: function(response) {
-			// Mostrar mensaje de error.
-			console.log(response);
-		}
-	});
-}
 
 // Esta función muestra en el panel del módulo de citas
 // las citas que recibe por parámetro.
@@ -138,6 +119,7 @@ function initCancelarCita() {
 			if (validarForm('cancelar-cita')) {
 				var citaId = $('#cita-id-cancelacion').val(),
 					motivo = $('#motivo-cancelacion').val();
+				// TODO: actualizar con el correo del usuario activo en la sesion.
 				cancelarCita(citaId, motivo, 'evillalobos@ucenfotec.ac.cr');
 			}
 		});
@@ -158,7 +140,12 @@ function cancelarCita(citaId, motivo, idSolicitante) {
 		},
 		dataType: 'json',
 		success: function(response) {
-			mostrarMsgCancelacion();
+			var nombreSolicitado;
+			if (citaSeleccionada) {
+				nombreSolicitado = $('#cita-id-' + citaSeleccionada).parent('.cita-pendiente').find('.cita-invitado').text();
+			}
+			enviarEmailCancelacionCita('villaloboselizabeth@gmail.com', motivo, nombreSolicitado);
+			mostrarMsgCancelacion(nombreSolicitado);
 		},
 		error: function(response) {
 			// Mostrar mensaje de error.
@@ -167,24 +154,59 @@ function cancelarCita(citaId, motivo, idSolicitante) {
 	});
 }
 
-function mostrarMsgCancelacion() {
+function mostrarMsgCancelacion(nombreSolicitado) {
 	var source = $("#template-msg-cancelar").html(),
-		template = Handlebars.compile(source),
-		nombreSolicitado;
+		template = Handlebars.compile(source);
 
 	// Cerrar el modal de cancelar cita.
 	$('#modal-cancelar').find('.js-modal-close').click();
 
 	// Mostrar el mensaje de confirmacion.
-	if (citaSeleccionada) {
-		nombreSolicitado = $('#cita-id-' + citaSeleccionada).parent('.cita-pendiente').find('.cita-invitado').text();
-	}
 	$("#msg-container").html(template({
 		nombreSolicitado: nombreSolicitado
 	}));
 
 	// Eliminar citas que se hayan mostrado previamente.
 	$('.cita-pendiente').hide();
+}
+
+
+function enviarEmailCancelacionCita(to, motivo, solicitante) {
+	var mensaje = '<h3>Cita cancelada</h3>' +
+				  '<p>La cita de atenci&oacute;n con <b>' + decodeURI(solicitante) + '</b> fue cancelada por el siguiente motivo:</p>' + 
+				  '<p style="font-style: italic;">' + motivo + '</p>',
+		subject = 'Cita cancelada';
+
+	enviarEmail(to, subject, mensaje);
+}
+
+function enviarEmailCreacionCita(citaId) {
+	// Obtener la información de la cita.
+	$.ajax({
+		url: '../includes/service-citas.php',
+		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			query: 'consultarCitaPorId',
+			citaId: 33
+		},
+		dataType: 'json',
+		success: function(response) {
+			// Imprimir los datos.
+			console.log($.parseJSON(response.data));
+		},
+		error: function(response) {
+			// Mostrar mensaje de error.
+			console.log(response);
+		}
+	});
+
+
+	// var mensaje = '<h3>Cita cancelada</h3>' +
+	// 			  '<p>La cita de atenci&oacute;n con <b>' + decodeURI(solicitante) + '</b> fue cancelada por el siguiente motivo:</p>' + 
+	// 			  '<p style="font-style: italic;">' + motivo + '</p>',
+	// 	subject = 'Cita cancelada';
+
+	// enviarEmail(to, subject, mensaje);
 }
 
 
@@ -217,6 +239,7 @@ function mostrarMsgCancelacion() {
 		consultarCitas();
 	}
 
-	enviarEmail();
+	// enviarEmailCancelacionCita();
+	enviarEmailCreacionCita();
 })(jQuery);
 

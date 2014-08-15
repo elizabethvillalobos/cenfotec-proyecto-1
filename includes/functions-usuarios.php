@@ -4,7 +4,7 @@ require_once('../includes/functions.php');
 
 // Usuarios
 function getUsuarios() {
-	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `trol`.`nombre` AS 'Rol' ".
+	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `tusuarios`.`contrasena`, `trol`.`nombre` AS 'Rol' ".
 			 "FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id` ORDER BY tusuarios.apellido1, tusuarios.apellido2, tusuarios.nombre";
 
 	return do_query($query);
@@ -188,6 +188,29 @@ function modificarUsuario(){
     
 }
 
+function getIdUsuarios(){
+    $usuarios = getUsuarios();
+    $i=0;
+    
+    while ($row = mysqli_fetch_assoc($usuarios)) {
+		$arreglo[$i]= $row['id'];
+        $i++;
+	}
+    
+    return $arreglo;
+}
+
+function getPWUsuarios(){
+    $contrasenas = getUsuarios();
+    $i=0;
+    
+    while ($row = mysqli_fetch_assoc($contrasenas)) {
+		$arreglo[$i]= $row['contrasena'];
+        $i++;
+	}
+    
+    return $arreglo;
+}
 
 if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];

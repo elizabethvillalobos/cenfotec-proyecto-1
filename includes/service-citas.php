@@ -108,8 +108,27 @@
 	}
 
 	function crearSolicitud() {
-		insertCita($_GET['idSolicitante'], $_GET['idSolicitado'], $_GET['asunto'], $_GET['modalidad'], $_GET['tipo'], $_GET['observaciones'], $_GET['idCurso']);	
-		deliver_response(200, 'OK', NULL);
+		//insertSolicitud($_GET['idSolicitante'], $_GET['idSolicitado'], $_GET['asunto'], $_GET['modalidad'], $_GET['tipo'], $_GET['observaciones'], $_GET['idCurso']);	
+		//deliver_response(200, 'OK', NULL);
+		$idSolcitante = $_GET['idSolcitante'];
+		$idSolicitado = $_GET['idSolicitado'];
+		$asunto = $_GET['asunto'];
+		$modalidad = $_GET['modalidad'];
+		$tipo = $_GET['tipo'];
+		$observaciones = $_GET['observaciones'];
+		$idCurso = $_GET['idCurso'];
+
+		$query = "SELECT * FROM `tcitas` WHERE idSolicitado='$idSolicitado' AND idSolicitante='$idSolcitante' AND esCita=0;";
+		$solicitudes = do_query($query);
+		if (mysqli_num_rows($solicitudes) > 0) {
+			deliver_response(400, 'Ya hay una solicitud pendiente con este usuario', NULL);
+		} else {
+			$query = "INSERT INTO tcitas(asunto, curso, esCita, estado, idSolicitado, idSolicitante, modalidad, observaciones, tipo) VALUES ('$asunto','$idCurso', '0', '0', '$idSolicitado', '$idSolcitante', '$modalidad', '$observaciones', '$tipo')";
+			
+			$resultado = do_query($query);			
+			
+			deliver_response(200, 'OK', 'Solicitud realizada exitosamente');
+		}
 	}
 	
 	// Esta función retorna la respuesta que se enviará

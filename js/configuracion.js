@@ -105,16 +105,17 @@ if (eFormValidar) {
 			}
 		}
 		else {
-			if (typeof(idProfesor1) != 'undefined' && typeof(idProfesor2) != 'undefined' && typeof(idProfesor3) != 'undefined') {
-				if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3)) {
-					mostrarMensajeError(document.querySelector('#txtInvitado1'),"No pueden haber profesores repetidos.");
-				}
-				if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3)) {
-					mostrarMensajeError(document.querySelector('#txtInvitado2'),"No pueden haber profesores repetidos.");
-				}
-				if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3)) {
-					mostrarMensajeError(document.querySelector('#txtInvitado3'),"No pueden haber profesores repetidos.");
-				}
+			if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3))
+			{
+				mostrarMensajeError(document.querySelector('#txtInvitado1'),"No pueden haber profesores repetidos.");
+			}
+			if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3))
+			{
+				mostrarMensajeError(document.querySelector('#txtInvitado2'),"No pueden haber profesores repetidos.");
+			}
+			if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3))
+			{
+				mostrarMensajeError(document.querySelector('#txtInvitado3'),"No pueden haber profesores repetidos.");
 			}
 		}
 	});
@@ -196,13 +197,15 @@ if(ebtnEnviar) {
 // }
 
 
-function buscarProfesor1(evento){
-    var resInvitados1 = document.querySelector('#resInvitados1'),
-    input = document.querySelector('#txtInvitado1');
-	autocompletar(resInvitados1, input, obtenerProfesores()[0], obtenerProfesores()[1]);
+function buscarProfesor(idInput){
+	idInput = "#"+idInput;
+	var idResults = idInput.replace("txt", "res");
+    var resInvitados = document.querySelector(idResults),
+    input = document.querySelector(idInput);
+	autocompletar(resInvitados, input, obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
-var rInvitados1=document.querySelector('#resInvitados1');
+var rInvitados1=document.querySelector('#resInvitado1');
 if (rInvitados1) {
 	rInvitados1.addEventListener('click', function(e) {
 		console.log('test');
@@ -211,7 +214,7 @@ if (rInvitados1) {
 	});
 }
 
-var rInvitados2=document.querySelector('#resInvitados2');
+var rInvitados2=document.querySelector('#resInvitado2');
 if (rInvitados2) {
 	rInvitados2.addEventListener('click', function(e) {
 		var input = document.querySelector('#txtInvitado2');
@@ -220,7 +223,7 @@ if (rInvitados2) {
 }
 
 
-var rInvitados3=document.querySelector('#resInvitados3');
+var rInvitados3=document.querySelector('#resInvitado3');
 if (rInvitados3) {
 	rInvitados3.addEventListener('click', function(e) {
 		var input = document.querySelector('#txtInvitado3');

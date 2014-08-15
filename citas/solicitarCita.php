@@ -42,10 +42,10 @@
 						<div class="form-row form-row-radio">
 							<label>Modalidad:</label>
 							<label class="radio">
-								<input type="radio" name="rdoLugar" value="1" data-toggle="radio" checked>Presencial
+								<input type="radio" name="rdoModalidad" value="1" data-toggle="radio" checked>Presencial
 							</label>
 							<label class="radio">
-								<input type="radio" name="rdoLugar" value="2" data-toggle="radio">Virtual
+								<input type="radio" name="rdoModalidad" value="2" data-toggle="radio">Virtual
 							</label>
 						</div>
 						<div class="form-row form-row-radio">
@@ -62,7 +62,7 @@
 							<textarea id="txtObservaciones" placeholder="Ingrese comentarios adicionales de la cita" class="form-control"></textarea>
 						</div>
 						<div id="enviarRow" class="form-row form-row-button">
-							<a href="solicitudEnviada.html" id="btnEnviar" class="btn btn-primary">Enviar</a>
+							<a id="btnEnviar" class="btn btn-primary">Enviar</a>
 						</div>
 					</form>
 					

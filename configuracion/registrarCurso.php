@@ -43,21 +43,21 @@
 					<div class="form-row">
 						<label for="txtInvitado1">Profesor(es):</label>
 						<input type="hidden" id="profesor-id-1" />
-						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off" required/>
-						<div id="txtInvitado1-results"></div>
+						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)" required/>
+						<div id="resInvitado1"></div>
 					</div>
 					<div class="form-row">
 						<label></label>
 						<input type="hidden" id="profesor-id-2" />
-						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off"/>
-						<div id="txtInvitado2-results"></div>
+						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)"/>
+						<div id="resInvitado2"></div>
 
 					</div>
 					<div class="form-row">
 						<label></label>
 						<input type="hidden" id="profesor-id-3" />
-						<input id="txtInvitado3" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off" />
-						<div id="txtInvitado3-results"></div>
+						<input id="txtInvitado3" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)"/>
+						<div id="resInvitado3"></div>
 					</div>
 
 					<div class="form-row form-row-button">

@@ -120,14 +120,59 @@ if(btnEnviar!=null){
 		if(!inputLlenos('solicitarCita')){
 			event.preventDefault();
 		}
-		if(!hayRadioSeleccionado('rdoLugar'))
+		else
 		{
-			event.preventDefault();
+			if(!hayRadioSeleccionado('rdoModalidad'))
+			{
+				event.preventDefault();
+			}
+			else
+			{
+				if(!hayRadioSeleccionado('rdoTipo'))
+				{
+					event.preventDefault();
+				}
+				else
+				{
+					var idcurso = $('#idCurso').text(),
+						idSolcitante = 1,
+						idSolicitado = $('#idInvitado').text(),
+						asunto = $('#txtAsunto').val(),
+						modalidad=getRadioChecked('rdoModalidad'),
+						tipo=getRadioChecked('rdoTipo'),
+						observaciones=$('textarea#txtObservaciones').val();
+
+					var request = $.ajax({
+						url: "../includes/service-citas.php",
+						type: "get",
+						data: {
+							   'query': 'crearSolicitud',
+							   'idSolcitante': idSolcitante,
+							   'idSolicitado' : idSolicitado,
+							   'asunto' : asunto,
+							   'modalidad' : modalidad,
+							   'tipo' : tipo,
+							   'observaciones' : observaciones,
+							   'idCurso' : idcurso
+							  },
+						dataType: 'json',
+						success: function(response){    
+							window.location ="solicitudEnviada.php";
+						},
+						error: function(response){
+							var error = document.createElement("p");
+							error.className="alert-error flaticon-remove11";
+							var msj = document.createTextNode("Ya tiene una solicitud pendiente con ese usuario.");
+							error.appendChild(msj);
+							var botonesDiv=document.querySelector('.form-row-button');
+							botonesDiv.appendChild(error);
+							
+						}
+					});
+				}
+			}
 		}
-		if(!hayRadioSeleccionado('rdoTipo'))
-		{
-			event.preventDefault();
-		}
+		
 	});
 }
 
@@ -152,6 +197,8 @@ if(btnCrearSolicitud!=null){
 				window.location = "solicitarCita.php"
 			}
 		}
+		
+		
 		
 	});
 }

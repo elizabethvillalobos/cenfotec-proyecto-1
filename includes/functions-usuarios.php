@@ -4,7 +4,7 @@ require_once('../includes/functions.php');
 
 // Usuarios
 function getUsuarios() {
-	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `tusuarios`.`contrasena`, `trol`.`nombre` AS 'Rol' ".
+	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `tusuarios`.`contrasena`, `tusuarios`.`activo`, `trol`.`nombre` AS 'Rol' ".
 			 "FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id` ORDER BY tusuarios.apellido1, tusuarios.apellido2, tusuarios.nombre";
 
 	return do_query($query);
@@ -14,18 +14,25 @@ function mostrarUsuarios() {
 	$usuarios = getUsuarios();
 
 	while ($row = mysqli_fetch_assoc($usuarios)) {
-		echo '<tr>';
+        $estado = "Deshabilitar";
+        if($row['activo']==0){
+            $estado = "Habilitar";
+        }
+        
+		echo '<tr class="info-usuario">';
         echo '<td>';
         echo '<a href="#">'.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']).' '.utf8_encode($row['nombre']);
         echo '</a>';
         echo '<span class="usuarios-email">'.utf8_encode($row['id']);
+        echo '</span>';
+        echo '<span id="estado-usr" hidden="hidden">'.$row['activo'];
         echo '</span>';
         echo '</td>';
         echo '<td class="usuarios-rol">'.utf8_encode($row['Rol']);
         echo '</td>';
         echo '<td>';
         echo '<div class="usuarios-acciones">';
-        echo '<a class="usuarios-deshabilitar" href="#">'."Deshabilitar";
+        echo '<a class="usuarios-deshabilitar" href="#">'.$estado;
         echo '</a>';
         echo '<a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php?id='.$row['id'].'">'."Modificar";
         echo '</a>';
@@ -210,6 +217,19 @@ function getPWUsuarios(){
 	}
     
     return $arreglo;
+}
+
+function cambiarEstadoUsr(){
+    if(isset($_POST['pidUsr']) &&
+		isset($_POST['pnuevoEstado'])){
+        
+        $id = $_POST['pidUsr'];
+        $estado = $_POST['pnuevoEstado'];
+        
+        $query = "UPDATE tusuarios SET activo=$estado WHERE id='$id'";
+        
+        do_query($query); 
+    }
 }
 
 if($_SERVER['REQUEST_METHOD']=="POST") {

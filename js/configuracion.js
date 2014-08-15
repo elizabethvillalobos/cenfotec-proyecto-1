@@ -493,3 +493,50 @@ function crearUsuario() {
 		}
 	});
 }
+
+//Habilitar/desabilitar usuario
+var abtnActivo = document.querySelectorAll('.usuarios-deshabilitar');
+
+for(var i=0; i < abtnActivo.length; i++) {
+    abtnActivo[i].addEventListener('click', function(event){
+        
+        var eEl = event.currentTarget,
+            eElParent = closestParentNode(eEl, 'info-usuario'),
+            idUsr = eElParent.querySelector('.usuarios-email').textContent;
+            estadoUsr = eElParent.querySelector('#estado-usr').textContent;
+            eEstado = eElParent.querySelector('.usuarios-deshabilitar');
+            cambiarEstadoUsr(idUsr, estadoUsr);
+            if(estadoUsr==1){
+                eEstado.innerHTML="Habilitar";
+            }else{
+                eEstado.innerHTML="Deshabilitar";
+            }
+        
+        function cambiarEstadoUsr(pidUsr, pestadoUsr){
+            var nuevoEstado;
+            
+            if(pestadoUsr==1){
+                nuevoEstado=0;
+            }else{
+                nuevoEstado=1;
+            }
+            
+            alert(nuevoEstado);
+            
+            var request = $.ajax({
+                url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
+                type: "post",
+                data: {
+                        'call' : 'cambiarEstadoUsr',
+                        'pidUsr': pidUsr,
+                        'pnuevoEstado': nuevoEstado
+                      },
+                dataType: 'json',
+                success: function(response){    
+
+                }
+            });
+        }
+    });
+}
+

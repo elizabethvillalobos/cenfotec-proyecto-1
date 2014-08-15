@@ -290,7 +290,6 @@ function soloLetrasYnumeros(e){
 
 function consultarCursos(){
 	var idCarrera = location.search.split("=")[1];
-	console.log(idCarrera);
 	var request = $.ajax({
 		url: "../includes/service-cursos.php",
 		type: "get",
@@ -306,7 +305,12 @@ function consultarCursos(){
 		error: function(response) {
 			console.log(response);
 		}
-	});	
+	});
+
+	var $crearCursoBtn = $('#crear-curso');
+	if ($crearCursoBtn) {
+		$crearCursoBtn.attr('href', $crearCursoBtn.attr('href') + idCarrera);
+	}
 }
 
 

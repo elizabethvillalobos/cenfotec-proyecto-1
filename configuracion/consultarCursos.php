@@ -23,22 +23,14 @@
 
 			<main>
 				<div id="carreras-hd">
-					
 					 <h2> Lista de cursos</h2>
 		
-
-
 					<div id="buscarCursos">
 						<input id="q" type="text" value="" placeholder="Buscar cursos" />
 						<button id="buscarCursos" class="flaticon-magnifier12" type="submit"></button>
 					</div>	
 
-					<a href="/cenfotec-proyecto-1/configuracion/registrarCurso.php?idCarrera=" id="crear-curso" class="btn btn-default flaticon-add73">Crear curso</a
-
-
-
-					</div>		
-				
+					<a href="/cenfotec-proyecto-1/configuracion/registrarCurso.php?idCarrera=" id="crear-curso" class="btn btn-default flaticon-add73">Crear curso</a>
 				<div class="mod-bd" > 
 				<div id="basic-accordion" class="accordion">
 					<div id="cursos-container">  </div>

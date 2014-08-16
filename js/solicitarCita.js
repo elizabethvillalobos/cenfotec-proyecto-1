@@ -31,11 +31,13 @@ function buscarCurso(evento){
 }
 
 var rCursos=document.querySelector('#resCursos');
-rCursos.addEventListener('click', function(e) {
-	var input = document.querySelector('#txtCurso');
-	reemplazarTextoInput(rCursos,input,e.target, "idCurso");		
-});
-
+if(rCursos){
+	rCursos.addEventListener('click', function(e) {
+		var input = document.querySelector('#txtCurso');
+		reemplazarTextoInput(rCursos,input,e.target, "idCurso");		
+	});
+}
+	
 //busqueda de invitados
 function buscarInvitado(evento){
     var resInvitados = document.querySelector('#resInvitados'),
@@ -44,11 +46,13 @@ function buscarInvitado(evento){
 }
 
 var rInvitados=document.querySelector('#resInvitados');
-rInvitados.addEventListener('click', function(e) {
-	var input = document.querySelector('#txtInvitado');
-	reemplazarTextoInput(rInvitados,input,e.target, "idInvitado");		
-});
-
+if(rInvitados){
+	rInvitados.addEventListener('click', function(e) {
+		var input = document.querySelector('#txtInvitado');
+		reemplazarTextoInput(rInvitados,input,e.target, "idInvitado");		
+	});
+}
+	
 //obtener cursos
 function obtenerCursos() {	
 	var resultados=[];
@@ -156,8 +160,8 @@ if(btnEnviar!=null){
 							   'idCurso' : idcurso
 							  },
 						dataType: 'json',
-						success: function(response){    
-							window.location ="solicitudEnviada.php";
+						success: function(response){ 
+							window.location ="solicitudEnviada.php?nombreInvitado="+$('#txtInvitado').val();
 						},
 						error: function(response){
 							var error = document.createElement("p");
@@ -256,9 +260,6 @@ if(btnAceptar!=null){
 		}
 	});
 }
-
-
-
 
 //verificar si los inputs estan llenos
 function inputLlenos(idContainer){

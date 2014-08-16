@@ -518,7 +518,4 @@ for(var i=0; i < abtnActivo.length; i++) {
     });
 }
 
-var nombreCursoGuardado=document.querySelector('#nombreCursoGuardado');
-if (nombreCursoGuardado) {
-	nombreCursoGuardado.innerHTML=location.search.split("=")[1];
-}
+

@@ -94,8 +94,8 @@
 						<h2 class="flaticon-cancel17">La solicitud de cita de atención ha sido realizada</h2>
 					</div>
 					<div class="mod-bd">
-						<p>Se ha enviado un mensaje al correo electrónico de <strong>Antonio Luna</strong> para notificarle que tiene una solicitud de cita nueva.</p>
-
+						<p>Se ha enviado un mensaje al correo electrónico de <strong><?php echo urldecode($_GET['nombreInvitado']) ?></strong> para notificarle que tiene una solicitud de cita nueva.</p>
+						
 						<a href="solicitudes.html" class="btn btn-default">Volver</a>
 					</div>
 				</section>
@@ -107,7 +107,14 @@
 		</div>
 
 		<!-- Load JS -->
-        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+        <script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="/cenfotec-proyecto-1/js/vendors/bootstrap.min.js"></script>
+        <script src="/cenfotec-proyecto-1/js/vendors/bootstrap-select.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/flatui-checkbox.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/flatui-radio.js"></script>
+        <script src="/cenfotec-proyecto-1/js/gic.js"></script>
+		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 		<script src="/cenfotec-proyecto-1/js/solicitarCita.js"></script>
 	</body>
 </html>

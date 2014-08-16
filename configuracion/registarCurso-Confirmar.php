@@ -25,7 +25,7 @@
 					<h2 class="flaticon-male12">Curso creado</h2>
 				</div>
 				<div class="mod-bd">
-					<p>El curso <span id="nombreCursoGuardado"></span> ha sido creado con éxito.</p>
+					<p>El curso <span><?php echo urldecode($_GET['nombreCurso']) ?></span> ha sido creado con éxito.</p>
 
 					<a href="carrerasConsultar.php" class="btn btn-default" id="btnVolverCarrera">Volver</a>
 				</div>

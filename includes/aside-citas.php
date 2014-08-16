@@ -1,4 +1,6 @@
 <?php
+require_once('../includes/functions-citas.php');
+
 $subModAgenda = '';
 $subModSolicitudes = '';
 
@@ -28,26 +30,8 @@ switch ($currentSubModule) {
 					<span id="crearSolicitud" class="flaticon-add73"></span>
 					<a href="/cenfotec-proyecto-1/citas/solicitudes.php" <?php echo $subModSolicitudes; ?> >Solicitudes de cita</a>
 					<ul class="thrd-nav-category accordion-detail">
-						<li>
-							<a href="/cenfotec-proyecto-1/citas/solicitudes.php">Diego Barillas</a>
-						</li>
-						<li><a href="/cenfotec-proyecto-1/citas/solicitudesEstudiantes.php">Pablo Monestel</a></li>
-						<li>
-							<span class="listo flaticon-check34"></span>
-							<a href="/cenfotec-proyecto-1/citas/solicitudInfo.php">Alejandro Leiva</a>
-						</li>
-						<li>
-							<span class="listo flaticon-check34"></span>
-							<a href="#">Olger Cubillo</a>
-						</li>
-						<li>
-							<span class="listo flaticon-check34"></span>
-							<a href="#">Rocío Solano</a>
-						</li>
-						<li>
-							<span class="listo flaticon-check34"></span>
-							<a href="#">Alejandro Villalobos</a>
-						</li>
+						<!--getSolicitudesUsuario(1) -->
+						<?php getSolicitudesUsuario("mcotog@ucenfotec.ac.cr") ?>
 					</ul>
 				<?php } else { ?>
 					<a href="/cenfotec-proyecto-1/citas/solicitudes.php">Solicitudes de cita</a>

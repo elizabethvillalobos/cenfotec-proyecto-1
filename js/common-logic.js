@@ -614,6 +614,7 @@ console.log(pdatos);
 
 //reemplazar el texto de un input de busqueda
 function reemplazarTextoInput(pdivResultados,pinput,ptarget,pnombreId){
+	if(ptarget.className="js-linksBusqueda")
 	var idElement = ptarget.querySelector('.hidden');	
 	var inputContainer = pinput.parentNode;	
 	var lastId = inputContainer.querySelector('#'+pnombreId);

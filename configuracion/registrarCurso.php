@@ -48,14 +48,12 @@
 					</div>
 					<div class="form-row">
 						<label></label>
-						<input type="hidden" id="profesor-id-2" />
 						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)"/>
 						<div id="resInvitado2"></div>
 
 					</div>
 					<div class="form-row">
 						<label></label>
-						<input type="hidden" id="profesor-id-3" />
 						<input id="txtInvitado3" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)"/>
 						<div id="resInvitado3"></div>
 					</div>

@@ -1461,6 +1461,9 @@ footer p {
     padding: 5px 25px 5px 8px;
     transition: width 0.3s;
     width: 210px;
+	
+	position: absolute;
+    z-index: 1;
 }
 
 .form-horizontal .form-row .js-linksBusqueda{

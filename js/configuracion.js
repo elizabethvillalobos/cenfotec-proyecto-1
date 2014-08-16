@@ -104,20 +104,6 @@ if (eFormValidar) {
                 break;
 			}
 		}
-		else {
-			if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3))
-			{
-				mostrarMensajeError(document.querySelector('#txtInvitado1'),"No pueden haber profesores repetidos.");
-			}
-			if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3))
-			{
-				mostrarMensajeError(document.querySelector('#txtInvitado2'),"No pueden haber profesores repetidos.");
-			}
-			if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3))
-			{
-				mostrarMensajeError(document.querySelector('#txtInvitado3'),"No pueden haber profesores repetidos.");
-			}
-		}
 	});
 }
 
@@ -200,15 +186,18 @@ if(ebtnEnviar) {
 function buscarProfesor(idInput){
 	idInput = "#"+idInput;
 	var idResults = idInput.replace("txt", "res");
-    var resInvitados = document.querySelector(idResults),
-    input = document.querySelector(idInput);
+    var resInvitados = document.querySelector(idResults);
+    var input = document.querySelector(idInput);
+	var hiddenId = input.parentNode.querySelector('.hidden');
+	if(hiddenId!=null){
+		hiddenId.parentNode.removeChild(hiddenId);
+	}
 	autocompletar(resInvitados, input, obtenerProfesores()[0], obtenerProfesores()[1]);
 }
 
 var rInvitados1=document.querySelector('#resInvitado1');
 if (rInvitados1) {
 	rInvitados1.addEventListener('click', function(e) {
-		console.log('test');
 		var input = document.querySelector('#txtInvitado1');
 		reemplazarTextoInput(rInvitados1,input,e.target, "idProfesor1");		
 	});
@@ -222,7 +211,6 @@ if (rInvitados2) {
 	});
 }
 
-
 var rInvitados3=document.querySelector('#resInvitado3');
 if (rInvitados3) {
 	rInvitados3.addEventListener('click', function(e) {
@@ -232,43 +220,6 @@ if (rInvitados3) {
 }
 
 
-
-function toggleItem(clickedItem, maxOfItems) {
-	if ( clickedItem.classList.contains("activeItem") ) {
-		// Do stuff here
-		clickedItem.className = "listItem";
-		totalSelected--;
-	}
-	else
-	{
-		if(totalSelected<maxOfItems){	
-			clickedItem.className = "listItem activeItem";
-			totalSelected++;
-		}
-	}	
-}
-
-var btnVolver = document.querySelector('#btnVolver');
-if (btnVolver) {
-	btnVolver.addEventListener('click',function(){
-		getActiveItems();
-		var frmCarrera=document.querySelector('#crear-curso');
-		var frmLista=document.querySelector('#listForm');
-	    frmCarrera.className = "frontContent mod-bd form-horizontal";
-		frmLista.className = "backContent";
-	});
-}
-
-function getActiveItems() {
-	var activeItems=document.querySelectorAll('.activeItem'),
-		nombreProfesores=document.querySelectorAll('.nombreProfe');
-	for (i=0; i<activeItems.length; i++)
-    {
-		if(i<nombreProfesores.length){
-			nombreProfesores[i].value=activeItems[i].innerHTML;
-		}
-	}
-}
 
 function soloLetrasYnumeros(e){
     key = e.keyCode || e.which;
@@ -327,39 +278,66 @@ function imprimirCursos(aCursos){
 function registrarCurso() {
 	var codigo = $('#codigo-curso').val(),
 	  nombre = $('#nombre-curso').val(),
-	  idCarrera = $('#idCarrera').val(),
+	  idCarrera = location.search.split("=")[1],
 	  idProfesor1 = $('#idProfesor1').text(),
 	  idProfesor2 = $('#idProfesor2').text(),
 	  idProfesor3 = $('#idProfesor3').text(),
-	  idCarrera = $('#idCarrera').text();
+	  hayProfeRepetido=false;
 
-	var request = $.ajax({
-		url: "../includes/service-cursos.php",
-		type: "get",
-		data: {
-			   'query': 'registrarCurso',
-			   'pcodigo': codigo,
-			   'pnombre' : nombre,
-			   'pidCarrera' : idCarrera,
-			   'pidProfesor1' : idProfesor1,
-			   'pidProfesor2' : idProfesor2,
-			   'pidProfesor3' : idProfesor3,
-			   'pidCarrera' : idCarrera
-			  },
-		dataType: 'json',
-		success: function(response){    
-			window.location ="registarCurso-Confirmar.html";
-		},
-		error: function(response){
-			var error = document.createElement("p");
-			error.className="alert-error flaticon-remove11";
-			var msj = document.createTextNode("Este curso ya se encuentra almacenado.");
-			error.appendChild(msj);
-			var botonesDiv=document.querySelector('.form-row-button');
-			botonesDiv.appendChild(error);
-			
+	
+	if((idProfesor1 == idProfesor2) || (idProfesor1 == idProfesor3))
+	{
+		if(idProfesor1!=""){
+		mostrarMensajeError(document.querySelector('#txtInvitado1'),"No pueden haber profesores repetidos.");
+		hayProfeRepetido=true;
 		}
-	});
+	}
+	
+	if((idProfesor2 == idProfesor1) || (idProfesor2 == idProfesor3))
+	{
+		if(idProfesor2!=""){
+		mostrarMensajeError(document.querySelector('#txtInvitado2'),"No pueden haber profesores repetidos.");
+		hayProfeRepetido=true;
+		}
+	}
+	
+	if((idProfesor1 == idProfesor3) || (idProfesor2 == idProfesor3))
+	{
+		if(idProfesor3!=""){
+		mostrarMensajeError(document.querySelector('#txtInvitado3'),"No pueden haber profesores repetidos.");
+		hayProfeRepetido=true;
+		}
+	}
+	  
+	if(!hayProfeRepetido){
+	
+		var request = $.ajax({
+			url: "../includes/service-cursos.php",
+			type: "get",
+			data: {
+				   'query': 'registrarCurso',
+				   'pcodigo': codigo,
+				   'pnombre' : nombre,
+				   'pidProfesor1' : idProfesor1,
+				   'pidProfesor2' : idProfesor2,
+				   'pidProfesor3' : idProfesor3,
+				   'pidCarrera' : idCarrera
+				  },
+			dataType: 'json',
+			success: function(response){    
+				window.location ="registarCurso-Confirmar.html";
+			},
+			error: function(response){
+				var error = document.createElement("p");
+				error.className="alert-error flaticon-remove11";
+				var msj = document.createTextNode("Este curso ya se encuentra almacenado.");
+				error.appendChild(msj);
+				var botonesDiv=document.querySelector('.form-row-button');
+				botonesDiv.appendChild(error);
+				
+			}
+		});
+	}
 };
 
 function modificarCurso() {

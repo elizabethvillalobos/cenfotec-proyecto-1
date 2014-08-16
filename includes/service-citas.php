@@ -126,8 +126,6 @@
 	}
 
 	function crearSolicitud() {
-		//insertSolicitud($_GET['idSolicitante'], $_GET['idSolicitado'], $_GET['asunto'], $_GET['modalidad'], $_GET['tipo'], $_GET['observaciones'], $_GET['idCurso']);	
-		//deliver_response(200, 'OK', NULL);
 		$idSolcitante = $_GET['idSolcitante'];
 		$idSolicitado = $_GET['idSolicitado'];
 		$asunto = $_GET['asunto'];
@@ -141,7 +139,7 @@
 		if (mysqli_num_rows($solicitudes) > 0) {
 			deliver_response(400, 'Ya hay una solicitud pendiente con este usuario', NULL);
 		} else {
-			$query = "INSERT INTO tcitas(asunto, curso, esCita, estado, idSolicitado, idSolicitante, modalidad, observaciones, tipo) VALUES ('$asunto','$idCurso', '0', '0', '$idSolicitado', '$idSolcitante', '$modalidad', '$observaciones', '$tipo')";
+			$query = "INSERT INTO tcitas(asunto, curso, esCita, estado, idSolicitado, idSolicitante, modalidad, observaciones, tipo) VALUES ('$asunto','$idCurso', '0', '1', '$idSolicitado', '$idSolcitante', '$modalidad', '$observaciones', '$tipo')";
 			
 			$resultado = do_query($query);			
 			

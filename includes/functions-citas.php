@@ -53,34 +53,36 @@
 
 
 	// Función que retorna los datos de una cita en específico.
+	// $solicitante es un boolean que indica cual usuario consultar.
 	function getCitaPorId($citaId) {
-		$query = 'SELECT tcitas.id AS citaId, tcitas.idSolicitado AS solicitadoCorreo, tcitas.idSolicitante AS solicitanteCorreo, tcitas.asunto, '.
+		$query = 'SELECT tcitas.idSolicitante AS solicitanteCorreo, tcitas.idSolicitado AS solicitadoCorreo, tcitas.asunto, tcitas.modalidad, tcitas.tipo, tcitas.observaciones, '.
 				 'DAYOFWEEK(tcitas.fechaInicio) AS citaDiaDeSemana, DAYOFMONTH(tcitas.fechaInicio) AS citaDia, '.
 				 'MONTH(tcitas.fechaInicio) AS citaMes, YEAR(tcitas.fechaInicio) AS citaAno, '.
-				 'TIME(tcitas.fechaInicio) as citaHoraInicio, TIME(tcitas.fechaFin) as citaHoraFin '.
-				 'FROM tcitas '.
-				 'WHERE tcitas.esCita = "1" '.
-				 'AND tcitas.id = "'.$citaId.'"';
+				 'TIME(tcitas.fechaInicio) as citaHoraInicio, TIME(tcitas.fechaFin) as citaHoraFin, '.
+				 'tcursos.nombre AS cursoNombre, '.
+				 'tusuarios.nombre AS nombreUsuario, tusuarios.apellido1 AS apellido1Usuario, tusuarios.apellido2 AS apellido2Usuario '.
+				 'FROM tcitas, tcursos, tusuarios '.
+				 'WHERE tcitas.curso = tcursos.id AND tcitas.idSolicitante = tusuarios.id AND tcitas.id = '.$citaId;
 
 		$queryResults = do_query($query);
-		$jsonArray = [];
-		$index = 0;
 
 		while ($row = mysqli_fetch_assoc($queryResults)) {
-			$results['citaId'] = $row['citaId'];
-			$results['correoSolicitado'] = utf8_encode($row['solicitadoCorreo']);
 			$results['correoSolicitante'] = utf8_encode($row['solicitanteCorreo']);
+			$results['correoSolicitado'] = utf8_encode($row['solicitadoCorreo']);
+			$results['nombreSolicitante'] = utf8_encode($row['nombreUsuario']).' '.utf8_encode($row['apellido1Usuario']).' '.utf8_encode($row['apellido2Usuario']);
 			$results['fecha'] = dateLongString($row['citaDiaDeSemana'], $row['citaDia'], $row['citaMes'], $row['citaAno']);
 			$results['horaInicio'] = timeLongString($row['citaHoraInicio']);
 			$results['horaFin'] = timeLongString($row['citaHoraFin']);
 			$results['asunto'] = utf8_encode($row['asunto']);
-			$jsonArray['citas'][$index] = $results;
-			$index++;
+			$results['observaciones'] = utf8_encode($row['observaciones']);
+			$results['curso'] = utf8_encode($row['cursoNombre']);
+			$results['modalidad'] = $row['modalidad'] == 0 ? 'Presencial' : 'Virtual';
+			$results['tipo'] = $row['modalidad'] == 0 ? 'Individual' : 'Grupal';
 		}
 
 		mysqli_free_result($queryResults);
 
-		return $jsonArray;
+		return $results;
 	}
 
 
@@ -107,31 +109,20 @@
 
 		return $result;
 	}
+
+	// Finalizar una cita.
+	function finishCita($citaId) {
+		// Update del estado de la cita.
+		$queryUpdate = "UPDATE tcitas SET tcitas.estado = 4 WHERE tcitas.id = '".$citaId."'";
+		$result = do_query($queryUpdate);
+
+		return $result;
+	}
 	
 	// Insertar una nueva solicitud.
 	function insertSolicitud($idSolicitante, $idSolicitado, $asunto, $modalidad, $tipo, $observaciones, $idCurso) {
 		$query = "INSERT INTO tcitas(idSolicitante, idSolicitado, asunto, modalidad, tipo, observaciones, curso, estado, esCita) VALUES ('$idSolicitante', '$idSolicitado', '$asunto', '$modalidad', '$tipo', '$observaciones', '$idcurso', '1', '0')";
 		return do_query($query);
-	}
-
-	// Función que retorna los datos de una cita en específico.
-	function getUsuarioPorId($usuarioId) {
-		$query = 'SELECT tusuarios.nombre AS nombreSolicitado, tusuarios.apellido1 AS apellido1Solicitado, tusuarios.apellido2 AS apellido2Solicitado '.
-				 'FROM tusuarios '.
-				 'WHERE tusuarios.id = "'.$usuarioId.'"';
-
-		$queryResults = do_query($query);
-		$jsonArray = [];
-		$index = 0;
-
-		while ($row = mysqli_fetch_assoc($queryResults)) {
-			$results['nombreCompleto'] = utf8_encode($row['nombreSolicitado']).' '.utf8_encode($row['apellido1Solicitado']).' '.utf8_encode($row['apellido2Solicitado']);
-			$jsonArray[$index] = $results;
-			$index++;
-		}
-		mysqli_free_result($queryResults);
-
-		return $jsonArray;
 	}
 	
 	// Función que muestra las solicitudes de un usuario
@@ -182,6 +173,26 @@
 		}
 		
 		mysqli_free_result($queryResults);
+		return $jsonArray;
+	}
+
+	// Función que retorna los datos de una cita en específico.
+	function getUsuarioPorId($usuarioId) {
+		$query = 'SELECT tusuarios.nombre, tusuarios.apellido1, tusuarios.apellido2 '.
+				 'FROM tusuarios '.
+				 'WHERE tusuarios.id = "'.$usuarioId.'"';
+
+		$queryResults = do_query($query);
+		$jsonArray = [];
+		$index = 0;
+
+		while ($row = mysqli_fetch_assoc($queryResults)) {
+			$results['nombreCompleto'] = utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
+			$jsonArray[$index] = $results;
+			$index++;
+		}
+		mysqli_free_result($queryResults);
+
 		return $jsonArray;
 	}
 

@@ -1,4 +1,4 @@
-var citaSeleccionada;
+var citaCancelarSeleccionada;
 
 // Esta función consulta las citas por día para el usuario actual.
 // Utiliza ajax para consultar el servicio que retorna las citas.
@@ -31,6 +31,24 @@ function consultarCitas() {
 }
 
 
+function consultarCitaPorId(citaId) {
+	$.ajax({
+		url: '../includes/service-citas.php',
+		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			query: 'consultarCitaPorId',
+			citaId: citaId
+		},
+		dataType: 'json',
+		success: function(response) {
+			$(document).trigger('consultarCitaPorId', $.parseJSON(response.data));
+		},
+		error: function(response) {
+			return $.parseJSON(response.data);	
+		}
+	});
+}
+
 // Esta función muestra en el panel del módulo de citas
 // las citas que recibe por parámetro.
 // El parámetro citas debe ser un objeto JSON.
@@ -56,6 +74,7 @@ function mostrarCitas(citas) {
   	// Ejecutar el codigo de los modal window para las citas que se agregaron.
   	modalWindow();
   	initCancelarCita();
+  	initFinalizarCita();
 }
 
 
@@ -93,7 +112,43 @@ function insertarCita() {
 	});
 }
 
+function enviarEmailCreacionCita(citaId) {
+	var mensaje,
+		subject = 'Cita programada';
 
+	$(document).bind('consultarCitaPorId', function(event, data) {
+		$.ajax({
+			url: '../includes/service-citas.php',
+			type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+			data: { // Objeto con los parámetros que utiliza el servicio.
+				query: 'consultarUsuarioPorId',
+				usuarioId: data.correoSolicitado
+			},
+			dataType: 'json',
+			success: function(response) {
+				nombreSolicitado = $.parseJSON(response.data)[0].nombreCompleto;
+				mensaje = '<h3>Nueva cita programada</h3>' +
+					  '<table style="text-align: left; width: 100%; vertical-align: top;"><tbody>' + 
+					  '<tr><th>Invitados:</th><td>' + data.nombreSolicitante + '<br />' + nombreSolicitado + '</td></tr>' + 
+					  '<tr><th>Asunto a tratar:</th><td>' + data.asunto + '</td></tr>' + 
+					  '<tr><th>Fecha:</th><td>' + data.fecha + '</td></tr>' + 
+					  '<tr><th>Hora:</th><td>' + data.horaInicio + ' a ' + data.horaFin + '</td></tr>' +
+					  '</tbody></table>';
+				// Enviar correo a usuario solicitante
+				enviarEmail(data.nombreSolicitante, subject, mensaje);
+			},
+			error: function(response) {
+				console.log('error');
+				console.log(response);
+			}
+		});		
+	});
+
+	consultarCitaPorId(citaId);
+}
+
+
+// Inicio Cancelar cita.
 // Inicializar funciones para cancelar citas.
 function initCancelarCita() {
 	var $btnCancelarCita = $('.btn-cancelar'), // Boton que se muestra en cada cita.
@@ -108,7 +163,7 @@ function initCancelarCita() {
 			// Setear el ID de la cita en el input del modal.
 			$citaCancelacionInput.val(citaId);
 			$motivo.focus();
-			citaSeleccionada = citaId;
+			citaCancelarSeleccionada = citaId;
 		});
 	}
 
@@ -133,7 +188,7 @@ function cancelarCita(citaId, motivo, idSolicitante) {
 		url: '../includes/service-citas.php',
 		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 		data: { // Objeto con los parámetros que utiliza el servicio.
-			query: 'cancelar',
+			query: 'cancelarCita',
 			citaId: citaId,
 			motivo: motivo,
 			idSolicitante: idSolicitante
@@ -141,8 +196,8 @@ function cancelarCita(citaId, motivo, idSolicitante) {
 		dataType: 'json',
 		success: function(response) {
 			var nombreSolicitado;
-			if (citaSeleccionada) {
-				nombreSolicitado = $('#cita-id-' + citaSeleccionada).parent('.cita-pendiente').find('.cita-invitado').text();
+			if (citaCancelarSeleccionada) {
+				nombreSolicitado = $('#cita-id-' + citaCancelarSeleccionada).parent('.cita-pendiente').find('.cita-invitado').text();
 			}
 			enviarEmailCancelacionCita('villaloboselizabeth@gmail.com', motivo, nombreSolicitado);
 			mostrarMsgCancelacion(nombreSolicitado);
@@ -179,35 +234,68 @@ function enviarEmailCancelacionCita(to, motivo, solicitante) {
 
 	enviarEmail(to, subject, mensaje);
 }
+// End cancelar cita.
 
-function enviarEmailCreacionCita(citaId) {
-	// Obtener la información de la cita.
+
+// Inicio Finalizar cita.
+// Inicializar funciones para finalizar citas.
+function initFinalizarCita() {
+	var $btnFinalizarCita = $('.btn-finalizar'), // Boton que se muestra en cada cita.
+		$btnFinalizarConfirmar = $('#btn-finalizar-cita'); // Boton del modal
+
+	if ($btnFinalizarCita.length) {
+		$btnFinalizarCita.on('click', function(event) {
+			// Obtener el ID de la cita.
+			var citaId = $(event.currentTarget).closest('.cita-pendiente').find('.cita-id').val();
+			$('#cita-id-finalizacion').val(citaId);
+		});
+	}
+	if ($btnFinalizarConfirmar.length) {
+		$btnFinalizarConfirmar.on('click', function(event) {
+			var citaId = $('#cita-id-finalizacion').val();
+			finalizarCita(citaId);
+		});
+	}
+}
+
+// Ejecutar finalizar cita.
+function finalizarCita(citaId) {
 	$.ajax({
 		url: '../includes/service-citas.php',
-		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
-		data: { // Objeto con los parámetros que utiliza el servicio.
-			query: 'consultarCitaPorId',
-			citaId: 33
+		type: 'get',
+		data: {
+			query: 'finalizarCita',
+			citaId: citaId
 		},
 		dataType: 'json',
 		success: function(response) {
-			// Imprimir los datos.
-			console.log($.parseJSON(response.data));
+			mostrarMsgFinalizacion(citaId);
 		},
 		error: function(response) {
 			// Mostrar mensaje de error.
+			console.log('error');
 			console.log(response);
 		}
 	});
-
-
-	// var mensaje = '<h3>Cita cancelada</h3>' +
-	// 			  '<p>La cita de atenci&oacute;n con <b>' + decodeURI(solicitante) + '</b> fue cancelada por el siguiente motivo:</p>' + 
-	// 			  '<p style="font-style: italic;">' + motivo + '</p>',
-	// 	subject = 'Cita cancelada';
-
-	// enviarEmail(to, subject, mensaje);
 }
+
+function mostrarMsgFinalizacion(citaId) {
+	var source = $("#template-msg-finalizar").html(),
+		template = Handlebars.compile(source);
+	// Cerrar el modal de cancelar cita.
+	$('#modal-finalizar').find('.js-modal-close').click();
+
+	// Mostrar el mensaje de confirmacion.
+	$("#msg-container").html(template({
+		citaId: citaId
+	}));
+
+	// Esconder citas que se hayan mostrado previamente.
+	$('.cita-pendiente').hide();
+}
+// End finalizar cita.
+
+
 
 
 // DOM ready
@@ -238,8 +326,5 @@ function enviarEmailCreacionCita(citaId) {
 		// Cargar las citas para el dia de hoy.
 		consultarCitas();
 	}
-
-	// enviarEmailCancelacionCita();
-	enviarEmailCreacionCita();
 })(jQuery);
 

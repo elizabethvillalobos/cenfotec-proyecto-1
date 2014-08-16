@@ -87,6 +87,7 @@
 				<div id="modal-finalizar" class="modal js-modal-window">
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea finalizar la cita de atención?</h3>
+					<input id="cita-id-finalizacion" type="hidden" value=""/>
 					<div class="form-row">
 						<button type="button" id="btn-finalizar-cita" class="btn btn-primary js-modal-aceptar">Sí</button>
 						<button type="button" class="btn btn-default js-modal-close">No</button>
@@ -112,7 +113,7 @@
 					</form>
 				</div>
 
-				<!-- Handlebars template -->
+				<!-- Handlebars template - Cancelar cita -->
 				<script id="template-msg-cancelar" type="text/x-handlebars-template">
 					<section id="msg-cancelar" class="msg-confirm">
 						<div class="mod-hd">
@@ -120,6 +121,21 @@
 						</div>
 						<div class="mod-bd">
 							<p>Se ha enviado un mensaje al correo electrónico de <strong>{{ nombreSolicitado }}</strong> para notificarle que la cita fue cancelada.</p>
+						</div>
+					</section>
+				</script>
+
+				<!-- Handlebars template - Finalizar cita -->
+				<script id="template-msg-finalizar" type="text/x-handlebars-template">
+					<section id="msg-cancelar" class="msg-confirm">
+						<div class="mod-hd">
+							<h2 class="flaticon-cancel17">La cita de atención se ha finalizado.</h2>
+						</div>
+						<div class="mod-bd">
+							<p>¿Desea evaluar esta cita?</p>
+
+							<a href="/cenfotec-proyecto-1/evaluacion/evaluarCita.php?idCita={{ citaId }}" class="btn btn-primary">Evaluar</a>
+							<a href="/cenfotec-proyecto-1/citas/agenda.php" class="btn btn-default">Volver</a>
 						</div>
 					</section>
 				</script>

@@ -58,7 +58,7 @@ function enviarEmail(to, subject, message) {
               '<main style="padding: 10px 30px;">' + message + 
               '<p><a href="http://localhost:8888/cenfotec-proyecto-1/seguridad/iniciarSesion.php">Ir al gestor de citas</a></p>' +
               '</main>' +
-              '<footer style="background: #333; color: #f2f2f2; font-size: 12px; padding: 10px 20px;">Cenfotec 2014</footer>' +
+              '<footer style="background: #333; color: #f2f2f2; font-size: 12px; padding: 10px 20px; width: 100%;">Cenfotec 2014</footer>' +
               '</body></html>';
 
     $.ajax({
@@ -614,7 +614,6 @@ console.log(pdatos);
 
 //reemplazar el texto de un input de busqueda
 function reemplazarTextoInput(pdivResultados,pinput,ptarget,pnombreId){
-	if(ptarget.className="js-linksBusqueda")
 	var idElement = ptarget.querySelector('.hidden');	
 	var inputContainer = pinput.parentNode;	
 	var lastId = inputContainer.querySelector('#'+pnombreId);

@@ -19,7 +19,7 @@
 			case 'insertar':
 				insertarCita();
 				break;
-			case 'cancelar':
+			case 'cancelarCita':
 				cancelarCita();
 				break;
 			case 'consultarUsuarioPorId':
@@ -27,6 +27,9 @@
 				break;
 			case 'crearSolicitud':
 				crearSolicitud();
+				break;
+			case 'finalizarCita':
+				finalizarCita();
 				break;
 		}
 	} else {
@@ -85,7 +88,22 @@
 			if ($result) {
 				deliver_response(200, 'OK', NULL);
 			} else {
-				deliver_response(401, 'Fallo en la cancelacion de la cita', NULL);
+				deliver_response(401, 'Fallo en la cancelación de la cita', NULL);
+			}
+		} else {
+			deliver_response(400, 'Bad request', NULL);
+		}
+	}
+
+	function finalizarCita() {
+		if (!empty($_GET['citaId'])) {
+			$citaId = $_GET['citaId'];
+			$result = finishCita($citaId);
+
+			if ($result) {
+				deliver_response(200, 'OK', NULL);
+			} else {
+				deliver_response(401, 'Fallo en la finalización de la cita', NULL);
 			}
 		} else {
 			deliver_response(400, 'Bad request', NULL);

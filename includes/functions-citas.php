@@ -121,7 +121,9 @@
 	
 	// Insertar una nueva solicitud.
 	function insertSolicitud($idSolicitante, $idSolicitado, $asunto, $modalidad, $tipo, $observaciones, $idCurso) {
-		$query = "INSERT INTO tcitas(idSolicitante, idSolicitado, asunto, modalidad, tipo, observaciones, curso, estado, esCita) VALUES ('$idSolicitante', '$idSolicitado', '$asunto', '$modalidad', '$tipo', '$observaciones', '$idcurso', '1', '0')";
+		
+		//$query = "INSERT INTO tcitas(idSolicitante, idSolicitado, asunto, modalidad, tipo, observaciones, curso, estado, esCita) VALUES ('$idSolicitante', '$idSolicitado', '$asunto', '$modalidad', '$tipo', '$observaciones', '$idcurso', '1', '0')";
+		$query = 'INSERT INTO tcitas(idSolicitante, idSolicitado, asunto, modalidad, tipo, observaciones, curso, estado, esCita) VALUES ('.$idSolicitante.', '.$idSolicitado.', '.$asunto.', '.$modalidad.', '.$tipo.', '.$observaciones.', '.$idcurso.', 1, 0)';
 		return do_query($query);
 	}
 	
@@ -144,11 +146,11 @@
 			while ($row = mysqli_fetch_assoc($queryResults)) {
 				if(utf8_encode($row['fechaInicio'])!=null){
 					//echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idUsuario="'. $idUsuario .'>'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
-					echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+					echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
 				}
 				else
 				{
-					echo '<li><span class="listo flaticon-check34"></span><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+					echo '<li><span class="listo flaticon-check34"></span><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
 				}				
 			}
 		}
@@ -163,11 +165,157 @@
 			
 			while ($row = mysqli_fetch_assoc($queryResults)) {
 				if(utf8_encode($row['fechaInicio'])==null){
-					echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idUsuario='.$row['idSolicitante'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+					echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitante'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
 				}
 				else
 				{
-					echo '<li><span class="listo flaticon-check34"></span><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idUsuario='.$row['idSolicitante'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+					echo '<li><span class="listo flaticon-check34"></span><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitante'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+				}				
+			}
+		}
+		
+		mysqli_free_result($queryResults);
+		return $jsonArray;
+	}
+	
+	// Función que muestra una solicitud específica
+	function mostrarSolicitud($idCita, $idUsuario) {
+		
+		$query = "SELECT tu.nombre, tu.apellido1, tu.apellido2, tr.nombre AS nombreRol FROM `tusuarios` AS tu INNER JOIN `trol` AS tr ON tr.id = tu.rol WHERE tu.id='$idUsuario'";
+		$queryResults = do_query($query);
+		$row = mysqli_fetch_assoc($queryResults);
+		
+		$nombreUsuario = utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
+		//si el usuario activo es un estudiante
+		if($row['nombreRol']=="Estudiante"){
+			$query = "SELECT tc.id,tc.idSolicitado,tc.idSolicitante,tu.nombre,tu.apellido1,tu.apellido2,tu.telefono,tu.imagen,tc.asunto,tc.estado,tc.tipo,tc.modalidad,tc.curso,tcur.nombre AS nombreCurso,tc.observaciones,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitado = tu.id INNER JOIN `tcursos` AS tcur ON tc.curso = tcur.id WHERE tc.id='$idCita'";
+
+			$queryResults = do_query($query);
+			$jsonArray = [];
+			$index = 0;
+			
+			$row = mysqli_fetch_assoc($queryResults);
+			
+			$tipoCita='Individual';
+			if(utf8_encode($row['tipo'])==1)
+			{
+				$tipoCita='Grupal';
+			}
+			$modalidadCita='Presencial';
+			if(utf8_encode($row['modalidad'])==1)
+			{
+				$modalidadCita='Virtual';
+			}
+			//si el invitado no ha propuesto una hora
+			if(utf8_encode($row['fechaInicio'])=="" && utf8_encode($row['estado'])==1){
+				
+			echo "si2";
+				echo '<section class="cita"> '.
+					'<div class="mod-hd"> '.
+						'<h2>'.utf8_encode($row['nombre']).'</h2> '.
+						'<span class="cita-hora-inicio-fin">Solicitud pendiente</span> '.
+					'</div> '.
+					'<div class="mod-bd"> '.
+						'<div class="row"> '.
+							'<span class="label">Solicitante:</span> '.
+							'<div class="data-wrap"> '.
+								'<span class="data cita-invitado">'.utf8_encode($row['nombre']).'</span> '.
+								'<span class="data">'.utf8_encode($row['id']).'</span> '.
+								'<span class="data">'.utf8_encode($row['telefono']).'</span> '.
+							'</div> '.
+						'</div> '.
+
+						'<img class="cita-photo" src="'.utf8_encode($row['imagen']).'" width="75" height="75"> '.
+
+						'<div class="row"> '.
+							'<span class="label">Asunto a tratar:</span> '.
+							'<span class="data">'.utf8_encode($row['asunto']).'</span> '.
+						'</div> '.
+ 
+						'<div class="row"> '.
+							'<span class="label">Curso:</span> '.
+							'<span class="data">'.utf8_encode($row['nombreCurso']).'</span> '.
+						'</div> '.
+
+						'<div class="row"> '.
+							'<span class="label">Modalidad:</span> '.
+							'<span class="data">'.$modalidadCita.'</span> '.
+						'</div> '.
+
+						'<div class="row"> '.
+							'<span class="label">Tipo:</span> '.
+							'<span class="data">'.$tipoCita.'</span> '.
+						'</div> '.
+
+						'<div class="row"> '.
+							'<span class="label">Observaciones:</span> '.
+							'<span class="data">'.utf8_encode($row['observaciones']).'</span> '.
+						'</div> '.
+						
+						
+						'<h3>Asignación de fecha y hora</h3> '.
+						'<form id="solicitarCita" class="form-horizontal" action="#" method="post"> '.
+                          '  <div class="form-row"> '.
+                              '  <label for="txtFecha">Fecha:</label> '.
+                              '  <input id="txtFecha" type="text" placeholder="Ingrese la fecha" class="form-control datepicker" /> '.
+                           ' </div> '.
+
+                           ' <div class="form-row"> '.
+                              '  <label for="txtHoraInicio">Hora de inicio:</label> '.
+                              '  <input id="txtHoraInicio" type="time" pattern="^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$" class="form-control form-control-time" required /> '.
+                          '  </div> '.
+
+                            '<div class="form-row "> '.
+                                '<label for="txtHoraFin">Hora de fin:</label> '.
+                               ' <input id="txtHoraFin" type="time" class="form-control form-control-time" /> '.
+                           ' </div> '.					
+							
+                           ' <div class="form-row form-row-button"> '.
+							'	<a href="/cenfotec-proyecto-1/citas/solicitudPropuesta.php" id="btnAceptar" class="btn btn-primary">Aceptar</a> '.
+							'	<a href="/cenfotec-proyecto-1/citas/solicitudRechazada.php" id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a> '.
+							'</div> '.              
+						'</form> '.
+					'</div> '.
+				'</section>';
+			}
+			
+			//si el solicitante no ha aceptado o rechazado la propuesta
+			if(utf8_encode($row['fechaInicio'])!="" && utf8_encode($row['estado'])==1){
+			
+			}
+			
+			//si ambas partes aceptaron la solicitud
+			if($row['estado']==2){
+			
+			}
+			
+			while ($row = mysqli_fetch_assoc($queryResults)) {
+				if(utf8_encode($row['fechaInicio'])!=null){
+					//echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idUsuario="'. $idUsuario .'>'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+					echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+				}
+				else
+				{
+					echo '<li><span class="listo flaticon-check34"></span><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+				}				
+			}
+		}
+		//si el usuario activo no es un estudiante
+		else
+		{
+			$query = "SELECT tc.id,tc.idSolicitado,tu.nombre, tu.apellido1,tc.idSolicitante,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitante = tu.id WHERE idSolicitado='$idUsuario' AND tc.esCita='0' ORDER BY tc.id ASC";
+
+			$queryResults = do_query($query);
+			$jsonArray = [];
+			$index = 0;
+			
+			while ($row = mysqli_fetch_assoc($queryResults)) {
+				if(utf8_encode($row['fechaInicio'])==null){
+					echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitante'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+				}
+				else
+				{
+					echo '<li><span class="listo flaticon-check34"></span><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitante'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
 				}				
 			}
 		}

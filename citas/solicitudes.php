@@ -1,5 +1,6 @@
 <?php
 	require_once('../includes/functions.php');
+	require_once('../includes/functions-citas.php');
 	$currentModule = 'citas';
 	$currentSubModule = 'solicitudes'; 
 ?>
@@ -19,6 +20,8 @@
 			<?php include(ROOT.'/includes/aside-citas.php'); ?>
 
 			<main>
+				<!--mostrarSolicitud(idCita,idUsuarioActivo)-->
+				<?php mostrarSolicitud(13,'jcerdadg@ucenfotec.ac.cr')?>
 				<section class="cita">
 					<div class="mod-hd">
 						<h2>Diego Barillas Valverde</h2>

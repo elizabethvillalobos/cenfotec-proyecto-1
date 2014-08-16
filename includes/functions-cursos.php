@@ -13,15 +13,14 @@ header('Content-Type:application/json');
 		$index = 0;		
 		
 		while ($row = mysqli_fetch_assoc($queryResults)) {			
-			$results['id'] = $row['id'];
-			$results['activo'] = $row['activo'];
-			$results['nombre'] = $row['nombre'];
-			$jsonArray['cursos'][$index] = $results;
+			$results['id'] = utf8_encode($row['id']);
+			$results['activo'] = utf8_encode($row['activo']);
+			$results['nombre'] = utf8_encode($row['nombre']);
+			$jsonArray['cursos'][$index] = $results;			
 			$index++;
 		}
 
 		mysqli_free_result($queryResults);
-	
 		return $jsonArray;
 	}
 

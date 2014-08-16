@@ -325,7 +325,7 @@ function registrarCurso() {
 				  },
 			dataType: 'json',
 			success: function(response){    
-				window.location ="registarCurso-Confirmar.html";
+				window.location ="registarCurso-Confirmar.php?nombreCurso="+nombre;
 			},
 			error: function(response){
 				var error = document.createElement("p");
@@ -518,3 +518,7 @@ for(var i=0; i < abtnActivo.length; i++) {
     });
 }
 
+var nombreCursoGuardado=document.querySelector('#nombreCursoGuardado');
+if (nombreCursoGuardado) {
+	nombreCursoGuardado.innerHTML=location.search.split("=")[1];
+}

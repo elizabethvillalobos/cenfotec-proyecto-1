@@ -118,6 +118,36 @@
 
 		return $result;
 	}
+
+	function getExpiracionSolicitud() {
+		$query = 'SELECT configuracion.valor FROM configuracion '.
+				 'WHERE configuracion.parametro = "expiracionSolicitud"';
+		$queryResults = do_query($query);
+
+		while ($row = mysqli_fetch_assoc($queryResults)) {
+			$results = $row['valor'];
+		}
+
+		return $results;
+	}
+
+	function expireSolicitudesCitas($expiracionSolicitud) {
+		$fechaVencimiento = date('Y-m-d H:i:s', strtotime('- '.$expiracionSolicitud.' days'));
+		$query = 'SELECT * FROM tcitas '.
+				 'WHERE fechaCreacion < "'.$fechaVencimiento.'"';
+
+		$queryResults = do_query($query);
+		$jsonArray = [];
+
+		if (mysqli_num_rows($queryResults) > 0) {
+			// Estado = 6 => expirada
+			$queryUpdate = 'UPDATE tcitas SET tcitas.estado = 6 WHERE fechaCreacion < "'.$fechaVencimiento.'"';
+			$queryResults = do_query($queryUpdate);
+		}
+		mysqli_free_result($queryResults);
+
+		return $jsonArray;
+	}
 	
 	// Insertar una nueva solicitud.
 	function insertSolicitud($idSolicitante, $idSolicitado, $asunto, $modalidad, $tipo, $observaciones, $idCurso) {

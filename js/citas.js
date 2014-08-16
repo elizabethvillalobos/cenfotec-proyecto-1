@@ -90,7 +90,7 @@ function insertarCita() {
 		url: '../includes/service-citas.php',
 		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 		data: { // Objeto con los parámetros que utiliza el servicio.
-			query: 'insertar',
+			query: 'insertarCita',
 			idSolicitante: 'evillalobos@ucenfotec.ac.cr',
 			idSolicitado: 'aluna@ucenfotec.ac.cr',
 			fechaInicio: fechaInicio.toISOString(),
@@ -99,7 +99,7 @@ function insertarCita() {
 			modalidad: '0',
 			tipo: '0',
 			observaciones: 'Testing testing testing...',
-			curso: 'BISOFT1'
+			curso: 'BISOFT-01'
 		},
 		dataType: 'json',
 		success: function(response) {
@@ -294,8 +294,6 @@ function mostrarMsgFinalizacion(citaId) {
 	$('.cita-pendiente').hide();
 }
 // End finalizar cita.
-
-
 
 
 // DOM ready

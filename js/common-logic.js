@@ -639,4 +639,22 @@ function validaSoloNumeros(event) {
 }
 
 
+function expirarCitas() {
+    $.ajax({
+        url: '../includes/service-citas.php',
+        type: 'get', 
+        data: { 
+            query: 'expirarCitas'
+        },
+        dataType: 'json',
+        success: function(response) {
+            console.log('Expirar citas: ');
+            console.log(response);
+        },
+        error: function(response) {
+            // Mostrar mensaje de error.
+            console.log(response);
+        }
+    });
+}
 

@@ -16,7 +16,7 @@
 			case 'consultarCitaPorId':
 				consultarCitaPorId();
 				break;
-			case 'insertar':
+			case 'insertarCita':
 				insertarCita();
 				break;
 			case 'cancelarCita':
@@ -27,6 +27,9 @@
 				break;
 			case 'crearSolicitud':
 				crearSolicitud();
+				break;
+			case 'expirarCitas':
+				expirarCitas();
 				break;
 			case 'finalizarCita':
 				finalizarCita();
@@ -93,6 +96,13 @@
 		} else {
 			deliver_response(400, 'Bad request', NULL);
 		}
+	}
+
+	function expirarCitas() {
+		$expiracionSolicitud = intval(getExpiracionSolicitud());
+		$result = expireSolicitudesCitas($expiracionSolicitud);
+
+		deliver_response(200, 'OK', json_encode($result));
 	}
 
 	function finalizarCita() {

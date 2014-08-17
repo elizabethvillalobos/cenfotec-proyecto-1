@@ -249,6 +249,9 @@ function soloLetrasYnumeros(e){
     }
 }
 
+
+
+
 function consultarCursos(){
 	var idCarrera = location.search.split("=")[1];
 	var request = $.ajax({

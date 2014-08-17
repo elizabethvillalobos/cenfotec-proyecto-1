@@ -51,6 +51,7 @@
 												<label for="text1">Código:</label>
 												<input id="text1" type="text" placeholder="{{idcurso}}" class="form-control1" 
 												readonly="readonly"/>
+												
 											</div>
 											<label for="textoProfe1Curso">Profesor(es)</label>
 											<div id="wrapperProfesCursos">

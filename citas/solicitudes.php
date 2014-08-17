@@ -21,7 +21,7 @@
 
 			<main>
 				<!--mostrarSolicitud(idCita,idUsuarioActivo)-->
-				<?php mostrarSolicitud(28,'acordero@ucenfotec.ac.cr')?>
+				<?php mostrarSolicitud($_GET['idCita'],'jcerdadg@ucenfotec.ac.cr')?>
 			</main>
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>

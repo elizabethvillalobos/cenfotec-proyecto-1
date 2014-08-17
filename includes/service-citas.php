@@ -31,6 +31,9 @@
 			case 'finalizarCita':
 				finalizarCita();
 				break;
+			case 'actualizarHoraSolicitud':
+				actualizarHoraSolicitud();
+				break;
 		}
 	} else {
 		// Invalid request.
@@ -145,6 +148,16 @@
 			
 			deliver_response(200, 'OK', 'Solicitud realizada exitosamente');
 		}
+	}
+	
+	function actualizarHoraSolicitud() {
+		$idCita = $_GET['idCita'];
+		$fechaInicio = $_GET['fechaInicio'];
+		$fechaFin = $_GET['fechaFin'];
+		$query = "UPDATE `tcitas` SET `fechaInicio` = '$fechaInicio', `fechaFin` = '$fechaFin' WHERE `tcitas`.`id` = '$idCita';";
+			
+		$resultado = do_query($query);			
+		deliver_response(200, 'OK', 'Solicitud actualizada exitosamente');
 	}
 	
 	// Esta función retorna la respuesta que se enviará

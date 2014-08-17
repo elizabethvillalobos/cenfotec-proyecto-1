@@ -161,7 +161,7 @@ if(btnEnviar!=null){
 							  },
 						dataType: 'json',
 						success: function(response){ 
-							window.location ="solicitudEnviada.php?nombreInvitado="+$('#txtInvitado').val();
+							window.location ="solicitudEnviada.php?nombreInvitado="+$('#txtInvitado').val()+"&titulo=La solicitud de cita de atención ha sido realizada";
 						},
 						error: function(response){
 							var error = document.createElement("p");
@@ -227,6 +227,7 @@ if(btnAceptar!=null){
 		}
 		else
 		{
+			var noHayErrores=true;
 			var today=new Date();
 			today.setHours(0);
 			today.setMinutes(0);
@@ -235,6 +236,7 @@ if(btnAceptar!=null){
 			if($('#txtFecha').datepicker("getDate")<today)
 			{					
 				mostrarMensajeError(fecha,"Debe seleccionar una fecha válida");
+				noHayErrores=false;
 				event.preventDefault();
 			}
 			
@@ -244,6 +246,7 @@ if(btnAceptar!=null){
 			
 			if(hFin<hInicio)
 			{
+				noHayErrores=false;
 				mostrarMensajeError(document.querySelector('#txtHoraFin'),"Debe seleccionar una hora mayor a la hora de inicio");
 				event.preventDefault();
 			}
@@ -252,9 +255,40 @@ if(btnAceptar!=null){
 				var horaFin = new Date(hFin.getTime() - 30*60000); 
 				if(horaFin<hInicio)
 				{
+					noHayErrores=false;
 					mostrarMensajeError(document.querySelector('#txtHoraFin'),"La cita debe durar mínimo 30 minutos");
 					event.preventDefault();
 				}
+			}
+			
+			if(noHayErrores){
+				event.preventDefault();
+				var idCita = location.search.split("=")[1],
+					fechaInicio = $('#txtFecha').datepicker({ dateFormat: 'dd-mm-yy' }).val()+" "+$('#txtHoraInicio').val(),
+					fechaFin = $('#txtFecha').datepicker({ dateFormat: 'dd-mm-yy' }).val()+" "+$('#txtHoraFin').val();
+
+				var request = $.ajax({
+					url: "../includes/service-citas.php",
+					type: "get",
+					data: {
+						   'query': 'actualizarHoraSolicitud',
+						   'idCita': idCita,
+						   'fechaInicio' : fechaInicio,
+						   'fechaFin' : fechaFin
+						  },
+					dataType: 'json',
+					success: function(response){ 
+						window.location ="solicitudEnviada.php?nombreInvitado="+$('.cita-invitado').text()+"&titulo=La propuesta de hora para la solicitud de cita ha sido realizada";
+					},
+					error: function(response){
+						var error = document.createElement("p");
+						error.className="alert-error flaticon-remove11";
+						var msj = document.createTextNode("No se pudo modificar la hora");
+						error.appendChild(msj);
+						var botonesDiv=document.querySelector('.form-row-button');
+						botonesDiv.appendChild(error);						
+					}
+				});
 			}
 			
 		}

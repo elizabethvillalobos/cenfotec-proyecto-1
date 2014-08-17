@@ -91,12 +91,12 @@
 			<main>
 				<section class="msg-confirm">
 					<div class="mod-hd">
-						<h2 class="flaticon-cancel17">La solicitud de cita de atención ha sido realizada</h2>
+						<h2 class="flaticon-cancel17"><?php echo urldecode($_GET['titulo']) ?></h2>
 					</div>
 					<div class="mod-bd">
-						<p>Se ha enviado un mensaje al correo electrónico de <strong><?php echo urldecode($_GET['nombreInvitado']) ?></strong> para notificarle que tiene una solicitud de cita nueva.</p>
+						<p>Se ha enviado un mensaje al correo electrónico de <strong><?php echo urldecode($_GET['nombreInvitado']) ?></strong> para notificarle sobre la acción realizada.</p>
 						
-						<a href="solicitudes.html" class="btn btn-default">Volver</a>
+						<a href="solicitudes.php?idCita=0" class="btn btn-default">Volver</a>
 					</div>
 				</section>
 			</main>

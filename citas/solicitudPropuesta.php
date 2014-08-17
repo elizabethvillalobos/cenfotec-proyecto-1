@@ -35,6 +35,9 @@
 		</div>
 
 		<!-- Load JS -->
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-ui.js"></script>
+		<script src="/cenfotec-proyecto-1/js/gic.js"></script>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 		<script src="/cenfotec-proyecto-1/js/solicitarCita.js"></script>
 	</body>

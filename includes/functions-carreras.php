@@ -40,8 +40,7 @@
 													value="Habilitar">
 												<input type="button" class="btn btn-secondaryAction" id="btn_disable" '.($row['carreraActiva'] == 1? '' : 'disabled').'
 													value="Deshabilitar">
-												<input type="button" class="btn btn-secondaryAction" id="btnModificar" onclick="location.href="/cenfotec-proyecto-1/configuracion/modificarCarrera.php?idCarrera='.utf8_encode($row['carreraId']) .'"
-													value="Modificar" >
+												<input type="button" class="btn btn-secondaryAction" id="btnModificar" value="Modificar" onclick=location.href="/cenfotec-proyecto-1/configuracion/carrerasModificar.php?idCarrera={{carreraId}}">
 											</div>
 										</fieldset>
 									</div>

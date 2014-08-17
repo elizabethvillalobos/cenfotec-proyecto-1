@@ -80,7 +80,7 @@
         <script src="/cenfotec-proyecto-1/js/flatui.js"></script>
         <script src="/cenfotec-proyecto-1/js/html5uploader.js"></script>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
-        <script src="/cenfotec-proyecto-1/configuracion/inserts-config-js/insertarCarrera.js"></script>
+        <!--<script src="/cenfotec-proyecto-1/configuracion/inserts-config-js/insertarCarrera.js"></script>-->
         <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 	</body>
 </html>

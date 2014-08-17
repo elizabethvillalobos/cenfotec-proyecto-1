@@ -70,6 +70,7 @@ function crearCarrera(){
 		$query = "INSERT INTO tcarrera(id, nombre, idDirector, activo) VALUES ('$codigo', '$nombre', '$director', '1')";
 
 		$result = do_query($query);
+		//header('Location: /cenfotec-proyecto-1/configuracion/carrerasCrear-confirmar.php');
 	}
 }
 
@@ -89,6 +90,7 @@ function mostrarDirectores() {
 	}
 
 }
+
 
 /*INSERTAR CARRERA, JAVIER BARBOZA*/
 

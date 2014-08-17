@@ -86,9 +86,8 @@ if (eFormValidar) {
                   	var indice = document.getElementById("director-academico").selectedIndex,
                    	   seleccionado = validarDropdown(indice);
                    	if (seleccionado){
-                   		registrarCarrera();
+                   		registrarCarrera();	
                    	}                 	
-                   
 				break;
                 case "crear-usuario":
                     var indice1 = document.getElementById("usuario-rol").selectedIndex,
@@ -333,8 +332,7 @@ function registrarCurso() {
 				var msj = document.createTextNode("Este curso ya se encuentra almacenado.");
 				error.appendChild(msj);
 				var botonesDiv=document.querySelector('.form-row-button');
-				botonesDiv.appendChild(error);
-				
+				botonesDiv.appendChild(error);	
 			}
 		});
 	}

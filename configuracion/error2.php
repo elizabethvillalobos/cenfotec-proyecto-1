@@ -22,11 +22,11 @@
 			<main>
 				<section class="msg-confirm">
 					<div class="mod-hd">
-						<h2 class="flaticon-male12">Carrera creada</h2>
+						<h2 class="flaticon-remove11">Error</h2>
 					</div>
 					<div class="mod-bd">
-						<p>La carrera se creó con éxito.</p>
-						<a href="/cenfotec-proyecto-1/configuracion/carrerasConsultar.php" class="btn btn-default">Volver</a>
+						<p>El nombre de la carrera ya existe.</p>
+						<a href="/cenfotec-proyecto-1/configuracion/carrerasCrear.php" class="btn btn-default">Volver</a>
 					</div>
 				</section>
 			</main>

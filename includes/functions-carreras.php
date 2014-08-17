@@ -40,7 +40,7 @@
 													value="Habilitar">
 												<input type="button" class="btn btn-secondaryAction" id="btn_disable" '.($row['carreraActiva'] == 1? '' : 'disabled').'
 													value="Deshabilitar">
-												<input type="button" class="btn btn-secondaryAction" id="btnModificar"
+												<input type="button" class="btn btn-secondaryAction" id="btnModificar" onclick="location.href="/cenfotec-proyecto-1/configuracion/modificarCarrera.php?idCarrera='.utf8_encode($row['carreraId']) .'"
 													value="Modificar" >
 											</div>
 										</fieldset>
@@ -54,7 +54,14 @@
 		return $html;
 	}
 
-	
+	function getSpecificCarrera($pidCarrera){
+		
+		$query = 'SELECT tcarrera.id as carreraId, tcarrera.nombre as carreraNombre, tusuarios.id as idusuario, tusuarios.nombre as directorNombre, tusuarios.apellido1 as directorApellido1, tusuarios.apellido2 as directorApellido2
+			 	  FROM tcarrera, tusuarios WHERE tcarrera.id="$pidCarrera" AND tcarrera.id = tusuarios.id ORDER BY tcarrera.nombre';	 	 
+		$result = do_query($query);	
+		$row = mysqli_fetch_assoc($result);
+		return $row;
+	}
 	/*function crearCarrera(){
 		if (isset($_POST['pCodigo']) &&
 			isset($_POST['pNombre']) &&

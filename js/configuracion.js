@@ -89,6 +89,13 @@ if (eFormValidar) {
                    		crearCarrera();	
                    	}                 	
 				break;
+				case "modificar-carrera":                 
+                  	var indice = document.getElementById("director-academico").selectedIndex,
+                   	   seleccionado = validarDropdown(indice);
+                   	if (seleccionado){
+                   		modificarCarrera();	
+                   	}                 	
+				break;
                 case "crear-usuario":
                     var indice1 = document.getElementById("usuario-rol").selectedIndex,
                         indice2 = document.getElementById("usuario-carrera").selectedIndex;
@@ -101,6 +108,7 @@ if (eFormValidar) {
                        }
                    }                 	
                 break;
+
 			}
 		}
 	});
@@ -405,8 +413,37 @@ function crearCarrera() {
     }
 };
 
+function modificarCarrera(){
+	var codigo = $('#codigo-carrera').val(),
+      	nombre = $('#nombre-carrera').val(),
+      	director = $('#director-academico').val(), 
+      	hayError = false;
 
+    if(codigo == nombre){
+    	mostrarMensajeError(document.querySelector('#nombre-carrera'),"El nombre de la carrera no puede ser igual al código.");
+		hayError=true;
+    }  	
 
+    if(!hayError){
+    	var request = $.ajax({
+    		url: "../includes/service-carreras.php",
+    		type: "get",
+    		data: {
+      				'query': 'modificarCarrera',
+      				'pCodigo': codigo,
+      				'pNombre': nombre,
+      				'pDirector': director
+    		},
+    		dataType: 'json',
+    		success: function(response) { 
+    			window.location = "/cenfotec-proyecto-1/configuracion/carrerasModificar-confirmar.php?nombreCarrera="+nombre;
+    		},
+    		error: function(response){
+				
+			} 
+  		});
+    }
+};
 
 
 //Filtros de mostrar usuarios

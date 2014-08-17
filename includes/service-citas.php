@@ -34,6 +34,9 @@
 			case 'actualizarHoraSolicitud':
 				actualizarHoraSolicitud();
 				break;
+			case 'aceptarPropuestaSolicitud':
+				aceptarPropuestaSolicitud();
+				break;
 		}
 	} else {
 		// Invalid request.
@@ -158,6 +161,14 @@
 			
 		$resultado = do_query($query);			
 		deliver_response(200, 'OK', 'Solicitud actualizada exitosamente');
+	}
+	
+	function aceptarPropuestaSolicitud() {
+		$idCita = $_GET['idCita'];
+		$query = "UPDATE `tcitas` SET `estado` = '2' WHERE `tcitas`.`id` = '$idCita';";
+			
+		$resultado = do_query($query);			
+		deliver_response(200, 'OK', 'Solicitud aceptada exitosamente');
 	}
 	
 	// Esta función retorna la respuesta que se enviará

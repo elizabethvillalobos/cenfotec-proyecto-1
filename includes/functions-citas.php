@@ -221,8 +221,8 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 					echo '<section class="cita">';
 					mostrarFrmCita($fecha,$hora,$nombreCompleto,utf8_encode($row['idSolicitado']),utf8_encode($row['telefono']),utf8_encode($row['imagen']),utf8_encode($row['asunto']),utf8_encode($row['nombreCurso']),$modalidadCita,$tipoCita,utf8_encode($row['observaciones']));
 					echo '<div class="form-row form-row-button"> '.
-							'<a href="/cenfotec-proyecto-1/citas/solicitudAceptada.php" id="btnAceptar" class="btn btn-primary">Aceptar</a> '.
-							'<a href="/cenfotec-proyecto-1/citas/solicitudRechazada.php" id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a> '.
+							'<a href="/cenfotec-proyecto-1/citas/solicitudAceptada.php" id="btnAceptarPropuesta" class="btn btn-primary">Aceptar</a> '.
+							'<a href="/cenfotec-proyecto-1/citas/solicitudRechazada.php" id="btnRechazarPropuesta" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a> '.
 						'</div>'.
 					'</section>';
 				}

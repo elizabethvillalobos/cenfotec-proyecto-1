@@ -218,7 +218,7 @@ function getRadioChecked(radioName){
 	return radioChecked;
 }
 
-
+//aceptar solicitud y proponer hora
 var btnAceptar=document.querySelector('#btnAceptar');
 if(btnAceptar!=null){
 	btnAceptar.addEventListener('click',function(event){
@@ -292,6 +292,37 @@ if(btnAceptar!=null){
 			}
 			
 		}
+	});
+}
+
+//aceptar propuesta de hora
+var btnAceptarPropuesta=document.querySelector('#btnAceptarPropuesta');
+if(btnAceptarPropuesta!=null){
+	btnAceptarPropuesta.addEventListener('click',function(event){
+		event.preventDefault();
+		var idCita = location.search.split("=")[1];
+
+		var request = $.ajax({
+			url: "../includes/service-citas.php",
+			type: "get",
+			data: {
+				   'query': 'aceptarPropuestaSolicitud',
+				   'idCita': idCita
+				  },
+			dataType: 'json',
+			success: function(response){ 
+				window.location ="solicitudEnviada.php?nombreInvitado="+$('.cita-invitado').text()+"&titulo=La solicitud ha sido aceptada exitosamente";
+			},
+			error: function(response){
+				var error = document.createElement("p");
+				error.className="alert-error flaticon-remove11";
+				var msj = document.createTextNode("No se pudo aceptar la solicitud");
+				error.appendChild(msj);
+				var botonesDiv=document.querySelector('.form-row-button');
+				botonesDiv.appendChild(error);						
+			}
+		});
+			
 	});
 }
 

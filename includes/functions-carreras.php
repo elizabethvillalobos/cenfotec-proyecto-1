@@ -40,7 +40,7 @@
 													value="Habilitar">
 												<input type="button" class="btn btn-secondaryAction" id="btn_disable" '.($row['carreraActiva'] == 1? '' : 'disabled').'
 													value="Deshabilitar">
-												<input type="button" class="btn btn-secondaryAction" id="btnModificar" value="Modificar" onclick=location.href="/cenfotec-proyecto-1/configuracion/carrerasModificar.php?idCarrera={{carreraId}}">
+												<input type="button" class="btn btn-secondaryAction" id="btnModificar" value="Modificar" onclick=location.href="/cenfotec-proyecto-1/configuracion/carrerasModificar.php?idCarrera='.utf8_encode($row['carreraId']).'">
 											</div>
 										</fieldset>
 									</div>
@@ -55,28 +55,16 @@
 
 	function getSpecificCarrera($pidCarrera){
 		
-		$query = 'SELECT tcarrera.id as carreraId, tcarrera.nombre as carreraNombre, tusuarios.id as idusuario, tusuarios.nombre as directorNombre, tusuarios.apellido1 as directorApellido1, tusuarios.apellido2 as directorApellido2
-			 	  FROM tcarrera, tusuarios WHERE tcarrera.id="$pidCarrera" AND tcarrera.id = tusuarios.id ORDER BY tcarrera.nombre';	 	 
+
+		$query = "SELECT tcarrera.id as carreraId, tcarrera.nombre as carreraNombre, tusuarios.id as idusuario, tusuarios.nombre as directorNombre, tusuarios.apellido1 as directorApellido1, tusuarios.apellido2 as directorApellido2
+			 	  FROM tcarrera, tusuarios WHERE tcarrera.id='$pidCarrera' AND tcarrera.idDirector = tusuarios.id";	 	 
+		 
 		$result = do_query($query);	
 		$row = mysqli_fetch_assoc($result);
+				
 		return $row;
 	}
-	/*function crearCarrera(){
-		if (isset($_POST['pCodigo']) &&
-			isset($_POST['pNombre']) &&
-			isset($_POST['pDirector'])) {
-
-			$codigo = $_POST['pCodigo'];
-			$nombre = $_POST['pNombre'];
-			$director = $_POST['pDirector'];
-
-			$query = "INSERT INTO tcarrera(id, nombre, idDirector, activo) VALUES ('$codigo', '$nombre', '$director', '1')";
-
-			$result = do_query($query);
-		
-		}
-	}*/
-
+	
 	// obtener directores academicos
 	function obtenerDirectores(){
 		$query = "SELECT * FROM tusuarios WHERE rol=3 AND activo=1";

@@ -50,7 +50,7 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<button type="submit" id="btn-guardar-carrera" class="btn btn-primary">Enviar</button>
+							<button type="submit" id="btn-guardar-carrera" class="btn btn-primary">Guardar</button>
 							<!--<button id="btn-cancelar" class="btn btn-secondary" type="submit">Cancelar</button>-->
 							<a href="carrerasConsultar.php" class="btn btn-default js-modal" 
 								data-modal-id="modal-cancelar">Cancelar</a>

@@ -61,7 +61,7 @@
 
 						<div class="form-row form-row-button">
 							<button id="btn-guardar-modificacion" class="btn btn-primary" type="submit">Guardar</button>
-							<a href="modificarCarrera-cancelar.html" class="btn btn-default js-modal" 
+							<a href="carrerasConsultar.php" class="btn btn-default js-modal" 
 								data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</form>
@@ -70,7 +70,7 @@
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea cancelar la modificación de la carrera?</h3>
 					<div class="form-row">
-						<a href="consultarCarrerasCarreraAgregada.html" class="btn btn-primary js-modal-aceptar">Si</a>
+						<a href="carrerasConsultar.php" class="btn btn-primary js-modal-aceptar">Si</a>
 						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>

@@ -268,7 +268,7 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 
 								'<div class="form-row"> '.
 								   ' <label for="txtHoraInicio">Hora de inicio:</label> '.
-								   ' <input id="txtHoraInicio" type="time" pattern="^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$" class="form-control form-control-time" required /> '.
+								   ' <input id="txtHoraInicio" type="time" pattern="^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$" class="form-control form-control-time"/> '.
 							   ' </div> '.
 
 								'<div class="form-row "> '.

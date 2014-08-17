@@ -37,6 +37,9 @@
 			case 'aceptarPropuestaSolicitud':
 				aceptarPropuestaSolicitud();
 				break;
+			case 'rechazarSolicitud':
+				rechazarSolicitud();
+				break;
 		}
 	} else {
 		// Invalid request.
@@ -169,6 +172,14 @@
 			
 		$resultado = do_query($query);			
 		deliver_response(200, 'OK', 'Solicitud aceptada exitosamente');
+	}
+	
+	function rechazarSolicitud() {
+		$idCita = $_GET['idCita'];
+		$query = "UPDATE `tcitas` SET `estado` = '3' WHERE `tcitas`.`id` = '$idCita';";
+			
+		$resultado = do_query($query);			
+		deliver_response(200, 'OK', 'Solicitud rechazada exitosamente');
 	}
 	
 	// Esta función retorna la respuesta que se enviará

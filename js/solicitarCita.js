@@ -295,6 +295,49 @@ if(btnAceptar!=null){
 	});
 }
 
+//rechazar solicitud y NO proponer hora
+var btnRechazar=document.querySelector('#btnRechazar');
+if(btnRechazar!=null){
+	btnRechazar.addEventListener('click',function(event){
+		event.preventDefault();
+		rechazarSolicitud();
+	});
+}
+
+//rechazar solicitud y NO proponer hora
+var btnRechazarPropuesta=document.querySelector('#btnRechazarPropuesta');
+if(btnRechazarPropuesta!=null){
+	btnRechazarPropuesta.addEventListener('click',function(event){
+		event.preventDefault();
+		rechazarSolicitud();
+	});
+}
+
+function rechazarSolicitud(){
+	var idCita = location.search.split("=")[1];
+
+		var request = $.ajax({
+			url: "../includes/service-citas.php",
+			type: "get",
+			data: {
+				   'query': 'rechazarSolicitud',
+				   'idCita': idCita
+				  },
+			dataType: 'json',
+			success: function(response){ 
+				window.location ="solicitudEnviada.php?nombreInvitado="+$('.cita-invitado').text()+"&titulo=La solicitud ha sido rechazada con éxito";
+			},
+			error: function(response){
+				var error = document.createElement("p");
+				error.className="alert-error flaticon-remove11";
+				var msj = document.createTextNode("No se pudo rechazar la solicitud");
+				error.appendChild(msj);
+				var botonesDiv=document.querySelector('.form-row-button');
+				botonesDiv.appendChild(error);						
+			}
+		});
+}
+
 //aceptar propuesta de hora
 var btnAceptarPropuesta=document.querySelector('#btnAceptarPropuesta');
 if(btnAceptarPropuesta!=null){

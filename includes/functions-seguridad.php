@@ -26,8 +26,7 @@ function getUsuarioPorId($usuarioId) {
     return $jsonArray;
 }
 
-function comprobarCorreo() {   
-    $correo = $_GET['pid'];
+function comprobarCorreo($correo) {
     $usuarios = obtenerInfoSesion();
     $id = '';
         

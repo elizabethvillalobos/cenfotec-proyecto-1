@@ -1,6 +1,7 @@
 <?php
 	require_once('../includes/functions.php');
     require_once(ROOT.'/includes/functions-usuarios.php');
+    require_once(ROOT.'/includes/functions-seguridad.php');
     
     $aIds = getIdUsuarios();
     $aContrasenas = getPWUsuarios();
@@ -67,6 +68,8 @@
             }
             */
         </script>
+        <script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
+        <script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
         <script src="/cenfotec-proyecto-1/seguridad/iniciarSesion.js"></script>
 	</body>

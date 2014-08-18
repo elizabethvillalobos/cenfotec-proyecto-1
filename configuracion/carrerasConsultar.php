@@ -50,8 +50,7 @@
         <script src="/cenfotec-proyecto-1/js/html5uploader.js"></script>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
         <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
-
-        <!--<script src="/cenfotec-proyecto-1/js/pruebaConfiguracion.js"></script>-->
-
+        <script src="/cenfotec-proyecto-1/js/actualizarEstadoCarrera.js"></script>
+        
 	</body>
 </html>

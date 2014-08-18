@@ -80,7 +80,16 @@
 		}
 	}
 
-	 
+	function actualizarEstado(){
+		if (isset($_POST['pId_carrera']) && isset($_POST['pEstado'])) {
+			$idCarrera = utf8_decode($_POST['pId_carrera']);
+			$estado = utf8_decode($_POST['pEstado']);
+			$query = "UPDATE tcarrera SET activo='$estado' WHERE id='$idCarrera'";
+			$result = do_query($query);		
+		}
+	}
+
+
 	if($_SERVER['REQUEST_METHOD']=="POST") {
 		$function = $_POST['call'];
 		if(function_exists($function)) {

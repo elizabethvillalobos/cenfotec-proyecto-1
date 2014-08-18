@@ -20,18 +20,22 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
         var correoCorrecto=validarCorreo(eCorreo, eError, 'El correo es incorrecto');
         if(correoCorrecto){
             /*var correoRegistrado = validarCorreoRegistrado(eCorreo, eError, 'El correo no está registrado');*/
-            var correoRegistrado = validarCorreoRegistradoBD(eCorreo);
+            var correoRegistrado = validarCorreoRegistradoBD(eCorreo, eError, 'El correo no está registrado');
             if (correoRegistrado){
-                var coincide=validarContrasena(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
+                console.log("Paso la prueba");
+                var coincide=validarContrasenaBD(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
+//                var coincide=validarContrasenaBD(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
                 if(coincide){
+                    alert("Bienvenido");
 //                    validarVistaRol(eCorreo, formulario);
-                    formulario.submit();
+//                    formulario.submit();
                 }
             }    
         }
     }
     
-    function validarCorreoRegistradoBD(pcorreo){
+    function validarCorreoRegistradoBD(pcorreo, pElementoError, pMsjError){
+        console.log(pcorreo);
         $.ajax({
             url: '../includes/service-seguridad.php',
             type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
@@ -41,7 +45,12 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
             },
             dataType: 'json',
             success: function(response) {
-                console.log($.parseJSON(response.data));
+//                console.log($.parseJSON(response.data));
+                if(!($.parseJSON(response.data))){
+                    pElementoError.innerHTML=pMsjError;
+                    pElementoError.className += ' error';
+                }
+                return $.parseJSON(response.data);
             },
             error: function(response) {
                 console.log(response);
@@ -49,6 +58,31 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
         });
     }
     
+    function validarContrasenaBD(correoRegistrado, pContrasena, pElementoError, pMsjError){
+        console.log(correoRegistrado);
+        console.log(pContrasena);
+        $.ajax({
+            url: '../includes/service-seguridad.php',
+            type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+            data: { // Objeto con los parámetros que utiliza el servicio.
+                query : 'comprobarContrasena',
+                pid : correoRegistrado,
+                pcontrasena : pContrasena
+            },
+            dataType: 'json',
+            success: function(response) {
+                console.log($.parseJSON(response.data));
+                if(!($.parseJSON(response.data))){
+                    pElementoError.innerHTML=pMsjError;
+                    pElementoError.className += ' error';
+                }
+                return $.parseJSON(response.data);
+            },
+            error: function(response) {
+                console.log(response);
+            }
+        });
+    }
 
     
 }); /*addEvenListener = Observador del evento y function ejecuta la funcion dentro de  los corchetes cuando se ejecuta la funcion*/

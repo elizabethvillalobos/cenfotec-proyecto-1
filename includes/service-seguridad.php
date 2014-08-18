@@ -13,6 +13,9 @@
 			case 'comprobarCorreo':
 				comprobarCorreoExiste();
 				break;
+            case 'comprobarContrasena':
+				comprobarPWExiste();
+				break;
 		}
 	} else {
 		// Invalid request.
@@ -23,6 +26,24 @@
 		if (!empty($_GET['pid'])){
         	$correo = $_GET['pid'];
         	$result = comprobarCorreo($correo);
+
+        	if ($result) {
+        		deliver_response(200, 'OK', json_encode($result));	
+        	} else {
+        		deliver_response(200, 'No data', NULL);
+        	}
+    	} else {
+    		// Invalid request.
+			deliver_response(400, 'Bad request', NULL);
+    	}	    
+	}
+
+    function comprobarPWExiste() {   
+		if (!empty($_GET['pid']) &&
+           !empty($_GET['pcontrasena'])){
+        	$correo = $_GET['pid'];
+            $contrasena = $_GET['pcontrasena'];
+        	$result = comprobarContrasena($correo, $contrasena);
 
         	if ($result) {
         		deliver_response(200, 'OK', json_encode($result));	

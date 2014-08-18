@@ -1,30 +1,13 @@
 <?php
 	require_once('../includes/functions.php');
 
+
 function obtenerInfoSesion(){
     $query = "SELECT `tusuarios`.`id`, `tusuarios`.`contrasena`, `tusuarios`.`activo`, `tusuarios`.`rol`, `trol`.`nombre` AS 'Rol' FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id` AND `tusuarios`.`activo`= 1 ";
     
     return do_query($query);
 }
 
-function getUsuarioPorId($usuarioId) {
-    $query = 'SELECT tusuarios.id, tusuarios.contrasena, tusuarios.activo, tusuarios.rol '.
-             'FROM tusuarios '.
-             'WHERE tusuarios.id = "'.$usuarioId.'"';
-
-    $queryResults = do_query($query);
-    $jsonArray = [];
-    $index = 0;
-
-    while ($row = mysqli_fetch_assoc($queryResults)) {
-        $results['nombreCompleto'] = utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
-        $jsonArray[$index] = $results;
-        $index++;
-    }
-    mysqli_free_result($queryResults);
-
-    return $jsonArray;
-}
 
 function comprobarCorreo($correo) {
     $usuarios = obtenerInfoSesion();
@@ -38,17 +21,19 @@ function comprobarCorreo($correo) {
     return $id;
 }                    
 
-/*function getPWUsuarios(){
-    $contrasenas = getUsuarios();
-    $i=0;
-    
-    while ($row = mysqli_fetch_assoc($contrasenas)) {
-		$arreglo[$i]= $row['contrasena'];
-        $i++;
-	}
-    
-    return $arreglo;
-}*/
+function comprobarContrasena($correo, $contrasena) {
+    $usuarios = obtenerInfoSesion();
+    $rol = '';
+        
+    while ($row = mysqli_fetch_assoc($usuarios)){
+        if($row['id']==$correo){
+            if($row['contrasena']==$contrasena){
+                $rol = $row['rol'];
+            }
+        }
+    }
+    return $rol;
+}     
 
 
 if($_SERVER['REQUEST_METHOD']=="POST") {

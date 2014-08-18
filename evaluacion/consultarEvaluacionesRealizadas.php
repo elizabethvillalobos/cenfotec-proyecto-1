@@ -21,7 +21,7 @@
 			<?php include(ROOT.'/includes/aside-evaluacion.php'); ?>
 
 			<main>
-				<?= mostrarEvaluacionesPendientes(); ?>
+				<?= mostrarEvaluacionesRealizadas(); ?>
             </main>
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>

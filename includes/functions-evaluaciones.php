@@ -3,29 +3,60 @@
 error_reporting(0);
 require_once('../includes/functions.php');
 
-function obtenerEvaluaciones($pIdEvaluado){
-	$pIdEvaluado= 'acordero@ucenfotec.ac.cr';
-	$query = "SELECT * FROM tevaluaciones WHERE idEvaluado= '$pIdEvaluado' ";
+function obtenerEvaluacionesRealizadas(){
+	
+	$query = "SELECT * FROM tevaluaciones WHERE realizada =1";
 	$result = do_query($query);
 	return $result;
 }
 
-function obtenerUsuarioEvaluadoFechahora(){
-	
+function obtenerUsuarioEvaluado($pidCita){
+
+	$query = "SELECT nombre,apellido1 FROM tusuarios,tcitas WHERE tusuarios.id = tcitas.idSolicitado and tcitas.id = '$pidCita'";
+	$result = do_query($query);
+	$user= mysqli_fetch_assoc($result);
+    $nombreApellido = $user['nombre'].' '.$user['apellido1'];
+
+	return utf8_encode($nombreApellido);	
+}
+
+function obtenerFechayHoraCita($pidCita){
+
+	$query = "SELECT fechaFin FROM tcitas WHERE id = '$pidCita'";
+	$result = do_query($query);
+	$horaFinal= mysqli_fetch_assoc($result);
+	return utf8_encode($horaFinal['fechaFin']);	
+}
+
+function obtenerPromedioCita($pidCita){
+
+	$query = "SELECT nota2,nota3,nota4,nota5 FROM tevaluaciones WHERE idCita = '$pidCita'";
+	$result = do_query($query);
+	$notas= mysqli_fetch_assoc($result);
+	$sumatoria=0;
+	$promedio=0;
+	$cont=0;
+
+	foreach ($notas as $nota ) {
+
+		$sumatoria = $sumatoria + $nota;
+		$cont++;
+	}
+	$promedio = $sumatoria/$cont;
+	return $promedio;		
 }
 
 
 
-
-function mostrarEvaluacionesPendientes() {
-	$evaluacionesRealizadas = obtenerEvaluaciones();
+function mostrarEvaluacionesRealizadas() {
+	$evaluacionesRealizadas = obtenerEvaluacionesRealizadas();	
 
 	while($row = mysqli_fetch_assoc($evaluacionesRealizadas)){
 		$html .='<ul class="accordion">';
 		$html .= '<li class="accordion-item ">
                     <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Usuario evaluado:<span>Susana Fuentes</span></span><span>Fecha: <span>21/07/14 Hora: 2:00pm</span></span>
+                        		<span class="stit2">Usuario evaluado : '.obtenerUsuarioEvaluado($row['idCita']).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['idCita']).' </span>
                         	</p>
                         </a>
                     <div class="accordion-detail">
@@ -100,7 +131,7 @@ function mostrarEvaluacionesPendientes() {
 										</div>
 
 										<div class="opcs">
-										    <label id="promedio">3</label>
+										    <label id="promedio">'.obtenerPromedioCita($row['idCita']).'</label>
 										</div>
 
 									</div>	

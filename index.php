@@ -5,8 +5,8 @@
 <?php session_start(); 
     if(isset($_GET['usuarioAvtivoId']) && 
       isset($_GET['usuarioActivoRol']) ){
-    $usuarioActivoId=$_GET['usuarioAvtivoId'];
-    $usuarioActivoRol=$_GET['usuarioActivoRol'];
+    $_SESSION['usuarioActivoId'] = $_GET['usuarioAvtivoId'];
+    $_SESSION['$usuarioActivoRol'] = $_GET['usuarioActivoRol'];
     }    
 ?>
 
@@ -21,6 +21,7 @@
 	</head>
 	<body>
 		<div class="wrapper">
+			<?php echo $_SESSION['usuarioActivoId']; ?>
 			<?php include(ROOT.'/includes/header.php'); ?>
 
 			<main class="dashboard">

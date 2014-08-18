@@ -1,7 +1,10 @@
 <?php 
+	session_start(); 
+
 	require_once('../includes/functions.php');
 	$currentModule = 'citas';
 	$currentSubModule = 'agenda'; 
+
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +18,7 @@
 	</head>
 	<body id="page-agenda">
 		<div class="wrapper">
+			<?php echo $_SESSION['usuarioActivoId']; ?>
 			<?php include(ROOT.'/includes/header.php'); ?>
 			<?php include(ROOT.'/includes/aside-citas.php'); ?>
 

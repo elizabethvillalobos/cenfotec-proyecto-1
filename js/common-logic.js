@@ -1,12 +1,12 @@
 
 //Variables de datos quemados para usuario 
 
-var codigoActivacion = localStorage.getItem('codigoActivacion'),
+/*var codigoActivacion = localStorage.getItem('codigoActivacion'),
     correoAdmin = 'admin@ucenfotec.ac.cr',
     pwAdmin = 'Cenfo2014',
     aCorreos = aIdsUsuarios,
     aContrasenas = aPWUsuarios,
-    aVistasRol = ["../index.html", "../index-Profesor.html", "../index-Estudiante.html"];
+    aVistasRol = ["../index.html", "../index-Profesor.html", "../index-Estudiante.html"];*/
 
 // ------------------------------------------
 // Funciones generales

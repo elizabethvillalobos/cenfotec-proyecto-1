@@ -2,6 +2,13 @@
 	require_once('includes/functions.php');
 	$currentModule = ''; 
 ?>
+<?php session_start(); 
+    if(isset($_GET['usuarioAvtivoId']) && 
+      isset($_GET['usuarioActivoRol']) ){
+    $usuarioActivoId=$_GET['usuarioAvtivoId'];
+    $usuarioActivoRol=$_GET['usuarioActivoRol'];
+    }    
+?>
 
 <!DOCTYPE html>
 <html>

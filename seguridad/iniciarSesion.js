@@ -21,8 +21,7 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
         if(correoCorrecto){
             /*var correoRegistrado = validarCorreoRegistrado(eCorreo, eError, 'El correo no está registrado');*/
             var correoRegistrado = validarCorreoRegistradoBD(eCorreo);
-            alert(correoRegistrado);
-            if(correoRegistrado){
+            if (correoRegistrado){
                 var coincide=validarContrasena(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
                 if(coincide){
 //                    validarVistaRol(eCorreo, formulario);
@@ -33,10 +32,8 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
     }
     
     function validarCorreoRegistradoBD(pcorreo){
-        
-        alert(pcorreo);
         $.ajax({
-            url: '../includes/functions-seguridad.php',
+            url: '../includes/service-seguridad.php',
             type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
             data: { // Objeto con los parámetros que utiliza el servicio.
                 query : 'comprobarCorreo',
@@ -44,10 +41,10 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
             },
             dataType: 'json',
             success: function(response) {
-                // Imprimir los datos.
-    //			mostrarCitas($.parseJSON(response.data));
-                alert($.parseJSON(response.data));
-                return $.parseJSON(response.data);
+                console.log($.parseJSON(response.data));
+            },
+            error: function(response) {
+                console.log(response);
             }
         });
     }

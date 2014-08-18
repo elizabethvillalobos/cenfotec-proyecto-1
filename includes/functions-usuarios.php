@@ -232,6 +232,25 @@ function cambiarEstadoUsr(){
     }
 }
 
+	// Función que consulta los destinatarios de mensaje
+	function getDestinatarios($idRemitente) {
+		$query = "SELECT id, nombre, apellido1, apellido2  FROM `tusuarios` WHERE id !='$idRemitente' AND activo = 1";
+		
+		$queryResults = do_query($query);
+		$jsonArray = [];
+		$index = 0;		
+		
+		while ($row = mysqli_fetch_assoc($queryResults)) {
+			$results['id'] = utf8_encode($row['id']);
+			$results['nombre'] = utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
+			$jsonArray['destinatarios'][$index] = $results;
+			$index++;
+		}
+		
+		mysqli_free_result($queryResults);
+		return $jsonArray;
+	}
+
 if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];
 	if(function_exists($function)) {        

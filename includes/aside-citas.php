@@ -28,13 +28,13 @@ switch ($currentSubModule) {
 			<li class="accordion-item <?php if ($currentSubModule == 'solicitudes') { echo ' expanded'; } ?>">
 				<?php if ($currentSubModule == 'solicitudes') { ?>
 					<span id="crearSolicitud" class="flaticon-add73"></span>
-					<a href="/cenfotec-proyecto-1/citas/solicitudes.php" <?php echo $subModSolicitudes; ?> >Solicitudes de cita</a>
+					<a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita=0" <?php echo $subModSolicitudes; ?> >Solicitudes de cita</a>
 					<ul class="thrd-nav-category accordion-detail">
 						<!--getSolicitudesUsuario(1) -->
-						<?php getSolicitudesUsuario("mcotog@ucenfotec.ac.cr") ?>
+						<?php getSolicitudesUsuario("jcerdadg@ucenfotec.ac.cr") ?>
 					</ul>
 				<?php } else { ?>
-					<a href="/cenfotec-proyecto-1/citas/solicitudes.php">Solicitudes de cita</a>
+					<a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita=0">Solicitudes de cita</a>
 				<?php } ?>
 			</li>
 		</ul>

@@ -86,9 +86,15 @@ if (eFormValidar) {
                   	var indice = document.getElementById("director-academico").selectedIndex,
                    	   seleccionado = validarDropdown(indice);
                    	if (seleccionado){
-                   		registrarCarrera();
+                   		crearCarrera();	
                    	}                 	
-                   
+				break;
+				case "modificar-carrera":                 
+                  	var indice = document.getElementById("director-academico").selectedIndex,
+                   	   seleccionado = validarDropdown(indice);
+                   	if (seleccionado){
+                   		modificarCarrera();	
+                   	}                 	
 				break;
                 case "crear-usuario":
                     var indice1 = document.getElementById("usuario-rol").selectedIndex,
@@ -102,6 +108,7 @@ if (eFormValidar) {
                        }
                    }                 	
                 break;
+
 			}
 		}
 	});
@@ -242,6 +249,9 @@ function soloLetrasYnumeros(e){
     }
 }
 
+
+
+
 function consultarCursos(){
 	var idCarrera = location.search.split("=")[1];
 	var request = $.ajax({
@@ -333,8 +343,7 @@ function registrarCurso() {
 				var msj = document.createTextNode("Este curso ya se encuentra almacenado.");
 				error.appendChild(msj);
 				var botonesDiv=document.querySelector('.form-row-button');
-				botonesDiv.appendChild(error);
-				
+				botonesDiv.appendChild(error);	
 			}
 		});
 	}
@@ -370,8 +379,74 @@ function modificarCurso() {
 	});
 };
 
+function crearCarrera() {
+	var codigo = $('#codigo-carrera').val(),
+      	nombre = $('#nombre-carrera').val(),
+      	director = $('#director-academico').val(), 
+      	hayError = false;
 
+    if(codigo == nombre){
+    	mostrarMensajeError(document.querySelector('#nombre-carrera'),"El nombre de la carrera no puede ser igual al código.");
+		hayError=true;
+    }  	
 
+    if(!hayError){
+    	var request = $.ajax({
+    		url: "../includes/service-carreras.php",
+    		type: "get",
+    		data: {
+      				'query': 'crearCarrera',
+      				'pCodigo': codigo,
+      				'pNombre': nombre,
+      				'pDirector': director
+    		},
+    		dataType: 'json',
+    		success: function(response) { 
+    			window.location = "/cenfotec-proyecto-1/configuracion/carrerasCrear-confirmar.php?nombreCarrera="+nombre;
+    		},
+    		error: function(response){
+				var error = document.createElement("p");
+				error.className="alert-error flaticon-remove11";
+				var msj = document.createTextNode("Esta carrera ya se encuentra almacenada.");
+				error.appendChild(msj);
+				var botonesDiv=document.querySelector('.form-row-button');
+				botonesDiv.appendChild(error);	
+			} 
+  		});
+    }
+};
+
+function modificarCarrera(){
+	var codigo = $('#codigo-carrera').val(),
+      	nombre = $('#nombre-carrera').val(),
+      	director = $('#director-academico').val(), 
+      	hayError = false;
+
+    if(codigo == nombre){
+    	mostrarMensajeError(document.querySelector('#nombre-carrera'),"El nombre de la carrera no puede ser igual al código.");
+		hayError=true;
+    }  	
+
+    if(!hayError){
+    	var request = $.ajax({
+    		url: "../includes/service-carreras.php",
+    		type: "get",
+    		data: {
+      				'query': 'modificarCarrera',
+      				'pCodigo': codigo,
+      				'pNombre': nombre,
+      				'pDirector': director
+    		},
+    		dataType: 'json',
+    		success: function(response) { 
+    			window.location = "/cenfotec-proyecto-1/configuracion/carrerasModificar-confirmar.php?nombreCarrera="+nombre;
+    		},
+    		error: function(response){
+				
+			} 
+  		});
+    }
+};
 
 
 //Filtros de mostrar usuarios

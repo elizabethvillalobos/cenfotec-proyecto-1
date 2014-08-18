@@ -5,10 +5,67 @@ para que sea mas facil la integracion.
 Ejemplo:
 
 // ----------
-//   Elizabeth
+//   Jose
 //   ----------
 .selector {
 	....
 }
 
 */
+.conversacion{
+	border: 2px solid #ecf0f1;
+    border-radius: 10px;
+    padding: 20px;
+	margin: 10px 5px 20px;
+}
+.conversacion form{
+	border: 0;
+    padding: 0px;
+}
+.mensajes{
+	height:235px;
+	overflow-y: scroll;
+}
+.mensajes .form-row{
+	background-color: #f2f2f2;
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 10px;
+}
+.mensajes .noLeido{
+	background-color:#e74c3c;
+	color:#fff;
+}
+.mensajes .noLeido p{
+	color:#fff;
+}
+.mensajes span{
+	font-weight:bold;
+}
+#nuevoMensaje{
+	position:relative;
+}
+#nuevoMensaje .form-row{
+	margin: 10px 0 0 0;
+}
+#nuevoMensaje div{
+	display:inline-block;
+}
+#nuevoMensaje label{
+	font-weight:bold;
+}
+#nuevoMensaje textarea{
+	display:inline-block;
+	width:600px;
+	height: 40px;
+	min-height: 40px;
+	max-height: 150px;
+	max-width:600px;
+	min-width:400px;
+}
+#nuevoMensaje #enviarRow{
+	position:absolute;
+	right:0px;
+	/*top:72px;*/
+	bottom:5px;
+}

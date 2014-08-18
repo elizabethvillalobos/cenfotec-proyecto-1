@@ -50,9 +50,9 @@
 						</div>
 
 						<div class="form-row form-row-button">
-							<button type="submit" id="btn-guardar-carrera" class="btn btn-primary">Enviar</button>
+							<button type="submit" id="btn-guardar-carrera" class="btn btn-primary">Guardar</button>
 							<!--<button id="btn-cancelar" class="btn btn-secondary" type="submit">Cancelar</button>-->
-							<a href="crearCarrera-cancelar.html" class="btn btn-default js-modal" 
+							<a href="carrerasConsultar.php" class="btn btn-default js-modal" 
 								data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</form>
@@ -61,7 +61,7 @@
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea cancelar la creación de la carrera?</h3>
 					<div class="form-row">
-						<a href="consultarCarreras.html" class="btn btn-primary js-modal-aceptar">Si</a>
+						<a href="carrerasConsultar.php" class="btn btn-primary js-modal-aceptar">Si</a>
 						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>
@@ -80,7 +80,7 @@
         <script src="/cenfotec-proyecto-1/js/flatui.js"></script>
         <script src="/cenfotec-proyecto-1/js/html5uploader.js"></script>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
-        <script src="/cenfotec-proyecto-1/configuracion/inserts-config-js/insertarCarrera.js"></script>
+        <!--<script src="/cenfotec-proyecto-1/configuracion/inserts-config-js/insertarCarrera.js"></script>-->
         <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 	</body>
 </html>

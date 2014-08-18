@@ -1,5 +1,6 @@
 <?php
     require_once('../includes/functions.php');
+    require_once(ROOT.'/includes/functions-carreras.php');
 
     $currentModule = 'configuracion';
     $currentSubModule = 'carreras';
@@ -16,69 +17,51 @@
 	</head>
 	<body>
 		<div class="wrapper">
+
 			<?php include(ROOT.'/includes/header.php'); ?>
 			<?php include(ROOT.'/includes/aside-configuracion.php'); ?>
-			
-				<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category accordion">
-                        <li class="accordion-item">
-                            <a href="perfil.html">Perfil</a>
-                        </li>
-                        <li class="accordion-item">
-                            <a href="miCuenta.html">Mi cuenta</a>
-                        </li>
-                        <li class="accordion-item">
-                            <a href="consultarCarreras.html" class="active">Carreras y cursos</a>
-                        </li>
-                        <li class="accordion-item">
-                            <a href="consultarUsuario.html">Usuarios</a>
-                        </li>
-                        <li class="accordion-item">
-                            <a href="configuracionGeneral.html">General</a>
-                        </li>
-                    </ul>
-				</nav>
-			</aside>
 
 			<main>
 				<section class="perfil-editar">
 					<div class="mod-hd">
 						<h2>Modificar Carrera</h2>
 					</div>
-					<!-- El atributo novalidate es para evitar que el browser 
-					haga las validaciones. -->
-					<form id="modificar-carrera" class="mod-bd form-horizontal" action="carrerasModificar-confirmar.php" 
-						method="post" data-validate="true" novalidate>
-						<div class="form-row">
+					
+					<form id="modificar-carrera" class="mod-bd form-horizontal" method="post" action="" 
+						  data-validate="true" novalidate>
+						
+						<?php
+	                 		if (isset($_GET['idCarrera'])){
+	                 			$id = $_GET['idCarrera']; 
+								$result = getSpecificCarrera($id);
+	                 		}
+            			?>
 
+						<div class="form-row">
 							<label for="codigo-carrera">Código:</label>
-							<input id="codigo-carrera" type="text" placeholder="Ingrese el código" value="DSOF-002" 
-								class="form-control" onkeypress="return soloGuion(event)" required/>
+							<input id="codigo-carrera" type="text" value="<?php echo utf8_encode($result['carreraId'])?>" 
+								   disabled="disabled" class="form-control">
 						</div>
 
 						<div class="form-row">
 							<label for="nombre-carrera">Nombre:</label>
 							<input id="nombre-carrera" type="text" placeholder="Ingrese el nombre de la carrera" 
-								value="Desarrollo de software" class="form-control" onkeypress="return soloLetras(event)" 
-								required/>
+								   value="<?php echo utf8_encode($result['carreraNombre'])?>" class="form-control" 
+								   onkeypress="return soloLetras(event)" required/>
 						</div>
 
 						<div class="form-row">
 							<label for="director-academico">Director académico:</label>
 							<select id="director-academico" required>
-	                     		<option value="">María Eugenia Ucrós</option>
-	                            <option value="Director1">Pablo Monestel</option>
-	                            <option value="Director3">Luis Chacón</option>
-	                            <option value="Director4">Nelson Brenes</option>
-	                            <option value="Director5">Andrea Espinach</option>
-	                            <option value="Director5">Luis Montero</option>
+	                     		<?php echo '<option value= '.$result['idusuario'].' > 
+									'.utf8_encode($result['directorNombre']).' '.utf8_encode($result['directorApellido1']).' </option>'; ?>	
+								<?php mostrarDirectores();; ?>
                             </select>
 						</div>
 
 						<div class="form-row form-row-button">
 							<button id="btn-guardar-modificacion" class="btn btn-primary" type="submit">Guardar</button>
-							<a href="modificarCarrera-cancelar.html" class="btn btn-default js-modal" 
+							<a href="carrerasConsultar.php" class="btn btn-default js-modal" 
 								data-modal-id="modal-cancelar">Cancelar</a>
 						</div>
 					</form>
@@ -87,7 +70,7 @@
 					<span class="close flaticon-close3 js-modal-close">Close</span>
 					<h3>¿Está seguro que desea cancelar la modificación de la carrera?</h3>
 					<div class="form-row">
-						<a href="consultarCarrerasCarreraAgregada.html" class="btn btn-primary js-modal-aceptar">Si</a>
+						<a href="carrerasConsultar.php" class="btn btn-primary js-modal-aceptar">Si</a>
 						<a href="#" class="btn btn-default js-modal-close">No</a>
 					</div>
 				</div>

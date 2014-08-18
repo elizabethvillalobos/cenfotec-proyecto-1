@@ -37,16 +37,39 @@
 			</aside>
 
 			<main>
-				<div class="mod-hd">
-					<h2>Nueva Conversación</h2>
-				</div>
-				<div class="mod-bd">
+				<section class="nuevaConversacion">
+					<div class="mod-hd">
+						<h2>Nueva conversación</h2>
+					</div>
+					<div class="mod-bd">
+					<form id="iniciarConversacion" action="#" method="post">		
+						<div class="form-row">
+							<label for="txtDestinatario">Destinatario:</label>
+							<input id="txtDestinatario" class="form-control" type="text" value="" placeholder="Seleccione un destinatario" onkeyup="buscarDestinatario(event)" required/>
+							<div id="resDestinatario"></div>
+						</div>
+						<div class="form-row">
+							<label for="txtMensaje">Mensaje:</label>
+							<textarea id="txtMensaje" placeholder="Ingrese el mensaje" class="form-control"></textarea>
+						</div>
+						<div id="enviarRow" class="form-row form-row-button">
+							<a id="btnEnviar" class="btn btn-primary">Enviar</a>
+						</div>
+					</form>
 					
-				</div>
+				</section>
 			</main>
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="/cenfotec-proyecto-1/js/vendors/bootstrap.min.js"></script>
+        <script src="/cenfotec-proyecto-1/js/vendors/bootstrap-select.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/flatui-checkbox.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/flatui-radio.js"></script>
+        <script src="/cenfotec-proyecto-1/js/gic.js"></script>
 		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+		<script src="/cenfotec-proyecto-1/js/mensajeria.js"></script>
 	</body>
 </html>

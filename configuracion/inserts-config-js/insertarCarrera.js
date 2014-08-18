@@ -14,8 +14,8 @@ function registrarCarrera() {
       'pNombre': nombre,
       'pDirector' : director
     },
-    dataType: 'json',
-    success: function(response) {  
+    //dataType: 'json',
+    success: function(response) { 
       window.location = "/cenfotec-proyecto-1/configuracion/carrerasCrear-confirmar.php";
     }
     
@@ -23,3 +23,5 @@ function registrarCarrera() {
 };
 
 /*AJAX PARA INSERTAR CARRERA, JAVIER BARBOZA*/
+
+

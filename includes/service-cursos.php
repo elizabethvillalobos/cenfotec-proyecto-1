@@ -170,6 +170,7 @@
 			deliver_response(200, 'No data', NULL);
 		} else {
 			// Retornar resultados de la consulta.
+			
 			deliver_response(200, 'OK', json_encode($cursos));
 		}
 	}
@@ -188,7 +189,6 @@
 		$response['status'] = $status;
 		$response['status-message'] = $statusMessage;
 		$response['data'] = $data;
-
 		echo json_encode($response);
 	} 
 ?>

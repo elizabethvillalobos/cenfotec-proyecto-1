@@ -50,10 +50,11 @@
 							<span class="label">Observaciones:</span>
 							<span class="data">Hola Pablo, usted cree que me pueda ayudar con una breve explicación de la estructura general que deberían tener todas las páginas web?</span>
 						</div>
-						<div class="form-row form-row-button">
-							<a href="/cenfotec-proyecto-1/citas/solicitudAceptada.php" id="btnAceptar" class="btn btn-primary">Aceptar</a>
-							<a href="/cenfotec-proyecto-1/citas/solicitudRechazada.php" id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a>
-						</div>
+						
+					</div>
+					<div class="form-row form-row-button">
+						<a href="/cenfotec-proyecto-1/citas/solicitudAceptada.php" id="btnAceptar" class="btn btn-primary">Aceptar</a>
+						<a href="/cenfotec-proyecto-1/citas/solicitudRechazada.php" id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a>
 					</div>
 				</section>
 

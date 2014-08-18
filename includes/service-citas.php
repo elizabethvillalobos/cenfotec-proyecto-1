@@ -34,6 +34,15 @@
 			case 'finalizarCita':
 				finalizarCita();
 				break;
+			case 'actualizarHoraSolicitud':
+				actualizarHoraSolicitud();
+				break;
+			case 'aceptarPropuestaSolicitud':
+				aceptarPropuestaSolicitud();
+				break;
+			case 'rechazarSolicitud':
+				rechazarSolicitud();
+				break;
 		}
 	} else {
 		// Invalid request.
@@ -136,8 +145,6 @@
 	}
 
 	function crearSolicitud() {
-		//insertSolicitud($_GET['idSolicitante'], $_GET['idSolicitado'], $_GET['asunto'], $_GET['modalidad'], $_GET['tipo'], $_GET['observaciones'], $_GET['idCurso']);	
-		//deliver_response(200, 'OK', NULL);
 		$idSolcitante = $_GET['idSolcitante'];
 		$idSolicitado = $_GET['idSolicitado'];
 		$asunto = $_GET['asunto'];
@@ -151,12 +158,38 @@
 		if (mysqli_num_rows($solicitudes) > 0) {
 			deliver_response(400, 'Ya hay una solicitud pendiente con este usuario', NULL);
 		} else {
-			$query = "INSERT INTO tcitas(asunto, curso, esCita, estado, idSolicitado, idSolicitante, modalidad, observaciones, tipo) VALUES ('$asunto','$idCurso', '0', '0', '$idSolicitado', '$idSolcitante', '$modalidad', '$observaciones', '$tipo')";
+			$query = "INSERT INTO tcitas(asunto, curso, esCita, estado, idSolicitado, idSolicitante, modalidad, observaciones, tipo) VALUES ('$asunto','$idCurso', '0', '1', '$idSolicitado', '$idSolcitante', '$modalidad', '$observaciones', '$tipo')";
 			
 			$resultado = do_query($query);			
 			
 			deliver_response(200, 'OK', 'Solicitud realizada exitosamente');
 		}
+	}
+	
+	function actualizarHoraSolicitud() {
+		$idCita = $_GET['idCita'];
+		$fechaInicio = $_GET['fechaInicio'];
+		$fechaFin = $_GET['fechaFin'];
+		$query = "UPDATE `tcitas` SET `fechaInicio` = '$fechaInicio', `fechaFin` = '$fechaFin' WHERE `tcitas`.`id` = '$idCita';";
+			
+		$resultado = do_query($query);			
+		deliver_response(200, 'OK', 'Solicitud actualizada exitosamente');
+	}
+	
+	function aceptarPropuestaSolicitud() {
+		$idCita = $_GET['idCita'];
+		$query = "UPDATE `tcitas` SET `estado` = '2' WHERE `tcitas`.`id` = '$idCita';";
+			
+		$resultado = do_query($query);			
+		deliver_response(200, 'OK', 'Solicitud aceptada exitosamente');
+	}
+	
+	function rechazarSolicitud() {
+		$idCita = $_GET['idCita'];
+		$query = "UPDATE `tcitas` SET `estado` = '3' WHERE `tcitas`.`id` = '$idCita';";
+			
+		$resultado = do_query($query);			
+		deliver_response(200, 'OK', 'Solicitud rechazada exitosamente');
 	}
 	
 	// Esta función retorna la respuesta que se enviará

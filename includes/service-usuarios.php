@@ -16,6 +16,9 @@
 			case 'consultarInvitados':
 				consultarInvitados();
 				break;
+			case 'consultarDestinatarios':
+				consultarDestinatarios();
+				break;
 		}
 	} else {
 		// Invalid request.
@@ -40,6 +43,17 @@
 		} else {
 			// Retornar resultados de la consulta.
 			deliver_response(200, 'OK', json_encode($invitados));
+		}
+	}
+	
+	function consultarDestinatarios() {
+		$idRemitente= $_GET['idRemitente'];
+		$destinatarios = getDestinatarios($idRemitente);
+		if (empty($destinatarios)) {
+			deliver_response(200, 'No data', NULL);
+		} else {
+			// Retornar resultados de la consulta.
+			deliver_response(200, 'OK', json_encode($destinatarios));
 		}
 	}
 	

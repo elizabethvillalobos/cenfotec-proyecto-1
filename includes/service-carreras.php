@@ -51,7 +51,7 @@
 	function modificarCarrera(){
 		if (!empty($_GET['pCodigo']) && !empty($_GET['pNombre']) && !empty($_GET['pDirector'])){
 			$codigo = utf8_decode($_GET['pCodigo']);
-			$nombre = utf8_decode($_GET['pNombre']);
+			$nombre = utf8_decode($_GET['pNombre']);	
 			$director = utf8_decode($_GET['pDirector']);
 
 			$query = "UPDATE tcarrera SET nombre='$nombre', idDirector='$director' WHERE id='$codigo'";

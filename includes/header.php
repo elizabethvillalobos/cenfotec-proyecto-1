@@ -1,4 +1,5 @@
-<?php session_start(); 
+<?php 
+    //session_start(); 
     error_reporting(0);
     $id = $_SESSION['usuarioActivoId'];
     $rolUsr = $_SESSION['usuarioActivoRol'];

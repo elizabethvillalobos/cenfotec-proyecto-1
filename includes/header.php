@@ -14,7 +14,6 @@
 
 	<!-- Menu principal -->
 	<nav class="main-nav">
-	<?php echo $usuario?>
 		<ul>
 			<li>
 				<a href="/cenfotec-proyecto-1/citas/agenda.php" class="citas flaticon-calendar68 <?php if ($currentModule == 'citas') { echo 'active'; } ?>"><span>Citas</span></a>

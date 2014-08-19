@@ -1,6 +1,7 @@
 <?php
 	require_once('../includes/functions.php');
 	$currentModule = 'reportes';
+	$currentSubModule = 'usuariosRegistrados';
 ?>
 
 <!DOCTYPE html>
@@ -14,25 +15,7 @@
 	<body>
 		<div class="wrapper">
 			<?php include(ROOT.'/includes/header.php'); ?>
-
-			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li class="accordion-item">
-							<a href="reportes.php">Ranking</a>
-						</li>
-						<li class="accordion-item">
-							<a href="reporte-solicitudes.php">Solicitudes</a>
-						</li>
-						<li class="accordion-item">
-							<a href="reporte-agendas.php">Agendas</a>
-						</li>
-						<li class="accordion-item">
-							<a href="reporte-usuarios.php" class="active">Usuarios registrados</a>
-						</li>
-					</ul>
-				</nav>
-			</aside>
+			<?php include(ROOT.'/includes/aside-reportes.php'); ?>
 
 			<main>
 				<div class="mod-hd">
@@ -44,7 +27,6 @@
 								<th class="center">Rol</th>
 								<th class="center">Carrera</th>
 								<th class="center">Correo electrónico</th>
-								<th class="center">Total de citas</th>
 								<th class="center">Estado</th>
 							</tr>
 						</thead>
@@ -54,7 +36,6 @@
 								<td>Estudiante</td>
 								<td>Ingeniería del Software</td>
 								<td>acorraless@ucenfotec.ac.cr</td>
-								<td class="center">10</td>
 								<td>Inactivo</td>
 							</tr>
 							<tr>
@@ -62,7 +43,6 @@
 								<td>Asistente de curso</td>
 								<td>Ingeniería del Software</td>
 								<td>aarroyoc@ucenfotec.ac.cr</td>
-								<td class="center">1</td>
 								<td>Inactivo</td>
 							</tr>
 							<tr>
@@ -70,7 +50,6 @@
 								<td>Profesor</td>
 								<td>Ingeniería del Software</td>
 								<td>aluna@ucenfotec.ac.cr</td>
-								<td class="center">6</td>
 								<td>Activo</td>
 							</tr>
 							<tr>
@@ -78,7 +57,6 @@
 								<td>Estudiante</td>
 								<td>Ingeniería del Software</td>
 								<td>dbarillasv@ucenfotec.ac.cr</td>
-								<td class="center">10</td>
 								<td>Activo</td>
 							</tr>
 							<tr>
@@ -86,7 +64,6 @@
 								<td>Estudiante</td>
 								<td>Ingeniería del Software</td>
 								<td>mcoto@ucenfotec.ac.cr</td>
-								<td class="center">5</td>
 								<td>Activo</td>
 							</tr>
 							<tr>
@@ -94,7 +71,6 @@
 								<td>Coordinador Académico</td>
 								<td>Desarrollo Web</td>
 								<td>pmonestel@ucenfotec.ac.cr</td>
-								<td class="center">8</td>
 								<td>Activo</td>
 							</tr>
 							

@@ -1,6 +1,7 @@
 <?php
 	require_once('../includes/functions.php');
 	$currentModule = 'reportes';
+	$currentSubModule = 'solicitudes';
 ?>
 
 <!DOCTYPE html>
@@ -14,25 +15,7 @@
 	<body>
 		<div class="wrapper">
 			<?php include(ROOT.'/includes/header.php'); ?>
-
-			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li class="accordion-item">
-							<a href="reportes.php" class="active">Ranking</a>
-						</li>
-						<li class="accordion-item">
-							<a href="reporte-solicitudes.php">Solicitudes</a>
-						</li>
-						<li class="accordion-item">
-							<a href="reporte-agendas.php">Agendas</a>
-						</li>
-						<li class="accordion-item">
-							<a href="reporte-usuarios.php">Usuarios registrados</a>
-						</li>
-					</ul>
-				</nav>
-			</aside>
+			<?php include(ROOT.'/includes/aside-reportes.php'); ?>
 
 			<main>
 				<div class="mod-hd">

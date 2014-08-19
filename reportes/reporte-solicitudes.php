@@ -1,6 +1,7 @@
 <?php
 	require_once('../includes/functions.php');
 	$currentModule = 'reportes';
+	$currentSubModule = 'solicitudes';
 ?>
 
 <!DOCTYPE html>
@@ -14,25 +15,7 @@
 	<body>
 		<div class="wrapper">
 			<?php include(ROOT.'/includes/header.php'); ?>
-
-			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li class="accordion-item">
-							<a href="reportes.php">Ranking</a>
-						</li>
-						<li class="accordion-item">
-							<a href="reporte-solicitudes.php" class="active">Solicitudes</a>
-						</li>
-						<li class="accordion-item">
-							<a href="reporte-agendas.php">Agendas</a>
-						</li>
-						<li class="accordion-item">
-							<a href="reporte-usuarios.php">Usuarios registrados</a>
-						</li>
-					</ul>
-				</nav>
-			</aside>
+			<?php include(ROOT.'/includes/aside-reportes.php'); ?>
 
 			<main>
 				<div class="mod-hd">
@@ -42,7 +25,7 @@
 							<tr>
 								<th class="center">Usuario</th>
 								<th class="center">Rol</th>
-								<th class="center">Realizadas</th>
+								<th class="center">Pendientes</th>
 								<th class="center">Aceptadas</th>
 								<th class="center">Rechazadas</th>
 								<th class="center">Expiradas</th>
@@ -50,7 +33,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>Diego Barillas Valverde</td>
+								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Diego Barillas Valverde</a></td>
 								<td>Estudiante</td>
 								<td class="center">10</td>
 								<td class="center">10</td>
@@ -58,23 +41,23 @@
 								<td class="center">0</td>
 							</tr>
 							<tr>
-								<td>Pablo Monestel</td>
+								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Pablo Monestel</a></td>
 								<td>Coordinador Académico</td>
-								<td class="center">-</td>
+								<td class="center">0</td>
 								<td class="center">8</td>
 								<td class="center">1</td>
 								<td class="center">0</td>
 							</tr>
 							<tr>
-								<td>Antonio Luna</td>
+								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Antonio Luna</a></td>
 								<td>Profesor</td>
-								<td class="center">-</td>
+								<td class="center">0</td>
 								<td class="center">8</td>
 								<td class="center">2</td>
 								<td class="center">0</td>
 							</tr>
 							<tr>
-								<td>Miguel Coto</td>
+								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Miguel Coto</a></td>
 								<td>Estudiante</td>
 								<td class="center">5</td>
 								<td class="center">5</td>
@@ -82,7 +65,7 @@
 								<td class="center">0</td>
 							</tr>
 							<tr>
-								<td>Alexander Corrales Solís</td>
+								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Alexander Corrales Solís</a></td>
 								<td>Estudiante</td>
 								<td class="center">5</td>
 								<td class="center">5</td>
@@ -90,7 +73,7 @@
 								<td class="center">0</td>
 							</tr>
 							<tr>
-								<td>Andrea Arroyo Cascante</td>
+								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Andrea Arroyo Cascante</a></td>
 								<td>Asistente de curso</td>
 								<td class="center">3</td>
 								<td class="center">1</td>

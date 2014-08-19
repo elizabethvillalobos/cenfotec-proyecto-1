@@ -1,6 +1,8 @@
 <?php
 	require_once('../includes/functions.php');
+	require_once('../includes/functions-reportes.php');
 	$currentModule = 'reportes';
+	$currentSubModule = 'ranking';
 ?>
 
 <!DOCTYPE html>
@@ -14,28 +16,7 @@
 	<body>
 		<div class="wrapper">
 			<?php include(ROOT.'/includes/header.php'); ?>
-
-			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li class="accordion-item">
-							<a href="#">Ranking</a>
-						</li>
-						<li class="accordion-item">
-							<a href="#">Solicitudes</a>
-						</li>
-						<li class="accordion-item">
-							<a href="#">Citas</a>
-						</li>
-						<li class="accordion-item">
-							<a href="#">Agendas</a>
-						</li>
-						<li class="accordion-item">
-							<a href="#">Usuarios registrados</a>
-						</li>
-					</ul>
-				</nav>
-			</aside>
+			<?php include(ROOT.'/includes/aside-reportes.php'); ?>
 
 			<main>
 				<div class="mod-hd">
@@ -48,60 +29,14 @@
 								<th class="center">Usuario</th>
 								<th class="center">Rol</th>
 								<th class="center">Total de Citas</th>
-								<th class="center">Puntuación Total</th>
+								<th class="center">Ranking</th>
 							</tr>
 						</thead>
 						
 						<tbody>
-							<tr>
-								<td class="center">1</td>
-								<td>Diego Barillas Valverde</td>
-								<td>Estudiante</td>
-								<td class="center">10</td>
-								<td class="center">10</td>
-							</tr>
-							<tr>
-								<td class="center">2</td>
-								<td>Pablo Monestel</td>
-								<td>Coordinador Académico</td>
-								<td class="center">5</td>
-								<td class="center">10</td>
-							</tr>
-							<tr>
-								<td class="center">3</td>
-								<td>Antonio Luna</td>
-								<td>Profesor</td>
-								<td class="center">10</td>
-								<td class="center">9</td>
-							</tr>
-							<tr>
-								<td class="center">4</td>
-								<td>Miguel Coto</td>
-								<td>Estudiante</td>
-								<td class="center">2</td>
-								<td class="center">8</td>
-							</tr>
-							<tr>
-								<td class="center">5</td>
-								<td>Alexander Corrales Solís</td>
-								<td>Estudiante</td>
-								<td class="center">1</td>
-								<td class="center">8</td>
-							</tr>
-							<tr>
-								<td class="center">6</td>
-								<td>Andrea Arroyo Cascante</td>
-								<td>Asistente de curso</td>
-								<td class="center">5</td>
-								<td class="center">5</td>
-							</tr>
-							
+							<?php reporteRanking(); ?>
 						</tbody>
 					</table>
-					<h2>Reportes</h2>
-				</div>
-				<div class="mod-bd">
-					
 				</div>
 			</main>
 			

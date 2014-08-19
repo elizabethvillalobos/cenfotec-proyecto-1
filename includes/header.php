@@ -1,6 +1,4 @@
 <?php
-    
-    session_start(); 
     $id = $_SESSION['usuarioActivoId'];
 	$loggedInUserName = $id;
 	$loggedInUserAvatar = 'carlos-rojas.jpg';

@@ -2,7 +2,8 @@
 
 	require_once('../includes/functions.php');
 	require_once('../includes/functions-mensajeria.php');
-	$currentModule = 'conversacion'; 
+	$currentModule = 'mensajeria'; 
+	$currentSubModule = 'conversacion'; 
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@
 	<body>
 		<div class="wrapper">
 			<?php include(ROOT.'/includes/header.php'); ?>
-			<?php //include(ROOT.'/includes/aside-mensajeria.php'); ?>
+			<?php include(ROOT.'/includes/aside-mensajeria.php'); ?>
 
 			<main>
 				<section>

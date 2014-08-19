@@ -23,7 +23,7 @@ switch ($currentSubModule) {
 			<li class="accordion-item expanded">
 				<a href="#" class="active">Conversaciones</a>
 				<ul class="thrd-nav-category accordion-detail">
-					<?php getConversacionesUsuario("evillalobosm@ucenfotec.ac.cr") ?>
+					<?php getConversacionesUsuario($_SESSION['usuarioActivoId']) ?>
 				</ul>
 			</li>
 		</ul>

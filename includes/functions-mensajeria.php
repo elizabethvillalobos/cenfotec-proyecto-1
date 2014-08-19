@@ -3,62 +3,60 @@
 	// Función que muestra las conversaciones de un usuario
 	function getConversacionesUsuario($idUsuario) {
 		
-		$query = "SELECT tr.nombre FROM `tusuarios` AS tu INNER JOIN `trol` AS tr ON tr.id = tu.rol WHERE tu.id='$idUsuario'";
+		$query = "SELECT conversaciones.otroContacto,noLeidos.noLeidos FROM 
+
+(SELECT DISTINCT otroContacto
+FROM (
+    
+    SELECT tm.id, tm.idEmisor,temisor.nombre AS nombreEmisor, temisor.apellido1 AS apellido1Emisor,temisor.apellido2 AS apellido2Emisor, tm.idReceptor,treceptor.nombre AS nombreReceptor,treceptor.apellido1 AS apellido1Receptor,treceptor.apellido2 AS apellido2Receptor, tm.leido, tm.mensaje, CASE WHEN temisor.id='$idUsuario' THEN treceptor.id WHEN treceptor.id='$idUsuario' THEN temisor.id ELSE 'No match' END AS otroContacto 
+    FROM mensajes AS tm 
+    LEFT OUTER JOIN tusuarios AS temisor ON temisor.id=tm.idEmisor 
+    LEFT OUTER JOIN tusuarios AS treceptor ON treceptor.id=tm.idReceptor 
+    WHERE tm.idEmisor='$idUsuario' OR tm.idReceptor= '$idUsuario' 
+    )AS con ) AS conversaciones
+    LEFT OUTER JOIN     
+    
+    (SELECT otroContacto, leido, COUNT(*) AS noLeidos
+FROM (
+    
+    SELECT tm.id, tm.idEmisor,temisor.nombre AS nombreEmisor, temisor.apellido1 AS apellido1Emisor,temisor.apellido2 AS apellido2Emisor, tm.idReceptor,treceptor.nombre AS nombreReceptor,treceptor.apellido1 AS apellido1Receptor,treceptor.apellido2 AS apellido2Receptor, tm.leido, tm.mensaje, CASE WHEN temisor.id='$idUsuario' THEN treceptor.id WHEN treceptor.id='$idUsuario' THEN temisor.id ELSE 'No match' END AS otroContacto 
+    FROM mensajes AS tm 
+    LEFT OUTER JOIN tusuarios AS temisor ON temisor.id=tm.idEmisor 
+    LEFT OUTER JOIN tusuarios AS treceptor ON treceptor.id=tm.idReceptor 
+    WHERE tm.idReceptor= '$idUsuario') 
+    AS a
+    WHERE leido=0
+    GROUP BY otroContacto, leido) AS noLeidos
+    
+    ON conversaciones.otroContacto=noLeidos.otroContacto";
+	
 		$queryResults = do_query($query);
 		$row = mysqli_fetch_assoc($queryResults);
 		
-		//si el usuario activo es un estudiante
-		if($row['nombre']=="Estudiante"){
-		
-			$query = "SELECT tc.id,tc.idSolicitado,tu.nombre, tu.apellido1,tc.idSolicitante,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitado = tu.id WHERE idSolicitante='$idUsuario' AND tc.esCita='0' ORDER BY tc.id ASC";
-
-			$queryResults = do_query($query);
-			$jsonArray = [];
-			$index = 0;
-			
-			while ($row = mysqli_fetch_assoc($queryResults)) {
-				if(utf8_encode($row['fechaInicio'])!=null){
-					//echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idUsuario="'. $idUsuario .'>'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
-					echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
-				}
-				else
-				{
-					echo '<li><span class="listo flaticon-check34"></span><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
-				}				
+		while ($row = mysqli_fetch_assoc($queryResults)) {
+			if(utf8_encode($row['fechaInicio'])!=null){
+				//echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idUsuario="'. $idUsuario .'>'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+				echo '<li><a href="/cenfotec-proyecto-1/citas/mensajeria.php?idUsuarioOtro='.$row['otroContacto'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
 			}
+			else
+			{
+				echo '<li><span class="listo flaticon-check34"></span><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+			}				
 		}
-		//si el usuario activo no es un estudiante
-		else
-		{
-			$query = "SELECT tc.id,tc.idSolicitado,tu.nombre, tu.apellido1,tc.idSolicitante,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitante = tu.id WHERE idSolicitado='$idUsuario' AND tc.esCita='0' ORDER BY tc.id ASC";
-
-			$queryResults = do_query($query);
-			$jsonArray = [];
-			$index = 0;
-			
-			while ($row = mysqli_fetch_assoc($queryResults)) {
-				if(utf8_encode($row['fechaInicio'])==null){
-					echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitante'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
-				}
-				else
-				{
-					echo '<li><span class="listo flaticon-check34"></span><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitante'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
-				}				
-			}
-		}
-		
+				
 		mysqli_free_result($queryResults);
 		return $jsonArray;
 	}
 	
 	// Función que muestra una conversacion específica
-	function mostrarConversacion($idCita, $idUsuario) {
+	function mostrarConversacion($idUsuarioActual, $idUsuarioOtro) {
 		
-		$query = "SELECT tu.nombre, tu.apellido1, tu.apellido2, tr.nombre AS nombreRol FROM `tusuarios` AS tu INNER JOIN `trol` AS tr ON tr.id = tu.rol WHERE tu.id='$idUsuario'";
+		$query = "SELECT tm.id, tm.horaFecha,tm.idEmisor,temisor.nombre AS nombreEmisor, temisor.apellido1 AS apellido1Emisor,temisor.apellido2 AS apellido2Emisor, tm.idReceptor,treceptor.nombre AS nombreReceptor,treceptor.apellido1 AS apellido1Receptor,treceptor.apellido2 AS apellido2Receptor, tm.leido, tm.mensaje FROM mensajes AS tm LEFT OUTER JOIN tusuarios AS temisor ON temisor.id=tm.idEmisor LEFT OUTER JOIN tusuarios AS treceptor ON treceptor.id=tm.idReceptor WHERE (tm.idEmisor='$idUsuarioActual' AND tm.idReceptor='$idUsuarioOtro') OR (tm.idReceptor= '$idUsuarioActual' AND tm.idEmisor='$idUsuarioOtro') ORDER BY tm.horaFecha ASC";
 		$queryResults = do_query($query);
 		$row = mysqli_fetch_assoc($queryResults);
 		
-		$nombreUsuario = utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
+		$nombreEmisor = utf8_encode($row['nombreEmisor']).' '.utf8_encode($row['apellido1Emisor']).' '.utf8_encode($row['apellido2Emisor']);
+		$nombreReceptor = utf8_encode($row['nombreReceptor']).' '.utf8_encode($row['apellido1Receptor']).' '.utf8_encode($row['apellido2Receptor']);
 		//si el usuario activo es un estudiante
 		if($row['nombreRol']=="Estudiante"){
 			//si no se envio ningun id de cita, se carga la primera

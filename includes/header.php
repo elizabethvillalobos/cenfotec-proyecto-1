@@ -2,8 +2,7 @@
     
     session_start(); 
     $id = $_SESSION['usuarioActivoId'];
-    $usuario = getUsuarioPorId($id);
-	$loggedInUserName = ;
+	$loggedInUserName = $id;
 	$loggedInUserAvatar = 'carlos-rojas.jpg';
 ?>
 

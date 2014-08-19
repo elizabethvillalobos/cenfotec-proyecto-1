@@ -1,5 +1,7 @@
 <?php
-	require_once('../includes/functions.php'); 
+	require_once('../includes/functions.php');
+	require_once(ROOT.'/includes/functions-evaluaciones.php');
+	 
 	$currentModule = 'evaluacion';
 	$currentSubModule = 'evaluacionesPendientes'; 
 ?>

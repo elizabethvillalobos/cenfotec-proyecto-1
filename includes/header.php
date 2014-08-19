@@ -1,4 +1,4 @@
-<?php
+<?php session_start(); 
     $id = $_SESSION['usuarioActivoId'];
     $infoSesion = getInfoSesion($id);
 	$loggedInUserName = $infoSesion['nombre'];

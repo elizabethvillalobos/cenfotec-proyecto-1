@@ -16,12 +16,12 @@
 	<body>
 		<div class="wrapper">
 			<?php include(ROOT.'/includes/header.php'); ?>
-			<?php include(ROOT.'/includes/aside-mensajeria.php'); ?>
+			<?php //include(ROOT.'/includes/aside-mensajeria.php'); ?>
 
 			<main>
 				<section>
 					<!--mostrarSolicitud(idCita,idUsuarioActivo)-->
-					<?php mostrarConversacion($_GET['idConversacion'],'acordero@ucenfotec.ac.cr')?>
+					<?php// mostrarConversacion($_GET['idConversacion'],'acordero@ucenfotec.ac.cr')?>
 					
 					<div class="conversacion">
 						<div class="mod-hd">

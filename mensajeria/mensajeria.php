@@ -1,6 +1,7 @@
 <?php
 	require_once('../includes/functions.php');
-	$currentModule = 'mensajeria'; 
+	require_once('../includes/functions-mensajeria.php');
+	$currentModule = 'conversacion'; 
 ?>
 
 <!DOCTYPE html>
@@ -15,30 +16,12 @@
 	<body>
 		<div class="wrapper">
 			<?php include(ROOT.'/includes/header.php'); ?>
-
-			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li class="accordion-item">
-							<a href="/cenfotec-proyecto-1/mensajeria/nuevaConversacion.php">Nueva Conversación</a>
-						</li>
-						<li class="accordion-item expanded">
-							<a href="#" class="active">Conversaciones</a>
-							<ul class="thrd-nav-category accordion-detail">
-								<li><a href="#">Alex Mendez</a></li>
-								<li><a href="#">Antonio Luna</a></li>
-								<li><a href="#">Pablo Monestel</a></li>	
-								<li><a href="#">Vicky Gomez</a></li>	
-								<li><a href="#">Pedro Montero</a></li>	
-							</ul>
-						</li>
-						
-					</ul>
-				</nav>
-			</aside>
+			<?php include(ROOT.'/includes/aside-mensajeria.php'); ?>
 
 			<main>
 				<section>
+					<!--mostrarSolicitud(idCita,idUsuarioActivo)-->
+					<?php mostrarConversacion($_GET['idConversacion'],'acordero@ucenfotec.ac.cr')?>
 					
 					<div class="conversacion">
 						<div class="mod-hd">

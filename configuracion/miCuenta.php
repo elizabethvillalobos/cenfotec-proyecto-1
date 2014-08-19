@@ -1,5 +1,8 @@
 <?php
+	session_start(); 
+
 	require_once('../includes/functions.php');
+	require_once('../includes/functions-cuenta.php');
 	$currentModule = '';
 	$currentSubModule = 'contraseña';
 ?>
@@ -27,6 +30,10 @@
 						<form id="modificar-usuario" class="mod-bd form-horizontal" action="/cenfotec-proyecto-1/configuracion/usuariosConsultar.php" method="post" data-validate="true" novalidate>
 						<div class="form-row">
 							<label for="usuario-nombre">Contraseña actual:</label>
+							<?php 
+								$usuarioActivo = $_SESSION['usuarioActivoId']; 
+								cargarContrasenaActual($usuarioActivo);
+							?>
 							<input id="usuario-nombre" type="password" placeholder="Ingrese la contraseña actual" class="form-control" value="" required/>
 						</div>
 

@@ -20,21 +20,16 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
         if(correoCorrecto){
             /*var correoRegistrado = validarCorreoRegistrado(eCorreo, eError, 'El correo no está registrado');*/
             var correoRegistrado = validarCorreoRegistradoBD(eCorreo, eError, 'El correo no está registrado');            
-            if (correoRegistrado){
+            if (correoRegistrado){                
                 var rolUsuario=validarContrasenaBD(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
                 if(rolUsuario){
                     window.location.assign('/cenfotec-proyecto-1/index.php?usuarioAvtivoId='+correoRegistrado+'&usuarioActivoRol='+rolUsuario);
-//                    validarVistaRol(eCorreo, formulario);
 //                    formulario.submit();
                 }
             }    
         }
     }
-
-    
-    
-}); /*addEvenListener = Observador del evento y function ejecuta la funcion dentro de  los corchetes cuando se ejecuta la funcion*/
-
+});
 
 function validarCorreoRegistradoBD(pcorreo, pElementoError, pMsjError){
     var respuesta;

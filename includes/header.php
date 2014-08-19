@@ -1,7 +1,8 @@
 <?php
     $id = $_SESSION['usuarioActivoId'];
-	$loggedInUserName = $id;
-	$loggedInUserAvatar = 'carlos-rojas.jpg';
+    $infoSesion = getInfoSesion($id);
+	$loggedInUserName = $infoSesion['nombre'];
+	$loggedInUserAvatar = $infoSesion['avatar'];
 ?>
 
 <header>

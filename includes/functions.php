@@ -143,7 +143,7 @@ function timeLongString($timeToString) {
 
 // Consultas genericas
 function getCarreras() {
-	$query = "SELECT * FROM tcarrera";
+	$query = "SELECT * FROM tcarrera WHERE activo=1";
 	return do_query($query);
 }
 

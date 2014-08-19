@@ -1,5 +1,9 @@
 <?php
-	$loggedInUserName = 'Carlos';
+    
+    session_start(); 
+    $id = $_SESSION['usuarioActivoId'];
+    $usuario = getUsuarioPorId($id);
+	$loggedInUserName = ;
 	$loggedInUserAvatar = 'carlos-rojas.jpg';
 ?>
 

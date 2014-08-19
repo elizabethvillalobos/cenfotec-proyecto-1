@@ -477,6 +477,31 @@ $('.usuarios-filtro').on('click', function(e) {
 
 });
 
+ebtnBuscarCarrera=document.querySelector('#btnBuscarCarreras');
+ebtnBuscarCarrera.addEventListener('click',function () {
+	
+
+	
+	var nombreCarrera = $('#criterioCarrera').val();
+		
+	var request = $.ajax({
+		url: "/cenfotec-proyecto-1/includes/functions-carreras.php",
+		type: "post",
+		data: {
+                'call' : 'displayCarrerasFiltradas',
+			   'pnombreCarrera': nombreCarrera
+			  },
+		datatype: 'json',
+		success: function(data){    
+			
+			var data = JSON.parse(data);
+
+			$('#basic-accordion').html(data);
+
+		}
+	});
+});
+
 //obtener profesores
 function obtenerProfesores() {	
 	var resultados=[];
@@ -546,6 +571,9 @@ function crearUsuario() {
 		}
 	});
 }
+
+
+
 
 //Habilitar/desabilitar usuario
 var abtnActivo = document.querySelectorAll('.usuarios-deshabilitar');

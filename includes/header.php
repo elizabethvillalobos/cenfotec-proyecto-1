@@ -32,7 +32,7 @@
 	</nav>
 
 	<section class="busqueda">
-					<input id="q" type="text" value="" placeholder="Buscar personas" onkeyup="realizarBusqueda(event)" />
+					<input id="q" type="text" value="" placeholder="Buscar personas" class="campo-busqueda" onkeyup="realizarBusqueda(event)" />
 					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
        <div id="resultados">
            

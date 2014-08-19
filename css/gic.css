@@ -1171,7 +1171,7 @@ header a:hover {
     position: relative;
     margin: 28px 0 0;
 }
-#q {
+.campo-busqueda {
     border: 2px solid #3c3c3c;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -1181,11 +1181,11 @@ header a:hover {
     transition: width 0.3s;
     width: 160px;
 }
-#q:focus {
+.campo-busqueda:focus {
     border-color: #e74c3c;
     width: 210px;
 }
-#q:focus,
+.campo-busqueda:focus,
 #btnBuscar:focus {
     outline: 0;
 }
@@ -1202,9 +1202,9 @@ header a:hover {
     font-size: 1.2em;
     margin: 0;
 }
-#q:focus,
-#btnBuscar:focus {
-    outline: 0;
+
+#buscarCarreras .campo-busqueda {
+  border-color: #999;
 }
 
 

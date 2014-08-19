@@ -26,8 +26,8 @@
 					 <h2> Lista de cursos</h2>
 		
 					<div id="buscarCursos">
-						<input id="q" type="text" value="" placeholder="Buscar cursos" />
-						<button id="buscarCursos" class="flaticon-magnifier12" type="submit"></button>
+						<input id="q" class="campo-busqueda" type="text" value="" placeholder="Buscar cursos" />
+						<button id="btnBuscarCursos" class="flaticon-magnifier12" type="submit"></button>
 					</div>	
 
 					<a href="/cenfotec-proyecto-1/configuracion/registrarCurso.php?idCarrera=" id="crear-curso" class="btn btn-default flaticon-add73">Crear curso</a>

@@ -1,9 +1,8 @@
-<?php
-    
-    session_start(); 
+<?php session_start(); 
     $id = $_SESSION['usuarioActivoId'];
-	$loggedInUserName = $id;
-	$loggedInUserAvatar = 'carlos-rojas.jpg';
+    $infoSesion = getInfoSesion($id);
+	$loggedInUserName = $infoSesion['nombre'];
+	$loggedInUserAvatar = $infoSesion['avatar'];
 ?>
 
 <header>
@@ -33,7 +32,7 @@
 	</nav>
 
 	<section class="busqueda">
-					<input id="q" type="text" value="" placeholder="Buscar personas" onkeyup="realizarBusqueda(event)" />
+					<input id="q" type="text" value="" placeholder="Buscar personas" class="campo-busqueda" onkeyup="realizarBusqueda(event)" />
 					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
        <div id="resultados">
            

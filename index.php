@@ -2,7 +2,7 @@
 	require_once('includes/functions.php');
 	$currentModule = ''; 
 ?>
-<?php session_start(); 
+<?php  
     if(isset($_GET['usuarioAvtivoId']) && 
       isset($_GET['usuarioActivoRol']) ){
     $_SESSION['usuarioActivoId'] = $_GET['usuarioAvtivoId'];

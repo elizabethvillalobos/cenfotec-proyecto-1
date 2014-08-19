@@ -2,6 +2,8 @@
 	require_once('../includes/functions.php');
 	require_once(ROOT.'/includes/functions-evaluaciones.php');
 
+	$idUser = $_SESSION['usuarioActivoId'];
+
 	$currentModule = 'evaluacion';
 	$currentSubModule = 'evaluacionesRealizadas'; 
 ?>
@@ -21,7 +23,7 @@
 			<?php include(ROOT.'/includes/aside-evaluacion.php'); ?>
 
 			<main>
-				<?= mostrarEvaluacionesRealizadas(); ?>
+				<?= mostrarEvaluacionesRealizadas($idUser); ?>
             </main>
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>

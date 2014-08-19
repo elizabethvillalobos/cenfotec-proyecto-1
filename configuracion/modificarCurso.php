@@ -72,19 +72,7 @@
 					<div class="form-row form-row-button">
 						<button id="btn-modificar-curso" class="btn btn-primary" type="submit">Guardar</button>
 						<!--<button id="btn-cancelar" class="btn btn-secondary" type="submit">Cancelar</button>-->
-						<a class="btn btn-default js-modal" 
-						data-modal-id="modal-cancelar">Cancelar</a>
-					</div>
-				</form>
-			</section>
-			<div id="modal-cancelar" class="modal js-modal-window">
-				<span class="close flaticon-close3 js-modal-close">Close</span>
-				<h3>¿Está seguro que desea cancelar la modificación del curso?</h3>
-				<div class="form-row">
-					<a href="consultarCursosDesarrollo.html" class="btn btn-primary js-modal-aceptar">Si</a>
-					<a href="#" class="btn btn-default js-modal-close">No</a>
-				</div>
-			
+						
 			</div>
 			<div id="listForm" class="backContent">
 				<fieldset class="frmLista">

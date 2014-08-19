@@ -21,13 +21,15 @@
 	display: block;
 }
 
-#buscarCarreras {
+#buscarCarreras,
+#buscarCursos {
    right: 20px;
    position: absolute;
    top: 15px;
 }
 
-#btnBuscarCarreras {
+#btnBuscarCarreras,
+#btnBuscarCursos {
    background: transparent;
    border: 0;
    color: #7f8c8d;
@@ -37,9 +39,14 @@
    width: 32px;
 }
 
-#btnBuscarCarreras:before {
+#btnBuscarCarreras:before,
+#btnBuscarCursos:before {
    font-size: 16px;
    margin: 0;
+}
+
+#carreras-hd {
+
 }
 
 hr{
@@ -362,6 +369,10 @@ h2 {
 */
 .accordion-usuarios a {
     font-size: 1.1em;
+}
+
+#carreras-hd {
+  position: relative;
 }
 
 #carreras-hd a {

@@ -3,6 +3,7 @@
 
 	require_once('../includes/functions.php');
 	require_once(ROOT.'/includes/functions-micuenta.php');
+
 	$currentModule = '';
 	$currentSubModule = 'contraseña';
 ?>
@@ -27,28 +28,28 @@
 						<h2>Cambiar contraseña</h2>
 					</div>
 					<div class="mod-bd">
-						<form id="modificar-usuario" class="mod-bd form-horizontal" action="/cenfotec-proyecto-1/configuracion/usuariosConsultar.php" method="post" data-validate="true" novalidate>
+						<form id="cambiar-contrasena" class="mod-bd form-horizontal" action="" method="post" data-validate="true" novalidate>
 						<div class="form-row">
-							<label for="usuario-nombre">Contraseña actual:</label>
+							<label for="contrasena-actual">Contraseña actual:</label>
+							<input id="contrasena-actual" type="password" placeholder="Ingrese la contraseña actual" class="form-control" value="" required/>
 							<?php 
 								$usuarioActivo = $_SESSION['usuarioActivoId']; 
-								cargarContrasenaActual($usuarioActivo);
-							?>
-							<input id="usuario-nombre" type="password" placeholder="Ingrese la contraseña actual" class="form-control" value="" required/>
+								echo '<input id="usuario-activo" type="hidden" value="'.$usuarioActivo.'">';
+							?>							
 						</div>
 
 						<div class="form-row">
-							<label for="usuario-apellidos">Nueva contraseña:</label>
-							<input id="usuario-apellidos" type="password" placeholder="Ingrese la nueva contraseña" class="form-control" value="" required/>
+							<label for="contrasena-nueva">Nueva contraseña:</label>
+							<input id="contrasena-nueva" type="password" placeholder="Ingrese la nueva contraseña" class="form-control" value="" required/>
 						</div>
 						
 						<div class="form-row">
-							<label for="usuario-apellidos">Nueva contraseña:</label>
-							<input id="usuario-apellidos" type="password" placeholder="Confirme la nueva contraseña" class="form-control" value="" required/>
+							<label for="contrasena-confirmar">Nueva contraseña:</label>
+							<input id="contrasena-confirmar" type="password" placeholder="Confirme la nueva contraseña" class="form-control" value="" required/>
 						</div>
 
 						<div class="form-row form-row-button">
-							<button id="btn-guardar-usuario" class="btn btn-primary" type="submit">Guardar</button>
+							<button id="btn-guardar-contrasena" class="btn btn-primary" type="submit">Guardar</button>
 						</div>
 					</form>
 					</div>
@@ -57,5 +58,9 @@
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
+
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
+		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+		<script src="/cenfotec-proyecto-1/js/micuenta.js"></script>
 	</body>
 </html>

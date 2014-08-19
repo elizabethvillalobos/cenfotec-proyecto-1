@@ -3,8 +3,6 @@
     require_once(ROOT.'/includes/functions-usuarios.php');
     require_once(ROOT.'/includes/functions-seguridad.php');
     
-    $aIds = getIdUsuarios();
-    $aContrasenas = getPWUsuarios();
 ?>
 
 <!DOCTYPE html>
@@ -59,15 +57,7 @@
 		</div>
 		
 		<!-- Load JS -->
-		<script type="text/javascript">
-            var aIdsUsuarios=<?php echo json_encode($aIds);?>;
-            var aPWUsuarios=<?php echo json_encode($aContrasenas);?>;
-            
-            /*for(var i=0;i<aPWUsuarios.length;i++){
-                alert(aPWUsuarios[i]);
-            }
-            */
-        </script>
+		
         <script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
         <script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>

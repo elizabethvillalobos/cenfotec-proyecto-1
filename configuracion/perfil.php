@@ -1,5 +1,6 @@
 <?php
 	require_once('../includes/functions.php');
+	$currentModule = 'configuracion';
 	$currentSubModule = 'perfil';
 ?>
 

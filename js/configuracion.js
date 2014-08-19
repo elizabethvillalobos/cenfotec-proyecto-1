@@ -448,6 +448,10 @@ function modificarCarrera(){
     }
 };
 
+function
+
+
+
 
 //Filtros de mostrar usuarios
 
@@ -592,5 +596,4 @@ for(var i=0; i < abtnActivo.length; i++) {
         }
     });
 }
-
-
+	

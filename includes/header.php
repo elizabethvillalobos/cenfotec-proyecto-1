@@ -1,5 +1,7 @@
 <?php session_start(); 
+    error_reporting(0);
     $id = $_SESSION['usuarioActivoId'];
+    $rolUsr = $_SESSION['usuarioActivoRol'];
     $infoSesion = getInfoSesion($id);
 	$loggedInUserName = $infoSesion['nombre'];
 	$loggedInUserAvatar = $infoSesion['avatar'];
@@ -16,18 +18,33 @@
 			<li>
 				<a href="/cenfotec-proyecto-1/citas/agenda.php" class="citas flaticon-calendar68 <?php if ($currentModule == 'citas') { echo 'active'; } ?>"><span>Citas</span></a>
 			</li>
-			<li>
-				<a href="/cenfotec-proyecto-1/evaluacion/miRanking.php" class="evaluacion flaticon-verification5 <?php if ($currentModule == 'evaluacion') { echo 'active'; } ?>"><span>Evaluación</span></a>
-			</li>
+			<?php if($rolUsr!=7){
+            $activo = '';
+            if ($currentModule == 'evaluacion'){ $activo = 'active';}
+			echo '<li>
+				<a href="/cenfotec-proyecto-1/evaluacion/miRanking.php" class="evaluacion flaticon-verification5 '.$activo.' "><span>Evaluación</span></a>
+			</li>';
+                }
+            ?>
 			<li>
 				<a href="/cenfotec-proyecto-1/mensajeria/mensajeria.php" class="mensajeria flaticon-black218 <?php if ($currentModule == 'mensajeria') { echo 'active'; } ?>"><span>Mensajería</span></a>
 			</li>
-			<li>
-				<a href="/cenfotec-proyecto-1/reportes/reportes.php" class="reportes flaticon-seo2 <?php if ($currentModule == 'reportes') { echo 'active'; } ?>"><span>Reportes</span></a>
-			</li>
-			<li>
-				<a href="/cenfotec-proyecto-1/configuracion/carrerasConsultar.php" class="configuracion flaticon-machine2 <?php if ($currentModule == 'configuracion') { echo 'active'; } ?>"><span>Configuración</span></a>
-			</li>
+			<?php if($rolUsr==1 || $rolUsr==2 || $rolUsr==3){
+                $activo = '';
+                if ($currentModule == 'reportes') { $activo = 'active'; }
+			echo '<li>
+				<a href="/cenfotec-proyecto-1/reportes/reportes.php" class="reportes flaticon-seo2'.$activo. ' "><span>Reportes</span></a>
+			</li>';
+                    }    
+            ?>
+			<?php if($rolUsr==1 || $rolUsr==2 || $rolUsr==3){
+                $activo = '';
+                if ($currentModule == 'configuracion') { $activo = 'active'; }
+			echo '<li>
+				<a href="/cenfotec-proyecto-1/configuracion/carrerasConsultar.php" class="configuracion flaticon-machine2 '.$activo.' "><span>Configuración</span></a>
+			</li>';
+                    }
+            ?>    
 		</ul>
 	</nav>
 

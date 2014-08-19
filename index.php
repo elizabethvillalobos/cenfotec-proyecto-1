@@ -21,7 +21,6 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<?php echo $_SESSION['usuarioActivoId']; ?>
 			<?php include(ROOT.'/includes/header.php'); ?>
 
 			<main class="dashboard">

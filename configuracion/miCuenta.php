@@ -2,7 +2,7 @@
 	session_start(); 
 
 	require_once('../includes/functions.php');
-	require_once('../includes/functions-cuenta.php');
+	require_once(ROOT.'/includes/functions-micuenta.php');
 	$currentModule = '';
 	$currentSubModule = 'contraseña';
 ?>

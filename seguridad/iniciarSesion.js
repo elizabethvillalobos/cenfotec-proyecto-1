@@ -24,7 +24,6 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
             if (correoRegistrado){
                 console.log("Paso la prueba");
                 var coincide=validarContrasenaBD(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
-//                var coincide=validarContrasenaBD(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
                 if(coincide){
                     alert("Bienvenido");
 //                    validarVistaRol(eCorreo, formulario);
@@ -33,6 +32,8 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
             }    
         }
     }
+    
+    
     
     function validarCorreoRegistradoBD(pcorreo, pElementoError, pMsjError){
         console.log(pcorreo);

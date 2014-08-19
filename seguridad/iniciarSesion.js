@@ -23,7 +23,7 @@ eBtnIniciarSesion.addEventListener('click', function (evento) {
             if (correoRegistrado){                
                 var rolUsuario=validarContrasenaBD(eCorreo, eContrasena, eError, 'La contraseña no es correcta');
                 if(rolUsuario){
-                    window.location.assign('/cenfotec-proyecto-1/index.php?usuarioAvtivoId='+correoRegistrado+'&usuarioActivoRol='+rolUsuario);
+                    window.location.assign('/cenfotec-proyecto-1/index.php?usuarioActivoId='+correoRegistrado+'&usuarioActivoRol='+rolUsuario);
 //                    formulario.submit();
                 }
             }    

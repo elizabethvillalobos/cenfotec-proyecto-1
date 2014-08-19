@@ -3,9 +3,9 @@
 	$currentModule = ''; 
 ?>
 <?php  
-    if(isset($_GET['usuarioAvtivoId']) && 
+    if(isset($_GET['usuarioActivoId']) && 
       isset($_GET['usuarioActivoRol']) ){
-    $_SESSION['usuarioActivoId'] = $_GET['usuarioAvtivoId'];
+    $_SESSION['usuarioActivoId'] = $_GET['usuarioActivoId'];
     $_SESSION['usuarioActivoRol'] = $_GET['usuarioActivoRol'];
     }    
 ?>

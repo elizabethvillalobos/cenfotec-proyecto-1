@@ -448,10 +448,6 @@ function modificarCarrera(){
     }
 };
 
-function
-
-
-
 
 //Filtros de mostrar usuarios
 

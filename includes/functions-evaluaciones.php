@@ -1,11 +1,10 @@
 <?php
-
 error_reporting(0);
 require_once('../includes/functions.php');
 
-function obtenerEvaluacionesRealizadas(){
+function obtenerEvaluacionesRealizadas($_SESSION['usuarioActivoId']){
 	
-	$query = "SELECT * FROM tevaluaciones WHERE realizada =1";
+	$query = "SELECT * FROM tevaluaciones  WHERE realizada = 1 and idEvaluador = '$_SESSION['usuarioActivoId']'";
 	$result = do_query($query);
 	return $result;
 }

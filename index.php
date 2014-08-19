@@ -6,7 +6,7 @@
     if(isset($_GET['usuarioAvtivoId']) && 
       isset($_GET['usuarioActivoRol']) ){
     $_SESSION['usuarioActivoId'] = $_GET['usuarioAvtivoId'];
-    $_SESSION['$usuarioActivoRol'] = $_GET['usuarioActivoRol'];
+    $_SESSION['usuarioActivoRol'] = $_GET['usuarioActivoRol'];
     }    
 ?>
 

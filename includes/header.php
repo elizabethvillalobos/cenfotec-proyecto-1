@@ -1,6 +1,5 @@
-<?php 
-    //session_start(); 
-    error_reporting(0);
+<?php session_start(); 
+    //error_reporting(0);
     $id = $_SESSION['usuarioActivoId'];
     $rolUsr = $_SESSION['usuarioActivoRol'];
     $infoSesion = getInfoSesion($id);
@@ -34,7 +33,7 @@
                 $activo = '';
                 if ($currentModule == 'reportes') { $activo = 'active'; }
 			echo '<li>
-				<a href="/cenfotec-proyecto-1/reportes/reportes.php" class="reportes flaticon-seo2'.$activo. ' "><span>Reportes</span></a>
+				<a href="/cenfotec-proyecto-1/reportes/reportes.php" class="reportes flaticon-seo2 '.$activo. ' "><span>Reportes</span></a>
 			</li>';
                     }    
             ?>
@@ -65,7 +64,7 @@
 				<a href="/cenfotec-proyecto-1/configuracion/perfil.php" class="usr-editar-perfil">Mi cuenta</a>
 			</li>
 			<li>
-				<a href="/cenfotec-proyecto-1/seguridad/iniciarSesion.php" class="usr-cerrar-sesion">Cerrar sesión</a>
+				<a href="/cenfotec-proyecto-1/seguridad/iniciarSesion.php?kill=1" class="usr-cerrar-sesion">Cerrar sesión</a>
 			</li>
 		</ul>
 	</section>

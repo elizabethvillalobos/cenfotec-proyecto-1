@@ -1,10 +1,13 @@
-<?php 
+<?php session_start(); 
 	require_once('includes/functions.php');
 	$currentModule = ''; 
+
 ?>
-<?php  
+
+<?php
     if(isset($_GET['usuarioActivoId']) && 
       isset($_GET['usuarioActivoRol']) ){
+    //session_start();   
     $_SESSION['usuarioActivoId'] = $_GET['usuarioActivoId'];
     $_SESSION['usuarioActivoRol'] = $_GET['usuarioActivoRol'];
     }    

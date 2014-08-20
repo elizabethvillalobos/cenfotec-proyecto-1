@@ -1,6 +1,13 @@
 <?php
-    session_start(); 
-    session_destroy();
+    if(isset($_GET['kill'])){
+        session_start();
+          unset($_SESSION['usuarioActivoId']); 
+          unset($_SESSION['usuarioActivoRol']);
+          session_destroy();
+          //exit;
+    }
+    //session_start(); 
+    //session_destroy();
 
 	require_once('../includes/functions.php');
     require_once(ROOT.'/includes/functions-usuarios.php');

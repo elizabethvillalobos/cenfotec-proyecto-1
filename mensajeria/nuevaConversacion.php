@@ -36,7 +36,7 @@
 							<textarea id="txtMensaje" placeholder="Ingrese el mensaje" class="form-control"></textarea>
 						</div>
 						<div id="enviarRow" class="form-row form-row-button">
-							<a id="btnEnviar" class="btn btn-primary">Enviar</a>
+							<a id="btnCrearConversacion" class="btn btn-primary">Enviar</a>
 						</div>
 					</form>
 					

@@ -47,10 +47,10 @@ function obtenerDestinatarios() {
 };
 
 
-//enviar formulario
-var btnEnviar=document.querySelector('#btnEnviar');
-if(btnEnviar!=null){
-	btnEnviar.addEventListener('click',function(event){
+//crear conversacion
+var btnCrearConversacion=document.querySelector('#btnCrearConversacion');
+if(btnCrearConversacion!=null){
+	btnCrearConversacion.addEventListener('click',function(event){
 		event.preventDefault();
 		limpiarMensajesError();
 		var noHayErrores=true;
@@ -67,7 +67,33 @@ if(btnEnviar!=null){
 		}
 		
 		if(noHayErrores){
-			var today = new Date();
+			guardarMensaje($('#idDestinatario').text(),txtMensaje.value);
+		}
+	});
+}
+
+//enviar formulario
+var btnCrearMensaje=document.querySelector('#btnCrearMensaje');
+if(btnCrearMensaje!=null){
+	btnCrearMensaje.addEventListener('click',function(event){
+		event.preventDefault();
+		limpiarMensajesError();
+		var noHayErrores=true;
+		
+		var txtMensaje = document.querySelector('#txtMensaje');
+		if(txtMensaje.value.trim()==''){
+			mostrarMensajeError(txtMensaje, "Este campo no puede estar vacío.");
+			noHayErrores =false;
+		}
+		
+		if(noHayErrores){
+			guardarMensaje(location.search.split("=")[1],txtMensaje.value);
+		}
+	});
+}
+
+function guardarMensaje(pidDestinatario,pmensaje){
+	var today = new Date();
 			var dd = today.getDate();
 			var mm = today.getMonth()+1;//January is 0!
 			var yyyy = today.getFullYear();
@@ -85,20 +111,18 @@ if(btnEnviar!=null){
 				type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 				data: { // Objeto con los parámetros que utiliza el servicio.
 					'query': 'crearConversacion',
-					'idReceptor': $('#idDestinatario').text(),
-					'mensaje': txtMensaje.value,
+					'idReceptor': pidDestinatario,
+					'mensaje': pmensaje,
 					'horaFecha': currentDate
 				},
 				dataType: 'html',
 				success: function(response){
-					window.location.replace("mensajeria.php?idUsuarioOtro="+$('#idDestinatario').text());
+					window.location.replace("mensajeria.php?idUsuarioOtro="+pidDestinatario);
 				},
 				error: function(response){
 					resultados=null;
 				},
 				async: false
 			});
-		}
-	});
 }
 

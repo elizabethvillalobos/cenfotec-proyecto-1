@@ -106,5 +106,14 @@
 		mysqli_free_result($queryResults);
 	}
 	
+	// Función que crea mensajes
+	function insertMensaje($idEmisor, $idReceptor, $mensaje, $horaFecha) {
+		
+		$query = "INSERT INTO `gic`.`mensajes` (`idEmisor`, `idReceptor`, `mensaje`, `horaFecha`, `leido`) VALUES ('$idEmisor', '$idReceptor', '$mensaje', '$horaFecha', '0');";
+		echo $query;
+		return do_query($query);
+		
+	}
+	
 
 ?>

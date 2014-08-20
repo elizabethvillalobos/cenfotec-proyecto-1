@@ -126,3 +126,55 @@ function guardarMensaje(pidDestinatario,pmensaje){
 			});
 }
 
+window.onload = function ()
+{
+	var divMensajes = document.querySelector('.mensajes');					
+	divMensajes.scrollTop = divMensajes.scrollHeight;
+	setInterval(actualizarMensaje, 500);
+}
+
+function actualizarMensaje(){
+	console.log("updating");
+	// obtener mensajes nuevos
+	$.ajax({
+		url: '../includes/service-mensajeria.php',
+		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			'query': 'obtenerNuevosMensajes',
+			'idUsuarioOtro': location.search.split("=")[1]
+		},
+		dataType: 'json',
+		success: function(response){
+			var respuesta=$.parseJSON(response.data);
+			if(respuesta.nuevosMensajes)
+			{
+				for (var i=0; i<respuesta.nuevosMensajes.length; i++)
+				{
+					var newDiv = document.createElement('div');
+					newDiv.className = 'form-row noLeido';
+					
+					var newSpan = document.createElement('span')
+					newSpan.innerHTML = respuesta.nuevosMensajes[i].nombreEmisor;
+				
+					var newP = document.createElement("p");
+					var newText = document.createTextNode(respuesta.nuevosMensajes[i].mensaje);
+					newP.appendChild(newText);
+					
+					newDiv.appendChild(newSpan);
+					newDiv.appendChild(newP);
+					
+					var divMensajes = document.querySelector('.mensajes');
+					divMensajes.appendChild(newDiv);
+					
+					divMensajes.scrollTop = divMensajes.scrollHeight;
+				}
+				
+			}
+		},
+		error: function(response){
+			resultados=null;
+		},
+		async: false
+	});
+}
+

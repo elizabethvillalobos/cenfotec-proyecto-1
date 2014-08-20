@@ -14,6 +14,9 @@
 			case 'crearConversacion':
 				crearConversacion();
 				break;
+			case 'obtenerNuevosMensajes':
+				obtenerNuevosMensajes();
+				break;
 		}
 	} else {
 		// Invalid request.
@@ -23,6 +26,11 @@
 	function crearConversacion() {
 		insertConversacion($_SESSION['usuarioActivoId'], $_GET['idReceptor'], $_GET['mensaje'], $_GET['horaFecha']);
 		deliver_response(200, 'OK', NULL);
+	}
+	
+	function obtenerNuevosMensajes() {
+		$nuevosMensajes = getNuevosMensajes($_SESSION['usuarioActivoId'], $_GET['idUsuarioOtro']);
+		deliver_response(200, 'OK', json_encode($nuevosMensajes));
 	}
 
 

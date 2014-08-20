@@ -24,8 +24,7 @@
 				<section>
 					<!--mostrarSolicitud(idCita,idUsuarioActivo)-->
 					<div class="conversacion">
-						<?php mostrarConversacion($_SESSION['usuarioActivoId'],$_GET['idUsuarioOtro'])?>					
-					
+						<?php mostrarConversacion($_SESSION['usuarioActivoId'],$_GET['idUsuarioOtro'])?>		
 						<form id="nuevoMensaje" action="#" method="post">		
 							<div class="form-row">
 								<label for="txtMensaje">Nuevo mensaje:</label>

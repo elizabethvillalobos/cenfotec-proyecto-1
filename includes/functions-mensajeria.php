@@ -79,7 +79,7 @@
 		$queryResults = do_query($query);
 		//imprimir todos los mensajes 
 		while ($row = mysqli_fetch_assoc($queryResults)) 
-		{		
+		{
 			$nombreEmisor = utf8_encode($row['nombreEmisor']).' '.utf8_encode($row['apellido1Emisor']).' '.utf8_encode($row['apellido2Emisor']);
 			$nombreReceptor = utf8_encode($row['nombreReceptor']).' '.utf8_encode($row['apellido1Receptor']).' '.utf8_encode($row['apellido2Receptor']);
 			
@@ -113,6 +113,49 @@
 		echo $query;
 		return do_query($query);
 		
+	}
+	
+	// Función que retorna los datos de una cita en específico.
+	// $solicitante es un boolean que indica cual usuario consultar.
+	function getNuevosMensajes($idUsuarioActual,$idUsuarioOtro) {
+		//si no se paso ningun usuario se setea el ultimo con el que se hablo
+		if($idUsuarioOtro=="")
+		{
+			$query="SELECT DISTINCT otroContacto FROM ( ".
+        "SELECT tm.id, tm.idEmisor,temisor.nombre AS nombreEmisor, temisor.apellido1 AS apellido1Emisor,temisor.apellido2 AS apellido2Emisor, tm.idReceptor,treceptor.nombre AS nombreReceptor,treceptor.apellido1 AS apellido1Receptor,treceptor.apellido2 AS apellido2Receptor, tm.leido, tm.mensaje, tm.horaFecha, CASE WHEN temisor.id='$idUsuarioActual' THEN treceptor.id WHEN treceptor.id='$idUsuarioActual' THEN temisor.id ELSE 'No match' END AS otroContacto ".
+        "FROM mensajes AS tm     ".
+        "LEFT OUTER JOIN tusuarios AS temisor ON temisor.id=tm.idEmisor ".
+        "LEFT OUTER JOIN tusuarios AS treceptor ON treceptor.id=tm.idReceptor ".
+        "WHERE tm.idEmisor='$idUsuarioActual' OR tm.idReceptor= '$idUsuarioActual' ORDER BY tm.horaFecha DESC LIMIT 1) AS a ";
+			
+			$queryResults = do_query($query);
+			$row = mysqli_fetch_assoc($queryResults);
+			$idUsuarioOtro=utf8_encode($row['otroContacto']);
+		}
+	
+		$query = "SELECT tm.id, tm.horaFecha,tm.idEmisor,temisor.nombre AS nombreEmisor, temisor.apellido1 AS apellido1Emisor,temisor.apellido2 AS apellido2Emisor, tm.mensaje FROM mensajes AS tm LEFT OUTER JOIN tusuarios AS temisor ON temisor.id=tm.idEmisor LEFT OUTER JOIN tusuarios AS treceptor ON treceptor.id=tm.idReceptor WHERE (tm.idReceptor= '$idUsuarioActual' AND tm.idEmisor='$idUsuarioOtro') AND tm.leido=0 ORDER BY tm.horaFecha ASC";
+		
+		$queryResults = do_query($query);
+		$jsonArray = [];
+		$index=0;
+		//imprimir todos los mensajes 
+		while ($row = mysqli_fetch_assoc($queryResults)) 
+		{
+			$nombreEmisor = utf8_encode($row['nombreEmisor']).' '.utf8_encode($row['apellido1Emisor']).' '.utf8_encode($row['apellido2Emisor']);			
+			$results['nombreEmisor'] = $nombreEmisor;
+			$results['mensaje'] = utf8_encode($row['mensaje']);
+			$results['horaFecha'] = utf8_encode($row['horaFecha']);
+			$jsonArray['nuevosMensajes'][$index] = $results;
+			$index++;			
+			
+			//actualizar estado del mensaje
+			$queryUpdate = "UPDATE `gic`.`mensajes` SET `leido` = '1' WHERE `mensajes`.`id` = ".utf8_encode($row['id']).";";
+			$result = do_query($queryUpdate);
+		}
+
+		mysqli_free_result($queryResults);
+
+		return $jsonArray;
 	}
 	
 

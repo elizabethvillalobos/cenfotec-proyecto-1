@@ -22,8 +22,8 @@ function obtenerDestinatarios() {
 		url: '../includes/service-usuarios.php',
 		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 		data: { // Objeto con los parámetros que utiliza el servicio.
-			'query': 'consultarDestinatarios',
-			'idRemitente': location.search.split("=")[1]
+			'query': 'consultarDestinatarios'/*,
+			'idRemitente': location.search.split("=")[1]*/
 		},
 		dataType: 'json',
 		success: function(response){
@@ -67,19 +67,31 @@ if(btnEnviar!=null){
 		}
 		
 		if(noHayErrores){
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1;//January is 0!
+			var yyyy = today.getFullYear();
+			var hours = today.getHours();
+			var minutes = today.getMinutes();
+			var seconds = today.getSeconds();
+			if(dd<10){dd='0'+dd}
+			if(mm<10){mm='0'+mm}
+			var currentDate=yyyy+'-'+mm+'-'+dd+' '+hours+':'+minutes+':'+seconds
+
+		
 			// crear conversacion
 			$.ajax({
 				url: '../includes/service-mensajeria.php',
 				type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 				data: { // Objeto con los parámetros que utiliza el servicio.
 					'query': 'crearConversacion',
-					'idReceptor': location.search.split("=")[1],
+					'idReceptor': $('#idDestinatario').text(),
 					'mensaje': txtMensaje.value,
-					'horaFecha': new Date().toLocaleString()
+					'horaFecha': currentDate
 				},
-				dataType: 'json',
+				dataType: 'html',
 				success: function(response){
-					alert("Success");
+					window.location.replace("mensajeria.php?idUsuarioOtro="+$('#idDestinatario').text());
 				},
 				error: function(response){
 					resultados=null;

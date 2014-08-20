@@ -3,7 +3,8 @@
 	// Función que crea una conversacion
 	function insertConversacion($idEmisor, $idReceptor, $mensaje, $horaFecha) {
 		
-		$query = "INSERT INTO `gic`.`mensajes` (`idEmisor`, `idReceptor`, `mensaje`, `horaFecha`, `leido`) VALUES ('$idEmisor', '$idReceptor, '$mensaje', '$horaFecha', '0');";
+		$query = "INSERT INTO `gic`.`mensajes` (`idEmisor`, `idReceptor`, `mensaje`, `horaFecha`, `leido`) VALUES ('$idEmisor', '$idReceptor', '$mensaje', '$horaFecha', '0');";
+		echo $query;
 		return do_query($query);
 		
 	}

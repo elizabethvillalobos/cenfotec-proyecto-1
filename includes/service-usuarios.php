@@ -1,4 +1,5 @@
-<?php
+<?php session_start(); 
+    error_reporting(0);
 	require_once('../includes/functions.php');
 	require_once('../includes/functions-usuarios.php');
 
@@ -46,8 +47,8 @@
 		}
 	}
 	
-	function consultarDestinatarios() {
-		$idRemitente= $_GET['idRemitente'];
+	function consultarDestinatarios() {		
+		$idRemitente= $_SESSION['usuarioActivoId'];
 		$destinatarios = getDestinatarios($idRemitente);
 		if (empty($destinatarios)) {
 			deliver_response(200, 'No data', NULL);

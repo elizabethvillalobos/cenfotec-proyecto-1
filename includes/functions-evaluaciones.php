@@ -150,6 +150,7 @@ function mostrarEvaluacionesRealizadas($puser) {
 function obtenerEvaluacionesPendientes($puser){
 	
 	$query = "SELECT * FROM tcitas  WHERE idSolicitado = '$puser'";
+	
 	$result = do_query($query);
 	return $result;
 }

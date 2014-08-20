@@ -79,6 +79,18 @@ function enviarEmail(to, subject, message) {
     });
 }
 
+// Devuelve el valor de parametro pasado en el URL.
+// Devuelve false si el parametro no se encuentra en el URL.
+function getQueryVariable(variable) {
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+
 // Devuelve true o false si en un elemento del DOM tiene la clase
 // que se pasa por parametro.
 // @pEl: elemento del DOM a verificar.

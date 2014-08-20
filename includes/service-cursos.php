@@ -27,9 +27,6 @@
 		// Invalid request.
 		deliver_response(400, 'Bad request', NULL);
 	}
-	
-
-
 
 
 	function consultarCurso() {
@@ -123,41 +120,38 @@
 		}
 	}
 	
-		function modificarCurso()
-	{
+	function modificarCurso() {
 		if (!empty($_GET['pnombre']) && !empty($_GET['pcodigo'])) {
 			$nombre = $_GET['pnombre'];
 			$codigo = $_GET['pcodigo'];
 			$idProfesor1 = $_GET['pidProfesor1'];
 			$idProfesor2 = $_GET['pidProfesor2'];
 			$idProfesor3 = $_GET['pidProfesor3'];
-			$idCarrera = $_GET['pidCarrera'];
 
-			$query = "SELECT * FROM tcursos WHERE id='$codigo';";
-			$cursos = do_query($query);
+			$query = "UPDATE tcursos SET nombre = '".utf8_encode($nombre)."' WHERE id = '".$codigo."'";
+			do_query($query);
 
-			if (mysqli_num_rows($cursos) > 0) {
-				// $resultado="Ya existe";
-				deliver_response(400, 'El curso ya existe', NULL);
-			} else {
-				$query = "UPDATE tcursos SET id='$codigo', nombre = '$nombre'";
-				$resultado = do_query($query);
-				
-				$query = "UPDATE tusuariosxcurso SET idcurso = '$codigo', idusuario = '$idProfesor1' ";
-				$resultado = do_query($query);
-				if($idProfesor2!=""){
-					$query = "UPDATE tusuariosxcurso SET idcurso = '$codigo', idusuario = '$idProfesor2')";
-					$resultado = do_query($query);
-				}
-				if($idProfesor3!=""){
-					$query = "UPDATE tusuariosxcurso SET idcurso = '$codigo', idusuario = '$idProfesor3'";
-					$resultado = do_query($query);
-				}
-				$query = "UPDATE tcursosxcarrera SET idcarrera = '$idCarrera' , idcurso = '$codigo'";
-				$resultado = do_query($query);
-				
-				deliver_response(200, 'OK', 'Registrado con exito');
+			$query = "SELECT uc.idUsuario FROM tusuariosxcurso as uc INNER JOIN tusuarios AS u ON uc.idUsuario = u.id WHERE (u.rol = 3 OR u.rol = 4) AND uc.idCurso='".$codigo."'";
+			$resultado = do_query($query);
+			while ($row = mysqli_fetch_assoc($resultado)) {
+				$queryDelete = "DELETE FROM tusuariosxcurso WHERE tusuariosxcurso.idCurso = '".utf8_encode($codigo)."' AND tusuariosxcurso.idUsuario = '".$row['idUsuario']."'";
+				do_query($queryDelete);
 			}
+
+			$query = "INSERT INTO tusuariosxcurso(idCurso, idUsuario) VALUES ('".utf8_encode($codigo)."','".utf8_encode($idProfesor1)."')";
+			$resultado = do_query($query);
+
+			if($idProfesor2 != ""){
+				$query = "INSERT INTO tusuariosxcurso(idCurso, idUsuario) VALUES ('".utf8_encode($codigo)."','".utf8_encode($idProfesor2)."')";
+				$resultado = do_query($query);
+			}
+
+			if($idProfesor3 != ""){
+				$query = "INSERT INTO tusuariosxcurso(idCurso, idUsuario) VALUES ('".utf8_encode($codigo)."','".utf8_encode($idProfesor3)."')";
+				$resultado = do_query($query);
+			}
+			
+			deliver_response(200, 'OK', 'Registrado con exito');
 		} else {
 			// Invalid request.
 			deliver_response(400, 'Bad request', NULL);

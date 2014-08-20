@@ -43,26 +43,25 @@
 					<div class="form-row">
 						<label for="txtInvitado1">Profesor(es):</label>
 						<input type="hidden" id="profesor-id-1" />
-						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)" required/>
+						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)" autocomplete="off" required/>
 						<div id="resInvitado1"></div>
 					</div>
 					<div class="form-row">
 						<label></label>
-						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)"/>
+						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)" autocomplete="off"/>
 						<div id="resInvitado2"></div>
 
 					</div>
 					<div class="form-row">
 						<label></label>
-						<input id="txtInvitado3" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)"/>
+						<input id="txtInvitado3" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)" autocomplete="off"/>
 						<div id="resInvitado3"></div>
 					</div>
 
 					<div class="form-row form-row-button">
 						<button id="btn-guardar-curso" class="btn btn-primary" type="submit">Guardar</button>
 						<!--<button id="btn-cancelar" class="btn btn-secondary" type="submit">Cancelar</button>-->
-						<a class="btn btn-default js-modal" 
-						data-modal-id="modal-cancelar">Cancelar</a>
+						<a class="btn btn-default js-modal" data-modal-id="modal-cancelar">Cancelar</a>
 					</div>
 				</form>
 			</section>

@@ -1,9 +1,10 @@
 <?php
     require_once('../includes/functions.php');
-   
+    require_once(ROOT.'/includes/functions-cursos.php');
 
     $currentModule = 'configuracion';
     $currentSubModule = 'cursos';
+    $carreraId = $_GET['idCarrera'];
 ?>
 
 <!DOCTYPE html>
@@ -21,67 +22,65 @@
 		<?php include(ROOT.'/includes/aside-configuracion.php'); ?>
 		
 		<main>
-			<section class="perfil-editar">
+			<section class="modificar-curso">
+				<?php
+                    if(isset($_GET['idCurso'])){
+                        $result = getCursoParaModificar($_GET['idCurso']);
+                    }
+                ?>
 				<div class="mod-hd">
-					<h2>Modificar un curso - Nombre del curso</h2>
+					<h2>Modificar un curso - <?php echo $result['cursoNombre'] ?></h2>
 				</div>
-					<!-- El atributo novalidate es para evitar que el browser 
-					haga las validaciones. -->
-					<form id="modificar-curso" class="mod-bd form-horizontal" action="registarCurso-Confirmar.html" method="post" 
-					data-validate="true" novalidate>
-
-					<?php
-                        if(isset($_GET['idCurso'])){
-                            $result = getCursoParaModificar($_GET['idCurso']);
-                        }
-                    ?>
-
-
+				<form id="modificar-curso" class="mod-bd form-horizontal" action="" method="post" data-validate="true" novalidate>
 					<div class="form-row">
 						<label for="codigo-curso">Código:</label>
-						<input id="codigo-curso" type="text" value="<?php echo utf8_encode($result['cursoId'])?>" class="form-control" 
-						onkeypress="return soloGuion(event)" required/>
+						<input id="codigo-curso" type="text" value="<?php echo $result['cursoId']?>" class="form-control" 
+						onkeypress="return soloGuion(event)" disabled required/>
 					</div>
 
 					<div class="form-row">
 						<label for="nombre-curso">Nombre:</label>
-						<input id="nombre-curso" type="text" value="<?php echo utf8_encode($result['cursoNombre'])?>" class="form-control" 
+						<input id="nombre-curso" type="text" value="<?php echo $result['cursoNombre']?>" class="form-control" 
 						onkeypress="return soloLetrasYnumeros(event)" required/>
 					</div>
 
 					<div class="form-row">
 						<label for="txtInvitado1">Profesor(es):</label>
 						<input type="hidden" id="profesor-id-1" />
-						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="<?php echo utf8_encode($result['usuarioNombre'])?> <?php echo utf8_encode($result['usuarioApellido1'])?> <?php echo utf8_encode($result['usuarioApellido2'])?>" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off" required/>
-						<div id="txtInvitado1-results"></div>
+						<input id="txtInvitado1" class="form-control nombreProfe" type="text" value="<?php echo $result['profesor1'] ?>" 
+							   placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)" autocomplete="off" required/>
+						<div id="resInvitado1"></div>
 					</div>
 					<div class="form-row">
 						<label></label>
 						<input type="hidden" id="profesor-id-2" />
-						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="<?php echo utf8_encode($result['usuarioNombre'])?> <?php echo utf8_encode($result['usuarioApellido1'])?> <?php echo utf8_encode($result['usuarioApellido2'])?>" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off"/>
-						<div id="txtInvitado2-results"></div>
-
+						<input id="txtInvitado2" class="form-control nombreProfe" type="text" value="<?php echo $result['profesor2'] ?>" 
+							   placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)" autocomplete="off"/>
+						<div id="resInvitado2"></div>
 					</div>
 					<div class="form-row">
 						<label></label>
 						<input type="hidden" id="profesor-id-3" />
-						<input id="txtInvitado3" class="form-control nombreProfe" type="text" value="" placeholder="Seleccione un profesor" onkeyup="buscarProfesor(event)" autocomplete="off" />
-						<div id="txtInvitado3-results"></div>
+						<input id="txtInvitado3" class="form-control nombreProfe" type="text" value="<?php echo $result['profesor3'] ?>" 
+							   placeholder="Seleccione un profesor" onkeyup="buscarProfesor(this.id)" autocomplete="off"/>
+						<div id="resInvitado3"></div>
 					</div>
 
 					<div class="form-row form-row-button">
 						<button id="btn-modificar-curso" class="btn btn-primary" type="submit">Guardar</button>
-						<!--<button id="btn-cancelar" class="btn btn-secondary" type="submit">Cancelar</button>-->
-						
-			</div>
-			<div id="listForm" class="backContent">
-				<fieldset class="frmLista">
-					<legend id="lblLegent"></legend>
-					<ul id="listElements">								
-					</ul>
-					<button id="btnVolver" class="btn btn-primary">Volver</button>
-				</fieldset>
-			</div>
+						<button id="btn-cancelar" class="btn btn-secondary" onclick="location.href='/cenfotec-proyecto-1/configuracion/consultarCursos.php?idCarrera=<?php echo $carreraId; ?>'">Cancelar</button>
+					</div>
+
+					<div id="listForm" class="backContent">
+						<fieldset class="frmLista">
+							<legend id="lblLegent"></legend>
+							<ul id="listElements">								
+							</ul>
+							<button id="btnVolver" class="btn btn-primary">Volver</button>
+						</fieldset>
+					</div>
+				</form>
+			</section>
 		</main>
 		
 		<?php include(ROOT.'/includes/footer.php'); ?>

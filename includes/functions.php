@@ -114,32 +114,10 @@ function dateLongString($dayWeek, $day, $month, $year) {
 	return $dayString.' '.$day.' de '.$monthString.' de '.$year;
 }
 
-
-
-
-	function getCursoParaModificar($pidcurso){
-
-		$query = "SELECT `tcursos`.`id` as `cursoId`, `tcursos`.`nombre` as `cursoNombre`, 
-		`tusuarios`.`nombre` as `usuarioNombre`, `tusuarios`.`apellido1` as `usuarioApellido1`, 
-		`tusuarios`.`apellido2` as `usuarioApellido2`" . "FROM tcursos, tusuariosxcurso, 
-		tusuarios WHERE `tcursos`.`id` = `tusuariosxcurso`.`idCurso` AND `tusuarios`.`id` = `tusuariosxcurso`.`idUsuario` 
-		AND (`tusuarios`.`rol` = 4 OR `tusuarios`.`rol` = 3)AND `tcursos`.`id` = '$pidcurso'";
-
-		
-
-		$result = do_query($query);
-    
-   		$row = mysqli_fetch_assoc($result);
-    
-  		return $row;
-
-	}
-
 // Retorna una hora en el formato "12:00 p.m."
 function timeLongString($timeToString) {
 	return date('g:i a', strtotime($timeToString));
 }
-
 
 // Consultas genericas
 function getCarreras() {

@@ -1,9 +1,9 @@
 <?php
-    require_once('../includes/functions.php');
- 
+    require_once('../includes/functions.php'); 
 
     $currentModule = 'configuracion';
     $currentSubModule = 'cursos';
+    $carrera = $_GET['idCarrera'];
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,6 @@
 			<?php include(ROOT.'/includes/header.php'); ?>
 			<?php include(ROOT.'/includes/aside-configuracion.php'); ?>
 
-
 			<main>
 				<div id="carreras-hd">
 					 <h2> Lista de cursos</h2>
@@ -30,7 +29,7 @@
 						<button id="btnBuscarCursos" class="flaticon-magnifier12" type="submit"></button>
 					</div>	
 
-					<a href="/cenfotec-proyecto-1/configuracion/registrarCurso.php?idCarrera=" id="crear-curso" class="btn btn-default flaticon-add73">Crear curso</a>
+					<a href="/cenfotec-proyecto-1/configuracion/registrarCurso.php?idCarrera=<?php echo $carrera; ?>" id="crear-curso" class="btn btn-default flaticon-add73">Crear curso</a>
 				<div class="mod-bd" > 
 				<div id="basic-accordion" class="accordion">
 					<div id="cursos-container">  </div>
@@ -67,7 +66,7 @@
 											<div class="form-row form-row-buttonAcciones2profes">
 												<input type="button" class="btn btn-secondaryAction" id="btnHabilitarCurso2" value="Habilitar" disabled>
 												<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitarCurso2" value="Deshabilitar" >
-												<input type="button" class="btn btn-secondaryAction"  onclick=" location.href='/cenfotec-proyecto-1/configuracion/modificarCurso.php?idCurso={{idcurso}}' " id="btnModificarCurso" value="Modificar">
+												<input type="button" class="btn btn-secondaryAction" onclick="location.href='/cenfotec-proyecto-1/configuracion/modificarCurso.php?idCurso={{idcurso}}&amp;idCarrera=<?php echo $carrera; ?>'" id="btnModificarCurso" value="Modificar">
 											</div>
 										</fieldset>
 									</div>

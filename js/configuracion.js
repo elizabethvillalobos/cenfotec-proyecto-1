@@ -1,4 +1,5 @@
 var ebtnCrearCurso = document.querySelector('#btnCrearCurso'),
+	ebtnModificarCurso = document.querySelector('#btnModificarCurso'),
 	aInputs = document.querySelectorAll('form .form-control'),
 	eError = document.querySelector('.alert-error'),
 	regis=false,
@@ -10,17 +11,19 @@ window.onload = function () {
 	if (eCrearCurso) {
 		eCrearCurso.reset();
 	}
-}	
-window.onload = function () {
-	var eModificarCurso = document.getElementById("modificar-curso")
-	if (eModificarCurso) {
-		eModificarCurso.reset();
-	}
-}	
+}
 		
 /* validar crear curso */
 if (ebtnCrearCurso) {
 	ebtnCrearCurso.addEventListener('click',function (evento) {
+		evento.preventDefault();
+    	var camposVacios=validarCamposLlenos(aInputs, eError, 'Todos los campos deben estar llenos');
+	});
+}
+
+/* validar modificar curso */
+if (ebtnModificarCurso) {
+	ebtnModificarCurso.addEventListener('click',function (evento) {
 		evento.preventDefault();
     	var camposVacios=validarCamposLlenos(aInputs, eError, 'Todos los campos deben estar llenos');
 	});
@@ -270,11 +273,6 @@ function consultarCursos(){
 			console.log(response);
 		}
 	});
-
-	var $crearCursoBtn = $('#crear-curso');
-	if ($crearCursoBtn) {
-		$crearCursoBtn.attr('href', $crearCursoBtn.attr('href') + idCarrera);
-	}
 }
 
 
@@ -350,33 +348,35 @@ function registrarCurso() {
 };
 
 function modificarCurso() {
+	console.log('modificar');
 	var codigo = $('#codigo-curso').val(),
-	  nombre = $('#nombre-curso').val(),
-	  idCarrera = $('#idCarrera').val(),
-	  idProfesor1 = $('#idProfesor1').text(),
-	  idProfesor2 = $('#idProfesor2').text(),
-	  idProfesor3 = $('#idProfesor3').text(),
-	  idCarrera = $('#idCarrera').text();
-
-	var request = $.ajax({
-		url: "../includes/service-cursos.php",
-		type: "get",
-		data: {
-			   'query': 'modificarCurso',
-			   'pcodigo': codigo,
-			   'pnombre' : nombre,
-			   'pidCarrera' : idCarrera,
-			   'pidProfesor1' : idProfesor1,
-			   'pidProfesor2' : idProfesor2,
-			   'pidProfesor3' : idProfesor3,
-			   'pidCarrera' : idCarrera
-			  },
-		dataType: 'json',
-		success: function(response){    
-			window.location ="registarCurso-Confirmar.html";
-		},
-
-	});
+	  	nombre = $('#nombre-curso').val(),
+	  	idProfesor1 = $('#idProfesor1').text(),
+	  	idProfesor2 = $('#idProfesor2').text(),
+	  	idProfesor3 = $('#idProfesor3').text(),
+	  	idCarrera = getQueryVariable('idCarrera');
+console.log(idProfesor1);
+	// var request = $.ajax({
+	// 	url: "../includes/service-cursos.php",
+	// 	type: "get",
+	// 	data: {
+	// 		   'query': 'modificarCurso',
+	// 		   'pcodigo': codigo,
+	// 		   'pnombre': nombre,
+	// 		   'pidProfesor1': idProfesor1,
+	// 		   'pidProfesor2': idProfesor2,
+	// 		   'pidProfesor3': idProfesor3
+	// 		  },
+	// 	dataType: 'json',
+	// 	success: function(response){    
+	// 		console.log(response);
+	// 		//window.location ="registarCurso-Confirmar.html";
+	// 	},
+	// 	error: function(response) {
+	// 		console.log('error');
+	// 		console.log(response);
+	// 	}
+	// });
 };
 
 function crearCarrera() {

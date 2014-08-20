@@ -502,6 +502,10 @@ ebtnBuscarCarrera.addEventListener('click',function () {
 	});
 });
 
+
+
+
+
 //obtener profesores
 function obtenerProfesores() {	
 	var resultados=[];

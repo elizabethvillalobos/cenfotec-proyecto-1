@@ -477,7 +477,33 @@ $('.usuarios-filtro').on('click', function(e) {
 
 });
 
-ebtnBuscarCarrera=document.querySelector('#btnBuscarCarreras');
+
+
+
+
+
+var ebtnBuscarCarrera=document.querySelector('#btnBuscarCarreras');
+var ebtnfiltroRector=document.querySelector('#btnfiltroRector'); 
+
+ebtnfiltroRector.addEventListener('click',function () {
+	
+		
+	var request = $.ajax({
+		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
+		type: "post",
+		data: {
+                'call' : 'getUsuariosRectores'
+                
+			  },
+		datatype: 'json',
+		success: function(data){    
+			
+			
+
+		}
+	});
+});
+
 ebtnBuscarCarrera.addEventListener('click',function () {
 	
 
@@ -501,7 +527,6 @@ ebtnBuscarCarrera.addEventListener('click',function () {
 		}
 	});
 });
-
 
 
 
@@ -575,6 +600,7 @@ function crearUsuario() {
 		}
 	});
 }
+
 
 
 

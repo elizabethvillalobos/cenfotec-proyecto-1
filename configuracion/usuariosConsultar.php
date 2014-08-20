@@ -29,7 +29,7 @@
                     <a class="crearUsuario btn btn-default flaticon-add73" href="/cenfotec-proyecto-1/configuracion/usuarioCrear.php">Crear usuario</a>
                     <div class="usuarios-filtros">
                         <span class="usuarios-filtros-label">Filtrar por rol:</span>
-                        <span class="usuarios-filtro filtro-rector">Rector</span>
+                        <span id="btnfiltroRector" class="usuarios-filtro filtro-rector">Rector</span>
                         <span class="usuarios-filtro filtro-director-academico">Director académico</span>
                         <span class="usuarios-filtro filtro-profesor">Profesor</span>
                         <span class="usuarios-filtro filtro-estudiante">Estudiante</span>
@@ -40,6 +40,7 @@
 					<table class="lista-usuarios">
                         <tbody>
                             <?php mostrarUsuarios() ?>
+                            <?php mostrarUsuariosRectores()?>
                         </tbody>
                     </table>
 				</div>

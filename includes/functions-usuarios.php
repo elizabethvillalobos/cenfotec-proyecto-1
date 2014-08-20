@@ -10,6 +10,57 @@ function getUsuarios() {
 	return do_query($query);
 }
 
+
+function getUsuariosRectores(){
+
+	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `tusuarios`.`contrasena`, `tusuarios`.`activo`, `trol`.`nombre` AS 'Rol' ".
+			 "FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id` AND `trol`.`id` = '2' ORDER BY tusuarios.apellido1, tusuarios.apellido2, tusuarios.nombre";
+
+
+	$result = do_query($query);
+		return $result;		 
+}
+
+function mostrarUsuariosRectores() {
+	$usuariosRectores = getUsuariosRectores();
+
+	while ($row = mysqli_fetch_assoc($usuariosRectores)) {
+        $estado = "Deshabilitar";
+        if($row['activo']==0){
+            $estado = "Habilitar";
+        }
+        
+		echo '<tr class="info-usuario">';
+        echo '<td>';
+        echo '<a href="#">'.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']).' '.utf8_encode($row['nombre']);
+        echo '</a>';
+        echo '<span class="usuarios-email">'.utf8_encode($row['id']);
+        echo '</span>';
+        echo '<span id="estado-usr" hidden="hidden">'.$row['activo'];
+        echo '</span>';
+        echo '</td>';
+        echo '<td class="usuarios-rol">'.utf8_encode($row['Rol']);
+        echo '</td>';
+        echo '<td>';
+        echo '<div class="usuarios-acciones">';
+        echo '<a class="usuarios-deshabilitar" href="#">'.$estado;
+        echo '</a>';
+        echo '<a class="usuarios-modificar" href="/cenfotec-proyecto-1/configuracion/usuarioModificar.php?id='.$row['id'].'">'."Modificar";
+        echo '</a>';
+        echo '<span class="flaticon-machine2">';
+        echo '</span>';
+        echo '</div>';
+        echo '</td>';
+        echo '</tr>';
+
+
+       
+	}
+}
+
+
+
+
 function mostrarUsuarios() {
 	$usuarios = getUsuarios();
 
@@ -43,6 +94,10 @@ function mostrarUsuarios() {
         echo '</tr>';
 	}
 }
+
+
+
+
 
 // Función que consulta los profesores
 	function getProfesores() {
@@ -138,6 +193,7 @@ function insertarUsuario(){
 	}
 
 }
+
 
 function getRoles() {
 	$query = "SELECT * FROM trol";

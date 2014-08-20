@@ -18,10 +18,10 @@ switch ($currentSubModule) {
 	<nav class="secondary-nav">
 		<ul class="sec-nav-category">			
 			<li class="accordion-item">
-				<a href="/cenfotec-proyecto-1/mensajeria/nuevaConversacion.php">Nueva Conversación</a>
+				<a href="/cenfotec-proyecto-1/mensajeria/nuevaConversacion.php" <?php echo $subModNueva; ?>>Nueva Conversación</a>
 			</li>
 			<li class="accordion-item expanded">
-				<a href="#" class="active">Conversaciones</a>
+				<a href="#" <?php echo $subModConversacion; ?>>Conversaciones</a>
 				<ul class="thrd-nav-category accordion-detail">
 					<?php getConversacionesUsuario($_SESSION['usuarioActivoId']) ?>
 				</ul>

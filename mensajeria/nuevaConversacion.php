@@ -1,6 +1,8 @@
 <?php
 	require_once('../includes/functions.php');
+	require_once('../includes/functions-mensajeria.php');
 	$currentModule = 'mensajeria'; 
+	$currentSubModule = 'nueva'; 
 ?>
 
 <!DOCTYPE html>
@@ -14,27 +16,7 @@
 	<body>
 		<div class="wrapper">
 			<?php include(ROOT.'/includes/header.php'); ?>
-
-			<aside>
-				<nav class="secondary-nav">
-					<ul class="sec-nav-category">
-						<li class="accordion-item">
-							<a href="#" class="active">Nueva Conversación</a>
-						</li>
-						<li class="accordion-item">
-							<a href="/cenfotec-proyecto-1/mensajeria/mensajeria.php">Conversaciones</a>
-							<ul class="thrd-nav-category accordion-detail">
-								<li><a href="#">Alex Mendez</a></li>
-								<li><a href="#">Antonio Luna</a></li>
-								<li><a href="#">Pablo Monestel</a></li>	
-								<li><a href="#">Vicky Gomez</a></li>	
-								<li><a href="#">Pedro Montero</a></li>	
-							</ul>
-						</li>
-						
-					</ul>
-				</nav>
-			</aside>
+			<?php include(ROOT.'/includes/aside-mensajeria.php'); ?>
 
 			<main>
 				<section class="nuevaConversacion">

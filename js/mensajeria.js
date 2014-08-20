@@ -51,15 +51,41 @@ function obtenerDestinatarios() {
 var btnEnviar=document.querySelector('#btnEnviar');
 if(btnEnviar!=null){
 	btnEnviar.addEventListener('click',function(event){
+		event.preventDefault();
 		limpiarMensajesError();
+		var noHayErrores=true;
 		var txtDestinatario = document.querySelector('#txtDestinatario');
 		if(txtDestinatario.value.trim()==''){
 			mostrarMensajeError(txtDestinatario, "Este campo no puede estar vacío.");
+			noHayErrores =false;
 		}
 		
 		var txtMensaje = document.querySelector('#txtMensaje');
 		if(txtMensaje.value.trim()==''){
 			mostrarMensajeError(txtMensaje, "Este campo no puede estar vacío.");
+			noHayErrores =false;
+		}
+		
+		if(noHayErrores){
+			// crear conversacion
+			$.ajax({
+				url: '../includes/service-mensajeria.php',
+				type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+				data: { // Objeto con los parámetros que utiliza el servicio.
+					'query': 'crearConversacion',
+					'idReceptor': location.search.split("=")[1],
+					'mensaje': txtMensaje.value,
+					'horaFecha': new Date().toLocaleString()
+				},
+				dataType: 'json',
+				success: function(response){
+					alert("Success");
+				},
+				error: function(response){
+					resultados=null;
+				},
+				async: false
+			});
 		}
 	});
 }

@@ -27,7 +27,7 @@
                 }
             ?>
 			<li>
-				<a href="/cenfotec-proyecto-1/mensajeria/mensajeria.php" class="mensajeria flaticon-black218 <?php if ($currentModule == 'mensajeria') { echo 'active'; } ?>"><span>Mensajería</span></a>
+				<a href="/cenfotec-proyecto-1/mensajeria/mensajeria.php?idUsuarioOtro=" class="mensajeria flaticon-black218 <?php if ($currentModule == 'mensajeria') { echo 'active'; } ?>"><span>Mensajería</span></a>
 			</li>
 			<?php if($rolUsr==1 || $rolUsr==2 || $rolUsr==3){
                 $activo = '';

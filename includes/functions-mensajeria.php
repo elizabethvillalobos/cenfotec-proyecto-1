@@ -1,5 +1,12 @@
 <?php
 	
+	// Función que crea una conversacion
+	function insertConversacion($idEmisor, $idReceptor, $mensaje, $horaFecha) {
+		
+		$query = "INSERT INTO `gic`.`mensajes` (`idEmisor`, `idReceptor`, `mensaje`, `horaFecha`, `leido`) VALUES ('$idEmisor', '$idReceptor, '$mensaje', '$horaFecha', '0');";
+		return do_query($query);
+		
+	}
 	// Función que muestra las conversaciones de un usuario
 	function getConversacionesUsuario($idUsuario) {
 		
@@ -26,7 +33,7 @@
 		$queryResults = do_query($query);
 		while ($row = mysqli_fetch_assoc($queryResults)) {			
 			//echo '<li><a href="/cenfotec-proyecto-1/citas/mensajeria.php?idUsuarioOtro='.$row['otroContacto'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .' '.utf8_encode($row['apellido2']).'</a></li>';						
-			echo '<li><a href="/cenfotec-proyecto-1/citas/mensajeria.php?idUsuarioOtro='.$row['otroContacto'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .' '.utf8_encode($row['apellido2']);						
+			echo '<li><a href="/cenfotec-proyecto-1/mensajeria/mensajeria.php?idUsuarioOtro='.$row['otroContacto'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .' '.utf8_encode($row['apellido2']);						
 			if(utf8_encode($row['noLeidos'])>0)
 			{
 				echo '<span class="notificacion">'.utf8_encode($row['noLeidos']).'</span>';
@@ -98,50 +105,5 @@
 		mysqli_free_result($queryResults);
 	}
 	
-	function mostrarFrmCita($titulo1,$titulo2,$nombreOtraPersona,$idOtraPersona,$telefonoOtraPersona,$imagenOtraPersona,$asunto,$nombreCurso,$modalidadCita,$tipoCita,$observaciones){
-		echo '<div class="mod-hd"> '.
-				'<h2>'.$titulo1.'</h2> '.
-				'<span class="cita-hora-inicio-fin">'.$titulo2.'</span> '.
-			'</div> '.
-			'<div class="mod-bd"> '.
-				'<div class="row"> '.
-					'<span class="label">Solicitante:</span> '.
-					'<div class="data-wrap"> '.
-						'<span class="data cita-invitado">'.$nombreOtraPersona.'</span> '.
-						'<span class="data">'.$idOtraPersona.'</span> '.
-						'<span class="data">'.$telefonoOtraPersona.'</span> '.
-					'</div> '.
-				'</div> '.
-
-				'<img class="cita-photo" src="'.$imagenOtraPersona.'" width="75" height="75"> '.
-
-				'<div class="row"> '.
-					'<span class="label">Asunto a tratar:</span> '.
-					'<span class="data">'.$asunto.'</span> '.
-				'</div> '.
-
-				'<div class="row"> '.
-					'<span class="label">Curso:</span> '.
-					'<span class="data">'.$nombreCurso.'</span> '.
-				'</div> '.
-
-				'<div class="row"> '.
-					'<span class="label">Modalidad:</span> '.
-					'<span class="data">'.$modalidadCita.'</span> '.
-				'</div> '.
-
-				'<div class="row"> '.
-					'<span class="label">Tipo:</span> '.
-					'<span class="data">'.$tipoCita.'</span> '.
-				'</div> '.
-
-				'<div class="row"> '.
-					'<span class="label">Observaciones:</span> '.
-					'<span class="data">'.$observaciones.'</span> '.
-				'</div> '.
-				
-				
-			'</div> ';
-	}
 
 ?>

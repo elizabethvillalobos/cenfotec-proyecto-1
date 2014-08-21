@@ -159,6 +159,7 @@ if(btnEnviar!=null){
 							  },
 						dataType: 'json',
 						success: function(response){ 
+							enviarEmailSolicitud('jo_cego@hotmail.com', asunto, $('#txtInvitado').val());
 							window.location ="solicitudEnviada.php?nombreInvitado="+$('#txtInvitado').val()+"&titulo=La solicitud de cita de atención ha sido realizada";
 						},
 						error: function(response){
@@ -401,4 +402,14 @@ function inputLlenos(idContainer){
 		}
 	}
 	return estanLlenos;
+}
+
+
+function enviarEmailSolicitud(to, asunto, solicitante) {
+	var mensaje = '<h3>Nueva solicitud de cita</h3>' +
+				  '<p><b>' + decodeURI(solicitante) + '</b> te ha solicitado una cita sobre:</p>' + 
+				  '<p style="font-style: italic;">' + asunto + '</p>',
+		subject = 'Nueva solicitud de cita';
+
+	enviarEmail(to, subject, mensaje);
 }

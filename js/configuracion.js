@@ -9,7 +9,7 @@ var ebtnCrearCurso = document.querySelector('#btnCrearCurso'),
 window.onload = function () {
 	var eCrearCurso = document.getElementById("crear-curso")
 	if (eCrearCurso) {
-		eCrearCurso.reset();
+		
 	}
 }
 		
@@ -477,33 +477,8 @@ $('.usuarios-filtro').on('click', function(e) {
 
 });
 
-
-
-
-
-
-var ebtnBuscarCarrera=document.querySelector('#btnBuscarCarreras');
-var ebtnfiltroRector=document.querySelector('#btnfiltroRector'); 
-
-ebtnfiltroRector.addEventListener('click',function () {
-	
-		
-	var request = $.ajax({
-		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
-		type: "post",
-		data: {
-                'call' : 'getUsuariosRectores'
-                
-			  },
-		datatype: 'json',
-		success: function(data){    
-			
-			
-
-		}
-	});
-});
-
+ebtnBuscarCarrera=document.querySelector('#btnBuscarCarreras');
+if(ebtnBuscarCarrera){
 ebtnBuscarCarrera.addEventListener('click',function () {
 	
 
@@ -514,7 +489,7 @@ ebtnBuscarCarrera.addEventListener('click',function () {
 		url: "/cenfotec-proyecto-1/includes/functions-carreras.php",
 		type: "post",
 		data: {
-                'call' : 'displayCarrerasFiltradas',
+                'call' : 'displayCursosFiltrados',
 			   'pnombreCarrera': nombreCarrera
 			  },
 		datatype: 'json',
@@ -527,9 +502,38 @@ ebtnBuscarCarrera.addEventListener('click',function () {
 		}
 	});
 });
+}
 
 
+ebtnBuscarCursos=document.querySelector('#btnBuscarCursos');
+if(ebtnBuscarCursos){
+ebtnBuscarCursos.addEventListener('click',function () {
 
+	
+	var nombreCursos = $('#criterioCurso').val();
+	var idCarrera = location.search.split("=")[1];	
+	var request = $.ajax({
+		url: "/cenfotec-proyecto-1/includes/service-cursos.php",
+		type: "post",
+		data: {
+                'call' : 'buscarCursos',
+			   'pnombreCurso': nombreCursos,
+			   'pidCarrera': idCarrera
+			  },
+		datatype: 'json',
+		success: function(data){    
+			
+			imprimirCursosBuscados($.parseJSON(response.data));
+		}
+	});
+});
+}
+
+function imprimirCursosBuscados(aCursos){
+	var source = $("#template-cursoBuscado").html(),
+	template = Handlebars.compile(source);
+  	$("#cursosBuscados-container").html(template(aCursos));
+}
 
 //obtener profesores
 function obtenerProfesores() {	
@@ -600,7 +604,6 @@ function crearUsuario() {
 		}
 	});
 }
-
 
 
 

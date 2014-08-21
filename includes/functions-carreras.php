@@ -58,7 +58,9 @@
 
 		if(isset( $_POST['pnombreCarrera'])){
 		$nombre = utf8_decode($_POST['pnombreCarrera']);
-		$query =  "SELECT tcarrera.id as carreraId, tcarrera.nombre as carreraNombre, tcarrera.activo as carreraActiva, tusuarios.nombre as directorNombre, tusuarios.apellido1 as directorApellido1, tusuarios.apellido2 as directorApellido2 FROM tcarrera, tusuarios WHERE tcarrera.idDirector = tusuarios.id AND tcarrera.nombre LIKE('%$nombre%') ORDER BY tcarrera.nombre";
+		$query =  "SELECT tcarrera.id as carreraId, tcarrera.nombre as carreraNombre, tcarrera.activo as carreraActiva, tusuarios.nombre as directorNombre,
+		 tusuarios.apellido1 as directorApellido1, tusuarios.apellido2 as directorApellido2 FROM tcarrera, tusuarios WHERE
+		  tcarrera.idDirector = tusuarios.id AND tcarrera.nombre LIKE('%$nombre%') ORDER BY tcarrera.nombre";
 	} else {
 
 		$query = 'SELECT tcarrera.id as carreraId, tcarrera.nombre as carreraNombre, tcarrera.activo as carreraActiva, tusuarios.nombre as directorNombre, tusuarios.apellido1 as directorApellido1, tusuarios.apellido2 as directorApellido2 FROM tcarrera, tusuarios WHERE tcarrera.idDirector = tusuarios.id ORDER BY tcarrera.nombre';

@@ -25,7 +25,7 @@
 					 <h2> Lista de cursos</h2>
 		
 					<div id="buscarCursos">
-						<input id="q" class="campo-busqueda" type="text" value="" placeholder="Buscar cursos" />
+						<input id="criterioCurso" class="campo-busqueda" type="text" value="" placeholder="Buscar cursos" />
 						<button id="btnBuscarCursos" class="flaticon-magnifier12" type="submit"></button>
 					</div>	
 
@@ -77,7 +77,51 @@
 				
 				{{/each}}
 				</script>
+				<div id="cursosBuscados-container">  </div>
+					<script id="template-cursoBuscado" type="text/x-handlebars-template">
+						{{#each cursosBuscados}}
 
+						<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle collapsed" href="#{{idcurso}}" data-parent="#basic-accordion"
+							data-toggle="collapse">{{nombre}} </a>
+						</div>
+						<div id="{{idcurso}}" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<form class="detalleCarrera" action="#" method="post">
+									<div class="colorDetalleCurso">
+										<fieldset>
+											<div class="form-row">
+												<label for="text1">Código:</label>
+												<input id="text1" type="text" placeholder="{{idcurso}}" class="form-control1" 
+												readonly="readonly"/>
+												
+											</div>
+											<label for="textoProfe1Curso">Profesor(es)</label>
+											<div id="wrapperProfesCursos">
+
+												{{#each profesores}}
+												<div class="form-row">
+													<input id="textoProfe1Curso" type="text" placeholder="{{ profesorNombre }}" 
+													class="form-control1" readonly="readonly"/>
+												</div>
+												{{/each}}
+											
+											</div>
+											<div class="form-row form-row-buttonAcciones2profes">
+												<input type="button" class="btn btn-secondaryAction" id="btnHabilitarCurso2" value="Habilitar" disabled>
+												<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitarCurso2" value="Deshabilitar" >
+												<input type="button" class="btn btn-secondaryAction" onclick="location.href='/cenfotec-proyecto-1/configuracion/modificarCurso.php?idCurso={{idcurso}}&amp;idCarrera=<?php echo $carrera; ?>'" id="btnModificarCurso" value="Modificar">
+											</div>
+										</fieldset>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				
+				{{/each}}
+				</script>	
 			</main>
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>
@@ -96,5 +140,6 @@
 		<script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 		<script>consultarCursos(); </script>
+		<script>buscarCursos(); </script>
 	</body>
 </html>

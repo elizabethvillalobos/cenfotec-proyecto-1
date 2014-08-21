@@ -158,6 +158,62 @@
 		}
 	}
 	
+
+	function buscarCursos() {
+		if (!empty($_GET['pnombreCurso'])) {
+			$pidCarrera = $_GET['pidCarrera'];
+			$pnombreCurso = $_GET['pnombreCurso'];
+
+			$query = 'SELECT tcursos.id as cursoId, tcursos.nombre as cursoNombre, tcursos.activo as cursoActivo, '.
+					 'tusuarios.nombre as usuarioNombre, tusuarios.apellido1 as usuarioApellido1, tusuarios.apellido2 as usuarioApellido2 '.
+					 'FROM tcursos, tusuariosxcurso, tusuarios, tcursosxcarrera, tcarrera '.
+					 'WHERE tcursos.id = tusuariosxcurso.idCurso '.
+					 'AND tusuarios.id = tusuariosxcurso.idUsuario '.
+					 'AND tcursosxcarrera.idCurso = tusuariosxcurso.idCurso '.
+					 'AND tcarrera.id = tcursosxcarrera.idCarrera '.
+					 'AND tcarrera.id = "'.$pidCarrera.'" AND (tusuarios.rol = 4 OR tusuarios.rol = 3) '.
+					 'AND tcursos.nombre LIKE ("'.$pnombreCurso.'")'.
+					 'ORDER BY tcursos.id';
+
+			$result = do_query($query);
+			
+			$jsonArray = [];
+			$index = 0;
+			$indexProf = 0;
+			$currentCourse = '';
+
+			while ($row = mysqli_fetch_assoc($result)) {
+				if ($row['cursoId'] != $currentCourse) {
+					// Resetear el array de profes para evitar que se muestren indices
+					// de la fila anterior.
+					$profesores = [];
+					
+					$results['idcurso'] = $row['cursoId'];
+					$results['nombre'] = utf8_encode($row['cursoNombre']);
+					$results['activo'] = $row['cursoActivo'];
+
+					$indexProf = 0;
+					$profesores[$indexProf]['profesorNombre'] = utf8_encode($row['usuarioNombre']).' '.utf8_encode($row['usuarioApellido1']).' '.utf8_encode($row['usuarioApellido2']);
+
+					$index++;
+				} else {
+					$indexProf++;
+					$profesores[$indexProf]['profesorNombre'] = utf8_encode($row['usuarioNombre']).' '.utf8_encode($row['usuarioApellido1']).' '.utf8_encode($row['usuarioApellido2']);
+				}
+				// Asignar el array de cursos
+				$results['profesores'] = $profesores;
+				$currentCourse = $row['cursoId'];
+
+				$jsonArray['cursosBuscados'][$index] = $results;
+			}
+
+			deliver_response(200, 'ok', json_encode($jsonArray)); 
+		}
+	}
+
+
+
+
 	function consultarCursosActivos() {
 		$cursos = getCursosActivos();
 		if (empty($cursos)) {

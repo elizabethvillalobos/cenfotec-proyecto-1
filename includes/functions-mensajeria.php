@@ -173,5 +173,36 @@
 		return $jsonArray;
 	}
 	
-
+	function getTotalNoLeidos($idUsuarioActual){
+		$query="SELECT SUM(noLeidos) AS totalNoLeidos FROM ".
+"(SELECT msjs.otroContacto,tusrs.nombre,tusrs.apellido1,tusrs.apellido2, msjs.noLeidos FROM ".
+"(SELECT conversaciones.otroContacto,noLeidos.noLeidos ".
+"FROM (".
+    "SELECT DISTINCT otroContacto ".
+    "FROM ( ".
+        "SELECT tm.id, tm.idEmisor,temisor.nombre AS nombreEmisor, temisor.apellido1 AS apellido1Emisor,temisor.apellido2 AS apellido2Emisor, tm.idReceptor,treceptor.nombre AS nombreReceptor,treceptor.apellido1 AS apellido1Receptor,treceptor.apellido2 AS apellido2Receptor, tm.leido, tm.mensaje, CASE WHEN temisor.id='$idUsuarioActual' THEN treceptor.id WHEN treceptor.id='$idUsuarioActual' THEN temisor.id ELSE 'No match' END AS otroContacto ".
+        "FROM mensajes AS tm   ".
+        "LEFT OUTER JOIN tusuarios AS temisor ON temisor.id=tm.idEmisor ".
+        "LEFT OUTER JOIN tusuarios AS treceptor ON treceptor.id=tm.idReceptor ".
+        "WHERE tm.idEmisor='$idUsuarioActual' OR tm.idReceptor= '$idUsuarioActual' )AS con ) AS conversaciones ".
+        "LEFT OUTER JOIN (".
+            "SELECT otroContacto, leido, COUNT(*) AS noLeidos ".
+            "FROM ( ".
+                "SELECT tm.id, tm.idEmisor,temisor.nombre AS nombreEmisor, temisor.apellido1 AS apellido1Emisor,temisor.apellido2 AS apellido2Emisor, tm.idReceptor,treceptor.nombre AS nombreReceptor,treceptor.apellido1 AS apellido1Receptor,treceptor.apellido2 AS apellido2Receptor, tm.leido, tm.mensaje, CASE WHEN temisor.id='$idUsuarioActual' THEN treceptor.id WHEN treceptor.id='$idUsuarioActual' THEN temisor.id ELSE 'No match' END AS otroContacto ".
+                "FROM mensajes AS tm ".
+                "LEFT OUTER JOIN tusuarios AS temisor ON temisor.id=tm.idEmisor ".
+                "LEFT OUTER JOIN tusuarios AS treceptor ON treceptor.id=tm.idReceptor ".
+                "WHERE tm.idReceptor= '$idUsuarioActual') AS a ".
+            "WHERE leido=0 ".
+            "GROUP BY otroContacto, leido) AS noLeidos ON conversaciones.otroContacto=noLeidos.otroContacto) AS msjs INNER JOIN tusuarios AS tusrs ON tusrs.id=msjs.otroContacto) AS finalRes";
+	
+	$queryResults = do_query($query);
+		$row = mysqli_fetch_assoc($queryResults);
+		$total = utf8_encode($row['totalNoLeidos']);
+		mysqli_free_result($queryResults);
+		if($total==null){
+			$total=0;
+		}
+		echo $total;
+	}
 ?>

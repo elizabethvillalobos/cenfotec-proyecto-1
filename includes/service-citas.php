@@ -1,4 +1,5 @@
-<?php
+<?php session_start(); 
+    error_reporting(0);
 	require_once('../includes/functions.php');
 	require_once('../includes/functions-citas.php');
 
@@ -145,7 +146,7 @@
 	}
 
 	function crearSolicitud() {
-		$idSolcitante = $_GET['idSolcitante'];
+		$idSolcitante = $_SESSION['usuarioActivoId'];
 		$idSolicitado = $_GET['idSolicitado'];
 		$asunto = $_GET['asunto'];
 		$modalidad = $_GET['modalidad'];
@@ -166,19 +167,18 @@
 		}
 	}
 	
-	function actualizarHoraSolicitud() {
+	function actualizarHoraSolicitud() {		
 		$idCita = $_GET['idCita'];
 		$fechaInicio = $_GET['fechaInicio'];
 		$fechaFin = $_GET['fechaFin'];
 		$query = "UPDATE `tcitas` SET `fechaInicio` = '$fechaInicio', `fechaFin` = '$fechaFin' WHERE `tcitas`.`id` = '$idCita';";
-			
 		$resultado = do_query($query);			
 		deliver_response(200, 'OK', 'Solicitud actualizada exitosamente');
 	}
 	
 	function aceptarPropuestaSolicitud() {
 		$idCita = $_GET['idCita'];
-		$query = "UPDATE `tcitas` SET `estado` = '2' WHERE `tcitas`.`id` = '$idCita';";
+		$query = "UPDATE `tcitas` SET `estado` = '2',`esCita` = '1' WHERE `tcitas`.`id` = '$idCita';";
 			
 		$resultado = do_query($query);			
 		deliver_response(200, 'OK', 'Solicitud aceptada exitosamente');

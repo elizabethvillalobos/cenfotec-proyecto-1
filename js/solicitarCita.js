@@ -139,7 +139,6 @@ if(btnEnviar!=null){
 				else
 				{
 					var idcurso = $('#idCurso').text(),
-						idSolcitante = 1,
 						idSolicitado = $('#idInvitado').text(),
 						asunto = $('#txtAsunto').val(),
 						modalidad=getRadioChecked('rdoModalidad'),
@@ -151,7 +150,6 @@ if(btnEnviar!=null){
 						type: "get",
 						data: {
 							   'query': 'crearSolicitud',
-							   'idSolcitante': idSolcitante,
 							   'idSolicitado' : idSolicitado,
 							   'asunto' : asunto,
 							   'modalidad' : modalidad,
@@ -263,9 +261,22 @@ if(btnAceptar!=null){
 			
 			if(noHayErrores){
 				event.preventDefault();
-				var idCita = location.search.split("=")[1],
-					fechaInicio = $('#txtFecha').datepicker({ dateFormat: 'dd-mm-yy' }).val()+" "+$('#txtHoraInicio').val(),
-					fechaFin = $('#txtFecha').datepicker({ dateFormat: 'dd-mm-yy' }).val()+" "+$('#txtHoraFin').val();
+				var idCita = location.search.split("=")[1];//,
+					//fechaInicio = $('#txtFecha').datepicker({ dateFormat: 'yy-mm-dd' }).val()+" "+$('#txtHoraInicio').val()+":00",
+					//fechaFin = $('#txtFecha').datepicker({ dateFormat: 'yy-mm-dd' }).val()+" "+$('#txtHoraFin').val()+":00";
+					
+				var today = $('#txtFecha').datepicker('getDate')
+				var dd = today.getDate();
+				var mm = today.getMonth()+1;//January is 0!
+				var yyyy = today.getFullYear();
+				var hours = today.getHours();
+				var minutes = today.getMinutes();
+				var seconds = today.getSeconds();
+				if(dd<10){dd='0'+dd}
+				if(mm<10){mm='0'+mm}
+				var resultDate = yyyy+'-'+mm+'-'+dd;
+				var fechaInicio=yyyy+'-'+mm+'-'+dd+' '+$('#txtHoraInicio').val()+":00"
+				var fechaFin=yyyy+'-'+mm+'-'+dd+' '+$('#txtHoraFin').val()+":00"
 
 				var request = $.ajax({
 					url: "../includes/service-citas.php",

@@ -31,7 +31,7 @@ switch ($currentSubModule) {
 					<a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita=0" <?php echo $subModSolicitudes; ?> >Solicitudes de cita</a>
 					<ul class="thrd-nav-category accordion-detail">
 						<!--getSolicitudesUsuario(1) -->
-						<?php getSolicitudesUsuario("evillalobosm@ucenfotec.ac.cr") ?>
+						<?php getSolicitudesUsuario($_SESSION['usuarioActivoId'])?>
 					</ul>
 				<?php } else { ?>
 					<a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita=0">Solicitudes de cita</a>

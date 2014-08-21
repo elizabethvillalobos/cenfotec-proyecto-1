@@ -127,7 +127,7 @@ function enviarEmailCreacionCita(citaId) {
 			dataType: 'json',
 			success: function(response) {
 				nombreSolicitado = $.parseJSON(response.data)[0].nombreCompleto;
-				mensaje = '<h3>Nueva cita programada</h3>' +
+				mensaje = '<h3">Nueva cita programada</h3>' +
 					  '<table style="text-align: left; width: 100%; vertical-align: top;"><tbody>' + 
 					  '<tr><th>Invitados:</th><td>' + data.nombreSolicitante + '<br />' + nombreSolicitado + '</td></tr>' + 
 					  '<tr><th>Asunto a tratar:</th><td>' + data.asunto + '</td></tr>' + 

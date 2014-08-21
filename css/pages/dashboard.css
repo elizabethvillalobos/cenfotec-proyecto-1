@@ -5,6 +5,12 @@ main {
 	overflow: visible;
 }
 
+.dashboard .no-data {
+	border: 0;
+	padding: 30px 20px 0;
+	text-align: center;
+}
+
 .dashboard a:hover {
 	color: #c0392b;
 }
@@ -72,16 +78,11 @@ main {
 .dash-agenda-cita span {
 	font-size: 1em;
 	float: left;
+	line-height: 1.2;
 }
 
-.dash-agenda-fecha {
-	width: 55%;
-}
-
-.dash-agenda-hora {
-	float: right;
-	text-align: right;
-	width: 22%;
+.dash-agenda-cita .dash-agenda-invitado {
+	width: 75%;
 }
 
 .dash-agenda-photo {
@@ -91,7 +92,6 @@ main {
 	float: left;
 	margin-right: 10px;
 }
-
 
 /*Solicitudes*/
 .dash-agenda-solicitudes {

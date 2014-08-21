@@ -21,7 +21,10 @@
 				break;
 			case 'modificarCurso':
 				modificarCurso();
-			break;
+				break;
+			case 'buscarCursos':
+				buscarCursos();
+				break;
 		}
 	} else {
 		// Invalid request.
@@ -157,10 +160,10 @@
 			deliver_response(400, 'Bad request', NULL);
 		}
 	}
-	
+
 
 	function buscarCursos() {
-		if (!empty($_GET['pnombreCurso'])) {
+		if (!empty($_GET['pidCarrera'])) {
 			$pidCarrera = $_GET['pidCarrera'];
 			$pnombreCurso = $_GET['pnombreCurso'];
 
@@ -172,7 +175,7 @@
 					 'AND tcursosxcarrera.idCurso = tusuariosxcurso.idCurso '.
 					 'AND tcarrera.id = tcursosxcarrera.idCarrera '.
 					 'AND tcarrera.id = "'.$pidCarrera.'" AND (tusuarios.rol = 4 OR tusuarios.rol = 3) '.
-					 'AND tcursos.nombre LIKE ("'.$pnombreCurso.'")'.
+					 'AND tcursos.nombre LIKE "%'.$pnombreCurso.'%" '.
 					 'ORDER BY tcursos.id';
 
 			$result = do_query($query);
@@ -204,16 +207,13 @@
 				$results['profesores'] = $profesores;
 				$currentCourse = $row['cursoId'];
 
-				$jsonArray['cursosBuscados'][$index] = $results;
+				$jsonArray['cursos'][$index] = $results;
 			}
 
 			deliver_response(200, 'ok', json_encode($jsonArray)); 
 		}
 	}
-
-
-
-
+	
 	function consultarCursosActivos() {
 		$cursos = getCursosActivos();
 		if (empty($cursos)) {

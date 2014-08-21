@@ -452,9 +452,12 @@ function modificarCarrera(){
 //Filtros de mostrar usuarios
 
 $('.usuarios-filtro').on('click', function(e) {
-    var rol;
-    
+    var rol;    
+    // Quitar la clase active de todos
+    //$('.usuarios-filtro')
 
+    // Asignar la clase active al currentTarget
+    
     switch($(e.currentTarget).text()){
         case 'Rector':
             rol=2;
@@ -474,8 +477,22 @@ $('.usuarios-filtro').on('click', function(e) {
         case 'Mercadeo':
             rol=7;
             break;
-    }; 
-
+    };
+    var request = $.ajax({
+		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
+		type: "post",
+		data: {
+               'call': 'mostrarUsuariosRectores',
+               'pRol': rol
+			  },
+		datatype: 'json',
+		success: function(data){
+			$('.lista-usuarios tbody').html(data);
+		},
+		error: function(data) {
+			console.log('error');
+		}
+	});
 });
 
 ebtnBuscarCarrera=document.querySelector('#btnBuscarCarreras');

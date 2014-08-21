@@ -39,7 +39,7 @@
                     </div>
 					<table class="lista-usuarios">
                         <tbody>
-                            <?php mostrarUsuariosRectores() ?>
+                            <?php mostrarUsuarios() ?>
                         </tbody>
                     </table>
 				</div>

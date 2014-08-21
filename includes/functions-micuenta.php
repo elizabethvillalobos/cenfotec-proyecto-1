@@ -1,10 +1,10 @@
 <?php
-	require_once('../includes/functions.php');
-
-	function cargarContrasenaActual($usuarioActivo) {
-		$query = 'SELECT tusuarios.contrasena '.
-			 	 'FROM tusuarios WHERE tusuarios.id = "'.$usuarioActivo.'"';
-		
-		$result = do_query($query);
+	
+	function getPassword($usuarioActivoId){
+		$query = "SELECT tusuarios.contrasena FROM tusuarios WHERE tusuarios.id ='$usuarioActivoId' ";	 	 
+		$result = do_query($query);	
+		$password = mysqli_fetch_assoc($result);
+		return $password;
 	}
+
 ?>

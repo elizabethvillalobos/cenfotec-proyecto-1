@@ -266,7 +266,7 @@ function consultarCursos(){
 			  },
 		dataType: 'json',
 		success: function(response){ 
-		console.log($.parseJSON(response.data));   
+		console.log(response);   
 			imprimirCursos($.parseJSON(response.data));
 		},
 		error: function(response) {
@@ -452,7 +452,11 @@ function modificarCarrera(){
 //Filtros de mostrar usuarios
 
 $('.usuarios-filtro').on('click', function(e) {
-    var rol;
+    var rol;    
+    // Quitar la clase active de todos
+    //$('.usuarios-filtro')
+
+    // Asignar la clase active al currentTarget
     
     switch($(e.currentTarget).text()){
         case 'Rector':
@@ -473,8 +477,22 @@ $('.usuarios-filtro').on('click', function(e) {
         case 'Mercadeo':
             rol=7;
             break;
-    }; 
-
+    };
+    var request = $.ajax({
+		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
+		type: "post",
+		data: {
+               'call': 'mostrarUsuariosRectores',
+               'pRol': rol
+			  },
+		datatype: 'json',
+		success: function(data){
+			$('.lista-usuarios tbody').html(data);
+		},
+		error: function(data) {
+			console.log('error');
+		}
+	});
 });
 
 ebtnBuscarCarrera=document.querySelector('#btnBuscarCarreras');
@@ -512,27 +530,35 @@ ebtnBuscarCursos.addEventListener('click',function () {
 	
 	var nombreCursos = $('#criterioCurso').val();
 	var idCarrera = location.search.split("=")[1];	
+
 	var request = $.ajax({
-		url: "/cenfotec-proyecto-1/includes/service-cursos.php",
-		type: "post",
+		url: "../includes/service-cursos.php",
+		type: "get",
 		data: {
-                'call' : 'buscarCursos',
+			   'query': 'buscarCursos',
 			   'pnombreCurso': nombreCursos,
-			   'pidCarrera': idCarrera
+			   'pidCarrera': idCarrera			   
 			  },
-		datatype: 'json',
-		success: function(response){    
-			
-			imprimirCursosBuscados($.parseJSON(response.data));
+
+		dataType: 'json',
+		success: function(response){ 
+			console.log($.parseJSON(response.data));
+			imprimirCursos($.parseJSON(response.data));
+		},
+		error: function(response) {
+			console.log('error');
+			console.log(response);
+
 		}
 	});
 });
 }
 
 function imprimirCursosBuscados(aCursos){
-	var source = $("#template-cursoBuscado").html(),
+	console.log(aCursos);
+	var source = $("#template-curso").html(),
 	template = Handlebars.compile(source);
-  	$("#cursosBuscados-container").html(template(aCursos));
+  	$("#cursos-container").html(template(aCursos));
 }
 
 //obtener profesores

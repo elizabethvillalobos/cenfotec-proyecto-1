@@ -412,5 +412,38 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 
 		return $jsonArray;
 	}
+	
+	// Función que muestra las ultimas solicitudes de un usuario
+	function getTresSolicitudes($idUsuario) {
+		$query = "SELECT tr.nombre FROM `tusuarios` AS tu INNER JOIN `trol` AS tr ON tr.id = tu.rol WHERE tu.id='$idUsuario'";
+		$queryResults = do_query($query);
+		$row = mysqli_fetch_assoc($queryResults);
+		
+		//si el usuario activo es un estudiante
+		if($row['nombre']=="Estudiante"){
+			$query = "SELECT tc.id,tc.idSolicitado,tu.nombre, tu.apellido1,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitado = tu.id WHERE idSolicitante='$idUsuario' AND tc.esCita='0' ORDER BY tc.fechaInicio ASC LIMIT 3";
+		
+			$queryResults = do_query($query);			
+			while ($row = mysqli_fetch_assoc($queryResults)) {				
+					//echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+				echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';				
+			}
+		}
+		//si el usuario activo no es un estudiante
+		else
+		{
+			$query = "SELECT tc.id,tc.idSolicitante,tu.nombre, tu.apellido1,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitante = tu.id WHERE idSolicitado='$idUsuario' AND tc.esCita='0' ORDER BY tc.fechaInicio ASC LIMIT 3";
+			
+			$queryResults = do_query($query);
+			
+			while ($row = mysqli_fetch_assoc($queryResults)) {				
+					//echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+				echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitante'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';				
+			}
+		}
+		
+		mysqli_free_result($queryResults);
+		return $jsonArray;
+	}
 
 ?>

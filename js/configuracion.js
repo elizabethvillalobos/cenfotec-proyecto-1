@@ -521,7 +521,7 @@ ebtnBuscarCursos.addEventListener('click',function () {
 			   'pidCarrera': idCarrera
 			  },
 		datatype: 'json',
-		success: function(data){    
+		success: function(response){    
 			
 			imprimirCursosBuscados($.parseJSON(response.data));
 		}

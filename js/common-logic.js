@@ -61,8 +61,27 @@ function enviarEmail(to, subject, message) {
               '<footer style="background: #333; color: #f2f2f2; font-size: 12px; padding: 10px 20px; width: 100%;">Cenfotec 2014</footer>' +
               '</body></html>';
 
+    // Metodo nativo de PHP
+    // $.ajax({
+    //     url: '../includes/sendMail.php',
+    //     type: 'post', // Se utiliza get por vamos a obtener datos, no a postearlos.
+    //     data: { // Objeto con los parámetros que utiliza el servicio.
+    //         to: to,
+    //         subject: subject,
+    //         message: msg
+    //     },
+    //     dataType: 'json',
+    //     success: function(response) {
+    //         return true;
+    //     },
+    //     error: function(response) {
+    //         return false;
+    //     }
+    // });
+
+    // PHPMailer
     $.ajax({
-        url: '../includes/sendMail.php',
+        url: '../includes/sendPHPMailer.php',
         type: 'post', // Se utiliza get por vamos a obtener datos, no a postearlos.
         data: { // Objeto con los parámetros que utiliza el servicio.
             to: to,

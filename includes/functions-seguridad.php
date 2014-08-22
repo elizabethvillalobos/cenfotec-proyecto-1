@@ -45,7 +45,19 @@ function comprobarContrasena($correo, $contrasena) {
         }
     }
     return $rol;
-}     
+} 
+
+function recuperarContrasena($correo) {
+    $usuarios = obtenerInfoSesion();
+    $contrasena = '';
+        
+    while ($row = mysqli_fetch_assoc($usuarios)){
+        if($row['id']==$correo){
+            $contrasena = $row['contrasena'];
+        }
+    }
+    return $contrasena;
+}   
 
 function comprobarCodigo($correo, $codigo) {
     $usuarios = obtenerUsrPendientes();

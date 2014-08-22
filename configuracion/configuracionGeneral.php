@@ -69,7 +69,7 @@
 		                            	</div>
 
 		                            	<div  id="divBtnEvr">
-											<button id="modificarCaracteres" class="btn btn-primary" type="submit">Aplicar</button>
+											<button id="modificarCaracteres" class="btn btn-primary" type="button">Aplicar</button>
 			                                
 							            </div>
 
@@ -89,21 +89,21 @@
                             				$correo = getCorreo(); 
                             				$clave = getClave();
                             			?>	
-                            
-		                            	<div id="divMail">
-		                            		<label class="lbl">Usuario (dirección de correo):</label>
-		                            		<input id="email" value="<?php echo utf8_encode($correo['valor'])?>" type="text"  class="form-control">
-		                 	                            		
-		                            	</div>
-
-		                            	<div id="divMail">
-		                            		<label class="lbl">Clave:</label>
-		                            		<input id="password" type="password" value="<?php echo utf8_encode($clave['valor'])?>" placeholder="" class="form-control">
-		                            				                            		
-		                            	</div>
-
+                            	
+		                            	
+		                            		<div class="form-row">
+		                            			<label class="lbl">Usuario (dirección de correo):</label>
+		                            			<input id="email" value="<?php echo utf8_encode($correo['valor'])?>" type="text" class="form-control">
+		                            		</div>
+		                            	
+		                            	
+		                            		<div class = "form-row">
+		                            			<label class="lbl">Clave:</label>
+		                            			<input id="password" type="password" value="<?php echo utf8_encode($clave['valor'])?>" class="form-control">	                            		
+		                            		</div>
+		                            	
 		                            	<div id="divBtnEvr">
-											<button id="modificarNotificaciones"class="btn btn-primary" type="submit">Aplicar</button>			                                   
+											<button id="modificarNotificaciones"class="btn btn-primary" type="button">Aplicar</button>			                                   
 							            </div>							            
 	                                </form>
                             	</div> 

@@ -519,7 +519,7 @@ if (eCodigoActivacion) {
 
 //Algoritmo de sugerencias de la barra de busqueda general de personas en el header
 
-function realizarBusqueda(evento){
+/*function realizarBusqueda(evento){
     var eSection = document.querySelector('#resultados'),
     eBusqueda = document.querySelector('#q'),
     eNombre = document.querySelector('#nombre'),
@@ -562,7 +562,7 @@ function realizarBusqueda(evento){
         }
 
         
-    }
+    }*/
     
     /*if(alinks.length){
         
@@ -595,7 +595,7 @@ function realizarBusqueda(evento){
         }
     }*/
 
-}
+//}
 
 
 //esta funcion es la compartida la cual servira para mostrar los resultados de acuerdo a la informacion mostrada
@@ -638,6 +638,51 @@ console.log(pdatos);
         }        
     }
 }
+
+function autocompletarUsrs(pdivResultados, pinput, pdatos, pids){
+	//sleccionar los de esa clase los que son hijos del input
+	var alinks=pdivResultados.querySelectorAll('.js-linksBusqueda');
+	    
+	//limpiar resultados anteriores
+    if(alinks.length){
+        for(var j=0; j<alinks.length; j++){
+             alinks[j].remove();
+        }
+    }
+console.log(pdatos);
+	//llenar con los resultados correctos
+    for(var i=0; i<pdatos.length; i++){
+        var busqueda = pinput.value,
+            caseInsensitive = 'i';
+        
+        busqueda = busqueda.replace(/\s/g,'');
+        var criterio = new RegExp(busqueda, caseInsensitive);
+        
+        if(criterio!="/(?:)/i"){
+            if(criterio.test(pdatos[i])){
+			
+				var resultado=document.createElement("div");
+				resultado.className="js-linksBusqueda";
+				resultado.innerHTML = pdatos[i];		
+				var id=document.createElement("span");
+				id.className="hidden";
+				id.innerHTML = pids[i];	
+				resultado.appendChild(id);
+                
+                var usuario=document.createElement("a");
+                var nombre=document.createTextNode(pdatos[i]);
+
+                usuario.setAttribute('href', '/cenfotec-proyecto-1/busqueda/perfil-usr.php?idBusqueda='+pids[i]);
+                usuario.setAttribute('class', 'js-linksBusqueda');
+                usuario.appendChild(nombre);
+                
+                pdivResultados.appendChild(usuario);
+				
+            } 
+        }        
+    }
+}
+
 
 //reemplazar el texto de un input de busqueda
 function reemplazarTextoInput(pdivResultados,pinput,ptarget,pnombreId){

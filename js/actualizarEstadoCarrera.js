@@ -1,6 +1,6 @@
 proy = {};
-	$(function(){
 
+	$(function(){
 		proy.buttonLogic = function(){
 			$('.form-row-buttonAcciones > input#btn_disable').on('click', function(){
 				var elem_container = $(this).parent();
@@ -20,13 +20,13 @@ proy = {};
 
 		};
 
-		proy.updateStatus = function(cursoId,estado) {
+		proy.updateStatus = function(id, estado) {
 			var request = $.ajax({
-				url: "/cenfotec-proyecto-1/includes/service-cursos.php",
+				url: "/cenfotec-proyecto-1/includes/functions-carreras.php",
 				type: "post",
 				data: { 
-						'call': 'actualizarEstadoCurso',
-						'pId_curso': cursoId, 
+						'call': 'actualizarEstado',
+						'pId_carrera': id, 
 						'pEstado': estado 
 					},				
 			});

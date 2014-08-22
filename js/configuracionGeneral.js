@@ -1,4 +1,4 @@
-function actualizarContrasena(pdias){
+function modificarDias(pdias){
 	$.ajax({
 		url: '../includes/service-configuracionGeneral.php',
 		type: 'get',
@@ -14,6 +14,7 @@ function actualizarContrasena(pdias){
 			error: function(response){
 				console.log(response);
 				console.log("error");
+				mostrarMensajeError(document.querySelector('#diasExpiracion'),"Este campo no puede estar vacío y solo acepta números");
 			}
 	});
 }
@@ -23,7 +24,7 @@ function actualizarContrasena(pdias){
 (function($) {
 	$('#modificarDias').click(function(){
 		var diasDeExpiracion = $('#diasExpiracion').val();
-		
+		limpiarMensajesError();
 		if(diasExpiracion == ""){
 			mostrarMensajeError(document.querySelector('#diasExpiracion'),"Este campo no puede estar vacío y solo acepta números");
 		}else{

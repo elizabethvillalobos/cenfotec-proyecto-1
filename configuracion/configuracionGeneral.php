@@ -35,13 +35,13 @@
                             <ul class="accordion-detail">
                             	<div>
                             		<form class="frmC"  method="post">
-
+                            			<?php $resultados = getDiasDeExpiracion(); ?>		
 	                            		<div id="divTxtCit">
 	                            			<label class="lbl">Dias de expiración de solicitud:</label>
 		                            	</div>
 
 		                            	<div id="divNbr">
-		                            		<input class="nbr" type="number" name="puntaje" min="1" max="31" value="30">
+		                            		<input class="nbr" type="number" name="puntaje" min="1" max="31" value="<?php echo utf8_encode($resultados['valor'])?>">
 		                            	</div>
 
 		                            	<div  id="divBtnEvr">

@@ -26,22 +26,20 @@ eBtnRegistrar.addEventListener('click', function (evento) {
                 if(iguales){
                     var correoRegistrado = validarCorreoRegistradoBD(eCorreo, eError, 'El correo ya está registrado');
                     if(correoRegistrado==null){
-                    registrarUsuario(activo);
-                    var codigo = rand_code(caracteres, longitud);
-                    console.log('Codigo activacion: '+codigo);
-                    gaurdarCodigoActivacion(eCorreo, codigo);
-                    enviarEmail(eCorreo, 'Activacion de cuenta', codigo+'Link de activacion: <a src="http://localhost/cenfotec-proyecto-1/seguridad/activarCuenta.php?idActiv='+eCorreo+'">Activar</a>');
-                    alert('registrado');    
-                    //formulario.submit();
+                        registrarUsuario(activo);
+                        var codigo = rand_code(caracteres, longitud);
+                        console.log('Codigo activacion: '+codigo);
+                        gaurdarCodigoActivacion(eCorreo, codigo);
+
+                        var mensaje = '<p>Este es el código para activar la cuenta: <strong>'+codigo+'</strong></p>'+
+                        '<p>Presione activar cuenta e ingrese el código para poder acceder al sistema (se reconocen las mayúsculas y las minúsculas)</p>  '+
+                        '<a src="http://localhost/cenfotec-proyecto-1/seguridad/activarCuenta.php?idActiv='+eCorreo+'">Activar</a>';    
+
+                        enviarEmail(eCorreo, 'Activacion de cuenta', mensaje);
+                        console.log('registrado');    
+                        formulario.submit();
                     }    
-                    /*var correoRegistrado = validarCorreoRegistradoBD(eCorreo, eError, 'El correo ya está registrado'); 
-                    if(correoRegistrado){
-                    var codigo = rand_code(caracteres, longitud);
                     
-                    crearUsuario(activo);
-                    localStorage.setItem('codigoActivacion', codigo);
-                    //formulario.submit();
-                    }    */
                 }
             }
         }

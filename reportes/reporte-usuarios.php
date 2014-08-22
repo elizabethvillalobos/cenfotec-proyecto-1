@@ -1,5 +1,6 @@
 <?php
 	require_once('../includes/functions.php');
+	require_once('../includes/functions-reportes.php');
 	$currentModule = 'reportes';
 	$currentSubModule = 'usuariosRegistrados';
 ?>
@@ -31,49 +32,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>Alexander Corrales Solís</td>
-								<td>Estudiante</td>
-								<td>Ingeniería del Software</td>
-								<td>acorraless@ucenfotec.ac.cr</td>
-								<td>Inactivo</td>
-							</tr>
-							<tr>
-								<td>Andrea Arroyo Cascante</td>
-								<td>Asistente de curso</td>
-								<td>Ingeniería del Software</td>
-								<td>aarroyoc@ucenfotec.ac.cr</td>
-								<td>Inactivo</td>
-							</tr>
-							<tr>
-								<td>Antonio Luna</td>
-								<td>Profesor</td>
-								<td>Ingeniería del Software</td>
-								<td>aluna@ucenfotec.ac.cr</td>
-								<td>Activo</td>
-							</tr>
-							<tr>
-								<td>Diego Barillas Valverde</td>
-								<td>Estudiante</td>
-								<td>Ingeniería del Software</td>
-								<td>dbarillasv@ucenfotec.ac.cr</td>
-								<td>Activo</td>
-							</tr>
-							<tr>
-								<td>Miguel Coto</td>
-								<td>Estudiante</td>
-								<td>Ingeniería del Software</td>
-								<td>mcoto@ucenfotec.ac.cr</td>
-								<td>Activo</td>
-							</tr>
-							<tr>
-								<td>Pablo Monestel</td>
-								<td>Coordinador Académico</td>
-								<td>Desarrollo Web</td>
-								<td>pmonestel@ucenfotec.ac.cr</td>
-								<td>Activo</td>
-							</tr>
-							
+							<?php reporteUsuarios(); ?>
 						</tbody>
 					</table>
 				</div>

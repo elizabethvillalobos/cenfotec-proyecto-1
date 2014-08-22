@@ -2,7 +2,7 @@
 	require_once('../includes/functions.php');
 	require_once('../includes/functions-reportes.php');
 	$currentModule = 'reportes';
-	$currentSubModule = 'solicitudes';
+	$currentSubModule = 'agenda';
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php reporteEspecifico($usuarioId); ?>							
+							<?php reporteAgendasEspecifico($usuarioId); ?>							
 						</tbody>
 					</table>
 				</div>

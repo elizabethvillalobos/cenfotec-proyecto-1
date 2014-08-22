@@ -53,7 +53,6 @@ function validarDropdown(pIndice){
 
 	var selected = false;
 
-
 	if( pIndice > 0) {
 
 		selected=true;

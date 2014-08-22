@@ -77,3 +77,7 @@
     <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
     <script src="/cenfotec-proyecto-1/js/busquedaGeneral.js"></script>
 </body>
+	<input type="hidden" id="usuarioActivoId" value="<?php echo $id; ?>" /> 
+	<input type="hidden" id="usuarioActivoRol" value="<?php echo $rolUsr; ?>" /> 
+	
+</header>

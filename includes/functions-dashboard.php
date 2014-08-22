@@ -32,6 +32,61 @@
 		}
 	}
 
+	function obtenerRanking($usuario) {
+		$query = 'SELECT u.ranking FROM tusuarios AS u WHERE u.id ="'.$usuario.'"';
+		$queryResults = do_query($query);
+		$row = mysqli_fetch_assoc($queryResults);
+		echo '<span class="dash-ranking-amount rating-amount">'.$row['ranking'].'</span>';
+
+		$anchoStar = 40;
+		$ranking = $row['ranking'];
+		$index = 1;
+
+		echo '<ul class="rating-stars">';
+		while ($index <= 5) {
+			if ($index < $ranking) {
+				echo '<li class="rating-'.$index.'" style="width: 40px;"></li>';	
+			} else {
+				$diferencia = 1 - ($index - $ranking);
+				if ($diferencia > 0) {
+					$diferencia = $diferencia * $anchoStar;
+					echo '<li class="rating-'.$index.'" style="width: '.$diferencia.'px;"></li>';
+				}
+			}
+			$index++;
+		}
+		echo '</ul>';
+
+		$queryCount = "SELECT COUNT(c.idSolicitante) AS totalCitas FROM tcitas AS c WHERE (c.idSolicitante = '".$usuario."' OR c.idSolicitado = '".$usuario."') AND c.esCita = '1' AND c.estado = '4'";
+		$resultCount = do_query($queryCount);
+		if (mysqli_num_rows($resultCount) == 1) {
+			$citasAsistidas = ' cita asistida';
+		} else {
+			$citasAsistidas = ' citas asistidas';
+		}
+		while($rowCount = mysqli_fetch_assoc($resultCount)) {
+			echo '<span class="dash-ranking-asistidas rating-label">'.$rowCount['totalCitas'].$citasAsistidas.'</span>';
+		}
+	}
+
+	function obtenerEvaluacionesPendientes($usuario, $rol) {
+		if ($rol == '5') {
+			$tipoUsuario = "idSolicitante = '".$usuario."'";
+		} else {
+			$tipoUsuario = "idSolicitado = '".$usuario."'";
+		}
+		$query = "SELECT COUNT(e.idCita) as evaluacionesPendientes FROM tevaluaciones AS e, tcitas AS c ".
+				 "WHERE e.realizada = false AND e.idCita = c.id ".
+				 "AND ".$tipoUsuario;
+		$result = do_query($query);
+		$row = mysqli_fetch_assoc($result);
+
+		echo '<a href="/cenfotec-proyecto-1/evaluacion/evaluarCita.php" class="dash-evaluaciones dash-notificacion">';
+		echo '<span class="dash-notificacion-label">Evaluaciones Pendientes</span>';
+		echo '<span class="dash-notificacion-total">'.$row['evaluacionesPendientes'].'</span>';
+		echo '</a>';
+	}
+
 	if($_SERVER['REQUEST_METHOD']=="POST") {
 		$function = $_POST['call'];
 		if(function_exists($function)) {        

@@ -1,90 +1,148 @@
-ebtnModificarCorreo=document.querySelector('#btnEvr');
-if(ebtnModificarCorreo){
-ebtnModificarCorreo.addEventListener('click',function () {
-	
-
-	var correoNotificacion = $('#emailNot').val();
-	var hayError = false;
-		if(correoNotificacion == ""){
-    	mostrarMensajeError(document.querySelector('#emailNot'),"El nombre de la carrera no puede ser igual al código.");
-		hayError=true;
-    } 
-    if(!hayError){
-	var request = $.ajax({
-		url: "/cenfotec-proyecto-1/includes/functions-configuracionGeneral.php",
-		type: "get",
+function modificarDias(pdias){
+	$.ajax({
+		url: '../includes/service-configuracionGeneral.php',
+		type: 'get',
 		data: {
-                'query' : 'modificarCorreo',
-			   'pcorreoNotificacion':correoNotificacion
-			  },
-		datatype: 'json',
-		success: function(data){    
-			
-			console.log('exitooooo');
-
-		}
+				'query': 'modificarDiasDeExpiracion',
+				'pdias': pdias
+			},
+			datatype: 'json',
+			success: function(response){
+				//var data = $.parseJSON(response);
+				//if (data.status == 400) {
+					//mostrarMensajeError(document.querySelector('#diasExpiracion'),"Este campo no puede estar vacío y solo acepta números");
+				//} else {
+					window.location = "/cenfotec-proyecto-1/configuracion/configuracionGeneralConfirm.php";
+				//}
+			},
+			error: function(response){
+				console.log(response);
+				console.log("error");
+				mostrarMensajeError(document.querySelector('#diasExpiracion'),"Este campo no puede estar vacío y solo acepta números");
+			}
 	});
 }
-});
+
+function modificarCaracteres(pcaracteres){
+    $.ajax({
+    	url: "../includes/service-configuracionGeneral.php",
+    	type: "get",
+    	data:{
+      			'query': 'modificarCaracteres',
+      			'pcaracteres': pcaracteres
+    		},
+    		dataType: 'json',
+    		success: function(response) { 
+    			//var data = $.parseJSON(response);
+				//if (data.status == 400) {
+					//mostrarMensajeError(document.querySelector('#caracteresMaximo'),"Este campo no puede estar vacío y solo acepta números");
+				//} else {
+					window.location = "/cenfotec-proyecto-1/configuracion/configuracionGeneralConfirm.php";
+				//}
+    		},
+    		error: function(response){
+				console.log(response);
+				console.log("error");
+				mostrarMensajeError(document.querySelector('#caracteresMaximo'),"Este campo no puede estar vacío y solo acepta números");
+			} 
+  	});
 }
 
-ebtnModificarCaracteres=document.querySelector('#modificarCaracteres');
-if(ebtnModificarCaracteres){
-ebtnModificarCaracteres.addEventListener('click',function () {
+function modificarCorreoClave(correo, clave){
+	$.ajax({
+    	url: "../includes/service-configuracionGeneral.php",
+    	type: "get",
+    	data:{
+      			'query': 'modificarCorreoClave',
+      			'pcorreo': correo,
+      			'pclave': clave
+    		},
+    		dataType: 'json',
+    		success: function(response) { 
+    			//var data = $.parseJSON(response);
+				//if (data.status == 400) {
+					//mostrarMensajeError(document.querySelector('#caracteresMaximo'),"Este campo no puede estar vacío y solo acepta números");
+				//} else {
+					window.location = "/cenfotec-proyecto-1/configuracion/configuracionGeneralConfirm.php";
+				//}
+    		},
+    		error: function(response){
+				console.log(response);
+				console.log("error");
+				mostrarMensajeError(document.querySelector('#caracteresMaximo'),"Este campo no puede estar vacío y solo acepta números");
+			} 
+  	});
+}
+
+
+
+(function($) {
 	
+	$('#modificarDias').click(function(){
+		var diasDeExpiracion = $('#diasExpiracion').val();
+		limpiarMensajesError();
 
-	var caracterMaximo = $('#caracterMaximo').val();
-	var hayError = false;
-		if(caracterMaximo == ""){
-    	mostrarMensajeError(document.querySelector('#caracterMaximo'),"El nombre de la carrera no puede ser igual al código.");
-		hayError=true;
-    } 
-    if(!hayError){
-	var request = $.ajax({
-		url: "/cenfotec-proyecto-1/includes/functions-configuracionGeneral.php",
-		type: "get",
-		data: {
-                'query' : 'modificarCaracter',
-			   'pcaracterMaximo':caracterMaximo
-			  },
-		datatype: 'json',
-		success: function(data){    
-			
-			console.log('exitooooo');
-
-		}
-	});
-}
-});
-}
-
-ebtnModificarDias=document.querySelector('#guardarDias');
-if(ebtnModificarDias){
-ebtnModificarDias.addEventListener('click',function () {
-	
-
-	var diasExpiracion = $('#dias').val();
-	var hayError = false;
 		if(diasExpiracion == ""){
-    	mostrarMensajeError(document.querySelector('#dias'),"");
-		hayError=true;
-    } 
-    if(!hayError){
-	var request = $.ajax({
-		url: "/cenfotec-proyecto-1/includes/functions-configuracionGeneral.php",
-		type: "get",
-		data: {
-                'query' : 'modificarDias',
-			   'pdias':diasExpiracion
-			  },
-		datatype: 'json',
-		success: function(data){    
-			
-			console.log('exitooooo');
-
-		}
+			mostrarMensajeError(document.querySelector('#diasExpiracion'),"Este campo no puede estar vacío y solo acepta números");
+		}else{
+			modificarDias(diasDeExpiracion);
+		}	
 	});
-}
-});
-}
+
+	$('#modificarCaracteres').click(function(){
+		var caracteres = $('#caracteresMaximo').val();
+		limpiarMensajesError();
+
+		if(caracteres == ""){
+			mostrarMensajeError(document.querySelector('#caracteresMaximo'),"Este campo no puede estar vacío y solo acepta números");
+		}else{
+			modificarCaracteres(caracteres);
+		}			
+	});
+
+	$('#modificarNotificaciones').click(function(){
+		var correo = $('#email').val(),
+			clave = $('#password').val(),
+			error1 = false,
+			error2 = false;
+		
+		modificarCorreoClave(correo, clave);
+
+		/*function validarCampos(){
+			if(correo == ""){
+				mostrarMensajeError(document.querySelector('#email'),"Este campo no puede estar vacío");
+			}else{
+				validarCorreo();
+			}
+			if(clave == ""){
+				mostrarMensajeError(document.querySelector('#password'),"Este campo no puede estar vacío");
+			}else{
+				validarSeguridadClave();
+			}	
+		}
+
+		function validarSeguridadClave(){ 
+  			var expreg = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+  			if(!expreg.test(clave)){
+      			mostrarMensajeError(document.querySelector('#password'),"La contraseña debe ser de 8 a 10 caracteres, no debe tener caracteres especiales e incluye al menos una letra mayúscula y un número");
+  				error1 = true;
+  			}else{
+  				error1 = false;
+  			}
+		}
+
+		function validarCorreo() { 
+  			var expreg = /^\w+@ucenfotec.ac.cr$/;
+  			if(!expreg.test(correo)){
+      			mostrarMensajeError(document.querySelector('#email'),"El correo debe ser del dominio de Cenfotec");
+      			error2 = true;
+  			}else{
+  				error2 = false;	
+  			}
+		}*/
+
+	});	
+
+
+})(jQuery);	
 

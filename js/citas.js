@@ -4,7 +4,9 @@ var citaCancelarSeleccionada;
 // Utiliza ajax para consultar el servicio que retorna las citas.
 function consultarCitas() {
 	var fechaInicio = new Date($('#agenda-fecha').datepicker('getDate')), // Obtener la fecha seleccionada.
-		fechaFin = new Date(fechaInicio);
+		fechaFin = new Date(fechaInicio),
+		usuario = $('#usuarioActivoId').val(),
+		rol = $('#usuarioActivoRol').val();
 	fechaFin.setDate(fechaInicio.getDate() + 1);
 
 	// Solicitar datos al servicio.
@@ -13,7 +15,8 @@ function consultarCitas() {
 		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 		data: { // Objeto con los parámetros que utiliza el servicio.
 			query: 'consultarCitas',
-			solicitante: 'evillalobosm@ucenfotec.ac.cr',
+			usuario: usuario,
+			rol: rol,
 			fechaInicio: fechaInicio.toISOString(),
 			fechaFin: fechaFin.toISOString()
 		},
@@ -173,9 +176,9 @@ function initCancelarCita() {
 			limpiarMensajesError();
 			if (validarForm('cancelar-cita')) {
 				var citaId = $('#cita-id-cancelacion').val(),
-					motivo = $('#motivo-cancelacion').val();
-				// TODO: actualizar con el correo del usuario activo en la sesion.
-				cancelarCita(citaId, motivo, 'evillalobos@ucenfotec.ac.cr');
+					motivo = $('#motivo-cancelacion').val(),
+					usuarioActivo = $('#usuarioActivoId').val();
+				cancelarCita(citaId, motivo, usuarioActivo);
 			}
 		});
 	}

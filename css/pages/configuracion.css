@@ -276,7 +276,12 @@ h2 {
    font-size: 18px;
 }
 
-
+.modificar-expiracion-solicitudes .form-row{
+  clear: none; padding-bottom: 20px;
+}
+.modificar-expiracion-solicitudes .form-row .alert-error {
+  position: absolute; left: 10px; bottom: 5px;
+}
 
 #divMail{
     margin: 15px 10px 15px 5px;

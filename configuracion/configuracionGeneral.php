@@ -27,7 +27,7 @@
 		
 			<main id="mainCG">
 
-				<section class="modificar-curso">
+				<section class="modificar-expiracion-solicitudes">
 				<ul class="accord">
 
                         <li class="accordion-item expanded">

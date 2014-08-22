@@ -85,6 +85,9 @@ if (eFormValidar) {
 				case "modificar-curso":
 					modificarCurso();
 				break;
+				case "modificar-perfil":
+					modificarPerfil();
+				break;
                 case "crear-carrera":                 
                   	var indice = document.getElementById("director-academico").selectedIndex,
                    	   seleccionado = validarDropdown(indice);
@@ -172,26 +175,7 @@ if(ebtnEnviar) {
 	});
 }
 
-/*validar correo en notificaciones*/    
-
-
-
-
-// Inicializar la validacion.
-// var eFormValidar = document.querySelector('form[data-validate="true"]');
-// if (eFormValidar) {
-// 	var eFormBtnSubmit = document.querySelector('form[data-validate="true"]').querySelector('button[type="submit"]');
-// 	if (eFormBtnSubmit) {
-// 		eFormBtnSubmit.addEventListener('click', function(event) {
-// 			event.preventDefault();
-// 			limpiarMensajesError();
-// 			if (validarForm(eFormValidar.id)) {
-// 				eFormValidar.submit();
-// 			}
-// 		});
-// 	}
-// }
-
+/*validar correo en notificaciones*/
 
 function buscarProfesor(idInput){
 	idInput = "#"+idInput;
@@ -252,8 +236,79 @@ function soloLetrasYnumeros(e){
     }
 }
 
+function modificarPerfil() {
+	var initialImg = $('#droppedimage img').attr('src'),
+		idPerfil = $('#perfil-id').val(),
+		nombre = $('#perfil-nombre').val(),
+		apellido1 = $('#perfil-apellido-1').val(),
+		apellido2 = $('#perfil-apellido-2').val(),
+		telefono = $('#perfil-telefono').val(),
+		skypeid = $('#perfil-skype').val(),
+		horario = $('#perfil-horario').val(),
+		perfil = [];
 
+	perfil['idPerfil'] = idPerfil;
+	perfil['nombre'] = nombre;
+	perfil['apellido1'] = apellido1;
+	perfil['apellido2'] = apellido2;
+	perfil['telefono'] = telefono;
+	perfil['skypeid'] = skypeid;
+	perfil['horario'] = horario;
 
+	var imgPath = $('#droppedimage img').attr('src');
+
+	if (imgPath && imgPath != initialImg) {
+		$.ajax({
+			url: '../includes/upload-file.php',
+			type: 'post',
+			data: {
+				query: 'uploadFile',
+				imgPath: imgPath
+			},
+			dataType: 'json',
+			success: function(response) {
+				console.log('success');
+				perfil['avatar'] = response.data;
+				updatePerfil(perfil);
+			},
+			error: function(response) {
+				// Mostrar mensaje de error.
+				console.log('error');
+				console.log(response);
+			}
+		});
+	} else {
+		updatePerfil(perfil);
+	}
+}
+
+function updatePerfil(perfil) {
+	$.ajax({
+		url: '../includes/service-micuenta.php',
+		type: 'get',
+		data: {
+			query: 'modificarPerfil',
+			idPerfil: perfil['idPerfil'],
+			nombre: perfil['nombre'],
+			apellido1: perfil['apellido1'],
+			apellido2: perfil['apellido2'],
+			telefono: perfil['telefono'],
+			skypeid: perfil['skypeid'],
+			horario: perfil['horario'],
+			avatar: perfil['avatar']
+		},
+		dataType: 'json',
+		success: function(response) {
+			console.log('success');
+			window.location = '/cenfotec-proyecto-1/configuracion/perfil.php'
+		},
+		error: function(response) {
+			// Mostrar mensaje de error.
+			console.log('error');
+			console.log(response);
+		}
+	});
+}
 
 function consultarCursos(){
 	var idCarrera = location.search.split("=")[1];
@@ -628,8 +683,6 @@ function crearUsuario() {
 		}
 	});
 }
-
-
 
 
 //Habilitar/desabilitar usuario

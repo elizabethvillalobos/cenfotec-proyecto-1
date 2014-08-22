@@ -1,4 +1,5 @@
-<?php
+<?php session_start(); 
+    error_reporting(0);
 	require_once('../includes/functions.php');
 	require_once('../includes/functions-citas.php');
 	$currentModule = 'citas';
@@ -21,7 +22,7 @@
 
 			<main>
 				<!--mostrarSolicitud(idCita,idUsuarioActivo)-->
-				<?php mostrarSolicitud($_GET['idCita'],'acordero@ucenfotec.ac.cr')?>
+				<?php mostrarSolicitud($_GET['idCita'],$_SESSION['usuarioActivoId'] )?>
 			</main>
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>

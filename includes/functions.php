@@ -158,11 +158,5 @@ function getInfoSesion($id) {
     return $infoSesion;
 }
 
-
-
-
-
-
-
 ?>
 

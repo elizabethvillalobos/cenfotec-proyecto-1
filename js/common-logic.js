@@ -330,12 +330,6 @@ function validarForm(pFormId) {
                         mostrarMensajeError(eInputs[i], 'Este campo solo admite números.');
                     }
                     break;
-                case 'string':
-                    // Pendiente.
-                    break;
-                case 'letters':
-                    // Pendiente.
-                    break;
             }
         }
     }
@@ -353,9 +347,11 @@ function validarForm(pFormId) {
 
     if (eInputsPhone.length) {
         for(var p=0; p < eInputsPhone.length; p++) {
-            if (!validarTelefono(eInputsPhone[p].value)) {
-                bValido = false;
-                mostrarMensajeError(eInputsPhone[p], 'El formato del número de teléfono es inválido. Ejemplo: 5555-5555');
+            if (eInputsPhone[p].value > 0) {
+                if (!validarTelefono(eInputsPhone[p].value)) {
+                    bValido = false;
+                    mostrarMensajeError(eInputsPhone[p], 'El formato del número de teléfono es inválido. Ejemplo: 5555-5555');
+                }
             }
         }
     }

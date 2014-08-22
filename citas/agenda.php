@@ -38,7 +38,7 @@
 						</div>
 						<div class="mod-bd">
 							<div class="row">
-								<img class="cita-photo" src="{{ imagenSolicitado }}" width="75" height="75">
+								<img class="cita-photo" src="../images/users/{{ imagenSolicitado }}" width="75" height="75">
 								<span class="label">Invitado:</span>
 								<div class="data-wrap">
 									<span class="data cita-invitado">{{ nombreSolicitado }}</span>

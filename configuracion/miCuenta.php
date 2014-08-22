@@ -1,9 +1,9 @@
 <?php
 	session_start(); 
-
+	error_reporting(0);
 	require_once('../includes/functions.php');
 	require_once(ROOT.'/includes/functions-micuenta.php');
-
+	
 	$currentModule = '';
 	$currentSubModule = 'contraseña';
 ?>
@@ -33,8 +33,10 @@
 							<label for="contrasena-actual">Contraseña actual:</label>
 							<input id="contrasena-actual" type="password" placeholder="Ingrese la contraseña actual" class="form-control" value="" required/>
 							<?php 
-								$usuarioActivo = $_SESSION['usuarioActivoId']; 
-								echo '<input id="usuario-activo" type="hidden" value="'.$usuarioActivo.'">';
+								$usuarioActivoId = $_SESSION['usuarioActivoId'];
+	    						$row = getPassword($usuarioActivoId);
+								echo '<input id="usuario-activo" type="hidden" value="'.$usuarioActivoId.'">';
+								echo '<input id="clave-usuario" type="hidden" value="'.$row['contrasena'].'">';
 							?>							
 						</div>
 

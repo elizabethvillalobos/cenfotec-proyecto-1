@@ -1,4 +1,9 @@
-<?php require_once('functions-dashboard.php'); ?>
+<?php
+	require_once('includes/functions.php');
+	require_once('includes/functions-citas.php');
+	require_once('functions-dashboard.php');
+?>
+
 
 <section class="dash-agenda">
 	<a href="/cenfotec-proyecto-1/citas/agenda.php">
@@ -13,9 +18,7 @@
 			<h4>Solicitudes de Cita</h4>
 		</a>
 		<ul>
-			<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php">Diego Barillas</a></li>
-			<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php">Alejandro Leiva</a></li>
-			<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php">Olger Cubillo</a></li>
+			<?php getTresSolicitudes($_SESSION['usuarioActivoId'] )?>
 		</ul>
 	</div>
 </section>

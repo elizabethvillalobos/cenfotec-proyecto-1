@@ -32,7 +32,7 @@
 			$results['citaId'] = $row['citaId'];
 			$results['correoSolicitado'] = utf8_encode($row['solicitadoCorreo']);
 			$results['nombreSolicitado'] = utf8_encode($row['nombreSolicitado']).' '.utf8_encode($row['apellido1Solicitado']).' '.utf8_encode($row['apellido2Solicitado']);
-			$results['imagenSolicitado'] = $row['imagenSolicitado'] == NULL ? '../images/users/default-user.png' : $row['imagenSolicitado'];
+			$results['imagenSolicitado'] = $row['imagenSolicitado'] == NULL ? 'default-user.png' : $row['imagenSolicitado'];
 			$results['telefonoSolicitado'] = $row['telefonoSolicitado'];
 			$results['fecha'] = dateLongString($row['citaDiaDeSemana'], $row['citaDia'], $row['citaMes'], $row['citaAno']);
 			$results['horaInicio'] = timeLongString($row['citaHoraInicio']);
@@ -158,22 +158,20 @@
 
 	// Función que muestra las solicitudes de un usuario
 	function getSolicitudesUsuario($idUsuario) {
-		
 		$query = "SELECT tr.nombre FROM `tusuarios` AS tu INNER JOIN `trol` AS tr ON tr.id = tu.rol WHERE tu.id='$idUsuario'";
 		$queryResults = do_query($query);
 		$row = mysqli_fetch_assoc($queryResults);
 		
 		//si el usuario activo es un estudiante
 		if($row['nombre']=="Estudiante"){
-		
 			$query = "SELECT tc.id,tc.idSolicitado,tu.nombre, tu.apellido1,tc.idSolicitante,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitado = tu.id WHERE idSolicitante='$idUsuario' AND tc.esCita='0' ORDER BY tc.id ASC";
-
+		
 			$queryResults = do_query($query);
 			$jsonArray = [];
 			$index = 0;
 			
 			while ($row = mysqli_fetch_assoc($queryResults)) {
-				if(utf8_encode($row['fechaInicio'])!=null){
+				if(utf8_encode($row['fechaInicio'])!="0000-00-00 00:00:00"){
 					//echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idUsuario="'. $idUsuario .'>'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
 					echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
 				}
@@ -193,7 +191,7 @@
 			$index = 0;
 			
 			while ($row = mysqli_fetch_assoc($queryResults)) {
-				if(utf8_encode($row['fechaInicio'])==null){
+				if(utf8_encode($row['fechaInicio'])=="0000-00-00 00:00:00"){
 					echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitante'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
 				}
 				else
@@ -220,10 +218,11 @@
 			//si no se envio ningun id de cita, se carga la primera
 			if($idCita!=0)
 			{
+				
 				$query = "SELECT tc.id,tc.idSolicitado,tc.idSolicitante,tu.nombre,tu.apellido1,tu.apellido2,tu.telefono,tu.imagen,tc.asunto,tc.estado,tc.tipo,tc.modalidad,tc.curso,tcur.nombre AS nombreCurso,tc.observaciones,tc.fechaInicio, DAYOFWEEK(tc.fechaInicio) AS citaDiaDeSemana, DAYOFMONTH(tc.fechaInicio) AS citaDia, MONTH(tc.fechaInicio) AS citaMes, YEAR(tc.fechaInicio) AS citaAno, 
-TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitado = tu.id INNER JOIN `tcursos` AS tcur ON tc.curso = tcur.id WHERE tc.id='$idCita'";
+TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitado = tu.id LEFT JOIN `tcursos` AS tcur ON tc.curso = tcur.id WHERE tc.id='$idCita'";
 
-			
+				
 				$queryResults = do_query($query);
 				$index = 0;
 				
@@ -243,16 +242,16 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 				
 				
 				//si el invitado no ha propuesto una hora
-				if(utf8_encode($row['fechaInicio'])=="" && utf8_encode($row['estado'])==1){
+				if(utf8_encode($row['fechaInicio'])=="0000-00-00 00:00:00" && utf8_encode($row['estado'])==1){
 					echo '<section class="cita">';				
 					mostrarFrmCita($nombreCompleto,'Solicitud Pendiente',$nombreCompleto,utf8_encode($row['idSolicitado']),utf8_encode($row['telefono']),utf8_encode($row['imagen']),utf8_encode($row['asunto']),utf8_encode($row['nombreCurso']),$modalidadCita,$tipoCita,utf8_encode($row['observaciones']));
 					echo '</section>';
 					
 					
 				}
-				
 				//si el estudiante no ha aceptado la propuesta
-				if(utf8_encode($row['fechaInicio'])!="" && utf8_encode($row['estado'])==1){
+				if(utf8_encode($row['fechaInicio'])!="0000-00-00 00:00:00" && utf8_encode($row['estado'])==1){
+					
 					$fecha = dateLongString($row['citaDiaDeSemana'], $row['citaDia'], $row['citaMes'], $row['citaAno']);
 					$hora = timeLongString($row['citaHoraInicio']) .' - '.timeLongString($row['citaHoraFin']);
 					echo '<section class="cita">';
@@ -269,10 +268,12 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 		//si el usuario activo no es un estudiante
 		else
 		{		
+			
 			//si no se envio ningun id de cita, se carga la primera
 			if($idCita!=0)
 			{
-				$query = "SELECT tc.id,tc.idSolicitado,tc.idSolicitante,tu.nombre,tu.apellido1,tu.apellido2,tu.telefono,tu.imagen,tc.asunto,tc.estado,tc.tipo,tc.modalidad,tc.curso,tcur.nombre AS nombreCurso,tc.observaciones,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitante = tu.id INNER JOIN `tcursos` AS tcur ON tc.curso = tcur.id WHERE tc.id='$idCita'";
+				$query = "SELECT tc.id,tc.idSolicitado,tc.idSolicitante,tu.nombre,tu.apellido1,tu.apellido2,tu.telefono,tu.imagen,tc.asunto,tc.estado,tc.tipo,tc.modalidad,tc.curso,tcur.nombre AS nombreCurso,tc.observaciones,tc.fechaInicio, DAYOFWEEK(tc.fechaInicio) AS citaDiaDeSemana, DAYOFMONTH(tc.fechaInicio) AS citaDia, MONTH(tc.fechaInicio) AS citaMes, YEAR(tc.fechaInicio) AS citaAno,". 
+"TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitante = tu.id LEFT JOIN `tcursos` AS tcur ON tc.curso = tcur.id WHERE tc.id='$idCita'";
 			
 			
 				$queryResults = do_query($query);
@@ -291,9 +292,8 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 					$modalidadCita='Virtual';
 				}
 				$nombreCompleto=utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
-				
 				//si la solicitud es nueva -> necesita una asignacion de hora
-				if(utf8_encode($row['fechaInicio'])=="" && utf8_encode($row['estado'])==1){
+				if(utf8_encode($row['fechaInicio'])=="0000-00-00 00:00:00" && utf8_encode($row['estado'])==1){
 					echo '<section class="cita">';				
 					mostrarFrmCita($nombreCompleto,'Solicitud Pendiente',$nombreCompleto,utf8_encode($row['idSolicitante']),utf8_encode($row['telefono']),utf8_encode($row['imagen']),utf8_encode($row['asunto']),utf8_encode($row['nombreCurso']),$modalidadCita,$tipoCita,utf8_encode($row['observaciones']));
 					echo '<h3>Asignación de fecha y hora</h3> '.
@@ -328,6 +328,16 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 						'</div> '.
 					'</div> ';
 				}
+				
+				//si el invitado no ha aceptado la propuesta
+				if(utf8_encode($row['fechaInicio'])!="0000-00-00 00:00:00" && utf8_encode($row['estado'])==1){
+					$nombreCompleto=utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']);
+					$fecha = dateLongString($row['citaDiaDeSemana'], $row['citaDia'], $row['citaMes'], $row['citaAno']);
+					$hora = timeLongString($row['citaHoraInicio']) .' - '.timeLongString($row['citaHoraFin']);
+					echo '<section class="cita">';
+					mostrarFrmCita($fecha,$hora,$nombreCompleto,utf8_encode($row['idSolicitante']),utf8_encode($row['telefono']),utf8_encode($row['imagen']),utf8_encode($row['asunto']),utf8_encode($row['nombreCurso']),$modalidadCita,$tipoCita,utf8_encode($row['observaciones']));
+					echo '</section>';
+				}
 			}
 		}
 		
@@ -335,6 +345,9 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 	}
 	
 	function mostrarFrmCita($titulo1,$titulo2,$nombreOtraPersona,$idOtraPersona,$telefonoOtraPersona,$imagenOtraPersona,$asunto,$nombreCurso,$modalidadCita,$tipoCita,$observaciones){
+		if(!$nombreCurso){
+			$nombreCurso="No asignado";
+		}
 		echo '<div class="mod-hd"> '.
 				'<h2>'.$titulo1.'</h2> '.
 				'<span class="cita-hora-inicio-fin">'.$titulo2.'</span> '.
@@ -397,6 +410,39 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 		}
 		mysqli_free_result($queryResults);
 
+		return $jsonArray;
+	}
+	
+	// Función que muestra las ultimas solicitudes de un usuario
+	function getTresSolicitudes($idUsuario) {
+		$query = "SELECT tr.nombre FROM `tusuarios` AS tu INNER JOIN `trol` AS tr ON tr.id = tu.rol WHERE tu.id='$idUsuario'";
+		$queryResults = do_query($query);
+		$row = mysqli_fetch_assoc($queryResults);
+		
+		//si el usuario activo es un estudiante
+		if($row['nombre']=="Estudiante"){
+			$query = "SELECT tc.id,tc.idSolicitado,tu.nombre, tu.apellido1,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitado = tu.id WHERE idSolicitante='$idUsuario' AND tc.esCita='0' ORDER BY tc.fechaInicio ASC LIMIT 3";
+		
+			$queryResults = do_query($query);			
+			while ($row = mysqli_fetch_assoc($queryResults)) {				
+					//echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+				echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';				
+			}
+		}
+		//si el usuario activo no es un estudiante
+		else
+		{
+			$query = "SELECT tc.id,tc.idSolicitante,tu.nombre, tu.apellido1,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitante = tu.id WHERE idSolicitado='$idUsuario' AND tc.esCita='0' ORDER BY tc.fechaInicio ASC LIMIT 3";
+			
+			$queryResults = do_query($query);
+			
+			while ($row = mysqli_fetch_assoc($queryResults)) {				
+					//echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
+				echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitante'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';				
+			}
+		}
+		
+		mysqli_free_result($queryResults);
 		return $jsonArray;
 	}
 

@@ -32,6 +32,11 @@
 		$nuevosMensajes = getNuevosMensajes($_SESSION['usuarioActivoId'], $_GET['idUsuarioOtro']);
 		deliver_response(200, 'OK', json_encode($nuevosMensajes));
 	}
+	
+	function obtenerTotalNoLeidos(){
+		$total = getTotalNoLeidos($_SESSION['usuarioActivoId']);
+		deliver_response(200,'OK',json_encode($total));
+	}
 
 
 	

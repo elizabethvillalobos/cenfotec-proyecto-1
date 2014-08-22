@@ -2,7 +2,7 @@
 	session_start();
 	error_reporting(0);
 	require_once('functions.php');
-	require_once('functions-micuenta.php');
+	//require_once('functions-micuenta.php');
 	
 	header('Content-Type:application/json');
 

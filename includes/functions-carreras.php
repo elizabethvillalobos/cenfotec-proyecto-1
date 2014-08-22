@@ -56,8 +56,8 @@
 	function buscarCriterioCarrera(){
 
 
-		if(isset( $_POST['pnombreCarrera'])){
-		$nombre = utf8_decode($_POST['pnombreCarrera']);
+		if(isset( $_GET['pnombreCarrera'])){
+		$nombre = utf8_decode($_GET['pnombreCarrera']);
 		$query =  "SELECT tcarrera.id as carreraId, tcarrera.nombre as carreraNombre, tcarrera.activo as carreraActiva, tusuarios.nombre as directorNombre,
 		 tusuarios.apellido1 as directorApellido1, tusuarios.apellido2 as directorApellido2 FROM tcarrera, tusuarios WHERE
 		  tcarrera.idDirector = tusuarios.id AND tcarrera.nombre LIKE('%$nombre%') ORDER BY tcarrera.nombre";
@@ -115,7 +115,7 @@
 					</div>';
 		}
 		
-		echo json_encode($html);
+		echo json_decode($html);
 	}	
 
 

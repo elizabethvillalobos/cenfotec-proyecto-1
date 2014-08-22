@@ -25,6 +25,9 @@
 			case 'buscarCursos':
 				buscarCursos();
 				break;
+			case 'actualizarEstadoCurso':
+				actualizarEstadoCurso();
+				break;	
 		}
 	} else {
 		// Invalid request.
@@ -81,6 +84,18 @@
 			deliver_response(200, 'ok', json_encode($jsonArray)); 
 		}
 	}
+
+	function actualizarEstadoCurso(){
+		if (isset($GET['pId_curso']) && isset($GET['pEstado'])) {
+			$idCurso = utf8_decode($_GET['pId_curso']);
+			$estado = utf8_decode($_GET['pEstado']);
+			$query = "UPDATE tcursos SET activo='$estado' WHERE id='$idCurso'";
+			$result = do_query($query);		
+			deliver_response(200, 'OK', 'Registrado con exito');
+		}
+	}
+
+
 
 	function registrarCurso()
 	{

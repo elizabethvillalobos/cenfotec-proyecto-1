@@ -404,6 +404,8 @@ function registrarCurso() {
 	}
 };
 
+
+
 function modificarCurso() {
 	console.log('modificar');
 	var codigo = $('#codigo-curso').val(),
@@ -516,22 +518,59 @@ $('.usuarios-filtro').on('click', function(e) {
     // Asignar la clase active al currentTarget
     
     switch($(e.currentTarget).text()){
+       
         case 'Rector':
-            rol=2;
+       		$('.filtro-rector').addClass('active');
+        	$('.filtro-director-academico').removeClass('active');
+        	$('.filtro-profesor').removeClass('active');
+        	$('.filtro-estudiante').removeClass('active');	
+        	$('.filtro-asistente').removeClass('active');
+        	$('.filtro-mercadeo').removeClass('active');
+       		rol=2;
             break;
         case 'Director académico':
+        	$('.filtro-rector').removeClass('active');
+        	$('.filtro-director-academico').addClass('active');
+        	$('.filtro-profesor').removeClass('active');
+        	$('.filtro-estudiante').removeClass('active');	
+        	$('.filtro-asistente').removeClass('active');
+        	$('.filtro-mercadeo').removeClass('active');
             rol=3;
             break;
         case 'Profesor':
+      		 $('.filtro-rector').removeClass('active');
+        	$('.filtro-director-academico').removeClass('active');
+        	$('.filtro-profesor').addClass('active');
+        	$('.filtro-estudiante').removeClass('active');	
+        	$('.filtro-asistente').removeClass('active');
+        	$('.filtro-mercadeo').removeClass('active');
             rol=4;
             break;
         case 'Estudiante':
+           $('.filtro-rector').removeClass('active');
+        	$('.filtro-director-academico').removeClass('active');
+        	$('.filtro-profesor').removeClass('active');
+        	$('.filtro-estudiante').addClass('active');	
+        	$('.filtro-asistente').removeClass('active');
+        	$('.filtro-mercadeo').removeClass('active');
             rol=5;
             break;
         case 'Asistente':
+        	$('.filtro-rector').removeClass('active');
+        	$('.filtro-director-academico').removeClass('active');
+        	$('.filtro-profesor').removeClass('active');
+        	$('.filtro-estudiante').removeClass('active');	
+        	$('.filtro-asistente').addClass('active');
+        	$('.filtro-mercadeo').removeClass('active');
             rol=6;
             break;
         case 'Mercadeo':
+        	$('.filtro-rector').removeClass('active');
+        	$('.filtro-director-academico').removeClass('active');
+        	$('.filtro-profesor').removeClass('active');
+        	$('.filtro-estudiante').removeClass('active');	
+        	$('.filtro-asistente').removeClass('active');
+        	$('.filtro-mercadeo').addClass('active');
             rol=7;
             break;
     };
@@ -562,7 +601,7 @@ ebtnBuscarCarrera.addEventListener('click',function () {
 		
 	var request = $.ajax({
 		url: "/cenfotec-proyecto-1/includes/functions-carreras.php",
-		type: "post",
+		type: "get",
 		data: {
                 'call' : 'displayCursosFiltrados',
 			   'pnombreCarrera': nombreCarrera
@@ -578,6 +617,7 @@ ebtnBuscarCarrera.addEventListener('click',function () {
 	});
 });
 }
+
 
 
 ebtnBuscarCursos=document.querySelector('#btnBuscarCursos');
@@ -610,6 +650,7 @@ ebtnBuscarCursos.addEventListener('click',function () {
 	});
 });
 }
+
 
 function imprimirCursosBuscados(aCursos){
 	console.log(aCursos);

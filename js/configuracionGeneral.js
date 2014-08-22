@@ -28,7 +28,7 @@ function modificarDias(pdias){
 (function($) {
 	$('#modificarDias').click(function(){
 		var diasDeExpiracion = $('#diasExpiracion').val();
-		//limpiarMensajesError();
+		limpiarMensajesError();
 
 		if(diasExpiracion == ""){
 			mostrarMensajeError(document.querySelector('#diasExpiracion'),"Este campo no puede estar vacío y solo acepta números");

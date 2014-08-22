@@ -32,19 +32,19 @@
                             <a href="#">Citas</a>
                             <ul class="accordion-detail">
                             	<div>
-                            		<form class="frmC"  method="post">
-
+                         	   		<form class="frmC" action="configuracionGeneralConfirm.php" method="post">
+                         	   			<?php $resultados = getDiasDeExpiracion(); ?>	
 	                            		<div id="divTxtCit">
 	                            			<label class="lbl">Dias de expiración de solicitud:</label>
 		                            	</div>
 
 		                            	<div id="divNbr">
-		                            		<input class="nbr" type="number" name="puntaje" min="1" max="31" value="30">
+		                            		<input id="dias" class="nbr" type="number" name="puntaje" min="1" max="31" value="<?php echo utf8_encode($resultados['valor'])?>">
 		                            	</div>
 
 		                            	<div  id="divBtnEvr">
 							
-			                                <button class="btn btn-primary" type="submit">Aplicar</button>
+			                                <button id="guardarDias" class="btn btn-primary" type="submit">Aplicar</button>
 							            </div>
 
 	                                </form>
@@ -56,14 +56,14 @@
                             <div class="accordion-detail">
 
                             	<div>
-                            		<form class="frmC"   action="configuracionGeneralConfirm.php" method="post">
+                            		<form class="frmC" action="configuracionGeneralConfirm.php" method="post">
                             			<?php $resultado = getCaracteresParaModificar(); ?>		
 	                            		<div id="divTxtCit">
 	                            			<label class="lbl">Máximo carateres por mensaje:</label>
 		                            	</div>
 
 		                            	<div id="divNbr">
-		                            		<input id="caracterMaximo" class="nbr" type="number" name="puntaje" min="1" max="31" value="<?php echo utf8_encode($resultado['valor'])?>" >
+		                            		<input id="caracterMaximo" class="nbr" type="number" name="puntaje" min="1" max="160" value="<?php echo utf8_encode($resultado['valor'])?>" >
 		                            	</div>
 
 		                            	<div  id="divBtnEvr">
@@ -115,7 +115,7 @@
 		</div>
 		<!-- Load JS-->
 		<script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
-		<script src="/cenfotec-proyecto-1/js/configuracionGeneral.js"></script>
+		<script src="/cenfotec-proyecto-1/js/configuracionGeneral.js"></script> 
 		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
 		<script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
         <script src="/cenfotec-proyecto-1/js/vendors/bootstrap.min.js"></script>
@@ -123,6 +123,6 @@
 		<script src="/cenfotec-proyecto-1/js/vendors/flatui-checkbox.js"></script>
 		<script src="/cenfotec-proyecto-1/js/vendors/flatui-radio.js"></script>
         <script src="/cenfotec-proyecto-1/js/gic.js"></script>
-        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script> 
+        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 	</body>
 </html>

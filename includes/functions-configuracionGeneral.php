@@ -13,8 +13,26 @@
 			case 'modificarCaracter':
 				modificarCaracter();
 				break;
+			case 'modificarDias':
+				modificarDias();
+				break;
 			}
 }
+
+
+function getDiasDeExpiracion(){
+		$query = $query = "SELECT configuracion.valor FROM configuracion WHERE configuracion.parametro = 'diasexpiracion' ";
+		$queryResults = do_query($query);
+		$index = 0;
+
+		while ($row = mysqli_fetch_assoc($queryResults)) {
+			$index++;
+			$results['valor'] = utf8_encode($row['valor']);
+			
+		}
+    
+  		return $results;
+	}
 
 
 
@@ -63,6 +81,24 @@ function modificarCorreo(){
 		deliver_response(400, 'Bad request', NULL);	
 
 }}
+
+function modificarDias(){
+
+	if(isset($_GET['pdias'])) {	
+		$pdias = $_GET['pdias'];
+		$query = "UPDATE configuracion SET valor='$pdias' WHERE parametro='diasexpiracion'";
+		$result = do_query($query);
+		deliver_response(200, 'OK', 'Registrado con exito');	
+	} else {
+		deliver_response(400, 'Bad request', NULL);	
+
+}}
+
+
+
+
+
+
 
 function modificarCaracter(){
 

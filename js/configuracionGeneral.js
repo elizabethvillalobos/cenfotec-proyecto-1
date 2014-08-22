@@ -57,3 +57,34 @@ ebtnModificarCaracteres.addEventListener('click',function () {
 }
 });
 }
+
+ebtnModificarDias=document.querySelector('#guardarDias');
+if(ebtnModificarDias){
+ebtnModificarDias.addEventListener('click',function () {
+	
+
+	var diasExpiracion = $('#dias').val();
+	var hayError = false;
+		if(diasExpiracion == ""){
+    	mostrarMensajeError(document.querySelector('#dias'),"");
+		hayError=true;
+    } 
+    if(!hayError){
+	var request = $.ajax({
+		url: "/cenfotec-proyecto-1/includes/functions-configuracionGeneral.php",
+		type: "get",
+		data: {
+                'query' : 'modificarDias',
+			   'pdias':diasExpiracion
+			  },
+		datatype: 'json',
+		success: function(data){    
+			
+			console.log('exitooooo');
+
+		}
+	});
+}
+});
+}
+

@@ -44,7 +44,7 @@ function validarCorreoRegistradoBD(pcorreo, pElementoError, pMsjError){
             dataType: 'json',
             success: function(response) {
                 
-                console.log($.parseJSON(response.data));
+                console.log(response);
                 if(!($.parseJSON(response.data))){
                     pElementoError.innerHTML=pMsjError;
                     pElementoError.className += ' error';

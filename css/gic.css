@@ -283,6 +283,10 @@ th {
     padding: 5px 8px;
 }
 
+td {
+  color: #333;
+}
+
 tr:nth-child(even) td {
     background: #ecf0f1;
 }
@@ -296,6 +300,11 @@ tr:nth-child(even) td {
 	cursor: pointer;
 	background: #999999;
 	color: #fff;
+}
+
+tr.Inactivo td {
+  background: #ddd;
+  color: #777;
 }
 
 

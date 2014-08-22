@@ -3,7 +3,13 @@
 
 
 function obtenerInfoSesion(){
-    $query = "SELECT `tusuarios`.`id`, `tusuarios`.`contrasena`, `tusuarios`.`activo`, `tusuarios`.`rol`, `trol`.`nombre` AS 'Rol', `codigoactivacion`.`codigoActivacion` AS 'Codigo' FROM tusuarios, trol, codigoactivacion WHERE `tusuarios`.`rol`=`trol`.`id` AND `tusuarios`.`activo`= 1 AND `tusuarios`.`id` = `codigoactivacion`.`idUsuario`";
+    // Miguel, este query no me estaba permitiendo hacer el inicio de sesion.
+    // Yo no tengo datos en la tabla codigoactivacion y eso hace que la consulta no devuelva ningun resultado.
+    // - Eli.
+    // $query = "SELECT `tusuarios`.`id`, `tusuarios`.`contrasena`, `tusuarios`.`activo`, `tusuarios`.`rol`, `trol`.`nombre` AS 'Rol', `codigoactivacion`.`codigoActivacion` AS 'Codigo' FROM tusuarios, trol, codigoactivacion WHERE `tusuarios`.`rol`=`trol`.`id` AND `tusuarios`.`activo`= 1 AND `tusuarios`.`id` = `codigoactivacion`.`idUsuario`";
+
+    $query = "SELECT `tusuarios`.`id`, `tusuarios`.`contrasena`, `tusuarios`.`activo`, `tusuarios`.`rol`, `trol`.`nombre` AS 'Rol' ".
+             "FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id` AND `tusuarios`.`activo`= 1 ";
     
     return do_query($query);
 }

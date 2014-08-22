@@ -28,7 +28,7 @@
 					<form id="iniciarConversacion" action="#" method="post">		
 						<div class="form-row">
 							<label for="txtDestinatario">Destinatario:</label>
-							<input id="txtDestinatario" class="form-control" type="text" value="" placeholder="Seleccione un destinatario" onkeyup="buscarDestinatario(event)" required/>
+							<input id="txtDestinatario" class="form-control" type="text" value="" placeholder="Seleccione un destinatario" onkeyup="buscarDestinatario(event)" autocomplete="off" required/>
 							<div id="resDestinatario"></div>
 						</div>
 						<div class="form-row">

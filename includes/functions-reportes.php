@@ -108,7 +108,23 @@
 		return $rol; 
 	}	
 
+	function reporteUsuariosRegistrados() {
+		$query = "SELECT u.id as usuarioId, u.nombre as usuarioNombre, u.apellido1, u.apellido2, u.rol, u.activo, c.nombre as carreraNombre, r.nombre as rolNombre ".
+				 "FROM tusuarios AS u INNER JOIN tcarrera AS c on u.carrera = c.id ".
+				 "INNER JOIN trol AS r on u.rol = r.id ".
+				 "ORDER BY u.rol ASC, u.apellido1, u.apellido2, usuarioNombre";
+		$result = do_query($query);
 
+		while($row = mysqli_fetch_assoc($result)){
+			$estado = $row['activo'] ? 'Activo' : 'Inactivo';
+			echo '<tr class="'.$estado.'">'.
+				 '<td class="usuario-nombre">'.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']).' '.utf8_encode($row['usuarioNombre']).'</td>'.
+				 '<td class="usuario-rol">'.utf8_encode($row['rolNombre']).'</td>'.
+				 '<td class="usuario-carrera">'.utf8_encode($row['carreraNombre']).'</td>'.
+				 '<td class="usuario-id">'.utf8_encode($row['usuarioId']).'</td>'.
+				 '<td class="usuario-estado">'.$estado.'</td>'.
+				 '</tr>';
+		}
+	}
 	
-
 ?>

@@ -40,8 +40,8 @@
 	                            			<label class="lbl">Días de expiración de solicitud:</label>
 		                            	</div>
 
-		                            	<div id="divNbr">
-		                            		<input id="diasExpiracion" class="nbr" type="number" name="puntaje" min="1" max="31" value="<?php echo utf8_encode($results['valor'])?>">
+		                            	<div id="divNbr" class="form-row">
+		                            		<input id="diasExpiracion" class="nbr form-control" type="number" name="puntaje" min="1" max="31" value="<?php echo utf8_encode($results['valor'])?>">
 		                            	</div>
 
 		                            	<div  id="divBtnEvr">
@@ -64,8 +64,8 @@
 	                            			<label class="lbl">Máximo carateres por mensaje:</label>
 		                            	</div>
 
-		                            	<div id="divNbr">
-		                            		<input id="caracteresMaximo" class="nbr" type="number" name="puntaje" min="1" max="160" value="<?php echo utf8_encode($caracteres['valor'])?>">
+		                            	<div id="divNbr" class="form-row">
+		                            		<input id="caracteresMaximo" class="nbr form-control" type="number" name="puntaje" min="1" max="160" value="<?php echo utf8_encode($caracteres['valor'])?>">
 		                            	</div>
 
 		                            	<div  id="divBtnEvr">

@@ -11,12 +11,12 @@
 			case 'modificarDiasDeExpiracion':
 				modificarDiasDeExpiracion();
 				break;
-			/*case 'modificarCaracteres':
+			case 'modificarCaracteres':
 				modificarCaracteres();
 				break;
 			case 'modificarCorreoClave':
 				modificarCorreoClave();
-				break;*/
+				break;
 		}
 	} else {
 		deliver_response(400, 'Bad request', NULL);

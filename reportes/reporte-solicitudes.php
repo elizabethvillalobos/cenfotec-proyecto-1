@@ -44,16 +44,5 @@
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
-
-        <script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
-        <script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="/cenfotec-proyecto-1/js/vendors/jquery.html5uploader-1.1.js"></script>
-        <script src="/cenfotec-proyecto-1/js/vendors/bootstrap.min.js"></script>
-        <script src="/cenfotec-proyecto-1/js/vendors/bootstrap-select.js"></script>
-        <script src="/cenfotec-proyecto-1/js/flatui.js"></script>
-        <script src="/cenfotec-proyecto-1/js/html5uploader.js"></script>
-        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
-        <script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
-		
 	</body>
 </html>

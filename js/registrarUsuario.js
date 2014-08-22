@@ -30,7 +30,7 @@ eBtnRegistrar.addEventListener('click', function (evento) {
                     var codigo = rand_code(caracteres, longitud);
                     console.log('Codigo activacion: '+codigo);
                     gaurdarCodigoActivacion(eCorreo, codigo);
-                    enviarEmail(eCorreo, 'Activacion de cuenta', codigo);
+                    enviarEmail(eCorreo, 'Activacion de cuenta', codigo+'Link de activacion: <a src="http://localhost/cenfotec-proyecto-1/seguridad/activarCuenta.php?idActiv='+eCorreo+'">Activar</a>');
                     alert('registrado');    
                     //formulario.submit();
                     }    

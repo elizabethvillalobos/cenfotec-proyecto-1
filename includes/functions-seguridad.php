@@ -3,7 +3,13 @@
 
 
 function obtenerInfoSesion(){
-    $query = "SELECT `tusuarios`.`id`, `tusuarios`.`contrasena`, `tusuarios`.`activo`, `tusuarios`.`rol`, `trol`.`nombre` AS 'Rol' FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id` AND `tusuarios`.`activo`= 1 ";
+    $query = "SELECT `tusuarios`.`id`, `tusuarios`.`contrasena`, `tusuarios`.`activo`, `tusuarios`.`rol`, `trol`.`nombre` AS 'Rol', `codigoactivacion`.`codigoActivacion` AS 'Codigo' FROM tusuarios, trol, codigoactivacion WHERE `tusuarios`.`rol`=`trol`.`id` AND `tusuarios`.`activo`= 1 AND `tusuarios`.`id` = `codigoactivacion`.`idUsuario`";
+    
+    return do_query($query);
+}
+
+function obtenerUsrPendientes(){
+    $query = "SELECT `tusuarios`.`id`, `tusuarios`.`contrasena`, `tusuarios`.`activo`, `tusuarios`.`rol`, `trol`.`nombre` AS 'Rol', `codigoactivacion`.`codigoActivacion` AS 'Codigo' FROM tusuarios, trol, codigoactivacion WHERE `tusuarios`.`rol`=`trol`.`id` AND `tusuarios`.`id` = `codigoactivacion`.`idUsuario`";
     
     return do_query($query);
 }
@@ -33,6 +39,20 @@ function comprobarContrasena($correo, $contrasena) {
         }
     }
     return $rol;
+}     
+
+function comprobarCodigo($correo, $codigo) {
+    $usuarios = obtenerUsrPendientes();
+    $activado = '';
+        
+    while ($row = mysqli_fetch_assoc($usuarios)){
+        if($row['id']==$correo){
+            if($row['Codigo']==$codigo){
+                $activado = $row['Codigo'];
+            }
+        }
+    }
+    return $activado;
 }     
 
 

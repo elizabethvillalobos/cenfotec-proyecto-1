@@ -30,7 +30,7 @@
 				<a href="/cenfotec-proyecto-1/reportes/reporte-solicitudes.php" <?php echo $subModSolicitudes; ?>>Solicitudes</a>
 			</li>
 			<li class="accordion-item">
-				<a href="/cenfotec-proyecto-1/reportes/reporte-agendas.php" <?php echo $subModAgenda; ?>>Agendas</a>
+				<a href="/cenfotec-proyecto-1/reportes/reporte-agendas.php" <?php echo $subModAgendas; ?>>Agendas</a>
 			</li>
 			<li class="accordion-item">
 				<a href="/cenfotec-proyecto-1/reportes/reporte-usuarios.php" <?php echo $subModUsuariosRegistrados; ?>>Usuarios registrados</a>

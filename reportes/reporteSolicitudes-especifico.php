@@ -24,8 +24,6 @@
 	                 	if (isset($_GET['usuarioId'])){
 	                 		$usuarioId = $_GET['usuarioId'];
 	                 		$nombre = getNombre($usuarioId); 
-	                 	}else{
-	                 		echo "No isset";
 	                 	}
             		?>
 					<h2 id="titulo"></h2>
@@ -51,7 +49,6 @@
 					
 				</div>
 			</main>
-			
 			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>

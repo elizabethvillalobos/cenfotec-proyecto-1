@@ -2,7 +2,7 @@
 	require_once('../includes/functions.php');
 	require_once('../includes/functions-reportes.php');
 	$currentModule = 'reportes';
-	$currentSubModule = 'usuariosRegistrados';
+	$currentSubModule = 'agenda';
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,6 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
-		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/reportes.css">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -21,19 +20,28 @@
 
 			<main>
 				<div class="mod-hd">
-					<h2>Reporte de usuarios</h2>
-					<table class="reporte">
+					<?php
+	                 	if (isset($_GET['usuarioId'])){
+	                 		$usuarioId = $_GET['usuarioId'];
+	                 		$nombre = getNombre($usuarioId); 
+	                 	}
+            		?>
+					<h2 id="titulo"></h2>
+					<script type="text/javascript">
+						document.getElementById("titulo").innerHTML = "Solicitudes - " + "<?php echo $nombre?>"; 
+					</script>
+					<table class="tblReporte">
 						<thead>
 							<tr>
+								<th class="center">Asunto</th>
 								<th class="center">Usuario</th>
-								<th class="center">Rol</th>
-								<th class="center">Carrera</th>
-								<th class="center">Correo electrónico</th>
+								<th class="center">Fecha-Hora</th>
+								<th class="center">Observaciones</th>
 								<th class="center">Estado</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php reporteUsuarios(); ?>
+							<?php reporteAgendasEspecifico($usuarioId); ?>							
 						</tbody>
 					</table>
 				</div>
@@ -41,8 +49,9 @@
 					
 				</div>
 			</main>
+			
 			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
-		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 	</body>
 </html>

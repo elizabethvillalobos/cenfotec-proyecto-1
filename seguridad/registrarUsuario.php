@@ -1,3 +1,8 @@
+<?php
+    require_once('../includes/functions.php');
+    require_once(ROOT.'/includes/functions-usuarios.php');
+    require_once(ROOT.'/includes/functions-seguridad.php');
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,17 +29,17 @@
 						<div class="form-row ">
 							<label for="">Nombre:</label>
 							<span class="flaticon-male12 icon"></span>
-							<input id="" type="text" placeholder="" class="form-control" onkeypress="return soloLetras(event)"/>
+							<input id="nombre" type="text" placeholder="" class="form-control" onkeypress="return soloLetras(event)"/>
 						</div>
 						<div class="form-row ">
 							<label for="">Primer apellido:</label>
 							<span class="flaticon-male12 icon"></span>
-							<input id="" type="text" placeholder="" class="form-control" onkeypress="return soloLetras(event)"/>
+							<input id="apellido1" type="text" placeholder="" class="form-control" onkeypress="return soloLetras(event)"/>
 						</div>
 						<div class="form-row ">
 							<label for="">Segundo apellido:</label>
 							<span class="flaticon-male12 icon"></span>
-							<input id="" type="text" placeholder="" class="form-control" onkeypress="return soloLetras(event)"/>
+							<input id="apellido2" type="text" placeholder="" class="form-control" onkeypress="return soloLetras(event)"/>
 						</div>
 						<div class="form-row ">
 							<label for="">Contraseña:</label>
@@ -63,7 +68,7 @@
 		
 		<!-- Load JS -->
 		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
-		<script src="/cenfotec-proyecto-1/seguridad/registrarUsuario.js"></script>
+		<script src="/cenfotec-proyecto-1/js/registrarUsuario.js"></script>
 		<script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
 		<script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>

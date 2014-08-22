@@ -163,18 +163,13 @@ function insertarUsuario(){
 	if(isset($_POST['pnombre']) &&
 		isset($_POST['papellido1']) && 
 		isset($_POST['papellido2'])  && 
-        isset($_POST['pavatar'])  &&
 		isset($_POST['pidUsr'])&& 
-        isset($_POST['pcontrasena'])&& 
-		isset($_POST['ptelefono']) && 
-		isset($_POST['pskype']) && 
-		isset($_POST['prol']) && 
-		isset($_POST['pcarrera']) && 
-		isset($_POST['pcurso'])){
+        isset($_POST['pcontrasena'])&&  
+		isset($_POST['pusr-activo'])){
 	
 		$id = $_POST['pidUsr'];
 		$contrasena = $_POST['pcontrasena'];
-		$activo = '1';
+		$activo = $_POST['pusr-activo'];
         $nombre = utf8_decode($_POST['pnombre']);
         $apellido1 = utf8_decode($_POST['papellido1']);
         $apellido2 = utf8_decode($_POST['papellido2']);
@@ -304,6 +299,17 @@ function cambiarEstadoUsr(){
 		mysqli_free_result($queryResults);
 		return $jsonArray;
 	}
+
+function insertarCodigoActivacion() {
+    if(isset($_POST['pid']) &&
+      isset($_POST['pcodigo'])){
+        
+        $id = $_POST['pid'];
+        $codigo = $_POST['pcodigo'];
+        $query = "INSERT INTO codigoactivacion(idUsuario, codigoActivacion) VALUES ('$id', '$codigo')";
+        do_query($query); 
+    }
+}  
 
 if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];

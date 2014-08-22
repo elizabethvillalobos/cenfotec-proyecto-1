@@ -1,5 +1,11 @@
 <?php
 	require_once('../includes/functions.php');
+    require_once(ROOT.'/includes/functions-usuarios.php');
+    if(isset($_GET['idBusqueda'])){
+        //session_start();   
+        $id = $_GET['idBusqueda'];
+        $row = getUsuariosModif($id);
+    }    
 	$currentSubModule = 'perfil';
 ?>
 
@@ -20,10 +26,10 @@
 			<main>
 				<section class="perfil">
 					<div class="mod-hd">
-						<h2>Carla Rojas Solorzano</h2>
+						<h2><?php echo utf8_encode($row['nombre']).' ' .utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']) ?></h2>
 						
-                        <a href="../citas/solicitarCita.php" class="enviar-msj flaticon-calendar68">Solicitar cita</a>
-                        <a href="../mensajeria/mensajeria.html" class="enviar-msj flaticon-black218">Enviar mensaje</a> 
+                        <?php echo '<a href="../citas/solicitarCita.php?idInvitado='.utf8_encode($row['id']).'" class="enviar-msj flaticon-calendar68">Solicitar cita</a>'; ?>
+                        <?php echo '<a href="../mensajeria/mensajeria.php?idInvitado='.utf8_encode($row['id']).'" class="enviar-msj flaticon-black218">Enviar mensaje</a>'; ?> 
                         
 
 					</div>
@@ -33,36 +39,36 @@
 
 						<div class="row">
 							<span class="label">Correo electrónico:</span>
-							<span class="data email">crojass@ucenfotec.ac.cr</span>
+							<span class="data email"><?php echo utf8_encode($row['id'])?></span>
 						</div>
 
 						<div class="row">
 							<span class="label">Teléfono:</span>
-							<span class="data">8830-9187</span>
+							<span class="data"><?php echo utf8_encode($row['telefono'])?></span>
 						</div>
 
 						<div class="row">
 							<span class="label">Skype Id:</span>
-							<span class="data">carlosrojas98</span>
+							<span class="data"><?php echo utf8_encode($row['skypeid'])?></span>
 						</div>
 
 						<div class="row">
 							<span class="label">Rol:</span>
-							<span class="data">Estudiante</span>
+							<span class="data"><?php echo utf8_encode($row['Rol'])?></span>
 						</div>
 
 						<div class="row">
 							<span class="label">Carrera:</span>
-							<span class="data">Desarrollo de software</span>
+							<span class="data"><?php echo utf8_encode($row['carrera'])?></span>
 						</div>
 
-						<div class="row">
+						<!--<div class="row">
 							<span class="label">Cursos:</span>
 							<div class="data-wrap">
 								<span class="data">Fundamentos de programación</span>
 								<span class="data">Proyecto de ingeniería de software 1</span>
 							</div>
-						</div>
+						</div>-->
 
 					</div>
 				</section>

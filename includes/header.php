@@ -50,7 +50,7 @@
 
 	<section class="busqueda">
 					<input id="q" type="text" value="" placeholder="Buscar personas" class="campo-busqueda" onkeyup="realizarBusqueda(event)" />
-					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>
+<!--					<button id="btnBuscar" class="flaticon-magnifier12" type="submit"></button>-->
        <div id="resultados">
            
        </div>
@@ -69,3 +69,11 @@
 		</ul>
 	</section>
 </header>
+
+
+<body>
+   <script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
+    <script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+    <script src="/cenfotec-proyecto-1/js/busquedaGeneral.js"></script>
+</body>

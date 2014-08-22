@@ -25,6 +25,7 @@
 			case 'buscarCursos':
 				buscarCursos();
 				break;
+			
 		}
 	} else {
 		// Invalid request.
@@ -81,6 +82,9 @@
 			deliver_response(200, 'ok', json_encode($jsonArray)); 
 		}
 	}
+
+
+
 
 	function registrarCurso()
 	{

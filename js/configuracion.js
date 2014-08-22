@@ -542,6 +542,7 @@ ebtnBuscarCursos.addEventListener('click',function () {
 			   'pnombreCurso': nombreCursos,
 			   'pidCarrera': idCarrera			   
 			  },
+
 		dataType: 'json',
 		success: function(response){ 
 			console.log($.parseJSON(response.data));
@@ -550,6 +551,7 @@ ebtnBuscarCursos.addEventListener('click',function () {
 		error: function(response) {
 			console.log('error');
 			console.log(response);
+
 		}
 	});
 });

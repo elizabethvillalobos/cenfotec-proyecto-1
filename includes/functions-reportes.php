@@ -23,4 +23,36 @@
 			$index++;
 		}
 	}
+
+	function reporteSolicitudes(){
+		$query = "SELECT u.id as userId, u.nombre, u.apellido1, u.apellido2, u.rol, r.nombre as rolNombre FROM tusuarios AS u INNER JOIN trol as r on u.rol = r.id ORDER BY u.rol ASC, u.apellido1, u.apellido2, u.nombre";
+		$result = do_query($query);
+
+		while($row = mysqli_fetch_assoc($result)){
+			$queryCountSolicitudesPendientes = "SELECT count(c.idSolicitante) AS totalSolicitudesPendientes FROM tcitas AS c WHERE (c.idSolicitante = '".utf8_encode($row['userId'])."' OR c.idSolicitado = '".utf8_encode($row['userId'])."') AND c.esCita ='0' AND c.estado = '1'";
+			$resultCountSolicitudesPendientes = do_query($queryCountSolicitudesPendientes);
+			$queryCountSolicitudesAceptadas = "SELECT count(c.idSolicitante) AS totalSolicitudesAceptadas FROM tcitas AS c WHERE (c.idSolicitante = '".utf8_encode($row['userId'])."' OR c.idSolicitado = '".utf8_encode($row['userId'])."') AND c.esCita ='0' AND c.estado = '2'"; 
+			$resultCountSolicitudesAceptadas = do_query($queryCountSolicitudesAceptadas);
+			$queryCountSolicitudesRechazadas = "SELECT count(c.idSolicitante) AS totalSolicitudesRechazadas FROM tcitas AS c WHERE (c.idSolicitante = '".utf8_encode($row['userId'])."' OR c.idSolicitado = '".utf8_encode($row['userId'])."') AND c.esCita ='0' AND c.estado = '3'"; 
+			$resultCountSolicitudesRechazadas = do_query($queryCountSolicitudesRechazadas);
+			$queryCountSolicitudesExpiradas = "SELECT count(c.idSolicitante) AS totalSolicitudesExpiradas FROM tcitas AS c WHERE (c.idSolicitante = '".utf8_encode($row['userId'])."' OR c.idSolicitado = '".utf8_encode($row['userId'])."') AND c.esCita ='0' AND c.estado = '6'"; 
+			$resultCountSolicitudesExpiradas = do_query($queryCountSolicitudesExpiradas);
+
+			echo '<tr>'.
+				 '<td>'.utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']).'</td>'.
+				 '<td>'.utf8_encode($row['rolNombre']).'</td>';
+				 while($rowCountSolicitudesPendientes = mysqli_fetch_assoc($resultCountSolicitudesPendientes)){
+				 	echo '<td class="center">'.utf8_encode($rowCountSolicitudesPendientes['totalSolicitudesPendientes']);
+				 }
+				 while($rowCountSolicitudesAceptadas = mysqli_fetch_assoc($resultCountSolicitudesAceptadas)){
+				 	echo '<td class="center">'.utf8_encode($rowCountSolicitudesAceptadas['totalSolicitudesAceptadas']);
+				 }
+				 while($rowCountSolicitudesRechazadas = mysqli_fetch_assoc($resultCountSolicitudesRechazadas)){
+				 	echo '<td class="center">'.utf8_encode($rowCountSolicitudesRechazadas['totalSolicitudesRechazadas']);
+				 }
+				 while($rowCountSolicitudesExpiradas = mysqli_fetch_assoc($resultCountSolicitudesExpiradas)){
+				 	echo '<td class="center">'.utf8_encode($rowCountSolicitudesExpiradas['totalSolicitudesExpiradas']);
+				 }	
+		}
+	}
 ?>

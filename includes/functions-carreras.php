@@ -156,6 +156,15 @@
 	}
 
 
+		function actualizarEstadoCurso(){
+		if (isset($_POST['pId_curso']) && isset($_POST['pEstado'])) {
+			$idCurso = utf8_decode($_POST['pId_curso']);
+			$estado = utf8_decode($_POST['pEstado']);
+			$query = "UPDATE tcursos SET activo='$estado' WHERE id='$idCurso'";
+			$result = do_query($query);		
+		}
+	}
+
 	if($_SERVER['REQUEST_METHOD']=="POST") {
 		$function = $_POST['call'];
 		if(function_exists($function)) {

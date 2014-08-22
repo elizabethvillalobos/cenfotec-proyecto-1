@@ -24,10 +24,10 @@ proyecto = {};
 
 		proyecto.updateStatus = function(idcurso,estado) {
 			var request = $.ajax({
-				url: "/cenfotec-proyecto-1/includes/service-cursos.php",
-				type: "get",
+				url: "/cenfotec-proyecto-1/includes/functions-carreras.php",
+				type: "post",
 				data: { 
-						'query': 'actualizarEstadoCurso',
+						'call': 'actualizarEstadoCurso',
 						'pId_curso': idcurso, 
 						'pEstado': estado 
 					},				

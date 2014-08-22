@@ -1,5 +1,6 @@
 <?php
 	require_once('../includes/functions.php');
+	require_once('../includes/functions-reportes.php');
 	$currentModule = 'reportes';
 	$currentSubModule = 'solicitudes';
 ?>
@@ -32,55 +33,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Diego Barillas Valverde</a></td>
-								<td>Estudiante</td>
-								<td class="center">10</td>
-								<td class="center">10</td>
-								<td class="center">0</td>
-								<td class="center">0</td>
-							</tr>
-							<tr>
-								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Pablo Monestel</a></td>
-								<td>Coordinador Académico</td>
-								<td class="center">0</td>
-								<td class="center">8</td>
-								<td class="center">1</td>
-								<td class="center">0</td>
-							</tr>
-							<tr>
-								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Antonio Luna</a></td>
-								<td>Profesor</td>
-								<td class="center">0</td>
-								<td class="center">8</td>
-								<td class="center">2</td>
-								<td class="center">0</td>
-							</tr>
-							<tr>
-								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Miguel Coto</a></td>
-								<td>Estudiante</td>
-								<td class="center">5</td>
-								<td class="center">5</td>
-								<td class="center">0</td>
-								<td class="center">0</td>
-							</tr>
-							<tr>
-								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Alexander Corrales Solís</a></td>
-								<td>Estudiante</td>
-								<td class="center">5</td>
-								<td class="center">5</td>
-								<td class="center">3</td>
-								<td class="center">0</td>
-							</tr>
-							<tr>
-								<td><a href="/cenfotec-proyecto-1/reportes/reporte-especifico.php?idUsuario=">Andrea Arroyo Cascante</a></td>
-								<td>Asistente de curso</td>
-								<td class="center">3</td>
-								<td class="center">1</td>
-								<td class="center">1</td>
-								<td class="center">1</td>
-							</tr>
-							
+							<?php reporteSolicitudes(); ?>
 						</tbody>
 					</table>
 				</div>
@@ -93,6 +46,6 @@
 		</div>
 
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
-		<script src="/cenfotec-proyecto-1/js/reportes.js"></script>
+		
 	</body>
 </html>

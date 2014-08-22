@@ -30,7 +30,7 @@
                             <h2 class="flaticon-machine2">¡Configuración realizada con éxito!</h2>
                         </div>
                         <div class="mod-bd">
-                            <p>Se han establecido correctamente los parametros.</p>
+                            <p>Se han establecido correctamente los parámetros.</p>
 
                             <a href="configuracionGeneral.php" class="btn btn-default">Volver</a>
                         </div>

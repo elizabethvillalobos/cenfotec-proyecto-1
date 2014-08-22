@@ -1,7 +1,7 @@
 <?php
 
 	require_once('../includes/functions.php');		
-
+	
 
 	if (!empty($_GET['query'])) {
 		$queryType = $_GET['query'];

@@ -1,8 +1,6 @@
 <?php
-
     require_once('../includes/functions.php');
     require_once(ROOT.'/includes/functions-configuracionGeneral.php');
-
 
     $currentModule = 'configuracion';
     $currentSubModule = 'general';

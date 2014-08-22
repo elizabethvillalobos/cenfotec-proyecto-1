@@ -1,10 +1,3 @@
-// document.getElementById('no').onclick = 
-// function mostrarForm(){
-//   document.getElementById('wrapperItems');
-//   wrapperItems.classList.remove("mostrarForm");
-//   wrapperItems.classList.add("ocultarForm");            
-// }
-
 var eRadiosChecked = document.querySelectorAll('.radio'),
     aPuntajes = document.querySelectorAll('.nbr'),
     ePromedio = document.querySelector('#promedio');

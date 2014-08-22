@@ -20,20 +20,30 @@
 
 			<main>
 				<div class="mod-hd">
-					<h2>Reporte de solicitudes</h2>
-					<table id="tblSolicitudes" class="tblReportes selectable">
+					<?php
+	                 	if (isset($_GET['usuarioId'])){
+	                 		$usuarioId = $_GET['usuarioId'];
+	                 		$nombre = getNombre($usuarioId); 
+	                 	}else{
+	                 		echo "No isset";
+	                 	}
+            		?>
+					<h2 id="titulo"></h2>
+					<script type="text/javascript">
+						document.getElementById("titulo").innerHTML = "Solicitudes - " + "<?php echo $nombre?>"; 
+					</script>
+					<table class="tblReporte">
 						<thead>
 							<tr>
+								<th class="center">Asunto</th>
 								<th class="center">Usuario</th>
-								<th class="center">Rol</th>
-								<th class="center">Pendientes</th>
-								<th class="center">Aceptadas</th>
-								<th class="center">Rechazadas</th>
-								<th class="center">Expiradas</th>
+								<th class="center">Fecha-Hora</th>
+								<th class="center">Observaciones</th>
+								<th class="center">Estado</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php reporteSolicitudes(); ?>
+							<?php reporteEspecifico($usuarioId); ?>							
 						</tbody>
 					</table>
 				</div>
@@ -44,5 +54,6 @@
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
+        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 	</body>
 </html>

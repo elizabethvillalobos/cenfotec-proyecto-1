@@ -18,10 +18,13 @@
                         <h2 class="flaticon-information38">Mensaje de activación de cuenta</h2>
                     </div>
                     <div class="mod-bd">
-                        <p>Este es el código para activar la cuenta: <strong id="codigoActiv"></strong></p>
-                        <p>Presione activar cuenta e ingrese el código para poder acceder al sistema (se reconocen las mayúsculas y las minúsculas)</p>   
+                       <p><strong>Para poder ingresar al sistema debe activar su cuenta.</strong></p>
+                       <p>Por favor revise su correo electrónico, un código de activación junto con un con un enlace le fue enviado.</p>
+                        <!--<p>Este es el código para activar la cuenta: <strong id="codigoActiv"></strong></p>
+                        <p>Presione activar cuenta e ingrese el código para poder acceder al sistema (se reconocen las mayúsculas y las minúsculas)</p>  --> 
 
-                        <a href="/cenfotec-proyecto-1/seguridad/activarCuenta.php"  id="btn-activarCuenta" class="btn btn-primary">Activar cuenta</a>
+<!--                        <a href="/cenfotec-proyecto-1/seguridad/activarCuenta.php"  id="btn-activarCuenta" class="btn btn-primary">Activar cuenta</a>-->
+                   <a href="/cenfotec-proyecto-1/seguridad/iniciarSesion.php" class="btn btn-primary">Regresar</a>
                     </div>
                 </section>
 			</div>

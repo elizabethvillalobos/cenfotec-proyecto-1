@@ -53,7 +53,6 @@ function validarDropdown(pIndice){
 
 	var selected = false;
 
-
 	if( pIndice > 0) {
 
 		selected=true;
@@ -104,15 +103,18 @@ if (eFormValidar) {
 				break;
                 case "crear-usuario":
                     var indice1 = document.getElementById("usuario-rol").selectedIndex,
-                        indice2 = document.getElementById("usuario-carrera").selectedIndex;
+                        indice2 = document.getElementById("usuario-carrera").selectedIndex,
+                        activo = 1;
+                    
+                    crearUsuario(activo);
                           
-                	var seleccionado = validarDropdown(indice1);                                     
+                	/*var seleccionado = validarDropdown(indice1);                                     
                 	if (seleccionado){
                        seleccionado = validarDropdown(indice2);
                        if (seleccionado){
                             crearUsuario();
                        }
-                   }                 	
+                   }          */       	
                 break;
 
 			}
@@ -594,6 +596,7 @@ ebtnBuscarCursos.addEventListener('click',function () {
 			   'pnombreCurso': nombreCursos,
 			   'pidCarrera': idCarrera			   
 			  },
+
 		dataType: 'json',
 		success: function(response){ 
 			console.log($.parseJSON(response.data));
@@ -602,6 +605,7 @@ ebtnBuscarCursos.addEventListener('click',function () {
 		error: function(response) {
 			console.log('error');
 			console.log(response);
+
 		}
 	});
 });
@@ -647,7 +651,7 @@ function obtenerProfesores() {
 };
 
 //crear usuario
-function crearUsuario() {
+function crearUsuario(pactivo) {
 	var nombre = $('#usuario-nombre').val(),
 		apellido1 = $('#usuario-apellido1').val(),
 		apellido2 = $('#usuario-apellido2').val(),
@@ -658,9 +662,11 @@ function crearUsuario() {
         skype = $('#usuario-skype').val(),
         rol = $('#usuario-rol').val(),
         carrera = $('#usuario-carrera').val(),
-        curso = $('#usuario-curso').val();
+        curso = $('#usuario-curso').val(),
+        activo = pactivo;
 
 	var request = $.ajax({
+        async: false,
 		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
 		type: "post",
 		data: {
@@ -675,7 +681,8 @@ function crearUsuario() {
                 'pskype': skype,
                 'prol': rol,
                 'pcarrera': carrera,
-                'pcurso': curso
+                'pcurso': curso,
+                'pusr-activo' : activo
 			  },
 		dataType: 'json',
 		success: function(response){    

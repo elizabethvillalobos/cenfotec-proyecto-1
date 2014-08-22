@@ -70,6 +70,6 @@
         <script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
         <script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
-        <script src="/cenfotec-proyecto-1/seguridad/iniciarSesion.js"></script>
+        <script src="/cenfotec-proyecto-1/js/iniciarSesion.js"></script>
 	</body>
 </html>

@@ -1,11 +1,9 @@
 <?php
     error_reporting(0);
-    session_start();
+    
 	require_once('../includes/functions.php');
 	require_once(ROOT.'/includes/functions-evaluaciones.php');
 
-	$idUser = $_SESSION['usuarioActivoId'];
-	 
 	$currentModule = 'evaluacion';
 	$currentSubModule = 'evaluacionesPendientes'; 
 ?>
@@ -25,7 +23,11 @@
 			<?php include(ROOT.'/includes/aside-evaluacion.php'); ?>
 
 			<main>
-				<?= mostrarEvaluacionesPendientes($idUser); ?>
+				<?php				 
+
+				 mostrarEvaluacionPendienteXRol($id,$rolUsr);
+
+				?>
             </main>
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>

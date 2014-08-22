@@ -87,15 +87,9 @@
 		}
 
 		guardarContrasena();
-		
+	});
+
+	$('#btn-cancelar-perfil').click(function() {
+		window.location = '/cenfotec-proyecto-1/configuracion/perfil.php'
 	});
 })(jQuery);
-
-
-
-	
-	
-	
-
-
-

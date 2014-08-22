@@ -12,6 +12,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/gic.css">
+		<link rel="stylesheet" href="/cenfotec-proyecto-1/css/pages/reportes.css">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -40,10 +41,8 @@
 					
 				</div>
 			</main>
-			
 			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
-
-        <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 	</body>
 </html>

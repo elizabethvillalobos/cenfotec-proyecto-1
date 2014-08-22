@@ -1,14 +1,11 @@
-/* 
-En este archivo agreguen su nombre como comentario y debajo agregan sus estilos, 
-para que sea mas facil la integracion.
-
-Ejemplo:
-
-// ----------
-//   Elizabeth
-//   ----------
-.selector {
-	....
+.usuario-nombre {
+	width: 190px;
 }
 
-*/
+.usuario-rol {
+	text-align: center; width: 95px;
+}
+
+.usuario-estado {
+	text-align: center;	width: 60px;
+}

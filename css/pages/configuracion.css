@@ -396,7 +396,7 @@ main #q {
 .perfil .btn-modificar-perfil {
    position: absolute;
    right: 0;
-   top: 5px;
+   top: 20px;
 }
 
 .perfil h2 {
@@ -424,7 +424,7 @@ main #q {
 .perfil .perfil-photo {
    left: -150px;
    position: absolute;
-   top: -65px;
+   top: -70px;
 }
 
 .perfil-photo {

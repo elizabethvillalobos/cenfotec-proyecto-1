@@ -4,7 +4,7 @@
     $rolUsr = $_SESSION['usuarioActivoRol'];
     $infoSesion = getInfoSesion($id);
 	$loggedInUserName = $infoSesion['nombre'];
-	$loggedInUserAvatar = $infoSesion['avatar'];
+	$loggedInUserAvatar = $infoSesion['avatar'] ? $infoSesion['avatar'] : 'default-user.png';
 ?>
 
 <header>

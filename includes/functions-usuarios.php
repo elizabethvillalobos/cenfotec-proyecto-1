@@ -57,8 +57,6 @@ function mostrarUsuariosRectores() {
 }
 
 
-
-
 function mostrarUsuarios() {
 	$usuarios = getUsuarios();
 
@@ -92,9 +90,6 @@ function mostrarUsuarios() {
         echo '</tr>';
 	}
 }
-
-
-
 
 
 // Función que consulta los profesores

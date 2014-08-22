@@ -49,7 +49,6 @@
 					
 				</div>
 			</main>
-			
 			<?php include(ROOT.'/includes/footer.php'); ?>
 		</div>
         <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>

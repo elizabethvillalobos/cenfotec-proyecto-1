@@ -32,7 +32,7 @@
 			$results['citaId'] = $row['citaId'];
 			$results['correoSolicitado'] = utf8_encode($row['solicitadoCorreo']);
 			$results['nombreSolicitado'] = utf8_encode($row['nombreSolicitado']).' '.utf8_encode($row['apellido1Solicitado']).' '.utf8_encode($row['apellido2Solicitado']);
-			$results['imagenSolicitado'] = $row['imagenSolicitado'] == NULL ? '../images/users/default-user.png' : $row['imagenSolicitado'];
+			$results['imagenSolicitado'] = $row['imagenSolicitado'] == NULL ? 'default-user.png' : $row['imagenSolicitado'];
 			$results['telefonoSolicitado'] = $row['telefonoSolicitado'];
 			$results['fecha'] = dateLongString($row['citaDiaDeSemana'], $row['citaDia'], $row['citaMes'], $row['citaAno']);
 			$results['horaInicio'] = timeLongString($row['citaHoraInicio']);

@@ -283,6 +283,10 @@ th {
     padding: 5px 8px;
 }
 
+td {
+  color: #333;
+}
+
 tr:nth-child(even) td {
     background: #ecf0f1;
 }
@@ -296,6 +300,11 @@ tr:nth-child(even) td {
 	cursor: pointer;
 	background: #999999;
 	color: #fff;
+}
+
+tr.Inactivo td {
+  background: #ddd;
+  color: #777;
 }
 
 
@@ -578,6 +587,9 @@ form.form-horizontal .form-row-radio label {
    line-height: 0.5;
 }
 
+.requerido {
+  color: red;
+}
 
 .row {
     margin: 3px;
@@ -755,7 +767,9 @@ fieldset[disabled] .btn {
     color: #666;
     display: block;
     font-size: 1.1em;
-    line-height: 1.5;
+    line-height: 1.7;
+    min-height: 25px;
+    min-width: 100px;
     padding: 0;
     text-align: left;
     width: auto;

@@ -1,6 +1,6 @@
 <?php
 	require_once('../includes/functions.php');
-	require_once('../includes/functions-reportes.php');
+	require_once(ROOT.'/includes/functions-reportes.php');
 	$currentModule = 'reportes';
 	$currentSubModule = 'ranking';
 ?>

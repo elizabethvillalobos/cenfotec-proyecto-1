@@ -9,8 +9,8 @@ $(document).ready(function () {
 
     var settings = $(".media-drop").html5Uploader({
 
-        postUrl: 'upload.php',
-        imageUrl: 'image.php',
+        postUrl: '../includes/upload.php',
+        imageUrl: '../includes/image.php',
 
         /**
          * File dropped / selected.
@@ -65,9 +65,9 @@ $(document).ready(function () {
          */
         onUploaded: function (success, responseText) {
             if (success) {
-                // window.alert('Image uploaded successfully: ' + responseText);
+                console.log('Image uploaded successfully: ' + responseText);
             } else {
-                // window.alert('Image upload failed: ' + responseText);
+                console.log('Image upload failed: ' + responseText);
             }
         },
 

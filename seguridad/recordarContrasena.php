@@ -50,7 +50,9 @@
 		</div>
 		
 		<!-- Load JS -->
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
+		<script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
-        <script src="/cenfotec-proyecto-1/seguridad/recordarContrasena.js"></script>
+        <script src="/cenfotec-proyecto-1/js/recordarContrasena.js"></script>
 	</body>
 </html>

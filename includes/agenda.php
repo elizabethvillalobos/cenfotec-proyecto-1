@@ -4,7 +4,6 @@
 	require_once('functions-dashboard.php');
 ?>
 
-
 <section class="dash-agenda">
 	<a href="/cenfotec-proyecto-1/citas/agenda.php">
 		<h3>Agenda</h3>

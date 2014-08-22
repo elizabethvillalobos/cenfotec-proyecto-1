@@ -51,14 +51,15 @@
 	}
 
 	function consultarCitas() {
-		if (!empty($_GET['solicitante']) && !empty($_GET['fechaInicio']) && !empty($_GET['fechaFin'])) {
-			$solicitante = $_GET['solicitante'];
+		if (!empty($_GET['usuario']) && !empty($_GET['rol']) && !empty($_GET['fechaInicio']) && !empty($_GET['fechaFin'])) {
+			$usuario = $_GET['usuario'];
+			$rolUsuario = $_GET['rol'];
 			$fechaInicio = $_GET['fechaInicio'];
 			$fechaFin = $_GET['fechaFin'];
 			
 			// Ejecutar consulta que retorna citas por usuario
 			// para una fecha específica.
-			$citasUsuario = getCitasUsuario($solicitante, $fechaInicio, $fechaFin);
+			$citasUsuario = getCitasUsuario($usuario, $rolUsuario, $fechaInicio, $fechaFin);
 
 			if (empty($citasUsuario)) {
 				deliver_response(200, 'No data', NULL);

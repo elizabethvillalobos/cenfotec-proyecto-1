@@ -68,4 +68,7 @@
 			</li>
 		</ul>
 	</section>
+	<input type="hidden" id="usuarioActivoId" value="<?php echo $id; ?>" /> 
+	<input type="hidden" id="usuarioActivoRol" value="<?php echo $rolUsr; ?>" /> 
+	
 </header>

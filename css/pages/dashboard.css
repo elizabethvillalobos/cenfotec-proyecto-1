@@ -181,11 +181,7 @@ main {
 	float: left;
 	height: 36px;
 	list-style: none;
-	width: 40px;
-}
-
-li.rating-5 {
-	width: 28px;
+	width: 0px;
 }
 
 .dashboard-estudiante .rating-4 {

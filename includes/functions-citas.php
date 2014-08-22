@@ -9,7 +9,12 @@
 
 	// Función que consultas las citas que un usuario
 	// tiene pendientes para una fecha en específico.
-	function getCitasUsuario($idsolicitante, $fechaInicio, $fechaFin) {
+	function getCitasUsuario($usuario, $rol, $fechaInicio, $fechaFin) {
+		if ($rol == '5') { // estudiante
+			$condicionUsuario = 'AND tcitas.idSolicitado = tusuarios.id AND tcitas.idSolicitante = "'.$usuario.'" ';
+		} else {
+			$condicionUsuario = 'AND tcitas.idSolicitante = tusuarios.id AND tcitas.idSolicitado = "'.$usuario.'" ';
+		}
 		$query = 'SELECT tcitas.id AS citaId, tcitas.idSolicitado AS solicitadoCorreo, tcitas.asunto, tcitas.modalidad, tcitas.tipo, tcitas.observaciones, '.
 				 'DAYOFWEEK(tcitas.fechaInicio) AS citaDiaDeSemana, DAYOFMONTH(tcitas.fechaInicio) AS citaDia, '.
 				 'MONTH(tcitas.fechaInicio) AS citaMes, YEAR(tcitas.fechaInicio) AS citaAno, '.
@@ -18,9 +23,7 @@
 				 'tusuarios.nombre AS nombreSolicitado, tusuarios.apellido1 AS apellido1Solicitado, tusuarios.apellido2 AS apellido2Solicitado, tusuarios.telefono AS telefonoSolicitado, tusuarios.imagen AS imagenSolicitado '.
 				 'FROM tcitas, tcursos, tusuarios '.
 				 'WHERE tcitas.curso = tcursos.id '.
-				 'AND tcitas.idSolicitado = tusuarios.id '.
-				 'AND tcitas.estado = "1" AND tcitas.esCita = "1" '.
-				 'AND tcitas.idSolicitante = "'.$idsolicitante.'" '.
+				 'AND tcitas.estado = "1" AND tcitas.esCita = "1" '.$condicionUsuario.
 				 'AND tcitas.fechaInicio >= "'.$fechaInicio.'" AND tcitas.fechaFin < "'.$fechaFin.'" '.
 				 'ORDER BY tcitas.fechaInicio DESC';
 

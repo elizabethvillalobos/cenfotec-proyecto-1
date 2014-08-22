@@ -29,7 +29,7 @@
             '</body></html>';
 
 	$mail->IsSMTP(); // telling the class to use SMTP
-	$mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)
+	// $mail->SMTPDebug  = 2;                     // enables SMTP debug information (for testing)
 	                                           // 1 = errors and messages
 	                                           // 2 = messages only
 	$mail->SMTPAuth   = true;                  // enable SMTP authentication
@@ -55,7 +55,7 @@
 
 	$mail->AddAddress($address1, "Elizabeth Villalobos");
 	$mail->AddAddress($address2, "Jose Cerdas");
-	$mail->AddAddress($address2, "Miguel Coto");
+	$mail->AddAddress($address3, "Miguel Coto");
 
 
 	if(!$mail->Send()) {

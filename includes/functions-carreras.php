@@ -122,7 +122,6 @@
 
 	function getSpecificCarrera($pidCarrera){
 		
-
 		$query = "SELECT tcarrera.id as carreraId, tcarrera.nombre as carreraNombre, tusuarios.id as idusuario, tusuarios.nombre as directorNombre, tusuarios.apellido1 as directorApellido1, tusuarios.apellido2 as directorApellido2
 			 	  FROM tcarrera, tusuarios WHERE tcarrera.id='$pidCarrera' AND tcarrera.idDirector = tusuarios.id";	 	 
 		 

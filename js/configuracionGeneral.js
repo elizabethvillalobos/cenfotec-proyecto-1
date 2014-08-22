@@ -9,7 +9,7 @@ function modificarDias(pdias){
 			datatype: 'json',
 			success: function(response){
 				console.log(response);
-				//window.location = "/cenfotec-proyecto-1/configuracion/cambiarContrasena-confirmar.php";
+				window.location = "/cenfotec-proyecto-1/configuracion/configuracionGeneralConfirm.php";
 			},
 			error: function(response){
 				console.log(response);

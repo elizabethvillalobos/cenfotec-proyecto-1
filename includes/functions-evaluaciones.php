@@ -36,9 +36,17 @@ function obtenerEvaluacionesRealizadas($puser,$prol){
 	return $result;
 }
 
-function obtenerUsuarioEvaluado($pidCita){
+function obtenerUsuarioEvaluado($pidCita,$rol){
 
-	$query = "SELECT nombre,apellido1 FROM tusuarios,tcitas WHERE tusuarios.id = tcitas.idSolicitado AND tcitas.id = '$pidCita'";
+	if($rol==4){
+		$query = "SELECT nombre,apellido1 FROM tusuarios,tcitas WHERE tusuarios.id = tcitas.idSolicitante AND tcitas.id = '$pidCita'";
+
+	}else{
+		$query = "SELECT nombre,apellido1 FROM tusuarios,tcitas WHERE tusuarios.id = tcitas.idSolicitado AND tcitas.id = '$pidCita'";
+
+	}
+
+	
 	$result = do_query($query);
 	$user= mysqli_fetch_assoc($result);
     $nombreApellido = $user['nombre'].' '.$user['apellido1'];
@@ -82,7 +90,7 @@ function mostrarEvaluacionesRealizadasProf($puser,$prol) {
 			$html .= '<li class="accordion-item ">
 	                    <a href="#">
 	                        	<p class="titulo2">
-	                        		<span class="stit2">Usuario evaluado : '.obtenerUsuarioEvaluado($row['idCita']).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['idCita']).' </span>
+	                        		<span class="stit2">Usuario evaluado : '.obtenerUsuarioEvaluado($row['idCita'],$rol).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['idCita']).' </span>
 	                        	</p>
 	                        </a>
 	                    <div class="accordion-detail">
@@ -284,7 +292,7 @@ function mostrarEvaluacionesRealizadasEst($puser,$prol) {
 		$html .= '<li class="accordion-item ">
                     <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Usuario evaluado : '.obtenerUsuarioEvaluado($row['idCita']).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['idCita']).' </span>
+                        		<span class="stit2">Usuario evaluado : '.obtenerUsuarioEvaluado($row['idCita'],$prol).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['idCita']).' </span>
                         	</p>
                         </a>
                     <div class="accordion-detail">
@@ -425,7 +433,7 @@ function mostrarEvaluacionesPendientesProf($puser,$prol) {
         $html .=     '<li class="accordion-item ">
                         <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Usuario a evaluar : '.obtenerUsuarioEvaluado($row['id']).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['id']).'</span>
+                        		<span class="stit2">Usuario a evaluar : '.obtenerUsuarioEvaluado($row['id'],$prol).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['id']).'</span>
                         	</p>
                         </a>
 
@@ -540,7 +548,7 @@ function mostrarEvaluacionesPendientesEst($puser,$prol) {
         $html .=     '<li class="accordion-item ">
                         <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Usuario a evaluar : '.obtenerUsuarioEvaluado($row['id']).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['id']).'</span>
+                        		<span class="stit2">Usuario a evaluar : '.obtenerUsuarioEvaluado($row['id'],$prol).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['id']).'</span>
                         	</p>
                         </a>
 
@@ -651,7 +659,7 @@ function mostrarEvaluacionesPendientes() {
         $html .=     '<li class="accordion-item ">
                         <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Usuario a evaluar : '.obtenerUsuarioEvaluado($row['id']).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['id']).'</span>
+                        		<span class="stit2">Usuario a evaluar : '.obtenerUsuarioEvaluado($row['id'],$prol).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['id']).'</span>
                         	</p>
                         </a>
 

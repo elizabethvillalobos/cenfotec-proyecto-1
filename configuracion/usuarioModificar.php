@@ -27,7 +27,7 @@
 					</div>
 					<!-- El atributo novalidate es para evitar que el browser 
 					haga las validaciones. -->
-					<form id="modificar-usuario" class="mod-bd form-horizontal" action="usuarioGuardado.html" method="post" data-validate="true" novalidate>
+					<form id="modificar-usuario" class="mod-bd form-horizontal" action="usuarioGuardado.php" method="post" data-validate="true" novalidate>
 					
 					<?php
                         if(isset($_GET['id'])){

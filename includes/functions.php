@@ -151,7 +151,7 @@ function getInfoSesion($id) {
     while ($row = mysqli_fetch_assoc($usuario)){
         $infoSesion ['nombre'] = utf8_encode($row['nombre']);
         $infoSesion ['apellido1'] = utf8_encode($row['apellido1']);
-        $infoSesion ['apellido1'] = utf8_encode($row['apellido1']);
+        $infoSesion ['apellido2'] = utf8_encode($row['apellido2']);
         $infoSesion ['avatar'] = $row['imagen'];
     }
     

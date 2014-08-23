@@ -43,7 +43,7 @@
 								<span class="label">Invitado:</span>
 								<div class="data-wrap">
 									<span class="data cita-invitado">{{ nombreSolicitado }}</span>
-									<span class="data">{{ correoSolicitado }}</span>
+									<span class="data cita-invitado-id">{{ correoSolicitado }}</span>
 									{{#if telefonoSolicitado }}
 										<span class="data">{{ telefonoSolicitado }}</span>
 									{{/if}}

@@ -95,14 +95,14 @@ function insertarCita() {
 		data: { // Objeto con los parámetros que utiliza el servicio.
 			query: 'insertarCita',
 			idSolicitante: 'evillalobos@ucenfotec.ac.cr',
-			idSolicitado: 'aluna@ucenfotec.ac.cr',
+			idSolicitado: 'acordero@ucenfotec.ac.cr',
 			fechaInicio: fechaInicio.toISOString(),
 			fechaFin: fechaFin.toISOString(),
-			asunto: 'Grafos',
+			asunto: 'CUFES',
 			modalidad: '0',
 			tipo: '0',
 			observaciones: 'Testing testing testing...',
-			curso: 'BISOFT-01'
+			curso: 'BISOFT-04'
 		},
 		dataType: 'json',
 		success: function(response) {
@@ -186,7 +186,7 @@ function initCancelarCita() {
 
 
 // Ejecutar cancelar cita.
-function cancelarCita(citaId, motivo, idSolicitante) {
+function cancelarCita(citaId, motivo, quienCancela) {
 	$.ajax({
 		url: '../includes/service-citas.php',
 		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
@@ -194,16 +194,18 @@ function cancelarCita(citaId, motivo, idSolicitante) {
 			query: 'cancelarCita',
 			citaId: citaId,
 			motivo: motivo,
-			idSolicitante: idSolicitante
+			quienCancela: quienCancela
 		},
 		dataType: 'json',
 		success: function(response) {
 			var nombreSolicitado;
 			if (citaCancelarSeleccionada) {
-				nombreSolicitado = $('#cita-id-' + citaCancelarSeleccionada).parent('.cita-pendiente').find('.cita-invitado').text();
+				nombreInvitado = $('#cita-id-' + citaCancelarSeleccionada).parent('.cita-pendiente').find('.cita-invitado').text();
+				invitado = $('#cita-id-' + citaCancelarSeleccionada).parent('.cita-pendiente').find('.cita-invitado-id').text();
 			}
-			enviarEmailCancelacionCita('villaloboselizabeth@gmail.com', motivo, nombreSolicitado);
-			mostrarMsgCancelacion(nombreSolicitado);
+			enviarEmailCancelacionCita(invitado, motivo, $('#loggedInUserName').val() + ' ' + $('#loggedInUserLastName1').val() + ' ' + $('#loggedInUserLastName2').val());
+			// enviarEmailCancelacionCita('villaloboselizabeth@gmail.com', motivo, $('#loggedInUserName').val() + ' ' + $('#loggedInUserLastName1').val() + ' ' + $('#loggedInUserLastName2').val());
+			mostrarMsgCancelacion(nombreInvitado);
 		},
 		error: function(response) {
 			// Mostrar mensaje de error.
@@ -212,7 +214,7 @@ function cancelarCita(citaId, motivo, idSolicitante) {
 	});
 }
 
-function mostrarMsgCancelacion(nombreSolicitado) {
+function mostrarMsgCancelacion(nombreInvitado) {
 	var source = $("#template-msg-cancelar").html(),
 		template = Handlebars.compile(source);
 
@@ -221,7 +223,7 @@ function mostrarMsgCancelacion(nombreSolicitado) {
 
 	// Mostrar el mensaje de confirmacion.
 	$("#msg-container").html(template({
-		nombreSolicitado: nombreSolicitado
+		nombreSolicitado: nombreInvitado
 	}));
 
 	// Eliminar citas que se hayan mostrado previamente.
@@ -326,8 +328,6 @@ function mostrarMsgFinalizacion(citaId) {
 
 		// Cargar las citas para el dia de hoy.
 		consultarCitas();
-
-		enviarEmail('villaloboselizabeth@gmail.com', 'asunto', 'mensaje');
 	}
 })(jQuery);
 

@@ -4,6 +4,8 @@
     $rolUsr = $_SESSION['usuarioActivoRol'];
     $infoSesion = getInfoSesion($id);
 	$loggedInUserName = $infoSesion['nombre'];
+	$loggedInUserLastName1 = $infoSesion['apellido1'];
+	$loggedInUserLastName2 = $infoSesion['apellido2'];
 	$loggedInUserAvatar = $infoSesion['avatar'] ? $infoSesion['avatar'] : 'default-user.png';
 ?>
 
@@ -79,5 +81,8 @@
 </body>
 	<input type="hidden" id="usuarioActivoId" value="<?php echo $id; ?>" /> 
 	<input type="hidden" id="usuarioActivoRol" value="<?php echo $rolUsr; ?>" /> 
+	<input type="hidden" id="loggedInUserName" value="<?php echo $loggedInUserName; ?>" /> 
+	<input type="hidden" id="loggedInUserLastName1" value="<?php echo $loggedInUserLastName1; ?>" /> 
+	<input type="hidden" id="loggedInUserLastName2" value="<?php echo $loggedInUserLastName2; ?>" /> 
 	
 </header>

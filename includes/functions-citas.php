@@ -99,13 +99,13 @@
 
 
 	// Cancelar una cita.
-	function cancelCita($citaId, $motivo, $idSolicitante) {
+	function cancelCita($citaId, $motivo, $quienCancela) {
 		// Update del estado de la cita.
 		$queryUpdate = "UPDATE tcitas SET tcitas.estado = 5 WHERE tcitas.id = '".$citaId."'";
 		$result = do_query($queryUpdate);
 
 		// Insert en la tabla tcitascanceladas.
-		$queryInsert = "INSERT INTO tcitascanceladas(id, motivo, idusuario) VALUES (null, '$motivo', '$idSolicitante')";
+		$queryInsert = "INSERT INTO tcitascanceladas(id, motivo, idusuario) VALUES (null, '$motivo', '$quienCancela')";
 		$result &= do_query($queryInsert);
 
 		// Llamar funcion que ejecuta el GIC-CUFE-305.

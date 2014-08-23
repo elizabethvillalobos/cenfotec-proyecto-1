@@ -93,11 +93,11 @@
 
 
 	function cancelarCita() {
-		if (!empty($_GET['citaId']) && !empty($_GET['motivo']) && !empty($_GET['idSolicitante'])) {
+		if (!empty($_GET['citaId']) && !empty($_GET['motivo']) && !empty($_GET['quienCancela'])) {
 			$citaId = $_GET['citaId'];
 			$motivo = $_GET['motivo'];
-			$idSolicitante = $_GET['idSolicitante'];
-			$result = cancelCita($citaId, $motivo, $idSolicitante);
+			$quienCancela = $_GET['quienCancela'];
+			$result = cancelCita($citaId, $motivo, $quienCancela);
 
 			if ($result) {
 				deliver_response(200, 'OK', NULL);

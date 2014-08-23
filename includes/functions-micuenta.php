@@ -38,7 +38,7 @@
 			$avatar = $row['imagen'] ? $row['imagen'] : 'default-user.png';
 
 			echo '<div class="mod-hd">';
-			echo '<h2>'.utf8_encode($row['nombreUsuario']).' '.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']).'</h2>';
+			echo '<h2>'.$row['nombreUsuario'].' '.$row['apellido1'].' '.$row['apellido2'].'</h2>';
 			echo '<a href="/cenfotec-proyecto-1/configuracion/perfilModificar.php?userId='.$userId.'" class="btn btn-primary btn-modificar-perfil">Modificar</a>';
 			echo '</div>';
 			echo '<div class="mod-bd">';
@@ -101,17 +101,17 @@
 
 			echo '<div class="form-row">';
 			echo '<label for="perfil-nombre">Nombre: <span class="requerido">*</span></label>';
-			echo '<input id="perfil-nombre" type="text" placeholder="Ingrese el nombre" class="form-control" value="'.utf8_encode($row['nombreUsuario']).'" required/>';
+			echo '<input id="perfil-nombre" type="text" placeholder="Ingrese el nombre" class="form-control" value="'.$row['nombreUsuario'].'" required/>';
 			echo '</div>';
 
 			echo '<div class="form-row">';
 			echo '<label for="perfil-apellido-1">Primer apellido: <span class="requerido">*</span></label>';
-			echo '<input id="perfil-apellido-1" type="text" placeholder="Ingrese el primer apellido" class="form-control" value="'.utf8_encode($row['apellido1']).'" required/>';
+			echo '<input id="perfil-apellido-1" type="text" placeholder="Ingrese el primer apellido" class="form-control" value="'.$row['apellido1'].'" required/>';
 			echo '</div>';
 
 			echo '<div class="form-row">';
 			echo '<label for="perfil-apellido-2">Segundo apellido: <span class="requerido">*</span></label>';
-			echo '<input id="perfil-apellido-2" type="text" placeholder="Ingrese el segundo apellido" class="form-control" value="'.utf8_encode($row['apellido2']).'" required/>';
+			echo '<input id="perfil-apellido-2" type="text" placeholder="Ingrese el segundo apellido" class="form-control" value="'.$row['apellido2'].'" required/>';
 			echo '</div>';
 
 			echo '<div class="form-row">';

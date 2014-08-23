@@ -63,10 +63,10 @@ if (ebtnEnviar.length) {
 function modificarEvaluacion(){
 	var radioSi = $('#rdSi').val(),
       	radioNo = $('#rdNo').val(),
-      	nota2 = $Number(('#not2').val()),
-      	nota3 = $Number(('#not3').val()),
-      	nota4 = $Number(('#not4').val()),
-      	nota5 = $Number(('#not5').val());     	
+      	nota2 = $('#not2').val(),
+      	nota3 = $('#not3').val(),
+      	nota4 = $('#not4').val(),
+      	nota5 = $('#not5').val();     	
 
     	var request = $.ajax({
     		url: "../includes/service-evaluaciones.php",
@@ -82,7 +82,7 @@ function modificarEvaluacion(){
     		},
     		dataType: 'json',
     		success: function(response) { 
-    			window.location = "/cenfotec-proyecto-1/configuracion/carrerasModificar-confirmar.php?nombreCarrera="+nombre;
+    			window.location = "/cenfotec-proyecto-1/evaluacion/evaluarCitaConfirm.php";
     		},
     		error: function(response){
 				

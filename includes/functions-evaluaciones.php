@@ -21,9 +21,17 @@ function mostrarEvaluacionRealizadaXRol($puser,$prol){
 }
 
 
-function obtenerEvaluacionesRealizadas($puser){
+function obtenerEvaluacionesRealizadas($puser,$prol){
+
+	if($prol==4){
+
+		$query = "SELECT * FROM tevaluaciones,tcitas WHERE tcitas.id=tevaluaciones.idCita AND tcitas.idSolicitado = '$puser' AND tevaluaciones.realizada = 1";
+
+	}else{
+		$query = "SELECT * FROM tevaluaciones,tcitas WHERE tcitas.id=tevaluaciones.idCita AND tcitas.idSolicitante = '$puser' AND tevaluaciones.realizada = 1";
+	}
 	
-	$query = "SELECT * FROM tevaluaciones,tcitas WHERE tcitas.id=tevaluaciones.idCita AND tcitas.idSolicitante = '$puser' AND tevaluaciones.realizada = 1";
+	
 	$result = do_query($query);
 	return $result;
 }
@@ -66,8 +74,8 @@ function obtenerPromedioCita($pidCita){
 
 
 
-function mostrarEvaluacionesRealizadasProf($puser) {
-	$evaluacionesRealizadas = obtenerEvaluacionesRealizadas($puser);
+function mostrarEvaluacionesRealizadasProf($puser,$prol) {
+	$evaluacionesRealizadas = obtenerEvaluacionesRealizadas($puser,$prol);
 
 		while($row = mysqli_fetch_assoc($evaluacionesRealizadas)){
 			$html .='<ul class="accordion">';
@@ -268,8 +276,8 @@ function mostrarEvaluacionesRealizadas() {
 		echo $html;
 }
 
-function mostrarEvaluacionesRealizadasEst($puser) {
-	$evaluacionesRealizadas = obtenerEvaluacionesRealizadas($puser);	
+function mostrarEvaluacionesRealizadasEst($puser,$prol) {
+	$evaluacionesRealizadas = obtenerEvaluacionesRealizadas($puser,$prol);	
 
 	while($row = mysqli_fetch_assoc($evaluacionesRealizadas)){
 		$html .='<ul class="accordion">';
@@ -379,7 +387,7 @@ function mostrarEvaluacionPendienteXRol($puser,$prol){
 			mostrarEvaluacionesPendientesProf($puser,$prol);
 			break;
 		case 5:
-			mostrarEvaluacionesPendientesEst($puser);
+			mostrarEvaluacionesPendientesEst($puser,$prol);
 			break;
 		default:
 			mostrarEvaluacionesPendientes();
@@ -399,18 +407,18 @@ function obtenerEvaluacionesPendientes($puser,$prol){
 
 
 	if($prol==4){
-		$query = "SELECT * FROM tcitas  WHERE estado=4 AND tipo=0 AND idSolicitado = '$puser'";
+		$query = "SELECT * FROM tevaluaciones,tcitas  WHERE tevaluaciones.idCita = tcitas.id AND tevaluaciones.realizada = 0 AND tcitas.idSolicitado = '$puser' ";
 
 	}else{
-		$query = "SELECT * FROM tcitas  WHERE estado=4 AND tipo=0 AND idSolicitante = '$puser'";
+		$query = "SELECT * FROM tevaluaciones,tcitas  WHERE tevaluaciones.idCita = tcitas.id AND tevaluaciones.realizada = 0 AND tcitas.idSolicitante = '$puser'";
 	}	
 	
 	$result = do_query($query);
 	return $result;
 }
 
-function mostrarEvaluacionesPendientesProf($puser) {
-	$evaluacionesPendientes = obtenerEvaluacionesPendientes($puser);	
+function mostrarEvaluacionesPendientesProf($puser,$prol) {
+	$evaluacionesPendientes = obtenerEvaluacionesPendientes($puser,$prol);	
 
 	while($row = mysqli_fetch_assoc($evaluacionesPendientes)){
 		$html .='<ul class="accordion">';
@@ -433,13 +441,13 @@ function mostrarEvaluacionesPendientesProf($puser) {
 
 										<div class="opcs">
 											<label class="radio">												
-				                                <input type="radio" name="group1" value="si" data-toggle="radio">SI
+				                                <input type="radio" name="group1" value="si" data-toggle="radio" id="rdSi">SI
 				                            </label>
 				                        </div>
 
 			                            <div class="opcs">
 			                            	<label class="radio">			                            		
-			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
+			                            		<input type="radio" name="group1" value="no" data-toggle="radio" id="rdNo" >NO
 			                                </label>
 									    </div>
 								    </div> 
@@ -455,7 +463,7 @@ function mostrarEvaluacionesPendientesProf($puser) {
 								        </div>
 
 								        <div class="opcs">	
-								        	<input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
+								        	<input class="nbr"type="number" name="puntaje" min="1" max="5" value="3" id="not2" >
 									    </div>
 								    </div>
                                 
@@ -466,7 +474,7 @@ function mostrarEvaluacionesPendientesProf($puser) {
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3" id="not3">
 										</div>
 
 									</div>
@@ -478,7 +486,7 @@ function mostrarEvaluacionesPendientesProf($puser) {
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3" id="not4">
 										</div>
 
 									</div>
@@ -489,7 +497,7 @@ function mostrarEvaluacionesPendientesProf($puser) {
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3" id="not5">
 										</div>
 
 									</div>										
@@ -524,8 +532,8 @@ function mostrarEvaluacionesPendientesProf($puser) {
 }
 
 
-function mostrarEvaluacionesPendientesEst($puser) {
-	$evaluacionesPendientes = obtenerEvaluacionesPendientes($puser);	
+function mostrarEvaluacionesPendientesEst($puser,$prol) {
+	$evaluacionesPendientes = obtenerEvaluacionesPendientes($puser,$prol);	
 
 	while($row = mysqli_fetch_assoc($evaluacionesPendientes)){
 		$html .='<ul class="accordion">';
@@ -548,13 +556,13 @@ function mostrarEvaluacionesPendientesEst($puser) {
 
 										<div class="opcs">
 											<label class="radio">												
-				                                <input type="radio" name="group1" value="si" data-toggle="radio">SI
+				                                <input type="radio" name="group1" value="si" data-toggle="radio" id="rdSi">SI
 				                            </label>
 				                        </div>
 
 			                            <div class="opcs">
 			                            	<label class="radio">			                            		
-			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
+			                            		<input type="radio" name="group1" value="no" data-toggle="radio" id="rdNo">NO
 			                                </label>
 									    </div>
 								    </div> 
@@ -570,7 +578,7 @@ function mostrarEvaluacionesPendientesEst($puser) {
 								        </div>
 
 								        <div class="opcs">	
-								        	<input class="nbr"type="number" name="puntaje" min="1" max="5" value="3">
+								        	<input class="nbr"type="number" name="puntaje" min="1" max="5" value="3" id="not2" >
 									    </div>
 								    </div>
                                 
@@ -581,7 +589,7 @@ function mostrarEvaluacionesPendientesEst($puser) {
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3"id="not3">
 										</div>
 
 									</div>
@@ -593,7 +601,7 @@ function mostrarEvaluacionesPendientesEst($puser) {
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3" id="not4" >
 										</div>
 
 									</div>
@@ -604,7 +612,7 @@ function mostrarEvaluacionesPendientesEst($puser) {
 										</div>
 
 										<div class="opcs">
-										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3">
+										    <input class="nbr" type="number" name="puntaje" min="1" max="5" value="3" id="not5" >
 										</div>
 
 									</div>										

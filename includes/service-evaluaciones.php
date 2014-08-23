@@ -19,20 +19,18 @@
 	
 	
 	function modificarEvaluacion(){
-		if (!empty($_GET['pradioSi']) && !empty($_GET['pradioNo']) && !empty($_GET['pnota2']) && !empty($_GET['pnota3']) && !empty($_GET['pnota4']) && !empty($_GET['pnota5']) ){
+		if (!empty($_GET['pradioSi']) && !empty($_GET['pnota2']) && !empty($_GET['pnota3']) && !empty($_GET['pnota4']) && !empty($_GET['pnota5']) ){
 			$rdSi = utf8_decode($_GET['pradioSi']);
-			$rdNo = utf8_decode($_GET['pradioNo']);	
-			$nota2 = utf8_decode($_GET['pnota2']);
-			$nota3 = utf8_decode($_GET['pnota3']);
-			$nota4 = utf8_decode($_GET['pnota4']);
-			$nota5 = utf8_decode($_GET['pnota5']);
-
-			if($rdSi){
-
-				$query = "UPDATE tevaluaciones SET nota2='$nota2',nota3='$nota3',nota4='$nota4',nota5='$nota5' realizada=1 WHERE idCita=333";
-			    $result = do_query($query);
-			    deliver_response(200, 'OK', 'Registrado con exito');
-			}			
+			//$rdNo = utf8_decode($_GET['pradioNo']);	
+			$nota2 = $_GET['pnota2'];
+			$nota3 = $_GET['pnota3'];
+			$nota4 = $_GET['pnota4'];
+			$nota5 = $_GET['pnota5'];
+			
+			$query = "UPDATE tevaluaciones SET nota2='$nota2',nota3='$nota3',nota4='$nota4',nota5='$nota5', realizada=1 WHERE idCita=333";
+		    $result = do_query($query);
+		    deliver_response(200, 'OK', 'Registrado con exito');
+						
 		}else{
 			deliver_response(400, 'Bad request', NULL);	
 		}	

@@ -94,14 +94,14 @@ function insertarCita() {
 		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 		data: { // Objeto con los parámetros que utiliza el servicio.
 			query: 'insertarCita',
-			idSolicitante: 'evillalobos@ucenfotec.ac.cr',
+			idSolicitante: 'evillalobosm@ucenfotec.ac.cr',
 			idSolicitado: 'acordero@ucenfotec.ac.cr',
-			fechaInicio: fechaInicio.toISOString(),
-			fechaFin: fechaFin.toISOString(),
-			asunto: 'CUFES',
+			fechaInicio: '2014-08-23 12:00:00',
+			fechaFin: '2014-08-23 13:00:00',
+			asunto: 'Prueba de insertar desde javascript',
 			modalidad: '0',
 			tipo: '0',
-			observaciones: 'Testing testing testing...',
+			observaciones: 'Testing...',
 			curso: 'BISOFT-04'
 		},
 		dataType: 'json',
@@ -204,7 +204,6 @@ function cancelarCita(citaId, motivo, quienCancela) {
 				invitado = $('#cita-id-' + citaCancelarSeleccionada).parent('.cita-pendiente').find('.cita-invitado-id').text();
 			}
 			enviarEmailCancelacionCita(invitado, motivo, $('#loggedInUserName').val() + ' ' + $('#loggedInUserLastName1').val() + ' ' + $('#loggedInUserLastName2').val());
-			// enviarEmailCancelacionCita('villaloboselizabeth@gmail.com', motivo, $('#loggedInUserName').val() + ' ' + $('#loggedInUserLastName1').val() + ' ' + $('#loggedInUserLastName2').val());
 			mostrarMsgCancelacion(nombreInvitado);
 		},
 		error: function(response) {
@@ -329,5 +328,6 @@ function mostrarMsgFinalizacion(citaId) {
 		// Cargar las citas para el dia de hoy.
 		consultarCitas();
 	}
+	// insertarCita();
 })(jQuery);
 

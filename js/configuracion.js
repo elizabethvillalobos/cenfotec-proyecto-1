@@ -272,7 +272,6 @@ function modificarPerfil() {
 			},
 			dataType: 'json',
 			success: function(response) {
-				console.log('success');
 				perfil['avatar'] = response.data;
 				updatePerfil(perfil);
 			},

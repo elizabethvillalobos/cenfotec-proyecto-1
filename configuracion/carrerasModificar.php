@@ -52,10 +52,10 @@
 
 						<div class="form-row">
 							<label for="director-academico">Director académico:</label>
-							<select id="director-academico" required>
+							<select id="director-academico">
 	                     		<?php echo '<option value= '.$result['idusuario'].' > 
 									'.utf8_encode($result['directorNombre']).' '.utf8_encode($result['directorApellido1']).' </option>'; ?>	
-								<?php mostrarDirectores();; ?>
+								<?php mostrarDirectores(); ?>
                             </select>
 						</div>
 

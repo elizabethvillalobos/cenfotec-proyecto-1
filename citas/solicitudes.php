@@ -23,6 +23,16 @@
 			<main>
 				<!--mostrarSolicitud(idCita,idUsuarioActivo)-->
 				<?php mostrarSolicitud($_GET['idCita'],$_SESSION['usuarioActivoId'] )?>
+
+				<div id="modal-rechazar" class="modal js-modal-window">
+					<span class="close flaticon-close3 js-modal-close">Close</span>
+					<h3>¿Está seguro que desea rechazar la solicitud de cita?</h3>
+					<input id="cita-id-finalizacion" type="hidden" value=""/>
+					<div class="form-row">
+						<button type="button" id="btn-finalizar-cita" class="btn btn-primary js-modal-aceptar">Sí</button>
+						<button type="button" class="btn btn-default js-modal-close">No</button>
+					</div>
+				</div>
 			</main>
 			
 			<?php include(ROOT.'/includes/footer.php'); ?>

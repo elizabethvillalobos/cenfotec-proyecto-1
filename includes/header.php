@@ -70,19 +70,15 @@
 			</li>
 		</ul>
 	</section>
-</header>
 
-
-<body>
-   <script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
-    <script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
-    <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
-    <script src="/cenfotec-proyecto-1/js/busquedaGeneral.js"></script>
-</body>
 	<input type="hidden" id="usuarioActivoId" value="<?php echo $id; ?>" /> 
 	<input type="hidden" id="usuarioActivoRol" value="<?php echo $rolUsr; ?>" /> 
 	<input type="hidden" id="loggedInUserName" value="<?php echo $loggedInUserName; ?>" /> 
 	<input type="hidden" id="loggedInUserLastName1" value="<?php echo $loggedInUserLastName1; ?>" /> 
 	<input type="hidden" id="loggedInUserLastName2" value="<?php echo $loggedInUserLastName2; ?>" /> 
-	
+
+	<script src="/cenfotec-proyecto-1/js/vendors/jquery-1.8.3.min.js"></script>
+    <script src="/cenfotec-proyecto-1/js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+    <script src="/cenfotec-proyecto-1/js/busquedaGeneral.js"></script>
 </header>

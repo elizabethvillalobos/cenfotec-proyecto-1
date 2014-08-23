@@ -1,5 +1,6 @@
 <?php
     require_once('../includes/functions.php'); 
+	require_once('../includes/functions-carreras.php'); 
 
     $currentModule = 'configuracion';
     $currentSubModule = 'cursos';
@@ -22,7 +23,10 @@
 
 			<main>
 				<div id="carreras-hd">
-					 <h2> Lista de cursos</h2>
+					 <h2><?php 
+					 		$row = getSpecificCarrera($carrera); 
+					 		echo utf8_encode($row['carreraNombre']);
+					 	 ?></h2>
 		
 					<div id="buscarCursos">
 						<input id="criterioCurso" class="campo-busqueda" type="text" value="" placeholder="Buscar cursos" />

@@ -45,7 +45,7 @@
 					 'AND tcursosxcarrera.idCurso = tusuariosxcurso.idCurso '.
 					 'AND tcarrera.id = tcursosxcarrera.idCarrera '.
 					 'AND tcarrera.id = "'.$pidCarrera.'" AND (tusuarios.rol = 4 OR tusuarios.rol = 3) '.
-					 'ORDER BY tcursos.id';
+					 'ORDER BY tcursos.nombre';
 
 			$result = do_query($query);
 			

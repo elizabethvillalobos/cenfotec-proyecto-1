@@ -124,7 +124,7 @@
 
 			if ($result) {
 				insertarEvaluacionesPendientes($citaId);//inserta una evaluacion en evaluaciones pendientes
-				deliver_response(200, 'OK', NULL);
+				deliver_response(200, 'OK', 'Finalizacion exitosa');
 			} else {
 				deliver_response(401, 'Fallo en la finalización de la cita', NULL);
 			}
@@ -181,7 +181,7 @@
 	
 	function aceptarPropuestaSolicitud() {
 		$idCita = $_GET['idCita'];
-		$query = "UPDATE `tcitas` SET `estado` = '2',`esCita` = '1' WHERE `tcitas`.`id` = '$idCita';";
+		$query = "UPDATE `tcitas` SET `estado` = '1',`esCita` = '1' WHERE `tcitas`.`id` = '$idCita';";
 			
 		$resultado = do_query($query);			
 		deliver_response(200, 'OK', 'Solicitud aceptada exitosamente');

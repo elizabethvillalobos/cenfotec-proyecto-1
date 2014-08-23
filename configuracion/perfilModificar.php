@@ -26,7 +26,7 @@
 					<form id="modificar-perfil" class="mod-bd form-horizontal" action="" method="post" data-validate="true" novalidate>
 						<p><span class="requerido">*</span> Campos requeridos</p>
 						
-						<?php cargarModificarPerfil($id) ?>
+						<?php cargarModificarPerfil($id, $rolUsr) ?>
 
 						<div class="form-row form-row-button">
 							<button id="btn-guardar-perfil" class="btn btn-primary" type="submit">Guardar</button>

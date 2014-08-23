@@ -19,11 +19,10 @@
 				 'DAYOFWEEK(tcitas.fechaInicio) AS citaDiaDeSemana, DAYOFMONTH(tcitas.fechaInicio) AS citaDia, '.
 				 'MONTH(tcitas.fechaInicio) AS citaMes, YEAR(tcitas.fechaInicio) AS citaAno, '.
 				 'TIME(tcitas.fechaInicio) as citaHoraInicio, TIME(tcitas.fechaFin) as citaHoraFin, '.
-				 'tcursos.nombre AS cursoNombre, '.
+				 'tcitas.curso AS cursoNombre, '.
 				 'tusuarios.nombre AS nombreSolicitado, tusuarios.apellido1 AS apellido1Solicitado, tusuarios.apellido2 AS apellido2Solicitado, tusuarios.telefono AS telefonoSolicitado, tusuarios.imagen AS imagenSolicitado '.
-				 'FROM tcitas, tcursos, tusuarios '.
-				 'WHERE tcitas.curso = tcursos.id '.
-				 'AND tcitas.estado = "1" AND tcitas.esCita = "1" '.$condicionUsuario.
+				 'FROM tcitas, tusuarios '.
+				 'WHERE tcitas.estado = "1" AND tcitas.esCita = "1" '.$condicionUsuario.
 				 'AND tcitas.fechaInicio >= "'.$fechaInicio.'" AND tcitas.fechaFin < "'.$fechaFin.'" '.
 				 'ORDER BY tcitas.fechaInicio DESC';
 
@@ -42,9 +41,14 @@
 			$results['horaFin'] = timeLongString($row['citaHoraFin']);
 			$results['asunto'] = utf8_encode($row['asunto']);
 			$results['observaciones'] = utf8_encode($row['observaciones']);
-			$results['curso'] = utf8_encode($row['cursoNombre']);
 			$results['modalidad'] = $row['modalidad'] == 0 ? 'Presencial' : 'Virtual';
 			$results['tipo'] = $row['modalidad'] == 0 ? 'Individual' : 'Grupal';
+			if ($row['cursoNombre'] != NULL) {
+				$results['curso'] = getCursoPorId($row['cursoNombre']);
+			} else {
+				$results['curso'] = '';
+			}
+
 			$jsonArray['citas'][$index] = $results;
 			$index++;
 		}
@@ -52,6 +56,19 @@
 		mysqli_free_result($queryResults);
 
 		return $jsonArray;
+	}
+
+	function getCursoPorId($cursoId) {
+		// $query = 'SELECT tcursos.nombre FROM tcursos '.
+		// 		 'WHERE id="'.$cursoId.'"';
+		$query = "SELECT nombre FROM tcursos WHERE id = 'BISOFT-04'";
+		$queryResults = do_query($query);
+		//$results = '';
+
+		while ($row = mysqli_fetch_assoc($queryResults)) {
+			$results = utf8_encode($row['nombre']);
+		}
+		return $results;
 	}
 
 
@@ -92,7 +109,7 @@
 	// Insertar una nueva cita.
 	// Esta función se ejecuta cuando se acepta la fecha y hora de una solicitud de cita.
 	function insertCita($idSolicitante, $idSolicitado, $fechaInicio, $fechaFin, $asunto, $modalidad, $tipo, $observaciones, $curso) {
-		$query = "INSERT INTO tcitas(idSolicitante, idSolicitado, fechaInicio, fechaFin, asunto, modalidad, tipo, observaciones, curso, estado, esCita) VALUES ('$idSolicitante', '$idSolicitado', DATE_FORMAT(NOW(),'%Y-%m-%d %T'), DATE_FORMAT(NOW(),'%Y-%m-%d %T'), '$asunto', '$modalidad', '$tipo', '$observaciones', '$curso', '1', '1')";
+		$query = "INSERT INTO tcitas(idSolicitante, idSolicitado, fechaInicio, fechaFin, asunto, modalidad, tipo, observaciones, curso, estado, esCita) VALUES ('$idSolicitante', '$idSolicitado', '$fechaInicio', '$fechaFin', '$asunto', '$modalidad', '$tipo', '$observaciones', '$curso', '1', '1')";
 
 		return do_query($query);
 	}
@@ -119,7 +136,7 @@
 		$queryUpdate = "UPDATE tcitas SET tcitas.estado = 4 WHERE tcitas.id = '".$citaId."'";
 		$result = do_query($queryUpdate);
 
-		return $result;
+		return true;
 	}
 
 	function getExpiracionSolicitud() {
@@ -167,7 +184,7 @@
 		
 		//si el usuario activo es un estudiante
 		if($row['nombre']=="Estudiante"){
-			$query = "SELECT tc.id,tc.idSolicitado,tu.nombre, tu.apellido1,tc.idSolicitante,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitado = tu.id WHERE idSolicitante='$idUsuario' AND tc.esCita='0' ORDER BY tc.id ASC";
+			$query = "SELECT tc.id,tc.idSolicitado,tu.nombre, tu.apellido1,tc.idSolicitante,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitado = tu.id WHERE idSolicitante='$idUsuario' AND tc.esCita='0' AND tc.estado='1' ORDER BY tc.id ASC";
 		
 			$queryResults = do_query($query);
 			$jsonArray = [];
@@ -187,7 +204,7 @@
 		//si el usuario activo no es un estudiante
 		else
 		{
-			$query = "SELECT tc.id,tc.idSolicitado,tu.nombre, tu.apellido1,tc.idSolicitante,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitante = tu.id WHERE idSolicitado='$idUsuario' AND tc.esCita='0' ORDER BY tc.id ASC";
+			$query = "SELECT tc.id,tc.idSolicitado,tu.nombre, tu.apellido1,tc.idSolicitante,tc.fechaInicio FROM `tcitas` AS tc INNER JOIN `tusuarios` AS tu ON tc.idSolicitante = tu.id WHERE idSolicitado='$idUsuario' AND tc.esCita='0' AND tc.estado='1' ORDER BY tc.id ASC";
 
 			$queryResults = do_query($query);
 			$jsonArray = [];
@@ -261,7 +278,7 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 					mostrarFrmCita($fecha,$hora,$nombreCompleto,utf8_encode($row['idSolicitado']),utf8_encode($row['telefono']),utf8_encode($row['imagen']),utf8_encode($row['asunto']),utf8_encode($row['nombreCurso']),$modalidadCita,$tipoCita,utf8_encode($row['observaciones']));
 					echo '<div class="form-row form-row-button"> '.
 							'<a href="/cenfotec-proyecto-1/citas/solicitudAceptada.php" id="btnAceptarPropuesta" class="btn btn-primary">Aceptar</a> '.
-							'<a href="/cenfotec-proyecto-1/citas/solicitudRechazada.php" id="btnRechazarPropuesta" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</a> '.
+							'<a href="/cenfotec-proyecto-1/citas/solicitudRechazada.php" id="btnRechazarPropuesta" class="btn btn-default js-modal" data-modal-id="modal-rechazar">Rechazar</a> '.
 						'</div>'.
 					'</section>';
 				}
@@ -318,18 +335,10 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 								
 							   ' <div class="form-row form-row-button"> '.
 									'<button id="btnAceptar" class="btn btn-primary">Aceptar</button> '.
-									'<button id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-cancelar">Rechazar</button> '.
+									'<button id="btnRechazar" class="btn btn-default js-modal" data-modal-id="modal-rechazar">Rechazar</button> '.
 								'</div> '.                 
 							'</form> '.
-					'</section>' .
-					'<div id="modal-cancelar" class="modal js-modal-window"> '.
-						'<span class="close flaticon-close3 js-modal-close">Close</span> '.
-						'<h3>¿Está seguro que desea rechazar la solicitud de cita de atención?</h3> '.
-						'<div class="form-row"> '.
-							'<a href="/cenfotec-proyecto-1/citas/solicitudRechazada.php" class="btn btn-primary js-modal-aceptar">Sí</a> '.
-							'<a href="#" class="btn btn-default js-modal-close">No</a> '.
-						'</div> '.
-					'</div> ';
+					'</section>';
 				}
 				
 				//si el invitado no ha aceptado la propuesta

@@ -21,7 +21,7 @@
 
 			<main>
 				<section class="perfil">
-					<?php mostrarPerfil($id); ?>
+					<?php mostrarPerfil($id, $rolUsr); ?>
 				</section>
 			</main>
 			

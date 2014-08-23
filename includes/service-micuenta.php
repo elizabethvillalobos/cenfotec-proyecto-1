@@ -45,7 +45,7 @@
 			isset($_GET['apellido1']) &&
 			isset($_GET['apellido2']) &&
 			isset($_GET['telefono']) &&
-			isset($_GET['skypeid']) &&
+			isset($_GET['skypeid']) OR
 			isset($_GET['horario']) OR
 			isset($_GET['avatar'])) {
 

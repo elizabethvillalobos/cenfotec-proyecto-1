@@ -28,6 +28,10 @@
    top: 15px;
 }
 
+#buscarCursos {
+   top: 40px;
+}
+
 #btnBuscarCarreras,
 #btnBuscarCursos {
    background: transparent;

@@ -7,13 +7,21 @@
 		return $password;
 	}
 
-	function getUsuario($userId) {
-		$query = 'SELECT u.id as usuarioId, u.nombre as nombreUsuario, u.apellido1, u.apellido2, u.telefono, u.skypeid, u.imagen, '.
-				 'r.nombre AS nombreRol, c.nombre as nombreCarrera '.
-			 	 'FROM tusuarios AS u, trol AS r, tcarrera AS c '.
+	function getUsuario($userId, $userRol) {
+		if ($userRol == 1 OR $userRol == 2 OR $userRol == 7) {
+			$query = 'SELECT u.id as usuarioId, u.nombre as nombreUsuario, u.apellido1, u.apellido2, u.telefono, u.skypeid, u.imagen, '.
+				 'r.nombre AS nombreRol '.
+			 	 'FROM tusuarios AS u, trol AS r '.
 			 	 'WHERE u.rol = r.id '.
-			 	 'AND u.carrera = c.id '.
 			 	 'AND u.id = "'.utf8_encode($userId).'"';
+		} else {
+			$query = 'SELECT u.id as usuarioId, u.nombre as nombreUsuario, u.apellido1, u.apellido2, u.telefono, u.skypeid, u.imagen, '.
+					 'r.nombre AS nombreRol, c.nombre as nombreCarrera '.
+				 	 'FROM tusuarios AS u, trol AS r, tcarrera AS c '.
+				 	 'WHERE u.rol = r.id '.
+				 	 'AND u.carrera = c.id '.
+				 	 'AND u.id = "'.utf8_encode($userId).'"';
+		}
 		return do_query($query);
 	}
 
@@ -23,8 +31,8 @@
 		return do_query($query);
 	}
 
-	function mostrarPerfil($userId) {
-		$result = getUsuario($userId);
+	function mostrarPerfil($userId, $userRol) {
+		$result = getUsuario($userId, $userRol);
 
 		while ($row = mysqli_fetch_assoc($result)) {
 			$avatar = $row['imagen'] ? $row['imagen'] : 'default-user.png';
@@ -51,20 +59,26 @@
 			echo '<span class="label">Rol:</span>';
 			echo '<span class="data">'.utf8_encode($row['nombreRol']).'</span>';
 			echo '</div>';
-			echo '<div class="row">';
-			echo '<span class="label">Carrera:</span>';
-			echo '<span class="data">'.utf8_encode($row['nombreCarrera']).'</span>';
-			echo '</div>';
-			echo '<div class="row">';
-			echo '<span class="label">Cursos:</span>';
-			echo '<div class="data-wrap">';
-			$queryCursos = 'SELECT c.nombre FROM tcursos AS c, tusuariosxcurso AS uc '.
-						   'WHERE c.id = uc.idCurso AND uc.idUsuario = "'.utf8_encode($userId).'"';
-			$resultCursos = do_query($queryCursos);
-			while ($rowCursos = mysqli_fetch_assoc($resultCursos)) {
-				echo '<span class="data">'.utf8_encode($rowCursos['nombre']).'</span>';
+
+			if ($row['nombreCarrera']) {
+				echo '<div class="row">';
+				echo '<span class="label">Carrera:</span>';
+				echo '<span class="data">'.utf8_encode($row['nombreCarrera']).'</span>';
+				echo '</div>';
 			}
-			echo '</div>';
+
+			if ($userRol != 1 AND $userRol != 2 AND $userRol != 7) {
+				echo '<div class="row">';
+				echo '<span class="label">Cursos:</span>';
+				echo '<div class="data-wrap">';
+				$queryCursos = 'SELECT c.nombre FROM tcursos AS c, tusuariosxcurso AS uc '.
+							   'WHERE c.id = uc.idCurso AND uc.idUsuario = "'.utf8_encode($userId).'"';
+				$resultCursos = do_query($queryCursos);
+				while ($rowCursos = mysqli_fetch_assoc($resultCursos)) {
+					echo '<span class="data">'.utf8_encode($rowCursos['nombre']).'</span>';
+				}
+				echo '</div>';
+			}
 			echo '</div>';
 
 			$resultHorario = mysqli_fetch_assoc(getHorarioUsuario($userId));
@@ -79,8 +93,8 @@
 		}
 	}
 
-	function cargarModificarPerfil($userId) {
-		$result = getUsuario($userId);
+	function cargarModificarPerfil($userId, $userRol) {
+		$result = getUsuario($userId, $userRol);
 
 		while ($row = mysqli_fetch_assoc($result)) {
 			echo '<input id="perfil-id" type="hidden" value="'.utf8_encode($row['usuarioId']).'" />';
@@ -140,15 +154,17 @@
 			echo '<input id="perfil-skype" type="text" placeholder="Ingrese la cuenta de Skype" class="form-control" value="'.utf8_encode($row['skypeid']).'" />';
 			echo '</div>';
 
-			$resultHorario = mysqli_fetch_assoc(getHorarioUsuario($userId));
-			$horario = '';
-			if ($resultHorario) {
-				$horario = $resultHorario['horario'];
+			if ($userRol != 1 AND $userRol != 2 AND $userRol != 7 AND $userRol != 5) {
+				$resultHorario = mysqli_fetch_assoc(getHorarioUsuario($userId));
+				$horario = '';
+				if ($resultHorario) {
+					$horario = $resultHorario['horario'];
+				}
+				echo '<div class="form-row">';
+				echo '<label for="perfil-horario">Horario de atención:</label>';
+				echo '<input id="perfil-horario" type="text" placeholder="Ingrese el horario de atención" class="form-control" value="'.$horario.'" />';
+				echo '</div>';
 			}
-			echo '<div class="form-row">';
-			echo '<label for="perfil-horario">Horario de atención:</label>';
-			echo '<input id="perfil-horario" type="text" placeholder="Ingrese el horario de atención" class="form-control" value="'.$horario.'" />';
-			echo '</div>';
 		}
 	}
 

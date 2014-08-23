@@ -47,7 +47,7 @@ function closestParentNode(pChildObj, pParentName) {
 function enviarEmail(to, subject, message) {
     // PHPMailer
     $.ajax({
-        url: '../includes/sendPHPMailer.php',
+        url: '/cenfotec-proyecto-1/includes/sendPHPMailer.php',
         type: 'post', // Se utiliza get por vamos a obtener datos, no a postearlos.
         data: { // Objeto con los parámetros que utiliza el servicio.
             query: 'sendEMail',

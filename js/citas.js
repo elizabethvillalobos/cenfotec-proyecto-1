@@ -326,6 +326,8 @@ function mostrarMsgFinalizacion(citaId) {
 
 		// Cargar las citas para el dia de hoy.
 		consultarCitas();
+
+		enviarEmail('villaloboselizabeth@gmail.com', 'asunto', 'mensaje');
 	}
 })(jQuery);
 

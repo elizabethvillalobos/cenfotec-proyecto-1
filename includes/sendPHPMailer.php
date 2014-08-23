@@ -1,3 +1,10 @@
+<html>
+<head>
+<title>PHPMailer - SMTP (Gmail) basic test</title>
+<meta charset="utf-8"/>
+</head>
+<body>
+
 <?php
     require_once('PHPMailer_5.2.4/class.phpmailer.php');
     
@@ -76,3 +83,6 @@
         echo json_encode($response);
     } 
 ?>
+
+</body>
+</html>

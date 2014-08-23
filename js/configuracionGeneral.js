@@ -69,7 +69,7 @@ function modificarCorreoClave(correo, clave){
     		error: function(response){
 				console.log(response);
 				console.log("error");
-				mostrarMensajeError(document.querySelector('#caracteresMaximo'),"Este campo no puede estar vacío y solo acepta números");
+				mostrarMensajeError(document.querySelector('#password'),"Este campo no puede estar vacío y solo acepta números");
 			} 
   	});
 }

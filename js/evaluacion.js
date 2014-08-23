@@ -49,8 +49,8 @@ if (ebtnEnviar.length) {
 
 			limpiarMensajesError();
 			if (eRadio[0].checked || eRadio[1].checked) {
-				modificarEvaluacion();
-				eForm.submit();
+				modificarEvaluacion(eElParent);
+				// eForm.submit();
 			} else {
 				mostrarMensajeError(eRadio[0], 'Debe seleccionar una opción.', 'msj-ev');
 			}			 		       
@@ -60,19 +60,21 @@ if (ebtnEnviar.length) {
 	
 }
 
-function modificarEvaluacion(){
-	var radioSi = $('#rdSi').val(),
-      	radioNo = $('#rdNo').val(),
-      	nota2 = $('#not2').val(),
-      	nota3 = $('#not3').val(),
-      	nota4 = $('#not4').val(),
-      	nota5 = $('#not5').val();     	
-
+function modificarEvaluacion(pForm){
+	var radioSi = $(pForm).find('#rdSi').val(),
+      	radioNo = $(pForm).find('#rdNo').val(),
+      	nota2 = $(pForm).find('#not2').val(),
+      	nota3 = $(pForm).find('#not3').val(),
+      	nota4 = $(pForm).find('#not4').val(),
+      	nota5 = $(pForm).find('#not5').val(),
+        idCita = getQueryVariable('idCita');
+console.log(idCita);
     	var request = $.ajax({
     		url: "../includes/service-evaluaciones.php",
     		type: "get",
     		data: {
       				'query': 'modificarEvaluacion',
+              'idCita': idCita,
       				'pradioSi': radioSi,
       				'pradioNo': radioNo,
       				'pnota2': nota2,
@@ -85,8 +87,9 @@ function modificarEvaluacion(){
     			window.location = "/cenfotec-proyecto-1/evaluacion/evaluarCitaConfirm.php";
     		},
     		error: function(response){
-				
-			} 
+          console.log('error');
+				  console.log(response);
+			 } 
   		});
     
 };

@@ -80,6 +80,7 @@ function modificarCorreoClave(correo, clave){
 	
 	$('#modificarDias').click(function(){
 		var diasDeExpiracion = $('#diasExpiracion').val();
+		
 		limpiarMensajesError();
 
 		if(diasExpiracion == ""){
@@ -91,6 +92,7 @@ function modificarCorreoClave(correo, clave){
 
 	$('#modificarCaracteres').click(function(){
 		var caracteres = $('#caracteresMaximo').val();
+		
 		limpiarMensajesError();
 
 		if(caracteres == ""){
@@ -102,44 +104,9 @@ function modificarCorreoClave(correo, clave){
 
 	$('#modificarNotificaciones').click(function(){
 		var correo = $('#email').val(),
-			clave = $('#password').val(),
-			error1 = false,
-			error2 = false;
+			clave = $('#password').val();
 		
-		modificarCorreoClave(correo, clave);
-
-		/*function validarCampos(){
-			if(correo == ""){
-				mostrarMensajeError(document.querySelector('#email'),"Este campo no puede estar vacío");
-			}else{
-				validarCorreo();
-			}
-			if(clave == ""){
-				mostrarMensajeError(document.querySelector('#password'),"Este campo no puede estar vacío");
-			}else{
-				validarSeguridadClave();
-			}	
-		}
-
-		function validarSeguridadClave(){ 
-  			var expreg = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
-  			if(!expreg.test(clave)){
-      			mostrarMensajeError(document.querySelector('#password'),"La contraseña debe ser de 8 a 10 caracteres, no debe tener caracteres especiales e incluye al menos una letra mayúscula y un número");
-  				error1 = true;
-  			}else{
-  				error1 = false;
-  			}
-		}
-
-		function validarCorreo() { 
-  			var expreg = /^\w+@ucenfotec.ac.cr$/;
-  			if(!expreg.test(correo)){
-      			mostrarMensajeError(document.querySelector('#email'),"El correo debe ser del dominio de Cenfotec");
-      			error2 = true;
-  			}else{
-  				error2 = false;	
-  			}
-		}*/
+		modificarCorreoClave(correo, clave);	
 
 	});	
 

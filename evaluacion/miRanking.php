@@ -24,7 +24,7 @@
 			
 			<main>
 				<?php
-				mostrarRanking($id);
+				mostrarRanking($id,$rolUsr);
 				?>
             </main>
 			

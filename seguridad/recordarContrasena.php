@@ -25,7 +25,7 @@
 							<div class="form-row">
 								<label for="">Correo electrónico:</label>
 								<span class="flaticon-black218 icon"></span>
-								<input id="email" type="mail" placeholder="" class="form-control" />
+								<input id="emailRecup" type="mail" placeholder="" class="form-control" />
 							</div>
 							
 							

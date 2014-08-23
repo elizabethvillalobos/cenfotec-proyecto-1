@@ -16,6 +16,8 @@ eBtnActivar.addEventListener('click', function (evento) {
         console.log(idActiv);
         var correcta=validarCodigo(idActiv, eCodigoActivacion, eError, 'El código ingresado no coincide con el suministrado');
         if(correcta){
+            console.log(idActiv);
+            activarUsuario(idActiv);
             formulario.submit();
         }
     }
@@ -55,3 +57,21 @@ function validarCodigo(pidActiv, pcodigoActiv, pElementoError, pMsjError){
         });
     return respuesta;
     }
+
+function activarUsuario(pidActiv) {
+
+	var request = $.ajax({
+        async: false,
+		url: "/cenfotec-proyecto-1/includes/functions-seguridad.php",
+		type: "post",
+		data: {
+                'call' : 'activarUsuario',
+                'pidUsr' : pidActiv
+                
+			  },
+		dataType: 'json',
+		success: function(response){    
+			
+		}
+	});
+}

@@ -71,7 +71,17 @@ function comprobarCodigo($correo, $codigo) {
         }
     }
     return $activado;
-}     
+}  
+
+function activarUsuario(){
+    if(isset($_POST['pidUsr'])){
+        $id = $_POST['pidUsr'];
+        $query = "UPDATE tusuarios SET activo = '1' WHERE id='$id'";
+        
+        do_query($query);
+    }
+    
+}    
 
 
 if($_SERVER['REQUEST_METHOD']=="POST") {

@@ -351,6 +351,8 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 		if(!$nombreCurso){
 			$nombreCurso="No asignado";
 		}
+		$imagenUsuario = $imagenOtraPersona ? $imagenOtraPersona : 'default-user.png';
+
 		echo '<div class="mod-hd"> '.
 				'<h2>'.$titulo1.'</h2> '.
 				'<span class="cita-hora-inicio-fin">'.$titulo2.'</span> '.
@@ -365,7 +367,7 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 					'</div> '.
 				'</div> '.
 
-				'<img class="cita-photo" src="'.$imagenOtraPersona.'" width="75" height="75"> '.
+				'<img class="cita-photo" src="../images/users/'.$imagenUsuario.'" width="75" height="75"> '.
 
 				'<div class="row"> '.
 					'<span class="label">Asunto a tratar:</span> '.

@@ -1,7 +1,9 @@
 <?php
     require_once('PHPMailer_5.2.4/class.phpmailer.php');
     
-    // Retornar un json.
+    error_reporting(E_STRICT);
+    date_default_timezone_set('America/Toronto');
+
     header('Content-Type:application/json');
 
     if (!empty($_POST['query'])) {
@@ -12,16 +14,16 @@
                 sendEMail();
                 break;
         }
+    } else {
+        // Invalid request.
+        deliver_response(400, 'Bad request', NULL);
     }
 
     function sendEMail() {
-        if (!empty($_POST['to']) &&
-            !empty($_POST['subject']) &&
-            !empty($_POST['message'])) {
-
-            $to = $_POST['to']);
-            $subject = $_POST['subject']);
-            $message = $_POST['message']);
+        if (isset($_POST['to']) && isset($_POST['subject']) && isset($_POST['message'])) {
+            $toAddress = $_POST['to'];
+            $subject = $_POST['subject'];
+            $message = $_POST['message'];
 
             $mail = new PHPMailer();
             $body = '<!doctype html><html>'.
@@ -35,9 +37,9 @@
                     '<h1 style="color: #f2f2f2; font-size: 22px; position: relative; top: 15px;">Gestor Inteligente de Citas</h1>'.
                     '</header>'.
                     '<main style="padding: 10px 30px;">'.$message.
-                    '<p><a href="http://localhost:8888/cenfotec-proyecto-1/seguridad/iniciarSesion.php">Ir al gestor de citas</a></p>'.
+                    '<p><a href="http://localhost/cenfotec-proyecto-1/seguridad/iniciarSesion.php">Ir al gestor de citas</a></p>'.
                     '</main>'.
-                    '<footer style="background: #333; color: #f2f2f2; font-size: 12px; padding: 10px 20px; width: 100%;">Cenfotec 2014</footer>'.
+                    '<footer style="background: #333; color: #f2f2f2; font-size: 12px; padding: 10px 20px;">Cenfotec 2014</footer>'.
                     '</body></html>';
 
             $mail->IsSMTP(); // telling the class to use SMTP
@@ -55,9 +57,7 @@
             $mail->Subject = $subject;
             $mail->MsgHTML($body);
 
-            $address1 = ;
-
-            $mail->AddAddress($to);
+            $mail->AddAddress($toAddress);
             $mail->AddAddress("villaloboselizabeth@gmail.com");
 
             if(!$mail->Send()) {

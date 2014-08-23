@@ -64,8 +64,8 @@
 											
 											</div>
 											<div class="form-row form-row-buttonAcciones2profes" id="{{idcurso}}">
-												<input type="button" class="btn btn-secondaryAction" id="btnHabilitarCurso" value="Habilitar"  >
-												<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitarCurso" value="Deshabilitar" disabled>
+												<input type="button" class="btn btn-secondaryAction" id="btnHabilitarCurso" value="Habilitar" {{ activo }}>
+												<input type="button" class="btn btn-secondaryAction" id="btnDeshabilitarCurso" value="Deshabilitar" {{ inactivo }}>
 												<input type="button" class="btn btn-secondaryAction" onclick="location.href='/cenfotec-proyecto-1/configuracion/modificarCurso.php?idCurso={{idcurso}}&amp;idCarrera=<?php echo $carrera; ?>'" id="btnModificarCurso" value="Modificar">
 											</div>
 										</fieldset>
@@ -94,6 +94,7 @@
 		<script src="/cenfotec-proyecto-1/js/actualizarEstadoCurso.js"></script>
 		<script src="/cenfotec-proyecto-1/js/configuracion.js"></script>
 		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
+
 		<script>consultarCursos(); </script>
 		<script>buscarCursos(); </script>
 	</body>

@@ -90,10 +90,10 @@ function enviarEmail(to, subject, message) {
         },
         dataType: 'json',
         success: function(response) {
-            return true;
+            console.log(response);
         },
         error: function(response) {
-            return false;
+            console.log(response);
         }
     });
 }

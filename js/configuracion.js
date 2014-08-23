@@ -323,7 +323,7 @@ function consultarCursos(){
 			  },
 		dataType: 'json',
 		success: function(response){ 
-		console.log(response);   
+			console.log(response);   
 			imprimirCursos($.parseJSON(response.data));
 		},
 		error: function(response) {
@@ -337,6 +337,8 @@ function imprimirCursos(aCursos){
 	var source = $("#template-curso").html(),
 	template = Handlebars.compile(source);
   	$("#cursos-container").html(template(aCursos));
+
+  	agregarListenersHabilitarDeshabilitar();
 }
 
 //agregar nuevo curso

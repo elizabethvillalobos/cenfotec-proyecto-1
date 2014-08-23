@@ -62,7 +62,8 @@
 					
 					$results['idcurso'] = $row['cursoId'];
 					$results['nombre'] = utf8_encode($row['cursoNombre']);
-					$results['activo'] = $row['cursoActivo'];
+					$results['activo'] = $row['cursoActivo'] ? 'disabled' : '';
+					$results['inactivo'] = $row['cursoActivo'] ? '' : 'disabled';
 
 					$indexProf = 0;
 					$profesores[$indexProf]['profesorNombre'] = utf8_encode($row['usuarioNombre']).' '.utf8_encode($row['usuarioApellido1']).' '.utf8_encode($row['usuarioApellido2']);

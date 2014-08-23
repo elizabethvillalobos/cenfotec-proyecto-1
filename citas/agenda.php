@@ -2,7 +2,6 @@
 	session_start(); 
     error_reporting(0);
 	require_once('../includes/functions.php');
-	require_once('../includes/sendPHPMailer.php');
 	
 	$currentModule = 'citas';
 	$currentSubModule = 'agenda'; 

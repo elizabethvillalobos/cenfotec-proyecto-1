@@ -45,10 +45,6 @@
    margin: 0;
 }
 
-#carreras-hd {
-
-}
-
 hr{
 	background-color: white; 
 	height: 2px;
@@ -221,6 +217,10 @@ h2 {
    background-color: white;
    border-radius: 2px;
    padding-left: 20px;
+}
+
+.colorDetalleCurso label {
+    width: 500px;
 }
 
 .textoProfe1Curso{

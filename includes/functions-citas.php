@@ -75,14 +75,13 @@
 	// Función que retorna los datos de una cita en específico.
 	// $solicitante es un boolean que indica cual usuario consultar.
 	function getCitaPorId($citaId) {
-		$query = 'SELECT tcitas.idSolicitante AS solicitanteCorreo, tcitas.idSolicitado AS solicitadoCorreo, tcitas.asunto, tcitas.modalidad, tcitas.tipo, tcitas.observaciones, '.
+		$query = 'SELECT tcitas.idSolicitante AS solicitanteCorreo, tcitas.idSolicitado AS solicitadoCorreo, tcitas.asunto, '.
 				 'DAYOFWEEK(tcitas.fechaInicio) AS citaDiaDeSemana, DAYOFMONTH(tcitas.fechaInicio) AS citaDia, '.
 				 'MONTH(tcitas.fechaInicio) AS citaMes, YEAR(tcitas.fechaInicio) AS citaAno, '.
 				 'TIME(tcitas.fechaInicio) as citaHoraInicio, TIME(tcitas.fechaFin) as citaHoraFin, '.
-				 'tcursos.nombre AS cursoNombre, '.
 				 'tusuarios.nombre AS nombreUsuario, tusuarios.apellido1 AS apellido1Usuario, tusuarios.apellido2 AS apellido2Usuario '.
-				 'FROM tcitas, tcursos, tusuarios '.
-				 'WHERE tcitas.curso = tcursos.id AND tcitas.idSolicitante = tusuarios.id AND tcitas.id = '.$citaId;
+				 'FROM tcitas, tusuarios '.
+				 'WHERE tcitas.idSolicitante = tusuarios.id AND tcitas.id = '.$citaId;
 
 		$queryResults = do_query($query);
 
@@ -94,10 +93,6 @@
 			$results['horaInicio'] = timeLongString($row['citaHoraInicio']);
 			$results['horaFin'] = timeLongString($row['citaHoraFin']);
 			$results['asunto'] = utf8_encode($row['asunto']);
-			$results['observaciones'] = utf8_encode($row['observaciones']);
-			$results['curso'] = utf8_encode($row['cursoNombre']);
-			$results['modalidad'] = $row['modalidad'] == 0 ? 'Presencial' : 'Virtual';
-			$results['tipo'] = $row['modalidad'] == 0 ? 'Individual' : 'Grupal';
 		}
 
 		mysqli_free_result($queryResults);
@@ -440,7 +435,13 @@ TIME(tc.fechaInicio) as citaHoraInicio, TIME(tc.fechaFin) as citaHoraFin FROM `t
 			$queryResults = do_query($query);			
 			while ($row = mysqli_fetch_assoc($queryResults)) {				
 					//echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';
-				echo '<li><a href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a></li>';				
+				$solicitudConFecha = '';
+				if ($row['fechaInicio'] != '0000-00-00 00:00:00') {
+					$solicitudConFecha = ' class="flaticon-calendar68" ';
+				}
+				echo '<li>';
+				echo '<a '.$solicitudConFecha.' href="/cenfotec-proyecto-1/citas/solicitudes.php?idCita='.$row['id'].'&idUsuario='.$row['idSolicitado'].'">'. utf8_encode($row['nombre']).' '.utf8_encode($row['apellido1']) .'</a>';
+				echo '</li>';
 			}
 		}
 		//si el usuario activo no es un estudiante

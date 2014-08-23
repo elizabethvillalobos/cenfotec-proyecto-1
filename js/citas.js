@@ -115,40 +115,7 @@ function insertarCita() {
 	});
 }
 
-function enviarEmailCreacionCita(citaId) {
-	var mensaje,
-		subject = 'Cita programada';
 
-	$(document).bind('consultarCitaPorId', function(event, data) {
-		$.ajax({
-			url: '../includes/service-citas.php',
-			type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
-			data: { // Objeto con los parámetros que utiliza el servicio.
-				query: 'consultarUsuarioPorId',
-				usuarioId: data.correoSolicitado
-			},
-			dataType: 'json',
-			success: function(response) {
-				nombreSolicitado = $.parseJSON(response.data)[0].nombreCompleto;
-				mensaje = '<h3">Nueva cita programada</h3>' +
-					  '<table style="text-align: left; width: 100%; vertical-align: top;"><tbody>' + 
-					  '<tr><th>Invitados:</th><td>' + data.nombreSolicitante + '<br />' + nombreSolicitado + '</td></tr>' + 
-					  '<tr><th>Asunto a tratar:</th><td>' + data.asunto + '</td></tr>' + 
-					  '<tr><th>Fecha:</th><td>' + data.fecha + '</td></tr>' + 
-					  '<tr><th>Hora:</th><td>' + data.horaInicio + ' a ' + data.horaFin + '</td></tr>' +
-					  '</tbody></table>';
-				// Enviar correo a usuario solicitante
-				enviarEmail(data.nombreSolicitante, subject, mensaje);
-			},
-			error: function(response) {
-				console.log('error');
-				console.log(response);
-			}
-		});		
-	});
-
-	consultarCitaPorId(citaId);
-}
 
 
 // Inicio Cancelar cita.

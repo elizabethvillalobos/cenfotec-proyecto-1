@@ -210,9 +210,7 @@ if(btnCrearSolicitud!=null){
 				window.location = "solicitarCita.php"
 			}
 		}
-		
-		
-		
+				
 	});
 }
 //obtener el radio activo
@@ -377,7 +375,7 @@ var btnAceptarPropuesta=document.querySelector('#btnAceptarPropuesta');
 if(btnAceptarPropuesta!=null){
 	btnAceptarPropuesta.addEventListener('click',function(event){
 		event.preventDefault();
-		var idCita = location.search.split("=")[1];
+		var idCita = getQueryVariable('idCita');
 
 		var request = $.ajax({
 			url: "../includes/service-citas.php",
@@ -388,7 +386,11 @@ if(btnAceptarPropuesta!=null){
 				  },
 			dataType: 'json',
 			success: function(response){ 
-				window.location ="solicitudEnviada.php?nombreInvitado="+$('.cita-invitado').text()+"&titulo=La solicitud ha sido aceptada exitosamente";
+				// Enviar correo de creacion de cita.
+				enviarEmailCreacionCita(idCita);
+				$(document).bind('emailCreacionCitaEnviado', function(event) {
+					window.location ="solicitudEnviada.php?nombreInvitado="+$('.cita-invitado').text()+"&titulo=La solicitud ha sido aceptada exitosamente";
+				});
 			},
 			error: function(response){
 				var error = document.createElement("p");
@@ -399,7 +401,6 @@ if(btnAceptarPropuesta!=null){
 				botonesDiv.appendChild(error);						
 			}
 		});
-			
 	});
 }
 
@@ -426,7 +427,6 @@ function inputLlenos(idContainer){
 	return estanLlenos;
 }
 
-
 function enviarEmailSolicitud(to, asunto, solicitante) {
 	var mensaje = '<h3>Nueva solicitud de cita</h3>' +
 				  '<p><b>' + decodeURI(solicitante) + '</b> te ha solicitado una cita sobre:</p>' + 
@@ -434,4 +434,60 @@ function enviarEmailSolicitud(to, asunto, solicitante) {
 		subject = 'Nueva solicitud de cita';
 
 	enviarEmail(to, subject, mensaje);
+}
+
+function enviarEmailCreacionCita(citaId) {
+	var mensaje,
+		subject = 'Cita programada';
+
+	$(document).bind('consultarCitaPorId', function(event, data) {
+		$.ajax({
+			url: '../includes/service-citas.php',
+			type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+			data: { // Objeto con los parámetros que utiliza el servicio.
+				query: 'consultarUsuarioPorId',
+				usuarioId: data.correoSolicitado
+			},
+			dataType: 'json',
+			success: function(response) {
+				nombreSolicitado = $.parseJSON(response.data)[0].nombreCompleto;
+				mensaje = '<h3">Nueva cita programada</h3>' +
+					  '<table style="text-align: left; width: 100%; vertical-align: top;"><tbody>' + 
+					  '<tr><th>Invitados:</th><td>' + data.nombreSolicitante + '<br />' + nombreSolicitado + '</td></tr>' + 
+					  '<tr><th>Asunto a tratar:</th><td>' + data.asunto + '</td></tr>' + 
+					  '<tr><th>Fecha:</th><td>' + data.fecha + '</td></tr>' + 
+					  '<tr><th>Hora:</th><td>' + data.horaInicio + ' a ' + data.horaFin + '</td></tr>' +
+					  '</tbody></table>';
+				// Enviar correo a usuario solicitante
+				enviarEmail(data.nombreSolicitante, subject, mensaje);
+				// Enviar correo a usuario solicitado
+				enviarEmail(data.correoSolicitado, subject, mensaje);
+				$(document).trigger('emailCreacionCitaEnviado');
+			},
+			error: function(response) {
+				console.log('error');
+				console.log(response);
+			}
+		});		
+	});
+
+	consultarCitaPorId(citaId);
+}
+
+function consultarCitaPorId(citaId) {
+	$.ajax({
+		url: '../includes/service-citas.php',
+		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
+		data: { // Objeto con los parámetros que utiliza el servicio.
+			query: 'consultarCitaPorId',
+			citaId: citaId
+		},
+		dataType: 'json',
+		success: function(response) {
+			$(document).trigger('consultarCitaPorId', $.parseJSON(response.data));
+		},
+		error: function(response) {
+			console.log(response);	
+		}
+	});
 }

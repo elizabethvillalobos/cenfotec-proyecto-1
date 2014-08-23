@@ -10,7 +10,7 @@ function obtenerInvitados() {
 	
 	// Solicitar datos al servicio.
 	$.ajax({
-		url: '../includes/service-usuarios.php',
+		url: '/cenfotec-proyecto-1/includes/service-usuarios.php',
 		type: 'get', // Se utiliza get por vamos a obtener datos, no a postearlos.
 		data: { // Objeto con los parámetros que utiliza el servicio.
 			query: 'consultarInvitados'

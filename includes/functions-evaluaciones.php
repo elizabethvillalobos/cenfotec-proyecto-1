@@ -759,8 +759,15 @@ function mostrarEvaluacionesPendientes() {
 
 /*********************************************************MI RANKING********************************************************************************************************/
 
-function obtenerCalificaciones($idUser){
-	$query = "SELECT nota2,nota3,nota4,nota5 FROM tevaluaciones,tcitas WHERE tcitas.idSolicitante='$idUser'";
+function obtenerCalificaciones($idUser,$rol){
+	if($rol==4){
+		$query = "SELECT nota2,nota3,nota4,nota5 FROM tevaluaciones,tcitas WHERE tcitas.idSolicitado='$idUser'";
+
+	} else{
+		$query = "SELECT nota2,nota3,nota4,nota5 FROM tevaluaciones,tcitas WHERE tcitas.idSolicitante='$idUser'";
+
+	}
+	
 
 	$result = do_query($query);
 
@@ -824,9 +831,9 @@ function calcularPromedioArray($arreglo){
 
 
 
-function mostrarRanking($idUser){
+function mostrarRanking($idUser,$rol){
 
-	$arrayPromediosRanking = obtenerPromedios($idUser);
+	$arrayPromediosRanking = obtenerPromedios($idUser,$rol);
 
 
 	echo         '<div id="rankDiv">

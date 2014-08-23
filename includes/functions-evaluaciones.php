@@ -853,11 +853,7 @@ function mostrarRanking($idUser,$rol){
 					<div id ="puntuacion">
 						
 						<h1><span class="circulo">'.round($arrayPromediosRanking['ranking'],1) .'</span>Puntuación</h1>
-					</div>
-
-					<div id="cantidad">
-						<span id="">Citas asistidas: 10 de 10</span>
-					</div>
+					</div>				
 					
 	             </div>';
 

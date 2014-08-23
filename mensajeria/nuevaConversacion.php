@@ -33,7 +33,7 @@
 						</div>
 						<div class="form-row">
 							<label for="txtMensaje">Mensaje:</label>
-							<textarea id="txtMensaje" placeholder="Ingrese el mensaje" class="form-control"></textarea>
+							<textarea id="txtMensaje" placeholder="Ingrese el mensaje" class="form-control" maxlength="160"></textarea>
 						</div>
 						<div id="enviarRow" class="form-row form-row-button">
 							<a id="btnCrearConversacion" class="btn btn-primary">Enviar</a>

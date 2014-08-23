@@ -49,6 +49,7 @@ if (ebtnEnviar.length) {
 
 			limpiarMensajesError();
 			if (eRadio[0].checked || eRadio[1].checked) {
+				modificarEvaluacion();
 				eForm.submit();
 			} else {
 				mostrarMensajeError(eRadio[0], 'Debe seleccionar una opción.', 'msj-ev');
@@ -59,5 +60,33 @@ if (ebtnEnviar.length) {
 	
 }
 
+function modificarEvaluacion(){
+	var radioSi = $('#rdSi').val(),
+      	radioNo = $('#rdNo').val(),
+      	nota2 = $Number(('#not2').val()),
+      	nota3 = $Number(('#not3').val()),
+      	nota4 = $Number(('#not4').val()),
+      	nota5 = $Number(('#not5').val());     	
 
-
+    	var request = $.ajax({
+    		url: "../includes/service-evaluaciones.php",
+    		type: "get",
+    		data: {
+      				'query': 'modificarEvaluacion',
+      				'pradioSi': radioSi,
+      				'pradioNo': radioNo,
+      				'pnota2': nota2,
+      				'pnota3': nota3,
+      				'pnota4': nota4,      				
+      				'pnota5': nota5
+    		},
+    		dataType: 'json',
+    		success: function(response) { 
+    			window.location = "/cenfotec-proyecto-1/configuracion/carrerasModificar-confirmar.php?nombreCarrera="+nombre;
+    		},
+    		error: function(response){
+				
+			} 
+  		});
+    
+};

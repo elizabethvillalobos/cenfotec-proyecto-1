@@ -2,6 +2,21 @@
 	
 	// Función que crea una conversacion
 	function insertConversacion($idEmisor, $idReceptor, $mensaje, $horaFecha) {
+		//si no se paso ningun usuario se setea el ultimo con el que se hablo
+		if($idReceptor=="")
+		{
+			$query="SELECT DISTINCT otroContacto FROM ( ".
+        "SELECT tm.id, tm.idEmisor,temisor.nombre AS nombreEmisor, temisor.apellido1 AS apellido1Emisor,temisor.apellido2 AS apellido2Emisor, tm.idReceptor,treceptor.nombre AS nombreReceptor,treceptor.apellido1 AS apellido1Receptor,treceptor.apellido2 AS apellido2Receptor, tm.leido, tm.mensaje, tm.horaFecha, CASE WHEN temisor.id='$idEmisor' THEN treceptor.id WHEN treceptor.id='$idEmisor' THEN temisor.id ELSE 'No match' END AS otroContacto ".
+        "FROM mensajes AS tm     ".
+        "LEFT OUTER JOIN tusuarios AS temisor ON temisor.id=tm.idEmisor ".
+        "LEFT OUTER JOIN tusuarios AS treceptor ON treceptor.id=tm.idReceptor ".
+        "WHERE tm.idEmisor='$idEmisor' OR tm.idReceptor= '$idEmisor' ORDER BY tm.horaFecha DESC LIMIT 1) AS a ";
+			
+			$queryResults = do_query($query);
+			$row = mysqli_fetch_assoc($queryResults);
+			$idReceptor=utf8_encode($row['otroContacto']);
+		}
+		
 		
 		$query = "INSERT INTO `gic`.`mensajes` (`idEmisor`, `idReceptor`, `mensaje`, `horaFecha`, `leido`) VALUES ('$idEmisor', '$idReceptor', '$mensaje', '$horaFecha', '0');";
 		echo $query;

@@ -22,8 +22,10 @@ eBtnRecuperar.addEventListener('click', function (evento) {
                         '<p>Presione "Ir al gestor de citas" poder acceder al sistema</p>  ';    
 
                 enviarEmail(eCorreo, 'Recordatorio de contraseña', mensaje);
+                console.log(eCorreo); 
+                console.log(contrasena); 
                 console.log('enviado');    
-                formulario.submit();
+                //formulario.submit();
             
             }    
         }

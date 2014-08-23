@@ -37,7 +37,7 @@ eBtnRegistrar.addEventListener('click', function (evento) {
 
                         enviarEmail(eCorreo, 'Activacion de cuenta', mensaje);
                         console.log('registrado');    
-                        formulario.submit();
+                        //formulario.submit();
                     }    
                     
                 }

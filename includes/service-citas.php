@@ -2,6 +2,7 @@
     error_reporting(0);
 	require_once('../includes/functions.php');
 	require_once('../includes/functions-citas.php');
+	require_once('../includes/functions-evaluaciones.php');
 
 	// Retornar un json.
 	header('Content-Type:application/json');
@@ -122,6 +123,7 @@
 			$result = finishCita($citaId);
 
 			if ($result) {
+				insertarEvaluacionesPendientes($citaId);//inserta una evaluacion en evaluaciones pendientes
 				deliver_response(200, 'OK', NULL);
 			} else {
 				deliver_response(401, 'Fallo en la finalización de la cita', NULL);

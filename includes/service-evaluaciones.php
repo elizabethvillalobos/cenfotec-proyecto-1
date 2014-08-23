@@ -7,56 +7,32 @@
 	if (!empty($_GET['query'])) {
 		$queryType = $_GET['query'];
 
-		switch ($queryType) {
-			case 'crearCarrera':
-				crearCarrera();
-				break;
-			case 'modificarCarrera':
-				modificarCarrera();
-				break;
-			/*case 'consultarCursosActivos':
-				consultarCursosActivos();
-				break;
-			case 'modificarCurso':
-				modificarCurso();
-			break;*/
-		}
+		if($queryType=='modificarEvaluacion'){
+
+			modificarEvaluacion();
+		}						
+		
 	} else {
 		// Invalid request.
 		deliver_response(400, 'Bad request', NULL);
 	}
-
 	
-	function crearCarrera(){
-		if (!empty($_GET['pCodigo']) && !empty($_GET['pNombre']) && !empty($_GET['pDirector'])){
-			$codigo = utf8_decode($_GET['pCodigo']);
-			$nombre = utf8_decode($_GET['pNombre']);
-			$director = utf8_decode($_GET['pDirector']);
+	
+	function modificarEvaluacion(){
+		if (!empty($_GET['pradioSi']) && !empty($_GET['pradioNo']) && !empty($_GET['pnota2']) && !empty($_GET['pnota3']) && !empty($_GET['pnota4']) && !empty($_GET['pnota5']) ){
+			$rdSi = utf8_decode($_GET['pradioSi']);
+			$rdNo = utf8_decode($_GET['pradioNo']);	
+			$nota2 = utf8_decode($_GET['pnota2']);
+			$nota3 = utf8_decode($_GET['pnota3']);
+			$nota4 = utf8_decode($_GET['pnota4']);
+			$nota5 = utf8_decode($_GET['pnota5']);
 
-			$query = "SELECT * FROM tcarrera WHERE id='$codigo' OR nombre='$nombre';";
-			$result = do_query($query);	
-			
-			if(mysqli_num_rows($result) > 0){
-				deliver_response(400, 'La carrera ya se encuentra registrada', NULL);
-			}else{
-				$query = "INSERT INTO tcarrera(id, nombre, idDirector, activo) VALUES ('$codigo', '$nombre', '$director', '1')";
-				$resultado = do_query($query);
-				deliver_response(200, 'OK', 'Registrado con exito');				
+			if($rdSi){
+
+				$query = "UPDATE tevaluaciones SET nota2='$nota2',nota3='$nota3',nota4='$nota4',nota5='$nota5' realizada=1 WHERE idCita=333";
+			    $result = do_query($query);
+			    deliver_response(200, 'OK', 'Registrado con exito');
 			}			
-		}else{
-			deliver_response(400, 'Bad request', NULL);
-		}
-	}
-
-	function modificarCarrera(){
-		if (!empty($_GET['pCodigo']) && !empty($_GET['pNombre']) && !empty($_GET['pDirector'])){
-			$codigo = utf8_decode($_GET['pCodigo']);
-			$nombre = utf8_decode($_GET['pNombre']);	
-			$director = utf8_decode($_GET['pDirector']);
-
-			$query = "UPDATE tcarrera SET nombre='$nombre', idDirector='$director' WHERE id='$codigo'";
-			$result = do_query($query);
-			deliver_response(200, 'OK', 'Registrado con exito');
 		}else{
 			deliver_response(400, 'Bad request', NULL);	
 		}	

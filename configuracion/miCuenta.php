@@ -46,7 +46,7 @@
 						</div>
 						
 						<div class="form-row">
-							<label for="contrasena-confirmar">Nueva contraseña:</label>
+							<label for="contrasena-confirmar">Confirmación:</label>
 							<input id="contrasena-confirmar" type="password" placeholder="Confirme la nueva contraseña" class="form-control" value="" required/>
 						</div>
 

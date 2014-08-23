@@ -367,6 +367,9 @@ function mostrarEvaluacionesRealizadasEst($puser) {
 	echo $html;
 }
 
+/***********************************************************************EVALUACIONES PENDIENTES INICIO*******************************************************************************/
+
+
 function mostrarEvaluacionPendienteXRol($puser,$prol){
 	switch ($prol) {
 		case 1:
@@ -385,17 +388,22 @@ function mostrarEvaluacionPendienteXRol($puser,$prol){
 
 }
 
-/***********************************************************************EVALUACIONES PENDIENTES INICIO**************************************************************************************/
+function insertarEvaluacionesPendientes($pidCita){
+
+	$query = "INSERT INTO tevaluaciones(idCita, nota1, nota2, nota3,nota4,nota5,realizada) VALUES ('$pidCita', 0,0,0,0,0,0)";
+	$resultado = do_query($query);
+	}
+
+
 function obtenerEvaluacionesPendientes($puser,$prol){
+
 
 	if($prol==4){
 		$query = "SELECT * FROM tcitas  WHERE estado=4 AND tipo=0 AND idSolicitado = '$puser'";
 
 	}else{
 		$query = "SELECT * FROM tcitas  WHERE estado=4 AND tipo=0 AND idSolicitante = '$puser'";
-	}
-	
-	
+	}	
 	
 	$result = do_query($query);
 	return $result;
@@ -868,7 +876,7 @@ function mostrarRanking($idUser){
 							<td>Promedio obtenido</td>
 							<td></td>
 							<td class="center"></td>
-							<td class="center">'.$arrayPromediosRanking['ranking'].'</td>
+							<td class="center">'.round($arrayPromediosRanking['ranking'],1).'</td>
 						</tr>
 					</tbody>
 			</table>';

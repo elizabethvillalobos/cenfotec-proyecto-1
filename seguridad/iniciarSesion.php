@@ -1,4 +1,5 @@
-<?php
+<?php 
+    error_reporting(0);
     if(isset($_GET['kill'])){
         session_start();
           unset($_SESSION['usuarioActivoId']); 

@@ -87,6 +87,10 @@ if (eFormValidar) {
 				case "modificar-perfil":
 					modificarPerfil();
 				break;
+                case "modificar-usuario":
+					modificarUsuario();
+                    alert('Modificado');
+				break;    
                 case "crear-carrera":                 
                   	var indice = document.getElementById("director-academico").selectedIndex,
                    	   seleccionado = validarDropdown(indice);
@@ -781,4 +785,44 @@ for(var i=0; i < abtnActivo.length; i++) {
         }
     });
 }
+
+function modificarUsuario() {
+	var nombre = $('#usuario-nombre').val(),
+		apellido1 = $('#usuario-apellido1').val(),
+		apellido2 = $('#usuario-apellido2').val(),
+        avatar = $('#droppedimage img').attr('src'),
+        idUsr = $('#usuario-email').val(),
+        contrasena = $('#usuario-contrasena').val(),
+        telefono = $('#usuario-telefono').val(),
+        skype = $('#usuario-skype').val(),
+        rol = $('#usuario-rol').val(),
+        carrera = $('#usuario-carrera').val(),
+        curso = $('#usuario-curso').val();
+
+	var request = $.ajax({
+        async: false,
+		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
+		type: "post",
+		data: {
+                'call' : 'modificarUsuario',
+			   'pnombre': nombre,
+			   'papellido1' : apellido1,
+			   'papellido2' : apellido2,
+                'pavatar' : avatar,
+                'pidUsr' : idUsr,
+                'pcontrasena': contrasena,
+                'ptelefono': telefono,
+                'pskype': skype,
+                'prol': rol,
+                'pcarrera': carrera,
+                'pcurso': curso
+			  },
+		dataType: 'json',
+		success: function(response){    
+			
+		}
+	});
+}
+
+
 	

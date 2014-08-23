@@ -96,6 +96,6 @@
 		<script src="/cenfotec-proyecto-1/js/common-logic.js"></script>
 
 		<script>consultarCursos(); </script>
-		<script>buscarCursos(); </script>
+<!--		<script>buscarCursos(); </script>-->
 	</body>
 </html>

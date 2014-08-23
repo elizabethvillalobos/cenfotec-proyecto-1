@@ -373,7 +373,7 @@ function mostrarEvaluacionPendienteXRol($puser,$prol){
 			mostrarEvaluacionesPendientes();
 			break;
 		case 4:
-			mostrarEvaluacionesPendientesProf($puser);
+			mostrarEvaluacionesPendientesProf($puser,$prol);
 			break;
 		case 5:
 			mostrarEvaluacionesPendientesEst($puser);
@@ -386,9 +386,16 @@ function mostrarEvaluacionPendienteXRol($puser,$prol){
 }
 
 /***********************************************************************EVALUACIONES PENDIENTES INICIO**************************************************************************************/
-function obtenerEvaluacionesPendientes($puser){
+function obtenerEvaluacionesPendientes($puser,$prol){
+
+	if($prol==4){
+		$query = "SELECT * FROM tcitas  WHERE estado=4 AND tipo=0 AND idSolicitado = '$puser'";
+
+	}else{
+		$query = "SELECT * FROM tcitas  WHERE estado=4 AND tipo=0 AND idSolicitante = '$puser'";
+	}
 	
-	$query = "SELECT * FROM tcitas  WHERE estado=4 AND tipo=0 AND idSolicitante = '$puser'";
+	
 	
 	$result = do_query($query);
 	return $result;

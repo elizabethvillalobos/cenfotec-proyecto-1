@@ -49,6 +49,7 @@
                     '<footer style="background: #333; color: #f2f2f2; font-size: 12px; padding: 10px 20px;">Cenfotec 2014</footer>'.
                     '</body></html>';
 
+            $mail->CharSet = "UTF-8";
             $mail->IsSMTP(); // telling the class to use SMTP
             // $mail->SMTPDebug  = 2; // enables SMTP debug information (for testing)
                                       // 1 = errors and messages

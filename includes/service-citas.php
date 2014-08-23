@@ -2,6 +2,7 @@
     error_reporting(0);
 	require_once('../includes/functions.php');
 	require_once('../includes/functions-citas.php');
+	require_once('../includes/functions-evaluaciones.php');
 
 	// Retornar un json.
 	header('Content-Type:application/json');

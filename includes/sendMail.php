@@ -10,7 +10,7 @@
         $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
         // Additional headers
-        $headers .= 'To: <joalcg@gmail.com>' . "\r\n";
+        $headers .= 'To: <villaloboselizabeth@gmail.com>' . "\r\n";
         $headers .= 'From: Gestor Inteligente de Citas <info@ucenfotec.ac.cr>' . "\r\n";
 
         // Mail it

@@ -121,6 +121,7 @@ function obtenerInvitados() {
 //enviar formulario
 if(btnEnviar!=null){
 	btnEnviar.addEventListener('click',function(event){
+		event.preventDefault();
 		if(!inputLlenos('solicitarCita')){
 			event.preventDefault();
 		}
@@ -138,6 +139,7 @@ if(btnEnviar!=null){
 				}
 				else
 				{
+				
 					var idcurso = $('#idCurso').text(),
 						idSolicitado = $('#idInvitado').text(),
 						asunto = $('#txtAsunto').val(),
@@ -159,14 +161,15 @@ if(btnEnviar!=null){
 							  },
 						dataType: 'json',
 						success: function(response){ 
-							//enviarEmailSolicitud('jo_cego@hotmail.com', asunto, $('#txtInvitado').val());
 							var mensaje = '<h3>Nueva solicitud de cita</h3>' +
 										  '<p><b>' + $('#txtInvitado').val() + '</b> te ha solicitado una cita sobre:</p>' + 
 										  '<p style="font-style: italic;">' + asunto + '</p>',
 								subject = 'Nueva solicitud de cita';
 
-							enviarEmail('jo_cego@hotmail.com', subject, mensaje);
+							enviarEmail(idSolicitado, subject, mensaje);
+							setTimeout(function(){console.log("redirecting");},30000)
 							window.location ="solicitudEnviada.php?nombreInvitado="+$('#txtInvitado').val()+"&titulo=La solicitud de cita de atención ha sido realizada";
+							
 						},
 						error: function(response){
 							var error = document.createElement("p");
@@ -176,7 +179,8 @@ if(btnEnviar!=null){
 							var botonesDiv=document.querySelector('.form-row-button');
 							botonesDiv.appendChild(error);
 							
-						}
+						},
+						async: "false"
 					});
 				}
 			}
@@ -296,6 +300,12 @@ if(btnAceptar!=null){
 						  },
 					dataType: 'json',
 					success: function(response){ 
+						var mensaje = '<h3>Solicitud de cita - Hora propuesta</h3>' +
+										  '<p><b>' + $('.cita-invitado').text() + '</b> te ha propuesto una hora para la cita:</p>' + 
+										  '<p style="font-style: italic;">' + fechaInicio + '</p>',
+								subject = 'Solicitud de cita - Hora propuesta';
+
+							enviarEmail(idSolicitado, subject, mensaje);
 						window.location ="solicitudEnviada.php?nombreInvitado="+$('.cita-invitado').text()+"&titulo=La propuesta de hora para la solicitud de cita ha sido realizada";
 					},
 					error: function(response){

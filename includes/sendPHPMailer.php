@@ -65,7 +65,7 @@
             $mail->Subject = $subject;
             $mail->MsgHTML($body);
 
-            // $mail->AddAddress($toAddress);
+            $mail->AddAddress($toAddress);
             $mail->AddAddress("villaloboselizabeth@gmail.com");
 
             if(!$mail->Send()) {

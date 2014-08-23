@@ -768,10 +768,21 @@ function obtenerPromedios($idUser){
 
 	$arrayPromedios=[$prmNot2,$prmNot3,$prmNot4,$prmNo5];
 	$promRanking=calcularPromedioArray($arrayPromedios);
-	$arrayPromedios=['nota2'=> $prmNot2,"nota3"=>$prmNot3,"nota4"=>$prmNot4,"nota5"=>$prmNot5,"ranking"=>$promRanking];
+	$arrayPromedios=['nota2'=> $prmNot2,'nota3'=>$prmNot3,'nota4'=>$prmNot4,'nota5'=>$prmNot5,'ranking'=>$promRanking];
+	actualizarRanking($arrayPromedios['ranking'],$idUser);
 
     return $arrayPromedios;
 }
+
+function actualizarRanking($pranking,$idUser){
+
+	$query = "UPDATE tusuarios SET ranking='$pranking' WHERE id='$idUser'";
+	
+	$result = do_query($query);
+}
+
+
+
 
 function calcularPromedioArray($arreglo){
 
@@ -803,7 +814,7 @@ function mostrarRanking($idUser){
 
 					<div id ="puntuacion">
 						
-						<h1><span class="circulo">'.$arrayPromediosRanking['ranking'].'</span>Puntuación</h1>
+						<h1><span class="circulo">'.round($arrayPromediosRanking['ranking'],1) .'</span>Puntuación</h1>
 					</div>
 
 					<div id="cantidad">

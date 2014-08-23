@@ -213,11 +213,14 @@ function modificarUsuario(){
     if(isset($_POST['pnombre']) &&
 		isset($_POST['papellido1']) && 
 		isset($_POST['papellido2'])  && 
-		isset($_POST['pidUsr'])&& 
-		isset($_POST['ptelefono']) && 
-		isset($_POST['pskype']) && 
+		isset($_POST['pidUsr'])&&  
 		isset($_POST['prol']) && 
 		isset($_POST['pcarrera'])){
+        
+        /*$nombreCarrera = $_POST['pcarrera'];
+        $query = "SELECT `tcarrera`.`id` FROM tcarrera WHERE `tcarrera`.`nombre` = '$nombreCarrera'";
+        $result = do_query($query);
+        $carrera = mysqli_fetch_assoc($result);*/
         
         $id = $_POST['pidUsr'];
 		$contrasena = $_POST['pcontrasena'];
@@ -229,10 +232,14 @@ function modificarUsuario(){
         $skype = $_POST['pskype'];
         $rol = $_POST['prol'];
         $telefono = $_POST['ptelefono'];
-        $carrera = $_POST['pcarrera'];
         $curso = $_POST['pcurso'];
+        $carrera = $_POST['pcarrera'];
         
-        $query = "UPDATE tusuarios SET id='$id', nombre='$nombre', apellido1='$apellido1', apellido2='$apellido2', imagen='$avatar', skypeid='$skype', rol=$rol, telefono='$telefono', carrera='$carrera' WHERE id='$id'";
+        $query = "UPDATE tusuarios SET id='$id', nombre='$nombre', apellido1='$apellido1', apellido2='$apellido2', imagen='$avatar', skypeid='$skype', rol=$rol, telefono='$telefono', carrera='$carrera', curso='$curso', activo='$activo' WHERE id='$id'";
+        
+        do_query($query); 
+        
+        $query = "INSERT INTO tusuariosxcurso(idCurso, idUsuario) VALUES ('$curso', '$id')";
         
         do_query($query); 
     }
@@ -304,7 +311,29 @@ function insertarCodigoActivacion() {
         $query = "INSERT INTO codigoactivacion(idUsuario, codigoActivacion) VALUES ('$id', '$codigo')";
         do_query($query); 
     }
-}  
+} 
+
+function mostrarCarreras2(){
+    $query = "SELECT `tcarrera`.`id`, `tcarrera`.`nombre` FROM tcarrera WHERE `tcarrera`.`activo`=1";
+    $carreras = do_query($query);
+    
+    while ($row = mysqli_fetch_assoc($carreras)) {
+        
+        echo '<option value="'.utf8_encode($row['id']).'">'.utf8_encode($row['nombre']).'';
+        echo '</option>';
+    }    
+}
+
+function mostrarCursos2(){
+    $query = "SELECT `tcursos`.`id`, `tcursos`.`nombre` FROM tcursos WHERE `tcursos`.`activo`=1";
+    $cursos = do_query($query);
+    
+    while ($row = mysqli_fetch_assoc($cursos)) {
+        
+        echo '<option value="'.utf8_encode($row['id']).'">'.utf8_encode($row['nombre']).'';
+        echo '</option>';
+    }    
+}
 
 if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];

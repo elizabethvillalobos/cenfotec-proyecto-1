@@ -2,7 +2,7 @@
 	session_start();
 	error_reporting(0);
 	require_once('functions.php');
-	//require_once('functions-micuenta.php');
+	require_once('functions-micuenta.php');
 	
 	header('Content-Type:application/json');
 
@@ -58,7 +58,7 @@
 			$horario = $_GET['horario'];
 			$avatar = $_GET['avatar'];
 
-			$result = modifiyProfile($idPerfil, $nombre, $apellido1, $apellido2, $telefono, $skypeid, $horario, $avatar);
+			$result = modifyProfile($idPerfil, $nombre, $apellido1, $apellido2, $telefono, $skypeid, $horario, $avatar);
 
 			if (empty($result)) {
 				deliver_response(200, 'No data', NULL);

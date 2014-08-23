@@ -112,6 +112,7 @@
 
 			$avatar = $row['imagen'] ? $row['imagen'] : 'default-user.png';
 			echo '<div class="form-row">';
+			echo '<input type="hidden" id="perfil-avatar-anterior" value="'.$avatar.'" />';
 			echo '<label for="perfil-avatar">Avatar:</label>';
 			echo '<div class="media-drop">';
 			echo '<div id="droppedimage">';
@@ -151,7 +152,7 @@
 		}
 	}
 
-	function modifiyProfile($idPerfil, $nombre, $apellido1, $apellido2, $telefono, $skypeid, $horario, $avatar) {
+	function modifyProfile($idPerfil, $nombre, $apellido1, $apellido2, $telefono, $skypeid, $horario, $avatar) {
 		if ($avatar) {
 			$updateAvatar = ', u.imagen = "'.$avatar.'" ';
 		} else {

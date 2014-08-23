@@ -239,7 +239,7 @@ function soloLetrasYnumeros(e){
 }
 
 function modificarPerfil() {
-	var initialImg = $('#droppedimage img').attr('src'),
+	var initialImg = '../images/users/' + $('#perfil-avatar-anterior').val(),
 		idPerfil = $('#perfil-id').val(),
 		nombre = $('#perfil-nombre').val(),
 		apellido1 = $('#perfil-apellido-1').val(),
@@ -258,8 +258,7 @@ function modificarPerfil() {
 	perfil['horario'] = horario;
 
 	var imgPath = $('#droppedimage img').attr('src');
-
-	if (imgPath && imgPath != initialImg) {
+	if (imgPath !== initialImg) {
 		$.ajax({
 			url: '../includes/upload-file.php',
 			type: 'post',
@@ -285,6 +284,7 @@ function modificarPerfil() {
 }
 
 function updatePerfil(perfil) {
+	console.log(perfil);
 	$.ajax({
 		url: '../includes/service-micuenta.php',
 		type: 'get',
@@ -302,6 +302,7 @@ function updatePerfil(perfil) {
 		dataType: 'json',
 		success: function(response) {
 			console.log('success');
+			console.log(response);
 			window.location = '/cenfotec-proyecto-1/configuracion/perfil.php'
 		},
 		error: function(response) {

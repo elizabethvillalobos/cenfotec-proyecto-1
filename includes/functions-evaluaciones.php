@@ -14,7 +14,7 @@ function mostrarEvaluacionRealizadaXRol($puser,$prol){
 			mostrarEvaluacionesRealizadasEst($puser);
 			break;
 		default:
-			echo 'SU ROL NO APLICA A LAS EVALUACIONES';
+			echo mostrarEvaluacionesRealizadas();;
 			break;
 	}
 
@@ -379,7 +379,7 @@ function mostrarEvaluacionPendienteXRol($puser,$prol){
 			mostrarEvaluacionesPendientesEst($puser);
 			break;
 		default:
-			echo 'SU ROL NO APLICA A LAS EVALUACIONES';
+			mostrarEvaluacionesPendientes();
 			break;
 	}
 

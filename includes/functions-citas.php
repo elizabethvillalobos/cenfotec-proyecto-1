@@ -118,7 +118,6 @@
 		// Update del estado de la cita.
 		$queryUpdate = "UPDATE tcitas SET tcitas.estado = 4 WHERE tcitas.id = '".$citaId."'";
 		$result = do_query($queryUpdate);
-		
 
 		return $result;
 	}

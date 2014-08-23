@@ -29,7 +29,7 @@
 						<h2><?php echo utf8_encode($row['nombre']).' ' .utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']) ?></h2>
 						
                         <?php echo '<a href="../citas/solicitarCita.php?idInvitado='.utf8_encode($row['id']).'" class="enviar-msj flaticon-calendar68">Solicitar cita</a>'; ?>
-                        <?php echo '<a href="../mensajeria/mensajeria.php?idInvitado='.utf8_encode($row['id']).'" class="enviar-msj flaticon-black218">Enviar mensaje</a>'; ?> 
+                        <?php echo '<a href="../mensajeria/mensajeria.php?idUsuarioOtro='.utf8_encode($row['id']).'" class="enviar-msj flaticon-black218">Enviar mensaje</a>'; ?> 
                         
 
 					</div>

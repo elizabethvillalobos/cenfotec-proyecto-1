@@ -157,7 +157,7 @@
 		$observaciones = $_GET['observaciones'];
 		$idCurso = $_GET['idCurso'];
 
-		$query = "SELECT * FROM `tcitas` WHERE idSolicitado='$idSolicitado' AND idSolicitante='$idSolcitante' AND esCita=0;";
+		$query = "SELECT * FROM `tcitas` WHERE idSolicitado='$idSolicitado' AND idSolicitante='$idSolcitante' AND esCita=0 AND (estado=1 OR estado=2);";
 		$solicitudes = do_query($query);
 		if (mysqli_num_rows($solicitudes) > 0) {
 			deliver_response(400, 'Ya hay una solicitud pendiente con este usuario', NULL);

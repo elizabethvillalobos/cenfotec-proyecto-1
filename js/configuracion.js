@@ -89,7 +89,8 @@ if (eFormValidar) {
 				break;
                 case "modificar-usuario":
 					modificarUsuario();
-                    alert('Modificado');
+                    console.log('Modificado');
+                    window.location = "/cenfotec-proyecto-1/configuracion/usuarioGuardado.php";
 				break;    
                 case "crear-carrera":                 
                   	var indice = document.getElementById("director-academico").selectedIndex,
@@ -111,14 +112,8 @@ if (eFormValidar) {
                         activo = 1;
                     
                     crearUsuario(activo);
-                          
-                	/*var seleccionado = validarDropdown(indice1);                                     
-                	if (seleccionado){
-                       seleccionado = validarDropdown(indice2);
-                       if (seleccionado){
-                            crearUsuario();
-                       }
-                   }          */       	
+                    window.location = "/cenfotec-proyecto-1/configuracion/usuarioCreado.php";
+                             	
                 break;
 
 			}

@@ -24,10 +24,10 @@
 			<main>
 				<section class="msg-confirm">
 					<div class="mod-hd">
-						<h2 class="flaticon-male12">Información actualizada</h2>
+						<h2 class="flaticon-male12">Usuario creado</h2>
 					</div>
 					<div class="mod-bd">
-						<p>La información del usuario se actualizó con éxito.</p>
+						<p>La información del usuario fue registrada con éxito.</p>
 
 						<a href="/cenfotec-proyecto-1/configuracion/usuariosConsultar.php" class="btn btn-default">Volver</a>
 					</div>

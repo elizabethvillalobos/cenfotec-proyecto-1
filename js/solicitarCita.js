@@ -167,8 +167,8 @@ if(btnEnviar!=null){
 								subject = 'Nueva solicitud de cita';
 
 							enviarEmail(idSolicitado, subject, mensaje);
-							setTimeout(function(){console.log("redirecting");},30000)
-							window.location ="solicitudEnviada.php?nombreInvitado="+$('#txtInvitado').val()+"&titulo=La solicitud de cita de atención ha sido realizada";
+							setTimeout(function(){window.location ="solicitudEnviada.php?nombreInvitado="+$('#txtInvitado').val()+"&titulo=La solicitud de cita de atención ha sido realizada";},3000)
+							//window.location ="solicitudEnviada.php?nombreInvitado="+$('#txtInvitado').val()+"&titulo=La solicitud de cita de atención ha sido realizada";
 							
 						},
 						error: function(response){
@@ -304,9 +304,10 @@ if(btnAceptar!=null){
 										  '<p><b>' + $('.cita-invitado').text() + '</b> te ha propuesto una hora para la cita:</p>' + 
 										  '<p style="font-style: italic;">' + fechaInicio + '</p>',
 								subject = 'Solicitud de cita - Hora propuesta';
-
-							enviarEmail(idSolicitado, subject, mensaje);
-						window.location ="solicitudEnviada.php?nombreInvitado="+$('.cita-invitado').text()+"&titulo=La propuesta de hora para la solicitud de cita ha sido realizada";
+						var idSolicitado= location.search.split("=")[1];
+						enviarEmail(idSolicitado, subject, mensaje);
+						setTimeout(function(){window.location ="solicitudEnviada.php?nombreInvitado="+$('.cita-invitado').text()+"&titulo=La propuesta de hora para la solicitud de cita ha sido realizada";},3000);
+						//window.location ="solicitudEnviada.php?nombreInvitado="+$('.cita-invitado').text()+"&titulo=La propuesta de hora para la solicitud de cita ha sido realizada";
 					},
 					error: function(response){
 						var error = document.createElement("p");

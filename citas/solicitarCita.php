@@ -59,7 +59,7 @@
 						</div>
 						<div class="form-row">
 							<label for="txtObservaciones">Observaciones (opcional):</label>
-							<textarea id="txtObservaciones" placeholder="Ingrese comentarios adicionales de la cita" class="form-control"></textarea>
+							<textarea id="txtObservaciones" placeholder="Ingrese comentarios adicionales de la cita" class="form-control" maxlength="300"></textarea>
 						</div>
 						<div id="enviarRow" class="form-row form-row-button">
 							<a id="btnEnviar" class="btn btn-primary">Enviar</a>

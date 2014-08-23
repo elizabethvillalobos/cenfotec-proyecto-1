@@ -28,7 +28,7 @@
 						<form id="nuevoMensaje" action="#" method="post">		
 							<div class="form-row">
 								<label for="txtMensaje">Nuevo mensaje:</label>
-								<textarea id="txtMensaje" placeholder="Ingrese el mensaje" class="form-control"></textarea>
+								<textarea id="txtMensaje" placeholder="Ingrese el mensaje" class="form-control" maxlength="160"></textarea>
 							</div>
 							<div id="enviarRow" class="form-row form-row-button">
 								<button id="btnCrearMensaje" class="btn btn-primary">Enviar</button>

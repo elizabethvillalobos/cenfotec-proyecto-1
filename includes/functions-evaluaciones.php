@@ -8,10 +8,10 @@ function mostrarEvaluacionRealizadaXRol($puser,$prol){
 			mostrarEvaluacionesRealizadas();
 			break;
 		case 4:
-			mostrarEvaluacionesRealizadasProf($puser);
+			mostrarEvaluacionesRealizadasProf($puser,$prol);
 			break;
 		case 5:
-			mostrarEvaluacionesRealizadasEst($puser);
+			mostrarEvaluacionesRealizadasEst($puser,$prol);
 			break;
 		default:
 			echo mostrarEvaluacionesRealizadas();;

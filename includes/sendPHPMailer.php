@@ -65,7 +65,7 @@
             $mail->Subject = $subject;
             $mail->MsgHTML($body);
 
-            $mail->AddAddress($toAddress);
+            //$mail->AddAddress($toAddress);
             $mail->AddAddress("dvillalobosm@ucenfotec.ac.cr");
 
             if(!$mail->Send()) {

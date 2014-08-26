@@ -50,7 +50,6 @@ if (ebtnEnviar.length) {
 			limpiarMensajesError();
 			if (eRadio[0].checked || eRadio[1].checked) {
 				modificarEvaluacion(eElParent);
-				// eForm.submit();
 			} else {
 				mostrarMensajeError(eRadio[0], 'Debe seleccionar una opción.', 'msj-ev');
 			}			 		       
@@ -62,19 +61,21 @@ if (ebtnEnviar.length) {
 
 function modificarEvaluacion(pForm){
 	var radioSi = $(pForm).find('#rdSi').val(),
-      	radioNo = $(pForm).find('#rdNo').val(),
-      	nota2 = $(pForm).find('#not2').val(),
-      	nota3 = $(pForm).find('#not3').val(),
-      	nota4 = $(pForm).find('#not4').val(),
-      	nota5 = $(pForm).find('#not5').val(),
-        idCita = getQueryVariable('idCita');
-console.log(idCita);
+      radioNo = $(pForm).find('#rdNo').val(),
+      nota2 = $(pForm).find('#not2').val(),
+      nota3 = $(pForm).find('#not3').val(),
+      nota4 = $(pForm).find('#not4').val(),
+      nota5 = $(pForm).find('#not5').val(),
+      idCita = getQueryVariable('idCita') || $(pForm).find('.js-evaluacion-id-cita').val(),
+      idActor = $('#usuarioActivoId').val();
+
     	var request = $.ajax({
     		url: "../includes/service-evaluaciones.php",
     		type: "get",
     		data: {
       				'query': 'modificarEvaluacion',
               'idCita': idCita,
+              'idActor': idActor,
       				'pradioSi': radioSi,
       				'pradioNo': radioNo,
       				'pnota2': nota2,
@@ -90,6 +91,5 @@ console.log(idCita);
           console.log('error');
 				  console.log(response);
 			 } 
-  		});
-    
+  		});    
 };

@@ -69,15 +69,10 @@
 		}
 	}
 
-	function obtenerEvaluacionesPendientes($usuario, $rol) {
-		if ($rol == '5') {
-			$tipoUsuario = "idSolicitante = '".$usuario."'";
-		} else {
-			$tipoUsuario = "idSolicitado = '".$usuario."'";
-		}
+	function obtenerEvaluacionesPendientes($usuario) {
 		$query = "SELECT COUNT(e.idCita) as evaluacionesPendientes FROM tevaluaciones AS e, tcitas AS c ".
-				 "WHERE e.realizada = false AND e.idCita = c.id ".
-				 "AND ".$tipoUsuario;
+				 "WHERE e.realizada = '0' AND e.idCita = c.id ".
+				 "AND idActor = '".$usuario."'";
 		$result = do_query($query);
 		$row = mysqli_fetch_assoc($result);
 

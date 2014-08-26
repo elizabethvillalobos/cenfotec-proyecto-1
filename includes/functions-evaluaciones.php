@@ -107,7 +107,7 @@ function mostrarEvaluacionesRealizadasProf($puser,$prol) {
 
 	                                	<div class="form-row-ev"> 
 	                                		<div class="preguntas">
-	                                			<label class="">2)¿En qué grado el estudiante cumplió con puntualidad a la cita?</label>
+	                                			<label class="">1) ¿En qué grado el estudiante cumplió con puntualidad a la cita?</label>
 									        </div>
 
 									        <div class="opcs">
@@ -118,7 +118,7 @@ function mostrarEvaluacionesRealizadasProf($puser,$prol) {
 										<div class="form-row-ev">
 
 											<div class="preguntas">
-												<label class="" >3)¿En qué grado el estudiante logró mantener un ambiente cordial y de respeto?</label>
+												<label class="" >2) ¿En qué grado el estudiante logró mantener un ambiente cordial y de respeto?</label>
 											</div>
 
 											<div class="opcs">
@@ -130,7 +130,7 @@ function mostrarEvaluacionesRealizadasProf($puser,$prol) {
 										<div class="form-row-ev">	
 
 											<div class="preguntas">
-												<label class="" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
+												<label class="" >3) ¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
 											</div>
 
 											<div class="opcs">
@@ -141,7 +141,7 @@ function mostrarEvaluacionesRealizadasProf($puser,$prol) {
 
 										<div class="form-row-ev">	
 											<div class="preguntas">
-												<label class="">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+												<label class="">4) A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
 											</div>
 
 											<div class="opcs">
@@ -207,7 +207,7 @@ function mostrarEvaluacionesRealizadas() {
 
 	                                	<div class="form-row-ev"> 
 	                                		<div class="preguntas">
-	                                			<label class="">2)¿En qué grado el estudiante cumplió con puntualidad a la cita?</label>
+	                                			<label class="">1) ¿En qué grado el estudiante cumplió con puntualidad a la cita?</label>
 									        </div>
 
 									        <div class="opcs">
@@ -218,7 +218,7 @@ function mostrarEvaluacionesRealizadas() {
 										<div class="form-row-ev">
 
 											<div class="preguntas">
-												<label class="" >3)¿En qué grado el estudiante logró mantener un ambiente cordial y de respeto?</label>
+												<label class="" >2) ¿En qué grado el estudiante logró mantener un ambiente cordial y de respeto?</label>
 											</div>
 
 											<div class="opcs">
@@ -230,7 +230,7 @@ function mostrarEvaluacionesRealizadas() {
 										<div class="form-row-ev">	
 
 											<div class="preguntas">
-												<label class="" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
+												<label class="" >3) ¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
 											</div>
 
 											<div class="opcs">
@@ -241,7 +241,7 @@ function mostrarEvaluacionesRealizadas() {
 
 										<div class="form-row-ev">	
 											<div class="preguntas">
-												<label class="">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+												<label class="">4) A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
 											</div>
 
 											<div class="opcs">
@@ -309,7 +309,7 @@ function mostrarEvaluacionesRealizadasEst($puser,$prol) {
 
                                 	<div class="form-row-ev"> 
                                 		<div class="preguntas">
-                                			<label class="">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
+                                			<label class="">1) ¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
 								        </div>
 
 								        <div class="opcs">
@@ -320,7 +320,7 @@ function mostrarEvaluacionesRealizadasEst($puser,$prol) {
 									<div class="form-row-ev">
 
 										<div class="preguntas">
-											<label class="" >3)¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
+											<label class="" >2) ¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
 										</div>
 
 										<div class="opcs">
@@ -332,7 +332,7 @@ function mostrarEvaluacionesRealizadasEst($puser,$prol) {
 									<div class="form-row-ev">	
 
 										<div class="preguntas">
-											<label class="" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
+											<label class="" >2) ¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
 										</div>
 
 										<div class="opcs">
@@ -343,7 +343,7 @@ function mostrarEvaluacionesRealizadasEst($puser,$prol) {
 
 									<div class="form-row-ev">	
 										<div class="preguntas">
-											<label class="">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+											<label class="">4) A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
 										</div>
 
 										<div class="opcs">
@@ -405,18 +405,14 @@ function obtenerActoresxIdCita($pidCita){
 }
 
 function insertarEvaluacionesPendientes($pidCita){
-
 	$idActores=obtenerActoresxIdCita($pidCita);
 
 	$row = mysqli_fetch_assoc($idActores);
 
 	$idSolicitante = $row['idSolicitante'];
-
 	$idSolicitado = $row['idSolicitado'];
 
-
-	$query = "INSERT INTO tevaluaciones(idCita, nota1, nota2, nota3,nota4,nota5,idActor,realizada) 
-	VALUES ('$pidCita', 0,0,0,0,0,'$idSolicitante',0),('$pidCita', 0,0,0,0,0,'$idSolicitado',0)";
+	$query = "INSERT INTO tevaluaciones(idCita, nota1, nota2, nota3, nota4, nota5, idActor, realizada) VALUES ('$pidCita','0','0','0','0','0','$idSolicitante','0'), ('$pidCita','0','0','0','0','0','$idSolicitado','0')";
 
 	$resultado = do_query($query);
 	}
@@ -426,17 +422,17 @@ function obtenerEvaluacionesPendientes($puser,$prol){
 
 
 	if($prol==4){
-		$query = "SELECT * FROM tevaluaciones,tcitas  WHERE tevaluaciones.idCita = tcitas.id AND tevaluaciones.realizada = 0 AND tcitas.idSolicitado = '$puser' ";
+		$query = "SELECT * FROM tevaluaciones,tcitas  WHERE tevaluaciones.idCita = tcitas.id AND tevaluaciones.idActor = tcitas.idSolicitado AND tevaluaciones.realizada = 0 AND tcitas.idSolicitado = '$puser' ";
 
 	}else{
-		$query = "SELECT * FROM tevaluaciones,tcitas  WHERE tevaluaciones.idCita = tcitas.id AND tevaluaciones.realizada = 0 AND tcitas.idSolicitante = '$puser'";
+		$query = "SELECT * FROM tevaluaciones,tcitas  WHERE tevaluaciones.idCita = tcitas.id AND tevaluaciones.idActor = tcitas.idSolicitante AND tevaluaciones.realizada = 0 AND tcitas.idSolicitante = '$puser'";
 	}	
 	
 	$result = do_query($query);
 	return $result;
 }
 
-function mostrarEvaluacionesPendientesProf($puser,$prol) {
+function mostrarEvaluacionesPendientesProf($puser, $prol) {
 	$evaluacionesPendientes = obtenerEvaluacionesPendientes($puser,$prol);	
 
 	while($row = mysqli_fetch_assoc($evaluacionesPendientes)){
@@ -444,31 +440,34 @@ function mostrarEvaluacionesPendientesProf($puser,$prol) {
         $html .=     '<li class="accordion-item ">
                         <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Usuario a evaluar : '.obtenerUsuarioEvaluado($row['id'],$prol).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['id']).'</span>
+                        		<span class="stit2">Usuario a evaluar: '.obtenerUsuarioEvaluado($row['id'],$prol).'</span> <span>Fecha y hora finalización: '.obtenerFechayHoraCita($row['id']).'</span>
                         	</p>
                         </a>
 
                         <div class="accordion-detail">
                             <form id="frm" class="form-evaluacion" action="/cenfotec-proyecto-1/evaluacion/evaluarCitaConfirm.php" method="post">
 								<fieldset>
+								<input type="hidden" class="js-evaluacion-id-cita" value="'.$row['id'].'" />
 								<div class="msj-ev">
 									<h2 >Formulario de evaluación de cita</h2>
-									<div class="form-row-ev">
+									<div class="form-row-ev pregunta1">
 										<div id="pregunta1">
-											<label class="">1)¿El estudiante se presentó a la cita?</label>
+											<label class="">1) ¿El estudiante se presentó a la cita?</label>
 										</div>
 
-										<div class="opcs">
-											<label class="radio">												
-				                                <input type="radio" name="group1" value="si" data-toggle="radio" id="rdSi">SI
-				                            </label>
-				                        </div>
+										<div class="opcs-wrap">
+											<div class="opcs">
+												<label class="radio">												
+					                                <input type="radio" name="group1" value="si" data-toggle="radio" id="rdSi">SI
+					                            </label>
+					                        </div>
 
-			                            <div class="opcs">
-			                            	<label class="radio">			                            		
-			                            		<input type="radio" name="group1" value="no" data-toggle="radio" id="rdNo" >NO
-			                                </label>
-									    </div>
+				                            <div class="opcs">
+				                            	<label class="radio">			                            		
+				                            		<input type="radio" name="group1" value="no" data-toggle="radio" id="rdNo" >NO
+				                                </label>
+										    </div>
+										</div>
 								    </div> 
 
 								</div>
@@ -478,7 +477,7 @@ function mostrarEvaluacionesPendientesProf($puser,$prol) {
 
                                 	<div class="form-row-ev"> 
                                 		<div class="preguntas">
-                                			<label class="">2)¿En qué grado el estudiante cumplió con puntualidad a la cita?</label>
+                                			<label class="">2) ¿En qué grado el estudiante cumplió con puntualidad a la cita?</label>
 								        </div>
 
 								        <div class="opcs">	
@@ -489,7 +488,7 @@ function mostrarEvaluacionesPendientesProf($puser,$prol) {
 									<div class="form-row-ev">
 
 										<div class="preguntas">
-											<label class="" >3)¿En qué grado el estudiante logró mantener un ambiente cordial y de respeto?</label>
+											<label class="" >3) ¿En qué grado el estudiante logró mantener un ambiente cordial y de respeto?</label>
 										</div>
 
 										<div class="opcs">
@@ -501,7 +500,7 @@ function mostrarEvaluacionesPendientesProf($puser,$prol) {
 									<div class="form-row-ev">	
 
 										<div class="preguntas">
-											<label class="" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
+											<label class="" >4) ¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
 										</div>
 
 										<div class="opcs">
@@ -512,7 +511,7 @@ function mostrarEvaluacionesPendientesProf($puser,$prol) {
 
 									<div class="form-row-ev">	
 										<div class="preguntas">
-											<label class="">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+											<label class="">5) A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
 										</div>
 
 										<div class="opcs">
@@ -521,10 +520,10 @@ function mostrarEvaluacionesPendientesProf($puser,$prol) {
 
 									</div>										
 
-									<div class="form-row-ev">
+									<div class="form-row-ev promedio">
 
 										<div class="preguntas">
-											<label class="" >Promedio obtenido en esta cita : </label>
+											<label class="" >Promedio obtenido en esta cita: </label>
 										</div>
 
 										<div class="opcs">
@@ -559,31 +558,34 @@ function mostrarEvaluacionesPendientesEst($puser,$prol) {
         $html .=     '<li class="accordion-item ">
                         <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Usuario a evaluar : '.obtenerUsuarioEvaluado($row['id'],$prol).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['id']).'</span>
+                        		<span class="stit2">Usuario a evaluar: '.obtenerUsuarioEvaluado($row['id'],$prol).'</span> <span>Fecha y hora finalización: '.obtenerFechayHoraCita($row['id']).'</span>
                         	</p>
                         </a>
 
                         <div class="accordion-detail">
                             <form id="frm" class="form-evaluacion" action="/cenfotec-proyecto-1/evaluacion/evaluarCitaConfirm.php" method="post">
 								<fieldset>
+								<input type="hidden" class="js-evaluacion-id-cita" value="'.$row['id'].'" />
 								<div class="msj-ev">
 									<h2 >Formulario de evaluación de cita</h2>
-									<div class="form-row-ev">
+									<div class="form-row-ev pregunta1">
 										<div id="pregunta1">
-											<label class="">1)¿El profesor se presentó a la cita?</label>
+											<label class="">1) ¿El profesor se presentó a la cita?</label>
 										</div>
 
-										<div class="opcs">
-											<label class="radio">												
-				                                <input type="radio" name="group1" value="si" data-toggle="radio" id="rdSi">SI
-				                            </label>
-				                        </div>
+										<div class="opcs-wrap">
+											<div class="opcs">
+												<label class="radio">												
+					                                <input type="radio" name="group1" value="si" data-toggle="radio" id="rdSi">SI
+					                            </label>
+					                        </div>
 
-			                            <div class="opcs">
-			                            	<label class="radio">			                            		
-			                            		<input type="radio" name="group1" value="no" data-toggle="radio" id="rdNo">NO
-			                                </label>
-									    </div>
+				                            <div class="opcs">
+				                            	<label class="radio">			                            		
+				                            		<input type="radio" name="group1" value="no" data-toggle="radio" id="rdNo">NO
+				                                </label>
+										    </div>
+										</div>
 								    </div> 
 
 								</div>
@@ -593,7 +595,7 @@ function mostrarEvaluacionesPendientesEst($puser,$prol) {
 
                                 	<div class="form-row-ev"> 
                                 		<div class="preguntas">
-                                			<label class="">2)¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
+                                			<label class="">2) ¿En qué grado el profesor cumplió con puntualidad a la cita?</label>
 								        </div>
 
 								        <div class="opcs">	
@@ -604,7 +606,7 @@ function mostrarEvaluacionesPendientesEst($puser,$prol) {
 									<div class="form-row-ev">
 
 										<div class="preguntas">
-											<label class="" >3)¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
+											<label class="" >3) ¿En qué grado el profesor logró mantener un ambiente cordial y de respeto?</label>
 										</div>
 
 										<div class="opcs">
@@ -616,7 +618,7 @@ function mostrarEvaluacionesPendientesEst($puser,$prol) {
 									<div class="form-row-ev">	
 
 										<div class="preguntas">
-											<label class="" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
+											<label class="" >4) ¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
 										</div>
 
 										<div class="opcs">
@@ -627,7 +629,7 @@ function mostrarEvaluacionesPendientesEst($puser,$prol) {
 
 									<div class="form-row-ev">	
 										<div class="preguntas">
-											<label class="">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+											<label class="">5) A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
 										</div>
 
 										<div class="opcs">
@@ -636,10 +638,10 @@ function mostrarEvaluacionesPendientesEst($puser,$prol) {
 
 									</div>										
 
-									<div class="form-row-ev">
+									<div class="form-row-ev promedio">
 
 										<div class="preguntas">
-											<label class="" >Promedio obtenido en esta cita : </label>
+											<label class="">Promedio obtenido en esta cita: </label>
 										</div>
 
 										<div class="opcs">
@@ -670,7 +672,7 @@ function mostrarEvaluacionesPendientes() {
         $html .=     '<li class="accordion-item ">
                         <a href="#">
                         	<p class="titulo2">
-                        		<span class="stit2">Usuario a evaluar : '.obtenerUsuarioEvaluado($row['id'],$prol).'</span> <span>Fecha y hora finalización :'.obtenerFechayHoraCita($row['id']).'</span>
+                        		<span class="stit2">Usuario a evaluar: '.obtenerUsuarioEvaluado($row['id'],$prol).'</span> <span>Fecha y hora finalización: '.obtenerFechayHoraCita($row['id']).'</span>
                         	</p>
                         </a>
 
@@ -679,22 +681,24 @@ function mostrarEvaluacionesPendientes() {
 								<fieldset>
 								<div class="msj-ev">
 									<h2 >Formulario de evaluación de cita</h2>
-									<div class="form-row-ev">
+									<div class="form-row-ev pregunta1">
 										<div id="pregunta1">
-											<label class="">1)¿El estudiante se presentó a la cita?</label>
+											<label class="">1) ¿El estudiante se presentó a la cita?</label>
 										</div>
 
-										<div class="opcs">
-											<label class="radio">												
-				                                <input type="radio" name="group1" value="si" data-toggle="radio">SI
-				                            </label>
-				                        </div>
+										<div class="opcs-wrap">
+											<div class="opcs">
+												<label class="radio">												
+					                                <input type="radio" name="group1" value="si" data-toggle="radio">SI
+					                            </label>
+					                        </div>
 
-			                            <div class="opcs">
-			                            	<label class="radio">			                            		
-			                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
-			                                </label>
-									    </div>
+				                            <div class="opcs">
+				                            	<label class="radio">			                            		
+				                            		<input type="radio" name="group1" value="no" data-toggle="radio" >NO
+				                                </label>
+										    </div>
+										</div>
 								    </div> 
 
 								</div>
@@ -704,7 +708,7 @@ function mostrarEvaluacionesPendientes() {
 
                                 	<div class="form-row-ev"> 
                                 		<div class="preguntas">
-                                			<label class="">2)¿En qué grado el estudiante cumplió con puntualidad a la cita?</label>
+                                			<label class="">2) ¿En qué grado el estudiante cumplió con puntualidad a la cita?</label>
 								        </div>
 
 								        <div class="opcs">	
@@ -715,7 +719,7 @@ function mostrarEvaluacionesPendientes() {
 									<div class="form-row-ev">
 
 										<div class="preguntas">
-											<label class="" >3)¿En qué grado el estudiante logró mantener un ambiente cordial y de respeto?</label>
+											<label class="" >3) ¿En qué grado el estudiante logró mantener un ambiente cordial y de respeto?</label>
 										</div>
 
 										<div class="opcs">
@@ -727,7 +731,7 @@ function mostrarEvaluacionesPendientes() {
 									<div class="form-row-ev">	
 
 										<div class="preguntas">
-											<label class="" >4)¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
+											<label class="" >4) ¿En qué grado la cita logró aclarar las dudas o temas a repasar?</label>  
 										</div>
 
 										<div class="opcs">
@@ -738,7 +742,7 @@ function mostrarEvaluacionesPendientes() {
 
 									<div class="form-row-ev">	
 										<div class="preguntas">
-											<label class="">5)A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
+											<label class="">5) A nivel general, ¿cómo calificaría su satisfacción con la cita?</label>
 										</div>
 
 										<div class="opcs">
@@ -750,7 +754,7 @@ function mostrarEvaluacionesPendientes() {
 									<div class="form-row-ev">
 
 										<div class="preguntas">
-											<label class="" >Promedio obtenido en esta cita : </label>
+											<label class="" >Promedio obtenido en esta cita: </label>
 										</div>
 
 										<div class="opcs">

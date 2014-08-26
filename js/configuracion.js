@@ -761,8 +761,6 @@ for(var i=0; i < abtnActivo.length; i++) {
                 nuevoEstado=1;
             }
             
-            alert(nuevoEstado);
-            
             var request = $.ajax({
                 url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
                 type: "post",

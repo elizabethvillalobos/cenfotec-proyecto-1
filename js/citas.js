@@ -74,6 +74,10 @@ function mostrarCitas(citas) {
 		template = Handlebars.compile(source);
   	$("#citas-container").html(template(citas));
 
+  	if ($('#usuarioActivoRol').val() == '5') {
+  		$('.btn-finalizar').hide();
+  	}
+
   	// Ejecutar el codigo de los modal window para las citas que se agregaron.
   	modalWindow();
   	initCancelarCita();

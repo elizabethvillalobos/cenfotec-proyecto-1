@@ -66,7 +66,7 @@
             $mail->MsgHTML($body);
 
             $mail->AddAddress($toAddress);
-            $mail->AddAddress("villaloboselizabeth@gmail.com");
+            $mail->AddAddress("dvillalobosm@ucenfotec.ac.cr");
 
             if(!$mail->Send()) {
                 deliver_response(400, 'OK', $mail->ErrorInfo);

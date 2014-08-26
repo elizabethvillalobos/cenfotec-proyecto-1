@@ -33,7 +33,7 @@ eBtnRegistrar.addEventListener('click', function (evento) {
 
                         var mensaje = '<p>Este es el c&oacute;digo para activar la cuenta: <strong>'+codigo+'</strong></p>'+
                         '<p>Presione activar cuenta e ingrese el código para poder acceder al sistema (se reconocen las mayúsculas y las minúsculas)</p>  '+
-                        '<a href="http://localhost/cenfotec-proyecto-1/seguridad/activarCuenta.php?idActiv='+eCorreo+'">Activar</a>';    
+                        '<a href="http://localhost:8888/cenfotec-proyecto-1/seguridad/activarCuenta.php?idActiv='+eCorreo+'">Activar</a>';    
 
                         enviarEmail(eCorreo, 'Activacion de cuenta', mensaje);
                         console.log('registrado');    

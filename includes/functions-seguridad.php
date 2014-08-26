@@ -89,7 +89,7 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
 	if(function_exists($function)) {        
 	    call_user_func($function);
 	} else {
-	    echo 'Function Not Exists!!';
+	    //echo 'Function Not Exists!!';
 	}
 }
                      

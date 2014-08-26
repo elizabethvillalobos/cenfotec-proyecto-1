@@ -13,7 +13,7 @@ function getUsuarios() {
 
 function getUsuariosPorRol($rol){
 	$query = "SELECT `tusuarios`.`nombre`, `tusuarios`.`apellido1`, `tusuarios`.`apellido2`, `tusuarios`.`id`, `tusuarios`.`contrasena`, `tusuarios`.`activo`, `trol`.`nombre` AS 'Rol' ".
-			 "FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id` AND `trol`.`id` = '$rol' ORDER BY tusuarios.apellido1, tusuarios.apellido2, tusuarios.nombre";
+				 "FROM tusuarios, trol WHERE `tusuarios`.`rol`=`trol`.`id` AND `trol`.`id` = '$rol' ORDER BY tusuarios.apellido1, tusuarios.apellido2, tusuarios.nombre";
 
 	$result = do_query($query);
 	return $result;		 
@@ -32,7 +32,7 @@ function mostrarUsuariosRectores() {
 	        
 			echo '<tr class="info-usuario">';
 	        echo '<td>';
-	        echo '<a href="#">'.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']).' '.utf8_encode($row['nombre']);
+	        echo '<a href="/cenfotec-proyecto-1/busqueda/perfil-usr.php?idBusqueda='.utf8_encode($row['id']).'">'.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']).' '.utf8_encode($row['nombre']);
 	        echo '</a>';
 	        echo '<span class="usuarios-email">'.utf8_encode($row['id']);
 	        echo '</span>';
@@ -68,7 +68,7 @@ function mostrarUsuarios() {
         
 		echo '<tr class="info-usuario">';
         echo '<td>';
-        echo '<a href="#">'.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']).' '.utf8_encode($row['nombre']);
+        echo '<a href="/cenfotec-proyecto-1/busqueda/perfil-usr.php?idBusqueda='.utf8_encode($row['id']).'">'.utf8_encode($row['apellido1']).' '.utf8_encode($row['apellido2']).' '.utf8_encode($row['nombre']);
         echo '</a>';
         echo '<span class="usuarios-email">'.utf8_encode($row['id']);
         echo '</span>';
@@ -340,7 +340,7 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
 	if(function_exists($function)) {        
 	    call_user_func($function);
 	} else {
-	    echo 'Function Not Exists!!';
+	    //echo 'Function Not Exists!!';
 	}
 }
 

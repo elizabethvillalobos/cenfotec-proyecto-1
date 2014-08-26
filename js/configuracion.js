@@ -512,14 +512,19 @@ function modificarCarrera(){
 //Filtros de mostrar usuarios
 
 $('.usuarios-filtro').on('click', function(e) {
-    var rol;    
-    // Quitar la clase active de todos
-    //$('.usuarios-filtro')
-
-    // Asignar la clase active al currentTarget
+    var rol;
     
     switch($(e.currentTarget).text()){
-       
+       case 'Todos':
+       		$('.filtro-todos').addClass('active');
+       		$('.filtro-rector').removeClass('active');
+        	$('.filtro-director-academico').removeClass('active');
+        	$('.filtro-profesor').removeClass('active');
+        	$('.filtro-estudiante').removeClass('active');	
+        	$('.filtro-asistente').removeClass('active');
+        	$('.filtro-mercadeo').removeClass('active');
+       		rol=0;
+            break;
         case 'Rector':
        		$('.filtro-rector').addClass('active');
         	$('.filtro-director-academico').removeClass('active');
@@ -575,21 +580,40 @@ $('.usuarios-filtro').on('click', function(e) {
             rol=7;
             break;
     };
-    var request = $.ajax({
-		url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
-		type: "post",
-		data: {
-               'call': 'mostrarUsuariosRectores',
-               'pRol': rol
-			  },
-		datatype: 'json',
-		success: function(data){
-			$('.lista-usuarios tbody').html(data);
-		},
-		error: function(data) {
-			console.log('error');
-		}
-	});
+    if (rol == 0) {
+    	var request = $.ajax({
+			url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
+			type: "post",
+			data: {
+	               'call': 'mostrarUsuarios'
+				  },
+			datatype: 'json',
+			success: function(data){
+				$('.lista-usuarios tbody').html(data);
+			},
+			error: function(data) {
+				console.log('error');
+			}
+		});
+    } else {
+    	var request = $.ajax({
+			url: "/cenfotec-proyecto-1/includes/functions-usuarios.php",
+			type: "post",
+			data: {
+	               'call': 'mostrarUsuariosRectores',
+	               'pRol': rol
+				  },
+			datatype: 'json',
+			success: function(data){
+				console.log(data);
+				$('.lista-usuarios tbody').html(data);
+			},
+			error: function(data) {
+				console.log('error');
+			}
+		});
+    }
+    
 });
 
 ebtnBuscarCarrera=document.querySelector('#btnBuscarCarreras');

@@ -1450,6 +1450,23 @@ footer p {
 
 
 /*Media queries*/
+
+@media all and (max-width: 850px) and (min-width: 750px) {
+  header .usr-info {
+      min-width: 190px;
+      top: 15px;
+    }
+    header .usr-info ul {
+      margin: 0 50px 0 0;
+      padding: 0;
+      width: 140px;
+    }
+    header .usr-info .usr-photo {
+      position: relative; 
+      top: 12px;
+    }
+}
+
 @media all and (max-width: 1024px) and (min-width: 750px) {
     body {
         width: 95%;

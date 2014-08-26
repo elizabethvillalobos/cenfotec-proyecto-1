@@ -1,4 +1,5 @@
 <?php
+    session_start();
 	error_reporting(0);
 	require_once('../includes/functions.php');
 
@@ -28,11 +29,31 @@
 			$nota4 = $_GET['pnota4'];
 			$nota5 = $_GET['pnota5'];
 			$idCita = $_GET['idCita'];
-			
-			$query = "UPDATE tevaluaciones SET nota2='$nota2',nota3='$nota3',nota4='$nota4',nota5='$nota5', realizada=1 WHERE idCita='".$idCita."'";
-		    $result = do_query($query);
-		    deliver_response(200, 'OK', 'Registrado con exito');
-						
+
+			$idActores=obtenerActoresxIdCita($pidCita); 
+
+	        $row = mysqli_fetch_assoc($idActores);
+
+	        $idSolicitante = $row['idSolicitante'];
+
+	        $idSolicitado = $row['idSolicitado'];
+
+
+
+			switch ($rolUsr) {
+				case 4:
+					$query = "UPDATE tevaluaciones SET nota2='$nota2',nota3='$nota3',nota4='$nota4',nota5='$nota5', realizada=1 WHERE idCita='$idCita' AND idActor='$idSolicitante'";
+		            $result = do_query($query);
+		            deliver_response(200, 'OK', 'Registrado con exito');
+					break;
+				
+				case 5:
+					$query = "UPDATE tevaluaciones SET nota2='$nota2',nota3='$nota3',nota4='$nota4',nota5='$nota5', realizada=1 WHERE idCita='$idCita' AND idActor='$idSolicitado'";
+		            $result = do_query($query);
+		            deliver_response(200, 'OK', 'Registrado con exito');
+					break;
+			}
+									
 		}else{
 			deliver_response(400, 'Bad request', NULL);	
 		}	

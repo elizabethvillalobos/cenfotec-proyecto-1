@@ -8,10 +8,10 @@ function mostrarEvaluacionRealizadaXRol($puser,$prol){
 			mostrarEvaluacionesRealizadas();
 			break;
 		case 4:
-			mostrarEvaluacionesRealizadasProf($puser);
+			mostrarEvaluacionesRealizadasProf($puser,$prol);
 			break;
 		case 5:
-			mostrarEvaluacionesRealizadasEst($puser);
+			mostrarEvaluacionesRealizadasEst($puser,$prol);
 			break;
 		default:
 			echo mostrarEvaluacionesRealizadas();;
@@ -21,16 +21,9 @@ function mostrarEvaluacionRealizadaXRol($puser,$prol){
 }
 
 
-function obtenerEvaluacionesRealizadas($puser,$prol){
+function obtenerEvaluacionesRealizadas($puser){
 
-	if($prol==4){
-
-		$query = "SELECT * FROM tevaluaciones,tcitas WHERE tcitas.id=tevaluaciones.idCita AND tcitas.idSolicitado = '$puser' AND tevaluaciones.realizada = 1";
-
-	}else{
-		$query = "SELECT * FROM tevaluaciones,tcitas WHERE tcitas.id=tevaluaciones.idCita AND tcitas.idSolicitante = '$puser' AND tevaluaciones.realizada = 1";
-	}
-	
+	$query = "SELECT * FROM tevaluaciones WHERE idActor = '$puser' AND realizada = 1 ";	
 	
 	$result = do_query($query);
 	return $result;
@@ -45,7 +38,6 @@ function obtenerUsuarioEvaluado($pidCita,$rol){
 		$query = "SELECT nombre,apellido1 FROM tusuarios,tcitas WHERE tusuarios.id = tcitas.idSolicitado AND tcitas.id = '$pidCita'";
 
 	}
-
 	
 	$result = do_query($query);
 	$user= mysqli_fetch_assoc($result);
@@ -265,7 +257,7 @@ function mostrarEvaluacionesRealizadas() {
 											</div>
 
 											<div class="opcs">
-											    <label id="promedio">'.obtenerPromedioCita($row['idCita']).'</label>
+											    <label id="promedio">'.round(obtenerPromedioCita($row['idCita']),1).'</label>
 											</div>
 
 										</div>	
@@ -285,7 +277,7 @@ function mostrarEvaluacionesRealizadas() {
 }
 
 function mostrarEvaluacionesRealizadasEst($puser,$prol) {
-	$evaluacionesRealizadas = obtenerEvaluacionesRealizadas($puser,$prol);	
+	$evaluacionesRealizadas = obtenerEvaluacionesRealizadas($puser);	
 
 	while($row = mysqli_fetch_assoc($evaluacionesRealizadas)){
 		$html .='<ul class="accordion">';
@@ -367,7 +359,7 @@ function mostrarEvaluacionesRealizadasEst($puser,$prol) {
 										</div>
 
 										<div class="opcs">
-										    <label id="promedio">'.obtenerPromedioCita($row['idCita']).'</label>
+										    <label id="promedio">'.round(obtenerPromedioCita($row['idCita']),1).'</label>
 										</div>
 
 									</div>	
@@ -398,15 +390,34 @@ function mostrarEvaluacionPendienteXRol($puser,$prol){
 			mostrarEvaluacionesPendientesEst($puser,$prol);
 			break;
 		default:
-			mostrarEvaluacionesPendientes();
-			break;
+			mostrarEvaluacionesPendientes();		
 	}
 
 }
 
+function obtenerActoresxIdCita($pidCita){
+
+	$actoresQuery= "SELECT idSolicitado,idSolicitante FROM tcitas WHERE id='$pidCita'";
+
+	$actoresId = do_query($actoresQuery);
+
+	return $actoresId;
+}
+
 function insertarEvaluacionesPendientes($pidCita){
 
-	$query = "INSERT INTO tevaluaciones(idCita, nota1, nota2, nota3,nota4,nota5,realizada) VALUES ('$pidCita', 0,0,0,0,0,0)";
+	$idActores=obtenerActoresxIdCita($pidCita);
+
+	$row = mysqli_fetch_assoc($idActores);
+
+	$idSolicitante = $row['idSolicitante'];
+
+	$idSolicitado = $row['idSolicitado'];
+
+
+	$query = "INSERT INTO tevaluaciones(idCita, nota1, nota2, nota3,nota4,nota5,idActor,realizada) 
+	VALUES ('$pidCita', 0,0,0,0,0,'$idSolicitante',0),('$pidCita', 0,0,0,0,0,'$idSolicitado',0)";
+
 	$resultado = do_query($query);
 	}
 
@@ -767,19 +778,14 @@ function mostrarEvaluacionesPendientes() {
 
 /*********************************************************MI RANKING********************************************************************************************************/
 
-function obtenerCalificaciones($idUser,$rol){
-	if($rol==4){
-		$query = "SELECT nota2,nota3,nota4,nota5 FROM tevaluaciones,tcitas WHERE tcitas.idSolicitado='$idUser'";
+function obtenerCalificaciones($idUser){
 
-	} else{
-		$query = "SELECT nota2,nota3,nota4,nota5 FROM tevaluaciones,tcitas WHERE tcitas.idSolicitante='$idUser'";
+	$query = "SELECT nota2,nota3,nota4,nota5 FROM tevaluaciones WHERE idActor='$idUser'";
 
-	}
 	
-
 	$result = do_query($query);
 
-return $result;
+	return $result;
 }
 
 function obtenerPromedios($idUser){
@@ -841,7 +847,7 @@ function calcularPromedioArray($arreglo){
 
 function mostrarRanking($idUser,$rol){
 
-	$arrayPromediosRanking = obtenerPromedios($idUser,$rol);
+	$arrayPromediosRanking = obtenerPromedios($idUser);
 
 
 	echo         '<div id="rankDiv">
@@ -871,25 +877,25 @@ function mostrarRanking($idUser,$rol){
 							<td>Puntualidad</td>
 							<td></td>
 							<td class="center"></td>
-							<td class="center">'.$arrayPromediosRanking['nota2'].'</td>
+							<td class="center">'.round($arrayPromediosRanking['nota2'],1).'</td>
 						</tr>
 						<tr>
 							<td>Cordialidad y respeto</td>
 							<td></td>
 							<td class="center"></td>
-							<td class="center">'.$arrayPromediosRanking['nota3'].'</td>
+							<td class="center">'.round($arrayPromediosRanking['nota3'],1).'</td>
 						</tr>
 						<tr>
 							<td>Colaboración</td>
 							<td></td>
 							<td class="center"></td>
-							<td class="center">'.$arrayPromediosRanking['nota4'].'</td>
+							<td class="center">'.round($arrayPromediosRanking['nota4'],1).'</td>
 						</tr>
 						<tr>
 							<td>Satisfacción</td>
 							<td></td>
 							<td class="center"></td>
-							<td class="center">'.$arrayPromediosRanking['nota5'].'</td>
+							<td class="center">'.round($arrayPromediosRanking['nota5'],1).'</td>
 						</tr>
 						<tr>
 							<td>Promedio obtenido</td>

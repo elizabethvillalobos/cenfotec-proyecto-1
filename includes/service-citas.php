@@ -118,8 +118,8 @@
 	}
 
 	function finalizarCita() {
-		if (!empty($_GET['citaId'])) {
-			$citaId = $_GET['citaId'];
+		if (!empty($_GET['citaId']) ) {
+			$citaId = $_GET['citaId'];			
 			$result = finishCita($citaId);
 
 			if ($result) {

@@ -84,13 +84,13 @@ function activarUsuario(){
 }    
 
 
-if($_SERVER['REQUEST_METHOD']=="POST") {
+/*if($_SERVER['REQUEST_METHOD']=="POST") {
 	$function = $_POST['call'];
 	if(function_exists($function)) {        
 	    call_user_func($function);
 	} else {
 	    //echo 'Function Not Exists!!';
 	}
-}
+}*/
                      
 ?>

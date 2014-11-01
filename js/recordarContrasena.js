@@ -25,7 +25,7 @@ eBtnRecuperar.addEventListener('click', function (evento) {
                 console.log(eCorreo); 
                 console.log(contrasena); 
                 console.log('enviado');    
-                //formulario.submit();
+                formulario.submit();
             
             }    
         }
